@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Division 2 — DPS Calculator</title>
+    <title>Division 2 — Gear Database</title>
     <style>
         :root {
             --bg: #0a0a0f;
@@ -18,621 +18,531 @@
             --muted: #888;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            min-height: 100vh;
-        }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, sans-serif; min-height: 100vh; }
         .header {
             background: linear-gradient(135deg, #0d0d15 0%, #1a1a2e 100%);
             border-bottom: 2px solid var(--orange);
-            padding: 24px;
-            text-align: center;
+            padding: 20px; text-align: center;
         }
-        .header h1 {
-            color: var(--orange);
-            font-size: 28px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+        .header h1 { color: var(--orange); font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; }
+        .header p { color: var(--muted); margin-top: 4px; font-size: 13px; }
+
+        .search-panel {
+            background: var(--card); border-bottom: 1px solid var(--border);
+            padding: 16px 20px; max-width: 900px; margin: 0 auto;
         }
-        .header p { color: var(--muted); margin-top: 6px; font-size: 14px; }
-        .tabs {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            padding: 16px;
-            background: var(--card);
-            border-bottom: 1px solid var(--border);
-            flex-wrap: wrap;
+        .search-row { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+        .search-row input {
+            flex: 1; min-width: 200px; padding: 10px 14px;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 14px; outline: none;
         }
-        .tab {
-            padding: 10px 24px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            background: transparent;
-            color: var(--muted);
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.2s;
+        .search-row input:focus { border-color: var(--orange); }
+        .search-row input::placeholder { color: #555; }
+        .mode-row {
+            display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+            padding: 8px 0 4px;
         }
-        .tab:hover { border-color: var(--orange); color: var(--text); }
-        .tab.active { background: var(--orange); color: #000; border-color: var(--orange); font-weight: 600; }
-        .filter-bar {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            padding: 12px;
-            flex-wrap: wrap;
+        .mode-row label {
+            display: flex; align-items: center; gap: 6px;
+            cursor: pointer; font-size: 13px; color: var(--muted);
+            user-select: none;
         }
-        .filter-btn {
-            padding: 6px 16px;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            background: transparent;
-            color: var(--muted);
-            cursor: pointer;
-            font-size: 12px;
-            transition: all 0.2s;
+        .mode-row input[type="radio"] { accent-color: var(--orange); }
+        .mode-row .hint { font-size: 11px; color: #555; margin-left: 8px; }
+        .result-count {
+            text-align: center; padding: 8px; font-size: 12px; color: var(--muted);
         }
-        .filter-btn:hover { border-color: var(--text); color: var(--text); }
-        .filter-btn.active { font-weight: 600; }
-        .filter-btn.active[data-filter="all"] { background: var(--orange); color: #000; border-color: var(--orange); }
-        .filter-btn.active[data-filter="red"] { background: var(--red); color: #fff; border-color: var(--red); }
-        .filter-btn.active[data-filter="blue"] { background: var(--blue); color: #fff; border-color: var(--blue); }
-        .filter-btn.active[data-filter="yellow"] { background: var(--yellow); color: #000; border-color: var(--yellow); }
-        .filter-btn.active[data-filter="mixed"] { background: #9c27b0; color: #fff; border-color: #9c27b0; }
-        .search-box {
-            display: flex;
-            justify-content: center;
-            padding: 0 16px 16px;
-        }
-        .search-box input {
-            width: 100%;
-            max-width: 500px;
-            padding: 10px 16px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: var(--card);
-            color: var(--text);
-            font-size: 14px;
-            outline: none;
-        }
-        .search-box input:focus { border-color: var(--orange); }
-        .search-box input::placeholder { color: var(--muted); }
+        .result-count span { color: var(--orange); font-weight: 700; }
+
         .content { padding: 0 16px 40px; max-width: 1400px; margin: 0 auto; }
         .section-title {
-            color: var(--orange);
-            font-size: 20px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 24px 0 16px;
-            padding-bottom: 8px;
+            color: var(--orange); font-size: 18px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin: 24px 0 12px; padding-bottom: 6px;
             border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: baseline;
         }
+        .section-title .count { font-size: 12px; color: var(--muted); font-weight: 400; }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-            gap: 12px;
+            gap: 10px;
         }
-        @media (max-width: 500px) {
-            .grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
+
         .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px;
-            transition: border-color 0.2s;
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 10px; padding: 14px 16px; transition: border-color 0.2s;
         }
         .card:hover { border-color: var(--orange); }
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .card-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--green);
-        }
-        .card-name-en {
-            font-size: 11px;
-            color: var(--muted);
-            font-weight: 400;
-        }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .card-name { font-size: 15px; font-weight: 700; }
+        .card-name.gear { color: var(--green); }
+        .card-name.brand { color: var(--text); }
+        .card-name.exotic { color: #ffab40; }
+        .card-name-en { font-size: 11px; color: var(--muted); font-weight: 400; }
         .card-type {
-            font-size: 11px;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
+            font-size: 10px; padding: 2px 10px; border-radius: 12px;
+            font-weight: 600; text-transform: uppercase; white-space: nowrap;
         }
         .type-red { background: rgba(239,83,80,0.15); color: var(--red); border: 1px solid rgba(239,83,80,0.3); }
         .type-blue { background: rgba(66,165,245,0.15); color: var(--blue); border: 1px solid rgba(66,165,245,0.3); }
         .type-yellow { background: rgba(253,216,53,0.15); color: var(--yellow); border: 1px solid rgba(253,216,53,0.3); }
         .type-mixed { background: rgba(156,39,176,0.15); color: #ce93d8; border: 1px solid rgba(156,39,176,0.3); }
-        .bonuses { margin-bottom: 10px; }
-        .bonus-line {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            padding: 3px 0;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-        .bonus-tier {
-            min-width: 32px;
-            font-weight: 700;
-            color: var(--orange);
-            font-size: 12px;
-        }
+        .type-gear { background: rgba(0,200,83,0.12); color: var(--green); border: 1px solid rgba(0,200,83,0.25); }
+        .type-brand { background: rgba(224,224,224,0.08); color: var(--muted); border: 1px solid rgba(224,224,224,0.15); }
+        .type-exotic { background: rgba(255,171,64,0.12); color: #ffab40; border: 1px solid rgba(255,171,64,0.25); }
+        .bonus-line { display: flex; gap: 8px; padding: 2px 0; font-size: 13px; line-height: 1.4; }
+        .bonus-tier { min-width: 32px; font-weight: 700; color: var(--orange); font-size: 12px; }
         .bonus-text { color: var(--text); }
-        .talents { border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px; }
-        .talent-line {
-            display: flex;
-            gap: 8px;
-            padding: 3px 0;
-            font-size: 12px;
-            line-height: 1.4;
-        }
-        .talent-icon { min-width: 16px; }
-        .talent-name { color: var(--orange); font-weight: 600; min-width: 90px; }
+        .talents { border-top: 1px solid var(--border); padding-top: 6px; margin-top: 4px; }
+        .talent-line { display: flex; gap: 6px; padding: 2px 0; font-size: 12px; line-height: 1.4; }
+        .talent-icon { min-width: 14px; }
+        .talent-name { color: var(--orange); font-weight: 600; }
         .talent-desc { color: var(--muted); }
-        .brand-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 12px 16px;
-            transition: border-color 0.2s;
-        }
-        .brand-card:hover { border-color: var(--orange); }
-        .brand-name {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 6px;
-        }
-        .brand-bonus {
-            font-size: 12px;
-            padding: 2px 0;
-            color: var(--muted);
-        }
-        .brand-bonus .tier { color: var(--orange); font-weight: 600; margin-right: 6px; }
-        .brand-bonus .val { color: var(--green); }
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            padding: 12px;
-            color: var(--muted);
-            font-size: 12px;
-        }
-        .stats-bar span { color: var(--orange); font-weight: 600; }
+        mark { background: rgba(245,166,35,0.3); color: var(--text); border-radius: 2px; padding: 0 1px; }
         .hidden { display: none !important; }
+        .footer { text-align: center; padding: 16px; font-size: 11px; color: #444; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>The Division 2</h1>
-        <p>Gear Sets & Brand Sets — DPS Calculator (WIP)</p>
-    </div>
+<div class="header">
+    <h1>The Division 2</h1>
+    <p>Gear Sets / Brand Sets / Exotics — Full Database</p>
+</div>
 
-    <div class="tabs">
-        <button class="tab active" data-tab="gearsets">Комплекты (26)</button>
-        <button class="tab" data-tab="brands">Бренды (36)</button>
+<div class="search-panel">
+    <div class="search-row">
+        <input type="text" id="s1" placeholder="Поиск 1 — например: урон в голову">
+        <input type="text" id="s2" placeholder="Поиск 2 — например: снайперские">
+        <input type="text" id="s3" placeholder="Поиск 3 — например: крит">
     </div>
+    <div class="mode-row">
+        <label><input type="radio" name="mode" value="and" checked> <b>И</b> — только пересечения (всё совпадает)</label>
+        <label><input type="radio" name="mode" value="or"> <b>ИЛИ</b> — любое совпадение</label>
+        <span class="hint">Пустые поля игнорируются</span>
+    </div>
+</div>
+<div class="result-count" id="result-count"></div>
 
-    <div id="gearsets-panel">
-        <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">Все</button>
-            <button class="filter-btn" data-filter="red">DPS</button>
-            <button class="filter-btn" data-filter="blue">Танк</button>
-            <button class="filter-btn" data-filter="yellow">Навыки</button>
-            <button class="filter-btn" data-filter="mixed">Гибрид</button>
-        </div>
-        <div class="search-box"><input type="text" id="search-gear" placeholder="Поиск по названию..."></div>
-        <div class="content">
-            <div class="grid" id="gear-grid"></div>
-        </div>
-    </div>
-
-    <div id="brands-panel" class="hidden">
-        <div class="search-box" style="padding-top:16px"><input type="text" id="search-brand" placeholder="Поиск по названию..."></div>
-        <div class="content">
-            <div class="grid" id="brand-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));"></div>
-        </div>
-    </div>
-
-    <div class="stats-bar">
-        <div>Gear Sets: <span>26</span></div>
-        <div>Brand Sets: <span>36</span></div>
-        <div>mokhnatti 2026</div>
-    </div>
+<div class="content" id="main-content"></div>
+<div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>
 
 <script>
+// ============ DATA ============
+
 const gearSets = [
     {
-        name: "Боевое снаряжение Страйкера", en: "Striker's Battlegear", type: "red",
-        bonuses: [
-            "2шт: +15% Управление оружием",
-            "3шт: +15% Скорострельность",
-            "4шт: Попадания дают +0.65% урона оружием, макс. 100 стаков. Теряется 1 стак/сек до 50, 2/сек от 50 до 100"
-        ],
-        chest: "Давление преимуществом — макс. стаков → 200, теряется 3/сек от 100 до 200",
-        backpack: "Управление рисками — урон за стак → 1%"
+        name: "Боевое снаряжение Страйкера", en: "Striker's Battlegear", type: "red", cat: "gear",
+        bonuses: ["2шт: +15% Управление оружием","3шт: +15% Скорострельность","4шт: Попадания дают +0.65% урона оружием, макс. 100 стаков"],
+        chest: "Давление преимуществом — макс. стаков 200", backpack: "Управление рисками — урон за стак 1%"
     },
     {
-        name: "Разбиватель сердец", en: "Heartbreaker", type: "red",
-        bonuses: [
-            "2шт: +15% Урон ШВ & +15% Урон пулемётов",
-            "3шт: +15% Управление оружием",
-            "4шт: Хедшот метит врага на 5 сек. Попадания по меченому: +1% брони и +1% урона оружием, макс. 50 стаков"
-        ],
-        chest: "Макс. BPM — макс. стаков → 100",
-        backpack: "Хладнокровный — бонусная броня за стак → 2%"
+        name: "Разбиватель сердец", en: "Heartbreaker", type: "red", cat: "gear",
+        bonuses: ["2шт: +15% Урон штурмовых винтовок & +15% Урон пулемётов","3шт: +15% Управление оружием","4шт: Хедшот метит врага. Попадания по меченому: +1% брони и +1% урона оружием, макс. 50 стаков"],
+        chest: "Макс. BPM — макс. стаков 100", backpack: "Хладнокровный — бонусная броня за стак 2%"
     },
     {
-        name: "Инициатива Умбра", en: "Umbra Initiative", type: "red",
-        bonuses: [
-            "2шт: +15% Шанс крит. удара",
-            "3шт: +30% Скорость перезарядки",
-            "4шт: В укрытии: +1% крит. урон и +0.3% RPM за стак (до 50). Вне укрытия: 0.8% восстановления брони за стак"
-        ],
-        chest: "Из тени — макс. стаков → 100, темп набора → 20/сек",
-        backpack: "На свет — макс. стаков → 100, темп набора/расхода → 20/сек"
+        name: "Инициатива Умбра", en: "Umbra Initiative", type: "red", cat: "gear",
+        bonuses: ["2шт: +15% Шанс крит. удара","3шт: +30% Скорость перезарядки","4шт: В укрытии: +1% крит. урон и +0.3% скорострельность за стак (до 50). Вне укрытия: 0.8% восстановления брони за стак"],
+        chest: "Из тени — макс. стаков 100, темп набора 20/сек", backpack: "На свет — макс. стаков 100"
     },
     {
-        name: "Ярость охотника", en: "Hunter's Fury", type: "red",
-        bonuses: [
-            "2шт: +15% Урон дробовиков & +15% Урон ПП",
-            "3шт: +20% Броня за убийство & +50% Здоровье за убийство",
-            "4шт: Враги в 15м получают +20% урона. Убийство дезориентирует в 5м, +5% урона на 10 сек (макс. 5 стаков)"
-        ],
-        chest: "Бесконечный голод — длительность стаков → 30 сек",
-        backpack: "Сокрушительная сила — радиус дезориентации → 10м"
+        name: "Ярость охотника", en: "Hunter's Fury", type: "red", cat: "gear",
+        bonuses: ["2шт: +15% Урон дробовиков & +15% Урон пистолетов-пулемётов","3шт: +20% Броня за убийство & +50% Здоровье за убийство","4шт: Враги в 15м получают +20% урона. Убийство дезориентирует в 5м, +5% урона на 10 сек (макс. 5 стаков)"],
+        chest: "Бесконечный голод — длительность стаков 30 сек", backpack: "Сокрушительная сила — радиус дезориентации 10м"
     },
     {
-        name: "Дилемма переговорщика", en: "Negotiator's Dilemma", type: "red",
-        bonuses: [
-            "2шт: +15% Шанс крит. удара",
-            "3шт: +20% Урон крит. удара",
-            "4шт: Криты метят врагов (до 3). Крит по меченому наносит 60% урона остальным меченым"
-        ],
-        chest: "Богатство целей — кол-во меток → 5",
-        backpack: "Критические меры — урон по меченым → 100%"
+        name: "Дилемма переговорщика", en: "Negotiator's Dilemma", type: "red", cat: "gear",
+        bonuses: ["2шт: +15% Шанс крит. удара","3шт: +20% Урон крит. удара","4шт: Криты метят врагов (до 3). Крит по меченому наносит 60% урона остальным меченым"],
+        chest: "Богатство целей — кол-во меток 5", backpack: "Критические меры — урон по меченым 100%"
     },
     {
-        name: "Горячий выстрел", en: "Hotshot", type: "red",
-        bonuses: [
-            "2шт: +30% Урон снайперок & +30% Управление",
-            "3шт: +30% Урон в голову",
-            "4шт: 1-й хедшот +20% к следующему, 2-й +10% брони, 3-й перезаряжает магазин. С 4-го — все бонусы одновременно"
-        ],
-        chest: "Дерзкий — бонусная броня → 100%",
-        backpack: "Благословлённый — можно пропустить 1 хедшот без сброса"
+        name: "Горячий выстрел", en: "Hotshot", type: "red", cat: "gear",
+        bonuses: ["2шт: +30% Урон снайперских винтовок & +30% Управление оружием","3шт: +30% Урон в голову","4шт: 1-й хедшот +20% к следующему, 2-й +10% брони, 3-й перезаряжает магазин. С 4-го — все бонусы одновременно"],
+        chest: "Дерзкий — бонусная броня 100%", backpack: "Благословлённый — можно пропустить 1 хедшот без сброса"
     },
     {
-        name: "Текущая директива", en: "Ongoing Directive", type: "red",
-        bonuses: [
-            "2шт: +15% Эффекты статусов",
-            "3шт: +30% Скорость перезарядки",
-            "4шт: Убийство меченого даёт магазин разрывных патронов (+20% урон, кровотечение)"
-        ],
-        chest: "Патроны Парабеллум — разрывные → +35%",
-        backpack: "Специалист по травмам — кровотечение +50% длительности, +100% урона"
+        name: "Текущая директива", en: "Ongoing Directive", type: "red", cat: "gear",
+        bonuses: ["2шт: +15% Эффекты статусов","3шт: +30% Скорость перезарядки","4шт: Убийство меченого даёт магазин разрывных патронов (+20% урон, кровотечение)"],
+        chest: "Патроны Парабеллум — разрывные +35%", backpack: "Специалист по травмам — кровотечение +50% длительности, +100% урона"
     },
     {
-        name: "Истинный патриот", en: "True Patriot", type: "red",
-        bonuses: [
-            "2шт: +30% Ёмкость боезапаса",
-            "3шт: +30% Размер магазина",
-            "4шт: Дебаффы каждые 2 сек — Красный: +8% получаемого урона, Белый: +2% лечение брони, Синий: -8% наносимого. Полный флаг = взрыв"
-        ],
-        chest: "Развевая флаг — ротация → 1.5 сек",
-        backpack: "Патриотический буст — Красный/Синий → 12%, Белый → 3%"
+        name: "Истинный патриот", en: "True Patriot", type: "red", cat: "gear",
+        bonuses: ["2шт: +30% Ёмкость боезапаса","3шт: +30% Размер магазина","4шт: Дебаффы каждые 2 сек — Красный: +8% получаемого урона, Белый: +2% лечение брони, Синий: -8% наносимого. Полный флаг = взрыв"],
+        chest: "Развевая флаг — ротация 1.5 сек", backpack: "Патриотический буст — Красный/Синий 12%, Белый 3%"
     },
     {
-        name: "Тузы и восьмёрки", en: "Aces & Eights", type: "red",
-        bonuses: [
-            "2шт: +15% Урон снайперок",
-            "3шт: +30% Урон в голову",
-            "4шт: Попадания открывают карты, после 5 — выстрел +30%. Лучше комбинация = больше усиленных выстрелов"
-        ],
-        chest: "Без ограничений — бонус урона → 50%",
-        backpack: "Туз в рукаве — +1 усиленный выстрел"
+        name: "Тузы и восьмёрки", en: "Aces & Eights", type: "red", cat: "gear",
+        bonuses: ["2шт: +15% Урон снайперских винтовок","3шт: +30% Урон в голову","4шт: Попадания открывают карты, после 5 — выстрел +30%. Лучше комбинация = больше усиленных выстрелов"],
+        chest: "Без ограничений — бонус урона 50%", backpack: "Туз в рукаве — +1 усиленный выстрел"
     },
     {
-        name: "Остриё копья", en: "Tip of the Spear", type: "red",
-        bonuses: [
-            "2шт: +20% Урон фирменного оружия",
-            "3шт: +10% Урон оружием",
-            "4шт: Убийство фирменным → +15% урона на 10 сек, авто-регенерация патронов каждые 60 сек"
-        ],
-        chest: "Специализированное разрушение — бонус → 30%, каждое 3-е убийство = патрон",
-        backpack: "Фирменные приёмы — полный расход фирменного → +50% урон оружием на 15 сек"
+        name: "Остриё копья", en: "Tip of the Spear", type: "red", cat: "gear",
+        bonuses: ["2шт: +20% Урон фирменного оружия","3шт: +10% Урон оружием","4шт: Убийство фирменным +15% урона на 10 сек, авто-регенерация патронов каждые 60 сек"],
+        chest: "Специализированное разрушение — бонус 30%, каждое 3-е убийство = патрон", backpack: "Фирменные приёмы — полный расход фирменного +50% урон оружием на 15 сек"
     },
     {
-        name: "Точка разрыва", en: "Breaking Point", type: "red",
-        bonuses: [
-            "2шт: +25% Урон винтовок & снайперок",
-            "3шт: +30% Урон в голову & +15% Управление",
-            "4шт: Попадания дают стаки, перезарядка конвертирует в +2% управления и +2% урона на 10 сек"
-        ],
-        chest: "Точка невозврата — длительность → 15 сек",
-        backpack: "Точка чести — урон за стак → 3%"
+        name: "Точка разрыва", en: "Breaking Point", type: "red", cat: "gear",
+        bonuses: ["2шт: +25% Урон винтовок & +25% Урон снайперских винтовок","3шт: +30% Урон в голову & +15% Управление оружием","4шт: Попадания дают стаки, перезарядка конвертирует в +2% управления и +2% урона на 10 сек"],
+        chest: "Точка невозврата — длительность 15 сек", backpack: "Точка чести — урон за стак 3%"
     },
     {
-        name: "Виртуоз", en: "Virtuoso", type: "red",
-        bonuses: [
-            "2шт: +15% Управление & +15% Размер магазина",
-            "3шт: +15% Урон оружием",
-            "4шт: Убийство далеко → бонус ближнему бою и наоборот. Чередование набирает стаки, на 4 — все бонусы x1.5"
-        ],
-        chest: "Фортиссимо — удваивает бонусы Симфонии",
-        backpack: "Ускоряясь — стаков для x1.5 → 3"
+        name: "Виртуоз", en: "Virtuoso", type: "red", cat: "gear",
+        bonuses: ["2шт: +15% Управление оружием & +15% Размер магазина","3шт: +15% Урон оружием","4шт: Убийство далеко бонус ближнему бою и наоборот. Чередование набирает стаки, на 4 — все бонусы x1.5"],
+        chest: "Фортиссимо — удваивает бонусы Симфонии", backpack: "Ускоряясь — стаков для x1.5 = 3"
     },
     {
-        name: "Переломный момент", en: "Tipping Scales", type: "red",
-        bonuses: [
-            "2шт: +30% Размер магазина",
-            "3шт: +30% Урон пулемётов",
-            "4шт: Стрельба набирает стаки до 50: +0.5% управления и +4% крит. урон за стак. Не теряются при подавлении"
-        ],
-        chest: "Устойчивость — макс. стаков → 75",
-        backpack: "Снежный ком — крит. урон за стак → 7%"
+        name: "Переломный момент", en: "Tipping Scales", type: "red", cat: "gear",
+        bonuses: ["2шт: +30% Размер магазина","3шт: +30% Урон пулемётов","4шт: Стрельба набирает стаки до 50: +0.5% управления и +4% крит. урон за стак. Не теряются при подавлении"],
+        chest: "Устойчивость — макс. стаков 75", backpack: "Снежный ком — крит. урон за стак 7%"
     },
     {
-        name: "Сосредоточенная компания", en: "Concentrated Company", type: "red",
-        bonuses: [
-            "2шт: +10% Урон оружием",
-            "3шт: +30% Управление",
-            "4шт: Смерть меченого → +3% урон и +2% крит. урон за каждого участника убийства (макс. 35 стаков)"
-        ],
-        chest: "Все за одного — макс. меток → 8",
-        backpack: "Один за всех — урон за стак → 5%"
+        name: "Сосредоточенная компания", en: "Concentrated Company", type: "red", cat: "gear",
+        bonuses: ["2шт: +10% Урон оружием","3шт: +30% Управление оружием","4шт: Смерть меченого +3% урон и +2% крит. урон за каждого участника убийства (макс. 35 стаков)"],
+        chest: "Все за одного — макс. меток 8", backpack: "Один за всех — урон за стак 5%"
     },
     {
-        name: "Оплот оружейни", en: "Foundry Bulwark", type: "blue",
-        bonuses: [
-            "2шт: +10% Общая броня",
-            "3шт: +1% Регенерация брони & +50% Здоровье щита",
-            "4шт: 25% полученного урона восстанавливается за 10 сек"
-        ],
-        chest: "Улучшенные материалы — ремонт → 35%",
-        backpack: "Технологический процесс — скорость ремонта → 5 сек"
+        name: "Оплот оружейни", en: "Foundry Bulwark", type: "blue", cat: "gear",
+        bonuses: ["2шт: +10% Общая броня","3шт: +1% Регенерация брони & +50% Здоровье щита","4шт: 25% полученного урона восстанавливается за 10 сек"],
+        chest: "Улучшенные материалы — ремонт 35%", backpack: "Технологический процесс — скорость ремонта 5 сек"
     },
     {
-        name: "Системное повреждение", en: "System Corruption", type: "blue",
-        bonuses: [
-            "2шт: +15% Броня за убийство",
-            "3шт: +40% Сопротивление подавлению & пульсу",
-            "4шт: Аптечки → способность: +20% брони, +50% бонусной брони, скрытие на 5 сек (кд 20 сек)"
-        ],
-        chest: "Оптимизация компилятора — кулдаун → 15 сек",
-        backpack: "Многопоточное исполнение — бонусная броня → 100%"
+        name: "Системное повреждение", en: "System Corruption", type: "blue", cat: "gear",
+        bonuses: ["2шт: +15% Броня за убийство","3шт: +40% Сопротивление подавлению & пульсу","4шт: Аптечки заменяются способностью: +20% брони, +50% бонусной брони, скрытие на 5 сек (кд 20 сек)"],
+        chest: "Оптимизация компилятора — кулдаун 15 сек", backpack: "Многопоточное исполнение — бонусная броня 100%"
     },
     {
-        name: "Эгида", en: "Aegis", type: "blue",
-        bonuses: [
-            "2шт: +70% Здоровье",
-            "3шт: +15% Общая броня",
-            "4шт: +3% сопротивления урону за каждого атакующего врага (множитель от группы)"
-        ],
-        chest: "Обман — враги на двойнике тоже считаются для Стоика",
-        backpack: "Полиэтиленовая броня — сопротивление → 4% за врага"
+        name: "Эгида", en: "Aegis", type: "blue", cat: "gear",
+        bonuses: ["2шт: +70% Здоровье","3шт: +15% Общая броня","4шт: +3% сопротивления урону за каждого атакующего врага (множитель от группы)"],
+        chest: "Обман — враги на двойнике считаются для Стоика", backpack: "Полиэтиленовая броня — сопротивление 4% за врага"
     },
     {
-        name: "Кавалерист", en: "Cavalier", type: "blue",
-        bonuses: [
-            "2шт: +30% Защита от опасностей",
-            "3шт: +40% Навыки лечения",
-            "4шт: Вне укрытия: -5% получаемого урона/сек (макс. 50%). Полный заряд: иммунитет к замедлению + передача защиты союзникам"
-        ],
-        chest: "Сверхзарядка — макс. защита → 70%",
-        backpack: "Безопасная зарядка — защита → 10%/сек"
+        name: "Кавалерист", en: "Cavalier", type: "blue", cat: "gear",
+        bonuses: ["2шт: +30% Защита от опасностей","3шт: +40% Навыки лечения","4шт: Вне укрытия: -5% получаемого урона/сек (макс. 50%). Полный заряд: иммунитет к замедлению + передача защиты союзникам"],
+        chest: "Сверхзарядка — макс. защита 70%", backpack: "Безопасная зарядка — защита 10%/сек"
     },
     {
-        name: "Такелажник", en: "Rigger", type: "yellow",
-        bonuses: [
-            "2шт: +15% Ускорение навыков",
-            "3шт: +15% Длительность навыков",
-            "4шт: Взаимодействие с навыком даёт ему +25% урона на 10 сек"
-        ],
-        chest: "Лучшие друзья — бонус урона → 50%",
-        backpack: "Полное время работы — отмена навыка сбрасывает кулдаун"
+        name: "Такелажник", en: "Rigger", type: "yellow", cat: "gear",
+        bonuses: ["2шт: +15% Ускорение навыков","3шт: +15% Длительность навыков","4шт: Взаимодействие с навыком даёт ему +25% урона на 10 сек"],
+        chest: "Лучшие друзья — бонус урона 50%", backpack: "Полное время работы — отмена навыка сбрасывает кулдаун"
     },
     {
-        name: "Протокол Затмения", en: "Eclipse Protocol", type: "yellow",
-        bonuses: [
-            "2шт: +15% Эффекты статусов",
-            "3шт: +15% Ускорение навыков & +30% Защита от опасностей",
-            "4шт: Убийство распространяет статус на врагов в 10м (50% длительности)"
-        ],
-        chest: "Распространение — радиус → 15м, длительность → 75%",
-        backpack: "Усилитель симптомов — +30% урон по врагам под статусом"
+        name: "Протокол Затмения", en: "Eclipse Protocol", type: "yellow", cat: "gear",
+        bonuses: ["2шт: +15% Эффекты статусов","3шт: +15% Ускорение навыков & +30% Защита от опасностей","4шт: Убийство распространяет статус на врагов в 10м (50% длительности)"],
+        chest: "Распространение — радиус 15м, длительность 75%", backpack: "Усилитель симптомов — +30% урон по врагам под статусом"
     },
     {
-        name: "Будущая инициатива", en: "Future Initiative", type: "yellow",
-        bonuses: [
-            "2шт: +30% Навыки лечения",
-            "3шт: +15% Ускорение навыков & +30% Длительность навыков",
-            "4шт: При полной броне команда получает +15% урон оружием и навыками"
-        ],
-        chest: "Тактическое превосходство — бонус урона → 25%",
-        backpack: "Стратегическая боевая поддержка — ближнее лечение → 120%"
+        name: "Будущая инициатива", en: "Future Initiative", type: "yellow", cat: "gear",
+        bonuses: ["2шт: +30% Навыки лечения","3шт: +15% Ускорение навыков & +30% Длительность навыков","4шт: При полной броне команда получает +15% урон оружием и навыками"],
+        chest: "Тактическое превосходство — бонус урона 25%", backpack: "Стратегическая боевая поддержка — ближнее лечение 120%"
     },
     {
-        name: "Жёсткая проводка", en: "Hard Wired", type: "yellow",
-        bonuses: [
-            "2шт: +15% Ускорение навыков",
-            "3шт: +15% Урон навыков & +30% Навыки лечения",
-            "4шт: Использование навыка сокращает кулдаун другого на 30 сек, +10% урон/лечение на 20 сек (раз в 20 сек)"
-        ],
-        chest: "Положительное подкрепление — бонус урона/лечения → 25%",
-        backpack: "Короткое замыкание — кулдаун → 10 сек"
+        name: "Жёсткая проводка", en: "Hard Wired", type: "yellow", cat: "gear",
+        bonuses: ["2шт: +15% Ускорение навыков","3шт: +15% Урон навыков & +30% Навыки лечения","4шт: Использование навыка сокращает кулдаун другого на 30 сек, +10% урон/лечение на 20 сек (раз в 20 сек)"],
+        chest: "Положительное подкрепление — бонус урона/лечения 25%", backpack: "Короткое замыкание — кулдаун 10 сек"
     },
     {
-        name: "Ортис: Экзуро", en: "Ortiz: Exuro", type: "yellow",
-        bonuses: [
-            "2шт: +20% Длительность горения & +15% Здоровье навыка",
-            "3шт: +40% Урон от горения",
-            "4шт: Башенка-огнемёт вращается на 360°, иммунитет к своему огню, взрыв при уничтожении"
-        ],
-        chest: "Цепное возгорание — горящие враги поджигают остальных в 2м",
-        backpack: "Тепловой удар — +25% урон по горящим & +25% дальность башенки"
+        name: "Ортис: Экзуро", en: "Ortiz: Exuro", type: "yellow", cat: "gear",
+        bonuses: ["2шт: +20% Длительность горения & +15% Здоровье навыка","3шт: +40% Урон от горения","4шт: Башенка-огнемёт вращается на 360°, иммунитет к своему огню, взрыв при уничтожении"],
+        chest: "Цепное возгорание — горящие враги поджигают в 2м", backpack: "Тепловой удар — +25% урон по горящим & +25% дальность башенки"
     },
     {
-        name: "Переработка", en: "Refactor", type: "yellow",
-        bonuses: [
-            "2шт: +15% Эффекты статусов",
-            "3шт: +25% Урон навыков",
-            "4шт: Лечение 10% урона от навыков (вам), 20% (союзникам)"
-        ],
-        chest: "Повышенный интерес — лечение → 25%/35%",
-        backpack: "Сверхтехнологичный — при полной броне лечение → бонусная броня до 80%"
+        name: "Переработка", en: "Refactor", type: "yellow", cat: "gear",
+        bonuses: ["2шт: +15% Эффекты статусов","3шт: +25% Урон навыков","4шт: Лечение 10% урона от навыков (вам), 20% (союзникам)"],
+        chest: "Повышенный интерес — лечение 25%/35%", backpack: "Сверхтехнологичный — при полной броне лечение в бонусную броню до 80%"
     },
     {
-        name: "Взвешенная сборка", en: "Measured Assembly", type: "yellow",
-        bonuses: [
-            "2шт: +15% Ускорение навыков",
-            "3шт: +60% Навыки лечения & +40% Сопротивление взрывам",
-            "4шт: +1 уровень навыка за союзника в зоне Улья/Укрытия. На 6-м — Перегрузка на 15 сек"
-        ],
-        chest: "Разум улья — кулдаун Перегрузки → 25 сек",
-        backpack: "Умное сотрудничество — кулдаун уничтожения → 1 сек"
+        name: "Взвешенная сборка", en: "Measured Assembly", type: "yellow", cat: "gear",
+        bonuses: ["2шт: +15% Ускорение навыков","3шт: +60% Навыки лечения & +40% Сопротивление взрывам","4шт: +1 уровень навыка за союзника в зоне Улья/Укрытия. На 6-м — Перегрузка на 15 сек"],
+        chest: "Разум улья — кулдаун Перегрузки 25 сек", backpack: "Умное сотрудничество — кулдаун уничтожения 1 сек"
     },
     {
-        name: "Стержневая сила", en: "Core Strength", type: "mixed",
-        bonuses: [
-            "2шт: +10% Управление",
-            "3шт: +5% Урон / +5% Броня / +5% Эффективность навыков",
-            "4шт: Каждый атрибут даёт 40% бонусов от двух других. Части выпадают со случайными ядрами"
-        ],
-        chest: "Внутреннее ядро — бонус → 75%",
-        backpack: "Внешнее ядро — три основных атрибута одновременно"
+        name: "Стержневая сила", en: "Core Strength", type: "mixed", cat: "gear",
+        bonuses: ["2шт: +10% Управление оружием","3шт: +5% Урон оружием / +5% Броня / +5% Эффективность навыков","4шт: Каждый атрибут даёт 40% бонусов от двух других. Части выпадают со случайными ядрами"],
+        chest: "Внутреннее ядро — бонус 75%", backpack: "Внешнее ядро — три основных атрибута одновременно"
     }
 ];
 
 const brandSets = [
-    { name: "Providence Defense", b1: "+13% Урон в голову", b2: "+8% Шанс крита", b3: "+13% Крит. урон" },
-    { name: "Uzina Getica", b1: "+5% Общая броня", b2: "+10% Броня за убийство", b3: "+30% Защита от опасностей" },
-    { name: "Empress International", b1: "+10% Здоровье навыка", b2: "+10% Урон навыков", b3: "+8% Эффективность навыков" },
-    { name: "Wyvern Wear", b1: "+8% Урон навыков", b2: "+18% Эффекты статусов", b3: "+45% Длительность навыков" },
-    { name: "Belstone Armory", b1: "+1% Регенерация брони", b2: "+10% Броня за убийство", b3: "+45% Входящий ремонт" },
-    { name: "Alps Summit", b1: "+18% Навыки лечения", b2: "+30% Длительность навыков", b3: "+30% Ускорение навыков" },
-    { name: "China Light", b1: "+15% Урон взрывчаткой", b2: "+20% Ускорение навыков", b3: "+25% Эффекты статусов" },
-    { name: "Palisade Steelworks", b1: "+10% Броня за убийство", b2: "+60% Здоровье", b3: "+1 Уровень навыка" },
-    { name: "Brazos de Arcabuz", b1: "+10% Ускорение навыков", b2: "+1 Уровень навыка", b3: "+50% Размер магазина" },
-    { name: "Gila Guard", b1: "+5% Общая броня", b2: "+60% Здоровье", b3: "+2% Регенерация брони" },
-    { name: "Fenris Group", b1: "+10% Урон ШВ", b2: "+30% Скорость перезарядки", b3: "+50% Устойчивость" },
-    { name: "Petrov Defense Group", b1: "+10% Урон пулемётов", b2: "+15% Управление", b3: "+50% Ёмкость боезапаса" },
-    { name: "Overlord Armaments", b1: "+10% Урон винтовок", b2: "+30% Точность", b3: "+30% Управление" },
-    { name: "Walker, Harris & Co", b1: "+5% Урон оружием", b2: "+5% Урон по броне", b3: "+10% Урон по здоровью" },
-    { name: "Yaahl Gear", b1: "+10% Защита от опасностей", b2: "+10% Урон оружием", b3: "+40% Сопротивление пульсу" },
-    { name: "Electrique", b1: "+10% Эффекты статусов", b2: "+20% Сопротивление шоку", b3: "+30% Урон ПП" },
-    { name: "Hana-U", b1: "+10% Ускорение навыков", b2: "+10% Урон навыков", b3: "+15% Урон оружием" },
-    { name: "Murakami Industries", b1: "+15% Длительность навыков", b2: "+35% Навыки лечения", b3: "+18% Урон навыков" },
-    { name: "Richter & Kaiser", b1: "+15% Входящий ремонт", b2: "+25% Сопротивление взрывам", b3: "+40% Навыки лечения" },
-    { name: "5.11 Tactical", b1: "+30% Здоровье", b2: "+30% Входящий ремонт", b3: "+30% Защита от опасностей" },
-    { name: "Badger Tuff", b1: "+10% Урон дробовиков", b2: "+5% Общая броня", b3: "+15% Броня за убийство" },
-    { name: "Golan Gear", b1: "+10% Эффекты статусов", b2: "+1.5% Регенерация брони", b3: "+10% Общая броня" },
-    { name: "Habsburg Guard", b1: "+13% Урон в голову", b2: "+20% Урон снайперок", b3: "+25% Эффекты статусов" },
-    { name: "Lengmo", b1: "+20% Сопротивление взрывам", b2: "+20% Здоровье навыка", b3: "+30% Урон пулемётов" },
-    { name: "Ceska Vyroba", b1: "+8% Шанс крита", b2: "+20% Защита от опасностей", b3: "+90% Здоровье" },
-    { name: "Douglas & Harding", b1: "+20% Урон пистолетов", b2: "+30% Устойчивость", b3: "+50% Точность" },
-    { name: "Grupo Sombra", b1: "+13% Крит. урон", b2: "+20% Урон взрывчаткой", b3: "+13% Урон в голову" },
-    { name: "Airaldi", b1: "+10% Урон снайперок", b2: "+13% Урон в голову", b3: "+5% Урон по броне" },
-    { name: "Sokolov", b1: "+10% Урон ПП", b2: "+13% Крит. урон", b3: "+8% Шанс крита" },
-    { name: "Zwiadowka", b1: "+15% Размер магазина", b2: "+20% Урон винтовок", b3: "+30% Управление" },
-    { name: "Legatus", b1: "+30% Скорость смены оружия", b2: "+70% Оптимальная дальность", b3: "+15% Урон оружием" },
-    { name: "Shiny Monkey Gear", b1: "+15% Длительность навыков", b2: "+5% Эффективность навыков", b3: "+52% Навыки лечения" },
-    { name: "Imminence Armaments", b1: "+5% Урон оружием", b2: "+100% Повышение угрозы", b3: "+60% Урон пистолетов" },
-    { name: "Urban Lookout", b1: "+10% Точность", b2: "+30% Длительность навыков", b3: "+30% Урон снайперок" },
-    { name: "Unit Alloys", b1: "+5% Скорострельность", b2: "+20% Урон ШВ", b3: "+50% Размер магазина" },
-    { name: "Royal Works", b1: "+5% Управление", b2: "+32.5% Размер магазина", b3: "+15% Крит. урон" }
+    { name: "Providence Defense", cat: "brand", bonuses: ["1шт: +13% Урон в голову","2шт: +8% Шанс крит. удара","3шт: +13% Урон крит. удара"] },
+    { name: "Uzina Getica", cat: "brand", bonuses: ["1шт: +5% Общая броня","2шт: +10% Броня за убийство","3шт: +30% Защита от опасностей"] },
+    { name: "Empress International", cat: "brand", bonuses: ["1шт: +10% Здоровье навыка","2шт: +10% Урон навыков","3шт: +8% Эффективность навыков"] },
+    { name: "Wyvern Wear", cat: "brand", bonuses: ["1шт: +8% Урон навыков","2шт: +18% Эффекты статусов","3шт: +45% Длительность навыков"] },
+    { name: "Belstone Armory", cat: "brand", bonuses: ["1шт: +1% Регенерация брони","2шт: +10% Броня за убийство","3шт: +45% Входящий ремонт"] },
+    { name: "Alps Summit", cat: "brand", bonuses: ["1шт: +18% Навыки лечения","2шт: +30% Длительность навыков","3шт: +30% Ускорение навыков"] },
+    { name: "China Light", cat: "brand", bonuses: ["1шт: +15% Урон взрывчаткой","2шт: +20% Ускорение навыков","3шт: +25% Эффекты статусов"] },
+    { name: "Palisade Steelworks", cat: "brand", bonuses: ["1шт: +10% Броня за убийство","2шт: +60% Здоровье","3шт: +1 Уровень навыка"] },
+    { name: "Brazos de Arcabuz", cat: "brand", bonuses: ["1шт: +10% Ускорение навыков","2шт: +1 Уровень навыка","3шт: +50% Размер магазина"] },
+    { name: "Gila Guard", cat: "brand", bonuses: ["1шт: +5% Общая броня","2шт: +60% Здоровье","3шт: +2% Регенерация брони"] },
+    { name: "Fenris Group", cat: "brand", bonuses: ["1шт: +10% Урон штурмовых винтовок","2шт: +30% Скорость перезарядки","3шт: +50% Устойчивость оружия"] },
+    { name: "Petrov Defense Group", cat: "brand", bonuses: ["1шт: +10% Урон пулемётов","2шт: +15% Управление оружием","3шт: +50% Ёмкость боезапаса"] },
+    { name: "Overlord Armaments", cat: "brand", bonuses: ["1шт: +10% Урон винтовок","2шт: +30% Точность оружия","3шт: +30% Управление оружием"] },
+    { name: "Walker, Harris & Co", cat: "brand", bonuses: ["1шт: +5% Урон оружием","2шт: +5% Урон по броне","3шт: +10% Урон по здоровью"] },
+    { name: "Yaahl Gear", cat: "brand", bonuses: ["1шт: +10% Защита от опасностей","2шт: +10% Урон оружием","3шт: +40% Сопротивление пульсу"] },
+    { name: "Electrique", cat: "brand", bonuses: ["1шт: +10% Эффекты статусов","2шт: +20% Сопротивление шоку","3шт: +30% Урон пистолетов-пулемётов"] },
+    { name: "Hana-U", cat: "brand", bonuses: ["1шт: +10% Ускорение навыков","2шт: +10% Урон навыков","3шт: +15% Урон оружием"] },
+    { name: "Murakami Industries", cat: "brand", bonuses: ["1шт: +15% Длительность навыков","2шт: +35% Навыки лечения","3шт: +18% Урон навыков"] },
+    { name: "Richter & Kaiser", cat: "brand", bonuses: ["1шт: +15% Входящий ремонт","2шт: +25% Сопротивление взрывам","3шт: +40% Навыки лечения"] },
+    { name: "5.11 Tactical", cat: "brand", bonuses: ["1шт: +30% Здоровье","2шт: +30% Входящий ремонт","3шт: +30% Защита от опасностей"] },
+    { name: "Badger Tuff", cat: "brand", bonuses: ["1шт: +10% Урон дробовиков","2шт: +5% Общая броня","3шт: +15% Броня за убийство"] },
+    { name: "Golan Gear", cat: "brand", bonuses: ["1шт: +10% Эффекты статусов","2шт: +1.5% Регенерация брони","3шт: +10% Общая броня"] },
+    { name: "Habsburg Guard", cat: "brand", bonuses: ["1шт: +13% Урон в голову","2шт: +20% Урон снайперских винтовок","3шт: +25% Эффекты статусов"] },
+    { name: "Lengmo", cat: "brand", bonuses: ["1шт: +20% Сопротивление взрывам","2шт: +20% Здоровье навыка","3шт: +30% Урон пулемётов"] },
+    { name: "Ceska Vyroba", cat: "brand", bonuses: ["1шт: +8% Шанс крит. удара","2шт: +20% Защита от опасностей","3шт: +90% Здоровье"] },
+    { name: "Douglas & Harding", cat: "brand", bonuses: ["1шт: +20% Урон пистолетов","2шт: +30% Устойчивость оружия","3шт: +50% Точность оружия"] },
+    { name: "Grupo Sombra", cat: "brand", bonuses: ["1шт: +13% Урон крит. удара","2шт: +20% Урон взрывчаткой","3шт: +13% Урон в голову"] },
+    { name: "Airaldi", cat: "brand", bonuses: ["1шт: +10% Урон снайперских винтовок","2шт: +13% Урон в голову","3шт: +5% Урон по броне"] },
+    { name: "Sokolov", cat: "brand", bonuses: ["1шт: +10% Урон пистолетов-пулемётов","2шт: +13% Урон крит. удара","3шт: +8% Шанс крит. удара"] },
+    { name: "Zwiadowka", cat: "brand", bonuses: ["1шт: +15% Размер магазина","2шт: +20% Урон винтовок","3шт: +30% Управление оружием"] },
+    { name: "Legatus", cat: "brand", bonuses: ["1шт: +30% Скорость смены оружия","2шт: +70% Оптимальная дальность","3шт: +15% Урон оружием"] },
+    { name: "Shiny Monkey Gear", cat: "brand", bonuses: ["1шт: +15% Длительность навыков","2шт: +5% Эффективность навыков","3шт: +52% Навыки лечения"] },
+    { name: "Imminence Armaments", cat: "brand", bonuses: ["1шт: +5% Урон оружием","2шт: +100% Повышение угрозы","3шт: +60% Урон пистолетов"] },
+    { name: "Urban Lookout", cat: "brand", bonuses: ["1шт: +10% Точность","2шт: +30% Длительность навыков","3шт: +30% Урон снайперских винтовок"] },
+    { name: "Unit Alloys", cat: "brand", bonuses: ["1шт: +5% Скорострельность","2шт: +20% Урон штурмовых винтовок","3шт: +50% Размер магазина"] },
+    { name: "Royal Works", cat: "brand", bonuses: ["1шт: +5% Управление оружием","2шт: +32.5% Размер магазина","3шт: +15% Урон крит. удара"] }
+];
+
+const exoticItems = [
+    // Штурмовые винтовки
+    { name: "Eagle Bearer", cat: "exotic", group: "Штурмовые винтовки", type: "AR", talent: "Eagle's Strike", desc: "Точность +30% при стрельбе. Хедшот-убийства: Tenacity 15с — 40-80% урона откладывается. 3 убийства = нейтрализация" },
+    { name: "Chameleon", cat: "exotic", group: "Штурмовые винтовки", type: "AR (FAMAS)", talent: "Adaptive Instincts", desc: "10 хедшотов +20% урон оружием 10с. 10 в корпус +20% крит. урон. 10 по ногам +20% скорость перезарядки" },
+    { name: "The Bighorn", cat: "exotic", group: "Штурмовые винтовки", type: "AR (AUG)", talent: "Big Game Hunter", desc: "В прицеле полуавтомат: каждый выстрел 450% урона" },
+    { name: "Capacitor", cat: "exotic", group: "Штурмовые винтовки", type: "AR (P416)", talent: "Capacitive", desc: "Попадания: +1.5% урон умений/стак (макс. 40). Каждый Skill Tier +7.5% урона оружием" },
+    { name: "St. Elmo's Engine", cat: "exotic", group: "Штурмовые винтовки", type: "AR", talent: "Sustained Voltage", desc: "При 100 стаках следующий магазин заряжается шоковыми патронами" },
+    { name: "Strega", cat: "exotic", group: "Штурмовые винтовки", type: "AR (FAL)", talent: "Unnerve", desc: "Убийство врага в статус-эффекте дезориентирует всех в 10м" },
+    { name: "Agitator", cat: "exotic", group: "Штурмовые винтовки", type: "AR (Y8S1)", talent: "Perturb", desc: "В кобуре -50% угрозы. После 10с → заряжено. Извлечение: +25% скорострельность, +30% урон оружием на 20с, +100% угрозы" },
+    // ПП
+    { name: "The Chatterbox", cat: "exotic", group: "Пистолеты-пулемёты", type: "SMG (P90)", talent: "Blabbermouth", desc: "После перезарядки у врага в 15м: +20% скорострельность. Убийства восстанавливают 50% магазина. +1% скорострельность/хит (макс. 60%)" },
+    { name: "Lady Death", cat: "exotic", group: "Пистолеты-пулемёты", type: "SMG (Vector)", talent: "Breathe Free", desc: "В движении +4 стака/сек (8 спринт), макс. 32. Стаки → доп. урон. Убийство → бафф скорости" },
+    { name: "Backfire", cat: "exotic", group: "Пистолеты-пулемёты", type: "SMG (MPX)", talent: "Payment in Kind", desc: "Каждое попадание +1% крит. урон (макс. 200). Перезарядка: кровотечение 10с, 0.5% урона броне за стак" },
+    { name: "Ouroboros", cat: "exotic", group: "Пистолеты-пулемёты", type: "SMG (Vector SBR)", talent: "Serpent's Tongue", desc: "RPM 1485, стреляет очередями, перегрев = оглушение + принудительная перезарядка" },
+    { name: "Oxpecker", cat: "exotic", group: "Пистолеты-пулемёты", type: "SMG", talent: "Symbiosis", desc: "При Щите: щит теряет 10%/сек здоровья, но ремонт 25% от нанесённого урона" },
+    // LMG
+    { name: "Pestilence", cat: "exotic", group: "Ручные пулемёты", type: "LMG", talent: "Plague of the Outcasts", desc: "После 20 попаданий убийство → токсичное облако 10с. Враги: лечение -50%. PvP: даунстейт → мгновенная смерть" },
+    { name: "Bullet King", cat: "exotic", group: "Ручные пулемёты", type: "LMG", talent: "Bullet Hell", desc: "Никогда не перезаряжается. Каждые 100 попаданий восполняют боеприпасы в резерве" },
+    { name: "Bluescreen", cat: "exotic", group: "Ручные пулемёты", type: "LMG", talent: "Buffer Overflow", desc: "Полный заряд → выстрелы дезориентируют врагов и перегружают технику/щиты" },
+    { name: "Iron Lung", cat: "exotic", group: "Ручные пулемёты", type: "LMG", talent: "Ardent", desc: "Стрельба заполняет шкалу тепла (50% магазина). Полная шкала → выстрелы поджигают врагов" },
+    { name: "Pakhan", cat: "exotic", group: "Ручные пулемёты", type: "LMG (RPK-74)", talent: "Pakhan", desc: "Каждое убийство +75% размера магазина для следующего, макс. 4 стака" },
+    { name: "Big Alejandro", cat: "exotic", group: "Ручные пулемёты", type: "LMG (M60)", talent: "Big Alejandro", desc: "Усиленный урон при продолжительной стрельбе" },
+    // Дробовики
+    { name: "Sweet Dreams / Lullaby", cat: "exotic", group: "Дробовики", type: "Дробовик (SPAS-12)", talent: "Sandman", desc: "Попадание: дебафф 10с — враг не может использовать аптечки и восстанавливать броню" },
+    { name: "Scorpio", cat: "exotic", group: "Дробовики", type: "Дробовик", talent: "Scorpio", desc: "Стаки яда: x1=Яд, x3=Дезориентация, x6=Шок, x7=+20% урон. PvP: x2=Кровотечение, x4=Сбой, x7=Оцепенение" },
+    { name: "Overlord", cat: "exotic", group: "Дробовики", type: "Дробовик", talent: "Warlord", desc: "Попадание в упор: несколько статус-эффектов + бонус урон по бронированным" },
+    { name: "Sheriff", cat: "exotic", group: "Дробовики", type: "Дробовик (Super 90)", talent: "Autentico", desc: "+35% урон, +100% точность, нет спада урона на дистанции" },
+    // Снайперские
+    { name: "Nemesis", cat: "exotic", group: "Снайперские винтовки", type: "Снайперская (TAC-50)", talent: "Nemesis", desc: "В прицеле метит врага. Дольше курок → до +50% урона. Промах ускоряет следующий заряд" },
+    { name: "Mantis", cat: "exotic", group: "Снайперские винтовки", type: "Снайперская (SRS)", talent: "In Plain Sight", desc: "Прицел показывает не-агрессивных врагов. Попадание по ним → увеличенный урон. Синергия с Decoy" },
+    { name: "Dread Edict", cat: "exotic", group: "Снайперские винтовки", type: "Снайперская (SVD)", talent: "Full Stop", desc: "Хедшот-убийство поджигает всех отмеченных (до 10), -50% скорости 10с. КД 30с, -10с за хедшот" },
+    { name: "Sacrum Imperium", cat: "exotic", group: "Снайперские винтовки", type: "Снайперская (G28)", talent: "The Trap", desc: "В прицеле метит врагов (до 10). Хедшот-убийство → поджог и -50% скорости. КД 30с" },
+    { name: "Shroud", cat: "exotic", group: "Снайперские винтовки", type: "Снайперская", talent: "Shroud", desc: "Маскировочная механика при прицеливании (Y7/Y8)" },
+    // Винтовки
+    { name: "Merciless / Ruthless", cat: "exotic", group: "Винтовки", type: "Винтовка", talent: "Guerrilla Warfare", desc: "Нажатие/отпускание триггера внедряют праймеры. Накопление → детонация со взрывным уроном" },
+    { name: "Diamondback", cat: "exotic", group: "Винтовки", type: "Винтовка", talent: "Agonizing Bite", desc: "Случайно метит врага. Выстрел по меченому = гарантированный крит, метка переходит на нового" },
+    { name: "The Ravenous", cat: "exotic", group: "Винтовки", type: "Винтовка (двуствольная)", talent: "Banshee's Cry", desc: "Чередует стволы. Последовательные попадания → заряд. Полный заряд → AoE взрыв" },
+    { name: "Doctor Home", cat: "exotic", group: "Винтовки", type: "Винтовка (M1A)", talent: "Doctor Home", desc: "Выстрел метит врага. Убийство меченого → аптечка, каждая +10% брони" },
+    { name: "Vindicator", cat: "exotic", group: "Винтовки", type: "Винтовка", talent: "Ortiz Assault Interface", desc: "В прицеле подсвечивает часть тела. Попадание в подсвеченную +40% урон" },
+    { name: "Bittersweet", cat: "exotic", group: "Винтовки", type: "Винтовка", talent: "Bittersweet", desc: "Rifle экзотик Y7/Y8" },
+    // Пистолеты
+    { name: "Kendra's Liberty", cat: "exotic", group: "Пистолеты", type: "Пистолет (Desert Eagle)", talent: "Liberty", desc: "Попадания отмечают слабые точки. Уничтожение → Blind Justice: колоссальный урон. +2% урон/хит (макс. 30). Хедшот тратит стаки, ремонт щита 3%/стак" },
+    { name: "Regulus", cat: "exotic", group: "Пистолеты", type: "Пистолет (Револьвер)", talent: "Regicide", desc: "Хедшот-убийство → взрыв +400% урона, кровотечение всем в зоне" },
+    { name: "Busy Little Bee", cat: "exotic", group: "Пистолеты", type: "Пистолет", talent: "Busy Little Bee", desc: "Эффекты при убийстве для роевых билдов" },
+    { name: "Mosquito", cat: "exotic", group: "Пистолеты", type: "Пистолет", talent: "Mosquito", desc: "Механика Decoy и маскировки" },
+    { name: "Tempest", cat: "exotic", group: "Пистолеты", type: "Пистолет (93R авто)", talent: "Restrained", desc: "Полностью автоматический. После разрушения Щита: +25% урон на 20с" },
+    { name: "Whiplash", cat: "exotic", group: "Пистолеты", type: "Пистолет (Y8S1)", talent: "Faster Than Reloading", desc: "После 5с в кобуре → заряжен. Извлечение перезаряжает оба основных оружия. +20% скорострельность, +50% урон до конца магазина" },
+    // Снаряжение — Маски
+    { name: "Coyote's Mask", cat: "exotic", group: "Маски", type: "Маска", talent: "Pack Instincts", desc: "Бонус по дистанции: 0-15м +25% крит. урон; 15-25м +10% крит. урон и +10% крит. шанс; 25+м +25% крит. шанс" },
+    { name: "Vile", cat: "exotic", group: "Маски", type: "Маска", talent: "Toxic Delivery", desc: "Все статус-эффекты дополнительно наносят DoT 10с (50% урона шоковой гранаты)" },
+    { name: "Catharsis", cat: "exotic", group: "Маски", type: "Маска", talent: "Vicious Cycle", desc: "Получение урона +1 стак (макс. 30). Каждый стак +1% урон оружием. На 30: сброс, снятие статусов, лечащее облако 10с" },
+    { name: "The Catalyst", cat: "exotic", group: "Маски", type: "Маска", talent: "The Catalyst", desc: "Усиление урона от умений при Skill-билдах" },
+    { name: "Tinkerer", cat: "exotic", group: "Маски", type: "Маска", talent: "Abridged", desc: "Если оба оружия одного типа (не экзотические) — талант доп. оружия применяется и к основному" },
+    { name: "Investor", cat: "exotic", group: "Маски", type: "Маска (Y8S1)", talent: "Slotted", desc: "За не-основной атрибут: Красный +10% крит. урон, Жёлтый +5% эффективность умений, Синий +1% регенерация брони. 3-й случайный атрибут" },
+    // Рюкзаки
+    { name: "Memento", cat: "exotic", group: "Рюкзаки", type: "Рюкзак", talent: "Kill Confirmed", desc: "Убийства роняют трофей. Сбор: +5% урон/Weapon, +10% броня/Armor, +5% умения/Skill на 10с. Долгосрочно: +1% урон, +1% умения, +0.1% регенерация за трофей (300с, макс. 30)" },
+    { name: "NinjaBike Messenger", cat: "exotic", group: "Рюкзаки", type: "Рюкзак", talent: "Covert Operations", desc: "Два эффекта brand set активны одновременно" },
+    { name: "Acosta's Go-Bag", cat: "exotic", group: "Рюкзаки", type: "Рюкзак", talent: "One in Hand...", desc: "Бросок гранаты +1 Skill Tier на 15с" },
+    { name: "Birdie's Quick Fix", cat: "exotic", group: "Рюкзаки", type: "Рюкзак", talent: "Combat Medic", desc: "Восстановление брони при использовании умений, поддержка союзников" },
+    { name: "Harrier Pride", cat: "exotic", group: "Рюкзаки", type: "Рюкзак", talent: "Harrier Pride", desc: "Механика смены оружия (Y7/Y8)" },
+    // Нагрудники
+    { name: "Tardigrade Armor System", cat: "exotic", group: "Нагрудники", type: "Нагрудник", talent: "Ablative Nano-Plating", desc: "При разрушении брони союзника: ремонт + 80% вашей брони как бонусная 10с. КД 45с. Убийство фирменным сбрасывает КД" },
+    { name: "Ridgeway's Pride", cat: "exotic", group: "Нагрудники", type: "Нагрудник", talent: "Warlord", desc: "Каждый кровоточащий враг в 15м: +2% регенерация брони/сек (макс. 5 = 10%/сек)" },
+    { name: "Provocator", cat: "exotic", group: "Нагрудники", type: "Нагрудник", talent: "Provocator", desc: "Генерация угрозы и провокация, усиление урона при получении урона" },
+    { name: "Collector", cat: "exotic", group: "Нагрудники", type: "Нагрудник", talent: "Hoarder", desc: "+3 гранаты, +50% радиус, +35% урон, +25% доп. урон за врага в радиусе. Авто 1 граната/30с если < 2" },
+    { name: "Beacon", cat: "exotic", group: "Нагрудники", type: "Нагрудник", talent: "Beacon", desc: "Y7/Y8" },
+    // Перчатки
+    { name: "BTSU Datagloves", cat: "exotic", group: "Перчатки", type: "Перчатки", talent: "Overcharge", desc: "Статус-эффект на враге: союзники +1 Skill Tier 10с. Умения союзников передают заражение в 10м" },
+    { name: "Exodus Gloves", cat: "exotic", group: "Перчатки", type: "Перчатки", talent: "Liberty or Death", desc: "Попадания +2% урон (макс. 30). Хедшоты тратят стаки, ремонт Щита 3%/стак" },
+    { name: "Rugged Gauntlets", cat: "exotic", group: "Перчатки", type: "Перчатки", talent: "Charged Proxies", desc: "Бросок умения: через 1.25с взрыв 6м, заряженный статус. Враги под эффектом +50% урон от умений" },
+    { name: "Bloody Knuckles", cat: "exotic", group: "Перчатки", type: "Перчатки", talent: "Over the Top", desc: "Усиление урона в рукопашную" },
+    { name: "Overdogs", cat: "exotic", group: "Перчатки", type: "Перчатки", talent: "Overdogs", desc: "Лучшие exotic gloves 2026 (Hyenas, Y7/Y8)" },
+    // Наколенники
+    { name: "Acosta's Kneepads", cat: "exotic", group: "Наколенники", type: "Наколенники", talent: "Acosta's Kneepads", desc: "Перекат снижает кулдаун умений" },
+    { name: "Sawyer's Kneepads", cat: "exotic", group: "Наколенники", type: "Наколенники", talent: "Jammer", desc: "Перебежка из укрытия → Jammer Pulse в точке назначения + бонус к броне" },
+    { name: "NinjaBike Kneepads", cat: "exotic", group: "Наколенники", type: "Наколенники", talent: "Parkour!", desc: "Перебежка из укрытия перезаряжает оружие. Только Тёмная Зона" },
+    { name: "Blacklisters", cat: "exotic", group: "Наколенники", type: "Наколенники", talent: "Blacklisters", desc: "Y7/Y8" },
+    // Кобуры
+    { name: "Dodge City Gunslinger", cat: "exotic", group: "Кобуры", type: "Кобура", talent: "Quick Draw", desc: "Пистолет в кобуре +1 стак/0.3с (макс. 100). Смена: первый выстрел тратит стаки, +10% урона/стак. Считается хедшотом" },
+    { name: "Imperial Dynasty", cat: "exotic", group: "Кобуры", type: "Кобура", talent: "Dragon's Glare", desc: "В бою поджигает ближайшего врага в 20м. КД 35с" },
+    { name: "Waveform", cat: "exotic", group: "Кобуры", type: "Кобура", talent: "Frequency", desc: "Смена оружия → усиление связанное со Skill Tier и электрическими статусами" },
+    { name: "Centurion's Scabbard", cat: "exotic", group: "Кобуры", type: "Кобура", talent: "Centurion's Scabbard", desc: "Усиление пистолетного урона, бонусы при убийствах пистолетом" },
+    { name: "Shocker Punch", cat: "exotic", group: "Кобуры", type: "Кобура", talent: "Defibrillator", desc: "Рукопашный удар оглушает врага и восстанавливает часть брони" },
+    { name: "Nimble Holster", cat: "exotic", group: "Кобуры", type: "Кобура", talent: "Nimble", desc: "Ускоренная смена оружия и мобильность" }
 ];
 
 const typeLabels = { red: "DPS", blue: "Танк", yellow: "Навыки", mixed: "Гибрид" };
 
-function renderGearSets(filter = "all", search = "") {
-    const grid = document.getElementById("gear-grid");
-    const s = search.toLowerCase();
-    grid.innerHTML = gearSets
-        .filter(g => (filter === "all" || g.type === filter) && (!s || g.name.toLowerCase().includes(s) || g.en.toLowerCase().includes(s)))
-        .map(g => `
-            <div class="card" data-type="${g.type}">
+// ============ SEARCH ============
+
+function getSearchText(item) {
+    let parts = [item.name, item.en || "", item.type || ""];
+    if (item.bonuses) parts.push(...item.bonuses);
+    if (item.chest) parts.push(item.chest);
+    if (item.backpack) parts.push(item.backpack);
+    if (item.talent) parts.push(item.talent);
+    if (item.desc) parts.push(item.desc);
+    if (item.group) parts.push(item.group);
+    return parts.join(" ").toLowerCase();
+}
+
+function matchesQuery(text, query) {
+    if (!query) return true;
+    const words = query.toLowerCase().trim().split(/\s+/);
+    return words.every(w => text.includes(w));
+}
+
+function filterItems(items, queries, mode) {
+    return items.filter(item => {
+        const text = getSearchText(item);
+        const results = queries.filter(q => q).map(q => matchesQuery(text, q));
+        if (results.length === 0) return true;
+        return mode === "and" ? results.every(r => r) : results.some(r => r);
+    });
+}
+
+function highlightText(str, queries) {
+    if (!queries.some(q => q)) return str;
+    let result = str;
+    queries.filter(q => q).forEach(q => {
+        const words = q.toLowerCase().trim().split(/\s+/);
+        words.forEach(w => {
+            if (w.length < 2) return;
+            const regex = new RegExp(`(${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            result = result.replace(regex, '<mark>$1</mark>');
+        });
+    });
+    return result;
+}
+
+// ============ RENDER ============
+
+function renderAll() {
+    const q = [
+        document.getElementById("s1").value,
+        document.getElementById("s2").value,
+        document.getElementById("s3").value
+    ];
+    const mode = document.querySelector('input[name="mode"]:checked').value;
+    const content = document.getElementById("main-content");
+    const qs = q.filter(x => x);
+
+    const filteredGear = filterItems(gearSets, q, mode);
+    const filteredBrand = filterItems(brandSets, q, mode);
+    const filteredExotic = filterItems(exoticItems, q, mode);
+
+    const total = filteredGear.length + filteredBrand.length + filteredExotic.length;
+    const allTotal = gearSets.length + brandSets.length + exoticItems.length;
+    document.getElementById("result-count").innerHTML = qs.length > 0
+        ? `Найдено: <span>${total}</span> из ${allTotal} (режим: ${mode === "and" ? "И — пересечения" : "ИЛИ — любое совпадение"})`
+        : `Всего: <span>${allTotal}</span> предметов`;
+
+    let html = "";
+
+    // Gear Sets
+    if (filteredGear.length > 0) {
+        html += `<div class="section-title">Комплекты снаряжения (Gear Sets) <span class="count">${filteredGear.length}</span></div>`;
+        html += '<div class="grid">';
+        filteredGear.forEach(g => {
+            const h = (s) => highlightText(s, q);
+            html += `<div class="card">
                 <div class="card-header">
-                    <div>
-                        <div class="card-name">${g.name}</div>
-                        <div class="card-name-en">${g.en}</div>
-                    </div>
+                    <div><div class="card-name gear">${h(g.name)}</div><div class="card-name-en">${h(g.en)}</div></div>
                     <span class="card-type type-${g.type}">${typeLabels[g.type]}</span>
                 </div>
-                <div class="bonuses">
-                    ${g.bonuses.map(b => {
-                        const [tier, ...rest] = b.split(": ");
-                        return `<div class="bonus-line"><span class="bonus-tier">${tier}:</span><span class="bonus-text">${rest.join(": ")}</span></div>`;
-                    }).join("")}
-                </div>
+                <div>${g.bonuses.map(b => {
+                    const [tier, ...rest] = b.split(": ");
+                    return `<div class="bonus-line"><span class="bonus-tier">${tier}:</span><span class="bonus-text">${h(rest.join(": "))}</span></div>`;
+                }).join("")}</div>
                 <div class="talents">
-                    <div class="talent-line"><span class="talent-icon">🎽</span><span class="talent-name">Нагрудник:</span><span class="talent-desc">${g.chest}</span></div>
-                    <div class="talent-line"><span class="talent-icon">🎒</span><span class="talent-name">Рюкзак:</span><span class="talent-desc">${g.backpack}</span></div>
+                    <div class="talent-line"><span class="talent-icon">🎽</span><span class="talent-name">Нагрудник:</span><span class="talent-desc">${h(g.chest)}</span></div>
+                    <div class="talent-line"><span class="talent-icon">🎒</span><span class="talent-name">Рюкзак:</span><span class="talent-desc">${h(g.backpack)}</span></div>
                 </div>
-            </div>
-        `).join("");
+            </div>`;
+        });
+        html += '</div>';
+    }
+
+    // Brand Sets
+    if (filteredBrand.length > 0) {
+        html += `<div class="section-title">Брендовые наборы (Brand Sets) <span class="count">${filteredBrand.length}</span></div>`;
+        html += '<div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">';
+        filteredBrand.forEach(b => {
+            const h = (s) => highlightText(s, q);
+            html += `<div class="card">
+                <div class="card-header">
+                    <div class="card-name brand">${h(b.name)}</div>
+                    <span class="card-type type-brand">Бренд</span>
+                </div>
+                ${b.bonuses.map(bn => {
+                    const [tier, ...rest] = bn.split(": ");
+                    return `<div class="bonus-line"><span class="bonus-tier">${tier}:</span><span class="bonus-text">${h(rest.join(": "))}</span></div>`;
+                }).join("")}
+            </div>`;
+        });
+        html += '</div>';
+    }
+
+    // Exotics by group
+    if (filteredExotic.length > 0) {
+        const groups = {};
+        filteredExotic.forEach(e => {
+            if (!groups[e.group]) groups[e.group] = [];
+            groups[e.group].push(e);
+        });
+        const groupOrder = ["Штурмовые винтовки","Пистолеты-пулемёты","Ручные пулемёты","Дробовики","Снайперские винтовки","Винтовки","Пистолеты","Маски","Рюкзаки","Нагрудники","Перчатки","Наколенники","Кобуры"];
+        html += `<div class="section-title">Экзотики (Exotics) <span class="count">${filteredExotic.length}</span></div>`;
+        groupOrder.forEach(grp => {
+            if (!groups[grp]) return;
+            html += `<div style="color:#ffab40;font-size:14px;font-weight:600;margin:14px 0 8px;text-transform:uppercase;letter-spacing:1px;">${grp} (${groups[grp].length})</div>`;
+            html += '<div class="grid">';
+            groups[grp].forEach(e => {
+                const h = (s) => highlightText(s, q);
+                html += `<div class="card">
+                    <div class="card-header">
+                        <div class="card-name exotic">${h(e.name)}</div>
+                        <span class="card-type type-exotic">${h(e.type)}</span>
+                    </div>
+                    <div class="talent-line" style="margin-bottom:4px"><span class="talent-name">${h(e.talent)}</span></div>
+                    <div class="talent-desc" style="font-size:12px;line-height:1.5">${h(e.desc)}</div>
+                </div>`;
+            });
+            html += '</div>';
+        });
+    }
+
+    if (total === 0 && qs.length > 0) {
+        html = '<div style="text-align:center;padding:60px 20px;color:#555;font-size:16px;">Ничего не найдено. Попробуй другие слова.</div>';
+    }
+
+    content.innerHTML = html;
 }
 
-function renderBrands(search = "") {
-    const grid = document.getElementById("brand-grid");
-    const s = search.toLowerCase();
-    grid.innerHTML = brandSets
-        .filter(b => !s || b.name.toLowerCase().includes(s))
-        .map(b => `
-            <div class="brand-card">
-                <div class="brand-name">${b.name}</div>
-                <div class="brand-bonus"><span class="tier">1шт:</span> <span class="val">${b.b1}</span></div>
-                <div class="brand-bonus"><span class="tier">2шт:</span> <span class="val">${b.b2}</span></div>
-                <div class="brand-bonus"><span class="tier">3шт:</span> <span class="val">${b.b3}</span></div>
-            </div>
-        `).join("");
-}
+// ============ EVENTS ============
 
-// Tabs
-document.querySelectorAll(".tab").forEach(tab => {
-    tab.addEventListener("click", () => {
-        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-        const t = tab.dataset.tab;
-        document.getElementById("gearsets-panel").classList.toggle("hidden", t !== "gearsets");
-        document.getElementById("brands-panel").classList.toggle("hidden", t !== "brands");
-    });
-});
+document.querySelectorAll("#s1,#s2,#s3").forEach(el => el.addEventListener("input", renderAll));
+document.querySelectorAll('input[name="mode"]').forEach(el => el.addEventListener("change", renderAll));
 
-// Filters
-document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderGearSets(btn.dataset.filter, document.getElementById("search-gear").value);
-    });
-});
-
-// Search
-document.getElementById("search-gear").addEventListener("input", e => {
-    const activeFilter = document.querySelector(".filter-btn.active")?.dataset.filter || "all";
-    renderGearSets(activeFilter, e.target.value);
-});
-document.getElementById("search-brand").addEventListener("input", e => {
-    renderBrands(e.target.value);
-});
-
-// Init
-renderGearSets();
-renderBrands();
+renderAll();
 </script>
 </body>
 </html>
