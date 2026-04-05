@@ -530,10 +530,10 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         btn.classList.add("active");activeCat=btn.dataset.cat;
         // toggle panels
         const isCalc = activeCat==="dps";
-        document.getElementById("mc").classList.toggle("hidden",isCalc);
-        document.getElementById("rc").classList.toggle("hidden",isCalc);
-        document.querySelector(".search-panel").classList.toggle("hidden",isCalc);
-        document.getElementById("dps-panel").classList.toggle("hidden",!isCalc);
+        document.getElementById("mc").style.display=isCalc?"none":"";
+        document.getElementById("rc").style.display=isCalc?"none":"";
+        document.querySelector(".search-panel").style.display=isCalc?"none":"";
+        document.getElementById("dps-panel").style.display=isCalc?"block":"none";
         if(!isCalc) render();
         else calcDPS();
     });
