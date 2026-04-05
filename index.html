@@ -57,6 +57,28 @@
         .info{font-size:11px;color:var(--muted);margin-bottom:4px}
         mark{background:rgba(245,166,35,.3);color:var(--text);border-radius:2px;padding:0 1px}
         .footer{text-align:center;padding:14px;font-size:11px;color:#333}
+        /* DPS CALC */
+        .calc-wrap{max-width:900px;margin:0 auto;padding:16px}
+        .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        @media(max-width:600px){.calc-grid{grid-template-columns:1fr}}
+        .calc-group{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px}
+        .calc-group h3{font-size:13px;color:var(--orange);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+        .calc-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+        .calc-row label{flex:1;font-size:12px;color:var(--muted);min-width:140px}
+        .calc-row input{width:90px;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:13px;text-align:right;outline:none}
+        .calc-row input:focus{border-color:var(--orange)}
+        .calc-row .unit{font-size:11px;color:#555;min-width:20px}
+        .dps-result{background:linear-gradient(135deg,#1a1a2e,#12121a);border:2px solid var(--orange);border-radius:12px;padding:20px;text-align:center;margin:16px 0}
+        .dps-number{font-size:36px;font-weight:700;color:var(--orange)}
+        .dps-label{font-size:12px;color:var(--muted);margin-top:4px}
+        .dps-sub{font-size:13px;color:var(--text);margin-top:8px}
+        .weights-table{width:100%;border-collapse:collapse;margin-top:12px}
+        .weights-table th{text-align:left;font-size:11px;color:var(--orange);padding:6px 8px;border-bottom:1px solid var(--border)}
+        .weights-table td{font-size:12px;padding:5px 8px;border-bottom:1px solid rgba(30,30,46,.5)}
+        .weights-table tr:hover{background:rgba(245,166,35,.05)}
+        .w-bar{height:6px;border-radius:3px;background:var(--orange);transition:width .3s}
+        .w-bar-bg{height:6px;border-radius:3px;background:var(--border);width:100%}
+        .w-best{color:var(--green);font-weight:700}
     </style>
 </head>
 <body>
@@ -81,10 +103,58 @@
     <button class="cat-btn" data-cat="gear">Комплекты (26)</button>
     <button class="cat-btn" data-cat="brand">Бренды (36)</button>
     <button class="cat-btn" data-cat="exotic">Экзотики (~70)</button>
-    <button class="cat-btn" data-cat="named">Именные (~66)</button>
+    <button class="cat-btn" data-cat="named">Именные (~96)</button>
+    <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS Калькулятор</button>
 </div>
 <div class="result-count" id="rc"></div>
 <div class="content" id="mc"></div>
+<div id="dps-panel" class="hidden">
+<div class="calc-wrap">
+    <div class="calc-grid">
+        <div class="calc-group">
+            <h3>Оружие</h3>
+            <div class="calc-row"><label>Базовый урон пули</label><input type="number" id="c_base" value="50000"><span class="unit"></span></div>
+            <div class="calc-row"><label>RPM (скорострельность)</label><input type="number" id="c_rpm" value="750"><span class="unit"></span></div>
+            <div class="calc-row"><label>Размер магазина</label><input type="number" id="c_mag" value="30"><span class="unit">шт</span></div>
+            <div class="calc-row"><label>Время перезарядки</label><input type="number" id="c_reload" value="2.0" step="0.1"><span class="unit">сек</span></div>
+        </div>
+        <div class="calc-group">
+            <h3>Урон оружием (один бакет)</h3>
+            <div class="calc-row"><label>Общий урон оружием (WD)</label><input type="number" id="c_wd" value="15" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон типа оружия (ШВ/ПП/LMG..)</label><input type="number" id="c_wtd" value="10" step="1"><span class="unit">%</span></div>
+        </div>
+        <div class="calc-group">
+            <h3>Критический удар</h3>
+            <div class="calc-row"><label>Шанс крит. удара (CHC)</label><input type="number" id="c_chc" value="50" step="1" max="60"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон крит. удара (CHD)</label><input type="number" id="c_chd" value="120" step="1"><span class="unit">%</span></div>
+        </div>
+        <div class="calc-group">
+            <h3>Внешние множители</h3>
+            <div class="calc-row"><label>Урон в голову (HSD)</label><input type="number" id="c_hsd" value="0" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>% попаданий в голову</label><input type="number" id="c_hsrate" value="0" step="1" max="100"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон по броне (DtA)</label><input type="number" id="c_dta" value="0" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон вне укрытия (OoC)</label><input type="number" id="c_ooc" value="0" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Усиленный урон (Amplified)</label><input type="number" id="c_amp" value="0" step="1"><span class="unit">%</span></div>
+        </div>
+    </div>
+
+    <div class="dps-result">
+        <div class="dps-number" id="dps-val">0</div>
+        <div class="dps-label">Sustained DPS (урон в секунду)</div>
+        <div class="dps-sub" id="dps-details"></div>
+    </div>
+
+    <div class="calc-group">
+        <h3>Веса статов — что качать дальше?</h3>
+        <p style="font-size:11px;color:var(--muted);margin-bottom:10px">Показывает сколько DPS даёт +1% каждого стата. Чем меньше в бакете, тем ценнее каждый процент.</p>
+        <table class="weights-table">
+            <thead><tr><th>Стат</th><th>+1% → DPS</th><th>Вес</th><th></th></tr></thead>
+            <tbody id="weights-body"></tbody>
+        </table>
+    </div>
+</div>
+</div>
+
 <div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>
 
 <script>
@@ -457,10 +527,113 @@ document.querySelectorAll('input[name="mode"]').forEach(el=>el.addEventListener(
 document.querySelectorAll(".cat-btn").forEach(btn=>{
     btn.addEventListener("click",()=>{
         document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
-        btn.classList.add("active");activeCat=btn.dataset.cat;render();
+        btn.classList.add("active");activeCat=btn.dataset.cat;
+        // toggle panels
+        const isCalc = activeCat==="dps";
+        document.getElementById("mc").classList.toggle("hidden",isCalc);
+        document.getElementById("rc").classList.toggle("hidden",isCalc);
+        document.querySelector(".search-panel").classList.toggle("hidden",isCalc);
+        document.getElementById("dps-panel").classList.toggle("hidden",!isCalc);
+        if(!isCalc) render();
+        else calcDPS();
     });
 });
 render();
+
+// ===== DPS CALCULATOR =====
+function v(id){return parseFloat(document.getElementById(id).value)||0}
+
+function calcDPS(){
+    const base=v("c_base"), rpm=v("c_rpm"), mag=v("c_mag"), reload=v("c_reload");
+    const wd=v("c_wd"), wtd=v("c_wtd");
+    const chc=Math.min(v("c_chc"),60)/100, chd=v("c_chd")/100;
+    const hsd=v("c_hsd")/100, hsRate=v("c_hsrate")/100;
+    const dta=v("c_dta")/100, ooc=v("c_ooc")/100, amp=v("c_amp")/100;
+
+    // Бакеты (множатся между собой)
+    const bWD = 1 + (wd+wtd)/100;       // Weapon Damage bucket (аддитивный внутри)
+    const bCrit = 1 + chc * chd;          // Средний крит множитель
+    const bHS = 1 + hsRate * hsd;         // Средний хедшот множитель
+    const bDtA = 1 + dta;                 // Damage to Armor
+    const bOoC = 1 + ooc;                 // Out of Cover
+    const bAmp = 1 + amp;                 // Amplified
+
+    // Урон за пулю (средний)
+    const bulletDmg = base * bWD * bCrit * bHS * bDtA * bOoC * bAmp;
+
+    // Sustained DPS
+    const rps = rpm / 60;
+    const magTime = mag / rps;
+    const cycleTime = magTime + reload;
+    const dps = (bulletDmg * mag) / cycleTime;
+
+    // Burst DPS (без перезарядки)
+    const burstDps = bulletDmg * rps;
+
+    document.getElementById("dps-val").textContent = Math.round(dps).toLocaleString("ru");
+    document.getElementById("dps-details").innerHTML =
+        `Урон/пулю: <b>${Math.round(bulletDmg).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
+        `Burst DPS: <b>${Math.round(burstDps).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
+        `Цикл: ${magTime.toFixed(1)}с стрельба + ${reload}с перезарядка = ${cycleTime.toFixed(1)}с`;
+
+    // Веса статов — маржинальный DPS за +1%
+    const weights = [
+        {name:"Урон оружием (WD)", delta: calcWith("wd",1) - dps},
+        {name:"Урон типа оружия", delta: calcWith("wtd",1) - dps},
+        {name:"Шанс крита (CHC)", delta: calcWithCHC(1) - dps},
+        {name:"Урон крита (CHD)", delta: calcWithCHD(1) - dps},
+        {name:"Урон в голову (HSD)", delta: calcWithHSD(1) - dps},
+        {name:"Урон по броне (DtA)", delta: calcWithMult("dta",1) - dps},
+        {name:"Урон вне укрытия (OoC)", delta: calcWithMult("ooc",1) - dps},
+        {name:"Усиленный (Amplified)", delta: calcWithMult("amp",1) - dps},
+    ];
+
+    const maxDelta = Math.max(...weights.map(w=>w.delta));
+    const tbody = document.getElementById("weights-body");
+    tbody.innerHTML = weights.map(w=>{
+        const pct = maxDelta > 0 ? (w.delta/maxDelta*100) : 0;
+        const best = w.delta === maxDelta ? ' w-best' : '';
+        return `<tr><td class="${best}">${w.name}${best?' ★':''}</td>
+            <td class="${best}">+${Math.round(w.delta).toLocaleString("ru")}</td>
+            <td style="width:40%"><div class="w-bar-bg"><div class="w-bar" style="width:${pct}%"></div></div></td>
+            <td class="${best}" style="font-size:11px;width:50px">${(w.delta/dps*100).toFixed(2)}%</td></tr>`;
+    }).join("");
+
+    function calcWith(field, add){
+        const wd2 = (field==="wd"?wd+add:wd), wtd2 = (field==="wtd"?wtd+add:wtd);
+        const bWD2 = 1 + (wd2+wtd2)/100;
+        const b2 = base * bWD2 * bCrit * bHS * bDtA * bOoC * bAmp;
+        return (b2 * mag) / cycleTime;
+    }
+    function calcWithCHC(add){
+        const chc2 = Math.min(chc + add/100, 0.6);
+        const bC2 = 1 + chc2 * chd;
+        const b2 = base * bWD * bC2 * bHS * bDtA * bOoC * bAmp;
+        return (b2 * mag) / cycleTime;
+    }
+    function calcWithCHD(add){
+        const chd2 = chd + add/100;
+        const bC2 = 1 + chc * chd2;
+        const b2 = base * bWD * bC2 * bHS * bDtA * bOoC * bAmp;
+        return (b2 * mag) / cycleTime;
+    }
+    function calcWithHSD(add){
+        const hsd2 = hsd + add/100;
+        const bH2 = 1 + hsRate * hsd2;
+        const b2 = base * bWD * bCrit * bH2 * bDtA * bOoC * bAmp;
+        return (b2 * mag) / cycleTime;
+    }
+    function calcWithMult(field, add){
+        const dta2 = field==="dta"?dta+add/100:dta;
+        const ooc2 = field==="ooc"?ooc+add/100:ooc;
+        const amp2 = field==="amp"?amp+add/100:amp;
+        const b2 = base * bWD * bCrit * bHS * (1+dta2) * (1+ooc2) * (1+amp2);
+        return (b2 * mag) / cycleTime;
+    }
+}
+
+// Auto-calc on any input change
+document.querySelectorAll("#dps-panel input").forEach(el=>el.addEventListener("input",calcDPS));
 </script>
 </body>
 </html>
