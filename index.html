@@ -110,16 +110,6 @@
 <div class="content" id="mc"></div>
 <div id="dps-panel" class="hidden">
 <div class="calc-wrap">
-    <!-- Пресеты -->
-    <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
-        <span style="font-size:12px;color:var(--muted);padding:6px 0">Пресет:</span>
-        <button class="cat-btn preset-btn" data-preset="ar_crit" style="font-size:11px;padding:4px 12px">ШВ Крит билд</button>
-        <button class="cat-btn preset-btn" data-preset="lmg_dps" style="font-size:11px;padding:4px 12px">LMG DPS</button>
-        <button class="cat-btn preset-btn" data-preset="smg_close" style="font-size:11px;padding:4px 12px">ПП Ближний</button>
-        <button class="cat-btn preset-btn" data-preset="mmr_hs" style="font-size:11px;padding:4px 12px">Снайпер Хедшот</button>
-        <button class="cat-btn preset-btn" data-preset="clean" style="font-size:11px;padding:4px 12px">Чистый (без бонусов)</button>
-    </div>
-
     <div class="calc-grid">
         <div class="calc-group">
             <h3>Оружие</h3>
@@ -559,22 +549,7 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
 });
 render();
 
-// ===== PRESETS =====
-const presets = {
-    ar_crit: {c_base:48000,c_rpm:750,c_mag:30,c_reload:2.0,c_wd:90,c_wtd:30,c_chc:55,c_chd:150,c_hsd:0,c_hsrate:0,c_dta:15,c_ooc:10,c_amp:0},
-    lmg_dps: {c_base:42000,c_rpm:650,c_mag:100,c_reload:5.5,c_wd:90,c_wtd:30,c_chc:50,c_chd:120,c_hsd:0,c_hsrate:0,c_dta:15,c_ooc:10,c_amp:0},
-    smg_close:{c_base:38000,c_rpm:900,c_mag:32,c_reload:2.1,c_wd:90,c_wtd:30,c_chc:60,c_chd:170,c_hsd:0,c_hsrate:0,c_dta:0,c_ooc:10,c_amp:0},
-    mmr_hs:  {c_base:420000,c_rpm:60,c_mag:5,c_reload:3.0,c_wd:60,c_wtd:30,c_chc:40,c_chd:100,c_hsd:150,c_hsrate:80,c_dta:0,c_ooc:10,c_amp:0},
-    clean:   {c_base:50000,c_rpm:750,c_mag:30,c_reload:2.0,c_wd:0,c_wtd:0,c_chc:0,c_chd:0,c_hsd:0,c_hsrate:0,c_dta:0,c_ooc:0,c_amp:0}
-};
-document.querySelectorAll(".preset-btn").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-        const p=presets[btn.dataset.preset];
-        if(!p)return;
-        Object.entries(p).forEach(([k,v])=>{document.getElementById(k).value=v});
-        calcDPS();
-    });
-});
+// ===== PRESETS REMOVED =====
 
 // ===== DPS CALCULATOR =====
 function v(id){return parseFloat(document.getElementById(id).value)||0}
