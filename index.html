@@ -603,6 +603,23 @@
     <div class="bpeak" id="b-peak"></div>
   </div>
 
+  <!-- TTK Meter -->
+  <div class="bsect" id="b-ttk-sect" style="display:none">
+    <h3>⏱ Время до убийства (TTK)</h3>
+    <div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
+      <span style="font-size:11px;color:var(--muted)">Сложность:</span>
+      <button class="mf-btn on" onclick="setTtkDiff('heroic')" id="ttk-heroic">Heroic</button>
+      <button class="mf-btn" onclick="setTtkDiff('legendary')" id="ttk-legendary">Legendary</button>
+      <span style="font-size:10px;color:#555;margin-left:auto">HP по данным комьюнити, может расходиться ±10%</span>
+    </div>
+    <table class="btl" id="ttk-table">
+      <thead><tr>
+        <th>Враг</th><th>HP</th><th style="color:#888">TTK база</th><th style="color:#f5a623">TTK средний</th><th style="color:var(--orange)">TTK пик</th>
+      </tr></thead>
+      <tbody id="ttk-body"></tbody>
+    </table>
+  </div>
+
 </div>
 </div>
 
@@ -1890,6 +1907,9 @@ function calcBuild(){
   }).join("");
 
   const rampPct=Math.round((maxDPS/baseDPS-1)*100);
+  // TTK data
+  renderTtk(baseDPS,avgDPS10,maxDPS);
+
   document.getElementById("b-peak").innerHTML=
     `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
       <div>
@@ -1910,6 +1930,61 @@ function calcBuild(){
     </div>`;
 
   document.getElementById("b-results-sect").style.display="block";
+  document.getElementById("b-ttk-sect").style.display="block";
+}
+
+// ===== TTK =====
+const ENEMY_HP={
+  heroic:[
+    {name:"🔴 Red (обычный)",hp:3_000_000},
+    {name:"🟣 Purple (ветеран)",hp:7_500_000},
+    {name:"🟡 Gold (элитный)",hp:11_000_000},
+    {name:"⭐ Named (босс)",hp:20_000_000},
+  ],
+  legendary:[
+    {name:"🔴 Red (обычный)",hp:4_500_000},
+    {name:"🟣 Purple (ветеран)",hp:11_000_000},
+    {name:"🟡 Gold (элитный)",hp:17_000_000},
+    {name:"⭐ Named (босс)",hp:28_000_000},
+  ],
+};
+let ttkDiff="heroic";
+let lastDps={base:0,avg:0,peak:0};
+function setTtkDiff(d){
+  ttkDiff=d;
+  document.getElementById("ttk-heroic").classList.toggle("on",d==="heroic");
+  document.getElementById("ttk-legendary").classList.toggle("on",d==="legendary");
+  renderTtk(lastDps.base,lastDps.avg,lastDps.peak);
+}
+function fmtTime(s){
+  if(!isFinite(s)||s<=0)return "∞";
+  if(s<1)return (s*1000|0)+"мс";
+  if(s<60)return s.toFixed(1)+"с";
+  return Math.floor(s/60)+"м "+Math.round(s%60)+"с";
+}
+function ttkColor(s){
+  if(s<2)return "#00c853";
+  if(s<5)return "#9ccc65";
+  if(s<10)return "#fdd835";
+  if(s<20)return "#ff9800";
+  return "#ef5350";
+}
+function renderTtk(base,avg,peak){
+  lastDps={base,avg,peak};
+  const enemies=ENEMY_HP[ttkDiff];
+  const body=enemies.map(e=>{
+    const tb=base>0?e.hp/base:Infinity;
+    const ta=avg>0?e.hp/avg:Infinity;
+    const tp=peak>0?e.hp/peak:Infinity;
+    return`<tr>
+      <td style="text-align:left">${e.name}</td>
+      <td>${(e.hp/1e6).toFixed(1)}М</td>
+      <td style="color:${ttkColor(tb)}">${fmtTime(tb)}</td>
+      <td style="color:${ttkColor(ta)};font-weight:700">${fmtTime(ta)}</td>
+      <td style="color:${ttkColor(tp)};font-weight:700">${fmtTime(tp)}</td>
+    </tr>`;
+  }).join("");
+  document.getElementById("ttk-body").innerHTML=body;
 }
 
 // Init build slots from gear set data
