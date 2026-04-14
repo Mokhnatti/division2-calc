@@ -8,9 +8,28 @@
         :root { --bg:#0a0a0f; --card:#12121a; --border:#1e1e2e; --orange:#f5a623; --green:#00c853; --blue:#42a5f5; --yellow:#fdd835; --red:#ef5350; --text:#e0e0e0; --muted:#888; --named:#ab47bc; }
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Tahoma,sans-serif;min-height:100vh}
-        .header{background:linear-gradient(135deg,#0d0d15,#1a1a2e);border-bottom:2px solid var(--orange);padding:18px;text-align:center}
+        .header{background:linear-gradient(135deg,#0d0d15,#1a1a2e);border-bottom:2px solid var(--orange);padding:18px;text-align:center;position:relative}
         .header h1{color:var(--orange);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:3px}
         .header p{color:var(--muted);margin-top:4px;font-size:12px}
+        .bug-btn{position:absolute;top:12px;right:12px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.4);color:var(--red);padding:7px 12px;border-radius:7px;font-size:11px;cursor:pointer;font-weight:600;transition:all .15s}
+        .bug-btn:hover{background:rgba(239,83,80,.2);border-color:var(--red)}
+        @media(max-width:500px){.bug-btn{top:8px;right:8px;padding:5px 9px;font-size:10px}}
+        .bug-form{display:flex;flex-direction:column;gap:10px;padding:16px}
+        .bug-form label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px}
+        .bug-form input,.bug-form select,.bug-form textarea{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:13px;outline:none;font-family:inherit}
+        .bug-form input:focus,.bug-form select:focus,.bug-form textarea:focus{border-color:var(--orange)}
+        .bug-form textarea{min-height:80px;resize:vertical}
+        .bug-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        @media(max-width:500px){.bug-row{grid-template-columns:1fr}}
+        .bug-submit{background:var(--orange);color:#000;border:none;padding:11px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px}
+        .bug-submit:hover{background:#ffb74d}
+        .bug-submit:disabled{opacity:.5;cursor:wait}
+        .bug-status{text-align:center;padding:10px;border-radius:7px;font-size:12px;display:none}
+        .bug-status.ok{background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.3);color:var(--green);display:block}
+        .bug-status.err{background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.3);color:var(--red);display:block}
+        .bug-alt{text-align:center;font-size:11px;color:var(--muted);padding:8px;border-top:1px solid var(--border)}
+        .bug-alt a{color:var(--blue);text-decoration:none}
+        .bug-alt a:hover{text-decoration:underline}
         .search-panel{background:var(--card);border-bottom:1px solid var(--border);padding:14px 20px;max-width:1000px;margin:0 auto}
         .search-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
         .search-row input{flex:1;min-width:180px;padding:9px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:13px;outline:none}
@@ -190,6 +209,7 @@
 </head>
 <body>
 <div class="header">
+    <button class="bug-btn" onclick="openBugModal()" title="Сообщить об ошибке в данных или математике">🐛 Баг-репорт</button>
     <h1>The Division 2</h1>
     <p>Gear Sets / Brand Sets / Exotics / Named Items — Full Database</p>
 </div>
@@ -547,6 +567,68 @@
   </div>
 
 </div>
+</div>
+
+<!-- BUG REPORT MODAL -->
+<div class="modal-bg" id="bug-modal" onclick="if(event.target===this)closeBugModal()">
+  <div class="modal-box" style="max-width:560px">
+    <div class="modal-head">
+      <h3>🐛 Баг-репорт</h3>
+      <button class="modal-close" onclick="closeBugModal()">×</button>
+    </div>
+    <form class="bug-form" id="bug-form" onsubmit="submitBug(event)">
+      <div>
+        <label>Что за проблема</label>
+        <select name="type" required>
+          <option value="">— выбери —</option>
+          <option>Неверная математика / DPS</option>
+          <option>Неверный бонус сета</option>
+          <option>Неверный талант именного</option>
+          <option>Не хватает предмета в базе</option>
+          <option>Опечатка / перевод</option>
+          <option>UI / не работает</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="bug-row">
+        <div>
+          <label>Предмет / сет / оружие</label>
+          <input name="item" type="text" placeholder="например: Образцовый">
+        </div>
+        <div>
+          <label>Слот</label>
+          <select name="slot">
+            <option value="">—</option>
+            <option>Маска</option><option>Нагрудник</option><option>Рюкзак</option>
+            <option>Перчатки</option><option>Кобура</option><option>Наколенники</option>
+            <option>Оружие</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label>Описание * (что показывает / что должно быть)</label>
+        <textarea name="description" required placeholder="Напр: Perfect Vigilance показывает +30% WD, а на вики +25%. Источник: ..."></textarea>
+      </div>
+      <div>
+        <label>Скриншот (Ctrl+V / перетащи / выбери)</label>
+        <input type="file" name="screenshot_file" id="bug-file" accept="image/*" onchange="handleBugFile(this.files[0])">
+        <div id="bug-preview" style="margin-top:8px;display:none"><img id="bug-preview-img" style="max-width:100%;max-height:160px;border-radius:6px;border:1px solid var(--border)"><div id="bug-upload-status" style="font-size:10px;color:var(--muted);margin-top:4px"></div></div>
+      </div>
+      <div>
+        <label>Контакт (ник / email / telegram, опционально)</label>
+        <input name="contact" type="text" placeholder="@nick или email">
+      </div>
+      <input type="hidden" name="page_url" id="bug-page-url">
+      <input type="hidden" name="user_agent" id="bug-ua">
+      <input type="hidden" name="screenshot_url" id="bug-shot-url">
+      <input type="hidden" name="_subject" value="Division 2 Calc — баг-репорт">
+      <div class="bug-status" id="bug-status"></div>
+      <button type="submit" class="bug-submit" id="bug-submit-btn">Отправить</button>
+    </form>
+    <div class="bug-alt">
+      или <a href="https://github.com/Mokhnatti/division2-calc/issues/new" target="_blank">открыть issue на GitHub</a>
+    </div>
+  </div>
 </div>
 
 <!-- INVENTORY MODAL -->
@@ -1769,6 +1851,137 @@ function calcBuild(){
 
 // Init build slots from gear set data
 initBuildSlots();
+
+// ===== BUG REPORT =====
+const FORMSPREE_ENDPOINT="https://formspree.io/f/mlgadraa";
+let bugScreenshotBlob=null;
+
+function openBugModal(){
+  document.getElementById("bug-page-url").value=location.href;
+  document.getElementById("bug-ua").value=navigator.userAgent;
+  document.getElementById("bug-modal").classList.add("open");
+}
+function closeBugModal(){
+  document.getElementById("bug-modal").classList.remove("open");
+}
+
+async function handleBugFile(file){
+  if(!file||!file.type.startsWith("image/"))return;
+  const status=document.getElementById("bug-upload-status");
+  status.textContent="Сжимаю...";
+  const compressed=await compressImage(file,1400,0.78);
+  bugScreenshotBlob=compressed;
+  const url=URL.createObjectURL(compressed);
+  document.getElementById("bug-preview-img").src=url;
+  document.getElementById("bug-preview").style.display="block";
+  status.textContent="Готов · "+(compressed.size/1024|0)+"КБ (загрузится при отправке)";
+}
+
+function compressImage(file,maxW,quality){
+  return new Promise(res=>{
+    const img=new Image();
+    img.onload=()=>{
+      const ratio=Math.min(1,maxW/img.width);
+      const w=Math.round(img.width*ratio),h=Math.round(img.height*ratio);
+      const cv=document.createElement("canvas");cv.width=w;cv.height=h;
+      cv.getContext("2d").drawImage(img,0,0,w,h);
+      cv.toBlob(b=>res(b),"image/jpeg",quality);
+    };
+    img.src=URL.createObjectURL(file);
+  });
+}
+
+async function uploadScreenshot(blob){
+  // Primary: catbox.moe anonymous
+  try{
+    const fd=new FormData();
+    fd.append("reqtype","fileupload");
+    fd.append("fileToUpload",blob,"screenshot.jpg");
+    const r=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});
+    if(r.ok){const t=(await r.text()).trim();if(t.startsWith("http"))return{url:t,method:"catbox"}}
+  }catch(e){}
+  // Fallback: 0x0.st
+  try{
+    const fd=new FormData();
+    fd.append("file",blob,"screenshot.jpg");
+    const r=await fetch("https://0x0.st",{method:"POST",body:fd});
+    if(r.ok){const t=(await r.text()).trim();if(t.startsWith("http"))return{url:t,method:"0x0.st"}}
+  }catch(e){}
+  // Last resort: base64 dataURL in the form body
+  return new Promise(res=>{
+    const rd=new FileReader();
+    rd.onload=()=>res({url:"",dataUrl:rd.result,method:"base64"});
+    rd.readAsDataURL(blob);
+  });
+}
+
+async function submitBug(ev){
+  ev.preventDefault();
+  const form=ev.target;
+  const btn=document.getElementById("bug-submit-btn");
+  const status=document.getElementById("bug-status");
+  btn.disabled=true;btn.textContent="Отправка...";
+  status.className="bug-status";status.textContent="";
+  try{
+    if(bugScreenshotBlob){
+      document.getElementById("bug-upload-status").textContent="Загружаю на хостинг...";
+      const up=await uploadScreenshot(bugScreenshotBlob);
+      if(up.url){
+        document.getElementById("bug-shot-url").value=up.url;
+      }else if(up.dataUrl){
+        // base64: include inline (may be truncated in email but stored in dashboard)
+        const hidden=document.createElement("input");
+        hidden.type="hidden";hidden.name="screenshot_base64";hidden.value=up.dataUrl.slice(0,100000);
+        form.appendChild(hidden);
+      }
+      document.getElementById("bug-upload-status").textContent="Загружено через "+up.method;
+    }
+    const fd=new FormData(form);
+    const r=await fetch(FORMSPREE_ENDPOINT,{method:"POST",body:fd,headers:{"Accept":"application/json"}});
+    if(r.ok){
+      status.className="bug-status ok";
+      status.textContent="✓ Отправлено. Спасибо!";
+      form.reset();
+      bugScreenshotBlob=null;
+      document.getElementById("bug-preview").style.display="none";
+      setTimeout(closeBugModal,1500);
+    }else{
+      const j=await r.json().catch(()=>({}));
+      status.className="bug-status err";
+      status.textContent="Ошибка: "+(j.error||r.status);
+    }
+  }catch(e){
+    status.className="bug-status err";
+    status.textContent="Сбой сети: "+e.message;
+  }finally{
+    btn.disabled=false;btn.textContent="Отправить";
+  }
+}
+
+// Paste screenshot from clipboard anywhere while bug modal is open
+window.addEventListener("paste",e=>{
+  if(!document.getElementById("bug-modal").classList.contains("open"))return;
+  const items=e.clipboardData?.items||[];
+  for(const it of items){
+    if(it.type.startsWith("image/")){
+      const file=it.getAsFile();
+      if(file)handleBugFile(file);
+      e.preventDefault();
+      return;
+    }
+  }
+});
+// Drag & drop onto bug file input area
+document.addEventListener("DOMContentLoaded",()=>{
+  const fileInput=document.getElementById("bug-file");
+  if(!fileInput)return;
+  const parent=fileInput.parentElement;
+  parent.addEventListener("dragover",e=>{e.preventDefault()});
+  parent.addEventListener("drop",e=>{
+    e.preventDefault();
+    if(e.dataTransfer.files[0])handleBugFile(e.dataTransfer.files[0]);
+  });
+});
 </script>
 </body>
 </html>
