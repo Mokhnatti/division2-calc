@@ -30,6 +30,31 @@
         .bug-alt{text-align:center;font-size:11px;color:var(--muted);padding:8px;border-top:1px solid var(--border)}
         .bug-alt a{color:var(--blue);text-decoration:none}
         .bug-alt a:hover{text-decoration:underline}
+        /* COMMUNITY */
+        .comm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;padding:0 4px 30px}
+        @media(max-width:500px){.comm-grid{grid-template-columns:1fr}}
+        .comm-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s}
+        .comm-card:hover{border-color:var(--named)}
+        .cc-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+        .cc-title{font-size:14px;font-weight:700;color:var(--named);line-height:1.3}
+        .cc-meta{display:flex;gap:6px;flex-wrap:wrap;font-size:10px;color:var(--muted);align-items:center}
+        .cc-meta .cc-badge{padding:2px 8px;border-radius:10px;background:rgba(171,71,188,.12);color:var(--named);border:1px solid rgba(171,71,188,.3);font-weight:600}
+        .cc-meta .cc-cat{padding:2px 8px;border-radius:10px;background:rgba(245,166,35,.12);color:var(--orange);border:1px solid rgba(245,166,35,.3);font-weight:600}
+        .cc-author{color:var(--text)}
+        .cc-desc{font-size:12px;color:var(--muted);line-height:1.4;min-height:20px}
+        .cc-weapon{font-size:11px;color:var(--text);padding:4px 8px;background:rgba(245,166,35,.08);border-radius:5px;border:1px solid rgba(245,166,35,.2)}
+        .cc-weapon b{color:var(--orange)}
+        .cc-footer{display:flex;gap:8px;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:8px;margin-top:auto}
+        .cc-dps{font-size:11px;color:var(--muted)}
+        .cc-dps b{color:var(--orange);font-size:12px}
+        .cc-actions{display:flex;gap:6px;align-items:center}
+        .cc-like{background:rgba(239,83,80,.08);border:1px solid rgba(239,83,80,.3);color:var(--red);padding:4px 10px;border-radius:14px;cursor:pointer;font-size:12px;font-weight:600;display:flex;gap:4px;align-items:center;transition:all .15s}
+        .cc-like:hover{background:rgba(239,83,80,.18)}
+        .cc-like.liked{background:var(--red);color:#000}
+        .cc-like:disabled{opacity:.6;cursor:default}
+        .cc-open{background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.4);color:var(--green);padding:4px 12px;border-radius:14px;cursor:pointer;font-size:12px;font-weight:600}
+        .cc-open:hover{background:rgba(0,200,83,.2)}
+        .cc-time{font-size:10px;color:#555}
         .search-panel{background:var(--card);border-bottom:1px solid var(--border);padding:14px 20px;max-width:1000px;margin:0 auto}
         .search-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
         .search-row input{flex:1;min-width:180px;padding:9px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:13px;outline:none}
@@ -234,6 +259,7 @@
     <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS Калькулятор</button>
     <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">META Билды</button>
     <button class="cat-btn" data-cat="build" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">⚙ BUILD</button>
+    <button class="cat-btn" data-cat="community" style="background:rgba(171,71,188,.1);border-color:rgba(171,71,188,.3);color:var(--named)">🏆 Сообщество</button>
 </div>
 <div class="result-count" id="rc"></div>
 <div class="content" id="mc"></div>
@@ -496,6 +522,7 @@
     <button class="mf-btn" onclick="saveCurrentBuild()" title="Сохранить текущий">Сохранить</button>
     <button class="mf-btn" onclick="deleteSelectedBuild()" title="Удалить выбранный" style="color:#ef5350">Удалить</button>
     <button class="mf-btn" onclick="shareBuild()" title="Скопировать ссылку" style="background:rgba(66,165,245,.15);border-color:rgba(66,165,245,.4);color:var(--blue)">🔗 Поделиться</button>
+    <button class="mf-btn" onclick="openPublishModal()" title="Опубликовать в сообществе" style="background:rgba(0,200,83,.15);border-color:rgba(0,200,83,.4);color:var(--green)">🚀 Опубликовать</button>
     <div id="b-share-status" style="font-size:11px;color:var(--muted);flex-basis:100%;text-align:center;min-height:14px"></div>
   </div>
 
@@ -635,6 +662,76 @@
   </div>
 
 </div>
+</div>
+
+<!-- COMMUNITY PANEL -->
+<div id="community-panel" style="display:none">
+<div class="bw" style="max-width:1100px">
+  <div class="bsect" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <h3 style="margin:0 auto 0 0">🏆 Билды сообщества</h3>
+    <select id="comm-cat-filter" class="bsel" style="min-width:140px;max-width:180px" onchange="loadCommunityFeed()">
+      <option value="">Все категории</option>
+      <option value="AR">AR</option>
+      <option value="SMG">SMG</option>
+      <option value="LMG">LMG</option>
+      <option value="MMR">MMR</option>
+      <option value="Rifle">Rifle</option>
+      <option value="SG">SG</option>
+      <option value="Pistol">Pistol</option>
+      <option value="Mixed">Mixed</option>
+    </select>
+    <select id="comm-sort" class="bsel" style="min-width:140px;max-width:180px" onchange="loadCommunityFeed()">
+      <option value="-likes,-created">Популярные</option>
+      <option value="-created">Новые</option>
+      <option value="-peak_dps">По DPS</option>
+    </select>
+    <button class="mf-btn" onclick="loadCommunityFeed()" title="Обновить">🔄 Обновить</button>
+  </div>
+  <div id="comm-status" style="text-align:center;padding:10px;font-size:12px;color:var(--muted)"></div>
+  <div id="comm-list" class="comm-grid"></div>
+</div>
+</div>
+
+<!-- PUBLISH MODAL -->
+<div class="modal-bg" id="pub-modal" onclick="if(event.target===this)closePublishModal()">
+  <div class="modal-box" style="max-width:560px">
+    <div class="modal-head">
+      <h3>🚀 Опубликовать билд</h3>
+      <button class="modal-close" onclick="closePublishModal()">×</button>
+    </div>
+    <form class="bug-form" id="pub-form" onsubmit="submitPublish(event)">
+      <div>
+        <label>Название билда *</label>
+        <input name="name" type="text" required maxlength="100" placeholder="Например: LMG Tipping Crit">
+      </div>
+      <div class="bug-row">
+        <div>
+          <label>Автор (ник)</label>
+          <input name="author" type="text" maxlength="40" placeholder="Аноним">
+        </div>
+        <div>
+          <label>Категория оружия</label>
+          <select name="weapon_cat" required>
+            <option value="AR">AR</option>
+            <option value="SMG">SMG</option>
+            <option value="LMG">LMG</option>
+            <option value="MMR">MMR</option>
+            <option value="Rifle">Rifle</option>
+            <option value="SG">SG</option>
+            <option value="Pistol">Pistol</option>
+            <option value="Mixed">Mixed</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label>Описание (2-3 предложения)</label>
+        <textarea name="description" maxlength="500" placeholder="Коротко — что за билд, на что ставка, для какого контента..."></textarea>
+      </div>
+      <div id="pub-preview" style="padding:10px 12px;border:1px solid var(--border);border-radius:7px;background:rgba(0,200,83,.04);font-size:11px;color:var(--muted)"></div>
+      <div class="bug-status" id="pub-status"></div>
+      <button type="submit" class="bug-submit" id="pub-submit-btn" style="background:var(--green);color:#000">Опубликовать</button>
+    </form>
+  </div>
 </div>
 
 <!-- BUG REPORT MODAL -->
@@ -1108,16 +1205,20 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         const isCalc = activeCat==="dps";
         const isMeta = activeCat==="meta";
         const isBuild = activeCat==="build";
-        const hideMain = isCalc||isMeta||isBuild;
+        const isCommunity = activeCat==="community";
+        const hideMain = isCalc||isMeta||isBuild||isCommunity;
         document.getElementById("mc").style.display=hideMain?"none":"";
         document.getElementById("rc").style.display=hideMain?"none":"";
         document.querySelector(".search-panel").style.display=hideMain?"none":"";
         document.getElementById("dps-panel").style.display=isCalc?"block":"none";
         document.getElementById("meta-panel").style.display=isMeta?"block":"none";
         document.getElementById("build-panel").style.display=isBuild?"block":"none";
+        const commPanel=document.getElementById("community-panel");
+        if(commPanel)commPanel.style.display=isCommunity?"block":"none";
         if(!hideMain) render();
         else if(isCalc) calcDPS();
         else if(isBuild) calcBuild();
+        else if(isCommunity) loadCommunityFeed();
     });
 });
 render();
@@ -1873,6 +1974,262 @@ function deleteSelectedBuild(){
   showShareStatus('Удалён "'+name+'"',2500);
 }
 function onSavedSelect(){}
+
+// ===== COMMUNITY (PocketBase backend) =====
+const PB_BASE=(location.hostname==="divcalc.xyz"||location.hostname==="www.divcalc.xyz")
+  ? location.origin
+  : "https://divcalc.xyz";
+const PB_API=PB_BASE+"/api/collections";
+
+// Stable per-browser fingerprint for anti-spam likes
+function getFingerprint(){
+  let fp=localStorage.getItem("d2calc_fp_v1");
+  if(!fp){
+    fp=(crypto&&crypto.randomUUID)?crypto.randomUUID():("fp-"+Date.now()+"-"+Math.random().toString(36).slice(2,10));
+    localStorage.setItem("d2calc_fp_v1",fp);
+  }
+  return fp;
+}
+function getLikedSet(){
+  try{return new Set(JSON.parse(localStorage.getItem("d2calc_liked_v1")||"[]"))}catch(e){return new Set()}
+}
+function saveLikedSet(set){
+  localStorage.setItem("d2calc_liked_v1",JSON.stringify(Array.from(set)));
+}
+function fmtAgo(iso){
+  if(!iso)return "";
+  const d=new Date(iso);
+  const diff=(Date.now()-d.getTime())/1000;
+  if(diff<60)return "только что";
+  if(diff<3600)return Math.floor(diff/60)+"мин назад";
+  if(diff<86400)return Math.floor(diff/3600)+"ч назад";
+  if(diff<86400*7)return Math.floor(diff/86400)+"д назад";
+  return d.toLocaleDateString("ru");
+}
+function escapeHtml(s){
+  return String(s||"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+async function loadCommunityFeed(){
+  const listEl=document.getElementById("comm-list");
+  const status=document.getElementById("comm-status");
+  if(!listEl||!status)return;
+  status.textContent="Загружаю...";
+  status.style.color="var(--muted)";
+  listEl.innerHTML="";
+  const sort=document.getElementById("comm-sort").value||"-likes,-created";
+  const cat=document.getElementById("comm-cat-filter").value||"";
+  const filter=cat?`weapon_cat="${cat}"`:"";
+  const url=`${PB_API}/builds/records?perPage=60&sort=${encodeURIComponent(sort)}${filter?"&filter="+encodeURIComponent(filter):""}`;
+  try{
+    const r=await fetch(url);
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    const j=await r.json();
+    if(!j.items||j.items.length===0){
+      status.textContent="Пока нет билдов в этой категории. Будь первым — жми 🚀 Опубликовать во вкладке BUILD!";
+      return;
+    }
+    status.textContent=`Найдено: ${j.totalItems}`;
+    const liked=getLikedSet();
+    listEl.innerHTML=j.items.map(b=>renderBuildCard(b,liked.has(b.id))).join("");
+  }catch(e){
+    status.textContent="Ошибка загрузки: "+e.message+". Бэкенд PocketBase может быть недоступен.";
+    status.style.color="var(--red)";
+  }
+}
+
+function renderBuildCard(b,isLiked){
+  const weapon=b.weapon_name?`<div class="cc-weapon">🔫 <b>${escapeHtml(b.weapon_name)}</b></div>`:"";
+  const dps=b.peak_dps?`<div class="cc-dps">Пик DPS: <b>${Math.round(b.peak_dps/1000)}k</b></div>`:`<div class="cc-dps"></div>`;
+  const desc=b.description?`<div class="cc-desc">${escapeHtml(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">— без описания —</div>`;
+  return`<div class="comm-card" data-id="${b.id}">
+    <div class="cc-h">
+      <div class="cc-title">${escapeHtml(b.name)}</div>
+      <div class="cc-meta">
+        <span class="cc-cat">${escapeHtml(b.weapon_cat||"")}</span>
+      </div>
+    </div>
+    <div class="cc-meta">
+      <span class="cc-author">${escapeHtml(b.author||"Аноним")}</span>
+      <span class="cc-time">· ${fmtAgo(b.created)}</span>
+    </div>
+    ${weapon}
+    ${desc}
+    <div class="cc-footer">
+      ${dps}
+      <div class="cc-actions">
+        <button class="cc-like ${isLiked?"liked":""}" onclick="toggleLike('${b.id}',this)" ${isLiked?'title="Убрать лайк"':'title="Лайк"'}>❤ <span>${b.likes||0}</span></button>
+        <button class="cc-open" onclick="openCommunityBuild('${b.id}','${b.build_hash||""}')">Открыть</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+async function toggleLike(buildId,btn){
+  btn.disabled=true;
+  const liked=getLikedSet();
+  const fp=getFingerprint();
+  try{
+    if(liked.has(buildId)){
+      // Unlike: find and delete the like record
+      const r=await fetch(`${PB_API}/likes/records?filter=${encodeURIComponent(`build="${buildId}" && fingerprint="${fp}"`)}&perPage=1`);
+      const j=await r.json();
+      if(j.items&&j.items[0]){
+        await fetch(`${PB_API}/likes/records/${j.items[0].id}`,{method:"DELETE"});
+      }
+      // decrement on build
+      const br=await fetch(`${PB_API}/builds/records/${buildId}`);
+      const bj=await br.json();
+      const newLikes=Math.max(0,(bj.likes||0)-1);
+      await fetch(`${PB_API}/builds/records/${buildId}`,{
+        method:"PATCH",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({likes:newLikes})
+      });
+      liked.delete(buildId);
+      saveLikedSet(liked);
+      btn.classList.remove("liked");
+      btn.querySelector("span").textContent=newLikes;
+    }else{
+      // Like: create like record + increment
+      const createRes=await fetch(`${PB_API}/likes/records`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({build:buildId,fingerprint:fp})
+      });
+      if(createRes.ok||createRes.status===400){
+        // increment counter regardless (if 400, likely dup — refresh UI anyway)
+        const br=await fetch(`${PB_API}/builds/records/${buildId}`);
+        const bj=await br.json();
+        const newLikes=(bj.likes||0)+1;
+        if(createRes.ok){
+          await fetch(`${PB_API}/builds/records/${buildId}`,{
+            method:"PATCH",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({likes:newLikes})
+          });
+          liked.add(buildId);
+          saveLikedSet(liked);
+          btn.classList.add("liked");
+          btn.querySelector("span").textContent=newLikes;
+        }
+      }
+    }
+  }catch(e){
+    console.error(e);
+  }finally{
+    btn.disabled=false;
+  }
+}
+
+function openCommunityBuild(id,hash){
+  if(!hash){alert("Билд без данных");return}
+  // Switch to BUILD tab and apply state from hash
+  try{
+    const s=JSON.parse(decodeURIComponent(escape(atob(hash))));
+    // Switch tab
+    document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
+    const buildBtn=document.querySelector('.cat-btn[data-cat="build"]');
+    if(buildBtn){
+      buildBtn.classList.add("active");
+      buildBtn.click();
+    }
+    applyBuildState(s);
+    window.scrollTo(0,0);
+  }catch(e){
+    alert("Ошибка загрузки билда: "+e.message);
+  }
+}
+
+// ===== PUBLISH =====
+function openPublishModal(){
+  // Pre-fill from current state
+  const form=document.getElementById("pub-form");
+  if(!form)return;
+  const wpn=getWeapon();
+  const catSel=form.weapon_cat;
+  if(catSel&&wpn&&wpn.cat){
+    // Convert cat to published values
+    const map={AR:"AR",SMG:"SMG",LMG:"LMG",MMR:"MMR",Rifle:"Rifle",SG:"SG",Pistol:"Pistol"};
+    catSel.value=map[wpn.cat]||"Mixed";
+  }
+  // Show preview
+  const state=getBuildState();
+  const slotCount=Object.values(state.slots||{}).filter(x=>x).length;
+  document.getElementById("pub-preview").innerHTML=
+    `📦 <b>${wpn?wpn.name:"—"}</b> (${wpn?wpn.cat:"?"}) · слотов: <b>${slotCount}/6</b> · сохранение включает: оружие, талант, ${slotCount} предметов брони, все статы`;
+  document.getElementById("pub-modal").classList.add("open");
+  document.getElementById("pub-status").className="bug-status";
+  document.getElementById("pub-status").textContent="";
+}
+function closePublishModal(){
+  document.getElementById("pub-modal").classList.remove("open");
+}
+
+async function submitPublish(ev){
+  ev.preventDefault();
+  const form=ev.target;
+  const btn=document.getElementById("pub-submit-btn");
+  const status=document.getElementById("pub-status");
+  btn.disabled=true;btn.textContent="Публикация...";
+  status.className="bug-status";status.textContent="";
+  try{
+    const state=getBuildState();
+    const hashB64=btoa(unescape(encodeURIComponent(JSON.stringify(state))));
+    // Compute peak DPS by looking at current b-peak div (it's been calculated)
+    const peakNum=extractPeakDPS();
+    const wpn=getWeapon();
+    const payload={
+      name:form.name.value.trim(),
+      author:form.author.value.trim()||"Аноним",
+      description:form.description.value.trim(),
+      weapon_cat:form.weapon_cat.value,
+      weapon_name:wpn?wpn.name:"",
+      build_hash:hashB64,
+      peak_dps:peakNum||0,
+      likes:0,
+    };
+    const r=await fetch(`${PB_API}/builds/records`,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(payload)
+    });
+    if(r.ok){
+      const j=await r.json();
+      status.className="bug-status ok";
+      status.textContent="✓ Опубликовано! ID: "+j.id;
+      // Save publisher mark
+      const mine=JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]");
+      mine.push(j.id);
+      localStorage.setItem("d2calc_mine_v1",JSON.stringify(mine));
+      setTimeout(()=>{
+        closePublishModal();
+        // Switch to community tab
+        const commBtn=document.querySelector('.cat-btn[data-cat="community"]');
+        if(commBtn)commBtn.click();
+      },1200);
+    }else{
+      const j=await r.json().catch(()=>({}));
+      status.className="bug-status err";
+      status.textContent="Ошибка: "+(j.message||j.error||("HTTP "+r.status));
+    }
+  }catch(e){
+    status.className="bug-status err";
+    status.textContent="Сбой сети: "+e.message;
+  }finally{
+    btn.disabled=false;btn.textContent="Опубликовать";
+  }
+}
+
+function extractPeakDPS(){
+  // b-peak innerHTML contains something like "<div>4,379,161</div>"
+  const el=document.getElementById("b-peak");
+  if(!el)return 0;
+  const txt=el.textContent||"";
+  const m=/([\d\s]{5,})/.exec(txt);
+  if(!m)return 0;
+  return parseInt(m[1].replace(/\D/g,""))||0;
+}
 
 // Weapon 4th-roll talents (generic, rolls on any weapon — not exotic/named talents)
 const WEAPON_TALENTS={
