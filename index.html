@@ -669,6 +669,7 @@
 <div class="bw" style="max-width:1100px">
   <div class="bsect" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
     <h3 style="margin:0 auto 0 0">🏆 Билды сообщества</h3>
+    <input type="text" id="comm-search" placeholder="Поиск по имени / автору..." class="bsel" style="flex:1;min-width:160px;max-width:260px" oninput="debouncedCommReload()">
     <select id="comm-cat-filter" class="bsel" style="min-width:140px;max-width:180px" onchange="loadCommunityFeed()">
       <option value="">Все категории</option>
       <option value="AR">AR</option>
@@ -2016,6 +2017,11 @@ function escapeHtml(s){
   return String(s||"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
+let commReloadTimer=null;
+function debouncedCommReload(){
+  clearTimeout(commReloadTimer);
+  commReloadTimer=setTimeout(loadCommunityFeed,350);
+}
 async function loadCommunityFeed(){
   const listEl=document.getElementById("comm-list");
   const status=document.getElementById("comm-status");
@@ -2026,8 +2032,13 @@ async function loadCommunityFeed(){
   const sort=document.getElementById("comm-sort").value||"-likes,-created";
   const cat=document.getElementById("comm-cat-filter").value||"";
   const scope=document.getElementById("comm-scope")?.value||"all";
+  const search=(document.getElementById("comm-search")?.value||"").trim();
   const filters=[];
   if(cat)filters.push(`weapon_cat="${cat}"`);
+  if(search){
+    const safe=search.replace(/"/g,'\\"');
+    filters.push(`(name~"${safe}" || author~"${safe}" || description~"${safe}" || weapon_name~"${safe}")`);
+  }
   // Scope filters (client-side for "mine" and "liked" since they depend on localStorage)
   const url=`${PB_API}/builds/records?perPage=100&sort=${encodeURIComponent(sort)}${filters.length?"&filter="+encodeURIComponent(filters.join(" && ")):""}`;
   try{
