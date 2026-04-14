@@ -646,6 +646,16 @@
     <div class="bpeak" id="b-peak"></div>
   </div>
 
+  <!-- Stat weights -->
+  <div class="bsect" id="b-weights-sect" style="display:none">
+    <h3>📊 Что качать дальше — веса статов</h3>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px">+1% каждого стата → сколько прибавит к пиковому DPS. Звёздочка = самый эффективный.</div>
+    <table class="weights-table">
+      <thead><tr><th>Стат</th><th>+1% → DPS</th><th>Вес</th><th>% DPS</th></tr></thead>
+      <tbody id="b-weights-body"></tbody>
+    </table>
+  </div>
+
   <!-- TTK Meter -->
   <div class="bsect" id="b-ttk-sect" style="display:none">
     <h3>⏱ Время до убийства (TTK)</h3>
@@ -2956,8 +2966,43 @@ function calcBuild(){
   window._lastBuildDPS={base:baseDPS,avg:avgDPS10,peak:maxDPS};
   // Build validation
   runBuildValidation({wpn,cnt,hasChest,hasBP,brandCnt,tCHC,tWD,tHSD,tROF,namedItems,slotState});
+  // Stat weights — what to level up next
+  computeBuildWeights({wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC,mDTA,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS});
   // Autosave last state
   try{localStorage.setItem("d2calc_last",JSON.stringify(getBuildState()))}catch(e){}
+}
+
+// Compute stat weights: +1% per stat → DPS delta at peak
+function computeBuildWeights(ctx){
+  const {wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC,mDTA,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS}=ctx;
+  if(!wpn||!maxDPS)return;
+  // Helper to call dpsAtTime at peak (Infinity) with modified totals
+  const calcPeak=(wd,rof,mag,chc,chd,hsd)=>{
+    const r=dpsAtTime(wpn,wd+tPeakOnly.wd,rof+tPeakOnly.rof,mag+tPeakOnly.mag,chc+tPeakOnly.chc,chd+tPeakOnly.chd,hsd+tPeakOnly.hsd,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,Infinity);
+    return r.dps;
+  };
+  const base=calcPeak(tWD,tROF,tMAG,tCHC,tCHD,tHSD);
+  const weights=[
+    {k:"WD",d:calcPeak(tWD+1,tROF,tMAG,tCHC,tCHD,tHSD)-base},
+    {k:"CHC",d:calcPeak(tWD,tROF,tMAG,tCHC+1,tCHD,tHSD)-base},
+    {k:"CHD",d:calcPeak(tWD,tROF,tMAG,tCHC,tCHD+1,tHSD)-base},
+    {k:"HSD",d:mHSR>0?calcPeak(tWD,tROF,tMAG,tCHC,tCHD,tHSD+1)-base:0},
+    {k:"RPM",d:calcPeak(tWD,tROF+1,tMAG,tCHC,tCHD,tHSD)-base},
+    {k:"Магазин",d:calcPeak(tWD,tROF,tMAG+1,tCHC,tCHD,tHSD)-base},
+  ];
+  weights.sort((a,b)=>b.d-a.d);
+  const maxD=Math.max(...weights.map(w=>w.d));
+  const body=document.getElementById("b-weights-body");
+  const sect=document.getElementById("b-weights-sect");
+  if(!body||!sect)return;
+  sect.style.display="block";
+  body.innerHTML=weights.map((w,i)=>{
+    const pct=maxD>0?Math.round(w.d/maxD*100):0;
+    const pctDps=base>0?(w.d/base*100).toFixed(2):"0.00";
+    const best=i===0&&w.d>0?' w-best':'';
+    const bar=`<div class="w-bar-bg"><div class="w-bar" style="width:${pct}%"></div></div>`;
+    return`<tr><td class="${best}">${i===0&&w.d>0?"⭐ ":""}${w.k}</td><td>+${Math.round(w.d).toLocaleString("ru")}</td><td>${bar}</td><td>+${pctDps}%</td></tr>`;
+  }).join("");
 }
 
 // Returns list of warning objects: {level:'err'|'warn'|'info', text:string}
