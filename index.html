@@ -614,7 +614,7 @@
     <div class="bstat-row" style="margin-bottom:10px">
       <div class="bstat"><label>HP мобов</label><input id="ttk-hp-mult" type="number" value="0" min="0" max="800" step="50" oninput="onTtkMultChange()"><span class="u">%</span></div>
       <div class="bstat"><label>Броня мобов</label><input id="ttk-ar-mult" type="number" value="0" min="0" max="800" step="50" oninput="onTtkMultChange()"><span class="u">%</span></div>
-      <div style="font-size:10px;color:#555;align-self:center;flex:1;min-width:160px">Для сложных данжей с бафами HP/брони. Макс +800% на каждый бар. Итоговый EHP усреднён 50/50.</div>
+      <div style="font-size:10px;color:#555;align-self:center;flex:1;min-width:160px">Для сложных данжей с бафами HP/брони. Макс +800% на каждый бар. Сплит EHP: 25% HP / 75% броня.</div>
     </div>
     <table class="btl" id="ttk-table">
       <thead><tr>
@@ -1982,8 +1982,8 @@ function renderTtk(base,avg,peak){
   const enemies=ENEMY_HP[ttkDiff];
   const hpMult=clamp(parseFloat(document.getElementById("ttk-hp-mult")?.value)||0,0,800);
   const arMult=clamp(parseFloat(document.getElementById("ttk-ar-mult")?.value)||0,0,800);
-  // EHP scaling: split base hp 50/50 between "health" and "armor" bars
-  const effMult=0.5*(1+hpMult/100)+0.5*(1+arMult/100);
+  // EHP scaling: split base hp 25% health / 75% armor
+  const effMult=0.25*(1+hpMult/100)+0.75*(1+arMult/100);
   const hasBoost=hpMult>0||arMult>0;
   const body=enemies.map(e=>{
     const ehp=e.hp*effMult;
