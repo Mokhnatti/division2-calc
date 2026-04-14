@@ -259,7 +259,7 @@
     <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS Калькулятор</button>
     <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">META Билды</button>
     <button class="cat-btn" data-cat="build" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">⚙ BUILD</button>
-    <button class="cat-btn" data-cat="community" style="background:rgba(171,71,188,.1);border-color:rgba(171,71,188,.3);color:var(--named)">🏆 Сообщество</button>
+    <button class="cat-btn" data-cat="community" style="background:rgba(171,71,188,.1);border-color:rgba(171,71,188,.3);color:var(--named);position:relative">🏆 Сообщество <span style="position:absolute;top:-6px;right:-6px;background:var(--red);color:#000;font-size:9px;padding:1px 5px;border-radius:6px;font-weight:700">NEW</span></button>
 </div>
 <div class="result-count" id="rc"></div>
 <div class="content" id="mc"></div>
@@ -2118,7 +2118,16 @@ async function loadCommunityFeed(){
       status.textContent=msg[scope]||msg.all;
       return;
     }
-    status.textContent=`Найдено: ${items.length}${scope==="all"?` (всего в базе: ${j.totalItems})`:""}`;
+    // Show extra stats for mine/liked scope
+    let extraStats="";
+    if(scope==="mine"){
+      const totalLikes=items.reduce((a,b)=>a+(b.likes||0),0);
+      const avgLikes=items.length?Math.round(totalLikes/items.length*10)/10:0;
+      extraStats=` · Всего лайков: <b style="color:var(--red)">${totalLikes}</b> · В среднем: ${avgLikes}`;
+    }else if(scope==="liked"){
+      extraStats=` · Ты лайкнул ${items.length} билдов`;
+    }
+    status.innerHTML=`Найдено: <b>${items.length}</b>${scope==="all"?` (всего в базе: ${j.totalItems})`:""}${extraStats}`;
     const liked=getLikedSet();
     listEl.innerHTML=items.map(b=>renderBuildCard(b,liked.has(b.id))).join("");
   }catch(e){
