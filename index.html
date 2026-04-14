@@ -521,6 +521,7 @@
     <button class="mf-btn" onclick="loadSelectedBuild()" title="Загрузить выбранный">Загрузить</button>
     <button class="mf-btn" onclick="saveCurrentBuild()" title="Сохранить текущий">Сохранить</button>
     <button class="mf-btn" onclick="deleteSelectedBuild()" title="Удалить выбранный" style="color:#ef5350">Удалить</button>
+    <button class="mf-btn" onclick="resetCurrentBuild()" title="Сбросить все слоты и статы к нулю" style="color:#ef5350">♻ Сброс</button>
     <button class="mf-btn" onclick="shareBuild()" title="Скопировать ссылку" style="background:rgba(66,165,245,.15);border-color:rgba(66,165,245,.4);color:var(--blue)">🔗 Поделиться</button>
     <button class="mf-btn" onclick="openPublishModal()" title="Опубликовать в сообществе" style="background:rgba(0,200,83,.15);border-color:rgba(0,200,83,.4);color:var(--green)">🚀 Опубликовать</button>
     <div id="b-share-status" style="font-size:11px;color:var(--muted);flex-basis:100%;text-align:center;min-height:14px"></div>
@@ -2012,6 +2013,30 @@ function deleteSelectedBuild(){
   showShareStatus('Удалён "'+name+'"',2500);
 }
 function onSavedSelect(){}
+
+function resetCurrentBuild(){
+  if(!confirm("Сбросить все слоты, оружейный талант и статы? Это не затронет сохранённые билды."))return;
+  // Reset all armor slots
+  for(const slot of Object.keys(slotState)){
+    slotState[slot]=null;
+    updateSlotBtn(slot);
+  }
+  // Reset weapon talent
+  selectedWpnTalent="none";
+  const talSel=document.getElementById("b-wpn-tal");
+  if(talSel)talSel.value="none";
+  // Reset manual stats to defaults
+  setInput("b-chc",20);setInput("b-chd",25);setInput("b-hsd",0);
+  setInput("b-hsrate",0);setInput("b-ooc",0);setInput("b-dta",0);setInput("b-wd",0);
+  // Keep SHD at maxed defaults (пользователь просил)
+  setInput("shd-wd",10);setInput("shd-hsd",10);setInput("shd-chc",10);setInput("shd-chd",30);setInput("shd-ammo",0);
+  // Recombinator back to zeros
+  ["rc-hsd","rc-ammo","rc-ergo","rc-armor","rc-elite","rc-hazprot","rc-status","rc-skilldmg","rc-util3"].forEach(id=>setInput(id,0));
+  // TTK multipliers
+  setInput("ttk-hp-mult",0);setInput("ttk-ar-mult",0);
+  calcBuild();
+  showShareStatus("Билд сброшен",2000);
+}
 
 // ===== COMMUNITY (PocketBase backend) =====
 const PB_BASE=(location.hostname==="divcalc.xyz"||location.hostname==="www.divcalc.xyz")
