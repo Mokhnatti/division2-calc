@@ -622,6 +622,7 @@
       <input type="hidden" name="user_agent" id="bug-ua">
       <input type="hidden" name="screenshot_url" id="bug-shot-url">
       <input type="hidden" name="_subject" value="Division 2 Calc — баг-репорт">
+      <div id="bug-limit-warn" style="display:none;padding:10px 12px;border-radius:7px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.35);font-size:11px;color:var(--red);line-height:1.5"></div>
       <div class="bug-status" id="bug-status"></div>
       <button type="submit" class="bug-submit" id="bug-submit-btn">Отправить</button>
     </form>
@@ -1854,12 +1855,42 @@ initBuildSlots();
 
 // ===== BUG REPORT =====
 const FORMSPREE_ENDPOINT="https://formspree.io/f/mlgadraa";
+const FORMSPREE_LIMIT=50;
+const WARN_THRESHOLD=40;
 let bugScreenshotBlob=null;
+function bugCounterKey(){
+  const d=new Date();
+  return "bugs-"+d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");
+}
+async function fetchBugCount(){
+  const key=bugCounterKey();
+  try{
+    const r=await fetch("https://abacus.jasoncameron.dev/get/mokhnatti-d2calc/"+key);
+    if(r.ok){const j=await r.json();return j.value||0}
+    // key doesn't exist yet this month → create
+    const c=await fetch("https://abacus.jasoncameron.dev/create/mokhnatti-d2calc/"+key+"?initializer=0");
+    if(c.ok){const j=await c.json();return j.value||0}
+  }catch(e){}
+  return 0;
+}
+async function incrementBugCount(){
+  const key=bugCounterKey();
+  try{await fetch("https://abacus.jasoncameron.dev/hit/mokhnatti-d2calc/"+key)}catch(e){}
+}
 
-function openBugModal(){
+async function openBugModal(){
   document.getElementById("bug-page-url").value=location.href;
   document.getElementById("bug-ua").value=navigator.userAgent;
   document.getElementById("bug-modal").classList.add("open");
+  // Check monthly submission count
+  const warn=document.getElementById("bug-limit-warn");
+  warn.style.display="none";
+  const count=await fetchBugCount();
+  if(count>=WARN_THRESHOLD){
+    const left=Math.max(0,FORMSPREE_LIMIT-count);
+    warn.innerHTML=`⚠ В этом месяце уже <b>${count}</b> репортов через форму (лимит ${FORMSPREE_LIMIT}/мес, осталось ~${left}).<br>Если не срочно — лучше открой <a href="https://github.com/Mokhnatti/division2-calc/issues/new" target="_blank" style="color:var(--orange)">issue на GitHub</a>, там без лимита.`;
+    warn.style.display="block";
+  }
 }
 function closeBugModal(){
   document.getElementById("bug-modal").classList.remove("open");
@@ -1951,6 +1982,7 @@ async function submitBug(ev){
       form.reset();
       bugScreenshotBlob=null;
       document.getElementById("bug-preview").style.display="none";
+      incrementBugCount();
       setTimeout(closeBugModal,1500);
     }else{
       const j=await r.json().catch(()=>({}));
