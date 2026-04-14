@@ -2367,15 +2367,19 @@ function openPublishModal(){
   const wpn=getWeapon();
   const catSel=form.weapon_cat;
   if(catSel&&wpn&&wpn.cat){
-    // Convert cat to published values
     const map={AR:"AR",SMG:"SMG",LMG:"LMG",MMR:"MMR",Rifle:"Rifle",SG:"SG",Pistol:"Pistol"};
     catSel.value=map[wpn.cat]||"Mixed";
   }
+  // Restore saved author nickname
+  const savedAuthor=localStorage.getItem("d2calc_author_v1");
+  if(savedAuthor&&form.author)form.author.value=savedAuthor;
   // Show preview
   const state=getBuildState();
   const slotCount=Object.values(state.slots||{}).filter(x=>x).length;
+  const peakDps=window._lastBuildDPS?.peak||0;
+  const peakStr=peakDps?` · Пик DPS: <b style="color:var(--orange)">${Math.round(peakDps/1000)}k</b>`:"";
   document.getElementById("pub-preview").innerHTML=
-    `📦 <b>${wpn?wpn.name:"—"}</b> (${wpn?wpn.cat:"?"}) · слотов: <b>${slotCount}/6</b> · сохранение включает: оружие, талант, ${slotCount} предметов брони, все статы`;
+    `📦 <b>${wpn?wpn.name:"—"}</b> (${wpn?wpn.cat:"?"}) · слотов: <b>${slotCount}/6</b>${peakStr}<br><span style="color:#555">Сохранится: оружие, талант, ${slotCount} предметов брони, все статы/SHD/рекомбинатор</span>`;
   document.getElementById("pub-modal").classList.add("open");
   document.getElementById("pub-status").className="bug-status";
   document.getElementById("pub-status").textContent="";
@@ -2418,6 +2422,10 @@ async function submitPublish(ev){
       const shareLink=location.origin+location.pathname+"#b="+hashB64;
       const tgLink=`https://t.me/share/url?url=${encodeURIComponent(shareLink)}&text=${encodeURIComponent("Division 2 билд \""+payload.name+"\" — жми чтобы открыть в калькуляторе")}`;
       status.innerHTML=`✓ Опубликовано! <a href="${tgLink}" target="_blank" style="color:var(--blue);text-decoration:underline">Поделиться в Telegram</a>`;
+      // Save author nickname for next publish
+      if(payload.author&&payload.author!=="Аноним"){
+        localStorage.setItem("d2calc_author_v1",payload.author);
+      }
       // Save publisher mark
       const mine=JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]");
       mine.push(j.id);
