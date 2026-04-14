@@ -1898,23 +1898,17 @@ function blobToBase64(blob){
 async function uploadScreenshot(blob){
   const dataUrl=await blobToBase64(blob);
   const base64=dataUrl.split(",")[1];
-  // Primary: imgbb (CORS-friendly, needs public key)
-  // Public anonymous key for this project — rate-limited per IP
-  const IMGBB_KEY="6d207e02198a847aa98d0a2a901485a5"; // freeimage.host shared demo key, fallback
-  // Try freeimage.host (open API, no key strict)
+  const IMGBB_KEY="858a71caf467953cdcc8973e9c438f75";
   try{
     const fd=new FormData();
     fd.append("key",IMGBB_KEY);
-    fd.append("action","upload");
-    fd.append("source",base64);
-    fd.append("format","json");
-    const r=await fetch("https://freeimage.host/api/1/upload",{method:"POST",body:fd});
+    fd.append("image",base64);
+    const r=await fetch("https://api.imgbb.com/1/upload",{method:"POST",body:fd});
     if(r.ok){
       const j=await r.json();
-      if(j?.image?.url)return{url:j.image.url,method:"freeimage.host"};
+      if(j?.data?.url)return{url:j.data.url,method:"imgbb"};
     }
   }catch(e){}
-  // Fallback: base64 data url embedded in submission (cut to 150KB for safety)
   return{url:"",dataUrl,method:"base64 (встроено)"};
 }
 
