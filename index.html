@@ -686,6 +686,7 @@
       <option value="-peak_dps">По DPS</option>
     </select>
     <button class="mf-btn" onclick="loadCommunityFeed()" title="Обновить">🔄 Обновить</button>
+    <button class="mf-btn" onclick="promptAdminLogin()" title="Админ логин (только для Мохнатти)" style="opacity:.5">🔑</button>
   </div>
   <div id="comm-status" style="text-align:center;padding:10px;font-size:12px;color:var(--muted)"></div>
   <div id="comm-list" class="comm-grid"></div>
@@ -2038,14 +2039,23 @@ async function loadCommunityFeed(){
   }
 }
 
+function isAdmin(){return !!localStorage.getItem("d2calc_admin_token")}
+function getMyBuilds(){
+  try{return new Set(JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]"))}catch(e){return new Set()}
+}
 function renderBuildCard(b,isLiked){
   const weapon=b.weapon_name?`<div class="cc-weapon">🔫 <b>${escapeHtml(b.weapon_name)}</b></div>`:"";
   const dps=b.peak_dps?`<div class="cc-dps">Пик DPS: <b>${Math.round(b.peak_dps/1000)}k</b></div>`:`<div class="cc-dps"></div>`;
   const desc=b.description?`<div class="cc-desc">${escapeHtml(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">— без описания —</div>`;
-  return`<div class="comm-card" data-id="${b.id}">
+  const adminBtn=isAdmin()?`<button class="cc-like" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.4);color:var(--red)" onclick="adminDeleteBuild('${b.id}')" title="Удалить (админ)">🗑</button>`:"";
+  const mine=getMyBuilds().has(b.id);
+  const myBadge=mine?`<span class="cc-cat" style="background:rgba(0,200,83,.12);color:var(--green);border-color:rgba(0,200,83,.3)">МОЙ</span>`:"";
+  const copyBtn=`<button class="cc-like" style="background:rgba(66,165,245,.08);border-color:rgba(66,165,245,.3);color:var(--blue);padding:4px 8px" onclick="copyBuildUrl('${b.build_hash||""}',this)" title="Скопировать ссылку на билд">🔗</button>`;
+  return`<div class="comm-card" data-id="${b.id}" ${mine?'style="border-color:rgba(0,200,83,.4)"':''}>
     <div class="cc-h">
       <div class="cc-title">${escapeHtml(b.name)}</div>
       <div class="cc-meta">
+        ${myBadge}
         <span class="cc-cat">${escapeHtml(b.weapon_cat||"")}</span>
       </div>
     </div>
@@ -2058,11 +2068,83 @@ function renderBuildCard(b,isLiked){
     <div class="cc-footer">
       ${dps}
       <div class="cc-actions">
+        ${adminBtn}
+        ${copyBtn}
         <button class="cc-like ${isLiked?"liked":""}" onclick="toggleLike('${b.id}',this)" ${isLiked?'title="Убрать лайк"':'title="Лайк"'}>❤ <span>${b.likes||0}</span></button>
         <button class="cc-open" onclick="openCommunityBuild('${b.id}','${b.build_hash||""}')">Открыть</button>
       </div>
     </div>
   </div>`;
+}
+function copyBuildUrl(hash,btn){
+  if(!hash){return}
+  const url=location.origin+location.pathname+"#b="+hash;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(()=>{
+      const orig=btn.innerHTML;btn.innerHTML="✓";
+      setTimeout(()=>{btn.innerHTML=orig},1500);
+    });
+  }
+}
+
+// Admin functions
+async function adminLogin(email,password){
+  try{
+    const r=await fetch(`${PB_BASE}/api/admins/auth-with-password`,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({identity:email,password})
+    });
+    if(!r.ok)throw new Error("Login failed");
+    const j=await r.json();
+    localStorage.setItem("d2calc_admin_token",j.token);
+    return true;
+  }catch(e){
+    alert("Ошибка авторизации: "+e.message);
+    return false;
+  }
+}
+function adminLogout(){
+  localStorage.removeItem("d2calc_admin_token");
+  loadCommunityFeed();
+}
+async function adminDeleteBuild(id){
+  if(!confirm("Удалить билд? Это безвозвратно."))return;
+  const token=localStorage.getItem("d2calc_admin_token");
+  try{
+    const r=await fetch(`${PB_API}/builds/records/${id}`,{
+      method:"DELETE",
+      headers:{"Authorization":token}
+    });
+    if(r.ok){loadCommunityFeed()}
+    else if(r.status===401){
+      localStorage.removeItem("d2calc_admin_token");
+      alert("Токен устарел, залогинься заново");
+    }else{
+      alert("Ошибка удаления: HTTP "+r.status);
+    }
+  }catch(e){
+    alert("Сбой: "+e.message);
+  }
+}
+// Console shortcut: `adminLogin("email","pass")` in browser devtools
+
+async function promptAdminLogin(){
+  if(isAdmin()){
+    if(confirm("Ты уже залогинен админом. Выйти?")){
+      adminLogout();
+    }
+    return;
+  }
+  const email=prompt("Email админа:","admin@divcalc.xyz");
+  if(!email)return;
+  const password=prompt("Пароль:");
+  if(!password)return;
+  const ok=await adminLogin(email,password);
+  if(ok){
+    alert("✓ Залогинен. Теперь на карточках есть кнопка 🗑 для удаления.");
+    loadCommunityFeed();
+  }
 }
 
 async function toggleLike(buildId,btn){
@@ -2256,6 +2338,16 @@ const WEAPON_TALENTS={
   steady_handed:{name:"Steady Handed (Уверенная рука)",bonus:{mag:100,conditional:true,note:"после 100 патронов — патроны из пустоты (≈×2 магазин)"}},
   boomerang:{name:"Boomerang (Бумеранг)",bonus:{wd:12,conditional:true,note:"+12% WD после крита (усреднено)"}},
   vanguard:{name:"Vanguard (Авангард)",bonus:{wd:8,conditional:true,note:"+8% WD после смены оружия 5с"}},
+  in_sync:{name:"In Sync (Синхронизация)",bonus:{wd:15,conditional:true,note:"+15% WD 5с после нанесения скиллом"}},
+  ranger:{name:"Ranger (Дальнобой)",bonus:{wd:15,conditional:true,note:"+3% WD за каждые 5м до цели, макс 5 стаков"}},
+  opportunistic:{name:"Opportunistic (Хватка момента)",bonus:{wd:15,conditional:true,note:"+15% WD по фланкующим врагам"}},
+  precision:{name:"Precision (Точность)",bonus:{chc:20,conditional:true,note:"+20% CHC после хедшотов (условно)"}},
+  fast_hands:{name:"Fast Hands (Быстрые руки)",bonus:{reload:20,note:"+20% скорость перезарядки"}},
+  pummel:{name:"Pummel (Выматывание)",bonus:{wd:50,conditional:true,note:"+50% WD 10с после убийства тело-хитами (2 подряд)"}},
+  lucky_shot:{name:"Lucky Shot (Удачный выстрел)",bonus:{mag:30,conditional:true,note:"+30% магазин, промахи возвращают пули"}},
+  finisher:{name:"Finisher (Добивание)",bonus:{wd:40,conditional:true,note:"+40% WD последний выстрел в магазине"}},
+  overflowing:{name:"Overflowing (Переполнение)",bonus:{mag:25,note:"каждые 3 перезарядки — увеличенный магазин"}},
+  calculated:{name:"Calculated (Расчёт)",bonus:{wd:10,conditional:true,note:"убийство из укрытия +10% WD 10с"}},
 };
 
 // Currently selected weapon (by id from WPNS)
