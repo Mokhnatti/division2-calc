@@ -142,6 +142,50 @@
         .meta-mech{font-size:11px;color:var(--muted);border-top:1px solid var(--border);padding-top:8px;line-height:1.6}
         .meta-mech b{color:var(--text)}
         .meta-req{font-size:11px;color:#ef5350;margin-top:4px}
+        /* INVENTORY MODAL */
+        .slot-btn{cursor:pointer;padding:10px 12px;border:1px dashed var(--border);border-radius:8px;background:var(--bg);color:var(--muted);font-size:12px;min-height:52px;display:flex;flex-direction:column;justify-content:center;gap:2px;transition:all .15s}
+        .slot-btn:hover{border-color:var(--orange);color:var(--text)}
+        .slot-btn.filled{border-style:solid;border-color:rgba(0,200,83,.4);background:rgba(0,200,83,.04)}
+        .slot-btn.filled.named{border-color:rgba(171,71,188,.5);background:rgba(171,71,188,.05)}
+        .slot-btn.filled.exotic{border-color:rgba(255,171,64,.5);background:rgba(255,171,64,.05)}
+        .slot-btn.filled.brand{border-color:rgba(66,165,245,.4);background:rgba(66,165,245,.04)}
+        .slot-btn .sn{font-size:13px;font-weight:700;color:var(--text);line-height:1.2}
+        .slot-btn .sn.green{color:var(--green)}
+        .slot-btn .sn.named{color:var(--named)}
+        .slot-btn .sn.exotic{color:#ffab40}
+        .slot-btn .sn.brand{color:var(--blue)}
+        .slot-btn .ss{font-size:10px;color:var(--muted)}
+        .slot-btn .clr{position:absolute;top:2px;right:4px;color:#555;font-size:14px;cursor:pointer;padding:2px 6px}
+        .slot-btn .clr:hover{color:var(--red)}
+        .slot-wrap{position:relative}
+        .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:flex-start;justify-content:center;z-index:1000;padding:40px 16px;overflow-y:auto}
+        .modal-bg.open{display:flex}
+        .modal-box{background:var(--card);border:1px solid var(--orange);border-radius:12px;max-width:720px;width:100%;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
+        .modal-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px}
+        .modal-head h3{color:var(--orange);font-size:15px;text-transform:uppercase;letter-spacing:1px}
+        .modal-close{background:none;border:none;color:var(--muted);font-size:24px;cursor:pointer;line-height:1}
+        .modal-close:hover{color:var(--red)}
+        .modal-search{padding:12px 18px;border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
+        .modal-search input{flex:1;min-width:160px;padding:9px 12px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:13px;outline:none}
+        .modal-search input:focus{border-color:var(--orange)}
+        .modal-filters{padding:8px 18px;border-bottom:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap}
+        .mf-btn{padding:4px 10px;border:1px solid var(--border);border-radius:14px;background:transparent;color:var(--muted);cursor:pointer;font-size:11px}
+        .mf-btn.on{background:var(--orange);color:#000;border-color:var(--orange)}
+        .mf-btn:hover{color:var(--text)}
+        .modal-list{overflow-y:auto;padding:8px 12px;flex:1}
+        .mitem{padding:10px 12px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;transition:all .15s}
+        .mitem:hover{border-color:var(--orange);background:rgba(245,166,35,.04)}
+        .mi-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:3px}
+        .mi-n{font-size:13px;font-weight:700}
+        .mi-n.green{color:var(--green)}
+        .mi-n.named{color:var(--named)}
+        .mi-n.exotic{color:#ffab40}
+        .mi-n.brand{color:var(--blue)}
+        .mi-en{font-size:10px;color:var(--muted)}
+        .mi-tag{font-size:9px;padding:2px 7px;border-radius:9px;font-weight:600;text-transform:uppercase}
+        .mi-tal{font-size:11px;color:var(--orange);font-weight:600}
+        .mi-desc{font-size:11px;color:var(--muted);line-height:1.4;margin-top:3px}
+        .mi-math{font-size:10px;color:var(--green);margin-top:3px;font-weight:600}
     </style>
 </head>
 <body>
@@ -460,12 +504,12 @@
   <div class="bsect">
     <h3>Снаряжение — 6 слотов</h3>
     <div class="slots6">
-      <div class="slt"><label>Маска</label><select id="bs-mask" class="bsel" onchange="calcBuild()"></select></div>
-      <div class="slt"><label>Нагрудник</label><select id="bs-chest" class="bsel" onchange="calcBuild()"></select></div>
-      <div class="slt"><label>Рюкзак</label><select id="bs-bp" class="bsel" onchange="calcBuild()"></select></div>
-      <div class="slt"><label>Перчатки</label><select id="bs-gloves" class="bsel" onchange="calcBuild()"></select></div>
-      <div class="slt"><label>Кобура</label><select id="bs-holster" class="bsel" onchange="calcBuild()"></select></div>
-      <div class="slt"><label>Наколенники</label><select id="bs-knees" class="bsel" onchange="calcBuild()"></select></div>
+      <div class="slt"><label>Маска</label><div class="slot-wrap"><div class="slot-btn" id="bs-mask" onclick="openSlot('mask')"><span class="ss">— пусто —</span></div></div></div>
+      <div class="slt"><label>Нагрудник</label><div class="slot-wrap"><div class="slot-btn" id="bs-chest" onclick="openSlot('chest')"><span class="ss">— пусто —</span></div></div></div>
+      <div class="slt"><label>Рюкзак</label><div class="slot-wrap"><div class="slot-btn" id="bs-bp" onclick="openSlot('bp')"><span class="ss">— пусто —</span></div></div></div>
+      <div class="slt"><label>Перчатки</label><div class="slot-wrap"><div class="slot-btn" id="bs-gloves" onclick="openSlot('gloves')"><span class="ss">— пусто —</span></div></div></div>
+      <div class="slt"><label>Кобура</label><div class="slot-wrap"><div class="slot-btn" id="bs-holster" onclick="openSlot('holster')"><span class="ss">— пусто —</span></div></div></div>
+      <div class="slt"><label>Наколенники</label><div class="slot-wrap"><div class="slot-btn" id="bs-knees" onclick="openSlot('knees')"><span class="ss">— пусто —</span></div></div></div>
     </div>
   </div>
 
@@ -475,7 +519,8 @@
     <div class="bstat-row">
       <div class="bstat"><label>CHC</label><input id="b-chc" value="20" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>CHD</label><input id="b-chd" value="25" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>HSD</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>HSD доп.</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>% HS</label><input id="b-hsrate" value="0" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Вне укрытия</label><input id="b-ooc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Броня цели</label><input id="b-dta" value="0" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>WD доп.</label><input id="b-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
@@ -494,7 +539,7 @@
     <div id="b-stacks"></div>
     <table class="btl">
       <thead><tr>
-        <th>Момент</th><th>Стаки</th><th>WD ×</th><th>Крит ×</th><th>RPM</th><th>DPS</th>
+        <th>Момент</th><th>Стаки</th><th>WD ×</th><th>Крит ×</th><th>HS ×</th><th>RPM</th><th>DPS</th>
       </tr></thead>
       <tbody id="b-tbl"></tbody>
     </table>
@@ -502,6 +547,28 @@
   </div>
 
 </div>
+</div>
+
+<!-- INVENTORY MODAL -->
+<div class="modal-bg" id="slot-modal" onclick="if(event.target===this)closeSlotModal()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="mod-title">Выбор предмета</h3>
+      <button class="modal-close" onclick="closeSlotModal()">×</button>
+    </div>
+    <div class="modal-search">
+      <input type="text" id="mod-s1" placeholder="Поиск — имя, бренд, талант..." oninput="renderSlotItems()">
+      <input type="text" id="mod-s2" placeholder="+ второе слово" oninput="renderSlotItems()">
+    </div>
+    <div class="modal-filters" id="mod-filters">
+      <button class="mf-btn on" data-k="all">Все</button>
+      <button class="mf-btn" data-k="green">Комплекты</button>
+      <button class="mf-btn" data-k="brand">Бренды</button>
+      <button class="mf-btn" data-k="named">Именные</button>
+      <button class="mf-btn" data-k="exotic">Экзотики</button>
+    </div>
+    <div class="modal-list" id="mod-list"></div>
+  </div>
 </div>
 
 <div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>
@@ -1042,77 +1109,293 @@ const WPNS={
   custom:{name:"Своё оружие",cat:"AR",dmg:60000,rpm:750,mag:30,reload:2.0,tal:"",tal_type:"none"},
 };
 
-// Set bonus definitions — only DPS-relevant stats
+// Set bonus definitions — DPS-relevant math for all 26 sets
+// Bonus keys used by math: rof, mag, chc, chd, hsd, wd, reload, type_dmg+type, handling(display)
+// p4 can be: object (flat bonus), "stacks" (uses stacks{}), or a tag string (shown as note only)
 const SB={
+  // ========== RED (DPS) ==========
   "Боевое снаряжение Страйкера":{color:"#ef5350",
+    p2:{handling:15},
     p3:{rof:15},
     p4:"stacks",
     stacks:{trigger:"hit",max_base:100,max_chest:200,decay_above:100,decay_sec:3,
             wd_base:0.65,wd_bp:0.90,stat:"WD"}},
-  "Переломный момент":{color:"#f5a623",
-    p2:{mag:30},
-    p3:{type_dmg:30,type:"LMG"},
-    p4:"stacks",
-    stacks:{trigger:"shot",max_base:50,max_chest:75,decay_above:0,decay_sec:6,
-            chd_base:4,chd_bp_extra:7,stat:"CHD",note:"−6 стаков/сек (постоянно)"}},
-  "Инициатива Умбра":{color:"#42a5f5",
-    p2:{chc:15},
-    p3:{reload:30},
-    p4:"stacks",
-    stacks:{trigger:"tempo",tempo_rate:20,max_base:50,max_chest:100,decay_above:0,decay_sec:6,
-            chd_base:1,rof_base:0.3,stat:"CHD+ROF",note:"20 стаков/сек в укрытии, −6/сек вне"}},
-  "Дилемма переговорщика":{color:"#f5a623",
-    p2:{chc:15},
-    p3:{chd:20},
-    p4:"marks"},
   "Разбиватель сердец":{color:"#ef5350",
     p2:{type_dmg:15,type:"AR+LMG"},
     p3:{handling:15},
     p4:"stacks",
-    stacks:{trigger:"hs_marked",max_base:50,max_chest:100,wd_base:1,stat:"WD"}},
-  "Горячий выстрел":{color:"#ef5350",
-    p2:{type_dmg:30,type:"MMR"},
-    p3:{hsd:30},
-    p4:"hs_chain"},
-  "Тузы и восьмёрки":{color:"#ef5350",
-    p2:{type_dmg:15,type:"MMR"},
-    p3:{hsd:30},
-    p4:"cards"},
+    stacks:{trigger:"hs",max_base:50,max_chest:100,
+            wd_base:1,stat:"WD",note:"стаки после хедшота по меченому"}},
+  "Инициатива Умбра":{color:"#ef5350",
+    p2:{chc:15},
+    p3:{reload:30},
+    p4:"stacks",
+    stacks:{trigger:"tempo",tempo_rate:20,max_base:50,max_chest:100,decay_above:0,decay_sec:6,
+            chd_base:1,rof_base:0.3,stat:"CHD+ROF",note:"20/сек в укрытии, −6/сек вне"}},
   "Ярость охотника":{color:"#ef5350",
     p2:{type_dmg:15,type:"SMG+SG"},
-    p4:"kill_buff"},
+    p3:{},
+    p4:{wd:20},p4_note:"+20% урон при враге в 15м (активно при контакте)"},
+  "Дилемма переговорщика":{color:"#ef5350",
+    p2:{chc:15},
+    p3:{chd:20},
+    p4:"marks",p4_note:"крит метит, крит по меченому 60% урона остальным"},
+  "Горячий выстрел":{color:"#ef5350",
+    p2:{type_dmg:30,type:"MMR",handling:30},
+    p3:{hsd:30},
+    p4:{wd:20},p4_note:"3 хедшота подряд: +20% WD + перезарядка"},
   "Текущая директива":{color:"#ef5350",
     p2:{status:15},
     p3:{reload:30},
-    p4:"ammo_buff"},
+    p4:"ammo",p4_note:"разрывные патроны после убийства меченого"},
   "Истинный патриот":{color:"#ef5350",
-    p2:{mag:30},
+    p2:{},
     p3:{mag:30},
-    p4:"debuffs"},
+    p4:{wd:8},p4_note:"дебафф красный флаг на враге: +8% WD (упрощено)"},
+  "Тузы и восьмёрки":{color:"#ef5350",
+    p2:{type_dmg:15,type:"MMR"},
+    p3:{hsd:30},
+    p4:{wd:6},p4_note:"5 карт → 6-й выстрел +30% WD (усреднено ~6%)"},
+  "Остриё копья":{color:"#ef5350",
+    p2:{},
+    p3:{wd:10},
+    p4:"signature",p4_note:"убийство фирменным +15% WD 10с"},
+  "Точка разрыва":{color:"#ef5350",
+    p2:{type_dmg:25,type:"AR+MMR"},
+    p3:{hsd:30,handling:15},
+    p4:"stacks",
+    stacks:{trigger:"reload",max_base:30,
+            wd_base:2,wd_bp:3,stat:"WD",
+            note:"стаки накапливаются попаданиями, активируются перезарядкой на 10с"}},
   "Виртуоз":{color:"#ef5350",
-    p2:{mag:15},
+    p2:{handling:15,mag:15},
     p3:{wd:15},
-    p4:"range_swap"},
+    p4:"stacks",
+    stacks:{trigger:"kill",max_base:4,max_chest:8,
+            wd_base:12.5,stat:"WD",
+            note:"стак за убийство: макс 4 = ×1.5 WD (12.5%/стак)"}},
+  "Переломный момент":{color:"#ef5350",
+    p2:{mag:30},
+    p3:{type_dmg:30,type:"LMG"},
+    p4:"stacks",
+    stacks:{trigger:"shot",max_base:50,max_chest:75,
+            chd_base:4,chd_bp_extra:7,stat:"CHD"}},
   "Сосредоточенная компания":{color:"#ef5350",
     p2:{wd:10},
     p3:{handling:30},
-    p4:"team_stacks"},
+    p4:"stacks",
+    stacks:{trigger:"kill_team",max_base:35,wd_base:3,chc_base:2,stat:"WD+CHC",
+            note:"только в группе: смерть меченого → стак от каждого участника"}},
+  // ========== BLUE (TANK) ==========
+  "Оплот оружейни":{color:"#42a5f5",p2:{},p3:{},p4:"armor",p4_note:"не DPS (танк)"},
+  "Системное повреждение":{color:"#42a5f5",p2:{},p3:{},p4:"armor_pulse",p4_note:"не DPS (танк)"},
+  "Эгида":{color:"#42a5f5",p2:{},p3:{},p4:"resist",p4_note:"не DPS (танк)"},
+  "Кавалерист":{color:"#42a5f5",p2:{},p3:{},p4:"cover",p4_note:"не DPS (танк)"},
+  // ========== YELLOW (SKILL) ==========
+  "Такелажник":{color:"#fdd835",
+    p2:{},p3:{},
+    p4:{wd:25},p4_note:"+25% WD 10с после взаимодействия с навыком"},
   "Протокол Затмения":{color:"#fdd835",
-    p2:{status:15},
-    p3:{skill_accel:15},
-    p4:"status_spread"},
+    p2:{status:15},p3:{},
+    p4:{wd:30},p4_note:"+30% урон по врагам со статусом (нагрудник)"},
   "Будущая инициатива":{color:"#fdd835",
-    p2:{heal:30},
-    p4:"team_buff"},
+    p2:{},p3:{},
+    p4:{wd:15},p4_note:"+15% команде при полной броне"},
+  "Жёсткая проводка":{color:"#fdd835",
+    p2:{},p3:{},
+    p4:{wd:10},p4_note:"+10% урон 20с после цепочки навыков"},
+  "Ортис: Экзуро":{color:"#fdd835",p2:{status:20},p3:{},p4:"flame_turret",p4_note:"горение 360°"},
+  "Переработка":{color:"#fdd835",p2:{status:15},p3:{},p4:"heal_dmg",p4_note:"лечение 10% урона навыка"},
+  "Взвешенная сборка":{color:"#fdd835",p2:{},p3:{},p4:"skill_boost",p4_note:"+1 ур навыка/союзник"},
+  // ========== MIXED ==========
+  "Стержневая сила":{color:"#ce93d8",
+    p2:{handling:10},
+    p3:{wd:5},
+    p4:"random_core",p4_note:"атрибут даёт 40% от двух других (упрощено: +5% WD)"},
 };
 
-// Populate slot selects
-function initBuildSlots(){
-  const opts = ['<option value="">— нет —</option>'];
-  G.forEach(g=>opts.push(`<option value="${g.name}">${g.name}</option>`));
-  ["bs-mask","bs-chest","bs-bp","bs-gloves","bs-holster","bs-knees"].forEach(id=>{
-    document.getElementById(id).innerHTML=opts.join("");
+// ===== SLOT/ITEM SYSTEM =====
+const SLOT_META={
+  mask:{label:"Маска",genre:"Маски"},
+  chest:{label:"Нагрудник",genre:"Нагрудники"},
+  bp:{label:"Рюкзак",genre:"Рюкзаки"},
+  gloves:{label:"Перчатки",genre:"Перчатки"},
+  holster:{label:"Кобура",genre:"Кобуры"},
+  knees:{label:"Наколенники",genre:"Наколенники"},
+};
+
+// Talent math: parsed bonuses for known named talents
+// Conditional talents have "conditional:true" — applied only at peak, not base
+const TALENT_MATH={
+  "Perfect Vigilance":{wd:30,note:"без получения урона 4с",conditional:true},
+  "Perfect Killer":{chd:90,note:"после крит-убийства 10с",conditional:true},
+  "Perfect Close & Personal":{wd:40,note:"ближе 7м",conditional:true},
+  "Perfect Frenzy":{wd:20,rof:35,note:"пустой магазин 7с",conditional:true},
+  "Perfect Unstoppable Force":{wd:35,note:"макс 5 стаков × 7%",conditional:true},
+  "Perfect Intimidate":{wd:40,note:"макс 10 × 4% бонусной брони",conditional:true},
+  "Perfect Bloodlust":{wd:20,note:"после смены оружия 5с",conditional:true},
+  "Perfect Spark":{wd:20,note:"после скилла 15с",conditional:true},
+  "Perfect Tech Support":{note:"урон скилла, не оружия"},
+  "Perfect On The Ropes":{wd:20,note:"оба скилла на кд",conditional:true},
+  "Perfect Spotter":{wd:20,note:"по Pulse-врагам",conditional:true},
+  "Perfect Lookout":{wd:20,note:"по Pulse-врагам",conditional:true},
+  "Perfectly On The Ropes":{wd:20,note:"оба скилла на кд",conditional:true},
+  "Perfect Headshot Trauma":{hsd:20,note:"хедшоты 2с"},
+  "Perfect Berserk":{wd:50,note:"при 100% сломанной брони (прогрессивно)",conditional:true},
+  "Perfect Entrenched":{note:"ремонт, не DPS"},
+  "Perfect Completion":{note:"урон скилла"},
+  "Perfect Salvage":{note:"боезапас"},
+  "Perfect Boomerang":{wd:25,note:"каждый крит даёт усиленную пулю",conditional:true},
+  "Perfect Allegro":{rof:15},
+  "Perfect Ignited":{wd:40,note:"по горящим",conditional:true},
+  "Perfectly Ignited":{wd:40,note:"по горящим",conditional:true},
+  "Perfect Optimist":{wd:25,note:"5 стаков по 5% при пустом магазине",conditional:true},
+  "Perfect Measured":{wd:15,note:"−30% WD + +30% WD (усреднено)",conditional:true},
+  "Perfectly Measured":{wd:15,note:"верх/низ магазина",conditional:true},
+  "Perfect Rifleman":{wd:60,note:"5 стаков × 12% WD от HS",conditional:true},
+  "Perfect Pummel":{wd:50,note:"2 убийства телохитом 10с",conditional:true},
+  "Perfect Unhinged":{wd:25,note:"−20% управление",static:true},
+  "Perfect Stabilize":{note:"стабильность"},
+  "Perfect Jazz Hands":{reload:20},
+  "Perfect Extra":{mag:50},
+  "Perfect Streamline":{wd:47,note:"без развёрнутых навыков",conditional:true},
+  "Perfect Thunderclap":{wd:35,note:"по шокированным",conditional:true},
+  "Perfect Ranger":{wd:30,note:"10 × 3% за 5м до цели",conditional:true},
+  "Perfect Wicked":{wd:20,note:"20с после статуса",conditional:true},
+  "Perfectly Wicked":{wd:20,note:"20с после статуса",conditional:true},
+  "Perfect Opportunistic":{wd:15,note:"уязвимость 3с",conditional:true},
+  "Perfect Clutch":{note:"лечение"},
+  "Perfect Finisher":{chc:40,chd:50,note:"после смены оружия 15с",conditional:true},
+  "Perfect Precision Strike":{wd:20,note:"убийства дальше 20м",conditional:true},
+  "Perfect Hand Control":{note:"управление"},
+  "Perfect Bullet King":{mag:50,note:"шанс полного магазина"},
+};
+
+function talentBonus(talentName){
+  if(!talentName)return null;
+  // normalize: strip "Perfect" vs "Perfectly"
+  const k=Object.keys(TALENT_MATH).find(t=>t.toLowerCase()===talentName.toLowerCase());
+  return k?TALENT_MATH[k]:null;
+}
+
+// Database of items per armor slot
+const ITEMS_BY_SLOT={};
+function buildItemDb(){
+  for(const slot of Object.keys(SLOT_META)){
+    const genre=SLOT_META[slot].genre;
+    const arr=[];
+    // greens: one entry per set
+    G.forEach(g=>arr.push({kind:"green",name:g.name+" — "+genre,en:g.en,setName:g.name,color:g.type==="red"?"#ef5350":g.type==="blue"?"#42a5f5":g.type==="yellow"?"#fdd835":"#ce93d8",bonuses:g.bonuses,slot}));
+    // brands: one entry per brand per slot
+    B.forEach(b=>arr.push({kind:"brand",name:b.name+" — "+genre,brand:b.name,bonuses:b.bonuses,slot}));
+    // named items for this slot
+    N.filter(n=>n.g===genre).forEach(n=>{
+      const tb=talentBonus(n.tal);
+      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot});
+    });
+    // exotics
+    E.filter(e=>e.g===genre).forEach(e=>{
+      arr.push({kind:"exotic",name:e.name,en:e.en,talent:e.tal,talentDesc:e.d,slot});
+    });
+    ITEMS_BY_SLOT[slot]=arr;
+  }
+}
+
+const slotState={mask:null,chest:null,bp:null,gloves:null,holster:null,knees:null};
+let curSlot=null;
+let modFilter="all";
+
+function openSlot(slot){
+  curSlot=slot;
+  document.getElementById("mod-title").textContent="Выбор: "+SLOT_META[slot].label;
+  document.getElementById("mod-s1").value="";
+  document.getElementById("mod-s2").value="";
+  modFilter="all";
+  document.querySelectorAll("#mod-filters .mf-btn").forEach(b=>b.classList.toggle("on",b.dataset.k==="all"));
+  document.getElementById("slot-modal").classList.add("open");
+  renderSlotItems();
+  setTimeout(()=>document.getElementById("mod-s1").focus(),50);
+}
+function closeSlotModal(){
+  document.getElementById("slot-modal").classList.remove("open");
+  curSlot=null;
+}
+function matchQ(txt,qs){return qs.every(q=>!q||txt.includes(q))}
+function renderSlotItems(){
+  if(!curSlot)return;
+  const items=ITEMS_BY_SLOT[curSlot]||[];
+  const q1=document.getElementById("mod-s1").value.toLowerCase().trim();
+  const q2=document.getElementById("mod-s2").value.toLowerCase().trim();
+  const qs=[q1,q2].filter(x=>x);
+  const filtered=items.filter(it=>{
+    if(modFilter!=="all"&&it.kind!==modFilter)return false;
+    if(!qs.length)return true;
+    const parts=[it.name,it.en||"",it.brand||"",it.setName||"",it.talent||"",it.talentDesc||"",(it.bonuses||[]).join(" ")].join(" ").toLowerCase();
+    return qs.every(q=>q.split(/\s+/).every(w=>parts.includes(w)));
   });
+  const html=filtered.slice(0,200).map((it,i)=>{
+    const globalIdx=items.indexOf(it);
+    const tagClass=it.kind==="green"?"b-gear":it.kind==="named"?"b-named":it.kind==="exotic"?"b-exotic":"b-brand";
+    const tagLbl=it.kind==="green"?"Сет":it.kind==="brand"?"Бренд":it.kind==="named"?"Именной":"Экзотик";
+    let body="";
+    if(it.kind==="green"){
+      body=`<div class="mi-desc">${(it.bonuses||[]).slice(0,3).join(" · ")}</div>`;
+    }else if(it.kind==="brand"){
+      body=`<div class="mi-desc">${(it.bonuses||[]).join(" · ")}</div>`;
+    }else if(it.kind==="named"){
+      const mathStr=it.talentBonus?Object.entries(it.talentBonus).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" "):"";
+      body=`<div class="mi-tal">${it.talent||""}${it.brand?" · <span style=\"color:var(--blue)\">"+it.brand+"</span>":""}</div>
+            <div class="mi-desc">${it.talentDesc||""}</div>
+            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus.conditional?" (условно)":""}</div>`:""}`;
+    }else{
+      body=`<div class="mi-tal">${it.talent||""}</div><div class="mi-desc">${it.talentDesc||""}</div>`;
+    }
+    return`<div class="mitem" onclick="pickItem(${globalIdx})">
+      <div class="mi-h">
+        <div><span class="mi-n ${it.kind}">${it.name}</span> ${it.en?`<span class="mi-en">${it.en}</span>`:""}</div>
+        <span class="badge ${tagClass}">${tagLbl}</span>
+      </div>
+      ${body}
+    </div>`;
+  }).join("");
+  document.getElementById("mod-list").innerHTML=html||'<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">Ничего не найдено</div>';
+}
+function pickItem(idx){
+  if(!curSlot)return;
+  const item=ITEMS_BY_SLOT[curSlot][idx];
+  slotState[curSlot]=item;
+  updateSlotBtn(curSlot);
+  closeSlotModal();
+  calcBuild();
+}
+function clearSlot(ev,slot){
+  ev.stopPropagation();
+  slotState[slot]=null;
+  updateSlotBtn(slot);
+  calcBuild();
+}
+function updateSlotBtn(slot){
+  const el=document.getElementById("bs-"+slot);
+  const it=slotState[slot];
+  el.className="slot-btn"+(it?" filled "+it.kind:"");
+  if(!it){el.innerHTML='<span class="ss">— пусто —</span>';return}
+  const sub=it.kind==="green"?it.setName:it.kind==="brand"?it.brand:it.kind==="named"?(it.brand||"")+" · "+(it.talent||""):(it.talent||"Экзотик");
+  el.innerHTML=`<span class="sn ${it.kind}">${it.name}</span><span class="ss">${sub}</span>`+
+    `<span class="clr" onclick="clearSlot(event,'${slot}')">×</span>`;
+}
+// Modal filter clicks
+document.addEventListener("click",function(e){
+  const b=e.target.closest("#mod-filters .mf-btn");
+  if(!b)return;
+  modFilter=b.dataset.k;
+  document.querySelectorAll("#mod-filters .mf-btn").forEach(x=>x.classList.toggle("on",x===b));
+  renderSlotItems();
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSlotModal()});
+
+function initBuildSlots(){
+  buildItemDb();
+  Object.keys(slotState).forEach(updateSlotBtn);
 }
 
 function getWeapon(){
@@ -1170,15 +1453,16 @@ function timeToFull(rate, max, decayAbove, decayPerSec){
 }
 
 function getStackRate(stkDef, sps){
-  // tempo trigger = fixed rate regardless of RPM
   if(stkDef.trigger==="tempo") return stkDef.tempo_rate||20;
-  return sps; // hit/shot trigger = RPM based
+  if(stkDef.trigger==="kill"||stkDef.trigger==="kill_team") return 0.33;
+  if(stkDef.trigger==="hs") return sps*0.15;
+  return sps;
 }
 
-function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,ooc,dta,activeStacks,hasChest,hasBP,t){
+function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRate,reloadBonus,ooc,dta,activeStacks,hasChest,hasBP,t){
   const sps0=wpn.rpm/60;
   // Stack bonuses at time t
-  let sWD=0,sCHD=0,sROF=0;
+  let sWD=0,sCHD=0,sROF=0,sCHC=0;
   const stkRows=[];
   for(const s of activeStacks){
     const maxS=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
@@ -1187,7 +1471,7 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,ooc,dta,activ
     const rate=getStackRate(s.def,sps0);
     const stks=stacksAtTime(rate,maxS,dA,dR,t);
     if(s.def.wd_base!==undefined){
-      const pp=hasBP[s.name]?s.def.wd_bp:s.def.wd_base;
+      const pp=(hasBP[s.name]&&s.def.wd_bp!==undefined)?s.def.wd_bp:s.def.wd_base;
       sWD+=stks*pp;
     }
     if(s.def.chd_base!==undefined){
@@ -1195,35 +1479,40 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,ooc,dta,activ
       sCHD+=stks*pp;
     }
     if(s.def.rof_base!==undefined) sROF+=stks*s.def.rof_base;
+    if(s.def.chc_base!==undefined) sCHC+=stks*s.def.chc_base;
     stkRows.push({name:s.name,stks:Math.round(stks),max:maxS,color:s.color});
   }
   // Weapon talent WD (Alejandro)
   let talWD=0;
   if(wpn.tal_type==="shot_cover"){
     const ts=t===Infinity?wpn.tal_max:Math.min(sps0*t,wpn.tal_max);
-    talWD=ts; // +1% per stack
+    talWD=ts;
   }
-  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus; // assume active
-  // WD bucket total
+  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus;
+  // WD bucket
   const wdMult=1+(totalWD+sWD+talWD)/100;
   // ROF
   const rpm_f=wpn.rpm*(1+(totalROF+sROF)/100);
   // Mag
   const mag_f=Math.round(wpn.mag*(1+totalMAG/100));
   // CHC capped 60%
-  const chcCap=Math.min(chcTotal,60)/100;
+  const chcCap=Math.min(chcTotal+sCHC,60)/100;
   // CHD: base 25% + flat + stack
   const totalCHD=0.25+chdTotal/100+sCHD/100;
   const critAvg=1+chcCap*totalCHD;
+  // HSD multiplier (independent bucket)
+  const hsM=1+(hsRate/100)*(hsdTotal/100);
+  // Reload
+  const reloadFinal=wpn.reload/(1+reloadBonus/100);
   // Cycle
   const sps_f=rpm_f/60;
-  const cycleT=mag_f/sps_f+wpn.reload;
+  const cycleT=mag_f/sps_f+reloadFinal;
   const effSPS=mag_f/cycleT;
   // External
   const oocM=1+ooc/100;
   const dtaM=1+dta/100;
-  const dps=wpn.dmg*wdMult*critAvg*oocM*dtaM*effSPS;
-  return{dps,wdMult,critAvg,rpm_f,mag_f,stkRows};
+  const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*effSPS;
+  return{dps,wdMult,critAvg,hsM,rpm_f,mag_f,stkRows};
 }
 
 function calcBuild(){
@@ -1238,26 +1527,27 @@ function calcBuild(){
     `<div class="wpn-stat">Перезарядка: <b>${wpn.reload}с</b></div>`+
     (wpn.tal?`<div class="wpn-stat" style="color:var(--orange);border-color:rgba(245,166,35,.3)">${wpn.tal}</div>`:"");
 
-  const slots={mask:document.getElementById("bs-mask").value,chest:document.getElementById("bs-chest").value,
-    bp:document.getElementById("bs-bp").value,gloves:document.getElementById("bs-gloves").value,
-    holster:document.getElementById("bs-holster").value,knees:document.getElementById("bs-knees").value};
-
-  // Count pieces
+  // Count set pieces + brand pieces from slotState
   const cnt={};const hasChest={};const hasBP={};
-  for(const[slot,nm] of Object.entries(slots)){
-    if(!nm)continue;
-    cnt[nm]=(cnt[nm]||0)+1;
-    if(slot==="chest")hasChest[nm]=true;
-    if(slot==="bp")hasBP[nm]=true;
+  const brandCnt={};
+  const namedItems=[];
+  for(const[slot,it] of Object.entries(slotState)){
+    if(!it)continue;
+    if(it.kind==="green"){
+      cnt[it.setName]=(cnt[it.setName]||0)+1;
+      if(slot==="chest")hasChest[it.setName]=true;
+      if(slot==="bp")hasBP[it.setName]=true;
+    }else if(it.kind==="brand"){
+      if(it.brand)brandCnt[it.brand]=(brandCnt[it.brand]||0)+1;
+    }else if(it.kind==="named"){
+      if(it.brand)brandCnt[it.brand]=(brandCnt[it.brand]||0)+1;
+      namedItems.push({slot,item:it});
+    }
+    // exotics: no count, just talent (TODO)
   }
-  // Update select styling
-  ["bs-mask","bs-chest","bs-bp","bs-gloves","bs-holster","bs-knees"].forEach(id=>{
-    const el=document.getElementById(id);
-    el.className="bsel"+(el.value?" has-set":"");
-  });
 
   // Aggregate bonuses
-  let tWD=0,tROF=0,tMAG=0,tCHC=0,tCHD=0,tHSD=0,tType=0;
+  let tWD=0,tROF=0,tMAG=0,tCHC=0,tCHD=0,tHSD=0,tRELOAD=0;
   const bonuses=[];const activeStacks=[];
 
   for(const[nm,count] of Object.entries(cnt)){
@@ -1266,7 +1556,8 @@ function calcBuild(){
       if(count<tier||!b)return;
       if(b==="stacks"&&def.stacks){
         activeStacks.push({name:nm,def:def.stacks,color:def.color});
-        bonuses.push({color:def.color,tier,nm,desc:`Стаки (${def.stacks.stat}) — макс ${hasChest[nm]&&def.stacks.max_chest?def.stacks.max_chest:def.stacks.max_base} ${hasChest[nm]&&def.stacks.max_chest?"(нагрудник)":""}`});
+        const maxS=hasChest[nm]&&def.stacks.max_chest?def.stacks.max_chest:def.stacks.max_base;
+        bonuses.push({color:def.color,tier,nm,desc:`Стаки (${def.stacks.stat}) — макс ${maxS}${hasChest[nm]&&def.stacks.max_chest?" (нагрудник)":""}`});
       }else if(b&&typeof b==="object"){
         if(b.rof)tROF+=b.rof;
         if(b.mag)tMAG+=b.mag;
@@ -1274,24 +1565,101 @@ function calcBuild(){
         if(b.chd)tCHD+=b.chd;
         if(b.hsd)tHSD+=b.hsd;
         if(b.wd)tWD+=b.wd;
+        if(b.reload)tRELOAD+=b.reload;
         if(b.type_dmg){
           const match=!b.type||b.type.split("+").some(t=>wpn.cat.includes(t));
           if(match)tWD+=b.type_dmg;
         }
-        bonuses.push({color:def.color,tier,nm,desc:bonusDesc(b,wpn.cat)});
+        const noteExtra=(tier===4&&def.p4_note)?` — ${def.p4_note}`:"";
+        bonuses.push({color:def.color,tier,nm,desc:bonusDesc(b,wpn.cat)+noteExtra});
       }else if(typeof b==="string"&&b!=="stacks"){
-        bonuses.push({color:def.color,tier,nm,desc:`4шт: ${b}`});
+        const note=def.p4_note?def.p4_note:b;
+        bonuses.push({color:def.color,tier,nm,desc:`4шт: ${note}`});
       }
     });
+  }
+
+  // Brand bonuses (up to 3 pieces per brand)
+  const BRAND_MATH={
+    "Providence Defense":[{hsd:13},{chc:8},{chd:13}],
+    "Airaldi":[{type_dmg:10,type:"MMR"},{hsd:13},{}],
+    "Fenris Group":[{type_dmg:10,type:"AR"},{reload:30},{}],
+    "Petrov Defense Group":[{type_dmg:10,type:"LMG"},{handling:15},{}],
+    "Overlord Armaments":[{type_dmg:10,type:"Rifle"},{},{handling:30}],
+    "Walker, Harris & Co":[{wd:5},{},{}],
+    "Yaahl Gear":[{},{wd:10},{}],
+    "Hana-U":[{},{},{wd:15}],
+    "Badger Tuff":[{type_dmg:10,type:"SG"},{},{}],
+    "Habsburg Guard":[{hsd:13},{type_dmg:20,type:"MMR"},{}],
+    "Lengmo":[{},{},{type_dmg:30,type:"LMG"}],
+    "Ceska Vyroba":[{chc:8},{},{}],
+    "Douglas & Harding":[{type_dmg:20,type:"Pistol"},{},{}],
+    "Grupo Sombra S.A.":[{chd:13},{},{hsd:13}],
+    "Grupo Sombra":[{chd:13},{},{hsd:13}],
+    "Sokolov Concern":[{type_dmg:10,type:"SMG"},{chd:13},{chc:8}],
+    "Sokolov":[{type_dmg:10,type:"SMG"},{chd:13},{chc:8}],
+    "Zwiadowka":[{mag:15},{type_dmg:20,type:"Rifle"},{handling:30}],
+    "Legatus":[{},{},{wd:15}],
+    "Imminence Armaments":[{wd:5},{},{type_dmg:60,type:"Pistol"}],
+    "Unit Alloys":[{rof:5},{type_dmg:20,type:"AR"},{mag:50}],
+    "Royal Works":[{handling:5},{mag:32.5},{chd:15}],
+    "Electrique":[{},{},{type_dmg:30,type:"SMG"}],
+    "Urban Lookout":[{},{},{type_dmg:30,type:"MMR"}],
+  };
+  const catMap={LMG:"LMG",AR:"AR",SMG:"SMG",SG:"SG",MMR:"MMR",Rifle:"Rifle",Pistol:"Pistol"};
+  for(const[brandName,count] of Object.entries(brandCnt)){
+    const tiers=BRAND_MATH[brandName];
+    if(!tiers)continue;
+    for(let i=0;i<Math.min(count,3);i++){
+      const b=tiers[i];if(!b)continue;
+      if(b.rof)tROF+=b.rof;
+      if(b.mag)tMAG+=b.mag;
+      if(b.chc)tCHC+=b.chc;
+      if(b.chd)tCHD+=b.chd;
+      if(b.hsd)tHSD+=b.hsd;
+      if(b.wd)tWD+=b.wd;
+      if(b.reload)tRELOAD+=b.reload;
+      if(b.type_dmg){
+        const match=!b.type||b.type.split("+").some(t=>wpn.cat===catMap[t]||wpn.cat.includes(t));
+        if(match)tWD+=b.type_dmg;
+      }
+      bonuses.push({color:"#42a5f5",tier:i+1,nm:brandName,desc:"бренд "+(i+1)+"шт: "+(Object.entries(b).filter(([k])=>k!=="type").map(([k,v])=>`+${v}% ${k}`).join(" · ")||"—")});
+    }
+  }
+
+  // Named item talents (parsed, non-conditional applied as static base)
+  let tPeakOnly={wd:0,chc:0,chd:0,hsd:0,rof:0,mag:0};
+  for(const ni of namedItems){
+    const tb=ni.item.talentBonus;
+    if(!tb){bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+" — "+(ni.item.talentDesc||"")});continue}
+    const isCond=tb.conditional;
+    ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
+      if(tb[k]){
+        if(isCond)tPeakOnly[k]+=tb[k];
+        else{
+          if(k==="wd")tWD+=tb[k];
+          if(k==="chc")tCHC+=tb[k];
+          if(k==="chd")tCHD+=tb[k];
+          if(k==="hsd")tHSD+=tb[k];
+          if(k==="rof")tROF+=tb[k];
+          if(k==="mag")tMAG+=tb[k];
+        }
+      }
+    });
+    if(tb.reload)tRELOAD+=tb.reload;
+    const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
+    bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
 
   // Manual stats
   const mCHC=parseFloat(document.getElementById("b-chc").value)||0;
   const mCHD=parseFloat(document.getElementById("b-chd").value)||0;
+  const mHSD=parseFloat(document.getElementById("b-hsd").value)||0;
+  const mHSR=parseFloat(document.getElementById("b-hsrate").value)||0;
   const mOOC=parseFloat(document.getElementById("b-ooc").value)||0;
   const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
-  tWD+=mWD; tCHC+=mCHC; tCHD+=mCHD;
+  tWD+=mWD; tCHC+=mCHC; tCHD+=mCHD; tHSD+=mHSD;
 
   // Render bonuses
   const bsect=document.getElementById("b-bonuses-sect");
@@ -1332,37 +1700,69 @@ function calcBuild(){
     </div>`;
   }
 
-  // DPS timeline: 0s, 2s, 5s, 10s, full
+  // DPS timeline
   const times=[
-    {t:0,label:"Старт (0с)"},
+    {t:0,label:"Без стаков (0с)"},
     {t:2,label:"2 секунды"},
     {t:5,label:"5 секунд"},
     {t:10,label:"10 секунд"},
+    {t:30,label:"30 секунд"},
     {t:Infinity,label:"Фул стаки ★"},
   ];
-  const rows=times.map(tp=>({...tp,...dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,mOOC,mDTA,activeStacks,hasChest,hasBP,tp.t)}));
+  const rows=times.map(tp=>{
+    const isPeak=tp.t===Infinity;
+    const wdX=tWD+(isPeak?tPeakOnly.wd:0);
+    const rofX=tROF+(isPeak?tPeakOnly.rof:0);
+    const magX=tMAG+(isPeak?tPeakOnly.mag:0);
+    const chcX=tCHC+(isPeak?tPeakOnly.chc:0);
+    const chdX=tCHD+(isPeak?tPeakOnly.chd:0);
+    const hsdX=tHSD+(isPeak?tPeakOnly.hsd:0);
+    return{...tp,...dpsAtTime(wpn,wdX,rofX,magX,chcX,chdX,hsdX,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,tp.t)};
+  });
   const peak=rows[rows.length-1];
+  const baseDPS=rows[0].dps;
   const maxDPS=peak.dps;
+  // Simpson-ish average over 10s window (sustained fight)
+  const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,tt).dps);
+  const avgDPS10=samplesAvg.reduce((a,b)=>a+b,0)/samplesAvg.length;
 
   document.getElementById("b-stacks").innerHTML=stkHtml;
   document.getElementById("b-tbl").innerHTML=rows.map((r,i)=>{
     const isPeak=i===rows.length-1;
+    const isBase=i===0;
     const pctOfPeak=Math.round(r.dps/maxDPS*100);
-    const bar=`<div style="height:4px;background:var(--border);border-radius:2px;margin-top:3px;overflow:hidden"><div style="height:100%;width:${pctOfPeak}%;background:var(--orange);border-radius:2px"></div></div>`;
+    const growth=isBase?"":` <span style="color:${r.dps>=baseDPS?"#00c853":"#ef5350"};font-size:10px">${r.dps>=baseDPS?"+":""}${Math.round((r.dps/baseDPS-1)*100)}%</span>`;
+    const bar=`<div style="height:4px;background:var(--border);border-radius:2px;margin-top:3px;overflow:hidden"><div style="height:100%;width:${pctOfPeak}%;background:${isPeak?"var(--orange)":isBase?"#888":"#f5a623"};border-radius:2px"></div></div>`;
     return`<tr class="${isPeak?"peak":""}">
       <td>${r.label}</td>
       <td style="font-size:11px">${r.stkRows.map(s=>`${s.stks}/${s.max}`).join(" · ")||"—"}</td>
       <td>×${r.wdMult.toFixed(2)}</td>
       <td>×${r.critAvg.toFixed(2)}</td>
+      <td>×${r.hsM.toFixed(2)}</td>
       <td>${Math.round(r.rpm_f)}</td>
-      <td><b>${Math.round(r.dps).toLocaleString("ru")}</b>${bar}</td>
+      <td><b>${Math.round(r.dps).toLocaleString("ru")}</b>${growth}${bar}</td>
     </tr>`;
   }).join("");
 
+  const rampPct=Math.round((maxDPS/baseDPS-1)*100);
   document.getElementById("b-peak").innerHTML=
-    `<div class="bpeak-n">${Math.round(peak.dps).toLocaleString("ru")}</div>`+
-    `<div class="bpeak-l">Пиковый DPS (фул стаки)</div>`+
-    `<div class="bpeak-sub">WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f}</div>`;
+    `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
+      <div>
+        <div style="font-size:22px;font-weight:700;color:#888">${Math.round(baseDPS).toLocaleString("ru")}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">БАЗА (без стаков)</div>
+      </div>
+      <div>
+        <div style="font-size:26px;font-weight:700;color:#f5a623">${Math.round(avgDPS10).toLocaleString("ru")}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">СРЕДНИЙ (10с бой)</div>
+      </div>
+      <div>
+        <div style="font-size:32px;font-weight:700;color:var(--orange)">${Math.round(maxDPS).toLocaleString("ru")}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">ПИК (фул стаки)</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:12px;border-top:1px solid var(--border);padding-top:8px">
+      Прирост база→пик: <b style="color:${rampPct>0?"#00c853":"#888"}">+${rampPct}%</b> · WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · HS ×${peak.hsM.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f}
+    </div>`;
 
   document.getElementById("b-results-sect").style.display="block";
 }
