@@ -610,7 +610,11 @@
       <span style="font-size:11px;color:var(--muted)">Сложность:</span>
       <button class="mf-btn on" onclick="setTtkDiff('heroic')" id="ttk-heroic">Heroic</button>
       <button class="mf-btn" onclick="setTtkDiff('legendary')" id="ttk-legendary">Legendary</button>
-      <span style="font-size:10px;color:#555;margin-left:auto">HP по данным комьюнити, может расходиться ±10%</span>
+    </div>
+    <div class="bstat-row" style="margin-bottom:10px">
+      <div class="bstat"><label>HP мобов</label><input id="ttk-hp-mult" type="number" value="0" min="0" max="800" step="50" oninput="onTtkMultChange()"><span class="u">%</span></div>
+      <div class="bstat"><label>Броня мобов</label><input id="ttk-ar-mult" type="number" value="0" min="0" max="800" step="50" oninput="onTtkMultChange()"><span class="u">%</span></div>
+      <div style="font-size:10px;color:#555;align-self:center;flex:1;min-width:160px">Для сложных данжей с бафами HP/брони. Макс +800% на каждый бар. Итоговый EHP усреднён 50/50.</div>
     </div>
     <table class="btl" id="ttk-table">
       <thead><tr>
@@ -1969,16 +1973,27 @@ function ttkColor(s){
   if(s<20)return "#ff9800";
   return "#ef5350";
 }
+function onTtkMultChange(){
+  renderTtk(lastDps.base,lastDps.avg,lastDps.peak);
+}
+function clamp(x,lo,hi){return Math.max(lo,Math.min(hi,x))}
 function renderTtk(base,avg,peak){
   lastDps={base,avg,peak};
   const enemies=ENEMY_HP[ttkDiff];
+  const hpMult=clamp(parseFloat(document.getElementById("ttk-hp-mult")?.value)||0,0,800);
+  const arMult=clamp(parseFloat(document.getElementById("ttk-ar-mult")?.value)||0,0,800);
+  // EHP scaling: split base hp 50/50 between "health" and "armor" bars
+  const effMult=0.5*(1+hpMult/100)+0.5*(1+arMult/100);
+  const hasBoost=hpMult>0||arMult>0;
   const body=enemies.map(e=>{
-    const tb=base>0?e.hp/base:Infinity;
-    const ta=avg>0?e.hp/avg:Infinity;
-    const tp=peak>0?e.hp/peak:Infinity;
+    const ehp=e.hp*effMult;
+    const tb=base>0?ehp/base:Infinity;
+    const ta=avg>0?ehp/avg:Infinity;
+    const tp=peak>0?ehp/peak:Infinity;
+    const hpLabel=hasBoost?`${(ehp/1e6).toFixed(1)}М <span style="font-size:10px;color:#555">(×${effMult.toFixed(2)})</span>`:`${(e.hp/1e6).toFixed(1)}М`;
     return`<tr>
       <td style="text-align:left">${e.name}</td>
-      <td>${(e.hp/1e6).toFixed(1)}М</td>
+      <td>${hpLabel}</td>
       <td style="color:${ttkColor(tb)}">${fmtTime(tb)}</td>
       <td style="color:${ttkColor(ta)};font-weight:700">${fmtTime(ta)}</td>
       <td style="color:${ttkColor(tp)};font-weight:700">${fmtTime(tp)}</td>
