@@ -611,7 +611,7 @@
       </div>
       <div>
         <label>Скриншот (Ctrl+V / перетащи / выбери)</label>
-        <input type="file" name="screenshot_file" id="bug-file" accept="image/*" onchange="handleBugFile(this.files[0])">
+        <input type="file" id="bug-file" accept="image/*" onchange="handleBugFile(this.files[0])">
         <div id="bug-preview" style="margin-top:8px;display:none"><img id="bug-preview-img" style="max-width:100%;max-height:160px;border-radius:6px;border:1px solid var(--border)"><div id="bug-upload-status" style="font-size:10px;color:var(--muted);margin-top:4px"></div></div>
       </div>
       <div>
@@ -1891,28 +1891,31 @@ function compressImage(file,maxW,quality){
   });
 }
 
+function blobToBase64(blob){
+  return new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(blob)});
+}
+
 async function uploadScreenshot(blob){
-  // Primary: catbox.moe anonymous
+  const dataUrl=await blobToBase64(blob);
+  const base64=dataUrl.split(",")[1];
+  // Primary: imgbb (CORS-friendly, needs public key)
+  // Public anonymous key for this project — rate-limited per IP
+  const IMGBB_KEY="6d207e02198a847aa98d0a2a901485a5"; // freeimage.host shared demo key, fallback
+  // Try freeimage.host (open API, no key strict)
   try{
     const fd=new FormData();
-    fd.append("reqtype","fileupload");
-    fd.append("fileToUpload",blob,"screenshot.jpg");
-    const r=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});
-    if(r.ok){const t=(await r.text()).trim();if(t.startsWith("http"))return{url:t,method:"catbox"}}
+    fd.append("key",IMGBB_KEY);
+    fd.append("action","upload");
+    fd.append("source",base64);
+    fd.append("format","json");
+    const r=await fetch("https://freeimage.host/api/1/upload",{method:"POST",body:fd});
+    if(r.ok){
+      const j=await r.json();
+      if(j?.image?.url)return{url:j.image.url,method:"freeimage.host"};
+    }
   }catch(e){}
-  // Fallback: 0x0.st
-  try{
-    const fd=new FormData();
-    fd.append("file",blob,"screenshot.jpg");
-    const r=await fetch("https://0x0.st",{method:"POST",body:fd});
-    if(r.ok){const t=(await r.text()).trim();if(t.startsWith("http"))return{url:t,method:"0x0.st"}}
-  }catch(e){}
-  // Last resort: base64 dataURL in the form body
-  return new Promise(res=>{
-    const rd=new FileReader();
-    rd.onload=()=>res({url:"",dataUrl:rd.result,method:"base64"});
-    rd.readAsDataURL(blob);
-  });
+  // Fallback: base64 data url embedded in submission (cut to 150KB for safety)
+  return{url:"",dataUrl,method:"base64 (встроено)"};
 }
 
 async function submitBug(ev){
@@ -1923,21 +1926,31 @@ async function submitBug(ev){
   btn.disabled=true;btn.textContent="Отправка...";
   status.className="bug-status";status.textContent="";
   try{
+    const payload={
+      type:form.type.value,
+      item:form.item.value,
+      slot:form.slot.value,
+      description:form.description.value,
+      contact:form.contact.value,
+      page_url:location.href,
+      user_agent:navigator.userAgent,
+      _subject:"Division 2 Calc — баг-репорт",
+    };
     if(bugScreenshotBlob){
-      document.getElementById("bug-upload-status").textContent="Загружаю на хостинг...";
+      document.getElementById("bug-upload-status").textContent="Загружаю скрин...";
       const up=await uploadScreenshot(bugScreenshotBlob);
       if(up.url){
-        document.getElementById("bug-shot-url").value=up.url;
+        payload.screenshot_url=up.url;
       }else if(up.dataUrl){
-        // base64: include inline (may be truncated in email but stored in dashboard)
-        const hidden=document.createElement("input");
-        hidden.type="hidden";hidden.name="screenshot_base64";hidden.value=up.dataUrl.slice(0,100000);
-        form.appendChild(hidden);
+        payload.screenshot_base64=up.dataUrl.length>180000?up.dataUrl.slice(0,180000)+"...[обрезано]":up.dataUrl;
       }
       document.getElementById("bug-upload-status").textContent="Загружено через "+up.method;
     }
-    const fd=new FormData(form);
-    const r=await fetch(FORMSPREE_ENDPOINT,{method:"POST",body:fd,headers:{"Accept":"application/json"}});
+    const r=await fetch(FORMSPREE_ENDPOINT,{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(payload),
+    });
     if(r.ok){
       status.className="bug-status ok";
       status.textContent="✓ Отправлено. Спасибо!";
@@ -1948,7 +1961,7 @@ async function submitBug(ev){
     }else{
       const j=await r.json().catch(()=>({}));
       status.className="bug-status err";
-      status.textContent="Ошибка: "+(j.error||r.status);
+      status.textContent="Ошибка: "+(j.error||j.errors?.map(e=>e.message).join(", ")||r.status);
     }
   }catch(e){
     status.className="bug-status err";
