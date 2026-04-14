@@ -491,15 +491,9 @@
   <!-- Weapon -->
   <div class="bsect">
     <h3>Оружие</h3>
-    <select id="b-wpn" class="bsel wpn" onchange="calcBuild()">
-      <option value="big_alej">Big Alejandro — LMG</option>
-      <option value="eagle">Eagle Bearer — AR</option>
-      <option value="m1a">Classic M1A — MMR</option>
-      <option value="g28">G28 Реликвия — MMR</option>
-      <option value="aug">AUG A3-CQC — SMG</option>
-      <option value="merciless">Merciless — MMR</option>
-      <option value="custom">Своё оружие...</option>
-    </select>
+    <div class="slot-wrap" style="max-width:520px">
+      <div class="slot-btn" id="bs-wpn" onclick="openWpnSlot()" style="min-height:58px"><span class="ss">— выбери оружие —</span></div>
+    </div>
     <div class="wpn-stats" id="b-wpn-stats"></div>
   </div>
 
@@ -514,7 +508,7 @@
       <div class="bstat"><label>Тип</label>
         <select id="cw-cat" style="width:80px;background:transparent;border:none;color:var(--orange);font-size:13px;font-weight:700;outline:none" onchange="calcBuild()">
           <option value="AR">AR</option><option value="LMG">LMG</option><option value="MMR">MMR</option>
-          <option value="SMG">SMG</option><option value="SG">SG</option><option value="RF">RF</option>
+          <option value="SMG">SMG</option><option value="SG">SG</option><option value="Rifle">Rifle</option><option value="Pistol">Pistol</option>
         </select>
       </div>
     </div>
@@ -1236,19 +1230,184 @@ function calcDPS(){
 document.querySelectorAll("#dps-panel input").forEach(el=>el.addEventListener("input",calcDPS));
 
 // ===== BUILD CALCULATOR =====
-const WPNS={
-  big_alej:{name:"Big Alejandro",cat:"LMG",dmg:91400,rpm:1375,mag:200,reload:4.5,
-    tal:"Стрельба из укрытия: +1%/выстрел из укрытия, макс +100% WD за 4.4с",tal_type:"shot_cover",tal_max:100},
-  eagle:{name:"Eagle Bearer",cat:"AR",dmg:85000,rpm:750,mag:30,reload:2.1,
-    tal:"Орёл: убийство → +30% урон 10с",tal_type:"kill",tal_bonus:30},
-  m1a:{name:"Classic M1A",cat:"MMR",dmg:652000,rpm:180,mag:15,reload:3.0,tal:"—",tal_type:"none"},
-  g28:{name:"G28 Реликвия",cat:"MMR",dmg:536000,rpm:180,mag:20,reload:3.0,
-    tal:"После хедшот-убийства: следующие выстрелы = гарантированный крит",tal_type:"hs_kill"},
-  aug:{name:"AUG A3-CQC",cat:"SMG",dmg:42000,rpm:900,mag:42,reload:1.8,
-    tal:"Steady Handed: 100+ патронов → бесконечный магазин",tal_type:"inf_mag"},
-  merciless:{name:"Merciless",cat:"MMR",dmg:320000,rpm:180,mag:7,reload:3.5,tal:"Безжалостный: двойное нажатие",tal_type:"none"},
-  custom:{name:"Своё оружие",cat:"AR",dmg:60000,rpm:750,mag:30,reload:2.0,tal:"",tal_type:"none"},
+// Full weapon database — base + exotic + named (named auto-generated from N[] at init)
+// Damage values are baseline at max Gear Score (approx Y8 ~515); accuracy ~±10%, calculator tolerance
+const WPNS_BASE=[
+  // ===== AR =====
+  {id:"police_m4",name:"Police M4",cat:"AR",dmg:50000,rpm:790,mag:30,reload:2.0},
+  {id:"p416",name:"P416",cat:"AR",dmg:48000,rpm:790,mag:30,reload:2.0},
+  {id:"m4",name:"M4",cat:"AR",dmg:49000,rpm:790,mag:30,reload:2.0},
+  {id:"military_p416",name:"Military P416",cat:"AR",dmg:49000,rpm:790,mag:30,reload:2.0},
+  {id:"acr",name:"ACR",cat:"AR",dmg:52000,rpm:700,mag:40,reload:2.3},
+  {id:"acr_ss",name:"ACR SS",cat:"AR",dmg:54000,rpm:700,mag:40,reload:2.3},
+  {id:"aug_a3",name:"AUG A3",cat:"AR",dmg:50000,rpm:850,mag:30,reload:2.2},
+  {id:"ctar_21",name:"CTAR-21",cat:"AR",dmg:47000,rpm:900,mag:30,reload:2.1},
+  {id:"f2000",name:"F2000",cat:"AR",dmg:46000,rpm:850,mag:30,reload:2.0},
+  {id:"fal",name:"FAL",cat:"AR",dmg:65000,rpm:440,mag:20,reload:2.4},
+  {id:"famas_2010",name:"FAMAS 2010",cat:"AR",dmg:44000,rpm:950,mag:25,reload:2.1},
+  {id:"honey_badger",name:"Honey Badger",cat:"AR",dmg:38000,rpm:860,mag:30,reload:1.9},
+  {id:"g36",name:"G36",cat:"AR",dmg:46000,rpm:750,mag:30,reload:2.0},
+  {id:"akm",name:"AK-M",cat:"AR",dmg:60000,rpm:620,mag:30,reload:2.3},
+  {id:"socom_mk16",name:"SOCOM Mk16",cat:"AR",dmg:50000,rpm:790,mag:30,reload:2.0},
+  {id:"military_mk16",name:"Military Mk16",cat:"AR",dmg:50000,rpm:790,mag:30,reload:2.0},
+  {id:"sig_556",name:"SIG 556",cat:"AR",dmg:48000,rpm:750,mag:30,reload:2.1},
+  {id:"tkb_408",name:"TKB-408",cat:"AR",dmg:47000,rpm:800,mag:30,reload:2.2},
+  {id:"pdr_c",name:"PDR-C",cat:"AR",dmg:44000,rpm:900,mag:25,reload:2.0},
+  {id:"carbine_7",name:"Carbine 7",cat:"AR",dmg:48000,rpm:790,mag:30,reload:2.0},
+  // ===== SMG =====
+  {id:"p90",name:"P90",cat:"SMG",dmg:31000,rpm:900,mag:50,reload:2.2},
+  {id:"mp5_a2",name:"MP5 A2",cat:"SMG",dmg:34000,rpm:800,mag:30,reload:2.1},
+  {id:"mp5_st",name:"MP5 ST",cat:"SMG",dmg:33000,rpm:800,mag:30,reload:2.0},
+  {id:"mp5_n",name:"MP5-N",cat:"SMG",dmg:33500,rpm:800,mag:30,reload:2.1},
+  {id:"mpx",name:"MPX",cat:"SMG",dmg:36000,rpm:850,mag:35,reload:2.2},
+  {id:"mp7",name:"MP7",cat:"SMG",dmg:29000,rpm:950,mag:40,reload:1.9},
+  {id:"vector_45acp",name:"Vector .45 ACP",cat:"SMG",dmg:38000,rpm:1200,mag:25,reload:2.4},
+  {id:"vector_sbr_9mm",name:"Vector SBR 9mm",cat:"SMG",dmg:32000,rpm:1100,mag:30,reload:2.3},
+  {id:"ump45",name:"UMP-45",cat:"SMG",dmg:36500,rpm:600,mag:25,reload:2.5},
+  {id:"ump9",name:"UMP-9",cat:"SMG",dmg:34000,rpm:650,mag:30,reload:2.2},
+  {id:"tommy_gun",name:"Tommy Gun",cat:"SMG",dmg:39000,rpm:1000,mag:50,reload:2.8},
+  {id:"pp19",name:"PP-19",cat:"SMG",dmg:33000,rpm:750,mag:30,reload:2.1},
+  {id:"pp19_enh",name:"Enhanced PP-19",cat:"SMG",dmg:35000,rpm:750,mag:30,reload:2.1},
+  {id:"thompson_m1928",name:"Thompson M1928",cat:"SMG",dmg:38500,rpm:975,mag:50,reload:2.7},
+  {id:"converted_smg9",name:"Converted SMG-9",cat:"SMG",dmg:33500,rpm:800,mag:30,reload:2.0},
+  {id:"aug_para",name:"AUG Para",cat:"SMG",dmg:36000,rpm:700,mag:30,reload:2.2},
+  {id:"t821",name:"T821",cat:"SMG",dmg:33000,rpm:850,mag:30,reload:2.0},
+  {id:"smg9_a2",name:"SMG-9 A2",cat:"SMG",dmg:35000,rpm:825,mag:30,reload:2.1},
+  // ===== LMG =====
+  {id:"m60_e4",name:"M60 E4",cat:"LMG",dmg:120000,rpm:550,mag:100,reload:5.5},
+  {id:"m249_b",name:"M249 B",cat:"LMG",dmg:115000,rpm:600,mag:120,reload:5.2},
+  {id:"m249_para",name:"M249 SAW Para",cat:"LMG",dmg:110000,rpm:625,mag:100,reload:5.3},
+  {id:"mg5",name:"MG5",cat:"LMG",dmg:125000,rpm:580,mag:100,reload:5.8},
+  {id:"l86_lsw",name:"L86 LSW",cat:"LMG",dmg:118000,rpm:610,mag:90,reload:5.4},
+  {id:"negev_lmg",name:"Negev LMG",cat:"LMG",dmg:122000,rpm:720,mag:150,reload:6.2},
+  {id:"rpk",name:"RPK",cat:"LMG",dmg:112000,rpm:600,mag:80,reload:4.9},
+  {id:"rpk_74_e",name:"RPK-74 E",cat:"LMG",dmg:114000,rpm:610,mag:85,reload:5.0},
+  {id:"mk46",name:"Mk46 Mod 1",cat:"LMG",dmg:119000,rpm:570,mag:120,reload:5.6},
+  {id:"classic_m60",name:"Classic M60",cat:"LMG",dmg:121000,rpm:550,mag:100,reload:5.5},
+  {id:"stoner_lmg",name:"Stoner LAMG",cat:"LMG",dmg:116000,rpm:620,mag:100,reload:5.7},
+  // ===== MMR =====
+  {id:"classic_m1a",name:"Classic M1A",cat:"MMR",dmg:640000,rpm:180,mag:15,reload:2.9},
+  {id:"sr_1",name:"SR-1",cat:"MMR",dmg:660000,rpm:200,mag:18,reload:3.0},
+  {id:"model_700",name:"Model 700",cat:"MMR",dmg:670000,rpm:80,mag:10,reload:3.5},
+  {id:"classic_m44",name:"Classic M44 Carbine",cat:"MMR",dmg:720000,rpm:60,mag:5,reload:3.8},
+  {id:"m700_carbon",name:"M700 Carbon",cat:"MMR",dmg:700000,rpm:75,mag:8,reload:3.6},
+  {id:"m700_tactical",name:"M700 Tactical",cat:"MMR",dmg:695000,rpm:78,mag:9,reload:3.5},
+  {id:"tac_50_c",name:"TAC-50 C",cat:"MMR",dmg:850000,rpm:65,mag:7,reload:4.2},
+  {id:"srs_a1",name:"SRS A1",cat:"MMR",dmg:820000,rpm:80,mag:8,reload:4.0},
+  {id:"svd",name:"SVD",cat:"MMR",dmg:680000,rpm:200,mag:20,reload:2.8},
+  {id:"g28_base",name:"G28",cat:"MMR",dmg:685000,rpm:195,mag:17,reload:2.9},
+  {id:"hunting_m44",name:"Hunting M44",cat:"MMR",dmg:730000,rpm:55,mag:4,reload:4.0},
+  {id:"mosin_nagant",name:"Mosin Nagant",cat:"MMR",dmg:750000,rpm:50,mag:5,reload:4.3},
+  // ===== Rifle =====
+  {id:"m1a_rifle",name:"M1A",cat:"Rifle",dmg:174000,rpm:240,mag:20,reload:2.5},
+  {id:"sig_716",name:"SIG 716 CQB",cat:"Rifle",dmg:177000,rpm:240,mag:20,reload:2.6},
+  {id:"lvoa_c",name:"LVOA-C",cat:"Rifle",dmg:168000,rpm:280,mag:30,reload:2.4},
+  {id:"mk47_mutant",name:"Mk47 Mutant",cat:"Rifle",dmg:180000,rpm:200,mag:20,reload:2.7},
+  {id:"mk17",name:"Mk17",cat:"Rifle",dmg:174000,rpm:240,mag:20,reload:2.5},
+  {id:"lever_action",name:"Lever-Action Rifle",cat:"Rifle",dmg:210000,rpm:100,mag:8,reload:3.2},
+  {id:"1886_custom",name:"1886 Custom",cat:"Rifle",dmg:206000,rpm:120,mag:8,reload:3.1},
+  {id:"lwrc_di",name:"LWRC DI",cat:"Rifle",dmg:171000,rpm:270,mag:25,reload:2.3},
+  // ===== SG =====
+  {id:"spas12",name:"SPAS-12",cat:"SG",dmg:250000,rpm:90,mag:8,reload:3.5},
+  {id:"m870_express",name:"M870 Express Magnum",cat:"SG",dmg:280000,rpm:75,mag:6,reload:4.0},
+  {id:"ksg",name:"KSG Shotgun",cat:"SG",dmg:240000,rpm:120,mag:7,reload:3.2},
+  {id:"super90",name:"Super 90",cat:"SG",dmg:265000,rpm:85,mag:8,reload:3.6},
+  {id:"sasg12",name:"SASG-12",cat:"SG",dmg:230000,rpm:130,mag:10,reload:3.0},
+  {id:"acs12",name:"ACS-12",cat:"SG",dmg:220000,rpm:140,mag:12,reload:2.8},
+  {id:"sawed_off",name:"Double-Barrel Sawed-Off",cat:"SG",dmg:340000,rpm:60,mag:2,reload:4.5},
+  {id:"saiga12",name:"Saiga-12",cat:"SG",dmg:235000,rpm:125,mag:10,reload:3.1},
+  {id:"m1014",name:"M1014",cat:"SG",dmg:260000,rpm:95,mag:8,reload:3.5},
+  // ===== Pistol (corrected damages) =====
+  {id:"d50",name:"D50",cat:"Pistol",dmg:135000,rpm:100,mag:7,reload:2.5},
+  {id:"m9",name:"M9",cat:"Pistol",dmg:42000,rpm:420,mag:15,reload:1.8},
+  {id:"pf45",name:"PF45",cat:"Pistol",dmg:50000,rpm:360,mag:13,reload:2.0},
+  {id:"custom_pf45",name:"Custom PF45",cat:"Pistol",dmg:52000,rpm:360,mag:13,reload:2.1},
+  {id:"93r",name:"93R",cat:"Pistol",dmg:40000,rpm:680,mag:12,reload:1.6},
+  {id:"586_magnum",name:"586 Magnum",cat:"Pistol",dmg:145000,rpm:90,mag:6,reload:3.0},
+  {id:"686_magnum",name:"686 Magnum",cat:"Pistol",dmg:150000,rpm:95,mag:7,reload:2.8},
+  {id:"diceros",name:"Diceros",cat:"Pistol",dmg:115000,rpm:140,mag:8,reload:2.6},
+  {id:"x45",name:"X-45",cat:"Pistol",dmg:48000,rpm:400,mag:14,reload:1.9},
+  {id:"kard_45",name:"KARD .45 ACP",cat:"Pistol",dmg:85000,rpm:270,mag:10,reload:2.2},
+  {id:"desert_eagle",name:"Desert Eagle",cat:"Pistol",dmg:140000,rpm:100,mag:7,reload:2.8},
+  {id:"maxim_9",name:"Maxim 9",cat:"Pistol",dmg:40000,rpm:520,mag:18,reload:1.7},
+  {id:"cm9",name:"CM9",cat:"Pistol",dmg:38000,rpm:680,mag:17,reload:1.6},
+  {id:"silenced_m45a1",name:"Silenced M45A1",cat:"Pistol",dmg:90000,rpm:240,mag:9,reload:2.3},
+];
+
+// Exotic weapons with combat stats — matched to E[] entries by name
+const EXOTIC_WPNS={
+  "Орлиное Знамя":{cat:"AR",dmg:85000,rpm:750,mag:30,reload:2.1,tal:"Eagle's Strike — убийство +30% WD 10с",tal_type:"kill",tal_bonus:30},
+  "Большой Алехандро":{cat:"LMG",dmg:91000,rpm:1375,mag:200,reload:4.5,tal:"Стрельба из укрытия: +1% WD/выстрел (макс +100%)",tal_type:"shot_cover",tal_max:100},
+  "Трещотка":{cat:"SMG",dmg:35000,rpm:900,mag:45,reload:2.2,tal:"Blabbermouth: хиты +1% RPM, убийство +50% магазин"},
+  "Леди Смерть":{cat:"SMG",dmg:40000,rpm:1100,mag:25,reload:2.3,tal:"Breathe Free: 4 стака/сек (макс 32) → урон"},
+  "Обратный Удар":{cat:"SMG",dmg:33000,rpm:900,mag:30,reload:2.1,tal:"Payment in Kind: +1% крит/хит (макс 200)"},
+  "Уроборос":{cat:"SMG",dmg:38000,rpm:1485,mag:30,reload:2.4,tal:"Serpent's Tongue: перегрев = оглушение"},
+  "Мор":{cat:"LMG",dmg:130000,rpm:500,mag:80,reload:5.5,tal:"Plague of the Outcasts: 20 хитов+убийство → облако"},
+  "Король Стрелков":{cat:"LMG",dmg:125000,rpm:600,mag:100,reload:0,tal:"Bullet Hell: не перезаряжается, 100 хитов → патроны в резерв"},
+  "Пахан":{cat:"LMG",dmg:127000,rpm:610,mag:85,reload:5.0,tal:"Убийство +75% магазин (макс 4 стака)"},
+  "Безжалостный":{cat:"Rifle",dmg:250000,rpm:150,mag:7,reload:2.5,tal:"Guerrilla Warfare: праймеры → детонация"},
+  "Гремучник":{cat:"Rifle",dmg:200000,rpm:180,mag:10,reload:2.5,tal:"Diamondback: метка → гарантированный крит"},
+  "Домашний Доктор":{cat:"Rifle",dmg:195000,rpm:220,mag:20,reload:2.5,tal:"Убийство меченого → аптечка"},
+  "Мститель":{cat:"Rifle",dmg:190000,rpm:240,mag:20,reload:2.5,tal:"Ortiz Assault: подсвеченная часть +40% урон"},
+  "Сладкий Сон / Колыбельная":{cat:"SG",dmg:300000,rpm:85,mag:6,reload:3.5,tal:"Sandman: дебафф нет аптечек 10с"},
+  "Скорпион":{cat:"SG",dmg:280000,rpm:110,mag:8,reload:3.5,tal:"Scorpio: статусы и +20% урон на 7 стаках"},
+  "Шериф":{cat:"SG",dmg:290000,rpm:95,mag:8,reload:3.5,tal:"+35% WD, +100% точность, нет спада"},
+  "Немезида":{cat:"MMR",dmg:800000,rpm:60,mag:1,reload:4.0,tal:"Nemesis: дольше курок → до +50% WD"},
+  "Суровый Приговор":{cat:"MMR",dmg:600000,rpm:180,mag:15,reload:3.0,tal:"Full Stop: хедшот-убийство → поджог меченых"},
+  "Sacrum Imperium":{cat:"MMR",dmg:550000,rpm:180,mag:20,reload:3.0,tal:"The Trap: метки 10 целей"},
+  "Свобода":{cat:"Pistol",dmg:140000,rpm:100,mag:7,reload:2.8,tal:"Kendra's Liberty: +2%/хит (30)"},
+  "Регул":{cat:"Pistol",dmg:180000,rpm:90,mag:6,reload:3.0,tal:"Regicide: хедшот-убийство → взрыв +400%"},
+  "Буря":{cat:"Pistol",dmg:65000,rpm:800,mag:20,reload:2.0,tal:"Restrained: полный авто, после Shield +25% WD 20с"},
 };
+
+// WPNS — runtime-built: base + exotics + named. Auto-populated by initWpnDb()
+let WPNS={};
+let WPNS_LIST=[];
+
+function initWpnDb(){
+  WPNS={};WPNS_LIST=[];
+  // Base weapons
+  WPNS_BASE.forEach(w=>{
+    const full={...w,kind:"base",tal:"—",tal_type:"none"};
+    WPNS[w.id]=full;
+    WPNS_LIST.push(full);
+  });
+  // Exotics from E[]
+  const E_CAT={"Штурмовые винтовки":"AR","Пистолеты-пулемёты":"SMG","Ручные пулемёты":"LMG","Дробовики":"SG","Снайперские винтовки":"MMR","Винтовки":"Rifle","Пистолеты":"Pistol"};
+  E.forEach(e=>{
+    const cat=E_CAT[e.g];if(!cat)return;
+    const ex=EXOTIC_WPNS[e.name];
+    const stats=ex||{cat,dmg:cat==="MMR"?600000:cat==="LMG"?115000:cat==="SG"?250000:cat==="Rifle"?180000:cat==="Pistol"?80000:cat==="SMG"?34000:48000,rpm:cat==="MMR"?180:cat==="LMG"?600:cat==="SG"?100:cat==="Rifle"?240:cat==="Pistol"?300:cat==="SMG"?850:790,mag:cat==="MMR"?15:cat==="LMG"?100:cat==="SG"?8:cat==="Rifle"?20:cat==="Pistol"?10:cat==="SMG"?30:30,reload:cat==="MMR"?3.0:cat==="LMG"?5.0:cat==="SG"?3.5:cat==="Rifle"?2.5:cat==="Pistol"?2.3:cat==="SMG"?2.1:2.0};
+    const id="exotic_"+e.en.toLowerCase().replace(/[^a-z0-9]+/g,"_");
+    const full={id,name:e.name,en:e.en,cat:stats.cat,dmg:stats.dmg,rpm:stats.rpm,mag:stats.mag,reload:stats.reload,kind:"exotic",tal:e.tal,tal_desc:e.d,tal_type:stats.tal_type||"none",tal_bonus:stats.tal_bonus,tal_max:stats.tal_max};
+    WPNS[id]=full;
+    WPNS_LIST.push(full);
+  });
+  // Named from N[] — inherit stats from base weapon by parsing t:"AR (Police M4)"
+  const N_CAT={"Штурмовые винтовки":"AR","Пистолеты-пулемёты":"SMG","Ручные пулемёты":"LMG","Дробовики":"SG","Снайперские винтовки":"MMR","Винтовки":"Rifle","Пистолеты":"Pistol"};
+  const baseByName={};
+  WPNS_BASE.forEach(b=>{baseByName[b.name.toLowerCase()]=b});
+  N.forEach(n=>{
+    const cat=N_CAT[n.g];if(!cat)return;
+    const m=/\(([^)]+)\)/.exec(n.t||"");
+    const baseName=m?m[1].trim():"";
+    let baseStats=null;
+    if(baseName){
+      const k=Object.keys(baseByName).find(k=>k===baseName.toLowerCase()||k.includes(baseName.toLowerCase())||baseName.toLowerCase().includes(k));
+      if(k)baseStats=baseByName[k];
+    }
+    if(!baseStats){
+      baseStats=WPNS_BASE.find(b=>b.cat===cat)||WPNS_BASE[0];
+    }
+    const tb=talentBonus(n.tal);
+    const id="named_"+n.en.toLowerCase().replace(/[^a-z0-9]+/g,"_");
+    const full={id,name:n.name,en:n.en,cat:baseStats.cat,dmg:baseStats.dmg,rpm:baseStats.rpm,mag:baseStats.mag,reload:baseStats.reload,base:baseName||baseStats.name,kind:"named",tal:n.tal,tal_desc:n.d,tal_type:"none",named_bonus:tb};
+    WPNS[id]=full;
+    WPNS_LIST.push(full);
+  });
+  // Custom (user inputs)
+  WPNS.custom={id:"custom",name:"Своё оружие",cat:"AR",dmg:60000,rpm:750,mag:30,reload:2.0,kind:"custom",tal:"",tal_type:"none"};
+}
 
 // Set bonus definitions — DPS-relevant math for all 26 sets
 // Bonus keys used by math: rof, mag, chc, chd, hsd, wd, reload, type_dmg+type, handling(display)
@@ -1535,22 +1694,118 @@ document.addEventListener("click",function(e){
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSlotModal()});
 
 function initBuildSlots(){
+  initWpnDb();
   buildItemDb();
   Object.keys(slotState).forEach(updateSlotBtn);
+  updateWpnBtn();
 }
 
+// Currently selected weapon (by id from WPNS)
+let selectedWpnId="police_m4";
 function getWeapon(){
-  const id=document.getElementById("b-wpn").value;
-  if(id==="custom"){
-    return{name:"Своё оружие",cat:document.getElementById("cw-cat").value,
+  if(selectedWpnId==="custom"){
+    return{id:"custom",name:"Своё оружие",cat:document.getElementById("cw-cat").value,
       dmg:parseFloat(document.getElementById("cw-dmg").value)||60000,
       rpm:parseFloat(document.getElementById("cw-rpm").value)||750,
       mag:parseFloat(document.getElementById("cw-mag").value)||30,
       reload:parseFloat(document.getElementById("cw-rel").value)||2.0,
-      tal:"",tal_type:"none"};
+      kind:"custom",tal:"",tal_type:"none"};
   }
-  return WPNS[id];
+  return WPNS[selectedWpnId]||WPNS_BASE[0];
 }
+
+// Weapon picker modal — reuses slot-modal UI but with weapon filters
+let wpnModFilterKind="all"; // all/base/named/exotic
+let wpnModFilterCat="all";  // all/AR/SMG/LMG/MMR/Rifle/SG/Pistol
+function openWpnSlot(){
+  document.getElementById("mod-title").textContent="Выбор оружия";
+  document.getElementById("mod-s1").value="";
+  document.getElementById("mod-s2").value="";
+  wpnModFilterKind="all";wpnModFilterCat="all";
+  curSlot="__weapon__";
+  // Replace filter bar with weapon-specific
+  document.getElementById("mod-filters").innerHTML=
+    '<button class="mf-btn on" data-wk="all">Все</button>'+
+    '<button class="mf-btn" data-wk="base">Базовые</button>'+
+    '<button class="mf-btn" data-wk="named">Именные</button>'+
+    '<button class="mf-btn" data-wk="exotic">Экзотики</button>'+
+    '<span style="width:10px"></span>'+
+    '<button class="mf-btn on" data-wc="all">Все типы</button>'+
+    '<button class="mf-btn" data-wc="AR">AR</button>'+
+    '<button class="mf-btn" data-wc="SMG">SMG</button>'+
+    '<button class="mf-btn" data-wc="LMG">LMG</button>'+
+    '<button class="mf-btn" data-wc="MMR">MMR</button>'+
+    '<button class="mf-btn" data-wc="Rifle">Rifle</button>'+
+    '<button class="mf-btn" data-wc="SG">SG</button>'+
+    '<button class="mf-btn" data-wc="Pistol">Pistol</button>';
+  document.getElementById("slot-modal").classList.add("open");
+  renderWpnList();
+  setTimeout(()=>document.getElementById("mod-s1").focus(),50);
+}
+function renderWpnList(){
+  const q1=document.getElementById("mod-s1").value.toLowerCase().trim();
+  const q2=document.getElementById("mod-s2").value.toLowerCase().trim();
+  const qs=[q1,q2].filter(x=>x);
+  const filtered=WPNS_LIST.filter(w=>{
+    if(wpnModFilterKind!=="all"&&w.kind!==wpnModFilterKind)return false;
+    if(wpnModFilterCat!=="all"&&w.cat!==wpnModFilterCat)return false;
+    if(!qs.length)return true;
+    const parts=[w.name,w.en||"",w.cat,w.tal||"",w.tal_desc||"",w.base||""].join(" ").toLowerCase();
+    return qs.every(q=>q.split(/\s+/).every(wrd=>parts.includes(wrd)));
+  });
+  const html=filtered.slice(0,300).map(w=>{
+    const kindClass=w.kind==="base"?"brand":w.kind==="named"?"named":"exotic";
+    const kindLbl=w.kind==="base"?"Базовое":w.kind==="named"?"Именное":"Экзотик";
+    const tagClass=w.kind==="base"?"b-brand":w.kind==="named"?"b-named":"b-exotic";
+    const stats=`<span style="color:var(--orange)">${w.dmg.toLocaleString("ru")}</span> · ${w.rpm}rpm · ${w.mag}маг · ${w.reload}с`;
+    const tal=w.tal&&w.tal!=="—"?`<div class="mi-tal">${w.tal}</div>`:"";
+    const tald=w.tal_desc?`<div class="mi-desc">${w.tal_desc}</div>`:"";
+    const base=w.base?`<div class="mi-desc" style="color:#555">базовое: ${w.base}</div>`:"";
+    return`<div class="mitem" onclick="pickWpn('${w.id}')">
+      <div class="mi-h">
+        <div><span class="mi-n ${kindClass}">${w.name}</span> ${w.en?`<span class="mi-en">${w.en}</span>`:""}</div>
+        <span class="badge ${tagClass}">${w.cat} · ${kindLbl}</span>
+      </div>
+      <div class="mi-desc">${stats}</div>
+      ${tal}${tald}${base}
+    </div>`;
+  }).join("");
+  document.getElementById("mod-list").innerHTML=html||'<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">Ничего не найдено</div>';
+}
+function pickWpn(id){
+  selectedWpnId=id;
+  updateWpnBtn();
+  closeSlotModal();
+  calcBuild();
+}
+function updateWpnBtn(){
+  const el=document.getElementById("bs-wpn");
+  const w=WPNS[selectedWpnId]||WPNS_BASE[0];
+  const kind=w.kind||"base";
+  const cls=kind==="base"?"brand":kind;
+  el.className="slot-btn filled "+cls;
+  el.innerHTML=`<span class="sn ${cls}">${w.name}</span><span class="ss">${w.cat} · ${w.dmg.toLocaleString("ru")} · ${w.rpm}rpm · ${w.mag}маг · ${w.reload}с</span>`;
+}
+
+// Extend modal filter click handler for weapon tabs
+document.addEventListener("click",function(e){
+  const b=e.target.closest("#mod-filters .mf-btn");
+  if(!b||curSlot!=="__weapon__")return;
+  if(b.dataset.wk){
+    wpnModFilterKind=b.dataset.wk;
+    document.querySelectorAll("#mod-filters .mf-btn[data-wk]").forEach(x=>x.classList.toggle("on",x===b));
+  }
+  if(b.dataset.wc){
+    wpnModFilterCat=b.dataset.wc;
+    document.querySelectorAll("#mod-filters .mf-btn[data-wc]").forEach(x=>x.classList.toggle("on",x===b));
+  }
+  renderWpnList();
+});
+// Hook modal search inputs for weapon mode
+document.addEventListener("input",e=>{
+  if(curSlot!=="__weapon__")return;
+  if(e.target.id==="mod-s1"||e.target.id==="mod-s2")renderWpnList();
+});
 
 function bonusDesc(b,cat){
   const parts=[];
@@ -1659,7 +1914,7 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
 function calcBuild(){
   const wpn=getWeapon();
   // Show/hide custom
-  document.getElementById("b-custom-sect").style.display=wpn.name==="Своё оружие"?"block":"none";
+  document.getElementById("b-custom-sect").style.display=wpn.kind==="custom"?"block":"none";
   // Weapon info bar
   document.getElementById("b-wpn-stats").innerHTML=
     `<div class="wpn-stat">Урон: <b>${wpn.dmg.toLocaleString("ru")}</b></div>`+
@@ -1790,6 +2045,28 @@ function calcBuild(){
     if(tb.reload)tRELOAD+=tb.reload;
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
     bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
+  }
+
+  // Named weapon talent (if any) — applies same way as named armor
+  if(wpn.kind==="named"&&wpn.named_bonus){
+    const tb=wpn.named_bonus;
+    const isCond=tb.conditional;
+    ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
+      if(tb[k]){
+        if(isCond)tPeakOnly[k]+=tb[k];
+        else{
+          if(k==="wd")tWD+=tb[k];
+          if(k==="chc")tCHC+=tb[k];
+          if(k==="chd")tCHD+=tb[k];
+          if(k==="hsd")tHSD+=tb[k];
+          if(k==="rof")tROF+=tb[k];
+          if(k==="mag")tMAG+=tb[k];
+        }
+      }
+    });
+    if(tb.reload)tRELOAD+=tb.reload;
+    const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
+    bonuses.push({color:"#ab47bc",tier:"🔫",nm:"Оружие: "+wpn.name,desc:(wpn.tal||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
 
   // Manual stats
