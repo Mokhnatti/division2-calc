@@ -1059,7 +1059,8 @@ const SB={
     p2:{chc:15},
     p3:{reload:30},
     p4:"stacks",
-    stacks:{trigger:"shot_cover",max_base:50,max_chest:100,chd_base:1,rof_base:0.3,stat:"CHD+ROF"}},
+    stacks:{trigger:"tempo",tempo_rate:20,max_base:50,max_chest:100,decay_above:0,decay_sec:6,
+            chd_base:1,rof_base:0.3,stat:"CHD+ROF",note:"20 стаков/сек в укрытии, −6/сек вне"}},
   "Дилемма переговорщика":{color:"#f5a623",
     p2:{chc:15},
     p3:{chd:20},
@@ -1144,28 +1145,34 @@ function bonusDesc(b,cat){
 }
 
 // Proper stack calculation with decay
-function stacksAtTime(sps, max, decayAbove, decayPerSec, t){
+// rate = stacks per second (RPM-based or fixed tempo)
+function stacksAtTime(rate, max, decayAbove, decayPerSec, t){
   if(t===Infinity) return max;
   if(t<=0) return 0;
-  const dA=decayAbove||max;
+  const dA=(decayAbove!=null&&decayAbove<max)?decayAbove:max;
   const dR=decayPerSec||0;
-  // Phase 1: accumulate freely up to decayAbove
-  const t1=dA/sps;
-  if(t<=t1) return Math.min(sps*t, max);
-  // Phase 2: above decayAbove, net = sps - decayPerSec
-  const net=sps-dR;
-  if(net<=0) return dA; // stacks stabilize at threshold
+  // Phase 1: accumulate at rate up to decayAbove
+  const t1=dA/rate;
+  if(t<=t1) return Math.min(rate*t, max);
+  // Phase 2: net rate = rate - decay
+  const net=rate-dR;
+  if(net<=0) return dA;
   return Math.min(dA+net*(t-t1), max);
 }
 
-function timeToFull(sps, max, decayAbove, decayPerSec){
-  const dA=decayAbove||max;
+function timeToFull(rate, max, decayAbove, decayPerSec){
+  const dA=(decayAbove!=null&&decayAbove<max)?decayAbove:max;
   const dR=decayPerSec||0;
-  if(dA>=max) return max/sps; // no decay phase
-  const t1=dA/sps;
-  const net=sps-dR;
-  if(net<=0) return Infinity; // never reaches max
-  return t1+(max-dA)/net;
+  if(dA>=max) return max/rate;
+  const net=rate-dR;
+  if(net<=0) return Infinity;
+  return dA/rate+(max-dA)/net;
+}
+
+function getStackRate(stkDef, sps){
+  // tempo trigger = fixed rate regardless of RPM
+  if(stkDef.trigger==="tempo") return stkDef.tempo_rate||20;
+  return sps; // hit/shot trigger = RPM based
 }
 
 function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,ooc,dta,activeStacks,hasChest,hasBP,t){
@@ -1175,9 +1182,10 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,ooc,dta,activ
   const stkRows=[];
   for(const s of activeStacks){
     const maxS=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
-    const dA=s.def.decay_above||maxS;
+    const dA=(s.def.decay_above!=null)?s.def.decay_above:maxS;
     const dR=s.def.decay_sec||0;
-    const stks=stacksAtTime(sps0,maxS,dA,dR,t);
+    const rate=getStackRate(s.def,sps0);
+    const stks=stacksAtTime(rate,maxS,dA,dR,t);
     if(s.def.wd_base!==undefined){
       const pp=hasBP[s.name]?s.def.wd_bp:s.def.wd_base;
       sWD+=stks*pp;
@@ -1296,18 +1304,22 @@ function calcBuild(){
   const sps=wpn.rpm/60;
   for(const s of activeStacks){
     const max=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
-    const dA=s.def.decay_above||max;
+    const dA=(s.def.decay_above!=null)?s.def.decay_above:max;
     const dR=s.def.decay_sec||0;
-    const rampT=timeToFull(sps,max,dA,dR);
-    const stks5=Math.round(stacksAtTime(sps,max,dA,dR,5));
+    const rate=getStackRate(s.def,sps);
+    const rampT=timeToFull(rate,max,dA,dR);
+    const stks5=Math.round(stacksAtTime(rate,max,dA,dR,5));
     const pct5=Math.round(stks5/max*100);
-    const netRate=dR>0?`${sps.toFixed(1)} стак/с, выше ${dA}: чистый прирост ${(sps-dR).toFixed(1)}/с`:`${sps.toFixed(1)} стак/с`;
+    const trigLbl=s.def.trigger==="tempo"?`${rate}/сек (фикс.)`:`${rate.toFixed(1)}/сек`;
+    const netRate=dR>0?`${trigLbl} · выше ${dA}: чистый ${(rate-dR).toFixed(1)}/с (−${dR}/с)`:`${trigLbl}`;
+    const note=s.def.note?`<br><span style="color:#555;font-size:10px;font-style:italic">${s.def.note}</span>`:"";
     stkHtml+=`<div class="stk-info" style="flex-direction:column;gap:6px;align-items:flex-start">
       <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
         <span style="color:${s.color};font-weight:700">${s.name}</span>
         <span>Макс: <b>${max}</b></span>
         <span>Скорость: <b>${netRate}</b></span>
-        ${dR>0?`<span style="color:#ef5350">Затухание: <b>−${dR}/с</b> выше ${dA}</span>`:""}
+        ${dR>0?`<span style="color:#ef5350">−${dR}/с выше ${dA}</span>`:""}
+        ${note}
         <span>Фул стаки: <b>${rampT===Infinity?"∞":rampT.toFixed(1)+"с"}</b></span>
         <span>За 5с: <b>${stks5}/${max} (${pct5}%)</b></span>
       </div>
