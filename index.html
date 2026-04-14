@@ -488,6 +488,17 @@
 <div id="build-panel" style="display:none">
 <div class="bw">
 
+  <!-- Saved builds + share -->
+  <div class="bsect" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <h3 style="margin:0 auto 0 0">💾 Билды</h3>
+    <select id="b-saved" class="bsel" style="flex:1;min-width:140px;max-width:260px" onchange="onSavedSelect()"><option value="">— выбери сохранённый —</option></select>
+    <button class="mf-btn" onclick="loadSelectedBuild()" title="Загрузить выбранный">Загрузить</button>
+    <button class="mf-btn" onclick="saveCurrentBuild()" title="Сохранить текущий">Сохранить</button>
+    <button class="mf-btn" onclick="deleteSelectedBuild()" title="Удалить выбранный" style="color:#ef5350">Удалить</button>
+    <button class="mf-btn" onclick="shareBuild()" title="Скопировать ссылку" style="background:rgba(66,165,245,.15);border-color:rgba(66,165,245,.4);color:var(--blue)">🔗 Поделиться</button>
+    <div id="b-share-status" style="font-size:11px;color:var(--muted);flex-basis:100%;text-align:center;min-height:14px"></div>
+  </div>
+
   <!-- Weapon -->
   <div class="bsect">
     <h3>Оружие</h3>
@@ -495,6 +506,11 @@
       <div class="slot-btn" id="bs-wpn" onclick="openWpnSlot()" style="min-height:58px"><span class="ss">— выбери оружие —</span></div>
     </div>
     <div class="wpn-stats" id="b-wpn-stats"></div>
+    <div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px">Талант оружия:</label>
+      <select id="b-wpn-tal" class="bsel" style="flex:1;min-width:200px;max-width:380px" onchange="onWpnTalentChange()"></select>
+      <span id="b-wpn-tal-desc" style="font-size:10px;color:#555;flex-basis:100%"></span>
+    </div>
   </div>
 
   <!-- Custom weapon inputs (hidden by default) -->
@@ -1699,10 +1715,193 @@ function initBuildSlots(){
   buildItemDb();
   Object.keys(slotState).forEach(updateSlotBtn);
   updateWpnBtn();
+  // Populate weapon talent select
+  const talSel=document.getElementById("b-wpn-tal");
+  if(talSel){
+    talSel.innerHTML=Object.entries(WEAPON_TALENTS).map(([k,v])=>`<option value="${k}">${v.name}</option>`).join("");
+    talSel.value=selectedWpnTalent;
+  }
+  refreshSavedList();
+  // Try to restore build from URL hash or last localStorage session
+  const fromHash=buildFromHash();
+  if(fromHash){applyBuildState(fromHash);showShareStatus("Билд загружен из ссылки",2500)}
+  else{
+    const last=localStorage.getItem("d2calc_last");
+    if(last){try{applyBuildState(JSON.parse(last))}catch(e){}}
+  }
 }
+
+function onWpnTalentChange(){
+  selectedWpnTalent=document.getElementById("b-wpn-tal").value;
+  const t=WEAPON_TALENTS[selectedWpnTalent];
+  const desc=document.getElementById("b-wpn-tal-desc");
+  if(desc)desc.textContent=t?.bonus?.note||"";
+  calcBuild();
+}
+
+// ===== BUILD STATE =====
+function getBuildState(){
+  const slots={};
+  for(const[s,it] of Object.entries(slotState)){
+    if(!it){slots[s]=null;continue}
+    slots[s]={k:it.kind,n:it.kind==="green"?it.setName:it.kind==="brand"?it.brand:(it.en||it.name)};
+  }
+  return{
+    wpn:selectedWpnId,
+    wpnTal:selectedWpnTalent,
+    cw:{dmg:v("cw-dmg"),rpm:v("cw-rpm"),mag:v("cw-mag"),rel:parseFloat(document.getElementById("cw-rel")?.value)||2,cat:document.getElementById("cw-cat")?.value||"AR"},
+    slots,
+    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd")},
+    shd:{wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo")},
+    rc:{hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")},
+    ttk:{diff:ttkDiff,hp:v("ttk-hp-mult"),ar:v("ttk-ar-mult")},
+  };
+}
+
+function applyBuildState(s){
+  if(!s)return;
+  // Weapon
+  if(s.wpn&&WPNS[s.wpn]){selectedWpnId=s.wpn;updateWpnBtn()}
+  if(s.wpnTal&&WEAPON_TALENTS[s.wpnTal]){
+    selectedWpnTalent=s.wpnTal;
+    const el=document.getElementById("b-wpn-tal");if(el)el.value=s.wpnTal;
+  }
+  // Custom weapon inputs
+  if(s.cw){
+    setInput("cw-dmg",s.cw.dmg);setInput("cw-rpm",s.cw.rpm);
+    setInput("cw-mag",s.cw.mag);setInput("cw-rel",s.cw.rel);
+    const cat=document.getElementById("cw-cat");if(cat&&s.cw.cat)cat.value=s.cw.cat;
+  }
+  // Slots
+  for(const[slot,st] of Object.entries(s.slots||{})){
+    if(!st){slotState[slot]=null;updateSlotBtn(slot);continue}
+    const items=ITEMS_BY_SLOT[slot]||[];
+    const match=items.find(it=>{
+      if(it.kind!==st.k)return false;
+      if(st.k==="green")return it.setName===st.n;
+      if(st.k==="brand")return it.brand===st.n;
+      return it.en===st.n||it.name===st.n;
+    });
+    slotState[slot]=match||null;
+    updateSlotBtn(slot);
+  }
+  // Manual stats
+  ["chc","chd","hsd","hsrate","ooc","dta","wd"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
+  ["wd","hsd","chc","chd","ammo"].forEach(k=>{if(s.shd&&s.shd[k]!==undefined)setInput("shd-"+k,s.shd[k])});
+  ["hsd","ammo","ergo","armor","elite","hazprot","status","skilldmg","util3"].forEach(k=>{if(s.rc&&s.rc[k]!==undefined)setInput("rc-"+k,s.rc[k])});
+  if(s.ttk){
+    if(s.ttk.diff)setTtkDiff(s.ttk.diff);
+    setInput("ttk-hp-mult",s.ttk.hp);setInput("ttk-ar-mult",s.ttk.ar);
+  }
+  calcBuild();
+}
+function setInput(id,val){const el=document.getElementById(id);if(el&&val!==undefined&&val!==null)el.value=val}
+
+// ===== URL SHARING =====
+function buildToHash(){
+  try{
+    const s=JSON.stringify(getBuildState());
+    return "#b="+btoa(unescape(encodeURIComponent(s)));
+  }catch(e){return""}
+}
+function buildFromHash(){
+  const m=/^#b=(.+)$/.exec(location.hash);
+  if(!m)return null;
+  try{return JSON.parse(decodeURIComponent(escape(atob(m[1]))))}catch(e){return null}
+}
+function shareBuild(){
+  const hash=buildToHash();
+  if(!hash){showShareStatus("Ошибка кодирования",3000);return}
+  const url=location.origin+location.pathname+hash;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(
+      ()=>showShareStatus("Ссылка скопирована: "+url.slice(0,60)+"...",4000),
+      ()=>fallbackCopy(url)
+    );
+  }else fallbackCopy(url);
+  history.replaceState(null,"",hash);
+}
+function fallbackCopy(txt){
+  const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);
+  ta.select();try{document.execCommand("copy");showShareStatus("Ссылка скопирована",3000)}catch(e){showShareStatus("Скопируй вручную: "+txt,8000)}
+  document.body.removeChild(ta);
+}
+function showShareStatus(msg,ms){
+  const el=document.getElementById("b-share-status");
+  if(!el)return;el.textContent=msg;
+  if(ms)setTimeout(()=>{if(el.textContent===msg)el.textContent=""},ms);
+}
+
+// ===== SAVED BUILDS (localStorage) =====
+const BUILDS_KEY="d2calc_builds_v1";
+function getSavedBuilds(){
+  try{return JSON.parse(localStorage.getItem(BUILDS_KEY)||"{}")}catch(e){return{}}
+}
+function refreshSavedList(){
+  const sel=document.getElementById("b-saved");if(!sel)return;
+  const all=getSavedBuilds();
+  const names=Object.keys(all).sort();
+  sel.innerHTML='<option value="">— '+(names.length?names.length+" сохранённых":"нет сохранённых")+' —</option>'+
+    names.map(n=>`<option value="${n.replace(/"/g,'&quot;')}">${n}</option>`).join("");
+}
+function saveCurrentBuild(){
+  const name=prompt("Название билда:","");
+  if(!name)return;
+  const all=getSavedBuilds();
+  all[name]=getBuildState();
+  localStorage.setItem(BUILDS_KEY,JSON.stringify(all));
+  refreshSavedList();
+  document.getElementById("b-saved").value=name;
+  showShareStatus('Билд "'+name+'" сохранён',2500);
+}
+function loadSelectedBuild(){
+  const name=document.getElementById("b-saved").value;
+  if(!name){showShareStatus("Выбери билд из списка",2500);return}
+  const all=getSavedBuilds();
+  if(!all[name]){showShareStatus("Билд не найден",2500);return}
+  applyBuildState(all[name]);
+  showShareStatus('Загружен "'+name+'"',2500);
+}
+function deleteSelectedBuild(){
+  const name=document.getElementById("b-saved").value;
+  if(!name){showShareStatus("Выбери билд",2500);return}
+  if(!confirm('Удалить "'+name+'"?'))return;
+  const all=getSavedBuilds();
+  delete all[name];
+  localStorage.setItem(BUILDS_KEY,JSON.stringify(all));
+  refreshSavedList();
+  showShareStatus('Удалён "'+name+'"',2500);
+}
+function onSavedSelect(){}
+
+// Weapon 4th-roll talents (generic, rolls on any weapon — not exotic/named talents)
+const WEAPON_TALENTS={
+  none:{name:"— нет —",bonus:null},
+  optimist:{name:"Optimist (Оптимист)",bonus:{wd:25,conditional:true,note:"5×5% WD за каждые 10% пустого магазина"}},
+  outsider:{name:"Outsider (Изгой)",bonus:{wd:35,conditional:true,note:"5×7% WD после убийства, 10с"}},
+  rifleman:{name:"Rifleman (Стрелок)",bonus:{wd:60,conditional:true,note:"5×12% WD за хедшот, 5с"}},
+  close_personal:{name:"Close & Personal (Вплотную)",bonus:{wd:40,conditional:true,note:"+40% WD ближе 7м"}},
+  frenzy:{name:"Frenzy (Бешенство)",bonus:{wd:20,rof:25,conditional:true,note:"после перезарядки из пустого +20% WD +25% RPM"}},
+  headhunter:{name:"Headhunter (Идеальный охотник)",bonus:{wd:1250,conditional:true,note:"1250% WD следующий выстрел после хедшот-убийства"}},
+  killer:{name:"Killer (Убийца)",bonus:{chc:50,conditional:true,note:"+50% CHC после крит-убийства 15с"}},
+  allegro:{name:"Allegro (Аллегро)",bonus:{rof:12,note:"+12% RPM"}},
+  adrenaline_rush:{name:"Adrenaline Rush (Прилив адреналина)",bonus:{wd:30,conditional:true,note:"+30% WD 5с после броска гранаты"}},
+  sadist:{name:"Sadist (Садист)",bonus:{wd:12,conditional:true,note:"+12% WD по врагам со статусом"}},
+  spike:{name:"Spike (Всплеск)",bonus:{wd:25,conditional:true,note:"+25% WD 10с после урона скиллом"}},
+  unhinged:{name:"Unhinged (Свихнувшийся)",bonus:{wd:25,note:"+25% WD, −20% управление"}},
+  jazz_hands:{name:"Jazz Hands (Виртуозные руки)",bonus:{reload:20,note:"+20% скорость перезарядки"}},
+  strained:{name:"Strained (Надрыв)",bonus:{chd:65,conditional:true,note:"+1% CHD за 1% утерянной брони (макс 65)"}},
+  sustained:{name:"Sustained (Устойчивый)",bonus:{wd:15,conditional:true,note:"+15% WD 5с после крит-хита"}},
+  eyeless:{name:"Eyeless (Слепой)",bonus:{wd:10,conditional:true,note:"+10% WD по слепым"}},
+  measured:{name:"Measured (Отмеренный)",bonus:{wd:15,conditional:true,note:"верх/низ магазина — усреднение +15%"}},
+  steady_handed:{name:"Steady Handed (Уверенная рука)",bonus:{mag:100,conditional:true,note:"после 100 патронов — патроны из пустоты (≈×2 магазин)"}},
+  boomerang:{name:"Boomerang (Бумеранг)",bonus:{wd:12,conditional:true,note:"+12% WD после крита (усреднено)"}},
+  vanguard:{name:"Vanguard (Авангард)",bonus:{wd:8,conditional:true,note:"+8% WD после смены оружия 5с"}},
+};
 
 // Currently selected weapon (by id from WPNS)
 let selectedWpnId="police_m4";
+let selectedWpnTalent="none";
 function getWeapon(){
   if(selectedWpnId==="custom"){
     return{id:"custom",name:"Своё оружие",cat:document.getElementById("cw-cat").value,
@@ -2048,6 +2247,29 @@ function calcBuild(){
     bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
 
+  // Weapon 4th-roll talent (applies on top of base/exotic/named)
+  const wtDef=WEAPON_TALENTS[selectedWpnTalent];
+  if(wtDef&&wtDef.bonus){
+    const tb=wtDef.bonus;
+    const isCond=tb.conditional;
+    ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
+      if(tb[k]){
+        if(isCond)tPeakOnly[k]+=tb[k];
+        else{
+          if(k==="wd")tWD+=tb[k];
+          if(k==="chc")tCHC+=tb[k];
+          if(k==="chd")tCHD+=tb[k];
+          if(k==="hsd")tHSD+=tb[k];
+          if(k==="rof")tROF+=tb[k];
+          if(k==="mag")tMAG+=tb[k];
+        }
+      }
+    });
+    if(tb.reload)tRELOAD+=tb.reload;
+    const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
+    bonuses.push({color:"#f5a623",tier:"🎯",nm:"Талант: "+wtDef.name,desc:mathStr+(isCond?" (условно — только пик)":"")+(tb.note?" · "+tb.note:"")});
+  }
+
   // Named weapon talent (if any) — applies same way as named armor
   if(wpn.kind==="named"&&wpn.named_bonus){
     const tb=wpn.named_bonus;
@@ -2215,6 +2437,8 @@ function calcBuild(){
 
   document.getElementById("b-results-sect").style.display="block";
   document.getElementById("b-ttk-sect").style.display="block";
+  // Autosave last state
+  try{localStorage.setItem("d2calc_last",JSON.stringify(getBuildState()))}catch(e){}
 }
 
 // ===== TTK =====
