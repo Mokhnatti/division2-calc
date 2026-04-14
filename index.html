@@ -548,6 +548,31 @@
     <div style="font-size:11px;color:#444">CHD базовый 25% уже учтён в формуле. Вводи только дополнительный CHD от брендов/атрибутов.</div>
   </div>
 
+  <!-- SHD Watch + Season Modifiers -->
+  <div class="bsect">
+    <h3>🔧 SHD Watch + Сезонные модификаторы</h3>
+    <div style="font-size:11px;color:var(--orange);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">SHD Watch <span style="color:#555;text-transform:none;letter-spacing:0">· после 40 ур, качается за SHD Levels</span></div>
+    <div class="bstat-row">
+      <div class="bstat"><label>WD</label><input id="shd-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>HSD</label><input id="shd-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHC</label><input id="shd-chc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHD</label><input id="shd-chd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>ROF</label><input id="shd-rof" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Маг</label><input id="shd-mag" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
+    <div style="font-size:10px;color:#555;margin-bottom:10px">SHD 1000+ = +10% CHC/CHD/WD навсегда. CHC софт-кап 60% (с SHD и прочим).</div>
+    <div style="font-size:11px;color:var(--orange);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Сезонные модификаторы <span style="color:#555;text-transform:none;letter-spacing:0">· Y8S1 Rise Up, Recombinant Mods</span></div>
+    <div class="bstat-row">
+      <div class="bstat"><label>WD</label><input id="sea-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>HSD</label><input id="sea-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHC</label><input id="sea-chc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHD</label><input id="sea-chd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>ROF</label><input id="sea-rof" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Маг</label><input id="sea-mag" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
+    <div style="font-size:10px;color:#555">1 Global + 1 Active + 3 Passive мода. HSD до 135% при стакинге. Гайд: <a href="https://games.gg/tom-clancys-the-division-2/guides/division-2-how-to-unlock-every-seasonal-modifier/" target="_blank" style="color:var(--blue)">games.gg</a></div>
+  </div>
+
   <!-- Results -->
   <div class="bsect" id="b-bonuses-sect" style="display:none">
     <h3>Активные сет-бонусы</h3>
@@ -1743,6 +1768,16 @@ function calcBuild(){
   const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
   tWD+=mWD; tCHC+=mCHC; tCHD+=mCHD; tHSD+=mHSD;
+  // SHD Watch + Seasonal Modifiers (additive into respective buckets)
+  const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),rof:v("shd-rof"),mag:v("shd-mag")};
+  const sea={wd:v("sea-wd"),hsd:v("sea-hsd"),chc:v("sea-chc"),chd:v("sea-chd"),rof:v("sea-rof"),mag:v("sea-mag")};
+  tWD+=shd.wd+sea.wd; tHSD+=shd.hsd+sea.hsd;
+  tCHC+=shd.chc+sea.chc; tCHD+=shd.chd+sea.chd;
+  tROF+=shd.rof+sea.rof; tMAG+=shd.mag+sea.mag;
+  const shdSum=Object.values(shd).reduce((a,b)=>a+b,0);
+  const seaSum=Object.values(sea).reduce((a,b)=>a+b,0);
+  if(shdSum>0)bonuses.push({color:"#42a5f5",tier:"SHD",nm:"SHD Watch",desc:Object.entries(shd).filter(([,v])=>v).map(([k,v])=>`+${v}% ${k}`).join(" · ")});
+  if(seaSum>0)bonuses.push({color:"#fdd835",tier:"S8",nm:"Сезон Y8S1",desc:Object.entries(sea).filter(([,v])=>v).map(([k,v])=>`+${v}% ${k}`).join(" · ")});
 
   // Render bonuses
   const bsect=document.getElementById("b-bonuses-sect");
