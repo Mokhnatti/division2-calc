@@ -2107,6 +2107,13 @@ function copyBuildUrl(hash,btn){
     });
   }
 }
+function shareToTelegram(hash,name){
+  if(!hash)return;
+  const url=location.origin+location.pathname+"#b="+hash;
+  const text=`Division 2 билд "${name}" — жми на ссылку чтобы открыть в калькуляторе`;
+  const tgUrl=`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+  window.open(tgUrl,"_blank");
+}
 
 // Admin functions
 async function adminLogin(email,password){
@@ -2302,7 +2309,9 @@ async function submitPublish(ev){
     if(r.ok){
       const j=await r.json();
       status.className="bug-status ok";
-      status.textContent="✓ Опубликовано! ID: "+j.id;
+      const shareLink=location.origin+location.pathname+"#b="+hashB64;
+      const tgLink=`https://t.me/share/url?url=${encodeURIComponent(shareLink)}&text=${encodeURIComponent("Division 2 билд \""+payload.name+"\" — жми чтобы открыть в калькуляторе")}`;
+      status.innerHTML=`✓ Опубликовано! <a href="${tgLink}" target="_blank" style="color:var(--blue);text-decoration:underline">Поделиться в Telegram</a>`;
       // Save publisher mark
       const mine=JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]");
       mine.push(j.id);
@@ -2312,7 +2321,7 @@ async function submitPublish(ev){
         // Switch to community tab
         const commBtn=document.querySelector('.cat-btn[data-cat="community"]');
         if(commBtn)commBtn.click();
-      },1200);
+      },3500);
     }else{
       const j=await r.json().catch(()=>({}));
       status.className="bug-status err";
@@ -2327,13 +2336,15 @@ async function submitPublish(ev){
 }
 
 function extractPeakDPS(){
-  // b-peak innerHTML contains something like "<div>4,379,161</div>"
+  // Use globally stored value from last calcBuild run (exact, no parsing)
+  if(window._lastBuildDPS&&window._lastBuildDPS.peak)return Math.round(window._lastBuildDPS.peak);
+  // Fallback: parse from DOM (less reliable)
   const el=document.getElementById("b-peak");
   if(!el)return 0;
-  const txt=el.textContent||"";
-  const m=/([\d\s]{5,})/.exec(txt);
-  if(!m)return 0;
-  return parseInt(m[1].replace(/\D/g,""))||0;
+  const nums=(el.textContent||"").match(/\d[\d\s]*\d/g);
+  if(!nums||nums.length===0)return 0;
+  // Pick the largest number found (usually peak)
+  return Math.max(...nums.map(n=>parseInt(n.replace(/\D/g,""))||0));
 }
 
 // Weapon 4th-roll talents (generic, rolls on any weapon — not exotic/named talents)
@@ -2909,6 +2920,8 @@ function calcBuild(){
 
   document.getElementById("b-results-sect").style.display="block";
   document.getElementById("b-ttk-sect").style.display="block";
+  // Store for publish flow
+  window._lastBuildDPS={base:baseDPS,avg:avgDPS10,peak:maxDPS};
   // Autosave last state
   try{localStorage.setItem("d2calc_last",JSON.stringify(getBuildState()))}catch(e){}
 }
