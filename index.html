@@ -79,6 +79,39 @@
         .w-bar{height:6px;border-radius:3px;background:var(--orange);transition:width .3s}
         .w-bar-bg{height:6px;border-radius:3px;background:var(--border);width:100%}
         .w-best{color:var(--green);font-weight:700}
+        /* BUILD CALCULATOR */
+        .bw{max-width:1020px;margin:0 auto;padding:16px}
+        .bsect{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px}
+        .bsect h3{font-size:13px;color:var(--orange);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+        .bsel{padding:7px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:12px;outline:none;cursor:pointer;width:100%}
+        .bsel:focus{border-color:var(--orange)}.bsel.has-set{border-color:rgba(0,200,83,.5);color:var(--green)}
+        .bsel.wpn{font-size:13px;min-width:240px;width:auto}
+        .wpn-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+        .wpn-stat{font-size:12px;color:var(--muted);background:rgba(255,255,255,.04);padding:4px 10px;border-radius:6px;border:1px solid var(--border)}
+        .wpn-stat b{color:var(--orange)}
+        .slots6{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+        @media(max-width:580px){.slots6{grid-template-columns:1fr 1fr}}
+        .slt label{font-size:10px;color:var(--muted);display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px}
+        .bstat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+        .bstat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;display:flex;align-items:center;gap:6px}
+        .bstat label{font-size:11px;color:var(--muted)}
+        .bstat input{width:52px;background:transparent;border:none;color:var(--orange);font-size:15px;font-weight:700;text-align:center;outline:none}
+        .bstat .u{font-size:11px;color:#555}
+        .bon-list{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+        .bon-item{display:flex;gap:8px;align-items:center;font-size:12px;padding:5px 10px;background:rgba(255,255,255,.03);border-radius:6px;border-left:3px solid}
+        .bon-v{font-weight:700;min-width:90px;font-size:11px}
+        .stk-info{font-size:12px;padding:8px 10px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:7px;margin-bottom:8px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+        .stk-bar-bg{flex:1;height:8px;border-radius:4px;background:var(--border);overflow:hidden;min-width:80px}
+        .stk-bar-fill{height:100%;border-radius:4px;transition:width .5s}
+        .btl{width:100%;border-collapse:collapse;margin-top:8px}
+        .btl th{font-size:11px;color:var(--orange);padding:8px 10px;border-bottom:1px solid var(--border);text-align:center}
+        .btl td{font-size:13px;padding:8px 10px;border-bottom:1px solid rgba(30,30,46,.4);text-align:center}
+        .btl tr.peak td{color:var(--orange);font-weight:700;background:rgba(245,166,35,.08)}
+        .btl tr:hover td{background:rgba(245,166,35,.04)}
+        .bpeak{border:2px solid var(--orange);border-radius:12px;padding:18px;text-align:center;margin-top:14px;background:linear-gradient(135deg,#1a1a2e,#12121a)}
+        .bpeak-n{font-size:36px;font-weight:700;color:var(--orange)}
+        .bpeak-l{font-size:12px;color:var(--muted);margin-top:4px}
+        .bpeak-sub{font-size:13px;color:var(--text);margin-top:8px}
         /* META BUILDS */
         .meta-wrap{max-width:1100px;margin:0 auto;padding:16px}
         .meta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:14px}
@@ -136,6 +169,7 @@
     <button class="cat-btn" data-cat="named">Именные (~96)</button>
     <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS Калькулятор</button>
     <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">META Билды</button>
+    <button class="cat-btn" data-cat="build" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">⚙ BUILD</button>
 </div>
 <div class="result-count" id="rc"></div>
 <div class="content" id="mc"></div>
@@ -384,6 +418,89 @@
         </div>
 
     </div>
+</div>
+</div>
+
+<div id="build-panel" style="display:none">
+<div class="bw">
+
+  <!-- Weapon -->
+  <div class="bsect">
+    <h3>Оружие</h3>
+    <select id="b-wpn" class="bsel wpn" onchange="calcBuild()">
+      <option value="big_alej">Big Alejandro — LMG</option>
+      <option value="eagle">Eagle Bearer — AR</option>
+      <option value="m1a">Classic M1A — MMR</option>
+      <option value="g28">G28 Реликвия — MMR</option>
+      <option value="aug">AUG A3-CQC — SMG</option>
+      <option value="merciless">Merciless — MMR</option>
+      <option value="custom">Своё оружие...</option>
+    </select>
+    <div class="wpn-stats" id="b-wpn-stats"></div>
+  </div>
+
+  <!-- Custom weapon inputs (hidden by default) -->
+  <div class="bsect" id="b-custom-sect" style="display:none">
+    <h3>Параметры своего оружия</h3>
+    <div class="bstat-row">
+      <div class="bstat"><label>Урон</label><input id="cw-dmg" value="60000" oninput="calcBuild()"><span class="u"></span></div>
+      <div class="bstat"><label>RPM</label><input id="cw-rpm" value="750" oninput="calcBuild()"><span class="u"></span></div>
+      <div class="bstat"><label>Магазин</label><input id="cw-mag" value="30" oninput="calcBuild()"><span class="u">шт</span></div>
+      <div class="bstat"><label>Перезарядка</label><input id="cw-rel" value="2.0" oninput="calcBuild()"><span class="u">с</span></div>
+      <div class="bstat"><label>Тип</label>
+        <select id="cw-cat" style="width:80px;background:transparent;border:none;color:var(--orange);font-size:13px;font-weight:700;outline:none" onchange="calcBuild()">
+          <option value="AR">AR</option><option value="LMG">LMG</option><option value="MMR">MMR</option>
+          <option value="SMG">SMG</option><option value="SG">SG</option><option value="RF">RF</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slots -->
+  <div class="bsect">
+    <h3>Снаряжение — 6 слотов</h3>
+    <div class="slots6">
+      <div class="slt"><label>Маска</label><select id="bs-mask" class="bsel" onchange="calcBuild()"></select></div>
+      <div class="slt"><label>Нагрудник</label><select id="bs-chest" class="bsel" onchange="calcBuild()"></select></div>
+      <div class="slt"><label>Рюкзак</label><select id="bs-bp" class="bsel" onchange="calcBuild()"></select></div>
+      <div class="slt"><label>Перчатки</label><select id="bs-gloves" class="bsel" onchange="calcBuild()"></select></div>
+      <div class="slt"><label>Кобура</label><select id="bs-holster" class="bsel" onchange="calcBuild()"></select></div>
+      <div class="slt"><label>Наколенники</label><select id="bs-knees" class="bsel" onchange="calcBuild()"></select></div>
+    </div>
+  </div>
+
+  <!-- Manual stats -->
+  <div class="bsect">
+    <h3>Статы снаряжения (бренды, моды, атрибуты)</h3>
+    <div class="bstat-row">
+      <div class="bstat"><label>CHC</label><input id="b-chc" value="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHD</label><input id="b-chd" value="25" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>HSD</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Вне укрытия</label><input id="b-ooc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Броня цели</label><input id="b-dta" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>WD доп.</label><input id="b-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
+    <div style="font-size:11px;color:#444">CHD базовый 25% уже учтён в формуле. Вводи только дополнительный CHD от брендов/атрибутов.</div>
+  </div>
+
+  <!-- Results -->
+  <div class="bsect" id="b-bonuses-sect" style="display:none">
+    <h3>Активные сет-бонусы</h3>
+    <div id="b-bonuses"></div>
+  </div>
+
+  <div class="bsect" id="b-results-sect" style="display:none">
+    <h3>DPS Timeline</h3>
+    <div id="b-stacks"></div>
+    <table class="btl">
+      <thead><tr>
+        <th>Момент</th><th>Стаки</th><th>WD ×</th><th>Крит ×</th><th>RPM</th><th>DPS</th>
+      </tr></thead>
+      <tbody id="b-tbl"></tbody>
+    </table>
+    <div class="bpeak" id="b-peak"></div>
+  </div>
+
 </div>
 </div>
 
@@ -693,6 +810,7 @@ function render(){
         return;
     }
     document.getElementById("meta-panel").style.display="none";
+    document.getElementById("build-panel").style.display="none";
     const q=[document.getElementById("s1").value,document.getElementById("s2").value,document.getElementById("s3").value];
     const mode=document.querySelector('input[name="mode"]:checked').value;
     const c=document.getElementById("mc");const qs=q.filter(x=>x);
@@ -771,13 +889,17 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         // toggle panels
         const isCalc = activeCat==="dps";
         const isMeta = activeCat==="meta";
-        document.getElementById("mc").style.display=(isCalc||isMeta)?"none":"";
-        document.getElementById("rc").style.display=(isCalc||isMeta)?"none":"";
-        document.querySelector(".search-panel").style.display=(isCalc||isMeta)?"none":"";
+        const isBuild = activeCat==="build";
+        const hideMain = isCalc||isMeta||isBuild;
+        document.getElementById("mc").style.display=hideMain?"none":"";
+        document.getElementById("rc").style.display=hideMain?"none":"";
+        document.querySelector(".search-panel").style.display=hideMain?"none":"";
         document.getElementById("dps-panel").style.display=isCalc?"block":"none";
         document.getElementById("meta-panel").style.display=isMeta?"block":"none";
-        if(!isCalc&&!isMeta) render();
+        document.getElementById("build-panel").style.display=isBuild?"block":"none";
+        if(!hideMain) render();
         else if(isCalc) calcDPS();
+        else if(isBuild) calcBuild();
     });
 });
 render();
@@ -904,6 +1026,288 @@ function calcDPS(){
 
 // Auto-calc on any input change
 document.querySelectorAll("#dps-panel input").forEach(el=>el.addEventListener("input",calcDPS));
+
+// ===== BUILD CALCULATOR =====
+const WPNS={
+  big_alej:{name:"Big Alejandro",cat:"LMG",dmg:91400,rpm:1375,mag:200,reload:4.5,
+    tal:"Стрельба из укрытия: +1%/выстрел из укрытия, макс +100% WD за 4.4с",tal_type:"shot_cover",tal_max:100},
+  eagle:{name:"Eagle Bearer",cat:"AR",dmg:85000,rpm:750,mag:30,reload:2.1,
+    tal:"Орёл: убийство → +30% урон 10с",tal_type:"kill",tal_bonus:30},
+  m1a:{name:"Classic M1A",cat:"MMR",dmg:652000,rpm:180,mag:15,reload:3.0,tal:"—",tal_type:"none"},
+  g28:{name:"G28 Реликвия",cat:"MMR",dmg:536000,rpm:180,mag:20,reload:3.0,
+    tal:"После хедшот-убийства: следующие выстрелы = гарантированный крит",tal_type:"hs_kill"},
+  aug:{name:"AUG A3-CQC",cat:"SMG",dmg:42000,rpm:900,mag:42,reload:1.8,
+    tal:"Steady Handed: 100+ патронов → бесконечный магазин",tal_type:"inf_mag"},
+  merciless:{name:"Merciless",cat:"MMR",dmg:320000,rpm:180,mag:7,reload:3.5,tal:"Безжалостный: двойное нажатие",tal_type:"none"},
+  custom:{name:"Своё оружие",cat:"AR",dmg:60000,rpm:750,mag:30,reload:2.0,tal:"",tal_type:"none"},
+};
+
+// Set bonus definitions — only DPS-relevant stats
+const SB={
+  "Боевое снаряжение Страйкера":{color:"#ef5350",
+    p3:{rof:15},
+    p4:"stacks",
+    stacks:{trigger:"hit",max_base:100,max_chest:200,decay_above:100,decay_sec:3,
+            wd_base:0.65,wd_bp:0.90,stat:"WD"}},
+  "Переломный момент":{color:"#f5a623",
+    p2:{mag:30},
+    p3:{type_dmg:30,type:"LMG"},
+    p4:"stacks",
+    stacks:{trigger:"shot",max_base:50,max_chest:75,
+            chd_base:4,chd_bp_extra:7,stat:"CHD"}},
+  "Инициатива Умбра":{color:"#42a5f5",
+    p2:{chc:15},
+    p3:{reload:30},
+    p4:"stacks",
+    stacks:{trigger:"shot_cover",max_base:50,max_chest:100,chd_base:1,rof_base:0.3,stat:"CHD+ROF"}},
+  "Дилемма переговорщика":{color:"#f5a623",
+    p2:{chc:15},
+    p3:{chd:20},
+    p4:"marks"},
+  "Разбиватель сердец":{color:"#ef5350",
+    p2:{type_dmg:15,type:"AR+LMG"},
+    p3:{handling:15},
+    p4:"stacks",
+    stacks:{trigger:"hs_marked",max_base:50,max_chest:100,wd_base:1,stat:"WD"}},
+  "Горячий выстрел":{color:"#ef5350",
+    p2:{type_dmg:30,type:"MMR"},
+    p3:{hsd:30},
+    p4:"hs_chain"},
+  "Тузы и восьмёрки":{color:"#ef5350",
+    p2:{type_dmg:15,type:"MMR"},
+    p3:{hsd:30},
+    p4:"cards"},
+  "Ярость охотника":{color:"#ef5350",
+    p2:{type_dmg:15,type:"SMG+SG"},
+    p4:"kill_buff"},
+  "Текущая директива":{color:"#ef5350",
+    p2:{status:15},
+    p3:{reload:30},
+    p4:"ammo_buff"},
+  "Истинный патриот":{color:"#ef5350",
+    p2:{mag:30},
+    p3:{mag:30},
+    p4:"debuffs"},
+  "Виртуоз":{color:"#ef5350",
+    p2:{mag:15},
+    p3:{wd:15},
+    p4:"range_swap"},
+  "Сосредоточенная компания":{color:"#ef5350",
+    p2:{wd:10},
+    p3:{handling:30},
+    p4:"team_stacks"},
+  "Протокол Затмения":{color:"#fdd835",
+    p2:{status:15},
+    p3:{skill_accel:15},
+    p4:"status_spread"},
+  "Будущая инициатива":{color:"#fdd835",
+    p2:{heal:30},
+    p4:"team_buff"},
+};
+
+// Populate slot selects
+function initBuildSlots(){
+  const opts = ['<option value="">— нет —</option>'];
+  G.forEach(g=>opts.push(`<option value="${g.name}">${g.name}</option>`));
+  ["bs-mask","bs-chest","bs-bp","bs-gloves","bs-holster","bs-knees"].forEach(id=>{
+    document.getElementById(id).innerHTML=opts.join("");
+  });
+}
+
+function getWeapon(){
+  const id=document.getElementById("b-wpn").value;
+  if(id==="custom"){
+    return{name:"Своё оружие",cat:document.getElementById("cw-cat").value,
+      dmg:parseFloat(document.getElementById("cw-dmg").value)||60000,
+      rpm:parseFloat(document.getElementById("cw-rpm").value)||750,
+      mag:parseFloat(document.getElementById("cw-mag").value)||30,
+      reload:parseFloat(document.getElementById("cw-rel").value)||2.0,
+      tal:"",tal_type:"none"};
+  }
+  return WPNS[id];
+}
+
+function bonusDesc(b,cat){
+  const parts=[];
+  if(b.rof)parts.push(`+${b.rof}% скорострельность`);
+  if(b.mag)parts.push(`+${b.mag}% магазин`);
+  if(b.chc)parts.push(`+${b.chc}% шанс крита`);
+  if(b.chd)parts.push(`+${b.chd}% урон крита`);
+  if(b.hsd)parts.push(`+${b.hsd}% урон в голову`);
+  if(b.wd)parts.push(`+${b.wd}% урон оружием`);
+  if(b.type_dmg){
+    const match=!b.type||b.type==="ALL"||b.type.split("+").some(t=>cat&&cat.includes(t));
+    parts.push(`+${b.type_dmg}% урон ${b.type||""}${match?" ✓":" ✗ (не тот тип)"}`);
+  }
+  if(b.handling)parts.push(`+${b.handling}% управление`);
+  return parts.join(" · ")||"—";
+}
+
+function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,ooc,dta,activeStacks,hasChest,hasBP,t){
+  const sps0=wpn.rpm/60;
+  // Stack bonuses at time t
+  let sWD=0,sCHD=0,sROF=0;
+  const stkRows=[];
+  for(const s of activeStacks){
+    const maxS=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
+    const stks=t===Infinity?maxS:Math.min(sps0*t,maxS);
+    if(s.def.wd_base!==undefined){
+      const pp=hasBP[s.name]?s.def.wd_bp:s.def.wd_base;
+      sWD+=stks*pp;
+    }
+    if(s.def.chd_base!==undefined){
+      const pp=s.def.chd_base+(hasBP[s.name]?(s.def.chd_bp_extra||0):0);
+      sCHD+=stks*pp;
+    }
+    if(s.def.rof_base!==undefined) sROF+=stks*s.def.rof_base;
+    stkRows.push({name:s.name,stks:Math.round(stks),max:maxS,color:s.color});
+  }
+  // Weapon talent WD (Alejandro)
+  let talWD=0;
+  if(wpn.tal_type==="shot_cover"){
+    const ts=t===Infinity?wpn.tal_max:Math.min(sps0*t,wpn.tal_max);
+    talWD=ts; // +1% per stack
+  }
+  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus; // assume active
+  // WD bucket total
+  const wdMult=1+(totalWD+sWD+talWD)/100;
+  // ROF
+  const rpm_f=wpn.rpm*(1+(totalROF+sROF)/100);
+  // Mag
+  const mag_f=Math.round(wpn.mag*(1+totalMAG/100));
+  // CHC capped 60%
+  const chcCap=Math.min(chcTotal,60)/100;
+  // CHD: base 25% + flat + stack
+  const totalCHD=0.25+chdTotal/100+sCHD/100;
+  const critAvg=1+chcCap*totalCHD;
+  // Cycle
+  const sps_f=rpm_f/60;
+  const cycleT=mag_f/sps_f+wpn.reload;
+  const effSPS=mag_f/cycleT;
+  // External
+  const oocM=1+ooc/100;
+  const dtaM=1+dta/100;
+  const dps=wpn.dmg*wdMult*critAvg*oocM*dtaM*effSPS;
+  return{dps,wdMult,critAvg,rpm_f,mag_f,stkRows};
+}
+
+function calcBuild(){
+  const wpn=getWeapon();
+  // Show/hide custom
+  document.getElementById("b-custom-sect").style.display=wpn.name==="Своё оружие"?"block":"none";
+  // Weapon info bar
+  document.getElementById("b-wpn-stats").innerHTML=
+    `<div class="wpn-stat">Урон: <b>${wpn.dmg.toLocaleString("ru")}</b></div>`+
+    `<div class="wpn-stat">RPM: <b>${wpn.rpm}</b></div>`+
+    `<div class="wpn-stat">Магазин: <b>${wpn.mag}</b></div>`+
+    `<div class="wpn-stat">Перезарядка: <b>${wpn.reload}с</b></div>`+
+    (wpn.tal?`<div class="wpn-stat" style="color:var(--orange);border-color:rgba(245,166,35,.3)">${wpn.tal}</div>`:"");
+
+  const slots={mask:document.getElementById("bs-mask").value,chest:document.getElementById("bs-chest").value,
+    bp:document.getElementById("bs-bp").value,gloves:document.getElementById("bs-gloves").value,
+    holster:document.getElementById("bs-holster").value,knees:document.getElementById("bs-knees").value};
+
+  // Count pieces
+  const cnt={};const hasChest={};const hasBP={};
+  for(const[slot,nm] of Object.entries(slots)){
+    if(!nm)continue;
+    cnt[nm]=(cnt[nm]||0)+1;
+    if(slot==="chest")hasChest[nm]=true;
+    if(slot==="bp")hasBP[nm]=true;
+  }
+  // Update select styling
+  ["bs-mask","bs-chest","bs-bp","bs-gloves","bs-holster","bs-knees"].forEach(id=>{
+    const el=document.getElementById(id);
+    el.className="bsel"+(el.value?" has-set":"");
+  });
+
+  // Aggregate bonuses
+  let tWD=0,tROF=0,tMAG=0,tCHC=0,tCHD=0,tHSD=0,tType=0;
+  const bonuses=[];const activeStacks=[];
+
+  for(const[nm,count] of Object.entries(cnt)){
+    const def=SB[nm];if(!def)continue;
+    [[2,def.p2],[3,def.p3],[4,def.p4]].forEach(([tier,b])=>{
+      if(count<tier||!b)return;
+      if(b==="stacks"&&def.stacks){
+        activeStacks.push({name:nm,def:def.stacks,color:def.color});
+        bonuses.push({color:def.color,tier,nm,desc:`Стаки (${def.stacks.stat}) — макс ${hasChest[nm]&&def.stacks.max_chest?def.stacks.max_chest:def.stacks.max_base} ${hasChest[nm]&&def.stacks.max_chest?"(нагрудник)":""}`});
+      }else if(b&&typeof b==="object"){
+        if(b.rof)tROF+=b.rof;
+        if(b.mag)tMAG+=b.mag;
+        if(b.chc)tCHC+=b.chc;
+        if(b.chd)tCHD+=b.chd;
+        if(b.hsd)tHSD+=b.hsd;
+        if(b.wd)tWD+=b.wd;
+        if(b.type_dmg){
+          const match=!b.type||b.type.split("+").some(t=>wpn.cat.includes(t));
+          if(match)tWD+=b.type_dmg;
+        }
+        bonuses.push({color:def.color,tier,nm,desc:bonusDesc(b,wpn.cat)});
+      }else if(typeof b==="string"&&b!=="stacks"){
+        bonuses.push({color:def.color,tier,nm,desc:`4шт: ${b}`});
+      }
+    });
+  }
+
+  // Manual stats
+  const mCHC=parseFloat(document.getElementById("b-chc").value)||0;
+  const mCHD=parseFloat(document.getElementById("b-chd").value)||0;
+  const mOOC=parseFloat(document.getElementById("b-ooc").value)||0;
+  const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
+  const mWD=parseFloat(document.getElementById("b-wd").value)||0;
+  tWD+=mWD; tCHC+=mCHC; tCHD+=mCHD;
+
+  // Render bonuses
+  const bsect=document.getElementById("b-bonuses-sect");
+  bsect.style.display=bonuses.length?"block":"none";
+  document.getElementById("b-bonuses").innerHTML=`<div class="bon-list">`+
+    bonuses.map(b=>`<div class="bon-item" style="border-color:${b.color}"><span class="bon-v" style="color:${b.color}">${b.nm} ${b.tier}шт</span><span>${b.desc}</span></div>`).join("")+`</div>`;
+
+  // Stack info
+  let stkHtml="";
+  const sps=wpn.rpm/60;
+  for(const s of activeStacks){
+    const max=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
+    const ramp=(max/sps).toFixed(1);
+    const pct5=Math.min(sps*5/max*100,100);
+    stkHtml+=`<div class="stk-info">
+      <span style="color:${s.color};font-weight:700">${s.name}</span>
+      <span>Фул стаки: <b>${max}</b></span>
+      <span>Рамп: <b>${ramp}с</b></span>
+      <span>За 5с: <b>${Math.min(Math.round(sps*5),max)}/${max}</b></span>
+      <div class="stk-bar-bg"><div class="stk-bar-fill" style="width:${pct5}%;background:${s.color}"></div></div>
+    </div>`;
+  }
+
+  // DPS at 0s, 5s, full
+  const times=[{t:0,label:"Старт (0с)"},{t:5,label:"5 секунд"},{t:Infinity,label:"Фул стаки"}];
+  const rows=times.map(tp=>({...tp,...dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,mOOC,mDTA,activeStacks,hasChest,hasBP,tp.t)}));
+  const peak=rows[rows.length-1];
+
+  document.getElementById("b-stacks").innerHTML=stkHtml;
+  document.getElementById("b-tbl").innerHTML=rows.map((r,i)=>{
+    const isPeak=i===rows.length-1;
+    return`<tr class="${isPeak?"peak":""}">
+      <td>${r.label}</td>
+      <td>${r.stkRows.map(s=>`${s.name}: ${s.stks}/${s.max}`).join("<br>")||"—"}</td>
+      <td>×${r.wdMult.toFixed(2)}</td>
+      <td>×${r.critAvg.toFixed(2)}</td>
+      <td>${Math.round(r.rpm_f)}</td>
+      <td><b>${Math.round(r.dps).toLocaleString("ru")}</b></td>
+    </tr>`;
+  }).join("");
+
+  document.getElementById("b-peak").innerHTML=
+    `<div class="bpeak-n">${Math.round(peak.dps).toLocaleString("ru")}</div>`+
+    `<div class="bpeak-l">Пиковый DPS (фул стаки)</div>`+
+    `<div class="bpeak-sub">WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f}</div>`;
+
+  document.getElementById("b-results-sect").style.display="block";
+}
+
+// Init build slots from gear set data
+initBuildSlots();
 </script>
 </body>
 </html>
