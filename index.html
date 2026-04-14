@@ -685,6 +685,11 @@
       <option value="-created">Новые</option>
       <option value="-peak_dps">По DPS</option>
     </select>
+    <select id="comm-scope" class="bsel" style="min-width:120px;max-width:160px" onchange="loadCommunityFeed()">
+      <option value="all">Все билды</option>
+      <option value="mine">Только мои</option>
+      <option value="liked">Лайкнутые</option>
+    </select>
     <button class="mf-btn" onclick="loadCommunityFeed()" title="Обновить">🔄 Обновить</button>
     <button class="mf-btn" onclick="promptAdminLogin()" title="Админ логин (только для Мохнатти)" style="opacity:.5">🔑</button>
   </div>
@@ -2020,19 +2025,35 @@ async function loadCommunityFeed(){
   listEl.innerHTML="";
   const sort=document.getElementById("comm-sort").value||"-likes,-created";
   const cat=document.getElementById("comm-cat-filter").value||"";
-  const filter=cat?`weapon_cat="${cat}"`:"";
-  const url=`${PB_API}/builds/records?perPage=60&sort=${encodeURIComponent(sort)}${filter?"&filter="+encodeURIComponent(filter):""}`;
+  const scope=document.getElementById("comm-scope")?.value||"all";
+  const filters=[];
+  if(cat)filters.push(`weapon_cat="${cat}"`);
+  // Scope filters (client-side for "mine" and "liked" since they depend on localStorage)
+  const url=`${PB_API}/builds/records?perPage=100&sort=${encodeURIComponent(sort)}${filters.length?"&filter="+encodeURIComponent(filters.join(" && ")):""}`;
   try{
     const r=await fetch(url);
     if(!r.ok)throw new Error("HTTP "+r.status);
     const j=await r.json();
-    if(!j.items||j.items.length===0){
-      status.textContent="Пока нет билдов в этой категории. Будь первым — жми 🚀 Опубликовать во вкладке BUILD!";
+    let items=j.items||[];
+    if(scope==="mine"){
+      const mine=getMyBuilds();
+      items=items.filter(b=>mine.has(b.id));
+    }else if(scope==="liked"){
+      const liked=getLikedSet();
+      items=items.filter(b=>liked.has(b.id));
+    }
+    if(items.length===0){
+      const msg={
+        all:"Пока нет билдов в этой категории. Будь первым — жми 🚀 Опубликовать во вкладке BUILD!",
+        mine:"Ты ещё ничего не публиковал. Собирай билд в BUILD и жми 🚀 Опубликовать.",
+        liked:"Ты ещё ничего не лайкнул. Жми ❤ на понравившиеся билды.",
+      };
+      status.textContent=msg[scope]||msg.all;
       return;
     }
-    status.textContent=`Найдено: ${j.totalItems}`;
+    status.textContent=`Найдено: ${items.length}${scope==="all"?` (всего в базе: ${j.totalItems})`:""}`;
     const liked=getLikedSet();
-    listEl.innerHTML=j.items.map(b=>renderBuildCard(b,liked.has(b.id))).join("");
+    listEl.innerHTML=items.map(b=>renderBuildCard(b,liked.has(b.id))).join("");
   }catch(e){
     status.textContent="Ошибка загрузки: "+e.message+". Бэкенд PocketBase может быть недоступен.";
     status.style.color="var(--red)";
