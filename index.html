@@ -622,6 +622,12 @@
     <div style="font-size:10px;color:#555;margin-top:6px">В DPS оружия идёт только <b style="color:var(--orange)">Урон в голову</b> и <b style="color:var(--orange)">Патроны</b> (на магазин). Защитные и утилитарные показаны для справки.</div>
   </div>
 
+  <!-- Validation warnings -->
+  <div class="bsect" id="b-warnings-sect" style="display:none">
+    <h3>⚠ Проверка билда</h3>
+    <div id="b-warnings" style="display:flex;flex-direction:column;gap:6px"></div>
+  </div>
+
   <!-- Results -->
   <div class="bsect" id="b-bonuses-sect" style="display:none">
     <h3>Активные сет-бонусы</h3>
@@ -2948,8 +2954,99 @@ function calcBuild(){
   document.getElementById("b-ttk-sect").style.display="block";
   // Store for publish flow
   window._lastBuildDPS={base:baseDPS,avg:avgDPS10,peak:maxDPS};
+  // Build validation
+  runBuildValidation({wpn,cnt,hasChest,hasBP,brandCnt,tCHC,tWD,tHSD,tROF,namedItems,slotState});
   // Autosave last state
   try{localStorage.setItem("d2calc_last",JSON.stringify(getBuildState()))}catch(e){}
+}
+
+// Returns list of warning objects: {level:'err'|'warn'|'info', text:string}
+function runBuildValidation(ctx){
+  const warns=[];
+  const {wpn,cnt,hasChest,hasBP,brandCnt,tCHC,tWD,tHSD,tROF,namedItems,slotState}=ctx;
+
+  // Count filled slots
+  const filledCount=Object.values(slotState).filter(x=>x).length;
+  if(filledCount<6){
+    warns.push({level:"warn",text:`Заполнено ${filledCount}/6 слотов брони. Ты теряешь часть характеристик.`});
+  }
+
+  // CHC cap check
+  if(tCHC>60){
+    warns.push({level:"warn",text:`Шанс крита <b>${Math.round(tCHC)}%</b> превышает soft-cap 60%. Избыточные <b>${Math.round(tCHC-60)}%</b> пропадают впустую — перебрось их в CHD/WD/HSD.`});
+  }
+
+  // Set piece checks
+  for(const[nm,count] of Object.entries(cnt)){
+    const def=SB[nm];if(!def)continue;
+    if(count===1){
+      warns.push({level:"info",text:`"${nm}" — только 1шт, все бонусы сета (p2/p3/p4) неактивны. Либо добери, либо убери.`});
+    }else if(count===2&&def.p4&&def.p4!=="stacks"){
+      // OK 2pc
+    }else if(count===3&&def.p4){
+      // Has 3pc, 4pc missing — only tell if 4pc is meaningful
+      if(def.p4==="stacks"||(typeof def.p4==="object"&&Object.keys(def.p4).length>0)){
+        warns.push({level:"info",text:`"${nm}" — 3шт, активны p2+p3. До 4шт остался 1 предмет — это даст основной эффект сета (стаки/бонус).`});
+      }
+    }
+    // Stack chest/bp checks
+    if(def.stacks&&count>=4){
+      if(!hasChest[nm]&&def.stacks.max_chest){
+        warns.push({level:"info",text:`"${nm}" 4pc — сет-стаки активны. Нагрудник этого сета расширит макс до <b>${def.stacks.max_chest}</b> (сейчас ${def.stacks.max_base}).`});
+      }
+      if(!hasBP[nm]&&(def.stacks.wd_bp||def.stacks.chd_bp_extra)){
+        const bonus=def.stacks.wd_bp?`+${(def.stacks.wd_bp-def.stacks.wd_base).toFixed(1)}% WD/стак`:`+${def.stacks.chd_bp_extra}% CHD/стак`;
+        warns.push({level:"info",text:`"${nm}" — рюкзак этого сета усилит стаки: ${bonus}.`});
+      }
+    }
+  }
+
+  // Brand piece count warnings (1-2 pcs = incomplete)
+  for(const[brand,count] of Object.entries(brandCnt)){
+    if(count===1){
+      warns.push({level:"info",text:`Бренд "${brand}" — только 1шт. Для 2шт/3шт бонусов добавь ещё предметов этого бренда.`});
+    }
+  }
+
+  // Weapon cat mismatch with set type damage
+  if(wpn&&wpn.cat){
+    for(const[nm,count] of Object.entries(cnt)){
+      const def=SB[nm];if(!def)continue;
+      [def.p2,def.p3].forEach(b=>{
+        if(b&&typeof b==="object"&&b.type_dmg&&b.type){
+          const match=b.type.split("+").some(t=>wpn.cat===t||wpn.cat.includes(t));
+          if(!match&&count>=2){
+            warns.push({level:"warn",text:`Бонус сета "${nm}" даёт +${b.type_dmg}% урона ${b.type}, но у тебя <b>${wpn.cat}</b> — бонус не работает.`});
+          }
+        }
+      });
+    }
+  }
+
+  // Empty chest/bp for stack sets
+  const stackSets=Object.entries(cnt).filter(([nm,c])=>c>=4&&SB[nm]&&SB[nm].stacks);
+  if(stackSets.length===0&&filledCount>=4){
+    warns.push({level:"info",text:"В билде нет сетов со стаками — рассмотри Страйкер/Tipping Scales/Умбра/Точка разрыва для роста DPS во времени."});
+  }
+
+  // Publish-ready check
+  if(filledCount===6&&warns.filter(w=>w.level==="warn").length===0){
+    warns.push({level:"ok",text:"✓ Билд полностью собран. Нет критичных предупреждений. Можно публиковать через 🚀."});
+  }
+
+  // Render
+  const el=document.getElementById("b-warnings");
+  const sect=document.getElementById("b-warnings-sect");
+  if(!el||!sect)return;
+  if(warns.length===0){sect.style.display="none";return}
+  sect.style.display="block";
+  const colors={err:"#ef5350",warn:"#f5a623",info:"#42a5f5",ok:"#00c853"};
+  const icons={err:"✗",warn:"⚠",info:"💡",ok:"✓"};
+  el.innerHTML=warns.map(w=>
+    `<div style="padding:8px 12px;border-radius:7px;background:${colors[w.level]}1a;border-left:3px solid ${colors[w.level]};font-size:12px;line-height:1.4;color:var(--text)">
+      <b style="color:${colors[w.level]};margin-right:6px">${icons[w.level]}</b>${w.text}
+    </div>`
+  ).join("");
 }
 
 // ===== TTK =====
