@@ -2135,6 +2135,8 @@ function openCommunityBuild(id,hash){
       buildBtn.click();
     }
     applyBuildState(s);
+    // Update URL hash for shareability
+    history.replaceState(null,"","#b="+hash);
     window.scrollTo(0,0);
   }catch(e){
     alert("Ошибка загрузки билда: "+e.message);
@@ -2865,6 +2867,15 @@ function renderTtk(base,avg,peak){
 
 // Init build slots from gear set data
 initBuildSlots();
+
+// If URL has #b=... hash — auto-switch to BUILD tab so user sees the shared build
+if(/^#b=/.test(location.hash)){
+  const buildBtn=document.querySelector('.cat-btn[data-cat="build"]');
+  if(buildBtn){
+    document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
+    buildBtn.click();
+  }
+}
 
 // ===== BUG REPORT =====
 const FORMSPREE_ENDPOINT="https://formspree.io/f/mlgadraa";
