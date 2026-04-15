@@ -22,53 +22,56 @@ const ANSWERS_FILE = path.join(__dirname, '..', 'data_sources', 'quiz_answers.js
 const DEFAULT_QUESTIONS = [
   {
     id: 'trapper_max',
-    category: 'Prototype Augment',
-    question: 'Trapper augment — макс значение на 10-м уровне?',
+    category: '🧪 Prototype Augment',
+    question: 'Аугмент <b>Trapper</b> — увеличивает длительность статус-эффектов.\n\nЕсть расхождение в источниках какое макс значение на 10-м уровне прокачки:',
     options: [
-      { label: '14% (Reddit datamine + BDDFr)', value: 14, source: 'reddit_bddfr' },
-      { label: '22% (div2hub/data CSV)', value: 22, source: 'div2hub' },
+      { label: '14% макс (5% → 14% шагом 1%)', value: 14, source: 'reddit_bddfr', detail: 'Reddit TU28 datamine + BDDFr talents-prototypes.jsonc' },
+      { label: '22% макс (4% → 22% шагом 1.8%)', value: 22, source: 'div2hub', detail: 'div2hub/data augments.csv (апрель 2026)' },
+      { label: 'Другое значение', value: 0, source: 'other' },
     ],
     field: 'PROTOTYPE_AUGMENTS.trapper.max',
   },
   {
     id: 'shd_chd',
-    category: 'SHD Watch',
-    question: 'SHD Watch Critical Damage — макс на 50 очков?',
+    category: '⌚ SHD Watch',
+    question: 'Часы SHD — <b>Crit Damage</b> атрибут.\n\nСколько максимум % даёт полностью прокачанный CHD-узел в часах (50/50 очков)?',
     options: [
-      { label: '20% (BDDFr montre.jsonc, ratio 0.4)', value: 20, source: 'bddfr' },
-      { label: '30% (моё предположение)', value: 30, source: 'hand' },
+      { label: '20% макс (step 0.4%, 50 × 0.4)', value: 20, source: 'bddfr', detail: 'BDDFr montre.jsonc — ratio 0.4' },
+      { label: '30% макс (моя оценка из памяти)', value: 30, source: 'hand', detail: 'Моё предположение, может быть устаревшее' },
+      { label: 'Что-то другое', value: 0, source: 'other' },
     ],
     field: 'shd-chd',
   },
   {
     id: 'shd_hsd',
-    category: 'SHD Watch',
-    question: 'SHD Watch Headshot Damage — макс на 50 очков?',
+    category: '⌚ SHD Watch',
+    question: 'Часы SHD — <b>Headshot Damage</b> атрибут.\n\nСколько максимум % даёт полностью прокачанный HSD-узел (50/50)?',
     options: [
-      { label: '20% (BDDFr, ratio 0.4)', value: 20, source: 'bddfr' },
-      { label: '10% (моё предположение)', value: 10, source: 'hand' },
+      { label: '20% макс (step 0.4%, 50 × 0.4)', value: 20, source: 'bddfr', detail: 'BDDFr montre.jsonc — ratio 0.4' },
+      { label: '10% макс (step 0.2%, 50 × 0.2)', value: 10, source: 'hand', detail: 'Моё старое значение' },
+      { label: 'Что-то другое', value: 0, source: 'other' },
     ],
     field: 'shd-hsd',
   },
   {
     id: 'escalation_t10_hp',
-    category: 'Escalation Tier 10',
-    question: 'Escalation Tier 10 — множитель HP врагов?',
+    category: '⚔ Escalation Tier 10',
+    question: 'Новый режим <b>Escalation</b> в Y8S1 — максимальный Tier 10.\n\nНа сколько % увеличено HP врагов на 10-м тире?',
     options: [
-      { label: '800% (Reddit TU28 datamine)', value: 800, source: 'reddit' },
-      { label: '700% (мой текущий код после -100%)', value: 700, source: 'hand' },
-      { label: '900% (Ubisoft PTS)', value: 900, source: 'ubisoft' },
+      { label: '+700% (800% от базы)', value: 700, source: 'reddit', detail: 'Reddit TU28 datamine — таблица из r/thedivision' },
+      { label: '+800% (900% от базы)', value: 800, source: 'reddit2', detail: 'Альтернативное значение' },
+      { label: '+600% (700% от базы)', value: 600, source: 'hand', detail: 'Старое значение до datamine' },
     ],
     field: 'ESCALATION_TIERS.10.hp',
   },
   {
     id: 'weapon_dmg_cap',
-    category: 'DPS Math',
-    question: 'Weapon Damage bucket soft cap (до HSD > 150%)?',
+    category: '📊 DPS Математика',
+    question: 'Какой soft cap на <b>Weapon Damage bucket</b> в игре?\n\n(Общая сумма всех WD-бонусов — бренды + атрибуты + SHD + таланты)',
     options: [
-      { label: '800% (из Reddit community consensus)', value: 800, source: 'reddit' },
-      { label: '1250% (с HSD > 150%)', value: 1250, source: 'reddit2' },
-      { label: 'Нет cap (unlimited stacking)', value: 0, source: 'none' },
+      { label: '+800% cap (без хедшот-бонуса)', value: 800, source: 'reddit', detail: 'Community consensus — от reddit дискуссий' },
+      { label: '+1250% cap (при HSD > 150%)', value: 1250, source: 'reddit2', detail: 'С Perfect Headhunter — особое условие' },
+      { label: 'Нет soft cap', value: 0, source: 'none', detail: 'Стекается бесконечно' },
     ],
     field: 'note_only',
   },
@@ -119,35 +122,68 @@ function saveAnswers(a) {
   fs.writeFileSync(ANSWERS_FILE, JSON.stringify(a, null, 2), 'utf8');
 }
 
+function buildMessage(q) {
+  const optDetails = q.options.map((o, i) => {
+    const detail = o.detail ? `\n<i>   ${o.detail}</i>` : '';
+    return `${i + 1}️⃣ <b>${o.label}</b>${detail}`;
+  }).join('\n\n');
+  return `${q.category}\n\n${q.question}\n\n${optDetails}\n\n<i>Жми правильный вариант кнопкой 👇</i>`;
+}
+
 async function send() {
+  // Force refresh DEFAULT_QUESTIONS to file
+  fs.writeFileSync(QUESTIONS_FILE, JSON.stringify(DEFAULT_QUESTIONS, null, 2), 'utf8');
   const questions = loadQuestions();
   const answers = loadAnswers();
   let sent = 0;
+  let edited = 0;
   for (const q of questions) {
-    if (answers[q.id]) continue;
     const kb = {
       inline_keyboard: q.options.map((opt, i) => [{
-        text: opt.label,
+        text: `${i + 1}️⃣ ${opt.label.slice(0, 60)}`,
         callback_data: `q:${q.id}:${i}`,
       }]),
     };
-    const text = `🧪 <b>Спорное значение</b>\n\n<b>${q.category}</b>\n\n${q.question}\n\n<i>Жми правильный вариант 👇</i>`;
-    const r = await fetchJson(`${API_BASE}/sendMessage`, 'POST', {
-      chat_id: CHAT_ID,
-      text,
-      parse_mode: 'HTML',
-      reply_markup: kb,
-    });
-    if (r.ok) {
-      sent++;
-      console.log(`✓ Sent: ${q.id}`);
-      answers[q.id] = { message_id: r.result.message_id, status: 'pending' };
-    } else {
-      console.log(`✗ Failed: ${q.id}`, r);
+    const text = buildMessage(q);
+    const existing = answers[q.id];
+    if (existing && existing.message_id && existing.status !== 'answered') {
+      // Edit existing pending message
+      const r = await fetchJson(`${API_BASE}/editMessageText`, 'POST', {
+        chat_id: CHAT_ID,
+        message_id: existing.message_id,
+        text,
+        parse_mode: 'HTML',
+        reply_markup: kb,
+      });
+      if (r.ok) {
+        edited++;
+        console.log(`✎ Edited: ${q.id}`);
+      } else {
+        // If edit fails (message too old etc), send new
+        const r2 = await fetchJson(`${API_BASE}/sendMessage`, 'POST', {
+          chat_id: CHAT_ID, text, parse_mode: 'HTML', reply_markup: kb,
+        });
+        if (r2.ok) {
+          sent++;
+          console.log(`✓ Sent new (edit failed): ${q.id}`);
+          answers[q.id] = { message_id: r2.result.message_id, status: 'pending' };
+        }
+      }
+    } else if (!existing || existing.status !== 'answered') {
+      const r = await fetchJson(`${API_BASE}/sendMessage`, 'POST', {
+        chat_id: CHAT_ID, text, parse_mode: 'HTML', reply_markup: kb,
+      });
+      if (r.ok) {
+        sent++;
+        console.log(`✓ Sent: ${q.id}`);
+        answers[q.id] = { message_id: r.result.message_id, status: 'pending' };
+      } else {
+        console.log(`✗ Failed: ${q.id}`, r);
+      }
     }
   }
   saveAnswers(answers);
-  console.log(`\nTotal sent: ${sent}. Run 'node scripts/quiz_bot.js poll' to collect answers.`);
+  console.log(`\nSent: ${sent}, Edited: ${edited}. Run 'node scripts/quiz_bot.js poll' to collect answers.`);
 }
 
 async function poll() {
