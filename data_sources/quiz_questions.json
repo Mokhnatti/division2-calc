@@ -942,5 +942,327 @@
       }
     ],
     "field": "WPNS_BASE.SIG 716.dmg"
+  },
+  {
+    "id": "rpm_invisible_hand",
+    "category": "🔫 Скорострельность",
+    "question": "<b>Невидимая Рука / Invisible Hand</b> (AR) — Скорострельность (Rate of Fire)?",
+    "options": [
+      {
+        "label": "782 (Teriyaki)",
+        "value": 782,
+        "source": "teriyaki"
+      },
+      {
+        "label": "680 (div2hub)",
+        "value": 680,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Invisible Hand.rpm"
+  },
+  {
+    "id": "rpm_shield_splinterer",
+    "category": "🔫 Скорострельность",
+    "question": "<b>Щитолом / Shield Splinterer</b> (AR) — Скорострельность (Rate of Fire)?",
+    "options": [
+      {
+        "label": "900 (Teriyaki)",
+        "value": 900,
+        "source": "teriyaki"
+      },
+      {
+        "label": "850 (div2hub)",
+        "value": 850,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Shield Splinterer.rpm"
+  },
+  {
+    "id": "rpm_the_sleigher",
+    "category": "🔫 Скорострельность",
+    "question": "<b>The Sleigher</b> (SMG) — Скорострельность (Rate of Fire)?",
+    "options": [
+      {
+        "label": "250 (Teriyaki)",
+        "value": 250,
+        "source": "teriyaki"
+      },
+      {
+        "label": "900 (div2hub)",
+        "value": 900,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.The Sleigher.rpm"
+  },
+  {
+    "id": "rpm_bluescreen",
+    "category": "🔫 Скорострельность",
+    "question": "<b>Синий Экран / Bluescreen</b> (LMG) — Скорострельность (Rate of Fire)?",
+    "options": [
+      {
+        "label": "720 (Teriyaki)",
+        "value": 720,
+        "source": "teriyaki"
+      },
+      {
+        "label": "600 (div2hub)",
+        "value": 600,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Bluescreen.rpm"
+  },
+  {
+    "id": "mag_shield_splinterer",
+    "category": "🔫 Размер магазина",
+    "question": "<b>Щитолом / Shield Splinterer</b> (AR) — Размер магазина (Magazine Size)?",
+    "options": [
+      {
+        "label": "40 (Teriyaki)",
+        "value": 40,
+        "source": "teriyaki"
+      },
+      {
+        "label": "30 (div2hub)",
+        "value": 30,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Shield Splinterer.mag"
+  },
+  {
+    "id": "mag_froth",
+    "category": "🔫 Размер магазина",
+    "question": "<b>Пена / Froth</b> (SMG) — Размер магазина (Magazine Size)?",
+    "options": [
+      {
+        "label": "19 (Teriyaki)",
+        "value": 19,
+        "source": "teriyaki"
+      },
+      {
+        "label": "33 (div2hub)",
+        "value": 33,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Froth.mag"
+  },
+  {
+    "id": "mag_bullet_king",
+    "category": "🔫 Размер магазина",
+    "question": "<b>Король Стрелков / Bullet King</b> (LMG) — Размер магазина (Magazine Size)?",
+    "options": [
+      {
+        "label": "100 (Teriyaki)",
+        "value": 100,
+        "source": "teriyaki"
+      },
+      {
+        "label": "1000 (div2hub)",
+        "value": 1000,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Bullet King.mag"
+  },
+  {
+    "id": "mag_pakhan",
+    "category": "🔫 Размер магазина",
+    "question": "<b>Пахан / Pakhan</b> (LMG) — Размер магазина (Magazine Size)?",
+    "options": [
+      {
+        "label": "40 (Teriyaki)",
+        "value": 40,
+        "source": "teriyaki"
+      },
+      {
+        "label": "160 (div2hub)",
+        "value": 160,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Pakhan.mag"
+  },
+  {
+    "id": "mag_baker_s_dozen",
+    "category": "🔫 Размер магазина",
+    "question": "<b>Чёртова Дюжина / Baker's Dozen</b> (Rifle) — Размер магазина (Magazine Size)?",
+    "options": [
+      {
+        "label": "13 (Teriyaki)",
+        "value": 13,
+        "source": "teriyaki"
+      },
+      {
+        "label": "10 (div2hub)",
+        "value": 10,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Baker's Dozen.mag"
+  },
+  {
+    "id": "reload_capacitor",
+    "category": "🔫 Время перезарядки (сек)",
+    "question": "<b>Конденсатор / Capacitor</b> (AR) — Время перезарядки (сек) (Reload Time)?",
+    "options": [
+      {
+        "label": "1.85 (Teriyaki)",
+        "value": 1.85,
+        "source": "teriyaki"
+      },
+      {
+        "label": "2.04 (div2hub)",
+        "value": 2.04,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Capacitor.reload"
+  },
+  {
+    "id": "reload_eagle_bearer",
+    "category": "🔫 Время перезарядки (сек)",
+    "question": "<b>Орлиное Знамя / Eagle Bearer</b> (AR) — Время перезарядки (сек) (Reload Time)?",
+    "options": [
+      {
+        "label": "2.13 (Teriyaki)",
+        "value": 2.13,
+        "source": "teriyaki"
+      },
+      {
+        "label": "2.34 (div2hub)",
+        "value": 2.34,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Eagle Bearer.reload"
+  },
+  {
+    "id": "reload_strega",
+    "category": "🔫 Время перезарядки (сек)",
+    "question": "<b>Стрега / Strega</b> (AR) — Время перезарядки (сек) (Reload Time)?",
+    "options": [
+      {
+        "label": "1.95 (Teriyaki)",
+        "value": 1.95,
+        "source": "teriyaki"
+      },
+      {
+        "label": "2.14 (div2hub)",
+        "value": 2.14,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Strega.reload"
+  },
+  {
+    "id": "reload_lady_death",
+    "category": "🔫 Время перезарядки (сек)",
+    "question": "<b>Леди Смерть / Lady Death</b> (SMG) — Время перезарядки (сек) (Reload Time)?",
+    "options": [
+      {
+        "label": "1.75 (Teriyaki)",
+        "value": 1.75,
+        "source": "teriyaki"
+      },
+      {
+        "label": "1.92 (div2hub)",
+        "value": 1.92,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Lady Death.reload"
+  },
+  {
+    "id": "reload_mp7",
+    "category": "🔫 Время перезарядки (сек)",
+    "question": "<b>MP7</b> (SMG) — Время перезарядки (сек) (Reload Time)?",
+    "options": [
+      {
+        "label": "2 (Teriyaki)",
+        "value": 2,
+        "source": "teriyaki"
+      },
+      {
+        "label": "1.59 (div2hub)",
+        "value": 1.59,
+        "source": "div2hub"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.MP7.reload"
   }
 ]

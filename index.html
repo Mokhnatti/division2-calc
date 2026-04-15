@@ -2512,7 +2512,7 @@ function renderBuildCard(b,isLiked){
       </div>
     </div>
     <div class="cc-meta">
-      <span class="cc-author">${escapeHtml(b.author||"Аноним")}</span>
+      <span class="cc-author" style="cursor:pointer;text-decoration:underline" onclick="filterByAuthor('${escapeHtml(b.author||"Аноним").replace(/'/g,"\\'")}')">${escapeHtml(b.author||"Аноним")}</span>
       <span class="cc-time">· ${fmtAgo(b.created)}</span>
     </div>
     ${weapon}
@@ -2523,12 +2523,43 @@ function renderBuildCard(b,isLiked){
         ${adminBtn}
         ${copyBtn}
         <button class="cc-like" onclick="toggleComments('${b.id}',this)" title="Комменты">💬</button>
+        <button class="cc-like" onclick="forkBuild('${b.id}','${(b.name||'').replace(/'/g,"\\'")}','${b.build_hash||''}')" title="Сохранить себе как новый билд" style="background:rgba(0,200,83,.08);border-color:rgba(0,200,83,.3);color:var(--green)">📋</button>
         <button class="cc-like ${isLiked?"liked":""}" onclick="toggleLike('${b.id}',this)" ${isLiked?'title="Убрать лайк"':'title="Лайк"'}>❤ <span>${b.likes||0}</span></button>
         <button class="cc-open" onclick="openCommunityBuild('${b.id}','${b.build_hash||""}')">Открыть</button>
       </div>
     </div>
     <div class="cc-comments" id="cc-comments-${b.id}" style="display:none;border-top:1px solid var(--border);margin-top:8px;padding-top:8px"></div>
   </div>`;
+}
+
+// === FORK BUILD ===
+function forkBuild(id, name, hash) {
+  if (!hash) { alert('Нет данных билда'); return; }
+  try {
+    const state = JSON.parse(decodeURIComponent(escape(atob(hash))));
+    const all = JSON.parse(localStorage.getItem(BUILDS_KEY) || '{}');
+    const forkName = name + ' (форк)';
+    let finalName = forkName;
+    let i = 2;
+    while (all[finalName]) { finalName = forkName + ' #' + i; i++; }
+    all[finalName] = state;
+    localStorage.setItem(BUILDS_KEY, JSON.stringify(all));
+    refreshSavedList();
+    showShareStatus(`✓ Форк сохранён как "${finalName}". Найдёшь в Билды → дропдаун.`, 4000);
+  } catch (e) {
+    alert('Ошибка форка: ' + e.message);
+  }
+}
+
+// === FILTER BY AUTHOR (profile pages) ===
+function filterByAuthor(authorName) {
+  // Set search input to author name + reload
+  const searchEl = document.getElementById('comm-search');
+  if (searchEl) {
+    searchEl.value = authorName;
+    debouncedCommReload();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 // === COMMENTS ===
