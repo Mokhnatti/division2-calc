@@ -633,15 +633,22 @@
 
   <!-- SHD Watch -->
   <div class="bsect">
-    <h3>⌚ SHD Watch <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· по умолчанию прокачан в макс (50/50 очков на атрибут)</span></h3>
+    <h3>⌚ SHD Watch / Часы Кинера <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· max значения подтверждены 3 источниками (BDDFr + MikeRee + Reddit)</span></h3>
+    <div style="font-size:11px;color:#ef5350;margin:4px 0 6px;text-transform:uppercase;letter-spacing:.5px">Атакующие (Offensive)</div>
     <div class="bstat-row">
       <div class="bstat"><label>WD</label><input id="shd-wd" value="10" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>HSD</label><input id="shd-hsd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>CHC</label><input id="shd-chc" value="10" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>CHD</label><input id="shd-chd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Патроны</label><input id="shd-ammo" value="0" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
-    <div style="font-size:10px;color:#555">SHD 1000+ → +10% CHC/CHD/WD навсегда (уже учтено выше). CHC итоговый софт-кап 60%.</div>
+    <div style="font-size:11px;color:#fdd835;margin:6px 0;text-transform:uppercase;letter-spacing:.5px">Управление (Handling)</div>
+    <div class="bstat-row">
+      <div class="bstat"><label>Магазин</label><input id="shd-ammo" value="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Перезарядка</label><input id="shd-reload" value="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Точность</label><input id="shd-accuracy" value="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Стабильность</label><input id="shd-stability" value="10" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
+    <div style="font-size:10px;color:#555">SHD 1000+ → +10% CHC/CHD/WD навсегда. CHC итоговый софт-кап 60%. Точность/стабильность не входят в DPS математику.</div>
   </div>
 
   <!-- Prototype Gear Bonus (Y8S1) -->
@@ -3472,8 +3479,8 @@ function calcBuild(){
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
   tWD+=mWD; tCHC+=mCHC; tCHD+=mCHD; tHSD+=mHSD;
   // SHD Watch (additive into respective buckets)
-  const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo")};
-  tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo;
+  const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
+  tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo; tRELOAD+=shd.reload;
   if(Object.values(shd).some(x=>x>0)){
     bonuses.push({color:"#42a5f5",tier:"⌚",nm:"SHD Watch",desc:Object.entries(shd).filter(([,x])=>x).map(([k,x])=>`+${x}% ${k}`).join(" · ")});
   }
