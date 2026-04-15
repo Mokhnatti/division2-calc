@@ -1,0 +1,755 @@
+// Métadonnées — The Division 2
+{
+  "titre": "Base de données française — The Division 2",
+  "version": "TU : Y8S1",
+  "buildLibraryApiUrl": "https://buildotheque.ftnl.workers.dev",
+  "maxExpertiseLevel": 30,
+  "credits": [
+    "Raven",
+    "Major45-FR",
+    "Squal_fr",
+    "Franck-FR",
+    "Saiyanns",
+    "V0ldeen",
+    "Ben3and",
+    "Titi-FT-70",
+    "PP.1974-fr",
+    "Captain77",
+    "marcoo888",
+    "ocelus_ftnl",
+    "NicoLeFourbe",
+    "Mastoroz"
+  ],
+  "changelog": [
+    {
+      "date": "2026-04-10",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Code de triche de Kazuhisa Hashimoto, un investissement indispensable pour l'avenir de notre base de donnees."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Ajout de la Buildothèque"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-06",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Article sur le fonctionnement des prototypes"
+          ]
+        },
+        {
+          "titre": "Corrections :",
+          "description": [
+            "Mise a jour des valeurs de talents pour les prototypes",
+            "Application du pas dans le build planner pour les niveaux de prototypes"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Ajouts :",
+          "description": [
+            "Ajout du support de la syntaxe mermaid dans les elements markdown",
+            "Ajout du champ \"craft\" pour l'obtention des armes et équiements",
+            "Ajout de l'affichage du nombre d'attributs aléatoires sur les armes et équipements"
+          ]
+        },
+        {
+          "titre": "Correction de bugs :",
+          "description": [
+            "Correction de l'URL de partage dans le build planner",
+            "Correction page blanche dans les outils de contributeurs : [Générateur Jsonc](/generator)",
+            "Correction de la génération d'images pour les embeds de réseaux sociaux",
+            "Correction de la barre de recherche qui perdait certains caractères écrit",
+            "Correction de l'affichage des armes avec des emplacement de mods pré-remplis ET emplacement de mods libres",
+            "Correction du générateur Jsonc",
+            "Correction attribut secondaire manquant dans le build planner pour les armes exotiques"
+          ]
+        },
+        "### Changements saisonniers :",
+        {
+          "titre": "Ajout des marques",
+          "description": [
+            "Core Strength",
+            "Style Royal"
+          ]
+        },
+        {
+          "titre": "Ajout des équipements",
+          "description": [
+            "Masque, Sac, Torse, Gants, Holster et Genouillères Core Strength",
+            "Masque, Sac, Torse, Gants, Holster et Genouillères Style Royal",
+            "Investisseur",
+            "Bulldog"
+          ]
+        },
+        {
+          "titre": "Ajout des armes",
+          "description": [
+            "Agitateur",
+            "Interchange"
+          ]
+        },
+        {
+          "titre": "Ajout des talents",
+          "description": [
+            "Perturbation *(Agitateur)*",
+            "Aller-retour",
+            "Aller-retour parfait *(Interchange)*",
+            "Exercice cordial *(Core Strength)*",
+            "Coeur externe *(Sac Core Strength)*",
+            "Coeur interne *(Torse Core Strength)",
+            "Triple emplacement *(Investisseur)*",
+            "Maîtrise de soi parfait *(Bulldog)*"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "patch": "Refonte total BDDFr",
+      "changements": [
+        "Utilisation de Github Pages pour la base de donnée",
+        "Projet open-source permettant a tout le monde de proposer des modifications",
+        {
+          "titre": "Ajout des marques",
+          "description": [
+            "Concentrated Company",
+            "Unit Alloys",
+            "Urban Lookout"
+          ]
+        },
+        {
+          "titre": "Ajout des équipements",
+          "description": [
+            "Égalisatrice",
+            "Salve",
+            "Dans le mille",
+            "Élan",
+            "Fierté Harrier"
+          ]
+        },
+        {
+          "titre": "Ajout des armes",
+          "description": [
+            "Vitesse supérieure",
+            "Quickstep",
+            "Big Alejandro",
+            "Confinement",
+            "Écume"
+          ]
+        },
+        {
+          "titre": "Ajout des talents",
+          "description": [
+            "Tireur à couvert *(Big Alejandro)*",
+            "Mesure parfaite *(Vitesse supérieure)*",
+            "Mode vitesse *(Quickstep)*",
+            "Immobilisation parfaite *(Confinement + Écume)*",
+            "Rééquilibre *(Fierté Harrier)*"
+          ]
+        },
+        "Ajout de la gestion des équipements de qualité prototypes",
+        "Ajout des talents prototypes"
+      ]
+    },
+    {
+      "date": "2026-02-25",
+      "patch": "",
+      "changements": [
+        {
+          "titre": "Nouvelle compétence — Abri intelligent",
+          "description": "Ajouts liés à la compétence :\n\n- Ajout de la compétence \"Abri intelligent\"\n- Ajout de l'ensemble des mods pour \"Abri intelligent\""
+        },
+        {
+          "titre": "Équipements nommés",
+          "description": "- Ajout de plusieurs équipements nommés"
+        },
+        {
+          "titre": "Talents d'armes",
+          "description": "- Ajout de nouveaux talents d'armes"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-23",
+      "patch": "",
+      "changements": [
+        {
+          "titre": "Exotiques de traque",
+          "description": "- Ajout des 15 exotiques de traque"
+        },
+        {
+          "titre": "Refonte de la page des exotiques",
+          "description": "- Ajout de l'obtention d'exotiques via représaille\n- Ajout d'un lien expliquant les taux de drop (anglais)"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-21",
+      "patch": "",
+      "changements": [
+        {
+          "titre": "Nouvelles marques",
+          "description": "- Units Alloys\n- Lengmo\n- Shiny Monkey Gear\n- Imminence Armaments\n- Urban Lookout"
+        },
+        {
+          "titre": "Nouveaux exotiques",
+          "description": "- Sherif\n- Bittersweet"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-20",
+      "patch": "Remise à jour de la BDDFR",
+      "changements": [
+        {
+          "titre": "Ensembles de set ajoutés",
+          "description": "- Refactor\n- Mesured Assembly\n- Point de bascule\n- Concentrated Company"
+        }
+      ]
+    },
+    {
+      "date": "2024-11-20",
+      "patch": "Patch TU22 Warlords of New York",
+      "changements": [
+        {
+          "titre": "Mises à jour globales",
+          "description": "- Mise à jour des stats des armes\n- Mise à jour des mods des armes\n- Mise à jour des exotiques\n- Mise à jour des ensembles de marque\n- Mise à jour des ensembles de set"
+        },
+        {
+          "titre": "Nouveaux talents",
+          "description": "- Ajout du talent \"Frappe de précision\" et de sa version parfaite"
+        },
+        {
+          "titre": "Nouveaux exotiques",
+          "description": "- Strega\n- Provocateur\n- Fourreau Centurion"
+        },
+        {
+          "titre": "Nouvelles marques et ensembles",
+          "description": "- Marque : Legatus S.p.A.\n- Ensemble de set : Virtuose"
+        },
+        {
+          "titre": "Nommes et obtention",
+          "description": "- Torse et masque nommés : Vigil, Visionario\n- Armes nommées : La foreuse, Cricket\n- Ajout des moyens d'obtention des armes nommées"
+        }
+      ]
+    },
+    {
+      "date": "2024-09-29",
+      "patch": "Patch TU21 Warlords of New York",
+      "changements": [
+        "Ajout de l'arme nommée \"Le Moissonneur\""
+      ]
+    },
+    {
+      "date": "2024-09-08",
+      "patch": "Patch TU21 Warlords of New York",
+      "changements": [
+        {
+          "titre": "Nouveaux ensembles",
+          "description": "- Ensemble de set : Breaking Point\n- Ensemble de marque : Zwiadowska Sp. z o.o."
+        },
+        {
+          "titre": "Nouvelles mécaniques",
+          "description": "- Ajout du talent d'arme \"Imprudence\""
+        },
+        {
+          "titre": "Équipements et armes nommés",
+          "description": "- Équipements nommés : Bober, Étreinte de l'aigle\n- Armes nommées : Comme de la colle, Épine, Cooler"
+        },
+        {
+          "titre": "Nouveaux exotiques",
+          "description": "- Overlord\n- Genouillères d'Acosta"
+        },
+        {
+          "titre": "Équilibrage",
+          "description": "- Changement du talent de l'exotique \"Diamondback\""
+        }
+      ]
+    },
+    {
+      "date": "2024-01-20",
+      "patch": "TU20 Warlords Of New York",
+      "changements": [
+        "Ajout de l'ensemble de set \"Aegis\"",
+        "Ajout de l'ensemble de Marque \"Palisade Steelworks\"",
+        "Ajout du nouveau talent d'arme \"Derrière toi\"",
+        "Ajout des équipements nommés \"Combustor\" et \"Proxy\"",
+        "Ajout des armes nommées \"Mumure\" et \"Brutus\"",
+        "Ajout des exotiques \"Vindicator\", \"Mosquito\" et \"Gants robustes\"",
+        "Buff de nombreuses armes du jeu",
+        "Buff de nombreuses marques, ajustement talent d'équipement + arme des versions normales et parfaites"
+      ]
+    },
+    {
+      "date": "2023-10-03",
+      "patch": "Patch TU19 Warlords of New York",
+      "changements": [
+        "Ajout de l'ensemble de set \"Ortiz\"",
+        "Ajout de l'ensemble de Marque \"Langmo\"",
+        "Ajout du nouveau talent d'arme \"Stabilize\"",
+        "Ajout des équipements nommés \"Carpenter\" et \"Blackbone\"",
+        "Ajout des exotiques \"Iron lug\", \"Ouroboros\" et \"Collector\"",
+        "Rework du set \"Pointe de lance\""
+      ]
+    },
+    {
+      "date": "2023-05-21",
+      "patch": "Patch TU18 Warlords of New York",
+      "changements": [
+        "Ajout de l'ensemble de set \"Cavalier\"",
+        "Ajout de l'ensemble de Marque \"Electrique\"",
+        "Ajout du nouveau talent d'arme \"Thunderstrike\"",
+        "Ajout des équipements nommés \"Henri\" et \"Lavoisir\"",
+        "Ajout des exotiques \"St Elmo Engine\" et \"Shocker Punch\"",
+        "Ajout des rangs d'expertise dans les tiers de compétence"
+      ]
+    },
+    {
+      "date": "2023-04-18",
+      "patch": "Patch TU17,2 Warlords of New York",
+      "changements": [
+        "Up du talent du Sacrum Imperium"
+      ]
+    },
+    {
+      "date": "2023-03-06",
+      "patch": "Patch TU 17 Warlords of New York",
+      "changements": [
+        "Ajout de la marque \"Habsburg Guard\"",
+        "Ajout du nouveau set \"Hotshot\"",
+        "Changement du talent \"Doctor Home\"",
+        "Ajout des nouveaux exotiques \"Sac à dos Ninjabike et Sacrum Imperium\"",
+        "Ajout des nouvelles armes nommées \"Prophète, Relique\"",
+        "Ajout du nouveau talent et sa version parfaite \"Résolu\"",
+        "Ajout du sac à dos nommé \"The courier\" (talent : Mort rampante parfaite)",
+        "Ajout de l'objet nommé \"Précieux\" (talent : Trauma parfait)"
+      ]
+    },
+    {
+      "date": "2022-09-29",
+      "patch": "Patch PTS TU 16.1 Warlords of New York",
+      "changements": [
+        "Buff du set striker",
+        "Modification des stats du holster de Picaro (holster nommé Brasoz de Arcabuz)"
+      ]
+    },
+    {
+      "date": "2022-09-05",
+      "patch": "Patch PTS TU 16 Warlords of New York",
+      "changements": [
+        "Traduction des talents",
+        "Ajout des nouveaux objets dans les onglets correspondants",
+        "Rework du set \"striker\"",
+        "Ajout des stats pvp des objets exotiques, talent de sac/torse, objets nommés",
+        "Ajout des armes signatures",
+        "Ajout de la marque \"Arcabuz Brazos\"",
+        "Ajout du nouveau set \"Umbra Initiative\"",
+        "Ajout des nouveaux exotiques \"Doctor Home, Bloody Knuckles, Busy Little Bee\"",
+        "Ajout des nouvelles armes nommées \"Lefty, Stage Left\"",
+        "Ajout du nouveau talent et sa version parfaite \"Sledgehammer\"",
+        "Ajout du sac à dos nommé \"Hermano\" (talent : Overclock parfait)",
+        "Rework du set Ongoing",
+        "Ajout de l'objet nommé \"Holster de Picaro\""
+      ]
+    },
+    {
+      "date": { "from": "2022-04-01", "to": "2022-04-15" },
+      "patch": "Patch TU 15 Warlords of New York",
+      "changements": [
+        "Ajout du torse nommé \"Closer\"",
+        "Ajout du Sac à dos nommé \"The Setup\"",
+        "Ajout du nouveau gear set \"Heartbreaker\"",
+        "Ajout de la nouvelle marque \"Uzina getica\"",
+        "Ajout des nouveaux exotiques \"Dread edict, Catharsis, Bluescreen\"",
+        "Ajout des nouvelles armes nommées \"Défi et Tueur de Roi\"",
+        "Rework des talents (et leur version parfaite) \"Intimidation et Synchro\"",
+        "Ajout du nouveau talent (et sa version parfaite) \"Flatline\"",
+        "Ajout des versions parfaites \"d'Observateur et Opportuniste\""
+      ]
+    },
+    {
+      "date": "2021-12-16",
+      "patch": "Patch TU 14 Warlords of New York",
+      "changements": [
+        "Ajout du masque nommé Chill Out",
+        "Mise à jour de l'ensemble de set Striker (rework)"
+      ]
+    },
+    {
+      "date": "2020-11-27",
+      "patch": "Patch TU 12 Warlords of New York",
+      "changements": [
+        "Ajout du nouveau set d'équipement \"Rigger\"",
+        "Ajout de la nouvelle marque \"Empress International\"",
+        "Ajout des nouveaux exotiques \"Capacitor, Scorpio, Forme d'onde\"",
+        "Ajout des nouvelles armes \"Tactical .308 et PDR\"",
+        "Ajout des nouvelles armes nommées \"Scalpel et Sujet de test\"",
+        "Ajout des nouveaux équipement nommés \"Protection de César et Bloc batterie\"",
+        "Ajout de la nouvelle compétence lié à la saison 4"
+      ]
+    },
+    {
+      "date": "2020-11-06",
+      "patch": "Patch TU11.1 Warlords of New York",
+      "changements": [
+        "Mise à jour des moyens d'obtention des exotiques",
+        "Mise à jour de l'onglet dégâts des armes",
+        "Mise à jour des zones d'obtention des équipements/armes nommés",
+        "Ajout de l'onglet \"mods de compétence\""
+      ]
+    },
+    {
+      "date": "2020-10-20",
+      "patch": "Patch TU11.1 Warlords of New York",
+      "changements": [
+        "Mise à jour du Torse exotique Fierté de Ridgeway (buff)"
+      ]
+    },
+    {
+      "date": "2020-09-22",
+      "patch": "Patch TU11 Warlords of New York",
+      "changements": [
+        "Mise à jour du Gdoc Patch TU11"
+      ]
+    },
+    {
+      "date": "2020-09-11",
+      "patch": "PTS Patch TU11 V2 Warlords of New York",
+      "changements": [
+        "Buff La serpillière",
+        "Buff Poigne mortelle",
+        "Modification Set Protocole Eclipse",
+        "Buff Talent de torse Oblitération"
+      ]
+    },
+    {
+      "date": "2020-09-08",
+      "patch": "PTS Patch TU11 V1 Warlords of New York",
+      "changements": [
+        "Ajout de la compétence \"Piège Réparation\" (récompense traque saison 2)",
+        "Ajout de la compétence \"Piège Shrapnel\" (récompense traque saison 3)"
+      ]
+    },
+    {
+      "date": "2020-09-07",
+      "patch": "PTS Patch TU11 V1 Warlords of New York",
+      "changements": [
+        "Ajout de la smg exotique Backfire",
+        "Ajout du torse exotique la Fierté de Ridgeway",
+        "Ajout du set Fureur du chasseur",
+        "Ajout de la marque Belstone Armory",
+        "Ajout des équipements nommés Ingénieur et Transporteur",
+        "Ajout des armes nommées La Serpillière et TDI \"Kard\" personnalisé",
+        "Ajout des armes SIX12 et KARD-45"
+      ]
+    },
+    {
+      "date": "2020-08-15",
+      "patch": "Patch TU10.1 Warlords of New York",
+      "changements": [
+        "Création de l'onglet \"Tier de compétence\""
+      ]
+    },
+    {
+      "date": "2020-07-29",
+      "patch": "Patch TU10.1 Warlords of New York",
+      "changements": [
+        "Ajout des mods d'arme et d'équipement dans l'onglet \"Exotique\""
+      ]
+    },
+    {
+      "date": "2020-07-23",
+      "patch": "Patch TU10.1 Warlords of New York",
+      "changements": [
+        "Mise à jour du Holster nommé Forge (buff santé de bouclier)",
+        "Mise à jour du Set Rempart de la Fonderie (nerf du bonus 3P, ajout de +50 bouclier de santé)"
+      ]
+    },
+    {
+      "date": "2020-06-16",
+      "patch": "Patch TU10 Warlords of New York",
+      "changements": [
+        "Ajout des futurs exotiques lié à la saison 2 et au raid \"Cheval de Fer\" \"Mantis, La vorace, Regulus\"",
+        "Ajout des nouveaux gear set \"Future Initiative, Protocole Eclypse, Rempart de la fonderie\"",
+        "Ajout de la nouvelle marque \"Harris, Walker & Co\"",
+        "Ajout des nouvelles armes nommées \"Animal mécanique, Harmonie\"",
+        "Ajout des nouveaux équipements nommés \"Matador et Tueur à la chaine\"",
+        "Ajout des nouveaux talents d'arme et d'équipement",
+        "Mise à jour des dégâts d'arme",
+        "Mise à jour des exotiques",
+        "Mise à jour des gear set",
+        "Mise à jour des set de marque"
+      ]
+    },
+    {
+      "date": "2020-04-24",
+      "patch": "Patch TU9 Warlords of New York",
+      "changements": [
+        "Mise à jour du m1a classique (annulation du nerf)"
+      ]
+    },
+    {
+      "date": "2020-04-21",
+      "patch": "Patch TU9 Warlords of New York",
+      "changements": [
+        "Mise à jour du veilleur de nuit (rework)",
+        "Mise à jour d'amour maternel (nerf)",
+        "Mise à jour des genouillères de Sawyer (rework)",
+        "Mise à jour des holsters Dynastie Impériale et Holster de cowboy de Dodge city (buff)",
+        "Mise à jour de la Diamondback (rework)",
+        "Mise à jour d'Impitoyable/Inflexible (buff)",
+        "Mise à jour de la Bullet King (buff)",
+        "Mise à jour des talents de torse",
+        "Mise à jour du talent du sac à dos \"Mort rampante\" (buff)",
+        "Mise à jour des nommés (nerfs et buffs)",
+        "Mise à jour du m1a classique (nerf)"
+      ]
+    },
+    {
+      "date": { "from": "2020-03-18", "to": "2020-03-20" },
+      "patch": "Patch TU8 Warlords of New York",
+      "changements": [
+        "Mise à jour des équipements nommés",
+        "Mise à jour des armes nommées",
+        "Ajout des talents de torse et de sac à dos des gearset dans l'onglet \"ensemble de set\""
+      ]
+    },
+    {
+      "date": { "from": "2020-03-04", "to": "2020-03-17" },
+      "patch": "Patch TU8 Warlords of New York",
+      "changements": [
+        "Ajout des exotiques de Warlords of New York",
+        "Mise à jour des talents d'armes",
+        "Mise à jour des talents d'équipement",
+        "Mise à jour des set d'équipement",
+        "Ajout des sets d'équipement du Cogneur et du Corruption"
+      ]
+    },
+    {
+      "date": "2020-03-04",
+      "patch": "Patch TU8 Warlords Of New York",
+      "changements": [
+        "Mise à jour partielle de la page des Exotiques",
+        "Mise à jour de la page Talents d'équipements"
+      ]
+    },
+    {
+      "date": "2020-03-03",
+      "patch": "Patch TU8 Warlords of New York",
+      "changements": [
+        "Mise à jour de la page \"Ensemble de marques\" — Rajout des 4 nouvelles marques",
+        "Mise à jour de la page \"Ensemble de set\""
+      ]
+    },
+    {
+      "date": "2020-02-21",
+      "patch": "Patch TU7",
+      "changements": [
+        "Ajout du Caméléon (vector) dans l'onglet exotique",
+        "Ajout du UIC15 MOD2 (fusil)",
+        "Ajout du G28 (fusil de précision)",
+        "Ajout de l'Honey Badger (fusil d'assaut)",
+        "Ajout de l'Allume-feu (fusil à canon scié) dans l'onglet arme nommée",
+        "Ajout du Carcajou Furieux (fusil d'assaut) dans l'onglet arme nommée",
+        "Ajout de la Réserve de munition (holster) dans l'onglet équipement nommé",
+        "Ajout de la poignée de la spécialisation Incendiaire dans l'onglet mod d'arme"
+      ]
+    },
+    {
+      "date": { "from": "2019-10-27", "to": "2019-12-13" },
+      "patch": "",
+      "changements": [
+        "Ajout de l'enneigeur dans plage de dégâts des armes et armes nommées",
+        "Création de la page \"Mods d'équipement\"",
+        "Création de la page \"Mods des compétences\"",
+        "Création de la page \"plage de dégâts des armes\"",
+        "Mise à jour de la page \"mods d'armes\"",
+        "Ajout valeur pvp armes et équipements nommés"
+      ]
+    },
+    {
+      "date": "2019-10-27",
+      "patch": "",
+      "changements": [
+        "Ajout des Équipement nommés",
+        "Création de la page \"Ensemble de Set\"",
+        "Création de la page \"Modèles d'Équipements\""
+      ]
+    },
+    {
+      "date": "2019-10-25",
+      "patch": "",
+      "changements": [
+        "Mise à jour de la page \"Roll des valeurs d'attributs\""
+      ]
+    },
+    {
+      "date": "2019-10-23",
+      "patch": "",
+      "changements": [
+        "Ajout des Armes nommées"
+      ]
+    },
+    {
+      "date": "2019-10-19",
+      "patch": "Reprise et mise à jour de la base de donnée",
+      "changements": [
+        "Mise à jour des Talents d'armure / Talents d'arme / Exotiques / Ensemble de marque"
+      ]
+    },
+    {
+      "date": "2019-06-07",
+      "patch": "",
+      "changements": [
+        "Ajout : Roll des valeurs d'attributs"
+      ]
+    },
+    {
+      "date": "2019-04-18",
+      "patch": "",
+      "changements": [
+        "Ajout : Road map des dev's"
+      ]
+    },
+    {
+      "date": "2019-04-17",
+      "patch": "",
+      "changements": [
+        "Update : Talents par ensemble de marque"
+      ]
+    },
+    {
+      "date": "2019-04-12",
+      "patch": "",
+      "changements": [
+        "Ajout : Corrélation Ensemble de marque/Talent/Attribut/Mod",
+        "Ajout : Type d'attributs par ensemble d'équipement"
+      ]
+    },
+    {
+      "date": "2019-04-09",
+      "patch": "",
+      "changements": [
+        "Ajout : Builds (liste)"
+      ]
+    },
+    {
+      "date": "2019-04-08",
+      "patch": "",
+      "changements": [
+        "Update : Attributs (armure) + Attributs par ensemble de marque (armure)",
+        "Ajout : Probabilité drops T5"
+      ]
+    },
+    {
+      "date": "2019-04-05",
+      "patch": "",
+      "changements": [
+        "Ajout de l'obtention de l'exotique Pestilence",
+        "Mise à jour suite à l'update Tidal Bassin"
+      ]
+    },
+    {
+      "date": "2019-04-02",
+      "patch": "",
+      "changements": [
+        "Update : Armure — Attributs par ensemble de marque"
+      ]
+    },
+    {
+      "date": "2019-04-01",
+      "patch": "",
+      "changements": [
+        "Update : Arme — Mods + Armure — Talents par ensemble de marque + Armure — Attributs"
+      ]
+    },
+    {
+      "date": "2019-03-31",
+      "patch": "",
+      "changements": [
+        "Update : Armure — Talents, Armure — ensemble de marque + Arme — Talents",
+        "Ajout : Compétence — Mods (par Teckillah)"
+      ]
+    },
+    {
+      "date": "2019-03-30",
+      "patch": "",
+      "changements": [
+        "Ajout : Statistique — Cap maximum + update et amélioration diverse"
+      ]
+    },
+    {
+      "date": "2019-03-29",
+      "patch": "",
+      "changements": [
+        "Ajout : Talents par ensemble de marque + Arme — Exotique"
+      ]
+    },
+    {
+      "date": "2019-03-28",
+      "patch": "",
+      "changements": [
+        "Ajout : Type d'attributs par ensemble de marque"
+      ]
+    },
+    {
+      "date": "2019-03-27",
+      "patch": "",
+      "changements": [
+        "Ajout : Arme — Mods"
+      ]
+    },
+    {
+      "date": "2019-03-26",
+      "patch": "",
+      "changements": [
+        "Ajout : Arme — Talents & Armure — Ensemble de marque"
+      ]
+    },
+    {
+      "date": "2019-03-25",
+      "patch": "",
+      "changements": [
+        "Ajout : Armure — Attributs"
+      ]
+    },
+    {
+      "date": "2019-03-24",
+      "patch": "",
+      "changements": [
+        "Ajout : Armure — Talents"
+      ]
+    },
+    {
+      "date": "2019-03-23",
+      "patch": "Début de la BDDFr",
+      "changements": [
+        "Création du doc pour la télémétrie du jeu"
+      ]
+    }
+  ]
+}

@@ -636,9 +636,9 @@
     <h3>⌚ SHD Watch <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· по умолчанию прокачан в макс (50/50 очков на атрибут)</span></h3>
     <div class="bstat-row">
       <div class="bstat"><label>WD</label><input id="shd-wd" value="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>HSD</label><input id="shd-hsd" value="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>HSD</label><input id="shd-hsd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>CHC</label><input id="shd-chc" value="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>CHD</label><input id="shd-chd" value="30" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHD</label><input id="shd-chd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Патроны</label><input id="shd-ammo" value="0" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
     <div style="font-size:10px;color:#555">SHD 1000+ → +10% CHC/CHD/WD навсегда (уже учтено выше). CHC итоговый софт-кап 60%.</div>
@@ -2365,7 +2365,7 @@ function resetCurrentBuild(){
   setInput("b-chc",20);setInput("b-chd",25);setInput("b-hsd",0);
   setInput("b-hsrate",0);setInput("b-ooc",0);setInput("b-dta",0);setInput("b-wd",0);
   // Keep SHD at maxed defaults (пользователь просил)
-  setInput("shd-wd",10);setInput("shd-hsd",10);setInput("shd-chc",10);setInput("shd-chd",30);setInput("shd-ammo",0);
+  setInput("shd-wd",10);setInput("shd-hsd",20);setInput("shd-chc",10);setInput("shd-chd",20);setInput("shd-ammo",0);
   // Recombinator back to zeros
   ["rc-hsd","rc-ammo","rc-ergo","rc-armor","rc-elite","rc-hazprot","rc-status","rc-skilldmg","rc-util3"].forEach(id=>setInput(id,0));
   // TTK multipliers
@@ -2775,7 +2775,7 @@ const PROTOTYPE_AUGMENTS={
   echo:{name:"Echo",desc:"Шанс что выстрел наносит урон дважды",init:1.2,per:0.18,max:3.0,unit:"% шанс дубля",dps_impact:"high"},
   atomize:{name:"Atomize",desc:"Увеличивает радиус и урон гранат",init:12.5,per:0.9,max:21.5,unit:"%",dps_impact:"low"},
   amalgam:{name:"Amalgam",desc:"Шанс наложить случайный статус-эффект (кд 5с)",init:0.5,per:0.18,max:2.3,unit:"% шанс",dps_impact:"low"},
-  trapper:{name:"Trapper",desc:"Увеличивает длительность статус-эффектов",init:4.0,per:1.8,max:22.0,unit:"%",dps_impact:"low"},
+  trapper:{name:"Trapper",desc:"Увеличивает длительность статус-эффектов",init:5.0,per:1.0,max:14.0,unit:"%",dps_impact:"low"},
   entropy:{name:"Entropy",desc:"Здоровье увеличено на % от базовой общей брони",init:5.0,per:0.9,max:14.0,unit:"%",dps_impact:"none"},
   anomaly:{name:"Anomaly",desc:"Лечение на % от урона нанесённого скиллами",init:2.0,per:0.27,max:4.7,unit:"%",dps_impact:"none"},
   paradox:{name:"Paradox",desc:"Шанс пополнить магазин на 2 за каждый выстрел",init:1.5,per:0.45,max:6.0,unit:"% шанс",dps_impact:"medium"},
