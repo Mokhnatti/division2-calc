@@ -13,7 +13,9 @@
         .header p{color:var(--muted);margin-top:4px;font-size:12px}
         .bug-btn{position:absolute;top:12px;right:12px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.4);color:var(--red);padding:7px 12px;border-radius:7px;font-size:11px;cursor:pointer;font-weight:600;transition:all .15s}
         .bug-btn:hover{background:rgba(239,83,80,.2);border-color:var(--red)}
-        @media(max-width:500px){.bug-btn{top:8px;right:8px;padding:5px 9px;font-size:10px}}
+        .lang-btn{position:absolute;top:12px;left:12px;background:rgba(66,165,245,.12);border:1px solid rgba(66,165,245,.4);color:var(--blue);padding:7px 12px;border-radius:7px;font-size:11px;cursor:pointer;font-weight:700;transition:all .15s}
+        .lang-btn:hover{background:rgba(66,165,245,.22);border-color:var(--blue)}
+        @media(max-width:500px){.bug-btn{top:8px;right:8px;padding:5px 9px;font-size:10px} .lang-btn{top:8px;left:8px;padding:5px 9px;font-size:10px}}
         .bug-form{display:flex;flex-direction:column;gap:10px;padding:16px}
         .bug-form label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px}
         .bug-form input,.bug-form select,.bug-form textarea{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:13px;outline:none;font-family:inherit}
@@ -234,6 +236,7 @@
 </head>
 <body>
 <div class="header">
+    <button class="lang-btn" onclick="toggleLang()" title="Switch language / Переключить язык" id="lang-btn">🇷🇺 RU</button>
     <button class="bug-btn" onclick="openBugModal()" title="Сообщить об ошибке в данных или математике">🐛 Баг-репорт</button>
     <h1>The Division 2</h1>
     <p>Gear Sets / Brand Sets / Exotics / Named Items — Full Database</p>
@@ -3230,6 +3233,33 @@ function renderTtk(base,avg,peak){
   }).join("");
   document.getElementById("ttk-body").innerHTML=body;
 }
+
+// ===== LANGUAGE SWITCHER (заглушка, полноценный перевод будет потом) =====
+let currentLang=localStorage.getItem("d2calc_lang")||"ru";
+function updateLangBtn(){
+  const btn=document.getElementById("lang-btn");
+  if(!btn)return;
+  btn.textContent=currentLang==="ru"?"🇷🇺 RU":"🇬🇧 EN";
+}
+function toggleLang(){
+  currentLang=currentLang==="ru"?"en":"ru";
+  localStorage.setItem("d2calc_lang",currentLang);
+  updateLangBtn();
+  showLangToast();
+}
+function showLangToast(){
+  const existing=document.getElementById("lang-toast");
+  if(existing)existing.remove();
+  const toast=document.createElement("div");
+  toast.id="lang-toast";
+  toast.style.cssText="position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--orange);border-radius:10px;padding:14px 20px;font-size:13px;color:var(--text);z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.5);max-width:90vw;text-align:center;line-height:1.5";
+  toast.innerHTML=currentLang==="en"
+    ?"🌐 English translation coming soon.<br><span style='color:var(--muted);font-size:11px'>Current language preference saved — switching back to RU for now.</span>"
+    :"🌐 Язык сохранён как русский.<br><span style='color:var(--muted);font-size:11px'>Английский перевод в работе.</span>";
+  document.body.appendChild(toast);
+  setTimeout(()=>toast.remove(),3500);
+}
+updateLangBtn();
 
 // Init build slots from gear set data
 initBuildSlots();
