@@ -1264,5 +1264,355 @@
       }
     ],
     "field": "WPNS_BASE.MP7.reload"
+  },
+  {
+    "id": "dmg4_93r",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>93R</b> (Pistol) — базовый урон пули?\n\nИсточники расходятся на 37.9%.",
+    "options": [
+      {
+        "label": "52 978 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 52978,
+        "source": "teriyaki"
+      },
+      {
+        "label": "32 908 (ilantvig (старая мета))",
+        "value": 32908,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.93R.dmg"
+  },
+  {
+    "id": "dmg4_iwi_negev",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>IWI NEGEV</b> (LMG) — базовый урон пули?\n\nИсточники расходятся на 31.1%.",
+    "options": [
+      {
+        "label": "54 604 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 54604,
+        "source": "teriyaki"
+      },
+      {
+        "label": "37 610 (ilantvig (старая мета))",
+        "value": 37610,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.IWI NEGEV.dmg"
+  },
+  {
+    "id": "dmg4_uic15_mod2",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>UIC15 MOD2</b> (Rifle) — базовый урон пули?\n\nИсточники расходятся на 29.6%.",
+    "options": [
+      {
+        "label": "150 316 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 150316,
+        "source": "teriyaki"
+      },
+      {
+        "label": "105 777 (ilantvig (старая мета))",
+        "value": 105777,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.UIC15 MOD2.dmg"
+  },
+  {
+    "id": "dmg4_g28",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>G28</b> (MMR) — базовый урон пули?\n\nИсточники расходятся на 28.9%.",
+    "options": [
+      {
+        "label": "206 425 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 206425,
+        "source": "teriyaki"
+      },
+      {
+        "label": "146 677 (ilantvig (старая мета))",
+        "value": 146677,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.G28.dmg"
+  },
+  {
+    "id": "dmg4_stoner_lamg",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>Stoner LAMG</b> (LMG) — базовый урон пули?\n\nИсточники расходятся на 23.1%.",
+    "options": [
+      {
+        "label": "62 361 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 62361,
+        "source": "teriyaki"
+      },
+      {
+        "label": "47 952 (ilantvig (старая мета))",
+        "value": 47952,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Stoner LAMG.dmg"
+  },
+  {
+    "id": "dmg4_classic_rpk_74",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>Classic RPK-74</b> (LMG) — базовый урон пули?\n\nИсточники расходятся на 22.5%.",
+    "options": [
+      {
+        "label": "71 538 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 71538,
+        "source": "teriyaki"
+      },
+      {
+        "label": "55 474 (ilantvig (старая мета))",
+        "value": 55474,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Classic RPK-74.dmg"
+  },
+  {
+    "id": "dmg4_m1911",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>M1911</b> (Pistol) — базовый урон пули?\n\nИсточники расходятся на 22.2%.",
+    "options": [
+      {
+        "label": "129 885 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 129885,
+        "source": "teriyaki"
+      },
+      {
+        "label": "101 076 (ilantvig (старая мета))",
+        "value": 101076,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.M1911.dmg"
+  },
+  {
+    "id": "dmg4_maxim_9",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>Maxim 9</b> (Pistol) — базовый урон пули?\n\nИсточники расходятся на 21.3%.",
+    "options": [
+      {
+        "label": "125 385 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 125385,
+        "source": "teriyaki"
+      },
+      {
+        "label": "125 414 (div2hub/data CSV (Apr 2026))",
+        "value": 125414,
+        "source": "div2hub"
+      },
+      {
+        "label": "98 725 (ilantvig (старая мета))",
+        "value": 98725,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Maxim 9.dmg"
+  },
+  {
+    "id": "dmg4_m16a2",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>M16A2</b> (Rifle) — базовый урон пули?\n\nИсточники расходятся на 20.9%.",
+    "options": [
+      {
+        "label": "106 971 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 106971,
+        "source": "teriyaki"
+      },
+      {
+        "label": "84 622 (ilantvig (старая мета))",
+        "value": 84622,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.M16A2.dmg"
+  },
+  {
+    "id": "dmg4_m16a2_replica",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>M16A2 Replica</b> (Rifle) — базовый урон пули?\n\nИсточники расходятся на 20.9%.",
+    "options": [
+      {
+        "label": "106 971 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 106971,
+        "source": "teriyaki"
+      },
+      {
+        "label": "84 622 (ilantvig (старая мета))",
+        "value": 84622,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.M16A2 Replica.dmg"
+  },
+  {
+    "id": "dmg4_sig_716_cqb",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>SIG 716 CQB</b> (Rifle) — базовый урон пули?\n\nИсточники расходятся на 20.8%.",
+    "options": [
+      {
+        "label": "125 865 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 125865,
+        "source": "teriyaki"
+      },
+      {
+        "label": "99 665 (ilantvig (старая мета))",
+        "value": 99665,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.SIG 716 CQB.dmg"
+  },
+  {
+    "id": "dmg4_military_m9",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>Military M9</b> (Pistol) — базовый урон пули?\n\nИсточники расходятся на 20.3%.",
+    "options": [
+      {
+        "label": "102 585 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 102585,
+        "source": "teriyaki"
+      },
+      {
+        "label": "81 801 (ilantvig (старая мета))",
+        "value": 81801,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Military M9.dmg"
+  },
+  {
+    "id": "dmg4_military_m9_replica",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>Military M9 Replica</b> (Pistol) — базовый урон пули?\n\nИсточники расходятся на 20.3%.",
+    "options": [
+      {
+        "label": "102 585 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 102585,
+        "source": "teriyaki"
+      },
+      {
+        "label": "81 801 (ilantvig (старая мета))",
+        "value": 81801,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Military M9 Replica.dmg"
+  },
+  {
+    "id": "dmg4_tactical_308",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>Tactical .308</b> (MMR) — базовый урон пули?\n\nИсточники расходятся на 19.7%.",
+    "options": [
+      {
+        "label": "403 810 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 403810,
+        "source": "teriyaki"
+      },
+      {
+        "label": "324 383 (ilantvig (старая мета))",
+        "value": 324383,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Tactical .308.dmg"
+  },
+  {
+    "id": "dmg4_liberty",
+    "category": "🔫 Урон оружия (4 источника)",
+    "question": "<b>Liberty</b> (Pistol) — базовый урон пули?\n\nИсточники расходятся на 19.5%.",
+    "options": [
+      {
+        "label": "189 172 (Teriyaki v1.7.4 (Apr 2026))",
+        "value": 189172,
+        "source": "teriyaki"
+      },
+      {
+        "label": "235 060 (ilantvig (старая мета))",
+        "value": 235060,
+        "source": "ilantvig"
+      },
+      {
+        "label": "🤷 Не знаю",
+        "value": "dunno",
+        "source": "dunno"
+      }
+    ],
+    "field": "WPNS_BASE.Liberty.dmg"
   }
 ]
