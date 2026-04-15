@@ -94,10 +94,26 @@ function gitCommit() {
     execSync(`git -C "${REPO_ROOT}" add data_sources/quiz_answers.json`, { stdio: 'pipe' });
     execSync(`git -C "${REPO_ROOT}" -c user.name=quiz-bot -c user.email=bot@divcalc.xyz commit -m "Quiz answers auto-commit [skip ci]"`, { stdio: 'pipe' });
     execSync(`git -C "${REPO_ROOT}" push origin master`, { stdio: 'pipe' });
-    log('gitCommit: pushed');
+    log('gitCommit: pushed answers');
     state.last_commit = Date.now();
     state.uncommitted_count = 0;
     saveJson(STATE_FILE, state);
+
+    // Now try to apply majority votes to index.html
+    try {
+      const out = execSync(`node "${path.join(REPO_ROOT, 'scripts', 'apply_quiz_answers.js')}"`, { encoding: 'utf8' });
+      log('apply_quiz_answers: ' + out.split('\n').filter((l) => l.includes('✏') || l.includes('Processed')).join(' | '));
+      // If index.html changed — commit it too
+      const htmlChanges = execSync('git -C ' + REPO_ROOT + ' status --porcelain index.html', { encoding: 'utf8' }).trim();
+      if (htmlChanges) {
+        execSync(`git -C "${REPO_ROOT}" add index.html`, { stdio: 'pipe' });
+        execSync(`git -C "${REPO_ROOT}" -c user.name=quiz-bot -c user.email=bot@divcalc.xyz commit -m "Apply quiz majority votes [skip ci]"`, { stdio: 'pipe' });
+        execSync(`git -C "${REPO_ROOT}" push origin master`, { stdio: 'pipe' });
+        log('gitCommit: pushed index.html updates from quiz');
+      }
+    } catch (applyErr) {
+      log('apply_quiz_answers ERROR: ' + applyErr.message);
+    }
   } catch (e) {
     log('gitCommit ERROR: ' + e.message);
   }
