@@ -15,6 +15,12 @@
         "value": 22,
         "source": "div2hub",
         "detail": "div2hub/data augments.csv (апрель 2026)"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "PROTOTYPE_AUGMENTS.trapper.max"
@@ -41,6 +47,12 @@
         "value": 25,
         "source": "other",
         "detail": "Альтернатива"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "shd-chd"
@@ -61,6 +73,12 @@
         "value": 10,
         "source": "hand",
         "detail": "Моё старое значение"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "shd-hsd"
@@ -80,6 +98,12 @@
         "label": "15% макс",
         "value": 15,
         "source": "other"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "shd-wd"
@@ -99,6 +123,12 @@
         "label": "15% макс",
         "value": 15,
         "source": "other"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "shd-chc"
@@ -123,6 +153,12 @@
         "label": "+600% (700% от базы)",
         "value": 600,
         "source": "hand"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "ESCALATION_TIERS.10.hp"
@@ -148,6 +184,12 @@
         "label": "Нет soft cap",
         "value": 0,
         "source": "none"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "note_only"
@@ -173,6 +215,12 @@
         "label": "Нет cap",
         "value": 0,
         "source": "none"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "note_only"
@@ -197,6 +245,12 @@
         "label": "+100% (2x)",
         "value": 100,
         "source": "other"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "note_only"
@@ -217,6 +271,12 @@
         "value": 50627,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.The Sleigher.dmg"
@@ -237,6 +297,12 @@
         "value": 541954,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Oh Carol.dmg"
@@ -257,6 +323,12 @@
         "value": 48300,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Black Friday.dmg"
@@ -277,6 +349,12 @@
         "value": 48300,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.The Stinger.dmg"
@@ -297,6 +375,12 @@
         "value": 92364,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.ACR SS.dmg"
@@ -317,6 +401,12 @@
         "value": 49104,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Shield Splinterer.dmg"
@@ -337,6 +427,12 @@
         "value": 39307,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Froth.dmg"
@@ -357,6 +453,12 @@
         "value": 54322,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Big Show.dmg"
@@ -377,6 +479,12 @@
         "value": 125414,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Maxim 9.dmg"
@@ -397,6 +505,12 @@
         "value": 87541,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.P320 XCompact.dmg"
@@ -417,6 +531,12 @@
         "value": 57646,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Goalie.dmg"
@@ -437,6 +557,12 @@
         "value": 198310,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Diceros Special.dmg"
@@ -457,6 +583,12 @@
         "value": 635711,
         "source": "div2hub",
         "detail": "div2hub/data репозиторий, апрель 2026"
+      },
+      {
+        "label": "🤷 Не знаю / пропустить",
+        "value": "dunno",
+        "source": "dunno",
+        "detail": "Твой голос не учитывается в подсчёте"
       }
     ],
     "field": "WPNS_BASE.Firestarter.dmg"
