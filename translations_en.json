@@ -1526,7 +1526,8 @@
   "talents": {},
   "meta": {
     "generated": "2026-04-15T02:35:07.003Z",
-    "source": "translate.googleapis.com"
+    "source": "translate.googleapis.com",
+    "authoritative_source": "faildruid/division-2-db"
   },
   "__texts": {
     "2шт: +15% Управление оружием": "2pcs: +15% Weapon control",
@@ -2029,5 +2030,607 @@
     "+20% урон оружием в 10м от союзника или навыка": "+20% weapon damage within 10m of an ally or skill",
     "Perfect Galvanize": "Perfect Galvanize",
     "Слепота/Опутывание/Шок на враге → 50% брони как бонусная вам и союзникам в 30м 10с": "Blind/Entangle/Shock on enemy → 50% bonus armor for you and allies at 30m 10s"
+  },
+  "talents_authoritative": {
+    "Best Buds": {
+      "tal": "Best Buds",
+      "d": "Increase the damage buff from 25% to 50%"
+    },
+    "Compiler Optimization": {
+      "tal": "Compiler Optimization",
+      "d": "Decreases Hackstep Protocol cooldown from 20 seconds to 15 seconds."
+    },
+    "Daring": {
+      "tal": "Daring",
+      "d": "Increases bonus Armor from 50% to 100%"
+    },
+    "Endless Hunge": {
+      "tal": "Endless Hunge",
+      "d": "Increases the duration of Apex Predator stacks from 10 seconds to 30 seconds."
+    },
+    "From the Shadows": {
+      "tal": "From the Shadows",
+      "d": "Increases max stacks for From the Shadows from 50 to 100 and stack gain from 10 to 20."
+    },
+    "Improved Materials": {
+      "tal": "Improved Materials",
+      "d": "Increases Makeshift Repairs from 20% to 30%."
+    },
+    "Max BPM": {
+      "tal": "Max BPM",
+      "d": "Increases max stacks for Heartstopper from 50 to 100"
+    },
+    "No Limit": {
+      "tal": "No Limit",
+      "d": "Increases Dead Man's Hand damage bonus from 30% to 50%."
+    },
+    "Parabellum Rounds": {
+      "tal": "Parabellum Rounds",
+      "d": "Increases Hollow-Point Ammo damage to 35%."
+    },
+    "Perfect Adrenaline Rush": {
+      "tal": "Perfect Adrenaline Rush",
+      "d": "When you are within 10m of an enemy, gain 23% bonus armor for 5 seconds. Stacks up to 3 times.<br>Cooldown: 5s"
+    },
+    "Perfect Bloodsucker": {
+      "tal": "Perfect Bloodsucker",
+      "d": "Killing an enemy adds and refreshes a stack of +12% bonus armor for 10s. Max stack is 10"
+    },
+    "Perfect Clutch": {
+      "tal": "Perfect Clutch",
+      "d": "If you are below 20% armor, critical hits repair 3% missing armor. Kills allow you to repair up to 100% armor for 4-10 secondss, based on your [Weapon] core attribute."
+    },
+    "Perfect Combined Arms": {
+      "tal": "Perfect Combined Arms",
+      "d": "Shooting an enemy increases total skill damage by 30% for 3 seconds."
+    },
+    "Perfect Creeping Death": {
+      "tal": "Perfect Creeping Death",
+      "d": "Causing Status Effect on an enemy has a chance to spread that same Status Effect to the nearest enemy within a 10-meter radius. Can only occur once every 10 seconds."
+    },
+    "Perfect Overclock": {
+      "tal": "Perfect Overclock",
+      "d": "Allies within 15 meters of your deployed skills, gain +30% reload speed and reduce their active cooldowns by 0.6 seconds each second."
+    },
+    "Perfect Shock and Awe": {
+      "tal": "Perfect Shock and Awe",
+      "d": "Applying a status effect to an enemy increases total skill damage and repair by 20% for 27 seconds."
+    },
+    "Perfect Tech Support": {
+      "tal": "Perfect Tech Support",
+      "d": "Skill kills increase total skill damage by 25% for 27 seconds."
+    },
+    "Perfect Vigilance": {
+      "tal": "Perfect Vigilance",
+      "d": "Increases total weapon damage by 25%. Taking damage disables this buff for 3 seconds."
+    },
+    "Perfectly Calculated": {
+      "tal": "Perfectly Calculated",
+      "d": "Kills from cover reduce skill cooldowns by 15%."
+    },
+    "Perfectly Opportunistic": {
+      "tal": "Perfectly Opportunistic",
+      "d": "Enemies you hit with shotguns and marksman rifles amplifies the damage they take by 15% from all sources for 5 seconds."
+    },
+    "Perfectly Wicked": {
+      "tal": "Perfectly Wicked",
+      "d": "Applying a status effect increases total weapon damage by 18% for 27 seconds."
+    },
+    "Positive Reinforcement": {
+      "tal": "Positive Reinforcement",
+      "d": "Increases Feedback Loop skill damage and repair bonus from 10% to 25%."
+    },
+    "Press the Advantage": {
+      "tal": "Press the Advantage",
+      "d": "Increases max stacks for Striker’s Gamble from 100 to 200. 3 stacks lost per second between 101 and 200 stacks."
+    },
+    "Proliferation": {
+      "tal": "Proliferation",
+      "d": "Increase contagion range from 10m to 15m"
+    },
+    "Specialized Destruction": {
+      "tal": "Specialized Destruction",
+      "d": "Increases Aggressive Recon weapon damage bonus from 20% to 40%."
+    },
+    "Tactical Superiority": {
+      "tal": "Tactical Superiority",
+      "d": "Increases Ground Control damage bonus from 15% to 25%."
+    },
+    "Target Rich Environment": {
+      "tal": "Target Rich Environment",
+      "d": "Increases Crowd Control mark count from 3 to 5."
+    },
+    "Waving the Flag": {
+      "tal": "Waving the Flag",
+      "d": "Increases Red / White / Blue rotation speed to 1.5 seconds."
+    },
+    "Ace in the Sleeve": {
+      "tal": "Ace in the Sleeve",
+      "d": "Amplifies 1 extra shot when revealing your hand."
+    },
+    "Blessed": {
+      "tal": "Blessed",
+      "d": "Agents can miss a headshot before resetting the cycle"
+    },
+    "Cold": {
+      "tal": "Cold",
+      "d": "Increases total bonus armor gained per stack of Heartstopper from 1% to 2%."
+    },
+    "Complete Uptime": {
+      "tal": "Complete Uptime",
+      "d": "Cancelling your skills will reset their cooldown."
+    },
+    "Critical Measures": {
+      "tal": "Critical Measures",
+      "d": "Increases Crowd Control damage to additional marked enemies from 60% to 100%."
+    },
+    "Into the Light": {
+      "tal": "Into the Light",
+      "d": "Increases max stacks for Into the Light from 50 to 100, stack gain from 10 to 20 and stack consumption from 10 to 20"
+    },
+    "Multithreaded Execution": {
+      "tal": "Multithreaded Execution",
+      "d": "Increases Hackstep Protocol bonus armor from 50% to 100%."
+    },
+    "Overwhelming Force": {
+      "tal": "Overwhelming Force",
+      "d": "Increases the radius of disorient on Apex Predator kills from 5 meters to 10 meters."
+    },
+    "Patriotic Boost": {
+      "tal": "Patriotic Boost",
+      "d": "Increases Red / White / Blue debuff strength.<br><br>Red: 8% to 12%.<br>White: 2% to 3%.<br>Blue: 8% to 12%."
+    },
+    "Perfect Braced": {
+      "tal": "Perfect Braced",
+      "d": "While in cover weapon handling is increased by 50%."
+    },
+    "Perfect Focus": {
+      "tal": "Perfect Focus",
+      "d": "Increases total weapon damage by 6% every second you are aiming while scoped 8x or higher, up to 60%."
+    },
+    "Perfect Glass Cannon": {
+      "tal": "Perfect Glass Cannon",
+      "d": "All damage you deal is amplified by 30%. All damage you take is amplified by 60%."
+    },
+    "Perfect Intimidate": {
+      "tal": "Perfect Intimidate",
+      "d": "While you have bonus armour, gain 1 stack each second up to a max of 8. Each stack increases total weapon damage by 5% to enemies within 10m."
+    },
+    "Perfect Overwatch": {
+      "tal": "Perfect Overwatch",
+      "d": "After staying in cover for 8 seconds, increase your and all allies’ total weapon and skill damage by 12% as long as you remain in cover or in a cover-to-cover move."
+    },
+    "Perfect Spark": {
+      "tal": "Perfect Spark",
+      "d": "Damaging an enemy with a skill increases total weapon damage by 15% for 20 seconds."
+    },
+    "Perfect Spotter": {
+      "tal": "Perfect Spotter",
+      "d": "Amplifies total weapon and skill damage by 20% to pulsed enemies."
+    },
+    "Perfect Trauma": {
+      "tal": "Perfect Trauma",
+      "d": "Applies blind to enemy hit in the head. Cooldown 20 seconds. Applies bleed to an enemy hit in the chest. Cooldown 20 seconds."
+    },
+    "Perfect Vanguard": {
+      "tal": "Perfect Vanguard",
+      "d": "Deploying a shield makes it invulnerable for 5 seconds and grants 50% of your armor as bonus armor to all other allies for 20 seconds. Cooldown is 25 seconds."
+    },
+    "Perfectly Efficient": {
+      "tal": "Perfectly Efficient",
+      "d": "Using an armor kit has a 75% chance to not consume the armor kit. Specialization armor kit bonuses are increased by 100%."
+    },
+    "Perfectly Skilled": {
+      "tal": "Perfectly Skilled",
+      "d": "Skill kills have a 30% chance to reset skill cooldowns.<br>If no skills were on cooldown, you instead gain one-time buff that immediately refreshes a skill's cooldown when it goes on cooldown."
+    },
+    "Perfectly Unbreakable": {
+      "tal": "Perfectly Unbreakable",
+      "d": "When your armor is depleted, repair 100% of your armor. Cooldown is 55 seconds."
+    },
+    "Process Refinery": {
+      "tal": "Process Refinery",
+      "d": "Increases Makeshift Repairs speed from 15 seconds to 10 seconds."
+    },
+    "Risk Management": {
+      "tal": "Risk Management",
+      "d": "Increases total weapon damage gained per stack of Striker's Gamble from 0.65% to 1%."
+    },
+    "Short Circuit": {
+      "tal": "Short Circuit",
+      "d": "Decreases Feedback Loop cooldown from 20 seconds to 10 seconds."
+    },
+    "Signature Moves": {
+      "tal": "Signature Moves",
+      "d": "Increases signature weapon damage by 20%, and doubles the amount of signature weapon ammo generated by Aggressive Recon."
+    },
+    "Strategic Combat Support": {
+      "tal": "Strategic Combat Support",
+      "d": "Increases Ground Control proximity repair from 60% to 120%."
+    },
+    "Symptom Aggravator": {
+      "tal": "Symptom Aggravator",
+      "d": "Amplifies all damage you deal to status affected targets by 30%"
+    },
+    "Trauma Specialist": {
+      "tal": "Trauma Specialist",
+      "d": "Increases the duration of your bleed status effects by 50% and all bleed damage done by 100%."
+    },
+    "Boomerang": {
+      "tal": "Boomerang",
+      "d": "Critical hits have a 50% chance to return the bullet to the magazine. If a bullet is returned to the magazine, the next shot has 40% increased damage."
+    },
+    "Breadbasket": {
+      "tal": "Breadbasket",
+      "d": "Landing body shots adds a stack of bonus 35% headshot damage to the next headshot for 10 seconds. Max stack is 3."
+    },
+    "Close & Personal": {
+      "tal": "Close & Personal",
+      "d": "Killing a target within 7 meters grants 30% weapon damage for 10 seconds."
+    },
+    "Determined": {
+      "tal": "Determined",
+      "d": "Killing an enemy with a headshot guarantees that the next shot will be a guaranteed headshot."
+    },
+    "Eyeless": {
+      "tal": "Eyeless",
+      "d": "Deal 20% weapon damage to blinded enemies. After 4 kills, applies blind to the next enemy you hit."
+    },
+    "Fast Hands": {
+      "tal": "Fast Hands",
+      "d": "Critical hits add a stack of 4% reload speed bonus. Max stack is 40."
+    },
+    "Finisher": {
+      "tal": "Finisher",
+      "d": "Swapping from this weapon within 10 seconds of killing an enemy grants 30% critical hit chance and 30% critical hit damage for 15 seconds."
+    },
+    "First Blood": {
+      "tal": "First Blood",
+      "d": "If scoped, your first shot fired from out of combat or after fully reloading from empty deals headshot damage to any part of the body hit. Requires a Scope with 8x magnification or higher."
+    },
+    "Flatline": {
+      "tal": "Flatline",
+      "d": "Amplifies weapon damage by 15% to pulsed enemies. After 2 kills, applies pulse to the next enemy you hit."
+    },
+    "Frenzy": {
+      "tal": "Frenzy",
+      "d": "For every 10 bullets in the magazine capacity, gain 3% rate of fire and 3% weapon damage for 5 seconds when reloading from empty."
+    },
+    "Future Perfect": {
+      "tal": "Future Perfect",
+      "d": "Weapon kills grant 1 skill tier for 15 seconds. Stacks up to 3 times.<br> Weapon Kill at tier 6 grant overcharge for 15 seconds. Overcharge cooldown is 90 seconds."
+    },
+    "Future Perfection": {
+      "tal": "Future Perfection",
+      "d": "Weapon kills grant +1 skill tier for 19s. Stacks up to 3 times.<br>Weapon kills at skill tier 6 grant overcharge for 15 seconds.<br>Overcharge Cooldown: 90 seconds"
+    },
+    "Hidden Rock": {
+      "tal": "Hidden Rock",
+      "d": "Headshots apply confuse.<br>Cooldown: 20 seconds"
+    },
+    "Ignited": {
+      "tal": "Ignited",
+      "d": "Deal 20% weapon damage to burning enemies. After 4 kills, applies burning to the next enemy you hit."
+    },
+    "In Sync": {
+      "tal": "In Sync",
+      "d": "Hitting an enemy grants 15% skill damage for 5 seconds. Using a skill or damaging an enemy with a skill grants 15% weapon damage for 5 seconds.<br>Damage increases are doubled while both buffs are active at the same time."
+    },
+    "Killer": {
+      "tal": "Killer",
+      "d": "Killing an enemy with a critical hit grants 40% critical hit damage for 10 seconds."
+    },
+    "Lucky Shot": {
+      "tal": "Lucky Shot",
+      "d": "Magazine capacity is increased by 20%. Missed shots from cover have a 100% chance to return to the magazine."
+    },
+    "Measured": {
+      "tal": "Measured",
+      "d": "The top half of the magazine has +20% rate of fire and -30% weapon damage. The bottom half of the magazine has -20% rate of fire and +30% total weapon damage."
+    },
+    "Naked": {
+      "tal": "Naked",
+      "d": "Hitting an enemy with no armor grants 50% headshot damage for 5 seconds."
+    },
+    "Near Sighted": {
+      "tal": "Near Sighted",
+      "d": "Receive 80% stability at the cost of 35% optimal range."
+    },
+    "On Empty": {
+      "tal": "On Empty",
+      "d": "Reloading from empty grants 30% weapon handling for 10 seconds."
+    },
+    "Optimist": {
+      "tal": "Optimist",
+      "d": "Weapon damage is increased by 3% for every 10% ammo missing from the magazine."
+    },
+    "Outsider": {
+      "tal": "Outsider",
+      "d": "After killing an enemy, gain 100% optimal range and 100% accuracy for 10 seconds."
+    },
+    "Overflowing": {
+      "tal": "Overflowing",
+      "d": "Every 3 reloads from empty increases your base magazine capacity by 100%."
+    },
+    "Overwhelm": {
+      "tal": "Overwhelm",
+      "d": "Suppressing an enemy, that is not currently suppressed, grants 10% weapon damage for 12 seconds. Max stack is 4."
+    },
+    "Perfect Allegro": {
+      "tal": "Perfect Allegro",
+      "d": "Increase rate of fire by 12%."
+    },
+    "Perfect Boomerang": {
+      "tal": "Perfect Boomerang",
+      "d": "Critical hits have a 75% chance to return the bullet to the magazine. If a bullet is returned to the magazine, the next shot has 50% increased damage."
+    },
+    "Perfect Breadbasket": {
+      "tal": "Perfect Breadbasket",
+      "d": "Landing body shots adds a stack of bonus 50% headshot damage to the next headshot for 10 seconds. Max stack is 2."
+    },
+    "Perfect Distance": {
+      "tal": "Perfect Distance",
+      "d": "Increase optimal range by 100%."
+    },
+    "Perfect Eyeless": {
+      "tal": "Perfect Eyeless",
+      "d": "Deal 25% weapon damage to blinded enemies. After 3 kills, applies blind to the next enemy you hit."
+    },
+    "Perfect Fast Hands": {
+      "tal": "Perfect Fast Hands",
+      "d": "Critical hits add a stack of 8% reload speed bonus. Max stack is 40."
+    },
+    "Perfect Finisher": {
+      "tal": "Perfect Finisher",
+      "d": "Swapping from this weapon within 10 seconds of killing an enemy grants 35% critical hit chance and 40% critical hit damage for 15 seconds."
+    },
+    "Perfect First Blood": {
+      "tal": "Perfect First Blood",
+      "d": "If scoped, your first twp shots fired from out of combat or after fully reloading from empty deal headshot damage to any part of the body hit. Requires a Scope with 8x magnification or higher."
+    },
+    "Perfect Flatline": {
+      "tal": "Perfect Flatline",
+      "d": "Amplifies weapon damage by 20% to pulsed enemies. After 2 kills, applies pulse to the next enemy you hit."
+    },
+    "Perfect Frenzy": {
+      "tal": "Perfect Frenzy",
+      "d": "For every 8 bullets in the magazine capacity, gain 3% rate of fire and 3% weapon damage for 5 seconds when reloading from empty."
+    },
+    "Perfect Jazz Hands": {
+      "tal": "Perfect Jazz Hands",
+      "d": "Increase reload speed by 30%."
+    },
+    "Perfect Killer": {
+      "tal": "Perfect Killer",
+      "d": "Killing an enemy with a critical hit grants 50% critical hit damage for 10 seconds."
+    },
+    "Perfect Lucky Shot": {
+      "tal": "Perfect Lucky Shot",
+      "d": "Magazine capacity is increased by 30%. Missed shots from cover have a 100% chance to return to the magazine."
+    },
+    "Perfect On Empty": {
+      "tal": "Perfect On Empty",
+      "d": "Reloading from empty grants 40% weapon handling for 10 seconds."
+    },
+    "Perfect Optimist": {
+      "tal": "Perfect Optimist",
+      "d": "Weapon damage is increased by 4% for every 10% ammo missing from the magazine."
+    },
+    "Perfect Outsider": {
+      "tal": "Perfect Outsider",
+      "d": "After killing an enemy, gaint 125% optimal range and 125% accuracy for 10 seconds."
+    },
+    "Perfect Overwhelm": {
+      "tal": "Perfect Overwhelm",
+      "d": "Suppressing an enemy, that is not currently suppressed, grants 12% weapon damage for 12 seconds. Max stack is 4."
+    },
+    "Perfect Perpetuation": {
+      "tal": "Perfect Perpetuation",
+      "d": "Headshots grant 50% status effect damage and duration to the next status effect you apply. Cooldown is 16 seconds."
+    },
+    "Perfect Preservation": {
+      "tal": "Perfect Preservation",
+      "d": "Killing an enemy repairs 12% armor over 5 seconds. Headshot kills improves the repair to 24%."
+    },
+    "Perfect Pummel": {
+      "tal": "Perfect Pummel",
+      "d": "2 consecutive kills refill the magazine and grant 40% weapon damage for 10 seconds."
+    },
+    "Perfect Pumped Up": {
+      "tal": "Perfect Pumped Up",
+      "d": "Reloading grants 5% weapon damage for 10 seconds. Stacks up to 5 times."
+    },
+    "Perfect Ranger": {
+      "tal": "Perfect Ranger",
+      "d": "Amplifies weapon damage by 2% for every 4 meters you are away from the target."
+    },
+    "Perfect Reformation": {
+      "tal": "Perfect Reformation",
+      "d": "Headshots grant 40% skill repair for 8 seconds."
+    },
+    "Perfect Rifleman": {
+      "tal": "Perfect Rifleman",
+      "d": "Landing headshots adds a stack of bonus 11% weapon damage for 5 seconds. Max stack is 6. Additional headshots refresh the duration."
+    },
+    "Perfect Sadist": {
+      "tal": "Perfect Sadist",
+      "d": "Deal +25% weapon damage to bleeding enemies. After 3 kills, applies bleed to the next enemy you hit."
+    },
+    "Perfect Salvage": {
+      "tal": "Perfect Salvage",
+      "d": "Killing a target has a 85% chance to refill the magazine."
+    },
+    "Perfect Sledgehammer": {
+      "tal": "Perfect Sledgehammer",
+      "d": "Dealing damage with a grenade applies a mark on target. Targets with marks take 40% more damage to armor and -10% movement speed."
+    },
+    "Perfect Spike": {
+      "tal": "Perfect Spike",
+      "d": "Headshots grant 25% skill damage for 8 seconds."
+    },
+    "Perfect Unwavering": {
+      "tal": "Perfect Unwavering",
+      "d": "Swapping to this weapon grants 400% weapon handling for 5 seconds. Kills refresh the buff. Swapping away disables this from all weapons for 5 seconds."
+    },
+    "Perfectly Accurate": {
+      "tal": "Perfectly Accurate",
+      "d": "Increase accuracy by 50%."
+    },
+    "Perfectly Close & Personal": {
+      "tal": "Perfectly Close & Personal",
+      "d": "Killing a target within 7 meters grants 38% weapon damage for 10 seconds."
+    },
+    "Perfectly Determined": {
+      "tal": "Perfectly Determined",
+      "d": "Killing an enemy with a headshot guarantees that the next shot will be a critical headshot. Exclusive for Pistols, Rifles and Marksmen Rifles."
+    },
+    "Perfectly Extra": {
+      "tal": "Perfectly Extra",
+      "d": "Increase magazine size by 50%."
+    },
+    "Perfectly Ignited": {
+      "tal": "Perfectly Ignited",
+      "d": "Deal 25% weapon damage to burning enemies. After 3 kills, applies burning to the next enemy you hit."
+    },
+    "Perfectly in Sync": {
+      "tal": "Perfectly in Sync",
+      "d": "Hitting an enemy grants +20% skill damage for 5 seconds.<br>Using a skill or damaging an enemy with a skill grants +20% weapon damage for 5 seconds.<br>Damage increases are doubled while both buffs are active at the same time."
+    },
+    "Perfectly Measured": {
+      "tal": "Perfectly Measured",
+      "d": "The top half of the magazine has +20% rate of fire and -27% weapon damage. The bottom half of the magazine has -20% rate of fire and +33% weapon damage."
+    },
+    "Perfectly Naked": {
+      "tal": "Perfectly Naked",
+      "d": "Hitting an enemy with no armor grants 50% headshot damage for 8 seconds."
+    },
+    "Perfectly Near Sighted": {
+      "tal": "Perfectly Near Sighted",
+      "d": "Receive 100% stability at the cost of 35% optimal range."
+    },
+    "Perfectly Optimized": {
+      "tal": "Perfectly Optimized",
+      "d": "Increase weapon handling by 30%."
+    },
+    "Perfectly Overflowing": {
+      "tal": "Perfectly Overflowing",
+      "d": "Every 2 reloads from empty increases your base magazine capacity by 100%."
+    },
+    "Perfectly Steady Handed": {
+      "tal": "Perfectly Steady Handed",
+      "d": "Hits grant a stack of 1% accuracy and stability. At 75 stacks, consumes them to refill the magazine."
+    },
+    "Perfectly Strained": {
+      "tal": "Perfectly Strained",
+      "d": "Gain 10% critical hit damage for every 0.5 seconds you are firing. Stacks up to 8 times."
+    },
+    "Perfectly Unhinged": {
+      "tal": "Perfectly Unhinged",
+      "d": "Receive 22% weapon damage at the cost of 25% stability and 25% accuracy."
+    },
+    "Perfectly Vindictive": {
+      "tal": "Perfectly Vindictive",
+      "d": "Killing an enemy with a status effect applied grants all group members within 20 meters, 18% critical hit chance and 18% critical hit damage for 20 seconds."
+    },
+    "Perpetuation": {
+      "tal": "Perpetuation",
+      "d": "Headshots grant 50% status effect damage and duration to the next status effect you apply. Cooldown is 20 seconds."
+    },
+    "Preservation": {
+      "tal": "Preservation",
+      "d": "Killing an enemy repairs 10% armor over 5 seconds. Headshot kills improves the repair to 20%."
+    },
+    "Primer Rounds": {
+      "tal": "Primer Rounds",
+      "d": "Damaged enemies lose 50% burn resistance for 5 seconds."
+    },
+    "Pummel": {
+      "tal": "Pummel",
+      "d": "3 consecutive kills refill the magainze and grant 40% weapon damage for 10 seconds."
+    },
+    "Pumped Up": {
+      "tal": "Pumped Up",
+      "d": "Reloading grants 1% weapon damage for 10 seconds. Stacks up to 25."
+    },
+    "Ranger": {
+      "tal": "Ranger",
+      "d": "Amplifies weapon damage by 2% for every 5 meters you are away from your target."
+    },
+    "Reformation": {
+      "tal": "Reformation",
+      "d": "Headshots grant 30% skill repair for 15 seconds."
+    },
+    "Rifleman": {
+      "tal": "Rifleman",
+      "d": "Landing headshots adds a stack of bonus 10% weapon damage for 5 seconds. Max stack is 5. Additional headshots refresh the duration."
+    },
+    "Sadist": {
+      "tal": "Sadist",
+      "d": "Deal 20% weapon damage to bleeding enemies. After 4 kills, applies bleed to next enemy you hit."
+    },
+    "Salvage": {
+      "tal": "Salvage",
+      "d": "Killing a target has a 70% chance to refill the magazine."
+    },
+    "Sledgehammer": {
+      "tal": "Sledgehammer",
+      "d": "Dealing damage with a grenade applies a mark on target.<br>Targets with marks will take 30% more damage to armor and have a -5% movement speed. Mark will disappears after 10 seconds."
+    },
+    "Spike": {
+      "tal": "Spike",
+      "d": "Headshots grant 20% skill damage for 15 seconds."
+    },
+    "Steady Handed": {
+      "tal": "Steady Handed",
+      "d": "Hits grant a stack of 1% accuracy and stability. At 100 stacks, consumes them to refill the magazine."
+    },
+    "Strained": {
+      "tal": "Strained",
+      "d": "Gain 10% critical hit damage for every 0.5 seconds you are firing. Stacks up to 5 times."
+    },
+    "Swift": {
+      "tal": "Swift",
+      "d": "Performing a cover to cover grants 20% weapon damage for 15 seconds."
+    },
+    "Talent Perfectly Determined": {
+      "tal": "Talent Perfectly Determined",
+      "d": "Killing an enemy with a headshot guarantees that the next shot will be a critical headshot. Exclusive for Pistols, Rifles and Marksmen Rifles."
+    },
+    "Twinkling Lights": {
+      "tal": "Twinkling Lights",
+      "d": "Only at night with twinkling lights can you feel their heads with festive might."
+    },
+    "Unhinged": {
+      "tal": "Unhinged",
+      "d": "Receive 18% weapon damage at the cost of 25% stability and 25% accuracy."
+    },
+    "Unwavering": {
+      "tal": "Unwavering",
+      "d": "Swapping to this weapon grants 300% weapon handling for 5 seconds. Kills refresh the buff. Swapping away disables this from all weapons for 5 seconds."
+    },
+    "Vindictive": {
+      "tal": "Vindictive",
+      "d": "Killing an enemy with a status effect applied grants all group members within 15 meters, 15% critical hit chance and 15% critical hit damage for 20 seconds."
+    },
+    "Big Game Hunter": {
+      "tal": "Big Game Hunter",
+      "d": "When scoped, switches to semi-automatic fire mode, dealing 450% weapon damage with each shot.  Headshots grant +2% headshot damage. Stacks up to 50 times. Once at full stacks, 10 stacks decay every 4 seconds until all stacks have been removed. Headshots de"
+    },
+    "Eagle's Strike / Tenacity": {
+      "tal": "Eagle's Strike / Tenacity",
+      "d": "Accuracy increases as you continuously fire, up to 30%.  Headshot kills grant the Tenacity buff for 15 seconds.  The strength of Tenacity is increased by 1% for body shots and 5% for headshots.  40% - 80% of damage taken is delayed until the buff expires."
+    },
+    "Adaptive Instincts": {
+      "tal": "Adaptive Instincts",
+      "d": "Hitting 30 headshots grants 20% critical hit chance and 50% critical hit damage for 45 seconds.  Hitting 60 body shots grants 80% weapon damage for 45 seconds.  Hitting 30 leg shots grants 150% reload speed for 45 seconds."
+    },
+    "Capacitance": {
+      "tal": "Capacitance",
+      "d": "Shooting enemies builds stacks to a cap of 40. Each stack grants 1.5% Skill Damage. After 5 seconds, stacks decay 1 per second.  For each utility core gain 7.5% Weapon Damage"
+    },
+    "Bluescreen": {
+      "tal": "Bluescreen",
+      "d": "Shooting an enemy marks that enemy and adds a stack to the the agent up to a count of 50. Shooting a marked enemy refreshes the mark and adds stacks to the agent. When you deploy a non-shield skill, remove all stacks on agent and all marked targets trigger"
+    }
   }
 }

@@ -211,6 +211,42 @@ async function main() {
     fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2), "utf8");
   }
 
+  // Authoritative talents from faildruid/division-2-db (official in-game texts)
+  global.process.stdout.write("\nFetching authoritative talents from faildruid...\n");
+  try {
+    const seedRaw = await new Promise((res, rej) => {
+      https
+        .get(
+          "https://raw.githubusercontent.com/faildruid/division-2-db/develop/seed/seed.json",
+          { headers: { "User-Agent": UA } },
+          (r) => {
+            let d = "";
+            r.on("data", (c) => (d += c));
+            r.on("end", () => res(d));
+            r.on("error", rej);
+          }
+        )
+        .on("error", rej);
+    });
+    const seed = JSON.parse(seedRaw);
+    const auth = {};
+    seed
+      .filter((r) => r.model === "division_core.geartalent")
+      .forEach((t) => {
+        const n = t.fields.talent_name;
+        const d = t.fields.talent_description;
+        if (n) auth[n] = { tal: n, d: d || "" };
+      });
+    cache.talents_authoritative = auth;
+    if (!cache.meta) cache.meta = {};
+    cache.meta.authoritative_source = "faildruid/division-2-db";
+    cache.meta.authoritative_count = Object.keys(auth).length;
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2), "utf8");
+    global.process.stdout.write("Authoritative talents: " + Object.keys(auth).length + " merged\n");
+  } catch (e) {
+    global.process.stdout.write("Authoritative fetch failed: " + e.message + "\n");
+  }
+
   console.log("\nDone. translated=" + translated + " cached=" + cached + " failed=" + failed);
   console.log("Output: " + CACHE_FILE);
 }

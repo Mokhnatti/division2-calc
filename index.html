@@ -1210,8 +1210,13 @@ function render(){
             h+=`<div class="sub">${gr} (${eg[gr].length})</div><div class="grid">`;
             eg[gr].forEach(e=>{
                 const en=trExotic(e.en);
-                const tal=isEn&&en&&en.tal?en.tal:e.tal;
-                const d=isEn&&en&&en.d?en.d:e.d;
+                let tal=isEn&&en&&en.tal?en.tal:e.tal;
+                let d=isEn&&en&&en.d?en.d:e.d;
+                // Override with authoritative game text if available
+                if(isEn){
+                  const auth=getAuthoritativeTalent(e.tal);
+                  if(auth&&auth.d){tal=auth.tal;d=auth.d}
+                }
                 const displayName=isEn&&e.en?e.en:e.name;
                 const displaySub=isEn?e.name:(e.en||"");
                 h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(displayName)}${wikiIcon(e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
@@ -1230,8 +1235,12 @@ function render(){
             h+=`<div class="sub">${gr} (${ng[gr].length})</div><div class="grid">`;
             ng[gr].forEach(n=>{
                 const en=trNamed(n.en);
-                const tal=isEn&&en&&en.tal?en.tal:n.tal;
-                const d=isEn&&en&&en.d?en.d:n.d;
+                let tal=isEn&&en&&en.tal?en.tal:n.tal;
+                let d=isEn&&en&&en.d?en.d:n.d;
+                if(isEn){
+                  const auth=getAuthoritativeTalent(n.tal);
+                  if(auth&&auth.d){tal=auth.tal;d=auth.d}
+                }
                 const displayName=isEn&&n.en?n.en:n.name;
                 const displaySub=isEn?n.name:(n.en||"");
                 h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
@@ -3292,6 +3301,14 @@ function getEnDescription(type,enName){
   const bucket=__translations[type];
   if(!bucket||!bucket[enName])return null;
   return bucket[enName];
+}
+// Authoritative talent description (from faildruid/division-2-db — real in-game text)
+// Takes English talent name (e.g. "Perfect Vigilance") and returns official description
+function getAuthoritativeTalent(talEn){
+  if(!__translations||!talEn)return null;
+  const a=__translations.talents_authoritative;
+  if(!a)return null;
+  return a[talEn]||null;
 }
 
 // ===== LANGUAGE SWITCHER =====
