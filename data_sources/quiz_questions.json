@@ -1,0 +1,102 @@
+[
+  {
+    "id": "trapper_max",
+    "category": "Prototype Augment",
+    "question": "Trapper augment — макс значение на 10-м уровне?",
+    "options": [
+      {
+        "label": "14% (Reddit datamine + BDDFr)",
+        "value": 14,
+        "source": "reddit_bddfr"
+      },
+      {
+        "label": "22% (div2hub/data CSV)",
+        "value": 22,
+        "source": "div2hub"
+      }
+    ],
+    "field": "PROTOTYPE_AUGMENTS.trapper.max"
+  },
+  {
+    "id": "shd_chd",
+    "category": "SHD Watch",
+    "question": "SHD Watch Critical Damage — макс на 50 очков?",
+    "options": [
+      {
+        "label": "20% (BDDFr montre.jsonc, ratio 0.4)",
+        "value": 20,
+        "source": "bddfr"
+      },
+      {
+        "label": "30% (моё предположение)",
+        "value": 30,
+        "source": "hand"
+      }
+    ],
+    "field": "shd-chd"
+  },
+  {
+    "id": "shd_hsd",
+    "category": "SHD Watch",
+    "question": "SHD Watch Headshot Damage — макс на 50 очков?",
+    "options": [
+      {
+        "label": "20% (BDDFr, ratio 0.4)",
+        "value": 20,
+        "source": "bddfr"
+      },
+      {
+        "label": "10% (моё предположение)",
+        "value": 10,
+        "source": "hand"
+      }
+    ],
+    "field": "shd-hsd"
+  },
+  {
+    "id": "escalation_t10_hp",
+    "category": "Escalation Tier 10",
+    "question": "Escalation Tier 10 — множитель HP врагов?",
+    "options": [
+      {
+        "label": "800% (Reddit TU28 datamine)",
+        "value": 800,
+        "source": "reddit"
+      },
+      {
+        "label": "700% (мой текущий код после -100%)",
+        "value": 700,
+        "source": "hand"
+      },
+      {
+        "label": "900% (Ubisoft PTS)",
+        "value": 900,
+        "source": "ubisoft"
+      }
+    ],
+    "field": "ESCALATION_TIERS.10.hp"
+  },
+  {
+    "id": "weapon_dmg_cap",
+    "category": "DPS Math",
+    "question": "Weapon Damage bucket soft cap (до HSD > 150%)?",
+    "options": [
+      {
+        "label": "800% (из Reddit community consensus)",
+        "value": 800,
+        "source": "reddit"
+      },
+      {
+        "label": "1250% (с HSD > 150%)",
+        "value": 1250,
+        "source": "reddit2"
+      },
+      {
+        "label": "Нет cap (unlimited stacking)",
+        "value": 0,
+        "source": "none"
+      }
+    ],
+    "field": "note_only"
+  }
+]

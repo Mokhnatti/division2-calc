@@ -1,0 +1,22 @@
+{
+  "trapper_max": {
+    "message_id": 6393,
+    "status": "pending"
+  },
+  "shd_chd": {
+    "message_id": 6394,
+    "status": "pending"
+  },
+  "shd_hsd": {
+    "message_id": 6395,
+    "status": "pending"
+  },
+  "escalation_t10_hp": {
+    "message_id": 6396,
+    "status": "pending"
+  },
+  "weapon_dmg_cap": {
+    "message_id": 6397,
+    "status": "pending"
+  }
+}
