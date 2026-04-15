@@ -1,0 +1,2725 @@
+{
+  "sets": {
+    "Striker's Battlegear": {
+      "type": "set",
+      "name": "Боевое снаряжение Страйкера",
+      "en": "Striker's Battlegear",
+      "found": false
+    },
+    "Heartbreaker": {
+      "type": "set",
+      "name": "Разбиватель сердец",
+      "en": "Heartbreaker",
+      "title": "Heartbreaker",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2):  &",
+        "Set bonus (3):",
+        "Set bonus (4):",
+        "*",
+        "**",
+        "**",
+        "**",
+        "Backpack Talent:",
+        "*",
+        "Chest Talent:",
+        "*"
+      ],
+      "description": "is a  in Tom Clancy's The Division 2. Category:Gear Sets"
+    },
+    "Umbra Initiative": {
+      "type": "set",
+      "name": "Инициатива Умбра",
+      "en": "Umbra Initiative",
+      "title": "Umbra Initiative",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2): +15% Critical Hit Chance",
+        "Set bonus (3): +30% Reload Speed",
+        "Set bonus (4): Talent: From the Shadows into the Light",
+        "While in cover, gain 10 stacks per second up to 50. Each stack will give 1% critical damage increase and 0.3% RPM. Buff does not apply while shooting from cover",
+        "While out of cover, Agents lose 2 stacks per second at normal speed and 1 stack per second if sprinting",
+        "While out of cover and in combat, gain 10 stacks per second up to 50. Each stack will give 0.8% Armor regen when it is consumed. Stacks consume 10 stacks per second only in cover",
+        "Backpack Talent:Into the Light",
+        "* Increases Max stacks From the Shadows from 50 to 100, stack gain from 10 to 20,",
+        "Chest Talent: From the Shadows",
+        "* Increases Max stacks for Into the Light from 50 to 100, stack gain from 10 to 20 and stack consumption from 10 to 20."
+      ],
+      "description": "Umbra Initiative is a Gear Set in Tom Clancy's The Division 2. It was added in Season 10: Price of Power as part of its reward track, then later added in the general loot pool. It's a set focused on gaining stacks in and out of cover during combat. For in cover stacks, it increases weapon's crit damage and RPM. And for out of cover stacks, it regenerates armor.  Category:The Division 2 Category:Gear"
+    },
+    "Hunter's Fury": {
+      "type": "set",
+      "name": "Ярость охотника",
+      "en": "Hunter's Fury",
+      "found": false
+    },
+    "Negotiator's Dilemma": {
+      "type": "set",
+      "name": "Дилемма переговорщика",
+      "en": "Negotiator's Dilemma",
+      "found": false
+    },
+    "Hotshot": {
+      "type": "set",
+      "name": "Горячий выстрел",
+      "en": "Hotshot",
+      "title": "Hotshot",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2): +30% Marksman Rifle Damage. +30% Weapon Handling",
+        "Set bonus (3): +30% Headshot Damage",
+        "Set bonus (4): Talent: Headache",
+        "First headshot with a Marksman Rifle will increase next headshot by 20%, second consecutive headshot with a Marksman Rifle will give +10% armor (if at full armor, it will give bonus armor max +50% of current armor value), third headshot will refill magazine",
+        "From the fourth headshot forward, agents will get all 3 bonuses for each consecutive headshot kill. Missing a headshot will reset the cycle",
+        "Backpack Talent: Lucky",
+        "* Agents can miss a headshot before resetting the cycle",
+        "Chest Talent: Stand Tall",
+        "* Increases bonus armor from 50% to 100%"
+      ],
+      "description": "Hotshot is a Gear Set in Tom Clancy's The Division 2.  It was added in Season 11: Reign of Fire. Specialized for agents using Marksman Rifles, it focuses on keeping consistent headshots to activate 3 bonuses (increased headshot damage, bonus armor, and refilling magazines) and maintaining those bonuses. Category:The Division 2 Category:Gear Sets"
+    },
+    "Ongoing Directive": {
+      "type": "set",
+      "name": "Текущая директива",
+      "en": "Ongoing Directive",
+      "found": false
+    },
+    "True Patriot": {
+      "type": "set",
+      "name": "Истинный патриот",
+      "en": "True Patriot",
+      "title": "True Patriot",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2): +30% Ammo Capacity",
+        "Set bonus (3): +30% Magazine Size",
+        "Set bonus (4): Talent: Red, White, and Blue",
+        "* Enemies you shoot receive stacking debuffs of Red/White/Blue. Changes every 2 seconds.",
+        "* Red: Amplifies the enemy's damage taken by 8%. White: Hitting the enemy restores you and your allies' armor by 2% once every seconds. Blue: Decreases enemy damage dealt by 8%",
+        "* Full Flag: Enemies that die while under the effect of all three debuffs create a 5m explosion, dealing damage equal to their total health and armor. Explosion strength is reduced on named enemy deaths",
+        "Backpack Talent: Patriotic Boost",
+        "* Increases Red, White, and Blue debuff strength.",
+        "* Red: From 8% to 12%. White: From 2% to 3%. Blue: From 8% to 12%",
+        "Chest Talent: Waving the Flag",
+        "* Increases Red, White, and Blue rotation to 1.5 seconds."
+      ],
+      "description": "The True Patriot is a gear set in Tom Clancy’s The Division 2.  It's a set that uses 3 rotating debuffs that affects enemies while empowering the agent and their allies. Category:Article stubs Category:Gear Sets"
+    },
+    "Aces & Eights": {
+      "type": "set",
+      "name": "Тузы и восьмёрки",
+      "en": "Aces & Eights",
+      "title": "Aces & Eights",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2):  &",
+        "Set bonus (3):",
+        "Set bonus (4):",
+        "*",
+        "*",
+        "**",
+        "**",
+        "**",
+        "*",
+        "Backpack Talent:",
+        "*",
+        "Chest Talent:",
+        "*"
+      ],
+      "description": "is a  in Tom Clancy's The Division 2. A set specialized for agents using marksmen/regular rifles, it amplifies their next shot by 30% in addition to more amplified shots depending on the hand revealed. Category:Gear Sets"
+    },
+    "Tip of the Spear": {
+      "type": "set",
+      "name": "Остриё копья",
+      "en": "Tip of the Spear",
+      "found": false
+    },
+    "Breaking Point": {
+      "type": "set",
+      "name": "Точка разрыва",
+      "en": "Breaking Point",
+      "found": false
+    },
+    "Virtuoso": {
+      "type": "set",
+      "name": "Виртуоз",
+      "en": "Virtuoso",
+      "found": false
+    },
+    "Tipping Scales": {
+      "type": "set",
+      "name": "Переломный момент",
+      "en": "Tipping Scales",
+      "title": "Tipping Scales",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2): +30% Magazine Size",
+        "Set bonus (3): +30% LMG Damage",
+        "Set bonus (4): Talent: Throttle Control",
+        "*     Shooting builds stacks to a max of 50. Each stack provides +0.5% Weapon Handling and +4% Critical Hit Damage.",
+        "*      Lose 6 stacks per second while not shooting. No stacks are lost if an enemy is Suppressed.",
+        "Backpack Talent: Snowball",
+        "* Increase the Critical Hit Damage received per stack from 4% to 7%",
+        "Chest Talent: Sustainability",
+        "* Increase the maximum number of stacks from 50 to 75"
+      ],
+      "description": "Tipping Scales is a Gear Set in Tom Clancy's The Division 2. It was added in Year 7, Season 2: The Pact. It's a DPS gear set focused primarily on LMGs, as continuous shooting builds up stacks that enhances an agent's Weapon Handling and Critical Hit Damage.  File:TippingScales Front.png|Front of Tipping Scales Gear Set"
+    },
+    "Concentrated Company": {
+      "type": "set",
+      "name": "Сосредоточенная компания",
+      "en": "Concentrated Company",
+      "found": false
+    },
+    "Foundry Bulwark": {
+      "type": "set",
+      "name": "Оплот оружейни",
+      "en": "Foundry Bulwark",
+      "title": "Foundry Bulwark",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2):",
+        "Set bonus (3):",
+        "Set bonus (4):",
+        "*",
+        "Backpack Talent:",
+        "*",
+        "Chest Talent:",
+        "*"
+      ],
+      "description": "is a  in Tom Clancy's The Division 2. It's a set focused on an agent's survivbility not just in their armor, but also their shield skill. Category:Gear Sets"
+    },
+    "System Corruption": {
+      "type": "set",
+      "name": "Системное повреждение",
+      "en": "System Corruption",
+      "found": false
+    },
+    "Aegis": {
+      "type": "set",
+      "name": "Эгида",
+      "en": "Aegis",
+      "title": "Aegis",
+      "found": true,
+      "description": "Aegis is a Gear Set in Tom Clancy's The Division 2. It was added in Year 5 Season 3: Vanguard. Category:The Division 2 Category:Gear"
+    },
+    "Cavalier": {
+      "type": "set",
+      "name": "Кавалерист",
+      "en": "Cavalier",
+      "title": "Cavalier",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2): +30% Hazard Protection",
+        "Set bonus (3): +40% Repair Skills",
+        "Set bonus (4): Talent: Charging/Charged",
+        "* Charging: For each second spent out of cover during combat, Agents will get 5% reduced incoming skill damage. Max 50%",
+        "* Charged: While fully charged, gain immunity to any movement speed debuff and share this with all of the agents hazard protection and the incoming skill damage with all allies for 10 seconds. After Charged is consumed, Charging buff will resume if still in combat and out of cover",
+        "Backpack Talent: Safe Charging",
+        "* Charging gives 10% protection per second.",
+        "Chest Talent: Overcharging",
+        "* Increases Charger max incoming damage protection to 70%."
+      ],
+      "description": "Cavalier is a gear set in Tom Clancy's The Division 2. It was added in Year 5 Season 1: Broken Wings. It's a set focused on protecting allies from incoming skill damage, increasing their hazard protection, and debuffs to movement speed."
+    },
+    "Rigger": {
+      "type": "set",
+      "name": "Такелажник",
+      "en": "Rigger",
+      "found": false
+    },
+    "Eclipse Protocol": {
+      "type": "set",
+      "name": "Протокол Затмения",
+      "en": "Eclipse Protocol",
+      "title": "Eclipse Protocol",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2):",
+        "Set bonus (3):  &",
+        "Set bonus (4):",
+        "*",
+        "Backpack Talent:",
+        "*",
+        "Chest Talent:",
+        "*"
+      ],
+      "description": "is a  in Tom Clancy's The Division 2. It's a set focused in spreading status effects on kills to enemies within a short radius as well in amplifying damage against enemies affected by status effects. Category:Gear Sets"
+    },
+    "Future Initiative": {
+      "type": "set",
+      "name": "Будущая инициатива",
+      "en": "Future Initiative",
+      "title": "Future Initiative",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2):",
+        "Set bonus (3):  &",
+        "Set bonus (4):",
+        "*",
+        "*",
+        "Backpack Talent:",
+        "*",
+        "Chest Talent:",
+        "*"
+      ],
+      "description": "is a  in Tom Clancy's The Division 2. It was added as part of exclusive loot for Iron Horse raid alongside Foundry Bulwark, though they'd later be added to the general loot pool. It's a set focused on healing your allies while also increasing weapon/skill damage for you and your allies in full armor. Category:Gear Sets"
+    },
+    "Hard Wired": {
+      "type": "set",
+      "name": "Жёсткая проводка",
+      "en": "Hard Wired",
+      "title": "Hard Wired",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2):",
+        "Set bonus (3):  &",
+        "Set bonus (4):",
+        "*",
+        "**",
+        "Backpack Talent:",
+        "*",
+        "Chest Talent:",
+        "*"
+      ],
+      "description": "is a  in Tom Clancy's The Division 2. Added in the base game, the set is focused on empowering agent's skills and reducing their cooldowns. Category:Gear Sets"
+    },
+    "Ortiz: Exuro": {
+      "type": "set",
+      "name": "Ортис: Экзуро",
+      "en": "Ortiz: Exuro",
+      "found": false
+    },
+    "Refactor": {
+      "type": "set",
+      "name": "Переработка",
+      "en": "Refactor",
+      "title": "Refactor",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2): +15% Status Effects",
+        "Set bonus (3): +25% Skill Damage",
+        "Set bonus (4): Talent: Return to Sender",
+        "* PvE: Receive repairs of 10% of the damage dealt by your Skills. Your allies will receive repairs of 20% of the damage dealt by your Skill.",
+        "* PvP: Receive repairs of 5% of the damage dealt by your Skills. Your allies will receive repairs of 10% of the damage dealt by your Skills.",
+        "Chest Talent: Increased Interest",
+        "* PvE: Increase the repairs received from Return to Sender from 10% to 25%, and from 20% to 35%",
+        "* PvP: Increase the repairs received from Return to Sender from 5% to 15%, and from 10% to 20%",
+        "Backpack Talent: Over-engineered",
+        "* While at full Armor, repairs received from Return to Sender will provide Bonus Armor, up to 80% of your Total Armor. Does not apply to allies."
+      ],
+      "description": "Refactor is a Gear Set in Tom Clancy's The Division 2. It was added in Year 6, Season 3: Burden of Truth. It's a damage/healer hybrid gear set, since it repairs the agent and their allies armor based on a percentage of damage dealt by SHD Skills.  Furthermore, it's also unique, as the Backpack/Gloves/Kneepads come with Armor as a Core Attribute, while Mask/Chest/Holster come with Skill Tier as a Core attribute."
+    },
+    "Measured Assembly": {
+      "type": "set",
+      "name": "Взвешенная сборка",
+      "en": "Measured Assembly",
+      "found": false
+    },
+    "Core Strength": {
+      "type": "set",
+      "name": "Стержневая сила",
+      "en": "Core Strength",
+      "title": "Core Strength",
+      "found": true,
+      "bonuses": [
+        "Set bonus (2): 10% Weapon Handling",
+        "Set bonus (3): 5% Weapon Damage, 5% Total Armor, 5% Skill Efficiency",
+        "Set bonus (4): Talent: Core Exercise",
+        "* For each Core on your Gear Pieces, recieve 40% of the other two Cores' bonuses. Skill Tiers count at 15% Skill Efficiency when these bonuses are applied.",
+        "* All pieces from this Gear set, apart from the Backpack, will feature random Cores.",
+        "Backpack Talent: Outer Core",
+        "* This Talent does not provide a direct change to the Core Exercise Talent, This Backpack features three Core Attributes.",
+        "Chest Talent: Inner Core",
+        "* Increase the percentage of the bonuses you recieve from the other Cores from 40% to 75%."
+      ],
+      "description": "Core Strength is a Gear Set in Tom Clancy's The Division 2. It was added in Year 8 Season 1: Rise Up. It's a set that gives you 40% of the other two core bonuses based on the core that the piece has on it. For example, if you had a Red Core (Weapon Damage), it would give you 40% of the two other cores it could roll (Armor & Skill Tier). All pieces of the set drop with random cores (except the Backpack) and do not have a default core. Category:The Division 2 Category:Gear Sets"
+    }
+  },
+  "brands": {
+    "Providence Defense": {
+      "type": "brand",
+      "name": "Providence Defense",
+      "en": "Providence Defense",
+      "title": "Providence Defense",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +13% Headshot Damage",
+        "Set Bonus (2): +8% Critical Hit Chance",
+        "Set Bonus (3): +13% Critical Hit Damage"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2."
+    },
+    "Uzina Getica": {
+      "type": "brand",
+      "name": "Uzina Getica",
+      "en": "Uzina Getica",
+      "title": "Uzina Getica",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +5% Armor",
+        "Set Bonus (2): +10% Armor on kill",
+        "Set Bonus (3): +30% Hazard protection"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2. It was added in Season 9: Hidden Alliance"
+    },
+    "Empress International": {
+      "type": "brand",
+      "name": "Empress International",
+      "en": "Empress International",
+      "title": "Empress International",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +10% Skill Health",
+        "Set Bonus (2): +10% Skill Damage",
+        "Set Bonus (3): +8% Skill Efficiency"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  Empress International gear.png|Empress International gear"
+    },
+    "Wyvern Wear": {
+      "type": "brand",
+      "name": "Wyvern Wear",
+      "en": "Wyvern Wear",
+      "title": "Wyvern Wear",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +8% Skill Damage",
+        "Set Bonus (2): +18% Status Effects",
+        "Set Bonus (3): +45% Skill Duration"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  Wyvern Wear gear.png|Wyvern Wear gear"
+    },
+    "Belstone Armory": {
+      "type": "brand",
+      "name": "Belstone Armory",
+      "en": "Belstone Armory",
+      "title": "Belstone Armory",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +1% Armor Regen",
+        "Set Bonus (2): +10% Armor on Kill",
+        "Set Bonus (3): +45% Incoming repairs"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  Belstone Armory gear.png|Belstone Armory gear"
+    },
+    "Alps Summit": {
+      "type": "brand",
+      "name": "Alps Summit",
+      "en": "Alps Summit",
+      "found": false
+    },
+    "China Light": {
+      "type": "brand",
+      "name": "China Light",
+      "en": "China Light",
+      "found": false
+    },
+    "Palisade Steelworks": {
+      "type": "brand",
+      "name": "Palisade Steelworks",
+      "en": "Palisade Steelworks",
+      "title": "Palisade Steelworks",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): 10% Armour on Kill",
+        "Set Bonus (2): 60% Health",
+        "Set Bonus (3): +1 Skill Tier"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  (Gear Pictures and Captions go here)"
+    },
+    "Brazos de Arcabuz": {
+      "type": "brand",
+      "name": "Brazos de Arcabuz",
+      "en": "Brazos de Arcabuz",
+      "title": "Brazos de Arcabuz",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +10% Skill Haste",
+        "Set Bonus (2): +1 Skill Tier",
+        "Set Bonus (3): +50% Magazine Size"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  Brazos de Arcabuz gear.png|Brazos de Arcabuz gear (needs to be added)"
+    },
+    "Gila Guard": {
+      "type": "brand",
+      "name": "Gila Guard",
+      "en": "Gila Guard",
+      "title": "Gila Guard",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +5% Total Armor",
+        "Set Bonus (2): +60% Health",
+        "Set Bonus (3): +2% Armor Regeneration"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  Gila Guard gear.png|Gila Guard gear"
+    },
+    "Fenris Group": {
+      "type": "brand",
+      "name": "Fenris Group",
+      "en": "Fenris Group",
+      "found": false
+    },
+    "Petrov Defense Group": {
+      "type": "brand",
+      "name": "Petrov Defense Group",
+      "en": "Petrov Defense Group",
+      "title": "Petrov Defense Group",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +10% LMG Damage",
+        "Set Bonus (2): +10% Weapon Handling",
+        "Set Bonus (3): +20% Ammo Capacity"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2."
+    },
+    "Overlord Armaments": {
+      "type": "brand",
+      "name": "Overlord Armaments",
+      "en": "Overlord Armaments",
+      "title": "Overlord Armaments",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +10% Rifle Damage",
+        "Set Bonus (2): +20% Accuracy",
+        "Set Bonus (3): +10% Weapon Handling"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2."
+    },
+    "Walker, Harris & Co": {
+      "type": "brand",
+      "name": "Walker, Harris & Co",
+      "en": "Walker, Harris & Co",
+      "found": false
+    },
+    "Yaahl Gear": {
+      "type": "brand",
+      "name": "Yaahl Gear",
+      "en": "Yaahl Gear",
+      "title": "Yaahl Gear",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +10% Hazard Protection",
+        "Set Bonus (2): +10% Weapon Damage",
+        "Set Bonus (3): +40% Pulse Resistance"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2. It drops exclusively on the Dark Zone and Conflict."
+    },
+    "Electrique": {
+      "type": "brand",
+      "name": "Electrique",
+      "en": "Electrique",
+      "title": "Electrique",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): 10% Status Effects",
+        "Set Bonus (2): 20% Shock Resistance",
+        "Set Bonus (3): 30% SMG Damage"
+      ]
+    },
+    "Hana-U": {
+      "type": "brand",
+      "name": "Hana-U",
+      "en": "Hana-U",
+      "found": false
+    },
+    "Murakami Industries": {
+      "type": "brand",
+      "name": "Murakami Industries",
+      "en": "Murakami Industries",
+      "title": "Murakami Industries",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +15% Skill Duration",
+        "Set Bonus (2): +35% Skill Repair",
+        "Set Bonus (3): +18% Skill Damage"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2."
+    },
+    "Richter & Kaiser": {
+      "type": "brand",
+      "name": "Richter & Kaiser",
+      "en": "Richter & Kaiser",
+      "found": false
+    },
+    "5.11 Tactical": {
+      "type": "brand",
+      "name": "5.11 Tactical",
+      "en": "5.11 Tactical",
+      "title": "5.11 Tactical",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +30% Health",
+        "Set Bonus (2): +30% Incoming Repairs",
+        "Set Bonus (3): +30% Hazard Protection"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  5.11 gear.png|5.11 Tactical gear"
+    },
+    "Badger Tuff": {
+      "type": "brand",
+      "name": "Badger Tuff",
+      "en": "Badger Tuff",
+      "title": "Badger Tuff",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +10% Shotgun Damage",
+        "Set Bonus (2): +5% Total Armor",
+        "Set Bonus (3): +15% Armor on Kill"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  Badger Tuff gear.png|Badger Tuff gear"
+    },
+    "Golan Gear": {
+      "type": "brand",
+      "name": "Golan Gear",
+      "en": "Golan Gear",
+      "title": "Golan Gear",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +10% Status Effects",
+        "Set Bonus (2): +1.5% Armor Regeneration",
+        "Set Bonus (3): +10% Total Armor"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2."
+    },
+    "Habsburg Guard": {
+      "type": "brand",
+      "name": "Habsburg Guard",
+      "en": "Habsburg Guard",
+      "title": "Habsburg Guard",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): 13% Headshot Damage",
+        "Set Bonus (2): 20% Marksman Rifle Damage",
+        "Set Bonus (3): 25% Status Effects"
+      ],
+      "description": "Habsburg Guard is a Brand Set in Tom Clancy's The Division 2. Category:The Division 2"
+    },
+    "Lengmo": {
+      "type": "brand",
+      "name": "Lengmo",
+      "en": "Lengmo",
+      "title": "Lengmo",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +20% Explosive Resistance",
+        "Set Bonus (2): +20% Skill Health",
+        "Set Bonus (3): +30% LMG Damage"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  (Gear Pictures and Captions go here)"
+    },
+    "Ceska Vyroba": {
+      "type": "brand",
+      "name": "Ceska Vyroba",
+      "en": "Ceska Vyroba",
+      "found": false
+    },
+    "Douglas & Harding": {
+      "type": "brand",
+      "name": "Douglas & Harding",
+      "en": "Douglas & Harding",
+      "title": "Douglas & Harding",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +20% Pistol Damage",
+        "Set Bonus (2): +30% Stability",
+        "Set Bonus (3): +50% Accuracy"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2.  Douglas & Harding gear.png|Douglas & Harding gear"
+    },
+    "Grupo Sombra": {
+      "type": "brand",
+      "name": "Grupo Sombra",
+      "en": "Grupo Sombra",
+      "found": false
+    },
+    "Airaldi": {
+      "type": "brand",
+      "name": "Airaldi",
+      "en": "Airaldi",
+      "found": false
+    },
+    "Sokolov": {
+      "type": "brand",
+      "name": "Sokolov",
+      "en": "Sokolov",
+      "found": false
+    },
+    "Zwiadowka": {
+      "type": "brand",
+      "name": "Zwiadowka",
+      "en": "Zwiadowka",
+      "found": false
+    },
+    "Legatus": {
+      "type": "brand",
+      "name": "Legatus",
+      "en": "Legatus",
+      "found": false
+    },
+    "Shiny Monkey Gear": {
+      "type": "brand",
+      "name": "Shiny Monkey Gear",
+      "en": "Shiny Monkey Gear",
+      "title": "Shiny Monkey Gear",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1):",
+        "Set Bonus (2):",
+        "Set Bonus (3):"
+      ],
+      "description": "is a Brand Set in Tom Clancy's The Division 2. It was added in Year 6, Season 3: Burden of Truth. It's a utility-focused brand set, as it comes with Skill Tier as the Core Attribute, and its set completion bonuses focus on Utility attributes.  (Gear Pictures and Captions go here)"
+    },
+    "Imminence Armaments": {
+      "type": "brand",
+      "name": "Imminence Armaments",
+      "en": "Imminence Armaments",
+      "title": "Imminence Armaments",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +5% Weapon Damage",
+        "Set Bonus (2): +100% Increased Threat",
+        "Set Bonus (3): +60% Pistol Damage"
+      ],
+      "description": "Imminent Armaments is a Brand Set in Tom Clancy's The Division 2. It was added in the release of Year 7, Season 1: Crossroads.  File:Imminence Armament Front.png|Front of Imminence Armaments Gear"
+    },
+    "Urban Lookout": {
+      "type": "brand",
+      "name": "Urban Lookout",
+      "en": "Urban Lookout",
+      "title": "Urban Lookout",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +10% Accuracy",
+        "Set Bonus (2): +5% Skill Efficiency",
+        "Set Bonus (3): +30% Marksman Rifle Damage"
+      ],
+      "description": "Urban Lookout is a Brand Set in Tom Clancy's The Division 2. It was added in Year 7, Season 2: The Pact.  File:Urban Lookout Front.png|Urban Lookout, Front"
+    },
+    "Unit Alloys": {
+      "type": "brand",
+      "name": "Unit Alloys",
+      "en": "Unit Alloys",
+      "title": "Unit Alloys",
+      "found": true,
+      "bonuses": [
+        "Set Bonus (1): +5% Rate of Fire",
+        "Set Bonus (2): +20% Assault Rifle Damage",
+        "Set Bonus (3): +50% Magazine Size"
+      ],
+      "description": "Unit Alloys is a Brand Set in Tom Clancy's The Division 2. It was added in Y7S3: Mutiny. It has bonuses focused on an agent's weapon rate of fire, assault rifle damage, and magazine size."
+    },
+    "Royal Works": {
+      "type": "brand",
+      "name": "Royal Works",
+      "en": "Royal Works",
+      "found": false
+    }
+  },
+  "exotics": {
+    "Eagle Bearer": {
+      "type": "exotic",
+      "name": "Орлиное Знамя",
+      "en": "Eagle Bearer",
+      "title": "Eagle Bearer",
+      "found": true,
+      "weaponBox": {
+        "name": "Eagle Bearer",
+        "image": "Eagle Bearer.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "47,356",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "850",
+        "range": "26m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "53%",
+        "stability": "82%",
+        "reloadTime": "2.34s"
+      },
+      "description": "Eagle Bearer  is an  Assault Rifle in Tom Clancy's The Division 2.  It is an  variant of the Military P416, featuring the Talents Eagle's Strike and Tenacity. It was added to the game in Title Update 3. This weapon can usually only be obtained Dark Zones  or the Operation Dark Hours final reward chest. The chest's contents reset only once per week. From December 16th 2025 through January 6th 2026, Eagle Bearer - along with Regulus, Ouroboros, and other timed event weapons (such as Lexington) - c"
+    },
+    "Chameleon": {
+      "type": "exotic",
+      "name": "Хамелеон",
+      "en": "Chameleon",
+      "title": "Chameleon",
+      "found": true,
+      "weaponBox": {
+        "image": "Chameleon.png",
+        "name": "Chameleon",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "44,660",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "900",
+        "range": "20m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "30%",
+        "stability": "87%",
+        "reloadTime": "2.40s"
+      },
+      "description": "is an  Assault Rifle in Tom Clancy's The Division 2.  It is an  Assault Rifle variant of the Vector SBR .45 ACP featuring the Talent Adaptive Instincts. It was added to the game in Title Update 7.   This weapon can obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Assault Rifles as targeted loot. It has an increased drop chance from Named Bounty targets."
+    },
+    "The Bighorn": {
+      "type": "exotic",
+      "name": "Толсторог",
+      "en": "The Bighorn",
+      "title": "The Bighorn",
+      "found": true,
+      "weaponBox": {
+        "name": "The Bighorn",
+        "image": "TheBighorn.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "57,206",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "800",
+        "range": "40m",
+        "magazineSize": "42+1 rounds",
+        "accuracy": "50%",
+        "stability": "65%",
+        "reloadTime": "2.16s"
+      },
+      "description": "The Bighorn is an  Assault Rifle in Tom Clancy's The Division 2.  It is an  variant of the AUG A3-CQC, featuring the Talent Big Game Hunter. It was added to the game in Title Update 8, as part of the Warlords of New York expansion. This weapon can only be extracted from Dark Zones or obtained from Named bosses in Strongholds or The Summit on Legendary difficulty."
+    },
+    "Capacitor": {
+      "type": "exotic",
+      "name": "Конденсатор",
+      "en": "Capacitor",
+      "title": "Capacitor",
+      "found": true,
+      "weaponBox": {
+        "image": "Capacitor.png",
+        "name": "Capacitor",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "57,606",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "700",
+        "range": "31m",
+        "magazineSize": "40+1 rounds",
+        "accuracy": "63%",
+        "stability": "70%",
+        "reloadTime": "2.04s"
+      },
+      "description": "Capacitor is an  Assault Rifle in Tom Clancy's The Division 2.  It is an  variant of the PDR-C, featuring the Talent Capacitance. It was added to the game in Title Update 12. This weapon can be obtained from Exotic Caches, Mission rewards, and by completing five Challenges in The Summit during a single ascent. After its Reconfigure 22pxBlueprint is purchased from Inaya al-Khaliq, it can also be obtained from any area/mission with Assault Rifles as targeted loot."
+    },
+    "St. Elmo's Engine": {
+      "type": "exotic",
+      "name": "Мотор Святого Эльма",
+      "en": "St. Elmo's Engine",
+      "found": false
+    },
+    "Strega": {
+      "type": "exotic",
+      "name": "Стрега",
+      "en": "Strega",
+      "title": "Strega",
+      "found": true,
+      "weaponBox": {
+        "name": "Strega",
+        "image": "Strega.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "57,634",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "700",
+        "range": "35m",
+        "magazineSize": "40+1 rounds",
+        "accuracy": "53%",
+        "stability": "80%",
+        "reloadTime": "2.30s"
+      },
+      "description": "Strega is an  Assault Rifle in Tom Clancy's The Division 2.  It is an  variant of the FAL, featuring the Talent Unnerve. It was added to the game in Title Update 22. This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Assault Rifles as targeted loot."
+    },
+    "Agitator": {
+      "type": "exotic",
+      "name": "Агитатор",
+      "en": "Agitator",
+      "found": false
+    },
+    "The Chatterbox": {
+      "type": "exotic",
+      "name": "Трещотка",
+      "en": "The Chatterbox",
+      "title": "The Chatterbox",
+      "found": true,
+      "weaponBox": {
+        "name": "The Chatterbox",
+        "image": "The Chatterbox.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "39,449",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "850",
+        "fireMode": "Automatic",
+        "magazineSize": "50+1 rounds",
+        "accuracy": "25%",
+        "stability": "80%",
+        "range": "21m",
+        "reloadTime": "1.57s",
+        "modSlots": " "
+      },
+      "description": "The Chatterbox is an  Submachine Gun in Tom Clancy's The Division 2.   It is an  variant of the P90, featuring the Talent Incessant Chatter.  This weapon can initially only be crafted using its 22pxBlueprint at a Crafting Station after acquiring its 22px  Components from Hyena Faction Crates across Washington, D.C.. Thereafter, it can be obtained from Exotic Caches and any area/mission with Submachine Guns as targeted loot."
+    },
+    "Lady Death": {
+      "type": "exotic",
+      "name": "Леди Смерть",
+      "en": "Lady Death",
+      "title": "Lady Death",
+      "found": true,
+      "weaponBox": {
+        "name": "Lady Death",
+        "image": "Lady Death.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "40,440 - 47,576",
+        "rateOfFire": "900",
+        "fireMode": "Automatic",
+        "magazineSize": "32+1 rounds",
+        "accuracy": "20%",
+        "stability": "80%",
+        "range": "16m",
+        "reloadTime": "1.92s"
+      },
+      "description": "Lady Death is an  Submachine Gun in Tom Clancy's The Division 2.  It is an  variant of the CMMG Banshee, featuring the Talent Breathe Free. It was added to the game in Title Update 8, as part of the Warlords of New York expansion. This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Submachine Guns as targeted loot."
+    },
+    "Backfire": {
+      "type": "exotic",
+      "name": "Обратный Удар",
+      "en": "Backfire",
+      "title": "Backfire",
+      "found": true,
+      "weaponBox": {
+        "name": "Backfire",
+        "image": "Backfire.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "50,550 - 61,092",
+        "rateOfFire": "850",
+        "fireMode": "Automatic",
+        "magazineSize": "56+1 rounds",
+        "accuracy": "20%",
+        "stability": "90%",
+        "range": "22m",
+        "reloadTime": "2.09s"
+      },
+      "description": "Backfire is an  Submachine Gun in Tom Clancy's The Division 2.   It is an  variant of the SIG MPX, featuring the Talent Payment in Kind. It was added to the game in Title Update 11.   This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Submachine Guns as targeted loot."
+    },
+    "Ouroboros": {
+      "type": "exotic",
+      "name": "Уроборос",
+      "en": "Ouroboros",
+      "title": "Ouroboros",
+      "found": true,
+      "weaponBox": {
+        "name": "Ouroboros",
+        "image": "Ouroboros Screenshot.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "38,295",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "1,403",
+        "accuracy": "15%",
+        "stability": "85%",
+        "range": "15m",
+        "fireMode": "Automatic",
+        "reloadTime": "2.06s",
+        "magazineSize": "50+1 rounds",
+        "modSlots": " "
+      },
+      "description": "Ouroboros is an  Submachine Gun in Tom Clancy's The Division 2.   It is an  variant of the Vector SBR 9mm, featuring the Talent Rule Them All. It was added to the game in Title Update 19. This weapon can only be obtained from the Incursion Paradise Lost, either from the Named Cleaner bosses themselves (Wright and The Lovebirds) or the final reward chest. The chest's contents reset only once per week. From December 16th 2025 through January 13th 2026, Ouroboros - along with Regulus, Eagle Bearer,"
+    },
+    "Oxpecker": {
+      "type": "exotic",
+      "name": "Волоклюй",
+      "en": "Oxpecker",
+      "title": "Oxpecker",
+      "found": true,
+      "weaponBox": {
+        "name": "Oxpecker",
+        "image": "Oxpecker.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "46,395",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "950",
+        "fireMode": "Automatic",
+        "magazineSize": "50+1 rounds",
+        "accuracy": "20%",
+        "stability": "80%",
+        "range": "32m",
+        "reloadTime": "1.6s"
+      },
+      "description": "Oxpecker is an  Submachine Gun in Tom Clancy's The Division 2.   It is an  variant of the MP7, featuring the Talent Symbiosis. It was added to the game in Title Update 23. This weapon can be obtained from the Year 6 Season 3: Burden of Truth Season Pass and any area/mission with Submachine Guns as targeted loot."
+    },
+    "Pestilence": {
+      "type": "exotic",
+      "name": "Мор",
+      "en": "Pestilence",
+      "title": "Pestilence",
+      "found": true,
+      "weaponBox": {
+        "name": "Pestilence",
+        "image": "Pestilence-0.png",
+        "type": "Light Machine Guns",
+        "damage": "48,289",
+        "headshotdmg": "65.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "850",
+        "range": "35m",
+        "magazineSize": "100 rounds",
+        "accuracy": "28%",
+        "stability": "45%",
+        "reloadTime": "4.54s"
+      },
+      "description": "Pestilence is an  Light Machine Gun in Tom Clancy's The Division 2.  It is an  variant of the M249 B, featuring the Talent Plague of the Outcasts. This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Light Machine Guns as targeted loot. It has an increased drop chance from Named enemies in Dark Zones."
+    },
+    "Bullet King": {
+      "type": "exotic",
+      "name": "Король Стрелков",
+      "en": "Bullet King",
+      "title": "Bullet King",
+      "found": true,
+      "description": "Bullet King is an NPC in the video game Tom Clancy's The Division. Bullet King gained notoriety due to an exploit in early game versions that allowed players to respawn named enemies indefinitely, as long as their entourage of minions were never killed. His mob of Rikers spawned near the Autumn's Hope safe house. As Bullet King can be killed indefinitely, this allowed players to collect the named enemies superior and high-end loot over and over again. As the Bullet King was the named enemy close"
+    },
+    "Bluescreen": {
+      "type": "exotic",
+      "name": "Синий Экран",
+      "en": "Bluescreen",
+      "title": "Bluescreen",
+      "found": true,
+      "weaponBox": {
+        "name": "Bluescreen",
+        "image": "Bluescreen.png",
+        "type": "Light Machine Guns/Tom Clancy's The Division 2",
+        "damage": "62,347",
+        "headshotdmg": "65.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "580",
+        "range": "40m",
+        "magazineSize": "200 rounds",
+        "accuracy": "30%",
+        "stability": "87%",
+        "reloadTime": "3.0s"
+      },
+      "description": "Bluescreen is an  Light Machine Gun in Tom Clancy's The Division 2.  It is an  variant of the Stoner LAMG, featuring the Talent Disruptor Rounds. It was added to the game in Title Update 15. This weapon can be obtained from Exotic Caches and Mission rewards. It is a Mission reward for completing the SHD Mission Jefferson Trade Center (Manhunt: Captain Lewis), after which it can also be obtained from any area/mission with Light Machine Guns as targeted loot."
+    },
+    "Iron Lung": {
+      "type": "exotic",
+      "name": "Железный Лёгкий",
+      "en": "Iron Lung",
+      "title": "Iron Lung",
+      "found": true,
+      "weaponBox": {
+        "name": "Iron Lung",
+        "image": "Iron Lung.png",
+        "type": "Light Machine Guns/Tom Clancy's The Division 2",
+        "damage": "54,310",
+        "headshotdmg": "65.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "800",
+        "range": "35m",
+        "magazineSize": "50 rounds",
+        "accuracy": "25%",
+        "stability": "65%",
+        "reloadTime": "2.96s"
+      },
+      "description": "Iron Lung is an  Light Machine Gun in Tom Clancy's The Division 2.  It is an  variant of the MG5, featuring the Talent Ardent. It was added to the game in Title Update 19. This weapon can be obtained from Exotic Caches and Mission rewards."
+    },
+    "Pakhan": {
+      "type": "exotic",
+      "name": "Пахан",
+      "en": "Pakhan",
+      "title": "Pakhan",
+      "found": true,
+      "weaponBox": {
+        "image": "Pakhan.png",
+        "type": "Light Machine Guns",
+        "rateOfFire": "650",
+        "fireMode": "Automatic",
+        "accuracy": "40%",
+        "range": "28m",
+        "stability": "30%",
+        "magazineSize": "45 rounds",
+        "reloadTime": "2.56 sec",
+        "modSlots": " ",
+        "weaponTalentsPermanent": "File:Pakhan Talent.png Pakhan (Weapon Talent)"
+      },
+      "description": "The  is an  Light Machine Gun in Tom Clancy's The Division. Its special talent rewards killing enemies with increased ammo efficiency by way of bonus bullets. The  is an  variant of the RPK-74 light machine gun (LMG). The gun is adorned with gold and polished wood, both embellished with fine engraving patterns, alongside black metal pieces. As an , this visual design cannot be changed, although the wooden finish magazine can be replaced with the typical black Extended Magazine if the appropriate"
+    },
+    "Big Alejandro": {
+      "type": "exotic",
+      "name": "Большой Алехандро",
+      "en": "Big Alejandro",
+      "title": "Big Alejandro",
+      "found": true,
+      "weaponBox": {
+        "image": "Big Alejandro.png",
+        "type": "Light Machine Guns",
+        "rateOfFire": "1000",
+        "range": "28m",
+        "accuracy": "40%",
+        "stability": "20%",
+        "fireMode": "Automatic",
+        "magazineSize": "55 rounds",
+        "reloadTime": "5.50 sec",
+        "modSlots": " ",
+        "weaponTalentsPermanent": "File:Cover Shooter.png Cover Shooter (Weapon Talent)"
+      },
+      "description": "is an  Light Machine Gun in Tom Clancy's The Division, it was added to the game in Update 1.8. Its handling and special talent encourages firing the weapon from cover and mowing down enemies with its extreme rate of fire. The CETME Ameli is a machine gun of Spanish origin. It was developed in the 1970's by CETME and adopted in the early 1980's. Ameli is short for \"Ametralladora ligera\", which is Spanish for \"Light Machine Gun\". The Ameli looks like the MG3 from the outside, but is very different"
+    },
+    "Sweet Dreams / Lullaby": {
+      "type": "exotic",
+      "name": "Сладкий Сон / Колыбельная",
+      "en": "Sweet Dreams / Lullaby",
+      "found": false
+    },
+    "Scorpio": {
+      "type": "exotic",
+      "name": "Скорпион",
+      "en": "Scorpio",
+      "title": "Scorpio",
+      "found": true,
+      "weaponBox": {
+        "name": "Scorpio",
+        "image": "Scorpio.png",
+        "type": "Shotguns/Tom Clancy's The Division 2",
+        "damage": "51,184 (×8)",
+        "headshotdmg": "45.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "130",
+        "range": "14m",
+        "magazineSize": "7+1 rounds",
+        "accuracy": "10%",
+        "stability": "35%",
+        "reloadTime": "3.0s",
+        "modSlots": " "
+      },
+      "description": "Scorpio is an  Shotgun in Tom Clancy's The Division 2 and in Tom Clancy's The Division Resurgence.    It is an  variant of the SIX12, featuring the Talent Septic Shock. It was added to the game in Title Update 12. This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Shotguns as targeted loot."
+    },
+    "Overlord": {
+      "type": "exotic",
+      "name": "Overlord",
+      "en": "Overlord",
+      "title": "Overlord",
+      "found": true,
+      "weaponBox": {
+        "name": "Overlord",
+        "image": "Overlord-shotgun.png",
+        "type": "Shotguns/Tom Clancy's The Division 2",
+        "damage": "84,845 (×8)",
+        "headshotdmg": "45.0%",
+        "fireMode": "Pump-Action",
+        "rateOfFire": "70",
+        "range": "16m",
+        "magazineSize": "12 rounds",
+        "accuracy": "10%",
+        "stability": "30%",
+        "reloadTime": "7.99s",
+        "modSlots": " "
+      },
+      "description": "Overlord is an  Shotgun in Tom Clancy's The Division 2. It is an  variant of the KSG Shotgun, featuring the Talent Capitulate. It was added to the game in Title Update 21. This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Shotguns as targeted loot."
+    },
+    "Sheriff": {
+      "type": "exotic",
+      "name": "Шериф",
+      "en": "Sheriff",
+      "title": "Sheriff",
+      "found": true,
+      "weaponBox": {
+        "name": "Sheriff|image=SheriffExotic.png|type=Shotguns/Tom Clancy's The Division 2|damage=939.65k|headshotdmg=65.0%|fireMode=Semi-Automatic|rateOfFire=160|range=100m|magazineSize=8 rounds|accuracy=|stability=|reloadTime=2.92s|modSlots=*Skin"
+      },
+      "talent": "* Autentico\n** +35% Weapon Damage/+100% Accuracy/No Damage Drop Off\n** These bonuses are built into the weapon's base stats",
+      "description": "Sheriff is a Shotgun in Tom Clancy's The Division 2. It's an exotic mag-fed variant of the Super 90 Shotgun, which can be attained by farming United Ironworks: General Anderson on Heroic and below difficulties, while guaranteed as a reward for first completion on Master Difficulty. It's unique in the fact that it's the first shotgun to have no damage drop-off compared to the other shotguns, in addition to no weapon mod slots, save for the skin slot, which can be bought in the in-game MTX store. "
+    },
+    "Nemesis": {
+      "type": "exotic",
+      "name": "Немезида",
+      "en": "Nemesis",
+      "title": "Nemesis",
+      "found": true,
+      "weaponBox": {
+        "name": "Nemesis",
+        "image": "Nemmy.png",
+        "damage": "940,240",
+        "headshotdmg": "N/A",
+        "rateOfFire": "50",
+        "magazineSize": "5+1 rounds",
+        "type": "Marksman Rifles/Tom Clancy's The Division 2",
+        "accuracy": "73%",
+        "stability": "70%",
+        "range": "60m",
+        "fireMode": "Bolt-Action",
+        "reloadTime": "3.2s",
+        "modSlots": " "
+      },
+      "description": "Nemesis is an  Marksman Rifle in Tom Clancy's The Division 2.    This weapon features the Talent Electromagnetic Accelerator. It was added to the game in Title Update 2.   This weapon can only be crafted using its Blueprint at a Crafting Station after acquiring its component parts from the Named SR-1 variant, , and  from Named Black Tusk bosses across various Invaded Missions in Washington, D.C.."
+    },
+    "Mantis": {
+      "type": "exotic",
+      "name": "Богомол",
+      "en": "Mantis",
+      "title": "Mantis",
+      "found": true,
+      "description": "Linda Kaib, call sign Mantis, was a Black Tusk operative and member of the B.T.S.U. She is an antagonist in Tom Clancy's The Division: Extremis Malis and a supporting character in Tom Clancy's The Division: Broken Dawn. Mantis coordinated weapons shipments from various paramilitary groups across the eastern United States, as part of Black Tusk’s proxy campaign against the Joint Task Force and Strategic Homeland Division. She also enlisted the aid of rogue agent Ike Ronson in an attempt to secure"
+    },
+    "Dread Edict": {
+      "type": "exotic",
+      "name": "Суровый Приговор",
+      "en": "Dread Edict",
+      "title": "Dread Edict",
+      "found": true,
+      "weaponBox": {
+        "name": "Dread Edict",
+        "image": "Dead Edict new.png",
+        "damage": "156,626",
+        "headshotdmg": "N/A",
+        "rateOfFire": "260",
+        "magazineSize": "10+1 rounds",
+        "type": "Marksman Rifles/Tom Clancy's The Division 2",
+        "accuracy": "85%",
+        "stability": "65%",
+        "range": "50m",
+        "fireMode": "Semi-Automatic",
+        "reloadTime": "2.48s",
+        "modSlots": " "
+      },
+      "description": "is an  Marksman Rifle in Tom Clancy's The Division 2.  It is an  variant of the Paratrooper SVD, featuring the Talent Full Stop. It was added to the game in Title Update 15.   This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Marksman Rifles as targeted loot."
+    },
+    "Sacrum Imperium": {
+      "type": "exotic",
+      "name": "Sacrum Imperium",
+      "en": "Sacrum Imperium",
+      "title": "Sacrum Imperium",
+      "found": true,
+      "weaponBox": {
+        "name": "Sacrum Imperium",
+        "image": "Sacrum imperium.png",
+        "damage": "206,376",
+        "headshotdmg": "N/A",
+        "rateOfFire": "180",
+        "magazineSize": "20+1 rounds",
+        "type": "Marksman Rifles/Tom Clancy's The Division 2",
+        "accuracy": "77%",
+        "stability": "75%",
+        "range": "50m",
+        "fireMode": "Semi-Automatic",
+        "reloadTime": "3.6s",
+        "modSlots": " "
+      },
+      "description": "The Sacrum Imperium is an  Marksman Rifle in Tom Clancy's The Division 2.  It is an  variant of the G28, featuring the Talent The Trap. It was added to the game in Title Update 17.   This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Marksman Rifles as targeted loot."
+    },
+    "Shroud": {
+      "type": "exotic",
+      "name": "Саван",
+      "en": "Shroud",
+      "title": "Shroud",
+      "found": true,
+      "weaponBox": {
+        "name": "Shroud|image=TCTD2 ExoticWeapon SHROUD 3840x2160 NoTags.png|damage=732.14k|headshotdmg=176.0%|rateOfFire=72|magazineSize=7+1 rounds|type=Marksman Rifles/Tom Clancy's The Division 2|accuracy=|stability=|range=50m|fireMode=Bolt-Action|reloadTime=2.74s|modSlots="
+      },
+      "description": "Shroud is an Exotic variant of the M700 Carbon Marksman Rifle in Tom Clancy's The Division 2, introduced in Y7S2: The Pact. This weapon is obtained by reaching level 69 in The Pact Season Pass. Shroud is the opposite of Overdogs, as it amplifies its weapon damage by 125% to the highest ranking enemies during a combat engagement. No Tier 1 enemies, the amp goes to Tier 2 enemies, and so on."
+    },
+    "Merciless / Ruthless": {
+      "type": "exotic",
+      "name": "Безжалостный / Беспощадный",
+      "en": "Merciless / Ruthless",
+      "found": false
+    },
+    "Diamondback": {
+      "type": "exotic",
+      "name": "Гремучник",
+      "en": "Diamondback",
+      "title": "Diamondback",
+      "found": true,
+      "weaponBox": {
+        "name": "Diamondback",
+        "image": "Diamondback.png",
+        "type": "Rifles",
+        "damage": "386,892",
+        "headshotdmg": "60.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "100",
+        "range": "35m",
+        "magazineSize": "8 rounds",
+        "accuracy": "48%",
+        "stability": "85%",
+        "reloadTime": "3.47s"
+      },
+      "description": "The Diamondback is an  Rifle in Tom Clancy's The Division 2.   It is an  variant of the 1886, featuring the Talent Agonizing Bite. It was added to the game in Title Update 5.  This weapon can initially only be obtained from Kenly College, in the final reward chest inside the Chapel unlocked by completing all three Investigation Areas. Thereafter, it can be obtained from Exotic Caches and any area/mission with Rifles as targeted loot."
+    },
+    "The Ravenous": {
+      "type": "exotic",
+      "name": "Обжора",
+      "en": "The Ravenous",
+      "title": "The Ravenous",
+      "found": true,
+      "weaponBox": {
+        "name": "The Ravenous",
+        "image": "Ravenous.png",
+        "type": "Rifles",
+        "damage": "134,360",
+        "headshotdmg": "60.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "240",
+        "range": "50m",
+        "magazineSize": "60+2 rounds",
+        "accuracy": "45%",
+        "stability": "55%",
+        "reloadTime": "2.40s"
+      },
+      "description": "The Ravenous is an  Rifle in Tom Clancy's The Division 2.   It is an  Rifle variant of the Custom P416 G3, featuring the Talent Geri and Freki. It was added to the game in Title Update 10.  This weapon can only only be extracted from Dark Zones or obtained from the Raid Operation Iron Horse, in the final reward chest. The chest's contents reset only once per week."
+    },
+    "Doctor Home": {
+      "type": "exotic",
+      "name": "Домашний Доктор",
+      "en": "Doctor Home",
+      "title": "Doctor Home",
+      "found": true,
+      "weaponBox": {
+        "name": "Doctor Home",
+        "image": "Doctor Home Rifle.png",
+        "type": "Rifles",
+        "damage": "129,150",
+        "headshotdmg": "60.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "320",
+        "range": "60m",
+        "magazineSize": "10+1 rounds",
+        "accuracy": "55%",
+        "stability": "80%",
+        "reloadTime": "1.93s"
+      },
+      "description": "Doctor Home is an  Rifle in Tom Clancy's The Division 2.  It is an  variant of the M1A CQB, featuring the Talent Doctor Home. It was added to the game in Title Update 16. This weapon can be obtained from enemies, weapon chests, Exotic Caches, and any area/mission with Rifles as targeted loot. It is a Mission reward for completing the SHD Mission Pentco Fairview Power Plant (Manhunt: General Anderson), after which it can also be obtained from any area/mission with Rifles as targeted loot."
+    },
+    "Vindicator": {
+      "type": "exotic",
+      "name": "Мститель",
+      "en": "Vindicator",
+      "title": "Vindicator",
+      "found": true,
+      "weaponBox": {
+        "name": "Vindicator",
+        "image": "Vindicator.png",
+        "type": "Rifles",
+        "damage": "102,947",
+        "headshotdmg": "60.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "380",
+        "range": "60m",
+        "magazineSize": "20+1 rounds",
+        "accuracy": "60%",
+        "stability": "80%",
+        "reloadTime": "2.85s"
+      },
+      "description": "Vindicator is an  Rifle in Tom Clancy's The Division 2.  It is an  variant of the Urban MDR, featuring the Talent Ortiz Assault Interface. It was added to the game in Title Update 20. This weapon can be purchased from NSA Stations for 350 22px NSA Tech."
+    },
+    "Bittersweet": {
+      "type": "exotic",
+      "name": "Горькая Радость",
+      "en": "Bittersweet",
+      "title": "Bittersweet",
+      "found": true,
+      "weaponBox": {
+        "name": "Bittersweet|image=TCTD2 Seasonal Gear BITTERSWEET ExoticRifle.png|type=Rifles|damage=231,346|headshotdmg=|fireMode=Semi-Automatic|rateOfFire=320|range=60m|magazineSize=20+1|accuracy=|stability=|reloadTime=2.32|modSlots="
+      },
+      "talent": "* Transfusion\n** Hitting headshots builds stacks up to a max of 8. When shooting an Ally or Skill, repair them for 50% of the shot damage for each stack.\n** Healed Allies receive 200% of your Repair Skills bonus as Bonus Armor for each stack for 10 seconds.\n** All hits become guaranteed headshots for 8 seconds after healing an Ally or Skill while at maximum stacks.",
+      "description": "Bittersweet is an Exotic Rifle in Tom Clancy's The Division 2. It was added in Y7S3: Mutiny.It's an Exotic variant of the Classic M1A Rifle, featuring the Talent, Transfusion. It's an Exotic weapon focused on healing fellow agents and allies by building up stacks through hitting headshots. As Y7S3 is the current active season, it is only obtainable via leveling up to level 69 in the Season Pass. By the time of next season, it'll be obtainable via Rifle/Targeted Loot."
+    },
+    "Kendra's Liberty": {
+      "type": "exotic",
+      "name": "Свобода",
+      "en": "Kendra's Liberty",
+      "found": false
+    },
+    "Regulus": {
+      "type": "exotic",
+      "name": "Регул",
+      "en": "Regulus",
+      "title": "Regulus",
+      "found": true,
+      "weaponBox": {
+        "name": "Regulus",
+        "image": "Regulus.png",
+        "type": "Sidearms/Tom Clancy's The Division 2",
+        "damage": "282,072",
+        "headshotdmg": "100.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "160",
+        "range": "16m",
+        "magazineSize": "6 rounds",
+        "accuracy": "40%",
+        "stability": "90%",
+        "reloadTime": "2.54s",
+        "modSlots": " "
+      },
+      "description": "Regulus is an  Pistol in Tom Clancy's The Division 2. It is an  variant of the Police 686 Magnum, featuring the Talent Regicide. It was added to the game in Title Update 10.  This weapon can only be crafted using its 22pxBlueprint at a Crafting Station. Its 22pxBlueprint is acquired by completing the Raid Operation Iron Horse, finishing a series of Goal Projects, then collecting its 22px  Components from each of the Raid's five Named bosses. From December 16th 2025 through January 6th 2026, Regu"
+    },
+    "Busy Little Bee": {
+      "type": "exotic",
+      "name": "Трудолюбивая Пчёлка",
+      "en": "Busy Little Bee",
+      "title": "Busy Little Bee",
+      "found": true,
+      "weaponBox": {
+        "name": "Busy Little Bee",
+        "image": "Busy little bee.jpg",
+        "type": "Sidearms/Tom Clancy's The Division 2",
+        "damage": "100,704",
+        "headshotdmg": "100.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "400",
+        "range": "15m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "40%",
+        "stability": "80%",
+        "reloadTime": "1.77s",
+        "modSlots": " "
+      },
+      "description": "Busy Little Bee is an  Pistol in Tom Clancy's The Division 2. It is an  variant of the Custom PF45, featuring the Talent Busy Little Bee. It was added to the game in Title Update 16.  This weapon can be obtained from Exotic Caches and Mission rewards. If the 22pxBlueprint for the the  Pistol  has been acquired, it can also be obtained from any area/mission with Pistols as targeted loot."
+    },
+    "Mosquito": {
+      "type": "exotic",
+      "name": "Москит",
+      "en": "Mosquito",
+      "title": "Mosquito",
+      "found": true,
+      "weaponBox": {
+        "name": "Mosquito",
+        "image": "File:Mosquito Exotic.png",
+        "type": "Sidearms/Tom Clancy's The Division 2",
+        "damage": "102,563",
+        "headshotdmg": "100.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "350",
+        "range": "16m",
+        "magazineSize": "15+1 rounds",
+        "accuracy": "55%",
+        "stability": "67%",
+        "reloadTime": "1.9s"
+      },
+      "description": "Mosquito is an  Pistol in Tom Clancy's The Division 2. It is an  variant of the Officer's M9 A1, featuring the Talent Mosquito Song. It was added to the game in Title Update 20.  This weapon can be obtained from Exotic Caches and Mission rewards. If the 22pxBlueprint for the the  Pistol  has been acquired, it can also be obtained from any area/mission with Pistols as targeted loot."
+    },
+    "Tempest": {
+      "type": "exotic",
+      "name": "Буря",
+      "en": "Tempest",
+      "title": "Tempest",
+      "found": true,
+      "weaponBox": {
+        "name": "Tempest|image=|type=Sidearms/Tom Clancy's The Division 2|damage=62714|headshotdmg=|fireMode=Full-Auto|rateOfFire=700|range=12m|magazineSize=15+1 rounds|accuracy=|stability=|reloadTime=2.38s|modSlots="
+      },
+      "talent": "* Restrained\n** The pistol is fully automatic and deals +25% Amplified Damage for 20s after your Shield gets broken.",
+      "description": "Tempest is an Exotic Pistol in Tom Clancy's The Division 2. It was added in Y7S2: The Pact. It's an Exotic variant of the 93R, although in full-auto and features the Talent, Restrained.  It's obtained via completing Tidal Basin Manhunt: The Pact, with the difficulty affecting the droprate, with guaranteed drop by completing the mission on Master Difficulty. It can also be dropped by completing Floor 100 in The Summit, with each difficulty affecting the drop"
+    },
+    "Whiplash": {
+      "type": "exotic",
+      "name": "Хлыст",
+      "en": "Whiplash",
+      "found": false
+    },
+    "Coyote's Mask": {
+      "type": "exotic",
+      "name": "Маска Койота",
+      "en": "Coyote's Mask",
+      "found": false
+    },
+    "Vile": {
+      "type": "exotic",
+      "name": "Злодей",
+      "en": "Vile",
+      "title": "Vile",
+      "found": true,
+      "description": "The  is an  mask in Tom Clancy's The Division 2', introduced in Title Update 10 on June 16, 2020.  The  includes 1 generic gear mod slot which may accept any form of gear mod."
+    },
+    "Catharsis": {
+      "type": "exotic",
+      "name": "Катарсис",
+      "en": "Catharsis",
+      "title": "Catharsis",
+      "found": true,
+      "description": "The  is an  mask in Tom Clancy's The Division 2, Introduced in Title Update 15, Hidden Alliance, on May 12, 2022 The  includes 1 generic gear mod slot which may accept any form of gear mod."
+    },
+    "The Catalyst": {
+      "type": "exotic",
+      "name": "Катализатор",
+      "en": "The Catalyst",
+      "found": false
+    },
+    "Tinkerer": {
+      "type": "exotic",
+      "name": "Умелец",
+      "en": "Tinkerer",
+      "title": "Tinkerer",
+      "found": true,
+      "talent": "* Abridged:\n** If your Primary and Secondary weapon are not Exotic or Named and of the same type, the Secondary Weapon's talent will also be applied to the Primary Weapon. Doesn't apply to talents that include Weapon Swapping.\n\n               \nCategory:Exotic\nCategory:Gear\nCategory:The Division 2",
+      "description": "Tinkerer is an Exotic mask in Tom Clancy's The Division 2. It was added in Y7S1: Crossroads as a reward from the Crossroads Manhunt Climax Mission, with a guranteed drop in a first clear run on Master difficulty.  Its talent is based on the AlphaBridge Gearset from Tom Clancy's The Division. Category:Exotic"
+    },
+    "Investor": {
+      "type": "exotic",
+      "name": "Инвестор",
+      "en": "Investor",
+      "found": false
+    },
+    "Memento": {
+      "type": "exotic",
+      "name": "Мементо",
+      "en": "Memento",
+      "title": "Memento",
+      "found": true,
+      "description": "The Memento is an  backpack in Tom Clancy's The Division 2', introduced in Title Update 11 on September 22, 2020.  The Memento includes 1 generic gear mod slot which may accept any form of gear mod. The Memento is unique as it does not possess the standard backpack attribute arrangement of 1 core attribute and 2 primary attributes. Instead, The Memento posses all 3 core attribute variants and no primary attributes."
+    },
+    "NinjaBike Messenger": {
+      "type": "exotic",
+      "name": "Курьерский ВелоНиндзя",
+      "en": "NinjaBike Messenger",
+      "found": false
+    },
+    "Acosta's Go-Bag": {
+      "type": "exotic",
+      "name": "Рюкзак Акосты",
+      "en": "Acosta's Go-Bag",
+      "found": false
+    },
+    "Birdie's Quick Fix": {
+      "type": "exotic",
+      "name": "Скорая Помощь Берди",
+      "en": "Birdie's Quick Fix",
+      "found": false
+    },
+    "Harrier Pride": {
+      "type": "exotic",
+      "name": "Гордость Лунь",
+      "en": "Harrier Pride",
+      "title": "Harrier Pride",
+      "found": true,
+      "talent": "* Rebalance\n** Getting kills and hitting enemies 3 times builds Red Stacks. Each stack provides 0.5% Weapon Damage\n** Getting hit 3 times builds Blue Stacks. Each Stack Provides 0.5% Damage Resistance\n** Upon reaching 80 stacks in total, lose all stacks and receive a separate bonus of 0.5% Damage Resistance per Red Stack and 0.5% Weapon damage per Blue Stack until the next time the stack cap is re",
+      "description": "Harrier Pride is an Exotic Backpack in Tom Clancy's The Division 2. It was added in the 10th Anniversary Event, where it was acquired by progressing through the Event Pass or Anniversary Caches.  Currently, it is obtained via Backpacks/Targeted Loot or Exotic Caches. Its blueprint can be obtained by doing Retaliations. Category:The Division 2"
+    },
+    "Tardigrade Armor System": {
+      "type": "exotic",
+      "name": "Система Брони «Тихоходка»",
+      "en": "Tardigrade Armor System",
+      "title": "Tardigrade Armor System",
+      "found": true,
+      "description": "The  is an  body armor in Tom Clancy's The Division 2', introduced in Warlords of New York on March 3, 2020.  The  includes 1 generic gear mod slot which may accept any form of gear mod."
+    },
+    "Ridgeway's Pride": {
+      "type": "exotic",
+      "name": "Гордость Риджвея",
+      "en": "Ridgeway's Pride",
+      "found": false
+    },
+    "Provocator": {
+      "type": "exotic",
+      "name": "Провокатор",
+      "en": "Provocator",
+      "title": "Provocator",
+      "found": true,
+      "description": "The Provocator is an  chest piece in Tom Clancy's The Division 2, introduced in Year 6 Season 2 - Shades of Red.  The Provocator can be acquired in two ways. It's a guaranteed reward for a first clear of Master difficulty in Space Administration: Theo Parnell. Otherwise, it has a chance to drop in other difficulties Category:The Division 2"
+    },
+    "Collector": {
+      "type": "exotic",
+      "name": "Собиратель",
+      "en": "Collector",
+      "found": false
+    },
+    "Beacon": {
+      "type": "exotic",
+      "name": "Маяк",
+      "en": "Beacon",
+      "found": false
+    },
+    "BTSU Datagloves": {
+      "type": "exotic",
+      "name": "Инфоперчатки Чёрных Бивней",
+      "en": "BTSU Datagloves",
+      "title": "BTSU Datagloves",
+      "found": true,
+      "description": "The  are  gloves in Tom Clancy's The Division 2', introduced in Title Update 5 on July 23, 2019.  BTSU Datagloves is the best exotic when using a healer build, like Future Initiative. It helps in not only refreshing the number of Restorer Hive charges at a faster rate, it also grants overcharge to the player and their allies, as it can be a boon in endgame content like Legendary Strongholds.  However, the overcharge only lasts for 15 seconds and the cooldown in this exotic lasts for 120 seconds "
+    },
+    "Exodus Gloves": {
+      "type": "exotic",
+      "name": "Перчатки Exodus",
+      "en": "Exodus Gloves",
+      "found": false
+    },
+    "Rugged Gauntlets": {
+      "type": "exotic",
+      "name": "Особо Прочные Перчатки",
+      "en": "Rugged Gauntlets",
+      "found": false
+    },
+    "Bloody Knuckles": {
+      "type": "exotic",
+      "name": "Кровавые Кулаки",
+      "en": "Bloody Knuckles",
+      "title": "Bloody Knuckles",
+      "found": true,
+      "description": "The  is an  gloves in Tom Clancy's The Division 2', introduced in Title Update 16 on September 13, 2022.    -"
+    },
+    "Overdogs": {
+      "type": "exotic",
+      "name": "Главари",
+      "en": "Overdogs",
+      "title": "Overdogs",
+      "found": true,
+      "description": "Overdogs are Exotic gloves in Tom Clancy's The Division 2, introduced in Y7S2: The Pact. To use these gloves, you must pay attention to the enemy archetypes during a combat. For example, if there's no Tier 3 enemies, but there are Tier 2 enemies like Engineers or Support, then the 30% amplified weapon damage is applied to them.  The same goes with Tier 1 enemies if there are no Tier 2 enemies. Because of this, it's most wise to use Overdogs in more controlled areas of engagement, like on open wo"
+    },
+    "Acosta's Kneepads": {
+      "type": "exotic",
+      "name": "Наколенники Акосты",
+      "en": "Acosta's Kneepads",
+      "found": false
+    },
+    "Sawyer's Kneepads": {
+      "type": "exotic",
+      "name": "Наколенники Сойер",
+      "en": "Sawyer's Kneepads",
+      "found": false
+    },
+    "NinjaBike Kneepads": {
+      "type": "exotic",
+      "name": "Наколенники ВелоНиндзя",
+      "en": "NinjaBike Kneepads",
+      "found": false
+    },
+    "Blacklisters": {
+      "type": "exotic",
+      "name": "Чёрный Список",
+      "en": "Blacklisters",
+      "found": false
+    },
+    "Dodge City Gunslinger": {
+      "type": "exotic",
+      "name": "Кобура Стрелка из Додж-Сити",
+      "en": "Dodge City Gunslinger",
+      "found": false
+    },
+    "Imperial Dynasty": {
+      "type": "exotic",
+      "name": "Императорская Династия",
+      "en": "Imperial Dynasty",
+      "title": "Imperial Dynasty",
+      "found": true,
+      "description": "The  is an  holster in Tom Clancy's The Division 2', introduced in Warlords of New York on March 3, 2020.    -"
+    },
+    "Waveform": {
+      "type": "exotic",
+      "name": "Форма Волны",
+      "en": "Waveform",
+      "title": "Waveform",
+      "found": true,
+      "description": "The  is an  holster in Tom Clancy's The Division 2', introduced in Title Update 12 on  December 8, 2020.    -"
+    },
+    "Centurion's Scabbard": {
+      "type": "exotic",
+      "name": "Ножны Центуриона",
+      "en": "Centurion's Scabbard",
+      "found": false
+    },
+    "Shocker Punch": {
+      "type": "exotic",
+      "name": "Шокер",
+      "en": "Shocker Punch",
+      "title": "Shocker Punch",
+      "found": true,
+      "description": "The  is an  holster in Tom Clancy's The Division 2', introduced in Broken Wings on  June 8, 2023.    -"
+    },
+    "Nimble Holster": {
+      "type": "exotic",
+      "name": "Проворная Кобура",
+      "en": "Nimble Holster",
+      "title": "Nimble Holster",
+      "found": true,
+      "description": "The Nimble Holster is an Exotic holster in Tom Clancy's The Division 2. It was added in Y7S1: Crossroads. Category:Exotic Category:The Division 2"
+    }
+  },
+  "named": {
+    "Invisible Hand": {
+      "type": "named",
+      "name": "Невидимая Рука",
+      "en": "Invisible Hand",
+      "title": "Invisible Hand",
+      "found": true,
+      "weaponBox": {
+        "name": "Invisible Hand",
+        "image": "Invisible Hand.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "57,206",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "782",
+        "range": "26m",
+        "magazineSize": "42+1 rounds",
+        "accuracy": "54%",
+        "stability": "70%",
+        "reloadTime": "2.16s"
+      },
+      "description": "Invisible Hand is a  Assault Rifle in Tom Clancy's The Division 2.  It is a Named variant of the AUG A3-CQC, featuring the Talent Perfect Allegro and unique Solid - Admiral . It was added to the game in Title Update 6. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Assault Rifles as targeted loot. It has an increased drop chance from the Main Mission Jefferson Plaza."
+    },
+    "Pyromaniac": {
+      "type": "named",
+      "name": "Пироман",
+      "en": "Pyromaniac",
+      "title": "Pyromaniac",
+      "found": true,
+      "weaponBox": {
+        "name": "Pyromaniac",
+        "image": "Police M4 TD2.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "46,908",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "850",
+        "range": "31m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "60%",
+        "stability": "85%",
+        "reloadTime": "2.24s"
+      },
+      "description": "Pyromaniac is a  Assault Rifle in Tom Clancy's The Division 2.  It is a Named variant of the Police M4, featuring the Talent Perfect Ignited. It was added to the game in Title Update 6.  This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Assault Rifles as targeted loot. It has an increased drop chance from the Main Mission Camp White Oak."
+    },
+    "Shield Splinterer": {
+      "type": "named",
+      "name": "Щитолом",
+      "en": "Shield Splinterer",
+      "title": "Shield Splinterer",
+      "found": true,
+      "weaponBox": {
+        "name": "Shield Splinterer",
+        "image": "Shield Splinter.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "49,095",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "850",
+        "range": "31m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "52%",
+        "stability": "75%",
+        "reloadTime": "2.4s"
+      },
+      "description": "Shield Splinterer is a  Assault Rifle  in Tom Clancy's The Division 2.  It is a Named variant of the F2000, featuring the Talent Perfect Optimist and unique Solid - Ivory . This weapon can only be obtained from a weapon chest inside the Base of Operations, which must be unlocked using 22px Ivory Keys obtained by killing all twelve Hunters hidden across Washington, D.C.. Afterwards, it can also be purchased from Cassie Mendoza."
+    },
+    "The Railsplitter": {
+      "type": "named",
+      "name": "Дровосек",
+      "en": "The Railsplitter",
+      "title": "The Railsplitter",
+      "found": true,
+      "weaponBox": {
+        "name": "The Railsplitter",
+        "image": "The Railspliter.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "44,793",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "900",
+        "range": "32m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "52%",
+        "stability": "75%",
+        "reloadTime": "2.39s"
+      },
+      "description": "The Railsplitter is a  Assault Rifle in Tom Clancy's The Division 2.  It is a Named variant of the CTAR-21, featuring the Talent Perfectly Accurate and unique Solid - Walnut . It was added to the game in Title Update 6. This weapon can only be extracted from Dark Zones, purchased from Dark Zone Vendors using 22px DZ Resources, purchased from the Countdown Requisitions Station using 22px Countdown Requisition Tokens, or obtained from Conflict/Legacy/Named Item Caches."
+    },
+    "Savage Wolverine": {
+      "type": "named",
+      "name": "Дикий Росомаха",
+      "en": "Savage Wolverine",
+      "title": "Savage Wolverine",
+      "found": true,
+      "weaponBox": {
+        "name": "Savage Wolverine",
+        "image": "Honey Badger.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "51,261",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "800",
+        "range": "28m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "65%",
+        "stability": "80%",
+        "reloadTime": "2.06s"
+      },
+      "description": "Savage Wolverine is a  Assault Rifle  in Tom Clancy's The Division 2.  It is a Named variant of the Honey Badger, featuring the Talent Perfectly Close & Personal. It was added to the game in Title Update 7. This weapon can only be crafted from its 22pxBlueprint, which is obtained from Field Research for the Technician Specialization."
+    },
+    "Mechanical Animal": {
+      "type": "named",
+      "name": "Механическое Животное",
+      "en": "Mechanical Animal",
+      "title": "Mechanical Animal",
+      "found": true,
+      "weaponBox": {
+        "name": "Mechanical Animal",
+        "image": "SIG 556 TD2.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "55,922",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "700",
+        "range": "28m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "48%",
+        "stability": "50%",
+        "reloadTime": "2.17s"
+      },
+      "description": "Mechanical Animal is a  Assault Rifle  in Tom Clancy's The Division 2.  It is a Named variant of the SIG 556, featuring the Talent Future Perfection. It was added to the game in Title Update 10.  This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Assault Rifles as targeted loot. It has an increased drop chance from the Main Mission Camp White Oak."
+    },
+    "Kingbreaker": {
+      "type": "named",
+      "name": "Цареломатель",
+      "en": "Kingbreaker",
+      "title": "Kingbreaker",
+      "found": true,
+      "weaponBox": {
+        "name": "Kingbreaker",
+        "image": "TKB-408.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "63,493",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "600",
+        "range": "27m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "50%",
+        "stability": "70%",
+        "reloadTime": "1.87s"
+      },
+      "description": "Kingbreaker is a  Assault Rifle in Tom Clancy's The Division 2.  It is a Named variant of the TKB-408, featuring the Talent Perfect Flatline. It was added to the game in Title Update 15. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Assault Rifles as targeted loot. It has an increased drop chance from the Main Mission Camp White Oak."
+    },
+    "Test Subject": {
+      "type": "named",
+      "name": "Подопытный",
+      "en": "Test Subject",
+      "title": "Test Subject",
+      "found": true,
+      "weaponBox": {
+        "name": "Test Subject",
+        "image": "PDR.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "57,606",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "700",
+        "range": "31m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "60%",
+        "stability": "65%",
+        "reloadTime": "2.04s"
+      },
+      "description": "Test Subject is a  Assault Rifle in Tom Clancy's The Division 2. It is a Named variant of the PDR-C, featuring the Talent Perfectly In Sync. It was added to the game in Title Update 12. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Assault Rifles as targeted loot. It has an increased drop chance from the Main Mission Jefferson Plaza."
+    },
+    "Huntsman": {
+      "type": "named",
+      "name": "Охотник",
+      "en": "Huntsman",
+      "title": "Huntsman",
+      "found": true,
+      "weaponBox": {
+        "name": "Huntsman|image=|type=Assault Rifles/Tom Clancy's The Division 2|damage=45,272.5|headshotdmg=55.0%|fireMode=Automatic|rateOfFire=900|range=26m|magazineSize=30+1 rounds|accuracy=|stability=|reloadTime=2.49s|modSlots=*Optic"
+      },
+      "description": "Huntsman is a  Assault Rifle in Tom Clancy's The Division 2, where it was added in the Battle for Brooklyn DLC. It is the second Named variant of the FAMAS, featuring the Talent Perfect Frenzy and unique Huntsman . It can only be obtained from a weapon chest inside the underground bunker within The Bridge settlement, which must be unlocked 22x22pxAsh Keys obtained by killing eight Hunters hidden across Brooklyn. Afterwards, it can also be purchased from Cassie Mendoza, similar to its predecessor"
+    },
+    "Caretaker": {
+      "type": "named",
+      "name": "Смотритель",
+      "en": "Caretaker",
+      "title": "Caretaker",
+      "found": true,
+      "weaponBox": {
+        "name": "Caretaker|image=|type=Assault Rifles/Tom Clancy's The Division 2|damage=52,564|headshotdmg=55.0%|fireMode=Automatic|rateOfFire=750|range=31m|magazineSize=30+1 rounds|accuracy=40%|stability=76%|reloadTime=2.34s|modSlots=*Optic"
+      },
+      "talent": "{| class=\"article-table sortable; width: 100%\"\n!Icon\n!Description\n|-\n|left|thumb|100x100px\n|\n* Killing an enemy with a critical hit grants +90% critical hit damage for 10 seconds.\n|}",
+      "description": "Caretaker is a High-End Assault Rifle in Tom Clancy's The Division 2. It is a named variant of the G36 Enhanced Assault Rifle, featured with the Perfect Killer Talent, the second named weapon to have that talent. It was added in Y7S1: Crossraods. It is exclusively available by reaching Shepherd Level 8 whenever the Shepherd XP Event is active. It was also available to earn from the Rank Up and Prestige Rank Up Caches from Y7S2's Stretch Goal Event that ran from November 18, 2025 to December 2nd,"
+    },
+    "The Drill": {
+      "type": "named",
+      "name": "Бур",
+      "en": "The Drill",
+      "title": "The Drill",
+      "found": true,
+      "weaponBox": {
+        "name": "The Drill",
+        "image": "Carbine_7.png",
+        "type": "Assault Rifles/Tom Clancy's The Division 2",
+        "damage": "49,790",
+        "headshotdmg": "55.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "790",
+        "range": "28m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "60%",
+        "stability": "80%",
+        "reloadTime": "2.02s"
+      },
+      "description": "The Drill is a  Assault Rifle  in Tom Clancy's The Division 2.  It is a Named variant of the Carbine 7, featuring the Talent Perfect Precision Strike. It was added to the game in Title Update 22.  This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Assault Rifles as targeted loot."
+    },
+    "Emeline's Guard": {
+      "type": "named",
+      "name": "Охрана Эмелин",
+      "en": "Emeline's Guard",
+      "found": false
+    },
+    "Safety Distance": {
+      "type": "named",
+      "name": "Безопасная Дистанция",
+      "en": "Safety Distance",
+      "title": "Safety Distance",
+      "found": true,
+      "weaponBox": {
+        "name": "Safety Distance",
+        "image": "Safety Distance.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "50,989",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "850",
+        "fireMode": "Automatic",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "20%",
+        "stability": "80%",
+        "range": "22m",
+        "reloadTime": "2.09s",
+        "modSlots": " "
+      },
+      "description": "Safety Distance is a  Submachine Gun in Tom Clancy's The Division 2.   It is a Named variant of the SIG MPX, featuring the Talent Perfect Outsider and unique Mudbank . It was added to the game in Title Update 6.  This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Submachine Guns as targeted loot. It has an increased drop chance from the Stronghold Capitol Building."
+    },
+    "Swap Chain": {
+      "type": "named",
+      "name": "Цепочка Обмена",
+      "en": "Swap Chain",
+      "title": "Swap Chain",
+      "found": true,
+      "weaponBox": {
+        "name": "Swap Chain",
+        "image": "Swap Chain.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "46,395",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "950",
+        "fireMode": "Automatic",
+        "magazineSize": "40+1 rounds",
+        "accuracy": "20%",
+        "stability": "80%",
+        "range": "21m",
+        "reloadTime": "1.6s",
+        "modSlots": " "
+      },
+      "description": "Swap Chain is a  Submachine Gun in Tom Clancy's The Division 2.   It is a Named variant of the MP7, featuring the Talent Perfect Unwavering and unique Shattered Glass . It was added to the game in Title Update 6.  This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Submachine Guns as targeted loot. It has an increased drop chance from the Main Mission Bank Headquarters."
+    },
+    "The Apartment": {
+      "type": "named",
+      "name": "Квартира",
+      "en": "The Apartment",
+      "title": "The Apartment",
+      "found": true,
+      "weaponBox": {
+        "name": "The Apartment",
+        "image": "SIG MPX.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "50,989",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "850",
+        "fireMode": "Automatic",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "20%",
+        "stability": "80%",
+        "range": "22m",
+        "reloadTime": "2.09s",
+        "modSlots": " "
+      },
+      "description": "The Apartment is a  Submachine Gun in Tom Clancy's The Division 2.   It is a Named variant of the SIG MPX, featuring the Talent Perfect Measured. It was added to the game in Title Update 6.  This weapon can only be extracted from Dark Zones, purchased from Dark Zone Vendors using 22px DZ Resources, purchased from the Countdown Requisitions Station using 22px Countdown Requisition Tokens, or obtained from Conflict/Legacy/Named Item Caches."
+    },
+    "Dark Winter": {
+      "type": "named",
+      "name": "Тёмная Зима",
+      "en": "Dark Winter",
+      "title": "Dark Winter",
+      "found": true,
+      "weaponBox": {
+        "name": "Dark Winter",
+        "image": "Dark Winter.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "40,430",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "1200",
+        "accuracy": "15%",
+        "stability": "85%",
+        "range": "15m",
+        "fireMode": "Automatic",
+        "magazineSize": "25+1 rounds",
+        "reloadTime": "2.38s",
+        "modSlots": " "
+      },
+      "description": "Dark Winter is a  Submachine Gun in Tom Clancy's The Division 2. It is a Named variant of the Vector SBR .45 ACP, featuring the Talent Perfect Killer and unique Gems . This weapon can only be extracted from Dark Zones, purchased from Dark Zone Vendors using 22px DZ Resources, purchased from the Countdown Requisitions Station using 22px Countdown Requisition Tokens, or obtained from Conflict/Legacy/Named Item Caches. Replicas of this weapon can be crafted using its 22pxBlueprint, which can only b"
+    },
+    "Cabaret": {
+      "type": "named",
+      "name": "Кабаре",
+      "en": "Cabaret",
+      "title": "Cabaret",
+      "found": true,
+      "weaponBox": {
+        "name": "Cabaret",
+        "image": "MP5 ST Div2.png",
+        "type": "Submachine Guns",
+        "damage": "53,893",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "800",
+        "fireMode": "Automatic",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "20%",
+        "stability": "80%",
+        "range": "21m",
+        "reloadTime": "1.79s",
+        "modSlots": " "
+      },
+      "description": "Cabaret is a  Submachine Gun in Tom Clancy's The Division 2.  It is a Named variant of the MP5 ST, featuring the Talent Perfect Thunder-Strike. It was added to the game in Title Update 18. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Submachine Guns as targeted loot. It has an increased drop chance from the Main Mission Bank Headquarters."
+    },
+    "The Grudge": {
+      "type": "named",
+      "name": "Обида",
+      "en": "The Grudge",
+      "title": "The Grudge",
+      "found": true,
+      "weaponBox": {
+        "name": "The Grudge",
+        "image": "CMMG Banshee.png",
+        "type": "Submachine Guns/Tom Clancy's The Division 2",
+        "damage": "47,838",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "900",
+        "fireMode": "Automatic",
+        "magazineSize": "32+1 rounds",
+        "accuracy": "20%",
+        "stability": "80%",
+        "range": "21m",
+        "reloadTime": "1.92s",
+        "modSlots": " "
+      },
+      "description": "The Grudge is a  Submachine Gun in Tom Clancy's The Division 2.  It is a Named variant of the CMMG Banshee, featuring the Talent Perfect Vindictive. It was added to the game in Title Update 8, as part of the Warlords of New York expansion. This weapon is not available until the Main Mission Liberty Island is completed. Thereafter, it can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Submachine Guns as targeted loot."
+    },
+    "Grown Great": {
+      "type": "named",
+      "name": "Grown Great",
+      "en": "Grown Great",
+      "title": "Grown Great",
+      "found": true,
+      "weaponBox": {
+        "name": "Grown Great|type=Submachine Guns/Tom Clancy's The Division 2",
+        "image": "Grown Great.png",
+        "damage": "50,616",
+        "headshotdmg": "50.0%",
+        "rateOfFire": "900",
+        "fireMode": "Automatic",
+        "magazineSize": "50 rounds",
+        "accuracy": "20%",
+        "stability": "80%",
+        "range": "19m",
+        "reloadTime": "1.54s"
+      },
+      "description": "Grown Great is a  Submachine Gun featured in Tom Clancy's The Division 2.   It is a Named variant of the Tommy Gun, featuring the Talent Perfect Stabilize. It was added to the game in Title Update 19.  This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Submachine Guns as targeted loot. It has an increased drop chance from the Main Mission Bank Headquarters."
+    },
+    "Cuélebre": {
+      "type": "named",
+      "name": "Куэлебре",
+      "en": "Cuélebre",
+      "title": "Cuélebre",
+      "found": true,
+      "weaponBox": {
+        "name": "Cuélebre",
+        "image": "Cuelebre.png",
+        "type": "Shotguns",
+        "damage": "87,941 (×8)",
+        "headshotdmg": "45.0%",
+        "fireMode": "Pump-Action",
+        "rateOfFire": "75",
+        "range": "11m",
+        "magazineSize": "5 rounds",
+        "accuracy": "10%",
+        "stability": "55%",
+        "reloadTime": "3.35s",
+        "modSlots": " "
+      },
+      "description": "Cuélebre is a  Shotgun in Tom Clancy's The Division 2. It is a Named variant of the Military M870, featuring the Talent Perfect Jazz Hands and unique Sandstone . It was added to the game in Title Update 6. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Shotguns as targeted loot. It has an increased drop chance from the Main Mission Viewpoint Museum."
+    },
+    "Rock 'n' Roll": {
+      "type": "named",
+      "name": "Рок-н-Ролл",
+      "en": "Rock 'n' Roll",
+      "found": false
+    },
+    "The Send-Off": {
+      "type": "named",
+      "name": "Проводы",
+      "en": "The Send-Off",
+      "title": "The Send-Off",
+      "found": true,
+      "weaponBox": {
+        "name": "The Send-Off",
+        "image": "KSG-Ingame.png",
+        "type": "Shotguns/Tom Clancy's The Division 2",
+        "damage": "84,845 (×8)",
+        "headshotdmg": "45.0%",
+        "fireMode": "Pump-Action",
+        "rateOfFire": "70",
+        "range": "16m",
+        "magazineSize": "12 rounds",
+        "accuracy": "10%",
+        "stability": "25%",
+        "reloadTime": "7.99s",
+        "modSlots": " "
+      },
+      "description": "The Send-Off is a  Shotgun in Tom Clancy's The Division 2.  It is a Named variant of the KSG Shotgun, featuring the Talent Perfect Distance. It was added to the game in Title Update 6.    This weapon can only be crafted from its 22pxBlueprint, which is obtained from Field Research for the Technician Specialization."
+    },
+    "Tsunami": {
+      "type": "named",
+      "name": "Цунами",
+      "en": "Tsunami",
+      "title": "Tsunami",
+      "found": true,
+      "weaponBox": {
+        "name": "Tsunami",
+        "image": "Tsunami.png",
+        "type": "Shotguns/Tom Clancy's The Division 2",
+        "damage": "43,718 (×8)",
+        "headshotdmg": "45.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "180",
+        "range": "14m",
+        "magazineSize": "7+1 rounds",
+        "accuracy": "10%",
+        "stability": "30%",
+        "reloadTime": "3.05s",
+        "modSlots": " "
+      },
+      "description": "Tsunami is a  Shotgun in Tom Clancy's The Division 2.    It is a Named variant of the Tactical SASG-12 K, featuring the Talent Perfect Pummel and unique Lakebed . It was added to the game in Title Update 6.    This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Shotguns as targeted loot. It has an increased drop chance from the Main Mission Viewpoint Museum."
+    },
+    "Black Friday": {
+      "type": "named",
+      "name": "Чёрная Пятница",
+      "en": "Black Friday",
+      "title": "Black Friday",
+      "found": true,
+      "description": "Black Friday is a day (usually after Thanksgiving in the United States) when people go to shop for products that are in sale or are highly discounted. 350px|right|thumbThe \"Black Friday\" is the codename for a bioterrorist attack that unleashes a devastating pandemic. The attack is orchestrated by a shadowy group with the intent to destabilize the United States, targeting it's economic and social heart during the peak of the holiday shopping season. The weapon of choice is a genetically engineere"
+    },
+    "Sleipnir": {
+      "type": "named",
+      "name": "Слейпнир",
+      "en": "Sleipnir",
+      "title": "Sleipnir",
+      "found": true,
+      "weaponBox": {
+        "name": "Sleipnir",
+        "image": "MG5 TD2.png",
+        "type": "Light Machine Guns/Tom Clancy's The Division 2",
+        "damage": "54,310",
+        "headshotdmg": "65.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "800",
+        "range": "35m",
+        "magazineSize": "50 rounds",
+        "accuracy": "25%",
+        "stability": "65%",
+        "reloadTime": "2.96s"
+      },
+      "description": "Sleipnir is a  Light Machine Gun in Tom Clancy's The Division 2. It is a Named variant of the MG5, featuring the Talent Perfect Frenzy. It was added to the game in Title Update 4. This weapon can only be crafted from its 22pxBlueprint, which is obtained from Field Research for the Gunner Specialization."
+    },
+    "Tabula Rasa": {
+      "type": "named",
+      "name": "Чистый Лист",
+      "en": "Tabula Rasa",
+      "title": "Tabula Rasa",
+      "found": true,
+      "weaponBox": {
+        "name": "Tabula Rasa",
+        "image": "Tabula rasa.png",
+        "type": "Light Machine Guns/Tom Clancy's The Division 2",
+        "damage": "61,084",
+        "headshotdmg": "65.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "700",
+        "range": "30m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "33%",
+        "stability": "77%",
+        "reloadTime": "3.18s"
+      },
+      "description": "Tabula Rasa is a  Light Machine Gun in Tom Clancy's The Division 2.  It is a Named variant of the Military L86 LSW, featuring the Talent Perfect Steady Handed and unique Solid - Red .  This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Light Machine Guns as targeted loot. It has an increased drop chance from the Main Mission Coney Island Ballpark."
+    },
+    "Carnage": {
+      "type": "named",
+      "name": "Резня",
+      "en": "Carnage",
+      "title": "Carnage",
+      "found": true,
+      "weaponBox": {
+        "name": "Carnage",
+        "image": "IMI Negev.png",
+        "type": "Light Machine Guns/Tom Clancy's The Division 2",
+        "damage": "54,595",
+        "headshotdmg": "65.0%",
+        "fireMode": "Automatic",
+        "rateOfFire": "750",
+        "range": "40m",
+        "magazineSize": "100 rounds",
+        "accuracy": "20%",
+        "stability": "40%",
+        "reloadTime": "4.0s"
+      },
+      "description": "Carnage is a  Light Machine Gun in Tom Clancy's The Division 2.  It is a Named variant of the IMI Negev, featuring the Talent Perfect Sadist. It was added to the game in Title Update 8, as part of the Warlords of New York expansion. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Light Machine Guns as targeted loot. It has an increased drop chance from the Main Mission Coney Island Ballpark."
+    },
+    "Designated Hitter": {
+      "type": "named",
+      "name": "Назначенный Стрелок",
+      "en": "Designated Hitter",
+      "title": "Designated Hitter",
+      "found": true,
+      "weaponBox": {
+        "name": "Designated Hitter",
+        "image": "Designated Hitter.png",
+        "damage": "409,255",
+        "headshotdmg": "N/A",
+        "rateOfFire": "60",
+        "magazineSize": "5+1 rounds",
+        "type": "Marksman Rifles/Tom Clancy's The Division 2",
+        "accuracy": "73%",
+        "stability": "70%",
+        "range": "50m",
+        "fireMode": "Bolt-Action",
+        "reloadTime": "3.15s",
+        "modSlots": " "
+      },
+      "description": "Designated Hitter is a  Marksman Rifle in Tom Clancy's The Division 2.   It is a Named variant of the SR-1, featuring the Talent Perfect Reformation and unique Industrial . This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Marksman Rifles as targeted loot. It has an increased drop chance from the Main Mission Space Administration HQ."
+    },
+    "Ekim's Long Stick": {
+      "type": "named",
+      "name": "Длинная Палка Экима",
+      "en": "Ekim's Long Stick",
+      "found": false
+    },
+    "The White Death": {
+      "type": "named",
+      "name": "Белая Смерть",
+      "en": "The White Death",
+      "title": "The White Death",
+      "found": true,
+      "weaponBox": {
+        "name": "The White Death",
+        "image": "Classic M44 Carbine TD2.png",
+        "damage": "433,456",
+        "headshotdmg": "N/A",
+        "rateOfFire": "55",
+        "magazineSize": "5 rounds",
+        "type": "Marksman Rifles/Tom Clancy's The Division 2",
+        "accuracy": "73%",
+        "stability": "70%",
+        "range": "50m",
+        "fireMode": "Bolt-Action",
+        "reloadTime": "4.92s",
+        "modSlots": " "
+      },
+      "description": "The White Death is a  Marksman Rifle in Tom Clancy's The Division 2.   It is a Named variant of the Classic M44 Carbine, featuring additional Headshot Damage. It was added to the game in Title Update 8, as part of the Warlords of New York expansion. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Marksman Rifles as targeted loot. It has an increased drop chance from the Strongholds Roosevelt Island and Manning National Zoo."
+    },
+    "Scalpel": {
+      "type": "named",
+      "name": "Скальпель",
+      "en": "Scalpel",
+      "title": "Scalpel",
+      "found": true,
+      "weaponBox": {
+        "name": "Scalpel",
+        "image": "Scalpel.png",
+        "damage": "403,709",
+        "headshotdmg": "N/A",
+        "rateOfFire": "70",
+        "magazineSize": "7+1 rounds",
+        "type": "Marksman Rifles/Tom Clancy's The Division 2",
+        "accuracy": "90%",
+        "stability": "55%",
+        "range": "50m",
+        "fireMode": "Bolt-Action",
+        "reloadTime": "3.04s",
+        "modSlots": " "
+      },
+      "description": "Scalpel is a  Marksman Rifle in Tom Clancy's The Division 2. It is a Named variant of the Tactical .308, featuring the Talent Future Perfection. It was added to the game in Title Update 12. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Marksman Rifles as targeted loot. It has an increased drop chance from the Main Mission Space Administration HQ."
+    },
+    "Artist's Tool": {
+      "type": "named",
+      "name": "Инструмент Художника",
+      "en": "Artist's Tool",
+      "found": false
+    },
+    "The Virginian": {
+      "type": "named",
+      "name": "Вирджинец",
+      "en": "The Virginian",
+      "title": "The Virginian",
+      "found": true,
+      "weaponBox": {
+        "name": "The Virginian",
+        "image": "The Virginian.png",
+        "type": "Rifles",
+        "damage": "386,892",
+        "headshotdmg": "60.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "100",
+        "range": "35m",
+        "magazineSize": "8 rounds",
+        "accuracy": "45%",
+        "stability": "80%",
+        "reloadTime": "3.47s"
+      },
+      "description": "The Virginian is a  Rifle in Tom Clancy's The Division 2.   It is a Named variant of the 1886, featuring the Talent Perfect Boomerang. This weapon can only be extracted from Dark Zones, purchased from Dark Zone Vendors using 22px DZ Resources, purchased from the Countdown Requisitions Station using 22px Countdown Requisition Tokens, or obtained from Conflict/Legacy/Named Item Caches."
+    },
+    "Baker's Dozen": {
+      "type": "named",
+      "name": "Чёртова Дюжина",
+      "en": "Baker's Dozen",
+      "found": false
+    },
+    "Harmony": {
+      "type": "named",
+      "name": "Гармония",
+      "en": "Harmony",
+      "title": "Harmony",
+      "found": true,
+      "weaponBox": {
+        "name": "Harmony",
+        "image": "Resolute Mk47.png",
+        "type": "Rifles",
+        "damage": "124,870",
+        "headshotdmg": "60.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "300",
+        "range": "55m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "50%",
+        "stability": "43%",
+        "reloadTime": "1.94s"
+      },
+      "description": "Harmony is a  Rifle in Tom Clancy's The Division 2.   It is a Named variant of the Resolute Mk47, featuring the Talent Perfectly In Sync. This weapon can only be extracted from Dark Zones, purchased from Dark Zone Vendors using 22px DZ Resources, purchased from the Countdown Requisitions Station using 22px Countdown Requisition Tokens, or obtained from Conflict/Legacy/Named Item Caches."
+    },
+    "Surge": {
+      "type": "named",
+      "name": "Всплеск",
+      "en": "Surge",
+      "title": "Surge",
+      "found": true,
+      "weaponBox": {
+        "name": "Surge",
+        "image": "LVOA-C TD2.png",
+        "type": "Rifles",
+        "damage": "100,590",
+        "headshotdmg": "60.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "380",
+        "range": "55m",
+        "magazineSize": "30+1 rounds",
+        "accuracy": "55%",
+        "stability": "65%",
+        "reloadTime": "2.08s"
+      },
+      "description": "Surge is a  Rifle in Tom Clancy's The Division 2.   It is a Named variant of the LVOA-C, featuring the Talent Perfect Spike. This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Rifles as targeted loot. It has an increased drop chance from the Main Mission American History Museum."
+    },
+    "Lightning Rod": {
+      "type": "named",
+      "name": "Молниеотвод",
+      "en": "Lightning Rod",
+      "title": "Lightning Rod",
+      "found": true,
+      "weaponBox": {
+        "name": "Lightning Rod",
+        "image": "Lightning Rod.png",
+        "type": "Sidearms/Tom Clancy's The Division 2",
+        "damage": "93,941",
+        "headshotdmg": "100.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "370",
+        "range": "14m",
+        "magazineSize": "10+1 rounds",
+        "accuracy": "40%",
+        "stability": "65%",
+        "reloadTime": "1.77s",
+        "modSlots": " "
+      },
+      "description": "Lightning Rod is a  Pistol in Tom Clancy's The Division 2. It is a Named variant of the Custom PF45, featuring the Talent Perfect Salvage and unique Retro . This weapon can be obtained from enemies, vendors, weapon chests, Sealed Caches, and any area/mission with Pistols as targeted loot. It has an increased drop chance from the Main Mission Grand Washington Hotel."
+    },
+    "Orbit": {
+      "type": "named",
+      "name": "Орбита",
+      "en": "Orbit",
+      "title": "Orbit",
+      "found": true,
+      "weaponBox": {
+        "name": "Orbit",
+        "image": "Orbit.png",
+        "type": "Sidearms/Tom Clancy's The Division 2",
+        "damage": "256,545",
+        "headshotdmg": "100.0%",
+        "fireMode": "Semi-Automatic",
+        "rateOfFire": "160",
+        "range": "16m",
+        "magazineSize": "6 rounds",
+        "accuracy": "25%",
+        "stability": "58%",
+        "reloadTime": "2.54s",
+        "modSlots": " "
+      },
+      "description": "Orbit is a  Pistol in Tom Clancy's The Division 2.  It is a Named variant of the 586 Magnum, featuring the Talent Perfect Finisher and unique Midnight Sky . It was added to the game in Title Update 6.  This weapon can only be extracted from Dark Zones, purchased from Dark Zone Vendors using 22px DZ Resources, purchased from the Countdown Requisitions Station using 22px Countdown Requisition Tokens, or obtained from Conflict/Legacy/Named Item Caches."
+    },
+    "TDI Kard Custom": {
+      "type": "named",
+      "name": "TDI Kard Custom",
+      "en": "TDI Kard Custom",
+      "found": false
+    },
+    "Nightwatcher": {
+      "type": "named",
+      "name": "Ночной Страж",
+      "en": "Nightwatcher",
+      "found": false
+    },
+    "Punch Drunk": {
+      "type": "named",
+      "name": "Нокаут",
+      "en": "Punch Drunk",
+      "found": false
+    },
+    "The Hollow Man": {
+      "type": "named",
+      "name": "Пустой Человек",
+      "en": "The Hollow Man",
+      "found": false
+    },
+    "Closer": {
+      "type": "named",
+      "name": "Финалист",
+      "en": "Closer",
+      "found": false
+    },
+    "Cherished": {
+      "type": "named",
+      "name": "Заветный",
+      "en": "Cherished",
+      "found": false
+    },
+    "Ferocious Calm": {
+      "type": "named",
+      "name": "Свирепое Спокойствие",
+      "en": "Ferocious Calm",
+      "found": false
+    },
+    "Chainkiller": {
+      "type": "named",
+      "name": "Серийный Убийца",
+      "en": "Chainkiller",
+      "found": false
+    },
+    "Pristine Example": {
+      "type": "named",
+      "name": "Образцовый",
+      "en": "Pristine Example",
+      "title": "Pristine Example",
+      "found": true,
+      "talent": "* Perfect Focus\n** Increases total weapon damage by 6% every second you are aiming while scoped 8x or higher, up to 60%.\n** Requires a scope with 8x magnification or higher to activate.\nCategory:The Division 2\nCategory:Named Armors",
+      "description": "Pristine Example is a High-End Chest item in Tom Clancy's The Division 2.  Pristine Example is a named variant of the chest item from the Airaldi Holdings brand set. It is the only chest item with the talent Perfect Focus.  It can be obtained via Airaldi Holdings/Targeted Loot. Its blueprint is obtained via the Reconstructed Caches, which are acquired via Descent mode or crafting with 7 Broken SHD Watches at the Crafting Bench."
+    },
+    "Hunter-Killer": {
+      "type": "named",
+      "name": "Охотник-Убийца",
+      "en": "Hunter-Killer",
+      "found": false
+    },
+    "Backbone": {
+      "type": "named",
+      "name": "Хребет",
+      "en": "Backbone",
+      "found": false
+    },
+    "Percussive Maintenance": {
+      "type": "named",
+      "name": "Ударное Обслуживание",
+      "en": "Percussive Maintenance",
+      "found": false
+    },
+    "Strategic Alignment": {
+      "type": "named",
+      "name": "Стратегическое Согласование",
+      "en": "Strategic Alignment",
+      "found": false
+    },
+    "The Sacrifice": {
+      "type": "named",
+      "name": "Жертва",
+      "en": "The Sacrifice",
+      "title": "The Sacrifice",
+      "found": true,
+      "talent": "* Perfect Glass Cannon\n** All damage you deal is amplified by 30%. All damage you take is amplified by 60%.\n\nCategory:The Division 2\nCategory:Named Armors",
+      "description": "The Sacrifice is a High-End Chest item in Tom Clancy's The Division 2.  The Sacrifice is a named variant of the chest item from Providence Defense brand set. It is the only chest item with the talent Perfect Glass Cannon.  It can be obtained via Providence Defense/Targeted Loot. Its blueprint is obtained via the Reconstructed Caches, which are acquired via Descent mode or crafting with 7 Broken SHD Watches at the Crafting Bench."
+    },
+    "Contractor's Gloves": {
+      "type": "named",
+      "name": "Перчатки Подрядчика",
+      "en": "Contractor's Gloves",
+      "found": false
+    },
+    "Deathgrips": {
+      "type": "named",
+      "name": "Хватка Смерти",
+      "en": "Deathgrips",
+      "found": false
+    },
+    "Firm Handshake": {
+      "type": "named",
+      "name": "Крепкое Рукопожатие",
+      "en": "Firm Handshake",
+      "title": "Firm Handshake",
+      "found": true,
+      "description": "Firm Handshake is a High-End glove in Tom Clancy's The Division 2. It's a named variant of the gloves from Sokolov Concern Brand Set, as it comes with 16% status effects attribute as its special stat. Category:Gear"
+    },
+    "Motherly Love": {
+      "type": "named",
+      "name": "Материнская Любовь",
+      "en": "Motherly Love",
+      "found": false
+    },
+    "Claws Out": {
+      "type": "named",
+      "name": "Когти Выпущены",
+      "en": "Claws Out",
+      "found": false
+    },
+    "Forge": {
+      "type": "named",
+      "name": "Кузница",
+      "en": "Forge",
+      "found": false
+    },
+    "Picaro's Holster": {
+      "type": "named",
+      "name": "Кобура Пикаро",
+      "en": "Picaro's Holster",
+      "found": false
+    },
+    "Emperor's Guard": {
+      "type": "named",
+      "name": "Стража Императора",
+      "en": "Emperor's Guard",
+      "found": false
+    },
+    "Fox's Prayer": {
+      "type": "named",
+      "name": "Молитва Лиса",
+      "en": "Fox's Prayer",
+      "found": false
+    },
+    "Lud": {
+      "type": "named",
+      "name": "Луд",
+      "en": "Lud",
+      "title": "Lud",
+      "found": true,
+      "weaponBox": {
+        "name": "Lud|image=Mk16 TD2.png|type=Assault Rifles/Tom Clancy's The Division 2"
+      },
+      "talent": "Perfect Streamline\n\nReceive +47% Weapon Damage when no Skills are Deployed or on Cooldown.\n\nNormalized: Receive +37% Weapon Damage when no Skills are Deployed or on Cooldown.",
+      "description": "Lud is a  Assault Rifle in Tom Clancy's The Division 2. The Lud Assault Rifle is a named version of the SOCOM MK16. In can be unlocked through the Year 7 Season 1 rewards track, or via targeted or the general loot pool. Perfect Streamline"
+    },
+    "Purist": {
+      "type": "named",
+      "name": "Пурист",
+      "en": "Purist",
+      "title": "Purist",
+      "found": true,
+      "weaponBox": {
+        "name": "Purist|image=Converted SMG-9 Div2.png|type=Submachine Guns/Tom Clancy's The Division 2|damage=48,501|headshotdmg=50.0%|rateOfFire=1000|fireMode=Automatic|magazineSize=32+1 rounds|accuracy=40%|stability=75%|range=15m|reloadTime=2.3s|modSlots=*Optic"
+      },
+      "talent": "* Perfect Streamline\n** Increases Weapon Damage by 47% when no Skills are deployed or on Cooldown",
+      "description": "Purist is a High-End Submachine Gun in Tom Clancy's The Division 2. It was added in Y7S1: Crossroads. It's a named variant of the Converted SMG-9 A2, featuring the Talent Perfect Streamline. It can be obtained via SMGs/Targeted Loot. And its blueprint is obtained via Reconstructed Caches,"
+    },
+    "Cap'n": {
+      "type": "named",
+      "name": "Капитан",
+      "en": "Cap'n",
+      "found": false
+    },
+    "Cloak": {
+      "type": "named",
+      "name": "Маскировка",
+      "en": "Cloak",
+      "found": false
+    },
+    "Achilles": {
+      "type": "named",
+      "name": "Ахиллес",
+      "en": "Achilles",
+      "title": "Achilles",
+      "found": true,
+      "weaponBox": {
+        "name": "Achilles|image=USC.45 ACP.png|type=Rifles|damage=97,719|headshotdmg=60.0%|fireMode=Semi-Automatic|rateOfFire=420|range=55m|magazineSize=20+1 rounds|accuracy=45%|stability=60%|reloadTime=2.88s|modSlots=*Optic"
+      },
+      "talent": "* Perfect Soft Spot\n** Destroying a Weakpoint grants 24% weapon damage for 15s",
+      "description": "Achilles is a High-End Rifle in Tom Clancy's The Division 2. It was added in Y7S2: The Pact. It is a named variant of the USC.45 ACP Rifle, featuring the Talent, Perfect Soft Spot. It can be obtained through Rifles/Targeted Loot. And its blueprint can obtained, which can either be obtained in Descent game mode or crafted with Broken SHD Watches from Retaliation activity."
+    },
+    "Instigator": {
+      "type": "named",
+      "name": "Подстрекатель",
+      "en": "Instigator",
+      "title": "Instigator",
+      "found": true,
+      "weaponBox": {
+        "name": "Instigator|image=Custom M44 Carbine TD2.png|damage=417692|headshotdmg=N/A|rateOfFire=55|magazineSize=5 rounds|type=Marksman Rifles/Tom Clancy's The Division 2|accuracy=|stability=|range=50m|fireMode=Bolt-Action|reloadTime=4.29|modSlots=*Optic"
+      },
+      "talent": "* Perfect Soft Spot\n** Destroying a Weakpoint grants 24% weapon damage for 15s",
+      "description": "Instigator is a High-End Marksman Rifle in Tom Clancy's The Division 2. It was added in Y7S2: The Pact. It is a named variant of the Custom M44, featuring the Talent Perfect Soft Spot. It can be obtained via Marksman Rifles/Targeted Loot, and its blueprint is available via Reconstructed Caches which are obtained via Descent mode or Broken SHD Watches from Retaliation mode. N/A"
+    },
+    "Sleight": {
+      "type": "named",
+      "name": "Ловкость",
+      "en": "Sleight",
+      "title": "Sleight",
+      "found": true,
+      "talent": "* Perfect Protected Reload\n** Grants +40% bonus armor while reloading.\n** Grants 0-30% of your armor as bonus armor to all other allies when they are reloading, based on your Blue core attribute.",
+      "description": "Sleight is a High-End chest item in Tom Clancy's The Division 2. It was added in Y7S2: The Pact. It's a named variant of the chest item from Urban Lookout Brand Set, featuring the Talent, Perfect Protected Reload. It can be obtained via Urban Lookout/Targeted Loot. Its blueprint is obtained via Reconstructed Caches, found through Descent mode, or crafted using Broken SHD Watches materials found in Retaliation activity."
+    },
+    "Spot-on": {
+      "type": "named",
+      "name": "Точное Попадание",
+      "en": "Spot-on",
+      "found": false
+    },
+    "Lockdown": {
+      "type": "named",
+      "name": "Блокировка",
+      "en": "Lockdown",
+      "title": "Lockdown",
+      "found": true,
+      "weaponBox": {
+        "name": "Lockdown|image=Remington 870 Express.png|type=Shotguns/Tom Clancy's The Division 2|damage=87,941 (×8)|headshotdmg=45.0%|fireMode=Pump-Action|rateOfFire=75|range=11m|magazineSize=5 rounds|accuracy=10%|stability=55%|reloadTime=3.35s|modSlots=*Optic"
+      },
+      "talent": "* Perfect Immobilize\n** Amplifies weapon damage by 25% to ensnared enemies. After 3 kills applies Ensnare to the next enemy you hit.",
+      "description": "Lockdown is a High-End Shotgun in Tom Clancy's The Division 2. It was added in Y7S3: Mutiny It is a named variant of the M870 Express, featuring the Talent Perfect Immobilize. It can ne obtainedthrough Shotgun/Targeted Loot. And its blueprint can be obtained via Recontructed Caches, which are likewise obtained via Descent game mode or buying them for 7 Broken SHD Watches per each."
+    },
+    "Froth": {
+      "type": "named",
+      "name": "Пена",
+      "en": "Froth",
+      "title": "Froth",
+      "found": true,
+      "weaponBox": {
+        "name": "Froth|image=Froth.png|type=Submachine Guns/Tom Clancy's The Division 2|damage=40505.5|headshotdmg=|rateOfFire=1200|accuracy=|stability=|range=15m|fireMode=Automatic|magazineSize=19+1 rounds|reloadTime=1.69s|modSlots=*Optic"
+      },
+      "talent": "* Perfect Immobilize\n** Amplifies weapon damage by 25% to ensnared enemies. After 3 kills applies Ensnare to the next enemy you hit.",
+      "description": "Froth is a High-End Submachine Gun in Tom Clancy's The Division 2. It was added in Y7S3: Mutiny It's a named variant of the Tactical Vector SBR 9mm, where it used 9mm muzzle and magazine mods, in addition to having the Perfect Immobilize Talent. Furthermore, it can be obtained from Y7S3's Season Pass or SMG/Targeted Loot, and its blueprint is obtained via the Reconstructed Caches which are obtained either through Descent mode, or the Reconstructed Caches from the crafting table for 7 Broken SHD "
+    },
+    "Equalizer": {
+      "type": "named",
+      "name": "Уравнитель",
+      "en": "Equalizer",
+      "title": "Equalizer",
+      "found": true,
+      "talent": "* Perfect Obliterate\n** Critical Hits increase total weapon by 1% for 10s. Stacks up to 24 times.\n\n{| class=\"fandom-table\"\n|}\nCategory:Named Armors\nCategory:The Division 2",
+      "description": "Equalizer is a High-End Chest item in Tom Clancy's The Division 2. It was added in Y7S3: Mutiny.  It's a named variant of the chest item from Unit Alloys brand set. It's unique in the fact it is the first named chest item to feature the Talent Perfect Obliterate.  It can be obtained via Unit Alloys/Targeted Loot. And its blueprint is obtained via the Reconstructed Caches, which they're obtained via Descent mode or crafting them with 7 Broken SHD Watches per each cache."
+    },
+    "Salvo": {
+      "type": "named",
+      "name": "Залп",
+      "en": "Salvo",
+      "title": "Salvo",
+      "found": true,
+      "description": "Salvo is a High-End Holster item in Tom Clancy's The Division 2. It was added in Y7S3: Mutiny It's a named variant of the holster from Unit Alloys brand-set, which was also added in Mutiny. It comes with an intrinsic stat of 5% RoF. It can be obtained via Unit Alloys/Targeted Loot. And it's blueprint can be obtained via Reconstructed Caches, either through Descent game mode or crafting them with Broken SHD Watches for 7 per cache."
+    },
+    "Interchange": {
+      "type": "named",
+      "name": "Обмен",
+      "en": "Interchange",
+      "found": false
+    },
+    "Trader": {
+      "type": "named",
+      "name": "Торговец",
+      "en": "Trader",
+      "found": false
+    },
+    "Robin": {
+      "type": "named",
+      "name": "Робин",
+      "en": "Robin",
+      "found": false
+    },
+    "Bulldog": {
+      "type": "named",
+      "name": "Бульдог",
+      "en": "Bulldog",
+      "found": false
+    },
+    "Visionario": {
+      "type": "named",
+      "name": "Визионарио",
+      "en": "Visionario",
+      "found": false
+    },
+    "Vigil": {
+      "type": "named",
+      "name": "Бдительность",
+      "en": "Vigil",
+      "title": "Vigil",
+      "found": true,
+      "talent": "* Perfect Versatile\n** Amplifies total weapon damage for 10 seconds when swapping between your primary and secondary weapons if they are different.\n** 45% to enemies within 15m for Shotguns & SMGs.\n** 40% to enemies further than 25m for Rifles & Marksman Rifles.\n** 15% to enemies between 15-25m for LMGs & Assault Rifles.\n** At most once per 5s per weapon type.\n\nCategory:The Division 2\nCategory:Nam",
+      "description": "Vigil is a High-End Backpack item in Tom Clancy's The Division 2.  Vigil is a named variant of the backpack item from Legatus S.p.A. brand set. It is the only backpack item with the talent Perfect Versatile.  It can be obtained via Legatus S.p.A./Targeted Loot. Its blueprint is obtained via the Reconstructed Caches, which are acquired via Descent mode or crafting with 7 Broken SHD Watches at the Crafting Bench."
+    },
+    "The Courier": {
+      "type": "named",
+      "name": "Курьер",
+      "en": "The Courier",
+      "title": "The Courier",
+      "found": true,
+      "talent": "* Perfect Creeping Death\n** When you apply a status effect, it is also applied to all enemies within 10 meters of your target.\n\nCategory:The Division 2\nCategory:Named Armors",
+      "description": "The Courier is a High-End Chest item in Tom Clancy's The Division 2.  The Courier is a named variant of the chest item from the Habsburg Guard brand set. It is the only chest item with the talent Perfect Creeping Death.  It can be obtained via Habsburg/Targeted Loot. Its blueprint is obtained via the Reconstructed Caches, which are acquired via Descent mode or crafting with 7 Broken SHD Watches at the Crafting Bench."
+    },
+    "Carpenter": {
+      "type": "named",
+      "name": "Плотник",
+      "en": "Carpenter",
+      "found": false
+    },
+    "Combustor": {
+      "type": "named",
+      "name": "Зажигатель",
+      "en": "Combustor",
+      "found": false
+    },
+    "Proxy": {
+      "type": "named",
+      "name": "Прокси",
+      "en": "Proxy",
+      "found": false
+    },
+    "Axel": {
+      "type": "named",
+      "name": "Аксель",
+      "en": "Axel",
+      "found": false
+    },
+    "Grease": {
+      "type": "named",
+      "name": "Смазка",
+      "en": "Grease",
+      "found": false
+    },
+    "Henri": {
+      "type": "named",
+      "name": "Анри",
+      "en": "Henri",
+      "found": false
+    },
+    "Lavoisier": {
+      "type": "named",
+      "name": "Лавуазье",
+      "en": "Lavoisier",
+      "found": false
+    }
+  },
+  "meta": {
+    "generated": "2026-04-15T01:54:02.415Z",
+    "source": "thedivision.fandom.com"
+  }
+}
