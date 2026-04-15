@@ -589,6 +589,48 @@
     <div style="font-size:11px;color:#444">CHD базовый 25% уже учтён в формуле. Вводи только дополнительный CHD от брендов/атрибутов.</div>
   </div>
 
+  <!-- Prototype Augments (Y8S1) -->
+  <div class="bsect">
+    <h3>🧪 Prototype Augments <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· новые предметы Y8S1 — 9 аугментов, по 10 уровней каждый</span></h3>
+    <div style="font-size:10px;color:#555;margin-bottom:8px">Выбери до 3 augments (по одному на предмет Prototype). Level 0 = не прокачан, 10 = макс. Данные из datamine TU28.</div>
+    <div class="bstat-row" id="proto-slots">
+      <div class="bstat" style="flex-direction:column;align-items:stretch;min-width:200px">
+        <label style="font-size:9px">Augment 1</label>
+        <select id="proto-1-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()">
+          <option value="">— нет —</option>
+        </select>
+        <div style="display:flex;gap:4px;margin-top:4px;align-items:center">
+          <span style="font-size:9px;color:var(--muted)">Lvl</span>
+          <input id="proto-1-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()">
+          <span id="proto-1-val" style="font-size:10px;color:var(--orange);margin-left:4px"></span>
+        </div>
+      </div>
+      <div class="bstat" style="flex-direction:column;align-items:stretch;min-width:200px">
+        <label style="font-size:9px">Augment 2</label>
+        <select id="proto-2-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()">
+          <option value="">— нет —</option>
+        </select>
+        <div style="display:flex;gap:4px;margin-top:4px;align-items:center">
+          <span style="font-size:9px;color:var(--muted)">Lvl</span>
+          <input id="proto-2-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()">
+          <span id="proto-2-val" style="font-size:10px;color:var(--orange);margin-left:4px"></span>
+        </div>
+      </div>
+      <div class="bstat" style="flex-direction:column;align-items:stretch;min-width:200px">
+        <label style="font-size:9px">Augment 3</label>
+        <select id="proto-3-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()">
+          <option value="">— нет —</option>
+        </select>
+        <div style="display:flex;gap:4px;margin-top:4px;align-items:center">
+          <span style="font-size:9px;color:var(--muted)">Lvl</span>
+          <input id="proto-3-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()">
+          <span id="proto-3-val" style="font-size:10px;color:var(--orange);margin-left:4px"></span>
+        </div>
+      </div>
+    </div>
+    <div id="proto-desc" style="font-size:10px;color:#555;margin-top:6px"></div>
+  </div>
+
   <!-- SHD Watch -->
   <div class="bsect">
     <h3>⌚ SHD Watch <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· по умолчанию прокачан в макс (50/50 очков на атрибут)</span></h3>
@@ -668,10 +710,27 @@
       <button class="mf-btn on" onclick="setTtkDiff('heroic')" id="ttk-heroic">Heroic</button>
       <button class="mf-btn" onclick="setTtkDiff('legendary')" id="ttk-legendary">Legendary</button>
     </div>
+    <div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
+      <span style="font-size:11px;color:var(--muted)">Escalation Tier:</span>
+      <select id="ttk-escalation" class="bsel" style="max-width:260px" onchange="setEscalationTier(this.value)">
+        <option value="0">Tier 0 — базовый (100% HP/броня)</option>
+        <option value="1">Tier 1 — 160% HP/броня</option>
+        <option value="2">Tier 2 — 200% HP/броня</option>
+        <option value="3">Tier 3 — 250% HP/броня</option>
+        <option value="4">Tier 4 — 300% HP/броня</option>
+        <option value="5">Tier 5 — 350% HP/броня</option>
+        <option value="6">Tier 6 — 450% HP/броня</option>
+        <option value="7">Tier 7 — 530% HP/броня</option>
+        <option value="8">Tier 8 — 650% HP/броня</option>
+        <option value="9">Tier 9 — 700% HP/броня</option>
+        <option value="10">Tier 10 — 800% HP/броня (макс)</option>
+      </select>
+      <span id="ttk-escalation-hint" style="font-size:10px;color:#555">Escalation — новый режим Y8S1 с нарастающей сложностью</span>
+    </div>
     <div class="bstat-row" style="margin-bottom:10px">
-      <div class="bstat"><label>HP мобов</label><input id="ttk-hp-mult" type="number" value="0" min="0" max="800" step="50" oninput="onTtkMultChange()"><span class="u">%</span></div>
-      <div class="bstat"><label>Броня мобов</label><input id="ttk-ar-mult" type="number" value="0" min="0" max="800" step="50" oninput="onTtkMultChange()"><span class="u">%</span></div>
-      <div style="font-size:10px;color:#555;align-self:center;flex:1;min-width:160px">Для сложных данжей с бафами HP/брони. Макс +800% на каждый бар. Сплит EHP: 25% HP / 75% броня.</div>
+      <div class="bstat"><label>HP мобов +%</label><input id="ttk-hp-mult" type="number" value="0" min="0" max="800" step="25" oninput="onTtkMultChange()"><span class="u">%</span></div>
+      <div class="bstat"><label>Броня мобов +%</label><input id="ttk-ar-mult" type="number" value="0" min="0" max="800" step="25" oninput="onTtkMultChange()"><span class="u">%</span></div>
+      <div style="font-size:10px;color:#555;align-self:center;flex:1;min-width:160px">Escalation Tier автоматически выставляет оба поля. Можно править вручную для кастомных модификаторов.</div>
     </div>
     <table class="btl" id="ttk-table">
       <thead><tr>
@@ -1927,6 +1986,12 @@ function initBuildSlots(){
     talSel.innerHTML=Object.entries(WEAPON_TALENTS).map(([k,v])=>`<option value="${k}">${v.name}</option>`).join("");
     talSel.value=selectedWpnTalent;
   }
+  // Populate Prototype Augment selects
+  const augOpts='<option value="">— нет —</option>'+Object.entries(PROTOTYPE_AUGMENTS).map(([k,v])=>`<option value="${k}">${v.name}</option>`).join("");
+  for(let i=1;i<=3;i++){
+    const el=document.getElementById(`proto-${i}-aug`);
+    if(el)el.innerHTML=augOpts;
+  }
   refreshSavedList();
   // Try to restore build from URL hash or last localStorage session
   const fromHash=buildFromHash();
@@ -2497,6 +2562,21 @@ function extractPeakDPS(){
   return Math.max(...nums.map(n=>parseInt(n.replace(/\D/g,""))||0));
 }
 
+// ===== PROTOTYPE AUGMENTS (Y8S1 Rise Up) =====
+// New gear quality above Gear Set, with special "Augment" mini-talents upgradeable via levels
+// Data source: reddit datamine TU28 (r/thedivision)
+const PROTOTYPE_AUGMENTS={
+  amalgam:{name:"Amalgam",desc:"Каждое попадание имеет шанс наложить случайный статус-эффект",init:0.5,per:0.2,max:2.3,unit:"% шанс",dps_impact:"low"},
+  anomaly:{name:"Anomaly",desc:"Лечение за % урона нанесённого скиллами",init:2.0,per:0.3,max:4.7,unit:"%",dps_impact:"none"},
+  atomize:{name:"Atomize",desc:"Увеличивает радиус и урон гранат",init:12.5,per:1.0,max:21.5,unit:"%",dps_impact:"low"},
+  echo:{name:"Echo",desc:"Шанс что выстрел наносит урон дважды",init:1.2,per:0.2,max:3.0,unit:"% шанс дубля",dps_impact:"high"},
+  entropy:{name:"Entropy",desc:"Здоровье увеличено на % от общей брони",init:5.0,per:1.0,max:14.0,unit:"%",dps_impact:"none"},
+  paradox:{name:"Paradox",desc:"Шанс пополнить магазин на 2 за каждый выстрел",init:1.5,per:0.5,max:6.0,unit:"% шанс",dps_impact:"medium"},
+  quantum:{name:"Quantum",desc:"Шанс стать неуязвимым на 2с от урона",init:1.0,per:0.2,max:2.8,unit:"% шанс",dps_impact:"none"},
+  synthesia:{name:"Synthesia",desc:"Шанс сократить кд скилла на 0.2с за попадание",init:2.5,per:0.2,max:4.3,unit:"% шанс",dps_impact:"none"},
+  trapper:{name:"Trapper",desc:"Увеличивает длительность статус-эффектов",init:5.0,per:1.0,max:14.0,unit:"%",dps_impact:"low"},
+};
+
 // Weapon 4th-roll talents (generic, rolls on any weapon — not exotic/named talents)
 const WEAPON_TALENTS={
   none:{name:"— нет —",bonus:null},
@@ -2960,6 +3040,36 @@ function calcBuild(){
     bonuses.push({color:"#fdd835",tier:"🧬",nm:"Рекомбинатор: Utility",desc:`+${rc.status}% статусы · +${rc.skilldmg}% урон навыка · +${rc.util3}% свободный (не DPS оружия)`});
   }
 
+  // Prototype Augments (Y8S1)
+  const augActive=[];
+  for(let i=1;i<=3;i++){
+    const key=document.getElementById(`proto-${i}-aug`)?.value;
+    const lvl=Math.max(0,Math.min(10,parseFloat(document.getElementById(`proto-${i}-lvl`)?.value)||0));
+    if(!key||!PROTOTYPE_AUGMENTS[key])continue;
+    const aug=PROTOTYPE_AUGMENTS[key];
+    const value=Math.min(aug.max,aug.init+lvl*aug.per);
+    const valEl=document.getElementById(`proto-${i}-val`);
+    if(valEl)valEl.textContent=value.toFixed(1)+aug.unit;
+    augActive.push({key,name:aug.name,lvl,value,desc:aug.desc,impact:aug.dps_impact});
+    // Apply DPS math (approximations)
+    if(key==="echo"){
+      // Chance to deal damage twice = +value% WD multiplicatively
+      tWD+=value;
+    }else if(key==="paradox"){
+      // Mag refill chance — approximated as +mag% (sustained DPS proxy)
+      tMAG+=value*3; // rough conversion
+    }
+    // Other augments don't directly affect weapon DPS
+  }
+  if(augActive.length){
+    bonuses.push({color:"#ab47bc",tier:"🧪",nm:"Prototype Augments",desc:augActive.map(a=>`${a.name} lvl${a.lvl} (${a.value.toFixed(1)}${PROTOTYPE_AUGMENTS[a.key].unit})`).join(" · ")});
+    const descEl=document.getElementById("proto-desc");
+    if(descEl)descEl.innerHTML=augActive.map(a=>`<b>${a.name}</b>: ${a.desc}`).join("<br>");
+  }else{
+    const descEl=document.getElementById("proto-desc");
+    if(descEl)descEl.innerHTML="";
+  }
+
   // Render bonuses
   const bsect=document.getElementById("b-bonuses-sect");
   bsect.style.display=bonuses.length?"block":"none";
@@ -3218,6 +3328,27 @@ const ENEMY_HP={
   ],
 };
 let ttkDiff="heroic";
+// Escalation tier → HP/armor multiplier (datamined from Y8S1 TU28, r/thedivision)
+const ESCALATION_TIERS={
+  "0":{hp:0,ar:0,dmg:100,label:"Базовый"},
+  "1":{hp:60,ar:60,dmg:150,label:"Tier 1"},
+  "2":{hp:100,ar:100,dmg:200,label:"Tier 2"},
+  "3":{hp:150,ar:150,dmg:250,label:"Tier 3"},
+  "4":{hp:200,ar:200,dmg:300,label:"Tier 4"},
+  "5":{hp:250,ar:250,dmg:350,label:"Tier 5"},
+  "6":{hp:350,ar:350,dmg:400,label:"Tier 6"},
+  "7":{hp:430,ar:430,dmg:450,label:"Tier 7"},
+  "8":{hp:550,ar:550,dmg:500,label:"Tier 8"},
+  "9":{hp:600,ar:600,dmg:550,label:"Tier 9"},
+  "10":{hp:700,ar:700,dmg:550,label:"Tier 10 (макс)"},
+};
+function setEscalationTier(tier){
+  const t=ESCALATION_TIERS[tier];
+  if(!t)return;
+  setInput("ttk-hp-mult",t.hp);
+  setInput("ttk-ar-mult",t.ar);
+  onTtkMultChange();
+}
 let lastDps={base:0,avg:0,peak:0};
 function setTtkDiff(d){
   ttkDiff=d;
