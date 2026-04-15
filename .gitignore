@@ -1,0 +1,3 @@
+data_sources/quiz_state.json
+*.bak
+node_modules/
