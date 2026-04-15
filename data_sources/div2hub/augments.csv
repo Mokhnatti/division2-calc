@@ -1,0 +1,10 @@
+name,description,min_value,max_value
+Quantum,"When taking damage, provides a {} chance of becoming immune to damage for 2s",1%,2.80%
+Echo,Every bullet fired has a {} chance to deal its damage twice,1.20%,3.00%
+Atomize,Increases Grenade Radius and Damage by {},12.50%,21.50%
+Amalgam,Every bullet fired has a {} chance to apply a random Status Effect.  Cooldown: 5 seconds,0.50%,2.30%
+Trapper,Increases Status Effect Duration by {},4%,22%
+Entropy,Health is increased by {} of your base Total Armor,5%,14%
+Anomaly,Receive healing of {} of the damage dealt by your Skills,2%,4.70%
+Paradox,Provides a {} chance of refilling your Magazine by 2 for each bullet fired,1.50%,6%
+Synesthesia,Provides a {} chance of reducing Skill Cooldowns by 0.2s for each bullet hit,2.50%,4.30%

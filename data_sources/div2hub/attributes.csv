@@ -1,0 +1,70 @@
+name,compatibility,category,min_value,max_value,proto_max_value
+Weapon Damage (Core),N/A,offensive,0.50%,15%,22.50%
+Assault Rifle Damage (Core),N/A,offensive,0.50%,15%,22.50%
+LMG Damage (Core),N/A,offensive,0.50%,15%,22.50%
+SMG Damage (Core),N/A,offensive,0.50%,15%,22.50%
+Rifle Damage (Core),N/A,offensive,0.50%,15%,22.50%
+Marksman Rifle Damage (Core),N/A,offensive,0.50%,15%,22.50%
+Shotgun Damage (Core),N/A,offensive,0.50%,15%,22.50%
+Pistol Damage (Core),N/A,offensive,0.50%,15%,22.50%
+Health Damage (Core),N/A,offensive,0.50%,21%,31.50%
+DTOC (Core),N/A,offensive,0.50%,12%,18%
+Critical Hit Chance (Core),N/A,offensive,0.50%,21%,31.50%
+Damage to Armor (Core),N/A,offensive,0.50%,12%,18%
+Critical Hit Damage (Core),N/A,offensive,0.50%,17%,26%
+Headshot Damage (Core),N/A,offensive,0.50%,111%,166.50%
+Damage to Armor,weapon-minor|weapon-offensive-minor,offensive,0.50%,6%,9%
+Critical Hit Chance,weapon-minor|weapon-offensive-minor,offensive,0.50%,9.50%,14.50%
+Health Damage,weapon-minor|weapon-offensive-minor,offensive,0.50%,9.50%,14.50%
+DTOC,weapon-minor|weapon-offensive-minor,offensive,0.50%,10%,15%
+Headshot Damage,weapon-minor|weapon-offensive-minor,offensive,0.50%,10%,15%
+Critical Hit Damage,weapon-minor|weapon-offensive-minor,offensive,0.50%,10%,15%
+Reload Speed,weapon-minor|weapon-skill-minor,skill,0.50%,12%,18%
+Stability,weapon-minor|weapon-skill-minor,skill,0.50%,12%,18%
+Accuracy,weapon-minor|weapon-skill-minor,skill,0.50%,12%,18%
+Optimal Range,weapon-minor|weapon-skill-minor,skill,0.50%,24%,36%
+Magazine Size,weapon-minor|weapon-offensive-minor,offensive,0.50%,12.50%,18.75%
+Rate of Fire,weapon-minor|weapon-skill-minor,skill,0.50%,5%,7.50%
+Swap Speed,weapon-minor|weapon-offensive-minor,offensive,0.50%,15%,22.50%
+Armor,gear-core|gear-defensive-core,defensive,16594,170000,255000
+Weapon Damage,gear-core|gear-offensive-core,offensive,1.50%,15%,22.50%
+Skill Tier,gear-core|gear-skill-core,skill,1,1,1
+Weapon Handling,gear-minor|gear-offensive-minor,offensive,1%,8%,12%
+Critical Hit Chance,gear-minor|gear-offensive-minor,offensive,1.20%,6%,9%
+Critical Hit Damage,gear-minor|gear-offensive-minor,offensive,6%,12%,18%
+Headshot Damage,gear-minor|gear-offensive-minor,offensive,1.30%,10%,15%
+Armor Regeneration,gear-minor|gear-defensive-minor,defensive,1689,4925,7388
+Hazard Protection,gear-minor|gear-defensive-minor,defensive,5%,10%,15%
+Health,gear-minor|gear-defensive-minor,defensive,8405,18935,28403
+Explosive Resistance,gear-minor|gear-defensive-minor,defensive,1%,10%,15%
+Incoming Repairs,N/A,defensive,7.80%,20%,30%
+Armor on Kill,N/A,defensive,10.00%,10%,15%
+Total Armor,N/A,defensive,10%,10%,N/A
+Health on Kill,N/A,defensive,10%,10%,N/A
+Shock Resistance,N/A,defensive,10%,10%,N/A
+Disrupt Resistance,N/A,defensive,10%,10%,N/A
+Pulse Resistance,N/A,defensive,10%,10%,N/A
+Burn Damage,N/A,offensive,10%,10%,N/A
+Burn Duration,N/A,offensive,10%,10%,N/A
+Assault Rifle Damage,N/A,offensive,10%,10%,N/A
+LMG Damage,N/A,offensive,10%,10%,N/A
+SMG Damage,N/A,offensive,10%,10%,N/A
+Rifle Damage,N/A,offensive,10%,10%,N/A
+Marksman Rifle Damage,N/A,offensive,10%,10%,N/A
+Shotgun Damage,N/A,offensive,10%,10%,N/A
+Pistol Damage,N/A,offensive,10%,10%,N/A
+Explosive Damage,N/A,offensive,10%,10%,N/A
+Signature Weapon Damage,N/A,offensive,10%,10%,N/A
+Increased Threat,N/A,offensive,10%,10%,N/A
+Ammo Capacity,N/A,offensive,10%,10%,N/A
+Skill Duration,N/A,skill,10%,10%,N/A
+Skill Efficiency,N/A,skill,10%,10%,N/A
+Skill Health,N/A,skill,10%,10%,N/A
+Shield Health,N/A,skill,10%,10%,N/A
+Scanner Pulse Haste,N/A,skill,10%,10%,N/A
+Melee Damage,N/A,offensive,10%,10%,N/A
+Reduced Threat,N/A,defensive,10%,10%,N/A
+Skill Haste,gear-minor|gear-skill-minor,skill,6%,12%,15%
+Skill Damage,gear-minor|gear-skill-minor,skill,1.30%,10%,15%
+Repair Skills,gear-minor|gear-skill-minor,skill,7.80%,20%,30%
+Status Effects,gear-minor|gear-skill-minor,skill,5%,10%,15%

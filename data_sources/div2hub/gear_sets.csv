@@ -1,0 +1,27 @@
+name,default_core,1pc_bonus,2pc_bonus,3pc_bonus,4pc_bonus
+Aces & Eights,Weapon Damage,N/A,attribute:Marksman Rifle Damage:15%|Rifle Damage:15%,attribute:Headshot Damage:30%,talent:Dead Man's Hand
+Aegis,Armor,N/A,attribute:Health:70%,attribute:Total Armor:15%,talent:Stoic
+Breaking Point,Weapon Damage,N/A,attribute:Rifle Damage:25%|Marksman Rifle Damage:25%,attribute:Headshot Damage:30%|Weapon Handling:15%,talent:On Point
+Cavalier,Armor,N/A,attribute:Hazard Protection:30%,attribute:Repair Skills:40%,talent:Charging
+Concentrated Company,Weapon Damage,N/A,attribute:Weapon Damage:10%,attribute:Weapon Handling:30%,talent:Camaraderie
+Core Strength,Armor,N/A,attribute:Weapon Handling:10%,attribute:Weapon Damage:5%|Total Armor:5%|Skill Efficiency:5%,talent:Core Exercise
+Eclipse Protocol,Skill Tier,N/A,attribute:Status Effects:15%,attribute:Skill Haste:15%|Hazard Protection:30%,talent:Indirect Transmission
+Foundry Bulwark,Armor,N/A,attribute:Total Armor:10%,attribute:Armor Regeneration:1%|Shield Health:50%,talent:Makeshift Repairs
+Future Initiative,Skill Tier,N/A,attribute:Repair Skills:30%,attribute:Skill Duration:30%|Skill Haste:15%,talent:Ground Control
+Hard Wired,Skill Tier,N/A,attribute:Skill Haste:15%,attribute:Skill Damage:15%|Repair Skills:30%,talent:Feedback Loop
+Heartbreaker,Armor,N/A,attribute:Assault Rifle Damage:15%|LMG Damage:15%,attribute:Weapon Handling:15%,talent:Heartstopper
+Hotshot,Weapon Damage,N/A,attribute:Marksman Rifle Damage:30%|Weapon Handling:30%,attribute:Headshot Damage:30%,talent:Headache
+Hunter's Fury,Weapon Damage,N/A,attribute:Shotgun Damage:15%|SMG Damage:15%,attribute:Armor on Kill:20%|Health on Kill:50%,talent:Apex Predator
+Measured Assembly,Skill Tier,N/A,attribute:Skill Haste:15%,attribute:Repair Skills:60%|Explosive Resistance:40%,talent:Huddle
+Negotiator's Dilemma,Weapon Damage,N/A,attribute:Critical Hit Chance:15%,attribute:Critical Hit Damage:20%,talent:Crowd Control
+Ongoing Directive,Weapon Damage,N/A,attribute:Status Effects:15%,attribute:Reload Speed:30%,talent:Rules of Engagement
+Ortiz: Exuro,Skill Tier,N/A,attribute:Burn Duration:20%|Skill Health:15%,attribute:Burn Damage:40%,talent:Ortiz Incinerator Turret Prototype
+Refactor,Armor,N/A,attribute:Status Effects:15%,attribute:Skill Damage:25%,talent:Return to Sender
+Rigger,Skill Tier,N/A,attribute:Skill Haste:15%,attribute:Skill Duration:15%,talent:Tend and Befriend
+Striker's Battlegear,Weapon Damage,N/A,attribute:Weapon Handling:15%,attribute:Rate of Fire:15%,talent:Striker's Gamble
+System Corruption,Armor,N/A,attribute:Armor on Kill:15%,attribute:Disrupt Resistance:40%|Pulse Resistance:40%,talent:Hackstep Protocol
+Tip of the Spear,Weapon Damage,N/A,attribute:Signature Weapon Damage:20%,attribute:Weapon Damage:10%,talent:Aggressive Recon
+Tipping Scales,Weapon Damage,N/A,attribute:Magazine Size:30%,attribute:LMG Damage:30%,talent:Throttle Control
+True Patriot,Armor,N/A,attribute:Ammo Capacity:30%,attribute:Magazine Size:30%,"talent:Red, White and Blue"
+Umbra Initiative,Weapon Damage,N/A,attribute:Critical Hit Chance:15%,attribute:Reload Speed:30%,talent:From the Shadows Into the Light
+Virtuoso,Weapon Damage,N/A,attribute:Weapon Handling:15%|Magazine Size:15%,attribute:Weapon Damage:15%,talent:Symphony

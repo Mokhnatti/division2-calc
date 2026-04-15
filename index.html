@@ -2768,18 +2768,18 @@ function extractPeakDPS(){
 }
 
 // ===== PROTOTYPE AUGMENTS (Y8S1 Rise Up) =====
-// New gear quality above Gear Set, with special "Augment" mini-talents upgradeable via levels
-// Data source: reddit datamine TU28 (r/thedivision)
+// Source: div2hub/data augments.csv (verified April 2026)
+// min = initial value at level 0, max = fully upgraded at level 10
 const PROTOTYPE_AUGMENTS={
-  amalgam:{name:"Amalgam",desc:"Каждое попадание имеет шанс наложить случайный статус-эффект",init:0.5,per:0.2,max:2.3,unit:"% шанс",dps_impact:"low"},
-  anomaly:{name:"Anomaly",desc:"Лечение за % урона нанесённого скиллами",init:2.0,per:0.3,max:4.7,unit:"%",dps_impact:"none"},
-  atomize:{name:"Atomize",desc:"Увеличивает радиус и урон гранат",init:12.5,per:1.0,max:21.5,unit:"%",dps_impact:"low"},
-  echo:{name:"Echo",desc:"Шанс что выстрел наносит урон дважды",init:1.2,per:0.2,max:3.0,unit:"% шанс дубля",dps_impact:"high"},
-  entropy:{name:"Entropy",desc:"Здоровье увеличено на % от общей брони",init:5.0,per:1.0,max:14.0,unit:"%",dps_impact:"none"},
-  paradox:{name:"Paradox",desc:"Шанс пополнить магазин на 2 за каждый выстрел",init:1.5,per:0.5,max:6.0,unit:"% шанс",dps_impact:"medium"},
-  quantum:{name:"Quantum",desc:"Шанс стать неуязвимым на 2с от урона",init:1.0,per:0.2,max:2.8,unit:"% шанс",dps_impact:"none"},
-  synthesia:{name:"Synthesia",desc:"Шанс сократить кд скилла на 0.2с за попадание",init:2.5,per:0.2,max:4.3,unit:"% шанс",dps_impact:"none"},
-  trapper:{name:"Trapper",desc:"Увеличивает длительность статус-эффектов",init:5.0,per:1.0,max:14.0,unit:"%",dps_impact:"low"},
+  quantum:{name:"Quantum",desc:"Шанс стать неуязвимым на 2с от получения урона",init:1.0,per:0.2,max:2.8,unit:"% шанс",dps_impact:"none"},
+  echo:{name:"Echo",desc:"Шанс что выстрел наносит урон дважды",init:1.2,per:0.18,max:3.0,unit:"% шанс дубля",dps_impact:"high"},
+  atomize:{name:"Atomize",desc:"Увеличивает радиус и урон гранат",init:12.5,per:0.9,max:21.5,unit:"%",dps_impact:"low"},
+  amalgam:{name:"Amalgam",desc:"Шанс наложить случайный статус-эффект (кд 5с)",init:0.5,per:0.18,max:2.3,unit:"% шанс",dps_impact:"low"},
+  trapper:{name:"Trapper",desc:"Увеличивает длительность статус-эффектов",init:4.0,per:1.8,max:22.0,unit:"%",dps_impact:"low"},
+  entropy:{name:"Entropy",desc:"Здоровье увеличено на % от базовой общей брони",init:5.0,per:0.9,max:14.0,unit:"%",dps_impact:"none"},
+  anomaly:{name:"Anomaly",desc:"Лечение на % от урона нанесённого скиллами",init:2.0,per:0.27,max:4.7,unit:"%",dps_impact:"none"},
+  paradox:{name:"Paradox",desc:"Шанс пополнить магазин на 2 за каждый выстрел",init:1.5,per:0.45,max:6.0,unit:"% шанс",dps_impact:"medium"},
+  synesthesia:{name:"Synesthesia",desc:"Шанс сократить кд скилла на 0.2с за попадание",init:2.5,per:0.18,max:4.3,unit:"% шанс",dps_impact:"none"},
 };
 
 // Weapon 4th-roll talents (generic, rolls on any weapon — not exotic/named talents)

@@ -1,0 +1,38 @@
+name,default_core,1pc_bonus,2pc_bonus,3pc_bonus
+5.11 Tactical,Armor,attribute:Health:30%,attribute:Incoming Repairs:30%,attribute:Hazard Protection:30%
+Badger Tuff,Armor,attribute:Shotgun Damage:10%,attribute:Total Armor:5%,attribute:Armor on Kill:15%
+Belstone Armory,Armor,attribute:Armor Regeneration:1%,attribute:Armor on Kill:10%,attribute:Incoming Repairs:45%
+Brazos de Arcabuz,Armor,attribute:Skill Haste:10%,attribute:Skill Tier:1,attribute:Magazine Size:50%
+Gila Guard,Armor,attribute:Total Armor:5%,attribute:Health:60%,attribute:Armor Regeneration:2%
+Improvised,Armor,N/A,N/A,N/A
+Golan Gear Ltd,Armor,attribute:Status Effects:10%,attribute:Armor Regeneration:1.5%,attribute:Total Armor:10%
+Habsburg Guard,Armor,attribute:Headshot Damage:13%,attribute:Marksman Rifle Damage:20%,attribute:Status Effects:25%
+Lengmo,Armor,attribute:Explosive Resistance:20%,attribute:Skill Health:20%,attribute:LMG Damage:30%
+Palisade Steelworks,Armor,attribute:Armor on Kill:10%,attribute:Health:60%,attribute:Skill Tier:1
+Uzina Getica,Armor,attribute:Total Armor:5%,attribute:Armor on Kill:10%,attribute:Hazard Protection:30%
+Yaahl Gear,Armor,attribute:Hazard Protection:10%,attribute:Weapon Damage:10%,attribute:Pulse Resistance:40%
+Alps Summit Armaments,Skill Tier,attribute:Repair Skills:18%,attribute:Skill Duration:30%,attribute:Skill Haste:30%
+China Light Industries,Skill Tier,attribute:Explosive Damage:15%,attribute:Skill Haste:20%,attribute:Status Effects:25%
+Electrique,Skill Tier,attribute:Status Effects:10%,attribute:Shock Resistance:20%,attribute:SMG Damage:30%
+Empress International,Skill Tier,attribute:Skill Health:10%,attribute:Skill Damage:10%,attribute:Skill Efficiency:8%
+Hana-U Corporation,Skill Tier,attribute:Skill Haste:10%,attribute:Skill Damage:10%,attribute:Weapon Damage:15%
+Murakami Industries,Skill Tier,attribute:Skill Duration:15%,attribute:Repair Skills:35%,attribute:Skill Damage:18%
+Richter & Kaiser GmbH,Skill Tier,attribute:Incoming Repairs:15%,attribute:Explosive Resistance:40%,attribute:Repair Skills:52%
+Shiny Monkey,Skill Tier,attribute:Skill Duration:15%,attribute:Skill Efficiency:5%,attribute:Repair Skills:52%
+Wyvern Wear,Skill Tier,attribute:Skill Damage:8%,attribute:Status Effects:18%,attribute:Skill Duration:45%
+Airaldi Holdings,Weapon Damage,attribute:Marksman Rifle Damage:10%,attribute:Headshot Damage:13%,attribute:Damage to Armor:5%
+Unit Alloys,Weapon Damage,attribute:Rate of Fire:5%,attribute:Assault Rifle Damage:20%,attribute:Magazine Size:50%
+Ceska Vyroba s.r.o.,Weapon Damage,attribute:Critical Hit Chance:8%,attribute:Hazard Protection:20%,attribute:Health:90%
+Douglas & Harding,Weapon Damage,attribute:Pistol Damage:20%,attribute:Stability:30%,attribute:Accuracy:50%
+Fenris Group AB,Weapon Damage,attribute:Assault Rifle Damage:10%,attribute:Reload Speed:30%,attribute:Stability:50%
+Grupo Sombra S.A.,Weapon Damage,attribute:Critical Hit Damage:13%,attribute:Explosive Damage:20%,attribute:Headshot Damage:13%
+Imminence Armaments,Weapon Damage,attribute:Weapon Damage:5%,attribute:Increased Threat:100%,attribute:Pistol Damage:60%
+Legatus S.p.A,Weapon Damage,attribute:Swap Speed:30%,attribute:Optimal Range:70%,attribute:Weapon Damage:15%
+Overlord Armaments,Weapon Damage,attribute:Rifle Damage:10%,attribute:Accuracy:30%,attribute:Weapon Handling:30%
+Petrov Defense Group,Weapon Damage,attribute:LMG Damage:10%,attribute:Weapon Handling:15%,attribute:Ammo Capacity:50%
+Providence Defense,Weapon Damage,attribute:Headshot Damage:13%,attribute:Critical Hit Chance:8%,attribute:Critical Hit Damage:13%
+Sokolov Concern,Weapon Damage,attribute:SMG Damage:10%,attribute:Critical Hit Damage:13%,attribute:Critical Hit Chance:8%
+Urban Lookout,Weapon Damage,attribute:Accuracy:10%,attribute:Skill Duration:30%,attribute:Marksman Rifle Damage:30%
+Royal Works,Weapon Damage,attribute:Weapon Handling:5%,attribute:Magazine Size:32.5%,attribute:Critical Hit Damage:15%
+"Walker, Harris & Co.",Weapon Damage,attribute:Weapon Damage:5%,attribute:Damage to Armor:5%,attribute:Health Damage:10%
+Zwiadowka Sp. z o.o.,Weapon Damage,attribute:Magazine Size:15%,attribute:Rifle Damage:20%,attribute:Weapon Handling:30%

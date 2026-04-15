@@ -1,0 +1,18 @@
+name,category,compatibility,min_value,max_value
+Critical Hit Chance,offensive,gear-mod,0%,6%
+Critical Hit Damage,offensive,gear-mod,0%,12%
+Headshot Damage,offensive,gear-mod,0%,10%
+Protection from Elites,defensive,gear-mod,0%,13%
+Armor on Kill,defensive,gear-mod,0,18935
+Burn Resistance,defensive,gear-mod,0%,10%
+Bleed Resistance,defensive,gear-mod,0%,10%
+Shock Resistance,defensive,gear-mod,0%,10%
+Disrupt Resistance,defensive,gear-mod,0%,10%
+Blind/Deaf Resistance,defensive,gear-mod,0%,10%
+Disorient Resistance,defensive,gear-mod,0%,10%
+Ensnare Resistance,defensive,gear-mod,0%,10%
+Pulse Resistance,defensive,gear-mod,0%,10%
+Incoming Repairs,defensive,gear-mod,0%,20%
+Skill Haste,skill,gear-mod,0%,12%
+Skill Duration,skill,gear-mod,0%,10%
+Repair Skills,skill,gear-mod,0%,20%
