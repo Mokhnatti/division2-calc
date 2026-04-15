@@ -121,6 +121,48 @@ function buildKeyboard(q) {
   };
 }
 
+// Send the next unanswered question for a specific user
+async function sendNextQuestion(chatId, userId, userName) {
+  const questions = loadJson(QUESTIONS_FILE, []);
+  const answers = loadJson(ANSWERS_FILE, {});
+  const next = questions.find((q) => {
+    const a = answers[q.id];
+    if (!a || !a.responses) return true;
+    return !a.responses.find((r) => r.user_id === userId);
+  });
+  if (!next) {
+    const total = questions.length;
+    const answered = total;
+    await httpReq(`${API}/sendMessage`, 'POST', {
+      chat_id: chatId,
+      text: `🎉 <b>Готово!</b>\n\nТы ответил на все ${total} вопросов. Спасибо, ${userName}!\n\nПозже появятся новые — бот напишет.`,
+      parse_mode: 'HTML',
+    });
+    return false;
+  }
+  const total = questions.length;
+  const answeredForUser = questions.filter((q) => {
+    const a = answers[q.id];
+    return a && a.responses && a.responses.find((r) => r.user_id === userId);
+  }).length;
+  const progressText = `<b>Вопрос ${answeredForUser + 1} из ${total}</b>\n\n`;
+  const r = await httpReq(`${API}/sendMessage`, 'POST', {
+    chat_id: chatId,
+    text: progressText + buildMessage(next),
+    parse_mode: 'HTML',
+    reply_markup: buildKeyboard(next),
+  });
+  if (r.ok) {
+    log(`sent question ${next.id} to ${userName} (${answeredForUser + 1}/${total})`);
+    // Track message_id for this user
+    if (!answers[next.id]) answers[next.id] = { responses: [], user_messages: {} };
+    if (!answers[next.id].user_messages) answers[next.id].user_messages = {};
+    answers[next.id].user_messages[userId] = r.result.message_id;
+    saveJson(ANSWERS_FILE, answers);
+  }
+  return true;
+}
+
 async function handleCallback(cq) {
   const data = cq.data || '';
   const m = /^q:([^:]+):(\d+)$/.exec(data);
@@ -224,6 +266,11 @@ async function handleCallback(cq) {
   if (state.uncommitted_count >= AUTO_COMMIT_BATCH_SIZE) {
     setImmediate(gitCommit);
   }
+
+  // Send next unanswered question for this user
+  if (cq.message && cq.message.chat) {
+    await sendNextQuestion(cq.message.chat.id, userId, userName);
+  }
 }
 
 async function handleMessage(msg) {
@@ -235,13 +282,20 @@ async function handleMessage(msg) {
     const welcomeText = `👋 Привет, ${userName}!\n\n` +
       `Это <b>Division 2 Calc Quiz Bot</b>.\n\n` +
       `Помоги разрешить спорные значения данных в калькуляторе <a href="https://divcalc.xyz">divcalc.xyz</a>.\n\n` +
+      `Я буду слать вопросы по одному — отвечай кнопками. После ответа — следующий.\n\n` +
       `Команды:\n` +
-      `• /questions — все активные вопросы\n` +
-      `• /progress — сколько отвечено\n` +
-      `• /new — новые вопросы`;
+      `• /next — следующий вопрос\n` +
+      `• /progress — сколько отвечено`;
     await httpReq(`${API}/sendMessage`, 'POST', {
       chat_id: chatId, text: welcomeText, parse_mode: 'HTML',
     });
+    // Auto-send first question after welcome
+    await sendNextQuestion(chatId, msg.from.id, userName);
+    return;
+  }
+
+  if (text === '/next') {
+    await sendNextQuestion(chatId, msg.from.id, userName);
     return;
   }
 
@@ -265,30 +319,9 @@ async function handleMessage(msg) {
     return;
   }
 
-  if (text === '/questions' || text === '/new') {
-    const questions = loadJson(QUESTIONS_FILE, []);
-    const answers = loadJson(ANSWERS_FILE, {});
-    let sent = 0;
-    for (const q of questions) {
-      // Check if THIS user already voted
-      const existing = answers[q.id] && answers[q.id].responses && answers[q.id].responses.find((r) => r.user_id === msg.from.id);
-      if (existing) continue;
-      await httpReq(`${API}/sendMessage`, 'POST', {
-        chat_id: chatId,
-        text: buildMessage(q),
-        parse_mode: 'HTML',
-        reply_markup: buildKeyboard(q),
-      });
-      sent++;
-    }
-    if (sent === 0) {
-      await httpReq(`${API}/sendMessage`, 'POST', {
-        chat_id: chatId,
-        text: '✓ Ты ответил на все вопросы. Спасибо!',
-      });
-    } else {
-      log(`sent ${sent} questions to ${userName}`);
-    }
+  if (text === '/questions' || text === '/new' || text === '/start' && false) {
+    // Send just the FIRST unanswered question; next will follow after answer
+    await sendNextQuestion(chatId, msg.from.id, userName);
     return;
   }
 
