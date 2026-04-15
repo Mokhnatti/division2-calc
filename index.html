@@ -254,15 +254,15 @@
     </div>
 </div>
 <div class="cat-bar">
-    <button class="cat-btn active" data-cat="all">Все</button>
+    <button class="cat-btn active" data-cat="community" style="background:rgba(171,71,188,.15);border-color:rgba(171,71,188,.4);color:var(--named)">🏆 Сообщество</button>
+    <button class="cat-btn" data-cat="build" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">⚙ BUILD</button>
+    <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS Калькулятор</button>
+    <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">META Билды</button>
+    <button class="cat-btn" data-cat="all">Все</button>
     <button class="cat-btn" data-cat="gear">Комплекты (26)</button>
     <button class="cat-btn" data-cat="brand">Бренды (36)</button>
     <button class="cat-btn" data-cat="exotic">Экзотики (~70)</button>
     <button class="cat-btn" data-cat="named">Именные (~96)</button>
-    <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS Калькулятор</button>
-    <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">META Билды</button>
-    <button class="cat-btn" data-cat="build" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">⚙ BUILD</button>
-    <button class="cat-btn" data-cat="community" style="background:rgba(171,71,188,.1);border-color:rgba(171,71,188,.3);color:var(--named);position:relative">🏆 Сообщество <span style="position:absolute;top:-6px;right:-6px;background:var(--red);color:#000;font-size:9px;padding:1px 5px;border-radius:6px;font-weight:700">NEW</span></button>
 </div>
 <div class="result-count" id="rc"></div>
 <div class="content" id="mc"></div>
@@ -1062,6 +1062,7 @@ const N=[
 {name:"Заветный",en:"Cherished",g:"Маски",t:"Маска",brand:"Habsburg Guard",tal:"Perfect Trauma",d:"Голова → слепота (кд 20с). Грудь → кровотечение (кд 20с)"},
 // Именная броня — Нагрудники
 {name:"Свирепое Спокойствие",en:"Ferocious Calm",g:"Нагрудники",t:"Нагрудник",brand:"Fenris Group",tal:"Perfect Berserk",d:"+10% урон за каждые 20% сломанной брони"},
+{name:"Серийный Убийца",en:"Chainkiller",g:"Нагрудники",t:"Нагрудник",brand:"Walker, Harris & Co",tal:"Perfect Headhunter",d:"Идеальный охотник: после хедшот-убийства следующий выстрел +1250% WD"},
 {name:"Образцовый",en:"Pristine Example",g:"Нагрудники",t:"Нагрудник",brand:"Airaldi",tal:"Perfect Vigilance",d:"+30% урон оружием без получения урона (кд 4с)"},
 {name:"Охотник-Убийца",en:"Hunter-Killer",g:"Нагрудники",t:"Нагрудник",brand:"Golan Gear",tal:"Perfect Intimidate",d:"Бонусная броня → +4%/стак урон ближе 10м (макс. 10)"},
 {name:"Хребет",en:"Backbone",g:"Нагрудники",t:"Нагрудник",brand:"Lengmo",tal:"Perfect Unstoppable Force",d:"Убийство +7% урон 15с (макс. 5). Граната = 2 стака"},
@@ -1141,7 +1142,7 @@ function hl(s,qs){
     });return r;
 }
 
-let activeCat="all";
+let activeCat="community";
 
 function render(){
     if(activeCat==="meta"){
@@ -3281,6 +3282,13 @@ if(/^#b=/.test(location.hash)){
   if(buildBtn){
     document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
     buildBtn.click();
+  }
+}else{
+  // Default: open Community tab to greet users with the gallery
+  const commBtn=document.querySelector('.cat-btn[data-cat="community"]');
+  if(commBtn){
+    document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
+    commBtn.click();
   }
 }
 
