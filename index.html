@@ -666,6 +666,10 @@
       <div class="bstat"><label>Свободный</label><input id="rc-util3" value="0" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
     <div style="font-size:10px;color:#555;margin-top:6px">В DPS оружия идёт только <b style="color:var(--orange)">Урон в голову</b> и <b style="color:var(--orange)">Патроны</b> (на магазин). Защитные и утилитарные показаны для справки.</div>
+    <details style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px">
+      <summary style="cursor:pointer;font-size:12px;color:var(--orange);font-weight:600">📖 Справочник всех 34 модификаторов Y8S1 Rise Up</summary>
+      <div id="rcm-reference" style="margin-top:10px;font-size:11px;color:var(--muted)">Загрузка...</div>
+    </details>
   </div>
 
   <!-- Validation warnings -->
@@ -3772,6 +3776,50 @@ updateLangBtn();
 
 // Init build slots from gear set data
 initBuildSlots();
+
+// Lazy-load Recombinator modifiers reference (Y8S1 Rise Up)
+let __rcmCache=null;
+async function loadRecombinatorRef(){
+  if(__rcmCache)return __rcmCache;
+  try{
+    const r=await fetch("recombinator_modifiers.json");
+    if(!r.ok)return null;
+    __rcmCache=await r.json();
+    return __rcmCache;
+  }catch(e){return null}
+}
+async function renderRecombinatorRef(){
+  const el=document.getElementById("rcm-reference");
+  if(!el)return;
+  const mods=await loadRecombinatorRef();
+  if(!mods||!mods.length){el.innerHTML='<i>Не удалось загрузить</i>';return}
+  const cats={Offense:[],Defense:[],Utility:[],Wildcard:[]};
+  for(const m of mods){if(cats[m.category])cats[m.category].push(m)}
+  const colors={Offense:"#ef5350",Defense:"#42a5f5",Utility:"#fdd835",Wildcard:"#ce93d8"};
+  const labels={Offense:"⚔ Атакующие (Offense)",Defense:"🛡 Защитные (Defense)",Utility:"🔧 Вспомогательные (Utility)",Wildcard:"⭐ Универсальные (Wildcard)"};
+  let html="";
+  for(const cat of Object.keys(cats)){
+    if(!cats[cat].length)continue;
+    html+=`<div style="margin-top:8px;color:${colors[cat]};font-weight:700;font-size:11px;text-transform:uppercase">${labels[cat]}</div>`;
+    for(const m of cats[cat]){
+      const stacks=m.stackChanges?m.stackChanges.map(s=>`${s.cat[0]}${s.amount>0?"+":""}${s.amount}`).join(" "):"";
+      const stat=m.stats&&m.stats[0]?`+${m.stats[0].base}% ${m.stats[0].stat}`:"";
+      html+=`<div style="margin:6px 0;padding:6px 8px;background:rgba(255,255,255,.03);border-left:2px solid ${colors[cat]};border-radius:4px">
+        <div style="font-size:12px;color:var(--text);font-weight:600">${m.icon||""} ${m.name} <span style="color:#555;font-weight:400">${stacks?"["+stacks+"]":""}</span></div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">${m.description||""}</div>
+        ${m.description_ru?`<div style="font-size:10px;color:#9ccc65;margin-top:2px">🇷🇺 ${m.description_ru}</div>`:""}
+        ${stat?`<div style="font-size:10px;color:var(--orange);margin-top:2px">→ ${stat}</div>`:""}
+      </div>`;
+    }
+  }
+  el.innerHTML=html;
+}
+// Render when details opened
+document.addEventListener("click",e=>{
+  if(e.target.closest("details>summary")&&e.target.closest("details").querySelector("#rcm-reference")){
+    setTimeout(renderRecombinatorRef,50);
+  }
+});
 
 // If URL has #b=... hash — auto-switch to BUILD tab so user sees the shared build
 if(/^#b=/.test(location.hash)){
