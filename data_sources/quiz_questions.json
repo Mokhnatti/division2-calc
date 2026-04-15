@@ -200,5 +200,265 @@
       }
     ],
     "field": "note_only"
+  },
+  {
+    "id": "dmg_the_sleigher",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>The Sleigher</b> (SMG) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "92 990 (Teriyaki v1.7.4)",
+        "value": 92990,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "50 627 (div2hub/data CSV)",
+        "value": 50627,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.The Sleigher.dmg"
+  },
+  {
+    "id": "dmg_oh_carol",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Oh Carol</b> (MMR) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "433 564 (Teriyaki v1.7.4)",
+        "value": 433564,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "541 954 (div2hub/data CSV)",
+        "value": 541954,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Oh Carol.dmg"
+  },
+  {
+    "id": "dmg_black_friday",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Чёрная Пятница / Black Friday</b> (LMG) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "56 414 (Teriyaki v1.7.4)",
+        "value": 56414,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "48 300 (div2hub/data CSV)",
+        "value": 48300,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Black Friday.dmg"
+  },
+  {
+    "id": "dmg_the_stinger",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>The Stinger</b> (LMG) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "56 414 (Teriyaki v1.7.4)",
+        "value": 56414,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "48 300 (div2hub/data CSV)",
+        "value": 48300,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.The Stinger.dmg"
+  },
+  {
+    "id": "dmg_acr_ss",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>ACR SS</b> (Rifle) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "101 828 (Teriyaki v1.7.4)",
+        "value": 101828,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "92 364 (div2hub/data CSV)",
+        "value": 92364,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.ACR SS.dmg"
+  },
+  {
+    "id": "dmg_shield_splinterer",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Щитолом / Shield Splinterer</b> (AR) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "45 132 (Teriyaki v1.7.4)",
+        "value": 45132,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "49 104 (div2hub/data CSV)",
+        "value": 49104,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Shield Splinterer.dmg"
+  },
+  {
+    "id": "dmg_froth",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Пена / Froth</b> (SMG) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "40 506 (Teriyaki v1.7.4)",
+        "value": 40506,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "39 307 (div2hub/data CSV)",
+        "value": 39307,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Froth.dmg"
+  },
+  {
+    "id": "dmg_big_show",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Big Show</b> (LMG) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "53 546 (Teriyaki v1.7.4)",
+        "value": 53546,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "54 322 (div2hub/data CSV)",
+        "value": 54322,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Big Show.dmg"
+  },
+  {
+    "id": "dmg_maxim_9",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Maxim 9</b> (Pistol) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "125 385 (Teriyaki v1.7.4)",
+        "value": 125385,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "125 414 (div2hub/data CSV)",
+        "value": 125414,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Maxim 9.dmg"
+  },
+  {
+    "id": "dmg_p320_xcompact",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>P320 XCompact</b> (Pistol) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "87 522 (Teriyaki v1.7.4)",
+        "value": 87522,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "87 541 (div2hub/data CSV)",
+        "value": 87541,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.P320 XCompact.dmg"
+  },
+  {
+    "id": "dmg_goalie",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Goalie</b> (AR) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "57 634 (Teriyaki v1.7.4)",
+        "value": 57634,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "57 646 (div2hub/data CSV)",
+        "value": 57646,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Goalie.dmg"
+  },
+  {
+    "id": "dmg_diceros_special",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Diceros Special</b> (Pistol) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "198 306 (Teriyaki v1.7.4)",
+        "value": 198306,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "198 310 (div2hub/data CSV)",
+        "value": 198310,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Diceros Special.dmg"
+  },
+  {
+    "id": "dmg_firestarter",
+    "category": "🔫 Базовый урон оружия",
+    "question": "<b>Firestarter</b> (Shotgun) — базовый урон пули на макс gear score?",
+    "options": [
+      {
+        "label": "635 712 (Teriyaki v1.7.4)",
+        "value": 635712,
+        "source": "teriyaki",
+        "detail": "Div2 Gear Calculator от ImThatTeriyaki, апрель 2026"
+      },
+      {
+        "label": "635 711 (div2hub/data CSV)",
+        "value": 635711,
+        "source": "div2hub",
+        "detail": "div2hub/data репозиторий, апрель 2026"
+      }
+    ],
+    "field": "WPNS_BASE.Firestarter.dmg"
   }
 ]
