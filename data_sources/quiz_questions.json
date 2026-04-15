@@ -2,7 +2,7 @@
   {
     "id": "trapper_max",
     "category": "🧪 Prototype Augment",
-    "question": "Аугмент <b>Trapper</b> — увеличивает длительность статус-эффектов.\n\nЕсть расхождение в источниках какое макс значение на 10-м уровне прокачки:",
+    "question": "Аугмент <b>Trapper / Ловец</b> — увеличивает длительность статус-эффектов.\n\nКакое макс значение на 10-м уровне прокачки?",
     "options": [
       {
         "label": "14% макс (5% → 14% шагом 1%)",
@@ -15,87 +15,114 @@
         "value": 22,
         "source": "div2hub",
         "detail": "div2hub/data augments.csv (апрель 2026)"
-      },
-      {
-        "label": "Другое значение",
-        "value": 0,
-        "source": "other"
       }
     ],
     "field": "PROTOTYPE_AUGMENTS.trapper.max"
   },
   {
-    "id": "shd_chd",
+    "id": "shd_chd_max",
     "category": "⌚ SHD Watch",
-    "question": "Часы SHD — <b>Crit Damage</b> атрибут.\n\nСколько максимум % даёт полностью прокачанный CHD-узел в часах (50/50 очков)?",
+    "question": "Часы SHD — <b>Crit Damage / Урон крита</b> атрибут.\n\nМакс % при 50/50 очков?",
     "options": [
       {
-        "label": "20% макс (step 0.4%, 50 × 0.4)",
+        "label": "20% макс (шаг 0.4%, 50 × 0.4)",
         "value": 20,
         "source": "bddfr",
         "detail": "BDDFr montre.jsonc — ratio 0.4"
       },
       {
-        "label": "30% макс (моя оценка из памяти)",
+        "label": "30% макс",
         "value": 30,
         "source": "hand",
-        "detail": "Моё предположение, может быть устаревшее"
+        "detail": "Моё старое значение из памяти"
       },
       {
-        "label": "Что-то другое",
-        "value": 0,
-        "source": "other"
+        "label": "25% макс",
+        "value": 25,
+        "source": "other",
+        "detail": "Альтернатива"
       }
     ],
     "field": "shd-chd"
   },
   {
-    "id": "shd_hsd",
+    "id": "shd_hsd_max",
     "category": "⌚ SHD Watch",
-    "question": "Часы SHD — <b>Headshot Damage</b> атрибут.\n\nСколько максимум % даёт полностью прокачанный HSD-узел (50/50)?",
+    "question": "Часы SHD — <b>Headshot Damage / Урон в голову</b> атрибут.\n\nМакс % при 50/50 очков?",
     "options": [
       {
-        "label": "20% макс (step 0.4%, 50 × 0.4)",
+        "label": "20% макс (шаг 0.4%)",
         "value": 20,
         "source": "bddfr",
         "detail": "BDDFr montre.jsonc — ratio 0.4"
       },
       {
-        "label": "10% макс (step 0.2%, 50 × 0.2)",
+        "label": "10% макс (шаг 0.2%)",
         "value": 10,
         "source": "hand",
         "detail": "Моё старое значение"
-      },
-      {
-        "label": "Что-то другое",
-        "value": 0,
-        "source": "other"
       }
     ],
     "field": "shd-hsd"
   },
   {
+    "id": "shd_wd_max",
+    "category": "⌚ SHD Watch",
+    "question": "Часы SHD — <b>Weapon Damage / Урон оружием</b> атрибут.\n\nМакс % при 50/50 очков?",
+    "options": [
+      {
+        "label": "10% макс (шаг 0.2%)",
+        "value": 10,
+        "source": "bddfr",
+        "detail": "BDDFr montre.jsonc — ratio 0.2"
+      },
+      {
+        "label": "15% макс",
+        "value": 15,
+        "source": "other"
+      }
+    ],
+    "field": "shd-wd"
+  },
+  {
+    "id": "shd_chc_max",
+    "category": "⌚ SHD Watch",
+    "question": "Часы SHD — <b>Crit Chance / Шанс крита</b>.\n\nМакс % при 50/50 очков?",
+    "options": [
+      {
+        "label": "10% макс (шаг 0.2%)",
+        "value": 10,
+        "source": "bddfr",
+        "detail": "BDDFr montre.jsonc — ratio 0.2"
+      },
+      {
+        "label": "15% макс",
+        "value": 15,
+        "source": "other"
+      }
+    ],
+    "field": "shd-chc"
+  },
+  {
     "id": "escalation_t10_hp",
     "category": "⚔ Escalation Tier 10",
-    "question": "Новый режим <b>Escalation</b> в Y8S1 — максимальный Tier 10.\n\nНа сколько % увеличено HP врагов на 10-м тире?",
+    "question": "Новый режим <b>Escalation</b> в Y8S1 — максимальный Tier 10.\n\nНа сколько увеличено HP врагов?",
     "options": [
       {
         "label": "+700% (800% от базы)",
         "value": 700,
         "source": "reddit",
-        "detail": "Reddit TU28 datamine — таблица из r/thedivision"
+        "detail": "Reddit TU28 datamine"
       },
       {
         "label": "+800% (900% от базы)",
         "value": 800,
-        "source": "reddit2",
-        "detail": "Альтернативное значение"
+        "source": "reddit2"
       },
       {
         "label": "+600% (700% от базы)",
         "value": 600,
-        "source": "hand",
-        "detail": "Старое значение до datamine"
+        "source": "hand"
       }
     ],
     "field": "ESCALATION_TIERS.10.hp"
@@ -103,25 +130,73 @@
   {
     "id": "weapon_dmg_cap",
     "category": "📊 DPS Математика",
-    "question": "Какой soft cap на <b>Weapon Damage bucket</b> в игре?\n\n(Общая сумма всех WD-бонусов — бренды + атрибуты + SHD + таланты)",
+    "question": "Какой soft cap на <b>Weapon Damage bucket</b>?\n\n(Сумма всех WD-бонусов: бренды + атрибуты + SHD + таланты)",
     "options": [
       {
-        "label": "+800% cap (без хедшот-бонуса)",
+        "label": "+800% cap (без HSD > 150%)",
         "value": 800,
         "source": "reddit",
-        "detail": "Community consensus — от reddit дискуссий"
+        "detail": "Community consensus"
       },
       {
-        "label": "+1250% cap (при HSD > 150%)",
+        "label": "+1250% cap (с HSD > 150%)",
         "value": 1250,
         "source": "reddit2",
-        "detail": "С Perfect Headhunter — особое условие"
+        "detail": "С Perfect Headhunter"
       },
       {
         "label": "Нет soft cap",
         "value": 0,
-        "source": "none",
-        "detail": "Стекается бесконечно"
+        "source": "none"
+      }
+    ],
+    "field": "note_only"
+  },
+  {
+    "id": "chc_soft_cap",
+    "category": "📊 DPS Математика",
+    "question": "Soft cap на <b>Critical Hit Chance (CHC)</b>?\n\nПосле какого значения CHC перестаёт работать?",
+    "options": [
+      {
+        "label": "60% cap (классика)",
+        "value": 60,
+        "source": "classic",
+        "detail": "Стандартное значение с Y1"
+      },
+      {
+        "label": "75% cap (Y8S1)",
+        "value": 75,
+        "source": "y8s1",
+        "detail": "Слух про повышение в Y8S1"
+      },
+      {
+        "label": "Нет cap",
+        "value": 0,
+        "source": "none"
+      }
+    ],
+    "field": "note_only"
+  },
+  {
+    "id": "base_crit_dmg",
+    "category": "📊 DPS Математика",
+    "question": "Базовый множитель <b>крит-урона</b> (без бонусов)?",
+    "options": [
+      {
+        "label": "+25% (1.25x)",
+        "value": 25,
+        "source": "classic",
+        "detail": "Стандартное значение"
+      },
+      {
+        "label": "+50% (1.5x)",
+        "value": 50,
+        "source": "other"
+      },
+      {
+        "label": "+100% (2x)",
+        "value": 100,
+        "source": "other"
       }
     ],
     "field": "note_only"
