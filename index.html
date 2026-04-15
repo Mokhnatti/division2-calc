@@ -1170,7 +1170,7 @@ function render(){
     if(fG.length){
         h+=`<div class="section-title">Комплекты снаряжения <span class="cnt">${fG.length}</span></div><div class="grid">`;
         fG.forEach(g=>{
-            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(g.name)}</div><div class="en">${H(g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
+            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(g.name)}${wikiIcon(g.en)}</div><div class="en">${H(g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
             g.bonuses.forEach(b=>{const[t,...r]=b.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+=`<div class="tl"><div class="t-line"><span class="t-name">Нагрудник:</span><span class="t-desc">${H(g.chest)}</span></div>`;
             h+=`<div class="t-line"><span class="t-name">Рюкзак:</span><span class="t-desc">${H(g.bp)}</span></div></div></div>`;
@@ -1181,7 +1181,7 @@ function render(){
     if(fB.length){
         h+=`<div class="section-title">Брендовые наборы <span class="cnt">${fB.length}</span></div><div class="grid sm">`;
         fB.forEach(b=>{
-            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(b.name)}</div><span class="badge b-brand">Бренд</span></div>`;
+            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(b.name)}${wikiIcon(b.name)}</div><span class="badge b-brand">Бренд</span></div>`;
             b.bonuses.forEach(bn=>{const[t,...r]=bn.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+='</div>';
         });h+='</div>';
@@ -1195,7 +1195,7 @@ function render(){
             if(!eg[gr])return;
             h+=`<div class="sub">${gr} (${eg[gr].length})</div><div class="grid">`;
             eg[gr].forEach(e=>{
-                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(e.name)}</div>${e.en?`<div class="en">${H(e.en)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
+                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(e.name)}${wikiIcon(e.en)}</div>${e.en?`<div class="en">${H(e.en)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
                 h+=`<div class="t-line"><span class="t-name">${H(e.tal)}</span></div>`;
                 h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(e.d)}</div></div>`;
             });h+='</div>';
@@ -1210,7 +1210,7 @@ function render(){
             if(!ng[gr])return;
             h+=`<div class="sub">${gr} (${ng[gr].length})</div><div class="grid">`;
             ng[gr].forEach(n=>{
-                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(n.name)}</div>${n.en?`<div class="en">${H(n.en)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
+                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(n.name)}${wikiIcon(n.en)}</div>${n.en?`<div class="en">${H(n.en)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
                 if(n.brand)h+=`<div class="info">Бренд: ${H(n.brand)}</div>`;
                 h+=`<div class="t-line"><span class="t-name">${H(n.tal)}</span></div>`;
                 h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(n.d)}</div></div>`;
@@ -1842,7 +1842,7 @@ function renderSlotItems(){
     }
     return`<div class="mitem" onclick="pickItem(${globalIdx})">
       <div class="mi-h">
-        <div><span class="mi-n ${it.kind}">${it.name}</span> ${it.en?`<span class="mi-en">${it.en}</span>`:""}</div>
+        <div><span class="mi-n ${it.kind}">${it.name}</span>${wikiIcon(it.en||it.brand||it.setName)} ${it.en?`<span class="mi-en">${it.en}</span>`:""}</div>
         <span class="badge ${tagClass}">${tagLbl}</span>
       </div>
       ${body}
@@ -2563,7 +2563,7 @@ function renderWpnList(){
     const base=w.base?`<div class="mi-desc" style="color:#555">базовое: ${w.base}</div>`:"";
     return`<div class="mitem" onclick="pickWpn('${w.id}')">
       <div class="mi-h">
-        <div><span class="mi-n ${kindClass}">${w.name}</span> ${w.en?`<span class="mi-en">${w.en}</span>`:""}</div>
+        <div><span class="mi-n ${kindClass}">${w.name}</span>${wikiIcon(w.en||w.name)} ${w.en?`<span class="mi-en">${w.en}</span>`:""}</div>
         <span class="badge ${tagClass}">${w.cat} · ${kindLbl}</span>
       </div>
       <div class="mi-desc">${stats}</div>
@@ -3232,6 +3232,17 @@ function renderTtk(base,avg,peak){
     </tr>`;
   }).join("");
   document.getElementById("ttk-body").innerHTML=body;
+}
+
+// ===== WIKI LINKS =====
+// English names → fandom wiki search (stable, no 404s)
+function wikiLink(enName){
+  if(!enName)return "";
+  return "https://thedivision.fandom.com/wiki/Special:Search?query="+encodeURIComponent(enName);
+}
+function wikiIcon(enName){
+  if(!enName)return "";
+  return `<a href="${wikiLink(enName)}" target="_blank" rel="noopener" title="Open on Fandom Wiki (EN) / Открыть в Фандом Вики (EN)" style="color:var(--blue);text-decoration:none;margin-left:6px;font-size:11px;opacity:.7" onclick="event.stopPropagation()">📖</a>`;
 }
 
 // ===== LANGUAGE SWITCHER (заглушка, полноценный перевод будет потом) =====
