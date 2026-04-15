@@ -1,0 +1,12 @@
+{
+  "name": "division2-calc",
+  "version": "1.0.0",
+  "description": "The Division 2 DPS calculator, gear database and community builds",
+  "private": true,
+  "scripts": {
+    "translate": "node scripts/translate_items.js",
+    "wiki": "node scripts/scrape_wiki.js",
+    "refresh": "npm run translate && npm run wiki"
+  },
+  "homepage": "https://divcalc.xyz"
+}

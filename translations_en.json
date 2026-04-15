@@ -1,0 +1,2033 @@
+{
+  "sets": {
+    "Striker's Battlegear": {
+      "name": "Боевое снаряжение Страйкера",
+      "en": "Striker's Battlegear",
+      "bonuses": [
+        "2pcs: +15% Weapon control",
+        "3pcs: +15% Rate of fire",
+        "4pcs: Hits +0.65% weapon damage, max. 100 stacks"
+      ],
+      "chest": "Preferential pressure - max. 200 stacks",
+      "bp": "Risk management - damage per stack 1%"
+    },
+    "Heartbreaker": {
+      "name": "Разбиватель сердец",
+      "en": "Heartbreaker",
+      "bonuses": [
+        "2pcs: +15% Damage to assault rifles & +15% Damage to machine guns",
+        "3pcs: +15% Weapon control",
+        "4pcs: Headshot marks the enemy. Hits against the marked one: +1% armor and +1% damage, max. 50"
+      ],
+      "chest": "Max. BPM - max. stacks 100",
+      "bp": "Cold-blooded - bonus armor 2%/stack"
+    },
+    "Umbra Initiative": {
+      "name": "Инициатива Умбра",
+      "en": "Umbra Initiative",
+      "bonuses": [
+        "2шт: +15% Шанс крит. blow",
+        "3pcs: +30% Reload speed",
+        "4pcs: In cover: +1% crit. damage and +0.3% rate of fire/stack (up to 50). Outside cover: 0.8% armor/stack"
+      ],
+      "chest": "From the shadows - max. 100, rate 20/sec",
+      "bp": "To light - max. 100"
+    },
+    "Hunter's Fury": {
+      "name": "Ярость охотника",
+      "en": "Hunter's Fury",
+      "bonuses": [
+        "2pcs: +15% Damage for shotguns & +15% Damage for submachine guns",
+        "3pcs: +20% Armor per kill & +50% Health per kill",
+        "4pcs: Enemies within 15m +20% damage. Kill disorients at 5m, +5% damage 10s (max 5)"
+      ],
+      "chest": "Endless Hunger - duration 30s",
+      "bp": "Crushing force - 10m radius"
+    },
+    "Negotiator's Dilemma": {
+      "name": "Дилемма переговорщика",
+      "en": "Negotiator's Dilemma",
+      "bonuses": [
+        "2шт: +15% Шанс крит. blow",
+        "3pcs: +20% Critical damage. blow",
+        "4pcs: Crits mark (up to 3). Crit on the marked 60% damage to others"
+      ],
+      "chest": "Wealth of goals - 5 tags",
+      "bp": "Critical Measures - Damage 100%"
+    },
+    "Hotshot": {
+      "name": "Горячий выстрел",
+      "en": "Hotshot",
+      "bonuses": [
+        "2pcs: +30% Sniper Rifle Damage & +30% Weapon Control",
+        "3pcs: +30% Damage to the head",
+        "4pcs: 1st headshot +20%, 2nd +10% armor, 3rd recharges. From the 4th - all together"
+      ],
+      "chest": "Bold - bonus armor 100%",
+      "bp": "Blessed - skip 1 headshot"
+    },
+    "Ongoing Directive": {
+      "name": "Текущая директива",
+      "en": "Ongoing Directive",
+      "bonuses": [
+        "2pcs: +15% Status effects",
+        "3pcs: +30% Reload speed",
+        "4pcs: Killing a marked one = explosive magazine (+20% damage, bleeding)"
+      ],
+      "chest": "Parabellum cartridges - +35%",
+      "bp": "Trauma Specialist - Bleeding +50%/+100%"
+    },
+    "True Patriot": {
+      "name": "Истинный патриот",
+      "en": "True Patriot",
+      "bonuses": [
+        "2pcs: +30% Ammo capacity",
+        "3pcs: +30% Magazine size",
+        "4pcs: Debuffs 2s - Cr: +8% damage, Bel: +2% healing, Syn: -8% damage. Flag=explosion"
+      ],
+      "chest": "Waving the flag - 1.5s",
+      "bp": "Patriotic boost - 12%/3%"
+    },
+    "Aces & Eights": {
+      "name": "Тузы и восьмёрки",
+      "en": "Aces & Eights",
+      "bonuses": [
+        "2pcs: +15% Damage of sniper rifles",
+        "3pcs: +30% Damage to the head",
+        "4pcs: Hits → cards, after 5 - shot +30%"
+      ],
+      "chest": "No restrictions - 50%",
+      "bp": "Ace in the hole - +1 shot"
+    },
+    "Tip of the Spear": {
+      "name": "Остриё копья",
+      "en": "Tip of the Spear",
+      "bonuses": [
+        "2pcs: +20% Damage of signature weapons",
+        "3pcs: +10% Weapon damage",
+        "4pcs: Signature kill +15% 10s, ammo every 60s"
+      ],
+      "chest": "Specialist. destruction - 30%, 3rd kill = cartridge",
+      "bp": "Signature Moves - +50% damage 15s"
+    },
+    "Breaking Point": {
+      "name": "Точка разрыва",
+      "en": "Breaking Point",
+      "bonuses": [
+        "2pcs: +25% Damage to rifles & sniper rifles",
+        "3pcs: +30% Head Damage & +15% Weapon Control",
+        "4pcs: Hits → stacks, reload → +2% control and +2% damage 10s"
+      ],
+      "chest": "Point of no return - 15s",
+      "bp": "Honor point - 3%/stack"
+    },
+    "Virtuoso": {
+      "name": "Виртуоз",
+      "en": "Virtuoso",
+      "bonuses": [
+        "2pcs: +15% Weapon Control & +15% Magazine Size",
+        "3pcs: +15% Weapon damage",
+        "4pcs: Killing far away → bonus to nearby and vice versa. 4 stacks = x1.5"
+      ],
+      "chest": "Fortissimo - x2 bonuses",
+      "bp": "Speeding up - 3 stacks"
+    },
+    "Tipping Scales": {
+      "name": "Переломный момент",
+      "en": "Tipping Scales",
+      "bonuses": [
+        "2pcs: +30% Magazine size",
+        "3pcs: +30% Machine gun damage",
+        "4pcs: Shooting → stacks up to 50: +0.5% control and +4% crit. damage/stack"
+      ],
+      "chest": "Устойчивость — макс. 75",
+      "bp": "Snowball - 7%/stack"
+    },
+    "Concentrated Company": {
+      "name": "Сосредоточенная компания",
+      "en": "Concentrated Company",
+      "bonuses": [
+        "2pcs: +10% Weapon damage",
+        "3pcs: +30% Weapon control",
+        "4pcs: Death of the marked +3% damage +2% crit/participant (max. 35)"
+      ],
+      "chest": "All for one - 8 tags",
+      "bp": "One for all - 5%/stack"
+    },
+    "Foundry Bulwark": {
+      "name": "Оплот оружейни",
+      "en": "Foundry Bulwark",
+      "bonuses": [
+        "2pcs: +10% Total armor",
+        "3pcs: +1% Armor Regeneration & +50% Shield Health",
+        "4pcs: 25% damage restored in 10s"
+      ],
+      "chest": "Improved materials - 35%",
+      "bp": "Those. process - 5s"
+    },
+    "System Corruption": {
+      "name": "Системное повреждение",
+      "en": "System Corruption",
+      "bonuses": [
+        "2pcs: +15% Armor per kill",
+        "3pcs: +40% Resistance suppression & pulse",
+        "4pcs: First aid kits → ability: +20% armor, +50% bonus, hiding 5s (cd 20s)"
+      ],
+      "chest": "Optimization - CD 15s",
+      "bp": "Multithreading - 100% armor"
+    },
+    "Aegis": {
+      "name": "Эгида",
+      "en": "Aegis",
+      "bonuses": [
+        "2pcs: +70% Health",
+        "3pcs: +15% Total armor",
+        "4pcs: +3% resistance/attacking enemy (group multiplier)"
+      ],
+      "chest": "Deception - a double is considered",
+      "bp": "Polyethylene - 4%/enemy"
+    },
+    "Cavalier": {
+      "name": "Кавалерист",
+      "en": "Cavalier",
+      "bonuses": [
+        "2pcs: +30% Protection from dangers",
+        "3pcs: +40% Healing skills",
+        "4pcs: Outside cover: -5% damage/sec (max. 50%). Full: immunity + allies"
+      ],
+      "chest": "Supercharge - 70%",
+      "bp": "Safe - 10%/sec"
+    },
+    "Rigger": {
+      "name": "Такелажник",
+      "en": "Rigger",
+      "bonuses": [
+        "2pcs: +15% Skill acceleration",
+        "3pcs: +15% Duration of skills",
+        "4pcs: Interaction with skill +25% damage 10s"
+      ],
+      "chest": "Best friends - 50%",
+      "bp": "Full time - canceling resets CD"
+    },
+    "Eclipse Protocol": {
+      "name": "Протокол Затмения",
+      "en": "Eclipse Protocol",
+      "bonuses": [
+        "2pcs: +15% Status effects",
+        "3pcs: +15% Skill Acceleration & +30% Hazard Protection",
+        "4pcs: Kill → status on enemies within 10m (50%)"
+      ],
+      "chest": "Spread - 15m, 75%",
+      "bp": "Amplifier - +30% damage by status"
+    },
+    "Future Initiative": {
+      "name": "Будущая инициатива",
+      "en": "Future Initiative",
+      "bonuses": [
+        "2pcs: +30% Healing skills",
+        "3pcs: +15% Skill Acceleration & +30% Skill Duration",
+        "4pcs: Full armor → command +15% damage"
+      ],
+      "chest": "Tactical superiority - 25%",
+      "bp": "Strategic support - 120%"
+    },
+    "Hard Wired": {
+      "name": "Жёсткая проводка",
+      "en": "Hard Wired",
+      "bonuses": [
+        "2pcs: +15% Skill acceleration",
+        "3pcs: +15% Damage skills & +30% Healing skills",
+        "4pcs: The skill reduces the CD of another by 30s, +10% damage/healing 20s (once every 20s)"
+      ],
+      "chest": "Positive reinforcement - 25%",
+      "bp": "Short circuit - cd 10s"
+    },
+    "Ortiz: Exuro": {
+      "name": "Ортис: Экзуро",
+      "en": "Ortiz: Exuro",
+      "bonuses": [
+        "2pcs: +20% Burn Duration & +15% Skill Health",
+        "3pcs: +40% Damage from burning",
+        "4pcs: Flamethrower turret 360°, immunity, explosion"
+      ],
+      "chest": "Chain fire - 2m",
+      "bp": "Heatstroke - +25% damage/range"
+    },
+    "Refactor": {
+      "name": "Переработка",
+      "en": "Refactor",
+      "bonuses": [
+        "2pcs: +15% Status effects",
+        "3pcs: +25% Damage of skills",
+        "4pcs: Heal 10% skill damage (to you), 20% (to allies)"
+      ],
+      "chest": "Increased interest - 25%/35%",
+      "bp": "Ultra-technological - healing → armor 80%"
+    },
+    "Measured Assembly": {
+      "name": "Взвешенная сборка",
+      "en": "Measured Assembly",
+      "bonuses": [
+        "2pcs: +15% Skill acceleration",
+        "3pcs: +60% Healing skills & +40% Resistance. explosions",
+        "4pcs: +1 lvl. skill/ally in the zone. 6th → Overload 15s"
+      ],
+      "chest": "Hive Mind - CD 25s",
+      "bp": "Smart collaboration - CD 1s"
+    },
+    "Core Strength": {
+      "name": "Стержневая сила",
+      "en": "Core Strength",
+      "bonuses": [
+        "2pcs: +10% Weapon control",
+        "3pcs: +5% Damage / +5% Armor / +5% Skill Effectiveness",
+        "4pcs: The attribute gives 40% of the other two. Random kernels"
+      ],
+      "chest": "Inner core - 75%",
+      "bp": "Outer core - 3 attributes"
+    }
+  },
+  "brands": {
+    "Providence Defense": {
+      "name": "Providence Defense",
+      "bonuses": [
+        "1pc: +13% Damage to the head",
+        "2 pieces: +8% Critical chance. blow",
+        "3pcs: +13% Critical damage. blow"
+      ]
+    },
+    "Uzina Getica": {
+      "name": "Uzina Getica",
+      "bonuses": [
+        "1pc: +5% Total armor",
+        "2pcs: +10% Armor per kill",
+        "3pcs: +30% Protection from dangers"
+      ]
+    },
+    "Empress International": {
+      "name": "Empress International",
+      "bonuses": [
+        "1pc: +10% Skill Health",
+        "2pcs: +10% Damage of skills",
+        "3pcs: +8% Skill effectiveness"
+      ]
+    },
+    "Wyvern Wear": {
+      "name": "Wyvern Wear",
+      "bonuses": [
+        "1pc: +8% Damage of skills",
+        "2pcs: +18% Status effects",
+        "3pcs: +45% Duration of skills"
+      ]
+    },
+    "Belstone Armory": {
+      "name": "Belstone Armory",
+      "bonuses": [
+        "1pc: +1% Armor regeneration",
+        "2pcs: +10% Armor per kill",
+        "3pcs: +45% Incoming repairs"
+      ]
+    },
+    "Alps Summit": {
+      "name": "Alps Summit",
+      "bonuses": [
+        "1pc: +18% Healing skills",
+        "2pcs: +30% Skill Duration",
+        "3pcs: +30% Skill acceleration"
+      ]
+    },
+    "China Light": {
+      "name": "China Light",
+      "bonuses": [
+        "1pc: +15% Damage with explosives",
+        "2pcs: +20% Skill acceleration",
+        "3pcs: +25% Status effects"
+      ]
+    },
+    "Palisade Steelworks": {
+      "name": "Palisade Steelworks",
+      "bonuses": [
+        "1 piece: +10% Armor per kill",
+        "2pcs: +60% Health",
+        "3pcs: +1 Skill level"
+      ]
+    },
+    "Brazos de Arcabuz": {
+      "name": "Brazos de Arcabuz",
+      "bonuses": [
+        "1pc: +10% Skill acceleration",
+        "2pcs: +1 Skill Level",
+        "3pcs: +50% Magazine size"
+      ]
+    },
+    "Gila Guard": {
+      "name": "Gila Guard",
+      "bonuses": [
+        "1pc: +5% Total armor",
+        "2pcs: +60% Health",
+        "3pcs: +2% Armor regeneration"
+      ]
+    },
+    "Fenris Group": {
+      "name": "Fenris Group",
+      "bonuses": [
+        "1pc: +10% Damage to assault rifles",
+        "2pcs: +30% Reload speed",
+        "3pcs: +50% Weapon stability"
+      ]
+    },
+    "Petrov Defense Group": {
+      "name": "Petrov Defense Group",
+      "bonuses": [
+        "1pc: +10% Machine gun damage",
+        "2pcs: +15% Weapon control",
+        "3pcs: +50% Ammo capacity"
+      ]
+    },
+    "Overlord Armaments": {
+      "name": "Overlord Armaments",
+      "bonuses": [
+        "1pc: +10% Damage to rifles",
+        "2pcs: +30% Weapon accuracy",
+        "3pcs: +30% Weapon control"
+      ]
+    },
+    "Walker, Harris & Co": {
+      "name": "Walker, Harris & Co",
+      "bonuses": [
+        "1pc: +5% Weapon Damage",
+        "2pcs: +5% Damage to armor",
+        "3pcs: +10% Damage to health"
+      ]
+    },
+    "Yaahl Gear": {
+      "name": "Yaahl Gear",
+      "bonuses": [
+        "1pc: +10% Protection from dangers",
+        "2pcs: +10% Weapon damage",
+        "3pcs: +40% Pulse Resistance"
+      ]
+    },
+    "Electrique": {
+      "name": "Electrique",
+      "bonuses": [
+        "1pc: +10% Status effects",
+        "2pcs: +20% Shock Resistance",
+        "3pcs: +30% Damage to submachine guns"
+      ]
+    },
+    "Hana-U": {
+      "name": "Hana-U",
+      "bonuses": [
+        "1pc: +10% Skill acceleration",
+        "2pcs: +10% Damage of skills",
+        "3pcs: +15% Weapon damage"
+      ]
+    },
+    "Murakami Industries": {
+      "name": "Murakami Industries",
+      "bonuses": [
+        "1pc: +15% Duration of skills",
+        "2pcs: +35% Healing skills",
+        "3pcs: +18% Skill Damage"
+      ]
+    },
+    "Richter & Kaiser": {
+      "name": "Richter & Kaiser",
+      "bonuses": [
+        "1 piece: +15% Incoming repairs",
+        "2pcs: +25% Explosion Resistance",
+        "3pcs: +40% Healing skills"
+      ]
+    },
+    "5.11 Tactical": {
+      "name": "5.11 Tactical",
+      "bonuses": [
+        "1pc: +30% Health",
+        "2 pcs: +30% Incoming repairs",
+        "3pcs: +30% Protection from dangers"
+      ]
+    },
+    "Badger Tuff": {
+      "name": "Badger Tuff",
+      "bonuses": [
+        "1pc: +10% Damage to shotguns",
+        "2pcs: +5% Total armor",
+        "3pcs: +15% Armor per kill"
+      ]
+    },
+    "Golan Gear": {
+      "name": "Golan Gear",
+      "bonuses": [
+        "1pc: +10% Status effects",
+        "2pcs: +1.5% Armor regeneration",
+        "3pcs: +10% Total armor"
+      ]
+    },
+    "Habsburg Guard": {
+      "name": "Habsburg Guard",
+      "bonuses": [
+        "1pc: +13% Damage to the head",
+        "2pcs: +20% Damage of sniper rifles",
+        "3pcs: +25% Status effects"
+      ]
+    },
+    "Lengmo": {
+      "name": "Lengmo",
+      "bonuses": [
+        "1pc: +20% Explosion Resistance",
+        "2pcs: +20% Skill Health",
+        "3pcs: +30% Machine gun damage"
+      ]
+    },
+    "Ceska Vyroba": {
+      "name": "Ceska Vyroba",
+      "bonuses": [
+        "1 piece: +8% Critical chance. blow",
+        "2pcs: +20% Protection from dangers",
+        "3pcs: +90% Health"
+      ]
+    },
+    "Douglas & Harding": {
+      "name": "Douglas & Harding",
+      "bonuses": [
+        "1pc: +20% Damage to pistols",
+        "2pcs: +30% Weapon stability",
+        "3pcs: +50% Weapon accuracy"
+      ]
+    },
+    "Grupo Sombra": {
+      "name": "Grupo Sombra",
+      "bonuses": [
+        "1 piece: +13% Critical damage. blow",
+        "2pcs: +20% Damage with explosives",
+        "3pcs: +13% Damage to the head"
+      ]
+    },
+    "Airaldi": {
+      "name": "Airaldi",
+      "bonuses": [
+        "1pc: +10% Damage of sniper rifles",
+        "2 pieces: +13% Damage to the head",
+        "3pcs: +5% Damage to armor"
+      ]
+    },
+    "Sokolov": {
+      "name": "Sokolov",
+      "bonuses": [
+        "1pc: +10% Damage to submachine guns",
+        "2 pieces: +13% Critical damage. blow",
+        "3pcs: +8% Critical chance. blow"
+      ]
+    },
+    "Zwiadowka": {
+      "name": "Zwiadowka",
+      "bonuses": [
+        "1pc: +15% Magazine size",
+        "2pcs: +20% Damage to rifles",
+        "3pcs: +30% Weapon control"
+      ]
+    },
+    "Legatus": {
+      "name": "Legatus",
+      "bonuses": [
+        "1pc: +30% Weapon change speed",
+        "2 pcs: +70% Optimal range",
+        "3pcs: +15% Weapon damage"
+      ]
+    },
+    "Shiny Monkey Gear": {
+      "name": "Shiny Monkey Gear",
+      "bonuses": [
+        "1pc: +15% Duration of skills",
+        "2pcs: +5% Skill Efficiency",
+        "3pcs: +52% Healing skills"
+      ]
+    },
+    "Imminence Armaments": {
+      "name": "Imminence Armaments",
+      "bonuses": [
+        "1pc: +5% Weapon Damage",
+        "2pcs: +100% Increase in threat",
+        "3pcs: +60% Damage of pistols"
+      ]
+    },
+    "Urban Lookout": {
+      "name": "Urban Lookout",
+      "bonuses": [
+        "1pc: +10% Accuracy",
+        "2pcs: +30% Skill Duration",
+        "3pcs: +30% Damage of sniper rifles"
+      ]
+    },
+    "Unit Alloys": {
+      "name": "Unit Alloys",
+      "bonuses": [
+        "1 piece: +5% Rate of fire",
+        "2pcs: +20% Damage to assault rifles",
+        "3pcs: +50% Magazine size"
+      ]
+    },
+    "Royal Works": {
+      "name": "Royal Works",
+      "bonuses": [
+        "1pc: +5% Weapon control",
+        "2pcs: +32.5% Magazine size",
+        "3pcs: +15% Critical damage. blow"
+      ]
+    }
+  },
+  "exotics": {
+    "Eagle Bearer": {
+      "en": "Eagle Bearer",
+      "name": "Орлиное Знамя",
+      "tal": "Eagle's Strike",
+      "d": "Accuracy +30% when shooting. Headshot kills: Tenacity 15s"
+    },
+    "Chameleon": {
+      "en": "Chameleon",
+      "name": "Хамелеон",
+      "tal": "Adaptive Instincts",
+      "d": "10 headshots +20% damage. 10 to body +20% crit. 10 on legs +20% recharge"
+    },
+    "The Bighorn": {
+      "en": "The Bighorn",
+      "name": "Толсторог",
+      "tal": "Big Game Hunter",
+      "d": "Semi-automatic in sight: 450% damage"
+    },
+    "Capacitor": {
+      "en": "Capacitor",
+      "name": "Конденсатор",
+      "tal": "Capacitive",
+      "d": "+1.5% skill damage/stack (max 40). Each Skill Tier +7.5% weapon damage"
+    },
+    "St. Elmo's Engine": {
+      "en": "St. Elmo's Engine",
+      "name": "Мотор Святого Эльма",
+      "tal": "Sustained Voltage",
+      "d": "100 stacks → shock cartridges"
+    },
+    "Strega": {
+      "en": "Strega",
+      "name": "Стрега",
+      "tal": "Unnerve",
+      "d": "Killing an enemy in status → disorienting everyone within 10m"
+    },
+    "Agitator": {
+      "en": "Agitator",
+      "name": "Агитатор",
+      "tal": "Perturb",
+      "d": "In the holster -50% threat. 10s → charged. +25% RPM, +30% damage 20s"
+    },
+    "The Chatterbox": {
+      "en": "The Chatterbox",
+      "name": "Трещотка",
+      "tal": "Blabbermouth",
+      "d": "Recharge +20% RPM. Kills +50% store. +1% RPM/hit (60%)"
+    },
+    "Lady Death": {
+      "en": "Lady Death",
+      "name": "Леди Смерть",
+      "tal": "Breathe Free",
+      "d": "+4 stacks/sec (8 sprint), max. 32. Stacks → damage"
+    },
+    "Backfire": {
+      "en": "Backfire",
+      "name": "Обратный Удар",
+      "tal": "Payment in Kind",
+      "d": "+1% crit/hit (max. 200). Cooldown → bleed 10s"
+    },
+    "Ouroboros": {
+      "en": "Ouroboros",
+      "name": "Уроборос",
+      "tal": "Serpent's Tongue",
+      "d": "RPM 1485, overheat = stun"
+    },
+    "Oxpecker": {
+      "en": "Oxpecker",
+      "name": "Волоклюй",
+      "tal": "Symbiosis",
+      "d": "With Shield: -10%/sec shield health, repair 25% of damage"
+    },
+    "Pestilence": {
+      "en": "Pestilence",
+      "name": "Мор",
+      "tal": "Plague of the Outcasts",
+      "d": "20 hits + kill → cloud 10s. Treatment -50%"
+    },
+    "Bullet King": {
+      "en": "Bullet King",
+      "name": "Король Стрелков",
+      "tal": "Bullet Hell",
+      "d": "Doesn't recharge. 100 hits → ammunition in reserve"
+    },
+    "Bluescreen": {
+      "en": "Bluescreen",
+      "name": "Синий Экран",
+      "tal": "Buffer Overflow",
+      "d": "Full charge → disorientation, equipment overload"
+    },
+    "Iron Lung": {
+      "en": "Iron Lung",
+      "name": "Железный Лёгкий",
+      "tal": "Ardent",
+      "d": "Heat scale (50% of the magazine). Full → sets fire"
+    },
+    "Pakhan": {
+      "en": "Pakhan",
+      "name": "Пахан",
+      "tal": "Pakhan",
+      "d": "Kill +75% shop, max. 4 stacks"
+    },
+    "Big Alejandro": {
+      "en": "Big Alejandro",
+      "name": "Большой Алехандро",
+      "tal": "Big Alejandro",
+      "d": "Increased damage when firing continuously"
+    },
+    "Sweet Dreams / Lullaby": {
+      "en": "Sweet Dreams / Lullaby",
+      "name": "Сладкий Сон / Колыбельная",
+      "tal": "Sandman",
+      "d": "Debuff 10c - no first aid kits and armor restoration"
+    },
+    "Scorpio": {
+      "en": "Scorpio",
+      "name": "Скорпион",
+      "tal": "Scorpio",
+      "d": "x1=Poison, x3=Confusion, x6=Shock, x7=+20% damage"
+    },
+    "Overlord": {
+      "en": "Overlord",
+      "name": "Overlord",
+      "tal": "Warlord",
+      "d": "Upor: several statuses + armored bonus"
+    },
+    "Sheriff": {
+      "en": "Sheriff",
+      "name": "Шериф",
+      "tal": "Authentico",
+      "d": "+35% damage, +100% accuracy, no distance decay"
+    },
+    "Nemesis": {
+      "en": "Nemesis",
+      "name": "Немезида",
+      "tal": "Nemesis",
+      "d": "Longer trigger → up to +50% damage. Missing speeds up charge"
+    },
+    "Mantis": {
+      "en": "Mantis",
+      "name": "Богомол",
+      "tal": "In Plain Sight",
+      "d": "Non-aggressive enemies are highlighted. Increased damage. Decoy synergy"
+    },
+    "Dread Edict": {
+      "en": "Dread Edict",
+      "name": "Суровый Приговор",
+      "tal": "Full Stop",
+      "d": "Headshot kill → set fire to marked ones (10), -50% speed"
+    },
+    "Sacrum Imperium": {
+      "en": "Sacrum Imperium",
+      "name": "Sacrum Imperium",
+      "tal": "The Trap",
+      "d": "Tags for up to 10 targets. Headshot murder → setting everyone on fire"
+    },
+    "Shroud": {
+      "en": "Shroud",
+      "name": "Саван",
+      "tal": "Shroud",
+      "d": "Cloaking while aiming (Y7/Y8)"
+    },
+    "Merciless / Ruthless": {
+      "en": "Merciless / Ruthless",
+      "name": "Безжалостный / Беспощадный",
+      "tal": "Guerrilla Warfare",
+      "d": "Primers when shooting. Accumulation → detonation"
+    },
+    "Diamondback": {
+      "en": "Diamondback",
+      "name": "Гремучник",
+      "tal": "Agonizing Bite",
+      "d": "Random tag. Shot at a marked one = guaranteed crit"
+    },
+    "The Ravenous": {
+      "en": "The Ravenous",
+      "name": "Обжора",
+      "tal": "Banshee's Cry",
+      "d": "Alternation of trunks. Charge → AoE burst"
+    },
+    "Doctor Home": {
+      "en": "Doctor Home",
+      "name": "Домашний Доктор",
+      "tal": "Doctor Home",
+      "d": "Killing a marked one → first aid kit, +10% armor"
+    },
+    "Vindicator": {
+      "en": "Vindicator",
+      "name": "Мститель",
+      "tal": "Ortiz Assault Interface",
+      "d": "Illumination of a body part. Hit +40% damage"
+    },
+    "Bittersweet": {
+      "en": "Bittersweet",
+      "name": "Горькая Радость",
+      "tal": "Bittersweet",
+      "d": "Rifle exotic (Y7/Y8)"
+    },
+    "Kendra's Liberty": {
+      "en": "Kendra's Liberty",
+      "name": "Свобода",
+      "tal": "Liberty",
+      "d": "Weak points → Blind Justice. +2%/hit (30). Headshot → shield repair 3%/stack"
+    },
+    "Regulus": {
+      "en": "Regulus",
+      "name": "Регул",
+      "tal": "Regicide",
+      "d": "Headshot kill → explosion +400%, bleeding"
+    },
+    "Busy Little Bee": {
+      "en": "Busy Little Bee",
+      "name": "Трудолюбивая Пчёлка",
+      "tal": "Busy Little Bee",
+      "d": "On-kill effects for swarm builds"
+    },
+    "Mosquito": {
+      "en": "Mosquito",
+      "name": "Москит",
+      "tal": "Mosquito",
+      "d": "Mechanics of Decoy and Camouflage"
+    },
+    "Tempest": {
+      "en": "Tempest",
+      "name": "Буря",
+      "tal": "Restrained",
+      "d": "Full auto. After destroying the Shield +25% damage 20s"
+    },
+    "Whiplash": {
+      "en": "Whiplash",
+      "name": "Хлыст",
+      "tal": "Faster Than Reloading",
+      "d": "5s in holster → loaded. Reloads both weapons. +20% RPM +50% damage"
+    },
+    "Coyote's Mask": {
+      "en": "Coyote's Mask",
+      "name": "Маска Койота",
+      "tal": "Pack Instincts",
+      "d": "0-15m +25% crit. damage; 15-25m +10%/+10%; 25+m +25% crit. chance"
+    },
+    "Vile": {
+      "en": "Vile",
+      "name": "Злодей",
+      "tal": "Toxic Delivery",
+      "d": "Statuses apply additional. DoT 10s"
+    },
+    "Catharsis": {
+      "en": "Catharsis",
+      "name": "Катарсис",
+      "tal": "Vicious Cycle",
+      "d": "+1%/stack damage (max 30). At 30: reset, healing cloud"
+    },
+    "The Catalyst": {
+      "en": "The Catalyst",
+      "name": "Катализатор",
+      "tal": "The Catalyst",
+      "d": "Increased skill damage for Skill builds"
+    },
+    "Tinkerer": {
+      "en": "Tinkerer",
+      "name": "Умелец",
+      "tal": "Abridged",
+      "d": "Both weapons are of the same type → additional talent. applies to main"
+    },
+    "Investor": {
+      "en": "Investor",
+      "name": "Инвестор",
+      "tal": "Slotted",
+      "d": "CR +10% crit, Yellow +5% skills, Syn +1% regeneration. 3rd attribute"
+    },
+    "Memento": {
+      "en": "Memento",
+      "name": "Мементо",
+      "tal": "Kill Confirmed",
+      "d": "Trophies: +5% damage/+10% armor/+5% skills 10s. Long: +1%/+1%/+0.1% (300s, max 30)"
+    },
+    "NinjaBike Messenger": {
+      "en": "NinjaBike Messenger",
+      "name": "Курьерский ВелоНиндзя",
+      "tal": "Covert Operations",
+      "d": "Two brand set effects at the same time"
+    },
+    "Acosta's Go-Bag": {
+      "en": "Acosta's Go-Bag",
+      "name": "Рюкзак Акосты",
+      "tal": "One in Hand...",
+      "d": "Grenade +1 Skill Tier 15c"
+    },
+    "Birdie's Quick Fix": {
+      "en": "Birdie's Quick Fix",
+      "name": "Скорая Помощь Берди",
+      "tal": "Combat Medic",
+      "d": "Armor restoration with skills"
+    },
+    "Harrier Pride": {
+      "en": "Harrier Pride",
+      "name": "Гордость Лунь",
+      "tal": "Harrier Pride",
+      "d": "Weapon swap mechanics (Y7/Y8)"
+    },
+    "Tardigrade Armor System": {
+      "en": "Tardigrade Armor System",
+      "name": "Система Брони «Тихоходка»",
+      "tal": "Ablative Nano-Plating",
+      "d": "Destroying an ally's armor → repair +80% bonus 10s. KD 45s"
+    },
+    "Ridgeway's Pride": {
+      "en": "Ridgeway's Pride",
+      "name": "Гордость Риджвея",
+      "tal": "Warlord",
+      "d": "Bleeding enemy at 15m → +2% regeneration/sec (max. 10%/sec)"
+    },
+    "Provocator": {
+      "en": "Provocator",
+      "name": "Провокатор",
+      "tal": "Provocator",
+      "d": "Threat and Taunt, Damage on Take"
+    },
+    "Collector": {
+      "en": "Collector",
+      "name": "Собиратель",
+      "tal": "Hoarder",
+      "d": "+3 grenades, +50% radius, +35% damage, auto 1/30s"
+    },
+    "Beacon": {
+      "en": "Beacon",
+      "name": "Маяк",
+      "tal": "Beacon",
+      "d": "Y7/Y8"
+    },
+    "BTSU Datagloves": {
+      "en": "BTSU Datagloves",
+      "name": "Инфоперчатки Чёрных Бивней",
+      "tal": "Overcharge",
+      "d": "Status on enemy → allies +1 Skill Tier 10c"
+    },
+    "Exodus Gloves": {
+      "en": "Exodus Gloves",
+      "name": "Перчатки Exodus",
+      "tal": "Liberty or Death",
+      "d": "+2% damage/hit (30). Headshot → Shield repair 3%/stack"
+    },
+    "Rugged Gauntlets": {
+      "en": "Rugged Gauntlets",
+      "name": "Особо Прочные Перчатки",
+      "tal": "Charged Proxies",
+      "d": "Skill roll → explosion 6m. Enemies +50% skill damage"
+    },
+    "Bloody Knuckles": {
+      "en": "Bloody Knuckles",
+      "name": "Кровавые Кулаки",
+      "tal": "Over the Top",
+      "d": "Melee Damage Boost"
+    },
+    "Overdogs": {
+      "en": "Overdogs",
+      "name": "Главари",
+      "tal": "Overdogs",
+      "d": "Best exotic gloves 2026 (Y7/Y8)"
+    },
+    "Acosta's Kneepads": {
+      "en": "Acosta's Kneepads",
+      "name": "Наколенники Акосты",
+      "tal": "Acosta's Kneepads",
+      "d": "Roll reduces skill cooldown"
+    },
+    "Sawyer's Kneepads": {
+      "en": "Sawyer's Kneepads",
+      "name": "Наколенники Сойер",
+      "tal": "Jammer",
+      "d": "Dash → Jammer Pulse + armor"
+    },
+    "NinjaBike Kneepads": {
+      "en": "NinjaBike Kneepads",
+      "name": "Наколенники ВелоНиндзя",
+      "tal": "Parkour!",
+      "d": "Dash reloads weapon (Dark Zone)"
+    },
+    "Blacklisters": {
+      "en": "Blacklisters",
+      "name": "Чёрный Список",
+      "tal": "Blacklisters",
+      "d": "Y7/Y8"
+    },
+    "Dodge City Gunslinger": {
+      "en": "Dodge City Gunslinger",
+      "name": "Кобура Стрелка из Додж-Сити",
+      "tal": "Quick Draw",
+      "d": "+1 stack/0.3s (100). Change → +10%/stack. Considered a headshot"
+    },
+    "Imperial Dynasty": {
+      "en": "Imperial Dynasty",
+      "name": "Императорская Династия",
+      "tal": "Dragon's Glare",
+      "d": "Sets an enemy on fire at 20m. KD 35s"
+    },
+    "Waveform": {
+      "en": "Waveform",
+      "name": "Форма Волны",
+      "tal": "Frequency",
+      "d": "Changing weapons → Skill Tier enhancement"
+    },
+    "Centurion's Scabbard": {
+      "en": "Centurion's Scabbard",
+      "name": "Ножны Центуриона",
+      "tal": "Centurion's Scabbard",
+      "d": "Pistol damage, bonuses on kills"
+    },
+    "Shocker Punch": {
+      "en": "Shocker Punch",
+      "name": "Шокер",
+      "tal": "Defibrillator",
+      "d": "Melee strike stuns + armor"
+    },
+    "Nimble Holster": {
+      "en": "Nimble Holster",
+      "name": "Проворная Кобура",
+      "tal": "Nimble",
+      "d": "Faster changeover and mobility"
+    }
+  },
+  "named": {
+    "Invisible Hand": {
+      "en": "Invisible Hand",
+      "name": "Невидимая Рука",
+      "tal": "Perfect Allegro",
+      "d": "+15% rate of fire"
+    },
+    "Pyromaniac": {
+      "en": "Pyromaniac",
+      "name": "Пироман",
+      "tal": "Perfectly Ignited",
+      "d": "+40% damage to burning ones. 2 kills → next one lights up"
+    },
+    "Shield Splinterer": {
+      "en": "Shield Splinterer",
+      "name": "Щитолом",
+      "tal": "Perfect Optimist",
+      "d": "+5% damage per 10% empty ammo (max 5 stacks)"
+    },
+    "The Railsplitter": {
+      "en": "The Railsplitter",
+      "name": "Дровосек",
+      "tal": "Perfectly Measured",
+      "d": "Magazine top: +20% RPM −10% damage. Low: +30% damage −15% RPM"
+    },
+    "Savage Wolverine": {
+      "en": "Savage Wolverine",
+      "name": "Дикий Росомаха",
+      "tal": "Perfect Close & Personal",
+      "d": "+40% damage to enemies closer than 7m for 10s after killing"
+    },
+    "Mechanical Animal": {
+      "en": "Mechanical Animal",
+      "name": "Механическое Животное",
+      "tal": "Future Perfection",
+      "d": "Kill +1 Skill Tier for 15s (max 5)"
+    },
+    "Kingbreaker": {
+      "en": "Kingbreaker",
+      "name": "Цареломатель",
+      "tal": "Perfect Flatline",
+      "d": "+20% damage to Pulse enemies. 3 kills → Pulse"
+    },
+    "Test Subject": {
+      "en": "Test Subject",
+      "name": "Подопытный",
+      "tal": "Perfectly In Sync",
+      "d": "Hit with weapon/skill → +5% damage to another for 5s"
+    },
+    "Huntsman": {
+      "en": "Huntsman",
+      "name": "Охотник",
+      "tal": "Perfect Frenzy",
+      "d": "Empty magazine: +20% damage +35% RPM 7s"
+    },
+    "Caretaker": {
+      "en": "Caretaker",
+      "name": "Смотритель",
+      "tal": "Perfect Killer",
+      "d": "Crit kill → +90% crit. damage 10s"
+    },
+    "The Drill": {
+      "en": "The Drill",
+      "name": "Бур",
+      "tal": "Perfect Precision Strike",
+      "d": "Kills further than 20m → gain stacks"
+    },
+    "Emeline's Guard": {
+      "en": "Emeline's Guard",
+      "name": "Охрана Эмелин",
+      "tal": "Perfect Preservation",
+      "d": "Kill → 15% armor 3s. Headshot +20% healing"
+    },
+    "Safety Distance": {
+      "en": "Safety Distance",
+      "name": "Безопасная Дистанция",
+      "tal": "Perfect Outsider",
+      "d": "Kill → +150% range and accuracy 10s"
+    },
+    "Swap Chain": {
+      "en": "Swap Chain",
+      "name": "Цепочка Обмена",
+      "tal": "Perfect Allegro",
+      "d": "+15% rate of fire"
+    },
+    "The Apartment": {
+      "en": "The Apartment",
+      "name": "Квартира",
+      "tal": "Perfectly Measured",
+      "d": "Top/bottom of the store different bonuses"
+    },
+    "Dark Winter": {
+      "en": "Dark Winter",
+      "name": "Тёмная Зима",
+      "tal": "Perfect Killer",
+      "d": "Crit kill → +90% crit. damage 10s"
+    },
+    "Cabaret": {
+      "en": "Cabaret",
+      "name": "Кабаре",
+      "tal": "Perfect Thunderclap",
+      "d": "+35% damage to shocked. 3 kills → shock"
+    },
+    "The Grudge": {
+      "en": "The Grudge",
+      "name": "Обида",
+      "tal": "Perfect Close & Personal",
+      "d": "+40% damage closer than 7m"
+    },
+    "Grown Great": {
+      "en": "Grown Great",
+      "name": "Grown Great",
+      "tal": "Perfect Stabilize",
+      "d": "Stability increases with hits"
+    },
+    "Cuélebre": {
+      "en": "Cuélebre",
+      "name": "Куэлебре",
+      "tal": "Perfect Jazz Hands",
+      "d": "+20% reload speed"
+    },
+    "Rock 'n' Roll": {
+      "en": "Rock 'n' Roll",
+      "name": "Рок-н-Ролл",
+      "tal": "Perfect Extra",
+      "d": "+50% magazine capacity"
+    },
+    "The Send-Off": {
+      "en": "The Send-Off",
+      "name": "Проводы",
+      "tal": "Perfectly Rooted",
+      "d": "In cover: +30% damage/healing skill 15s (every 60s)"
+    },
+    "Tsunami": {
+      "en": "Tsunami",
+      "name": "Цунами",
+      "tal": "Perfect Pummel",
+      "d": "2 kills with telohits → cooldown +50% damage 10s"
+    },
+    "Black Friday": {
+      "en": "Black Friday",
+      "name": "Чёрная Пятница",
+      "tal": "Perfect Unhinged",
+      "d": "+25% damage, −20% controllability"
+    },
+    "Sleipnir": {
+      "en": "Sleipnir",
+      "name": "Слейпнир",
+      "tal": "Perfectly Frenzy",
+      "d": "+4% damage and RPM per 10 rounds when reloading from empty"
+    },
+    "Tabula Rasa": {
+      "en": "Tabula Rasa",
+      "name": "Чистый Лист",
+      "tal": "Perfect Hand Control",
+      "d": "+4% handling/hit (max 10). At maximum 10% chance to replenish the store"
+    },
+    "Carnage": {
+      "en": "Carnage",
+      "name": "Резня",
+      "tal": "Perfect Bullet King",
+      "d": "Kills → chance of full magazine"
+    },
+    "Designated Hitter": {
+      "en": "Designated Hitter",
+      "name": "Назначенный Стрелок",
+      "tal": "Perfect Reformation",
+      "d": "Headshot kill +75% skill healing"
+    },
+    "Ekim's Long Stick": {
+      "en": "Ekim's Long Stick",
+      "name": "Длинная Палка Экима",
+      "tal": "Perfect Ranger",
+      "d": "+3% damage for every 5m to the target"
+    },
+    "The White Death": {
+      "en": "The White Death",
+      "name": "Белая Смерть",
+      "tal": "Unique",
+      "d": "Increased headshot damage"
+    },
+    "Scalpel": {
+      "en": "Scalpel",
+      "name": "Скальпель",
+      "tal": "Future Perfection",
+      "d": "Kill +1 Skill Tier"
+    },
+    "Artist's Tool": {
+      "en": "Artist's Tool",
+      "name": "Инструмент Художника",
+      "tal": "Perfect Rifleman",
+      "d": "Headshots +12% damage 5s (max. 5 stacks)"
+    },
+    "The Virginian": {
+      "en": "The Virginian",
+      "name": "Вирджинец",
+      "tal": "Perfect Boomerang",
+      "d": "Crit 75% → bullet into the magazine. Next +50% damage"
+    },
+    "Baker's Dozen": {
+      "en": "Baker's Dozen",
+      "name": "Чёртова Дюжина",
+      "tal": "Perfect Lucky Shot",
+      "d": "+30% store. Miss from cover 100% → bullet return"
+    },
+    "Harmony": {
+      "en": "Harmony",
+      "name": "Гармония",
+      "tal": "Perfectly In Sync",
+      "d": "Weapon/skill → +5% damage to another"
+    },
+    "Surge": {
+      "en": "Surge",
+      "name": "Всплеск",
+      "tal": "Perfect Spike",
+      "d": "Headshot +25% skill damage 15s"
+    },
+    "Lightning Rod": {
+      "en": "Lightning Rod",
+      "name": "Молниеотвод",
+      "tal": "Perfect Salvage",
+      "d": "Kill 75% → full magazine"
+    },
+    "Orbit": {
+      "en": "Orbit",
+      "name": "Орбита",
+      "tal": "Perfect Finisher",
+      "d": "Changing weapons after killing → +40% crit. chance +50% crit. damage 15s"
+    },
+    "TDI Kard Custom": {
+      "en": "TDI Kard Custom",
+      "name": "TDI Kard Custom",
+      "tal": "Unique",
+      "d": "+1 Skill Tier when worn"
+    },
+    "Nightwatcher": {
+      "en": "Nightwatcher",
+      "name": "Ночной Страж",
+      "tal": "Perfect Spotter",
+      "d": "+20% damage to Pulse enemies"
+    },
+    "Punch Drunk": {
+      "en": "Punch Drunk",
+      "name": "Нокаут",
+      "tal": "Perfect Headshot Trauma",
+      "d": "Headshots +20% head damage 2s"
+    },
+    "The Hollow Man": {
+      "en": "The Hollow Man",
+      "name": "Пустой Человек",
+      "tal": "Perfectly Insulated",
+      "d": "+50% protection from dangers"
+    },
+    "Closer": {
+      "en": "Closer",
+      "name": "Финалист",
+      "tal": "Perfect Lookout",
+      "d": "+20% damage to Pulse enemies"
+    },
+    "Cherished": {
+      "en": "Cherished",
+      "name": "Заветный",
+      "tal": "Perfect Trauma",
+      "d": "Head → blindness (cd 20s). Chest → bleeding (cd 20s)"
+    },
+    "Ferocious Calm": {
+      "en": "Ferocious Calm",
+      "name": "Свирепое Спокойствие",
+      "tal": "Perfect Berserk",
+      "d": "+10% damage for every 20% broken armor"
+    },
+    "Chainkiller": {
+      "en": "Chainkiller",
+      "name": "Серийный Убийца",
+      "tal": "Perfect Headhunter",
+      "d": "Ultimate Hunter: After a headshot kill, next shot +1250% WD"
+    },
+    "Pristine Example": {
+      "en": "Pristine Example",
+      "name": "Образцовый",
+      "tal": "Perfect Vigilance",
+      "d": "+30% weapon damage without taking damage (CD 4s)"
+    },
+    "Hunter-Killer": {
+      "en": "Hunter-Killer",
+      "name": "Охотник-Убийца",
+      "tal": "Perfect Intimate",
+      "d": "Bonus armor → +4%/stack damage closer than 10m (max 10)"
+    },
+    "Backbone": {
+      "en": "Backbone",
+      "name": "Хребет",
+      "tal": "Perfect Unstoppable Force",
+      "d": "Kill +7% damage 15s (max 5). Grenade = 2 stacks"
+    },
+    "Percussive Maintenance": {
+      "en": "Percussive Maintenance",
+      "name": "Ударное Обслуживание",
+      "tal": "Perfect Tech Support",
+      "d": "Skill kill +30% skill damage 10s"
+    },
+    "Strategic Alignment": {
+      "en": "Strategic Alignment",
+      "name": "Стратегическое Согласование",
+      "tal": "Perfect Spark",
+      "d": "+20% weapon damage 15s after hit with skill"
+    },
+    "The Sacrifice": {
+      "en": "The Sacrifice",
+      "name": "Жертва",
+      "tal": "Perfectly On The Ropes",
+      "d": "+20% damage when both skills are on CD"
+    },
+    "Contractor's Gloves": {
+      "en": "Contractor's Gloves",
+      "name": "Перчатки Подрядчика",
+      "tal": "Perfect Completion",
+      "d": "+40% skill damage 15s after destroying enemy armor"
+    },
+    "Deathgrips": {
+      "en": "Deathgrips",
+      "name": "Хватка Смерти",
+      "tal": "Perfect Clutch",
+      "d": "Crit → 25% health and 2% armor"
+    },
+    "Firm Handshake": {
+      "en": "Firm Handshake",
+      "name": "Крепкое Рукопожатие",
+      "tal": "Perfectly Wicked",
+      "d": "+20% damage 20s after status effect"
+    },
+    "Motherly Love": {
+      "en": "Motherly Love",
+      "name": "Материнская Любовь",
+      "tal": "Perfect Opportunistic",
+      "d": "Enemies gain vulnerability +15% damage from other sources 3c"
+    },
+    "Claws Out": {
+      "en": "Claws Out",
+      "name": "Когти Выпущены",
+      "tal": "Perfect Bloodlust",
+      "d": "+20% damage 5s after changing weapons"
+    },
+    "Forge": {
+      "en": "Forge",
+      "name": "Кузница",
+      "tal": "Perfect Smith",
+      "d": "Pistol kill → 60% armor"
+    },
+    "Picaro's Holster": {
+      "en": "Picaro's Holster",
+      "name": "Кобура Пикаро",
+      "tal": "Unique",
+      "d": "+10% weapon damage fixed"
+    },
+    "Emperor's Guard": {
+      "en": "Emperor's Guard",
+      "name": "Стража Императора",
+      "tal": "Perfectly Cloaked",
+      "d": "Armor destruction → enemy disorientation 15s (cd 15s)"
+    },
+    "Fox's Prayer": {
+      "en": "Fox's Prayer",
+      "name": "Молитва Лиса",
+      "tal": "Perfectly Entrenched",
+      "d": "Headshots from cover → 15% armor"
+    },
+    "Lud": {
+      "en": "Lud",
+      "name": "Луд",
+      "tal": "Perfect Streamline",
+      "d": "+47% weapon damage without deployed skills (PvP: +37%)"
+    },
+    "Purist": {
+      "en": "Purist",
+      "name": "Пурист",
+      "tal": "Perfect Streamline",
+      "d": "+47% weapon damage without deployed skills (PvP: +37%)"
+    },
+    "Cap'n": {
+      "en": "Cap'n",
+      "name": "Капитан",
+      "tal": "Perfect Leadership",
+      "d": "Dash → 20% armor as bonus for you and allies 10s. x3 if closer than 10m to the enemy. CD 10s"
+    },
+    "Cloak": {
+      "en": "Cloak",
+      "name": "Маскировка",
+      "tal": "Perfect Attribute",
+      "d": "+50% threat reduction"
+    },
+    "Achilles": {
+      "en": "Achilles",
+      "name": "Ахиллес",
+      "tal": "Perfect Soft Spot",
+      "d": "Destroy weak point → +32% weapon damage 15s"
+    },
+    "Instigator": {
+      "en": "Instigator",
+      "name": "Подстрекатель",
+      "tal": "Perfect Soft Spot",
+      "d": "Destroy weak point → +32% weapon damage 15s"
+    },
+    "Sleight": {
+      "en": "Sleight",
+      "name": "Ловкость",
+      "tal": "Perfect Protected Reload",
+      "d": "+40% bonus armor on reload. 0-30% armor to allies when they are reloading"
+    },
+    "Spot-on": {
+      "en": "Spot-on",
+      "name": "Точное Попадание",
+      "tal": "Perfect Attribute",
+      "d": "+38% accuracy"
+    },
+    "Lockdown": {
+      "en": "Lockdown",
+      "name": "Блокировка",
+      "tal": "Perfect Immobilize",
+      "d": "+25% damage to entangled. 3rd kill → next enemy is restrained"
+    },
+    "Froth": {
+      "en": "Froth",
+      "name": "Пена",
+      "tal": "Perfect Immobilize",
+      "d": "+25% damage to entangled. 3rd kill → next enemy is restrained"
+    },
+    "Equalizer": {
+      "en": "Equalizer",
+      "name": "Уравнитель",
+      "tal": "Perfect Obliterate",
+      "d": "Crits +1% total weapon damage 10s, max. 24 stacks"
+    },
+    "Salvo": {
+      "en": "Salvo",
+      "name": "Залп",
+      "tal": "Perfect Attribute",
+      "d": "+5% rate of fire"
+    },
+    "Interchange": {
+      "en": "Interchange",
+      "name": "Обмен",
+      "tal": "Perfect Back and Forth",
+      "d": "Change TO this weapon: +13% RPM +12% damage 10s. Change From this: +5% RPM +4.5% damage 10s"
+    },
+    "Trader": {
+      "en": "Trader",
+      "name": "Торговец",
+      "tal": "Perfect Back and Forth",
+      "d": "Change ON: +13% RPM +12% damage. Shift C: +5% RPM +4.5% damage. 10s"
+    },
+    "Robin": {
+      "en": "Robin",
+      "name": "Робин",
+      "tal": "Perfect Gunslinger",
+      "d": "Switch weapons +28% weapon damage 5s. Repeated change during buff - loss by 5s"
+    },
+    "Bulldog": {
+      "en": "Bulldog",
+      "name": "Бульдог",
+      "tal": "Perfect Composure",
+      "d": "While in cover +20% total weapon damage"
+    },
+    "Visionario": {
+      "en": "Visionario",
+      "name": "Визионарио",
+      "tal": "Perfect Attribute",
+      "d": "+50% optimal range"
+    },
+    "Vigil": {
+      "en": "Vigil",
+      "name": "Бдительность",
+      "tal": "Perfect Versatile",
+      "d": "Change weapon type → damage 10s: SMG/shotgun +45% closer than 15m; rifles +40% beyond 25m; ШВ/LMG +15% 15-25m"
+    },
+    "The Courier": {
+      "en": "The Courier",
+      "name": "Курьер",
+      "tal": "Perfect Creeping Death",
+      "d": "Status effect on the enemy → spreads to the nearest one within 10m. CD 10s"
+    },
+    "Carpenter": {
+      "en": "Carpenter",
+      "name": "Плотник",
+      "tal": "Perfect Bombardier",
+      "d": "+75% grenade radius. Kill grenade → return grenade. +15% armor when aiming a grenade"
+    },
+    "Combustor": {
+      "en": "Combustor",
+      "name": "Зажигатель",
+      "tal": "Perfectly Explosive Delivery",
+      "d": "Thrown skill → explosion every 1.5s at 5m, then every 5s. Skill Tier Damage"
+    },
+    "Proxy": {
+      "en": "Proxy",
+      "name": "Прокси",
+      "tal": "Perfectly Tamper Proof",
+      "d": "Enemies within 3m of Hive/Turret/Pulse/Bait → Shock. KD 8s"
+    },
+    "Axel": {
+      "en": "Axel",
+      "name": "Аксель",
+      "tal": "Perfect Energize",
+      "d": "First Aid Kit → +1 Skill Tier 15s. At level 6 → Recharge. KD 30s"
+    },
+    "Grease": {
+      "en": "Grease",
+      "name": "Смазка",
+      "tal": "Perfect Attribute",
+      "d": "+16% status effects"
+    },
+    "Henri": {
+      "en": "Henri",
+      "name": "Анри",
+      "tal": "Perfect Camaraderie",
+      "d": "+20% weapon damage within 10m of an ally or skill"
+    },
+    "Lavoisier": {
+      "en": "Lavoisier",
+      "name": "Лавуазье",
+      "tal": "Perfect Galvanize",
+      "d": "Blind/Entangle/Shock on enemy → 50% bonus armor for you and allies at 30m 10s"
+    }
+  },
+  "talents": {},
+  "meta": {
+    "generated": "2026-04-15T02:35:07.003Z",
+    "source": "translate.googleapis.com"
+  },
+  "__texts": {
+    "2шт: +15% Управление оружием": "2pcs: +15% Weapon control",
+    "3шт: +15% Скорострельность": "3pcs: +15% Rate of fire",
+    "4шт: Попадания +0.65% урона оружием, макс. 100 стаков": "4pcs: Hits +0.65% weapon damage, max. 100 stacks",
+    "Давление преимуществом — макс. 200 стаков": "Preferential pressure - max. 200 stacks",
+    "Управление рисками — урон за стак 1%": "Risk management - damage per stack 1%",
+    "2шт: +15% Урон штурмовых винтовок & +15% Урон пулемётов": "2pcs: +15% Damage to assault rifles & +15% Damage to machine guns",
+    "3шт: +15% Управление оружием": "3pcs: +15% Weapon control",
+    "4шт: Хедшот метит врага. Попадания по меченому: +1% брони и +1% урона, макс. 50": "4pcs: Headshot marks the enemy. Hits against the marked one: +1% armor and +1% damage, max. 50",
+    "Макс. BPM — макс. стаков 100": "Max. BPM - max. stacks 100",
+    "Хладнокровный — бонусная броня 2%/стак": "Cold-blooded - bonus armor 2%/stack",
+    "2шт: +15% Шанс крит. удара": "2шт: +15% Шанс крит. blow",
+    "3шт: +30% Скорость перезарядки": "3pcs: +30% Reload speed",
+    "4шт: В укрытии: +1% крит. урон и +0.3% скорострельность/стак (до 50). Вне укрытия: 0.8% брони/стак": "4pcs: In cover: +1% crit. damage and +0.3% rate of fire/stack (up to 50). Outside cover: 0.8% armor/stack",
+    "Из тени — макс. 100, темп 20/сек": "From the shadows - max. 100, rate 20/sec",
+    "На свет — макс. 100": "To light - max. 100",
+    "2шт: +15% Урон дробовиков & +15% Урон пистолетов-пулемётов": "2pcs: +15% Damage for shotguns & +15% Damage for submachine guns",
+    "3шт: +20% Броня за убийство & +50% Здоровье за убийство": "3pcs: +20% Armor per kill & +50% Health per kill",
+    "4шт: Враги в 15м +20% урона. Убийство дезориентирует в 5м, +5% урона 10с (макс. 5)": "4pcs: Enemies within 15m +20% damage. Kill disorients at 5m, +5% damage 10s (max 5)",
+    "Бесконечный голод — длительность 30с": "Endless Hunger - duration 30s",
+    "Сокрушительная сила — радиус 10м": "Crushing force - 10m radius",
+    "3шт: +20% Урон крит. удара": "3pcs: +20% Critical damage. blow",
+    "4шт: Криты метят (до 3). Крит по меченому 60% урона остальным": "4pcs: Crits mark (up to 3). Crit on the marked 60% damage to others",
+    "Богатство целей — меток 5": "Wealth of goals - 5 tags",
+    "Критические меры — урон 100%": "Critical Measures - Damage 100%",
+    "2шт: +30% Урон снайперских винтовок & +30% Управление оружием": "2pcs: +30% Sniper Rifle Damage & +30% Weapon Control",
+    "3шт: +30% Урон в голову": "3pcs: +30% Damage to the head",
+    "4шт: 1-й хедшот +20%, 2-й +10% брони, 3-й перезаряжает. С 4-го — все вместе": "4pcs: 1st headshot +20%, 2nd +10% armor, 3rd recharges. From the 4th - all together",
+    "Дерзкий — бонусная броня 100%": "Bold - bonus armor 100%",
+    "Благословлённый — пропуск 1 хедшота": "Blessed - skip 1 headshot",
+    "2шт: +15% Эффекты статусов": "2pcs: +15% Status effects",
+    "4шт: Убийство меченого = магазин разрывных (+20% урон, кровотечение)": "4pcs: Killing a marked one = explosive magazine (+20% damage, bleeding)",
+    "Патроны Парабеллум — +35%": "Parabellum cartridges - +35%",
+    "Специалист по травмам — кровотечение +50%/+100%": "Trauma Specialist - Bleeding +50%/+100%",
+    "2шт: +30% Ёмкость боезапаса": "2pcs: +30% Ammo capacity",
+    "3шт: +30% Размер магазина": "3pcs: +30% Magazine size",
+    "4шт: Дебаффы 2с — Кр: +8% урон, Бел: +2% лечение, Син: -8% урон. Флаг=взрыв": "4pcs: Debuffs 2s - Cr: +8% damage, Bel: +2% healing, Syn: -8% damage. Flag=explosion",
+    "Развевая флаг — 1.5с": "Waving the flag - 1.5s",
+    "Патриотический буст — 12%/3%": "Patriotic boost - 12%/3%",
+    "2шт: +15% Урон снайперских винтовок": "2pcs: +15% Damage of sniper rifles",
+    "4шт: Попадания → карты, после 5 — выстрел +30%": "4pcs: Hits → cards, after 5 - shot +30%",
+    "Без ограничений — 50%": "No restrictions - 50%",
+    "Туз в рукаве — +1 выстрел": "Ace in the hole - +1 shot",
+    "2шт: +20% Урон фирменного оружия": "2pcs: +20% Damage of signature weapons",
+    "3шт: +10% Урон оружием": "3pcs: +10% Weapon damage",
+    "4шт: Убийство фирменным +15% 10с, патроны каждые 60с": "4pcs: Signature kill +15% 10s, ammo every 60s",
+    "Спец. разрушение — 30%, 3-е убийство=патрон": "Specialist. destruction - 30%, 3rd kill = cartridge",
+    "Фирменные приёмы — +50% урон 15с": "Signature Moves - +50% damage 15s",
+    "2шт: +25% Урон винтовок & снайперских винтовок": "2pcs: +25% Damage to rifles & sniper rifles",
+    "3шт: +30% Урон в голову & +15% Управление оружием": "3pcs: +30% Head Damage & +15% Weapon Control",
+    "4шт: Попадания → стаки, перезарядка → +2% управления и +2% урона 10с": "4pcs: Hits → stacks, reload → +2% control and +2% damage 10s",
+    "Точка невозврата — 15с": "Point of no return - 15s",
+    "Точка чести — 3%/стак": "Honor point - 3%/stack",
+    "2шт: +15% Управление оружием & +15% Размер магазина": "2pcs: +15% Weapon Control & +15% Magazine Size",
+    "3шт: +15% Урон оружием": "3pcs: +15% Weapon damage",
+    "4шт: Убийство далеко → бонус ближнему и наоборот. 4 стака = x1.5": "4pcs: Killing far away → bonus to nearby and vice versa. 4 stacks = x1.5",
+    "Фортиссимо — x2 бонусы": "Fortissimo - x2 bonuses",
+    "Ускоряясь — 3 стака": "Speeding up - 3 stacks",
+    "2шт: +30% Размер магазина": "2pcs: +30% Magazine size",
+    "3шт: +30% Урон пулемётов": "3pcs: +30% Machine gun damage",
+    "4шт: Стрельба → стаки до 50: +0.5% управления и +4% крит. урон/стак": "4pcs: Shooting → stacks up to 50: +0.5% control and +4% crit. damage/stack",
+    "Устойчивость — макс. 75": "Устойчивость — макс. 75",
+    "Снежный ком — 7%/стак": "Snowball - 7%/stack",
+    "2шт: +10% Урон оружием": "2pcs: +10% Weapon damage",
+    "3шт: +30% Управление оружием": "3pcs: +30% Weapon control",
+    "4шт: Смерть меченого +3% урон +2% крит/участника (макс. 35)": "4pcs: Death of the marked +3% damage +2% crit/participant (max. 35)",
+    "Все за одного — 8 меток": "All for one - 8 tags",
+    "Один за всех — 5%/стак": "One for all - 5%/stack",
+    "2шт: +10% Общая броня": "2pcs: +10% Total armor",
+    "3шт: +1% Регенерация брони & +50% Здоровье щита": "3pcs: +1% Armor Regeneration & +50% Shield Health",
+    "4шт: 25% урона восстанавливается за 10с": "4pcs: 25% damage restored in 10s",
+    "Улучшенные материалы — 35%": "Improved materials - 35%",
+    "Тех. процесс — 5с": "Those. process - 5s",
+    "2шт: +15% Броня за убийство": "2pcs: +15% Armor per kill",
+    "3шт: +40% Сопр. подавлению & пульсу": "3pcs: +40% Resistance suppression & pulse",
+    "4шт: Аптечки → способность: +20% брони, +50% бонусной, скрытие 5с (кд 20с)": "4pcs: First aid kits → ability: +20% armor, +50% bonus, hiding 5s (cd 20s)",
+    "Оптимизация — кд 15с": "Optimization - CD 15s",
+    "Многопоточность — 100% брони": "Multithreading - 100% armor",
+    "2шт: +70% Здоровье": "2pcs: +70% Health",
+    "3шт: +15% Общая броня": "3pcs: +15% Total armor",
+    "4шт: +3% сопротивления/атакующий враг (множитель группы)": "4pcs: +3% resistance/attacking enemy (group multiplier)",
+    "Обман — двойник считается": "Deception - a double is considered",
+    "Полиэтилен — 4%/враг": "Polyethylene - 4%/enemy",
+    "2шт: +30% Защита от опасностей": "2pcs: +30% Protection from dangers",
+    "3шт: +40% Навыки лечения": "3pcs: +40% Healing skills",
+    "4шт: Вне укрытия: -5% урона/сек (макс. 50%). Полный: иммунитет + союзникам": "4pcs: Outside cover: -5% damage/sec (max. 50%). Full: immunity + allies",
+    "Сверхзарядка — 70%": "Supercharge - 70%",
+    "Безопасная — 10%/сек": "Safe - 10%/sec",
+    "2шт: +15% Ускорение навыков": "2pcs: +15% Skill acceleration",
+    "3шт: +15% Длительность навыков": "3pcs: +15% Duration of skills",
+    "4шт: Взаимодействие с навыком +25% урона 10с": "4pcs: Interaction with skill +25% damage 10s",
+    "Лучшие друзья — 50%": "Best friends - 50%",
+    "Полное время — отмена сбрасывает кд": "Full time - canceling resets CD",
+    "3шт: +15% Ускорение навыков & +30% Защита от опасностей": "3pcs: +15% Skill Acceleration & +30% Hazard Protection",
+    "4шт: Убийство → статус на врагов в 10м (50%)": "4pcs: Kill → status on enemies within 10m (50%)",
+    "Распространение — 15м, 75%": "Spread - 15m, 75%",
+    "Усилитель — +30% урон по статусу": "Amplifier - +30% damage by status",
+    "2шт: +30% Навыки лечения": "2pcs: +30% Healing skills",
+    "3шт: +15% Ускорение навыков & +30% Длительность навыков": "3pcs: +15% Skill Acceleration & +30% Skill Duration",
+    "4шт: Полная броня → команда +15% урон": "4pcs: Full armor → command +15% damage",
+    "Тактическое превосходство — 25%": "Tactical superiority - 25%",
+    "Стратегическая поддержка — 120%": "Strategic support - 120%",
+    "3шт: +15% Урон навыков & +30% Навыки лечения": "3pcs: +15% Damage skills & +30% Healing skills",
+    "4шт: Навык сокращает кд другого на 30с, +10% урон/лечение 20с (раз в 20с)": "4pcs: The skill reduces the CD of another by 30s, +10% damage/healing 20s (once every 20s)",
+    "Положительное подкрепление — 25%": "Positive reinforcement - 25%",
+    "Короткое замыкание — кд 10с": "Short circuit - cd 10s",
+    "2шт: +20% Длительность горения & +15% Здоровье навыка": "2pcs: +20% Burn Duration & +15% Skill Health",
+    "3шт: +40% Урон от горения": "3pcs: +40% Damage from burning",
+    "4шт: Башенка-огнемёт 360°, иммунитет, взрыв": "4pcs: Flamethrower turret 360°, immunity, explosion",
+    "Цепное возгорание — 2м": "Chain fire - 2m",
+    "Тепловой удар — +25% урон/дальность": "Heatstroke - +25% damage/range",
+    "3шт: +25% Урон навыков": "3pcs: +25% Damage of skills",
+    "4шт: Лечение 10% урона навыков (вам), 20% (союзникам)": "4pcs: Heal 10% skill damage (to you), 20% (to allies)",
+    "Повышенный интерес — 25%/35%": "Increased interest - 25%/35%",
+    "Сверхтехнологичный — лечение → броня 80%": "Ultra-technological - healing → armor 80%",
+    "3шт: +60% Навыки лечения & +40% Сопр. взрывам": "3pcs: +60% Healing skills & +40% Resistance. explosions",
+    "4шт: +1 ур. навыка/союзник в зоне. 6-й → Перегрузка 15с": "4pcs: +1 lvl. skill/ally in the zone. 6th → Overload 15s",
+    "Разум улья — кд 25с": "Hive Mind - CD 25s",
+    "Умное сотрудничество — кд 1с": "Smart collaboration - CD 1s",
+    "2шт: +10% Управление оружием": "2pcs: +10% Weapon control",
+    "3шт: +5% Урон / +5% Броня / +5% Эффективность навыков": "3pcs: +5% Damage / +5% Armor / +5% Skill Effectiveness",
+    "4шт: Атрибут даёт 40% от двух других. Случайные ядра": "4pcs: The attribute gives 40% of the other two. Random kernels",
+    "Внутреннее ядро — 75%": "Inner core - 75%",
+    "Внешнее ядро — 3 атрибута": "Outer core - 3 attributes",
+    "1шт: +13% Урон в голову": "1pc: +13% Damage to the head",
+    "2шт: +8% Шанс крит. удара": "2 pieces: +8% Critical chance. blow",
+    "3шт: +13% Урон крит. удара": "3pcs: +13% Critical damage. blow",
+    "1шт: +5% Общая броня": "1pc: +5% Total armor",
+    "2шт: +10% Броня за убийство": "2pcs: +10% Armor per kill",
+    "3шт: +30% Защита от опасностей": "3pcs: +30% Protection from dangers",
+    "1шт: +10% Здоровье навыка": "1pc: +10% Skill Health",
+    "2шт: +10% Урон навыков": "2pcs: +10% Damage of skills",
+    "3шт: +8% Эффективность навыков": "3pcs: +8% Skill effectiveness",
+    "1шт: +8% Урон навыков": "1pc: +8% Damage of skills",
+    "2шт: +18% Эффекты статусов": "2pcs: +18% Status effects",
+    "3шт: +45% Длительность навыков": "3pcs: +45% Duration of skills",
+    "1шт: +1% Регенерация брони": "1pc: +1% Armor regeneration",
+    "3шт: +45% Входящий ремонт": "3pcs: +45% Incoming repairs",
+    "1шт: +18% Навыки лечения": "1pc: +18% Healing skills",
+    "2шт: +30% Длительность навыков": "2pcs: +30% Skill Duration",
+    "3шт: +30% Ускорение навыков": "3pcs: +30% Skill acceleration",
+    "1шт: +15% Урон взрывчаткой": "1pc: +15% Damage with explosives",
+    "2шт: +20% Ускорение навыков": "2pcs: +20% Skill acceleration",
+    "3шт: +25% Эффекты статусов": "3pcs: +25% Status effects",
+    "1шт: +10% Броня за убийство": "1 piece: +10% Armor per kill",
+    "2шт: +60% Здоровье": "2pcs: +60% Health",
+    "3шт: +1 Уровень навыка": "3pcs: +1 Skill level",
+    "1шт: +10% Ускорение навыков": "1pc: +10% Skill acceleration",
+    "2шт: +1 Уровень навыка": "2pcs: +1 Skill Level",
+    "3шт: +50% Размер магазина": "3pcs: +50% Magazine size",
+    "3шт: +2% Регенерация брони": "3pcs: +2% Armor regeneration",
+    "1шт: +10% Урон штурмовых винтовок": "1pc: +10% Damage to assault rifles",
+    "2шт: +30% Скорость перезарядки": "2pcs: +30% Reload speed",
+    "3шт: +50% Устойчивость оружия": "3pcs: +50% Weapon stability",
+    "1шт: +10% Урон пулемётов": "1pc: +10% Machine gun damage",
+    "3шт: +50% Ёмкость боезапаса": "3pcs: +50% Ammo capacity",
+    "1шт: +10% Урон винтовок": "1pc: +10% Damage to rifles",
+    "2шт: +30% Точность оружия": "2pcs: +30% Weapon accuracy",
+    "1шт: +5% Урон оружием": "1pc: +5% Weapon Damage",
+    "2шт: +5% Урон по броне": "2pcs: +5% Damage to armor",
+    "3шт: +10% Урон по здоровью": "3pcs: +10% Damage to health",
+    "1шт: +10% Защита от опасностей": "1pc: +10% Protection from dangers",
+    "3шт: +40% Сопротивление пульсу": "3pcs: +40% Pulse Resistance",
+    "1шт: +10% Эффекты статусов": "1pc: +10% Status effects",
+    "2шт: +20% Сопротивление шоку": "2pcs: +20% Shock Resistance",
+    "3шт: +30% Урон пистолетов-пулемётов": "3pcs: +30% Damage to submachine guns",
+    "1шт: +15% Длительность навыков": "1pc: +15% Duration of skills",
+    "2шт: +35% Навыки лечения": "2pcs: +35% Healing skills",
+    "3шт: +18% Урон навыков": "3pcs: +18% Skill Damage",
+    "1шт: +15% Входящий ремонт": "1 piece: +15% Incoming repairs",
+    "2шт: +25% Сопротивление взрывам": "2pcs: +25% Explosion Resistance",
+    "1шт: +30% Здоровье": "1pc: +30% Health",
+    "2шт: +30% Входящий ремонт": "2 pcs: +30% Incoming repairs",
+    "1шт: +10% Урон дробовиков": "1pc: +10% Damage to shotguns",
+    "2шт: +5% Общая броня": "2pcs: +5% Total armor",
+    "3шт: +15% Броня за убийство": "3pcs: +15% Armor per kill",
+    "2шт: +1.5% Регенерация брони": "2pcs: +1.5% Armor regeneration",
+    "3шт: +10% Общая броня": "3pcs: +10% Total armor",
+    "2шт: +20% Урон снайперских винтовок": "2pcs: +20% Damage of sniper rifles",
+    "1шт: +20% Сопротивление взрывам": "1pc: +20% Explosion Resistance",
+    "2шт: +20% Здоровье навыка": "2pcs: +20% Skill Health",
+    "1шт: +8% Шанс крит. удара": "1 piece: +8% Critical chance. blow",
+    "2шт: +20% Защита от опасностей": "2pcs: +20% Protection from dangers",
+    "3шт: +90% Здоровье": "3pcs: +90% Health",
+    "1шт: +20% Урон пистолетов": "1pc: +20% Damage to pistols",
+    "2шт: +30% Устойчивость оружия": "2pcs: +30% Weapon stability",
+    "3шт: +50% Точность оружия": "3pcs: +50% Weapon accuracy",
+    "1шт: +13% Урон крит. удара": "1 piece: +13% Critical damage. blow",
+    "2шт: +20% Урон взрывчаткой": "2pcs: +20% Damage with explosives",
+    "3шт: +13% Урон в голову": "3pcs: +13% Damage to the head",
+    "1шт: +10% Урон снайперских винтовок": "1pc: +10% Damage of sniper rifles",
+    "2шт: +13% Урон в голову": "2 pieces: +13% Damage to the head",
+    "3шт: +5% Урон по броне": "3pcs: +5% Damage to armor",
+    "1шт: +10% Урон пистолетов-пулемётов": "1pc: +10% Damage to submachine guns",
+    "2шт: +13% Урон крит. удара": "2 pieces: +13% Critical damage. blow",
+    "3шт: +8% Шанс крит. удара": "3pcs: +8% Critical chance. blow",
+    "1шт: +15% Размер магазина": "1pc: +15% Magazine size",
+    "2шт: +20% Урон винтовок": "2pcs: +20% Damage to rifles",
+    "1шт: +30% Скорость смены оружия": "1pc: +30% Weapon change speed",
+    "2шт: +70% Оптимальная дальность": "2 pcs: +70% Optimal range",
+    "2шт: +5% Эффективность навыков": "2pcs: +5% Skill Efficiency",
+    "3шт: +52% Навыки лечения": "3pcs: +52% Healing skills",
+    "2шт: +100% Повышение угрозы": "2pcs: +100% Increase in threat",
+    "3шт: +60% Урон пистолетов": "3pcs: +60% Damage of pistols",
+    "1шт: +10% Точность": "1pc: +10% Accuracy",
+    "3шт: +30% Урон снайперских винтовок": "3pcs: +30% Damage of sniper rifles",
+    "1шт: +5% Скорострельность": "1 piece: +5% Rate of fire",
+    "2шт: +20% Урон штурмовых винтовок": "2pcs: +20% Damage to assault rifles",
+    "1шт: +5% Управление оружием": "1pc: +5% Weapon control",
+    "2шт: +32.5% Размер магазина": "2pcs: +32.5% Magazine size",
+    "3шт: +15% Урон крит. удара": "3pcs: +15% Critical damage. blow",
+    "Eagle's Strike": "Eagle's Strike",
+    "Точность +30% при стрельбе. Хедшот-убийства: Tenacity 15с": "Accuracy +30% when shooting. Headshot kills: Tenacity 15s",
+    "Adaptive Instincts": "Adaptive Instincts",
+    "10 хедшотов +20% урон. 10 в корпус +20% крит. 10 по ногам +20% перезарядка": "10 headshots +20% damage. 10 to body +20% crit. 10 on legs +20% recharge",
+    "Big Game Hunter": "Big Game Hunter",
+    "В прицеле полуавтомат: 450% урона": "Semi-automatic in sight: 450% damage",
+    "Capacitive": "Capacitive",
+    "+1.5% урон умений/стак (макс. 40). Каждый Skill Tier +7.5% урон оружием": "+1.5% skill damage/stack (max 40). Each Skill Tier +7.5% weapon damage",
+    "Sustained Voltage": "Sustained Voltage",
+    "100 стаков → шоковые патроны": "100 stacks → shock cartridges",
+    "Unnerve": "Unnerve",
+    "Убийство врага в статусе → дезориентация всех в 10м": "Killing an enemy in status → disorienting everyone within 10m",
+    "Perturb": "Perturb",
+    "В кобуре -50% угрозы. 10с → заряжено. +25% RPM, +30% урон 20с": "In the holster -50% threat. 10s → charged. +25% RPM, +30% damage 20s",
+    "Blabbermouth": "Blabbermouth",
+    "Перезарядка +20% RPM. Убийства +50% магазина. +1% RPM/хит (60%)": "Recharge +20% RPM. Kills +50% store. +1% RPM/hit (60%)",
+    "Breathe Free": "Breathe Free",
+    "+4 стака/сек (8 спринт), макс. 32. Стаки → урон": "+4 stacks/sec (8 sprint), max. 32. Stacks → damage",
+    "Payment in Kind": "Payment in Kind",
+    "+1% крит/хит (макс. 200). Перезарядка → кровотечение 10с": "+1% crit/hit (max. 200). Cooldown → bleed 10s",
+    "Serpent's Tongue": "Serpent's Tongue",
+    "RPM 1485, перегрев = оглушение": "RPM 1485, overheat = stun",
+    "Symbiosis": "Symbiosis",
+    "При Щите: -10%/сек здоровья щита, ремонт 25% от урона": "With Shield: -10%/sec shield health, repair 25% of damage",
+    "Plague of the Outcasts": "Plague of the Outcasts",
+    "20 попаданий + убийство → облако 10с. Лечение -50%": "20 hits + kill → cloud 10s. Treatment -50%",
+    "Bullet Hell": "Bullet Hell",
+    "Не перезаряжается. 100 хитов → боеприпасы в резерв": "Doesn't recharge. 100 hits → ammunition in reserve",
+    "Buffer Overflow": "Buffer Overflow",
+    "Полный заряд → дезориентация, перегрузка техники": "Full charge → disorientation, equipment overload",
+    "Ardent": "Ardent",
+    "Шкала тепла (50% магазина). Полная → поджигает": "Heat scale (50% of the magazine). Full → sets fire",
+    "Pakhan": "Pakhan",
+    "Убийство +75% магазин, макс. 4 стака": "Kill +75% shop, max. 4 stacks",
+    "Big Alejandro": "Big Alejandro",
+    "Усиленный урон при непрерывной стрельбе": "Increased damage when firing continuously",
+    "Sandman": "Sandman",
+    "Дебафф 10с — нет аптечек и восстановления брони": "Debuff 10c - no first aid kits and armor restoration",
+    "Scorpio": "Scorpio",
+    "x1=Яд, x3=Дезориентация, x6=Шок, x7=+20% урон": "x1=Poison, x3=Confusion, x6=Shock, x7=+20% damage",
+    "Warlord": "Warlord",
+    "Упор: несколько статусов + бонус по бронированным": "Upor: several statuses + armored bonus",
+    "Autentico": "Authentico",
+    "+35% урон, +100% точность, нет спада дистанции": "+35% damage, +100% accuracy, no distance decay",
+    "Nemesis": "Nemesis",
+    "Дольше курок → до +50% урона. Промах ускоряет заряд": "Longer trigger → up to +50% damage. Missing speeds up charge",
+    "In Plain Sight": "In Plain Sight",
+    "Не-агрессивные враги подсвечены. Увеличенный урон. Decoy синергия": "Non-aggressive enemies are highlighted. Increased damage. Decoy synergy",
+    "Full Stop": "Full Stop",
+    "Хедшот-убийство → поджог отмеченных (10), -50% скорости": "Headshot kill → set fire to marked ones (10), -50% speed",
+    "The Trap": "The Trap",
+    "Метки до 10 целей. Хедшот-убийство → поджог всех": "Tags for up to 10 targets. Headshot murder → setting everyone on fire",
+    "Shroud": "Shroud",
+    "Маскировка при прицеливании (Y7/Y8)": "Cloaking while aiming (Y7/Y8)",
+    "Guerrilla Warfare": "Guerrilla Warfare",
+    "Праймеры при стрельбе. Накопление → детонация": "Primers when shooting. Accumulation → detonation",
+    "Agonizing Bite": "Agonizing Bite",
+    "Случайная метка. Выстрел по меченому = гарантированный крит": "Random tag. Shot at a marked one = guaranteed crit",
+    "Banshee's Cry": "Banshee's Cry",
+    "Чередование стволов. Заряд → AoE взрыв": "Alternation of trunks. Charge → AoE burst",
+    "Doctor Home": "Doctor Home",
+    "Убийство меченого → аптечка, +10% брони": "Killing a marked one → first aid kit, +10% armor",
+    "Ortiz Assault Interface": "Ortiz Assault Interface",
+    "Подсветка части тела. Попадание +40% урон": "Illumination of a body part. Hit +40% damage",
+    "Bittersweet": "Bittersweet",
+    "Rifle экзотик (Y7/Y8)": "Rifle exotic (Y7/Y8)",
+    "Liberty": "Liberty",
+    "Слабые точки → Blind Justice. +2%/хит (30). Хедшот → ремонт щита 3%/стак": "Weak points → Blind Justice. +2%/hit (30). Headshot → shield repair 3%/stack",
+    "Regicide": "Regicide",
+    "Хедшот-убийство → взрыв +400%, кровотечение": "Headshot kill → explosion +400%, bleeding",
+    "Busy Little Bee": "Busy Little Bee",
+    "Эффекты при убийстве для роевых билдов": "On-kill effects for swarm builds",
+    "Mosquito": "Mosquito",
+    "Механика Decoy и маскировки": "Mechanics of Decoy and Camouflage",
+    "Restrained": "Restrained",
+    "Полный авто. После разрушения Щита +25% урон 20с": "Full auto. After destroying the Shield +25% damage 20s",
+    "Faster Than Reloading": "Faster Than Reloading",
+    "5с в кобуре → заряжен. Перезаряжает оба оружия. +20% RPM +50% урон": "5s in holster → loaded. Reloads both weapons. +20% RPM +50% damage",
+    "Pack Instincts": "Pack Instincts",
+    "0-15м +25% крит. урон; 15-25м +10%/+10%; 25+м +25% крит. шанс": "0-15m +25% crit. damage; 15-25m +10%/+10%; 25+m +25% crit. chance",
+    "Toxic Delivery": "Toxic Delivery",
+    "Статусы наносят доп. DoT 10с": "Statuses apply additional. DoT 10s",
+    "Vicious Cycle": "Vicious Cycle",
+    "+1%/стак урон (макс. 30). На 30: сброс, лечащее облако": "+1%/stack damage (max 30). At 30: reset, healing cloud",
+    "The Catalyst": "The Catalyst",
+    "Усиление урона умений для Skill-билдов": "Increased skill damage for Skill builds",
+    "Abridged": "Abridged",
+    "Оба оружия одного типа → талант доп. применяется к основному": "Both weapons are of the same type → additional talent. applies to main",
+    "Slotted": "Slotted",
+    "Кр +10% крит, Жёлт +5% умения, Син +1% регенерация. 3-й атрибут": "CR +10% crit, Yellow +5% skills, Syn +1% regeneration. 3rd attribute",
+    "Kill Confirmed": "Kill Confirmed",
+    "Трофеи: +5% урон/+10% броня/+5% умения 10с. Долго: +1%/+1%/+0.1% (300с, макс. 30)": "Trophies: +5% damage/+10% armor/+5% skills 10s. Long: +1%/+1%/+0.1% (300s, max 30)",
+    "Covert Operations": "Covert Operations",
+    "Два эффекта brand set одновременно": "Two brand set effects at the same time",
+    "One in Hand...": "One in Hand...",
+    "Граната +1 Skill Tier 15с": "Grenade +1 Skill Tier 15c",
+    "Combat Medic": "Combat Medic",
+    "Восстановление брони при умениях": "Armor restoration with skills",
+    "Harrier Pride": "Harrier Pride",
+    "Механика смены оружия (Y7/Y8)": "Weapon swap mechanics (Y7/Y8)",
+    "Ablative Nano-Plating": "Ablative Nano-Plating",
+    "Разрушение брони союзника → ремонт +80% бонусной 10с. КД 45с": "Destroying an ally's armor → repair +80% bonus 10s. KD 45s",
+    "Кровоточащий враг в 15м → +2% регенерация/сек (макс. 10%/сек)": "Bleeding enemy at 15m → +2% regeneration/sec (max. 10%/sec)",
+    "Provocator": "Provocator",
+    "Угроза и провокация, урон при получении": "Threat and Taunt, Damage on Take",
+    "Hoarder": "Hoarder",
+    "+3 гранаты, +50% радиус, +35% урон, авто 1/30с": "+3 grenades, +50% radius, +35% damage, auto 1/30s",
+    "Beacon": "Beacon",
+    "Y7/Y8": "Y7/Y8",
+    "Overcharge": "Overcharge",
+    "Статус на враге → союзники +1 Skill Tier 10с": "Status on enemy → allies +1 Skill Tier 10c",
+    "Liberty or Death": "Liberty or Death",
+    "+2% урон/хит (30). Хедшот → ремонт Щита 3%/стак": "+2% damage/hit (30). Headshot → Shield repair 3%/stack",
+    "Charged Proxies": "Charged Proxies",
+    "Бросок умения → взрыв 6м. Враги +50% урон от умений": "Skill roll → explosion 6m. Enemies +50% skill damage",
+    "Over the Top": "Over the Top",
+    "Усиление рукопашного урона": "Melee Damage Boost",
+    "Overdogs": "Overdogs",
+    "Лучшие exotic gloves 2026 (Y7/Y8)": "Best exotic gloves 2026 (Y7/Y8)",
+    "Acosta's Kneepads": "Acosta's Kneepads",
+    "Перекат снижает кд умений": "Roll reduces skill cooldown",
+    "Jammer": "Jammer",
+    "Перебежка → Jammer Pulse + броня": "Dash → Jammer Pulse + armor",
+    "Parkour!": "Parkour!",
+    "Перебежка перезаряжает оружие (Тёмная Зона)": "Dash reloads weapon (Dark Zone)",
+    "Blacklisters": "Blacklisters",
+    "Quick Draw": "Quick Draw",
+    "+1 стак/0.3с (100). Смена → +10%/стак. Считается хедшотом": "+1 stack/0.3s (100). Change → +10%/stack. Considered a headshot",
+    "Dragon's Glare": "Dragon's Glare",
+    "Поджигает врага в 20м. КД 35с": "Sets an enemy on fire at 20m. KD 35s",
+    "Frequency": "Frequency",
+    "Смена оружия → Skill Tier усиление": "Changing weapons → Skill Tier enhancement",
+    "Centurion's Scabbard": "Centurion's Scabbard",
+    "Пистолетный урон, бонусы при убийствах": "Pistol damage, bonuses on kills",
+    "Defibrillator": "Defibrillator",
+    "Рукопашный удар оглушает + броня": "Melee strike stuns + armor",
+    "Nimble": "Nimble",
+    "Ускоренная смена и мобильность": "Faster changeover and mobility",
+    "Perfect Allegro": "Perfect Allegro",
+    "+15% скорострельность": "+15% rate of fire",
+    "Perfectly Ignited": "Perfectly Ignited",
+    "+40% урон по горящим. 2 убийства → следующий загорается": "+40% damage to burning ones. 2 kills → next one lights up",
+    "Perfect Optimist": "Perfect Optimist",
+    "+5% урон за 10% пустых патронов (макс. 5 стаков)": "+5% damage per 10% empty ammo (max 5 stacks)",
+    "Perfectly Measured": "Perfectly Measured",
+    "Верх магазина: +20% RPM −10% урон. Низ: +30% урон −15% RPM": "Magazine top: +20% RPM −10% damage. Low: +30% damage −15% RPM",
+    "Perfect Close & Personal": "Perfect Close & Personal",
+    "+40% урон к врагам ближе 7м на 10с после убийства": "+40% damage to enemies closer than 7m for 10s after killing",
+    "Future Perfection": "Future Perfection",
+    "Убийство +1 Skill Tier на 15с (макс. 5)": "Kill +1 Skill Tier for 15s (max 5)",
+    "Perfect Flatline": "Perfect Flatline",
+    "+20% урон по Pulse-врагам. 3 убийства → Pulse": "+20% damage to Pulse enemies. 3 kills → Pulse",
+    "Perfectly In Sync": "Perfectly In Sync",
+    "Хит оружием/скиллом → +5% урон другому на 5с": "Hit with weapon/skill → +5% damage to another for 5s",
+    "Perfect Frenzy": "Perfect Frenzy",
+    "Пустой магазин: +20% урон +35% RPM 7с": "Empty magazine: +20% damage +35% RPM 7s",
+    "Perfect Killer": "Perfect Killer",
+    "Крит-убийство → +90% крит. урон 10с": "Crit kill → +90% crit. damage 10s",
+    "Perfect Precision Strike": "Perfect Precision Strike",
+    "Убийства дальше 20м → стаки усиления": "Kills further than 20m → gain stacks",
+    "Perfect Preservation": "Perfect Preservation",
+    "Убийство → 15% брони 3с. Хедшот +20% лечения": "Kill → 15% armor 3s. Headshot +20% healing",
+    "Perfect Outsider": "Perfect Outsider",
+    "Убийство → +150% дальность и точность 10с": "Kill → +150% range and accuracy 10s",
+    "Верх/низ магазина разные бонусы": "Top/bottom of the store different bonuses",
+    "Perfect Thunderclap": "Perfect Thunderclap",
+    "+35% урон по шокированным. 3 убийства → шок": "+35% damage to shocked. 3 kills → shock",
+    "+40% урон ближе 7м": "+40% damage closer than 7m",
+    "Perfect Stabilize": "Perfect Stabilize",
+    "Стабильность растёт с попаданиями": "Stability increases with hits",
+    "Perfect Jazz Hands": "Perfect Jazz Hands",
+    "+20% скорость перезарядки": "+20% reload speed",
+    "Perfect Extra": "Perfect Extra",
+    "+50% ёмкость магазина": "+50% magazine capacity",
+    "Perfectly Rooted": "Perfectly Rooted",
+    "В укрытии: +30% урон/лечение скилла 15с (раз в 60с)": "In cover: +30% damage/healing skill 15s (every 60s)",
+    "Perfect Pummel": "Perfect Pummel",
+    "2 убийства телохитами → перезарядка +50% урон 10с": "2 kills with telohits → cooldown +50% damage 10s",
+    "Perfect Unhinged": "Perfect Unhinged",
+    "+25% урон, −20% управляемость": "+25% damage, −20% controllability",
+    "Perfectly Frenzy": "Perfectly Frenzy",
+    "+4% урон и RPM за 10 патронов при перезарядке из пустого": "+4% damage and RPM per 10 rounds when reloading from empty",
+    "Perfect Hand Control": "Perfect Hand Control",
+    "+4% управляемость/хит (макс. 10). На максимуме 10% шанс пополнить магазин": "+4% handling/hit (max 10). At maximum 10% chance to replenish the store",
+    "Perfect Bullet King": "Perfect Bullet King",
+    "Убийства → шанс полного магазина": "Kills → chance of full magazine",
+    "Perfect Reformation": "Perfect Reformation",
+    "Хедшот-убийство +75% лечение скиллами": "Headshot kill +75% skill healing",
+    "Perfect Ranger": "Perfect Ranger",
+    "+3% урон за каждые 5м до цели": "+3% damage for every 5m to the target",
+    "Уникальный": "Unique",
+    "Усиленный хедшот-урон": "Increased headshot damage",
+    "Убийство +1 Skill Tier": "Kill +1 Skill Tier",
+    "Perfect Rifleman": "Perfect Rifleman",
+    "Хедшоты +12% урон 5с (макс. 5 стаков)": "Headshots +12% damage 5s (max. 5 stacks)",
+    "Perfect Boomerang": "Perfect Boomerang",
+    "Крит 75% → пуля в магазин. Следующий +50% урон": "Crit 75% → bullet into the magazine. Next +50% damage",
+    "Perfect Lucky Shot": "Perfect Lucky Shot",
+    "+30% магазин. Промах из укрытия 100% → возврат пули": "+30% store. Miss from cover 100% → bullet return",
+    "Оружие/скилл → +5% урон другому": "Weapon/skill → +5% damage to another",
+    "Perfect Spike": "Perfect Spike",
+    "Хедшот +25% урон скилла 15с": "Headshot +25% skill damage 15s",
+    "Perfect Salvage": "Perfect Salvage",
+    "Убийство 75% → полный магазин": "Kill 75% → full magazine",
+    "Perfect Finisher": "Perfect Finisher",
+    "Смена оружия после убийства → +40% крит. шанс +50% крит. урон 15с": "Changing weapons after killing → +40% crit. chance +50% crit. damage 15s",
+    "+1 Skill Tier при ношении": "+1 Skill Tier when worn",
+    "Perfect Spotter": "Perfect Spotter",
+    "+20% урон по Pulse-врагам": "+20% damage to Pulse enemies",
+    "Perfect Headshot Trauma": "Perfect Headshot Trauma",
+    "Хедшоты +20% урон в голову 2с": "Headshots +20% head damage 2s",
+    "Perfectly Insulated": "Perfectly Insulated",
+    "+50% защита от опасностей": "+50% protection from dangers",
+    "Perfect Lookout": "Perfect Lookout",
+    "Perfect Trauma": "Perfect Trauma",
+    "Голова → слепота (кд 20с). Грудь → кровотечение (кд 20с)": "Head → blindness (cd 20s). Chest → bleeding (cd 20s)",
+    "Perfect Berserk": "Perfect Berserk",
+    "+10% урон за каждые 20% сломанной брони": "+10% damage for every 20% broken armor",
+    "Perfect Headhunter": "Perfect Headhunter",
+    "Идеальный охотник: после хедшот-убийства следующий выстрел +1250% WD": "Ultimate Hunter: After a headshot kill, next shot +1250% WD",
+    "Perfect Vigilance": "Perfect Vigilance",
+    "+30% урон оружием без получения урона (кд 4с)": "+30% weapon damage without taking damage (CD 4s)",
+    "Perfect Intimidate": "Perfect Intimate",
+    "Бонусная броня → +4%/стак урон ближе 10м (макс. 10)": "Bonus armor → +4%/stack damage closer than 10m (max 10)",
+    "Perfect Unstoppable Force": "Perfect Unstoppable Force",
+    "Убийство +7% урон 15с (макс. 5). Граната = 2 стака": "Kill +7% damage 15s (max 5). Grenade = 2 stacks",
+    "Perfect Tech Support": "Perfect Tech Support",
+    "Убийство скиллом +30% урон скилла 10с": "Skill kill +30% skill damage 10s",
+    "Perfect Spark": "Perfect Spark",
+    "+20% урон оружием 15с после хита скиллом": "+20% weapon damage 15s after hit with skill",
+    "Perfectly On The Ropes": "Perfectly On The Ropes",
+    "+20% урон когда оба скилла на кд": "+20% damage when both skills are on CD",
+    "Perfect Completion": "Perfect Completion",
+    "+40% урон скилла 15с после разрушения брони врага": "+40% skill damage 15s after destroying enemy armor",
+    "Perfect Clutch": "Perfect Clutch",
+    "Крит → 25% здоровья и 2% брони": "Crit → 25% health and 2% armor",
+    "Perfectly Wicked": "Perfectly Wicked",
+    "+20% урон 20с после статус-эффекта": "+20% damage 20s after status effect",
+    "Perfect Opportunistic": "Perfect Opportunistic",
+    "Враги получают уязвимость +15% урон из других источников 3с": "Enemies gain vulnerability +15% damage from other sources 3c",
+    "Perfect Bloodlust": "Perfect Bloodlust",
+    "+20% урон 5с после смены оружия": "+20% damage 5s after changing weapons",
+    "Perfect Smith": "Perfect Smith",
+    "Убийство пистолетом → 60% брони": "Pistol kill → 60% armor",
+    "+10% урон оружием фиксированный": "+10% weapon damage fixed",
+    "Perfectly Cloaked": "Perfectly Cloaked",
+    "Разрушение брони → дезориентация врагов 15с (кд 15с)": "Armor destruction → enemy disorientation 15s (cd 15s)",
+    "Perfectly Entrenched": "Perfectly Entrenched",
+    "Хедшоты из укрытия → 15% брони": "Headshots from cover → 15% armor",
+    "Perfect Streamline": "Perfect Streamline",
+    "+47% урон оружием без развёрнутых навыков (PvP: +37%)": "+47% weapon damage without deployed skills (PvP: +37%)",
+    "Perfect Leadership": "Perfect Leadership",
+    "Перебежка → 20% брони как бонусная вам и союзникам 10с. x3 если ближе 10м к врагу. КД 10с": "Dash → 20% armor as bonus for you and allies 10s. x3 if closer than 10m to the enemy. CD 10s",
+    "Perfect Attribute": "Perfect Attribute",
+    "+50% снижение угрозы": "+50% threat reduction",
+    "Perfect Soft Spot": "Perfect Soft Spot",
+    "Уничтожение слабой точки → +32% урон оружием 15с": "Destroy weak point → +32% weapon damage 15s",
+    "Perfect Protected Reload": "Perfect Protected Reload",
+    "+40% бонусной брони при перезарядке. 0-30% брони союзникам при их перезарядке": "+40% bonus armor on reload. 0-30% armor to allies when they are reloading",
+    "+38% точность": "+38% accuracy",
+    "Perfect Immobilize": "Perfect Immobilize",
+    "+25% урон по опутанным. 3-е убийство → следующий враг опутан": "+25% damage to entangled. 3rd kill → next enemy is restrained",
+    "Perfect Obliterate": "Perfect Obliterate",
+    "Криты +1% общий урон оружием 10с, макс. 24 стака": "Crits +1% total weapon damage 10s, max. 24 stacks",
+    "+5% скорострельность": "+5% rate of fire",
+    "Perfect Back and Forth": "Perfect Back and Forth",
+    "Смена НА это оружие: +13% RPM +12% урон 10с. Смена С этого: +5% RPM +4.5% урон 10с": "Change TO this weapon: +13% RPM +12% damage 10s. Change From this: +5% RPM +4.5% damage 10s",
+    "Смена НА: +13% RPM +12% урон. Смена С: +5% RPM +4.5% урон. 10с": "Change ON: +13% RPM +12% damage. Shift C: +5% RPM +4.5% damage. 10s",
+    "Perfect Gunslinger": "Perfect Gunslinger",
+    "Смена оружия +28% урон оружием 5с. Повторная смена во время баффа — потеря на 5с": "Switch weapons +28% weapon damage 5s. Repeated change during buff - loss by 5s",
+    "Perfect Composure": "Perfect Composure",
+    "В укрытии +20% общий урон оружием": "While in cover +20% total weapon damage",
+    "+50% оптимальная дальность": "+50% optimal range",
+    "Perfect Versatile": "Perfect Versatile",
+    "Смена типа оружия → урон 10с: ПП/дробовик +45% ближе 15м; винтовки +40% дальше 25м; ШВ/LMG +15% 15-25м": "Change weapon type → damage 10s: SMG/shotgun +45% closer than 15m; rifles +40% beyond 25m; ШВ/LMG +15% 15-25m",
+    "Perfect Creeping Death": "Perfect Creeping Death",
+    "Статус-эффект на враге → распространяется на ближайшего в 10м. КД 10с": "Status effect on the enemy → spreads to the nearest one within 10m. CD 10s",
+    "Perfect Bombardier": "Perfect Bombardier",
+    "+75% радиус гранат. Граната-убийство → возврат гранаты. +15% брони при прицеливании гранатой": "+75% grenade radius. Kill grenade → return grenade. +15% armor when aiming a grenade",
+    "Perfectly Explosive Delivery": "Perfectly Explosive Delivery",
+    "Брошенный навык → взрыв через 1.5с в 5м, потом каждые 5с. Урон от Skill Tier": "Thrown skill → explosion every 1.5s at 5m, then every 5s. Skill Tier Damage",
+    "Perfectly Tamper Proof": "Perfectly Tamper Proof",
+    "Враги в 3м от Улья/Башенки/Пульса/Приманки → Шок. КД 8с": "Enemies within 3m of Hive/Turret/Pulse/Bait → Shock. KD 8s",
+    "Perfect Energize": "Perfect Energize",
+    "Аптечка → +1 Skill Tier 15с. При 6-м уровне → Перезарядка. КД 30с": "First Aid Kit → +1 Skill Tier 15s. At level 6 → Recharge. KD 30s",
+    "+16% эффекты статусов": "+16% status effects",
+    "Perfect Camaraderie": "Perfect Camaraderie",
+    "+20% урон оружием в 10м от союзника или навыка": "+20% weapon damage within 10m of an ally or skill",
+    "Perfect Galvanize": "Perfect Galvanize",
+    "Слепота/Опутывание/Шок на враге → 50% брони как бонусная вам и союзникам в 30м 10с": "Blind/Entangle/Shock on enemy → 50% bonus armor for you and allies at 30m 10s"
+  }
+}

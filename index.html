@@ -1167,54 +1167,77 @@ function render(){
         `Всего: <span>${all}</span> предметов`;
     let h="";const H=(s)=>hl(s,q);
 
+    const isEn=currentLang==="en";
+    const L=(ru,en)=>isEn&&en?en:ru;
+    const trSet=(en)=>getEnDescription("sets",en);
+    const trBrand=(name)=>getEnDescription("brands",name);
+    const trExotic=(en)=>getEnDescription("exotics",en);
+    const trNamed=(en)=>getEnDescription("named",en);
+
     // GEAR
     if(fG.length){
-        h+=`<div class="section-title">Комплекты снаряжения <span class="cnt">${fG.length}</span></div><div class="grid">`;
+        h+=`<div class="section-title">${L("Комплекты снаряжения","Gear Sets")} <span class="cnt">${fG.length}</span></div><div class="grid">`;
         fG.forEach(g=>{
-            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(g.name)}${wikiIcon(g.en)}</div><div class="en">${H(g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
-            g.bonuses.forEach(b=>{const[t,...r]=b.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
-            h+=`<div class="tl"><div class="t-line"><span class="t-name">Нагрудник:</span><span class="t-desc">${H(g.chest)}</span></div>`;
-            h+=`<div class="t-line"><span class="t-name">Рюкзак:</span><span class="t-desc">${H(g.bp)}</span></div></div></div>`;
+            const en=trSet(g.en);
+            const bonuses=isEn&&en&&en.bonuses?en.bonuses:g.bonuses;
+            const chest=isEn&&en&&en.chest?en.chest:g.chest;
+            const bp=isEn&&en&&en.bp?en.bp:g.bp;
+            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(isEn&&g.en?g.en:g.name)}${wikiIcon(g.en)}</div><div class="en">${H(isEn?g.name:g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
+            bonuses.forEach(b=>{const[t,...r]=b.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
+            h+=`<div class="tl"><div class="t-line"><span class="t-name">${L("Нагрудник","Chest")}:</span><span class="t-desc">${H(chest)}</span></div>`;
+            h+=`<div class="t-line"><span class="t-name">${L("Рюкзак","Backpack")}:</span><span class="t-desc">${H(bp)}</span></div></div></div>`;
         });h+='</div>';
     }
 
     // BRANDS
     if(fB.length){
-        h+=`<div class="section-title">Брендовые наборы <span class="cnt">${fB.length}</span></div><div class="grid sm">`;
+        h+=`<div class="section-title">${L("Брендовые наборы","Brand Sets")} <span class="cnt">${fB.length}</span></div><div class="grid sm">`;
         fB.forEach(b=>{
-            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(b.name)}${wikiIcon(b.name)}</div><span class="badge b-brand">Бренд</span></div>`;
-            b.bonuses.forEach(bn=>{const[t,...r]=bn.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
+            const en=trBrand(b.name);
+            const bonuses=isEn&&en&&en.bonuses?en.bonuses:b.bonuses;
+            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(b.name)}${wikiIcon(b.name)}</div><span class="badge b-brand">${L("Бренд","Brand")}</span></div>`;
+            bonuses.forEach(bn=>{const[t,...r]=bn.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+='</div>';
         });h+='</div>';
     }
 
     // EXOTICS
     if(fE.length){
-        h+=`<div class="section-title">Экзотики <span class="cnt">${fE.length}</span></div>`;
+        h+=`<div class="section-title">${L("Экзотики","Exotics")} <span class="cnt">${fE.length}</span></div>`;
         const eg={};fE.forEach(e=>{if(!eg[e.g])eg[e.g]=[];eg[e.g].push(e)});
         ["Штурмовые винтовки","Пистолеты-пулемёты","Ручные пулемёты","Дробовики","Снайперские винтовки","Винтовки","Пистолеты","Маски","Рюкзаки","Нагрудники","Перчатки","Наколенники","Кобуры"].forEach(gr=>{
             if(!eg[gr])return;
             h+=`<div class="sub">${gr} (${eg[gr].length})</div><div class="grid">`;
             eg[gr].forEach(e=>{
-                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(e.name)}${wikiIcon(e.en)}</div>${e.en?`<div class="en">${H(e.en)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
-                h+=`<div class="t-line"><span class="t-name">${H(e.tal)}</span></div>`;
-                h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(e.d)}</div></div>`;
+                const en=trExotic(e.en);
+                const tal=isEn&&en&&en.tal?en.tal:e.tal;
+                const d=isEn&&en&&en.d?en.d:e.d;
+                const displayName=isEn&&e.en?e.en:e.name;
+                const displaySub=isEn?e.name:(e.en||"");
+                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(displayName)}${wikiIcon(e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
+                h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
+                h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
             });h+='</div>';
         });
     }
 
     // NAMED
     if(fN.length){
-        h+=`<div class="section-title">Именные предметы <span class="cnt">${fN.length}</span></div>`;
+        h+=`<div class="section-title">${L("Именные предметы","Named Items")} <span class="cnt">${fN.length}</span></div>`;
         const ng={};fN.forEach(n=>{if(!ng[n.g])ng[n.g]=[];ng[n.g].push(n)});
         ["Штурмовые винтовки","Пистолеты-пулемёты","Дробовики","Ручные пулемёты","Снайперские винтовки","Винтовки","Пистолеты","Маски","Нагрудники","Рюкзаки","Перчатки","Кобуры","Наколенники"].forEach(gr=>{
             if(!ng[gr])return;
             h+=`<div class="sub">${gr} (${ng[gr].length})</div><div class="grid">`;
             ng[gr].forEach(n=>{
-                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(n.name)}${wikiIcon(n.en)}</div>${n.en?`<div class="en">${H(n.en)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
-                if(n.brand)h+=`<div class="info">Бренд: ${H(n.brand)}</div>`;
-                h+=`<div class="t-line"><span class="t-name">${H(n.tal)}</span></div>`;
-                h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(n.d)}</div></div>`;
+                const en=trNamed(n.en);
+                const tal=isEn&&en&&en.tal?en.tal:n.tal;
+                const d=isEn&&en&&en.d?en.d:n.d;
+                const displayName=isEn&&n.en?n.en:n.name;
+                const displaySub=isEn?n.name:(n.en||"");
+                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
+                if(n.brand)h+=`<div class="info">${L("Бренд","Brand")}: ${H(n.brand)}</div>`;
+                h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
+                h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
             });h+='</div>';
         });
     }
@@ -3246,30 +3269,47 @@ function wikiIcon(enName){
   return `<a href="${wikiLink(enName)}" target="_blank" rel="noopener" title="Open on Fandom Wiki (EN) / Открыть в Фандом Вики (EN)" style="color:var(--blue);text-decoration:none;margin-left:6px;font-size:11px;opacity:.7" onclick="event.stopPropagation()">📖</a>`;
 }
 
-// ===== LANGUAGE SWITCHER (заглушка, полноценный перевод будет потом) =====
+// ===== TRANSLATIONS (loaded lazily from translations_en.json) =====
+let __translations=null;
+let __translationsLoading=null;
+function loadTranslations(){
+  if(__translations)return Promise.resolve(__translations);
+  if(__translationsLoading)return __translationsLoading;
+  __translationsLoading=fetch("translations_en.json").then(r=>r.ok?r.json():null).then(j=>{
+    __translations=j||{sets:{},brands:{},exotics:{},named:{}};
+    return __translations;
+  }).catch(()=>{
+    __translations={sets:{},brands:{},exotics:{},named:{}};
+    return __translations;
+  });
+  return __translationsLoading;
+}
+// Preload on page load so it's ready when user toggles language
+loadTranslations();
+
+function getEnDescription(type,enName){
+  if(!__translations||!enName)return null;
+  const bucket=__translations[type];
+  if(!bucket||!bucket[enName])return null;
+  return bucket[enName];
+}
+
+// ===== LANGUAGE SWITCHER =====
 let currentLang=localStorage.getItem("d2calc_lang")||"ru";
 function updateLangBtn(){
   const btn=document.getElementById("lang-btn");
   if(!btn)return;
   btn.textContent=currentLang==="ru"?"🇷🇺 RU":"🇬🇧 EN";
 }
-function toggleLang(){
+async function toggleLang(){
   currentLang=currentLang==="ru"?"en":"ru";
   localStorage.setItem("d2calc_lang",currentLang);
   updateLangBtn();
-  showLangToast();
-}
-function showLangToast(){
-  const existing=document.getElementById("lang-toast");
-  if(existing)existing.remove();
-  const toast=document.createElement("div");
-  toast.id="lang-toast";
-  toast.style.cssText="position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--orange);border-radius:10px;padding:14px 20px;font-size:13px;color:var(--text);z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.5);max-width:90vw;text-align:center;line-height:1.5";
-  toast.innerHTML=currentLang==="en"
-    ?"🌐 English translation coming soon.<br><span style='color:var(--muted);font-size:11px'>Current language preference saved — switching back to RU for now.</span>"
-    :"🌐 Язык сохранён как русский.<br><span style='color:var(--muted);font-size:11px'>Английский перевод в работе.</span>";
-  document.body.appendChild(toast);
-  setTimeout(()=>toast.remove(),3500);
+  if(currentLang==="en")await loadTranslations();
+  // Re-render current view (main search or build tab items)
+  if(typeof render==="function")render();
+  if(activeCat==="build")calcBuild();
+  if(activeCat==="community")loadCommunityFeed();
 }
 updateLangBtn();
 
