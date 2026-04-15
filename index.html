@@ -644,6 +644,21 @@
     <div style="font-size:10px;color:#555">SHD 1000+ → +10% CHC/CHD/WD навсегда (уже учтено выше). CHC итоговый софт-кап 60%.</div>
   </div>
 
+  <!-- Prototype Gear Bonus (Y8S1) -->
+  <div class="bsect">
+    <h3>🧪 Prototype Gear Attributes <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· бонусы от Prototype брони (Y8S1, max ×1.5 от обычных)</span></h3>
+    <div class="bstat-row">
+      <div class="bstat"><label>Slots</label><input id="proto-slots-count" type="number" value="0" min="0" max="6" oninput="calcBuild()"><span class="u">из 6</span></div>
+      <div class="bstat"><label>WD</label><input id="proto-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>HSD</label><input id="proto-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHC</label><input id="proto-chc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHD</label><input id="proto-chd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>vs Elite</label><input id="proto-elite" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>vs Health</label><input id="proto-health" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
+    <div style="font-size:10px;color:#555;margin-top:4px">Prototype max per slot: WD 22.5%, HSD 15%, CHC 9%, CHD 18%, vs Elite 18%, vs Health 18%. Заполни вручную сколько у тебя на каждом prototype предмете в сумме.</div>
+  </div>
+
   <!-- Recombinator (Seasonal Modifiers) -->
   <div class="bsect">
     <h3>🧬 Рекомбинатор <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· сезонные модификаторы Y8S1, вводишь сам что накачал</span></h3>
@@ -2507,11 +2522,77 @@ function renderBuildCard(b,isLiked){
       <div class="cc-actions">
         ${adminBtn}
         ${copyBtn}
+        <button class="cc-like" onclick="toggleComments('${b.id}',this)" title="Комменты">💬</button>
         <button class="cc-like ${isLiked?"liked":""}" onclick="toggleLike('${b.id}',this)" ${isLiked?'title="Убрать лайк"':'title="Лайк"'}>❤ <span>${b.likes||0}</span></button>
         <button class="cc-open" onclick="openCommunityBuild('${b.id}','${b.build_hash||""}')">Открыть</button>
       </div>
     </div>
+    <div class="cc-comments" id="cc-comments-${b.id}" style="display:none;border-top:1px solid var(--border);margin-top:8px;padding-top:8px"></div>
   </div>`;
+}
+
+// === COMMENTS ===
+async function toggleComments(buildId, btn) {
+  const box = document.getElementById(`cc-comments-${buildId}`);
+  if (!box) return;
+  if (box.style.display === 'block') {
+    box.style.display = 'none';
+    return;
+  }
+  box.style.display = 'block';
+  box.innerHTML = '<div style="font-size:11px;color:var(--muted)">Загрузка...</div>';
+  try {
+    const r = await fetch(`${PB_API}/comments/records?filter=${encodeURIComponent(`build="${buildId}"`)}&sort=-created&perPage=50`);
+    const j = await r.json();
+    const items = j.items || [];
+    const author = localStorage.getItem('d2calc_author_v1') || '';
+    const list = items.map(c => `
+      <div style="margin:6px 0;padding:6px 10px;background:rgba(255,255,255,.04);border-radius:6px">
+        <div style="font-size:11px;color:var(--orange);font-weight:600">${escapeHtml(c.author)} <span style="color:#555;font-weight:400">· ${fmtAgo(c.created)}</span></div>
+        <div style="font-size:12px;color:var(--text);margin-top:3px">${escapeHtml(c.text)}</div>
+      </div>
+    `).join('') || '<div style="font-size:11px;color:#555;font-style:italic">Пока нет комментов</div>';
+    box.innerHTML = `
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Комментариев: <b>${items.length}</b></div>
+      ${list}
+      <form onsubmit="postComment(event,'${buildId}')" style="margin-top:10px;display:flex;gap:6px;flex-direction:column">
+        <input name="author" type="text" placeholder="Твой ник" maxlength="40" value="${escapeHtml(author)}" style="padding:6px 9px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px">
+        <textarea name="text" placeholder="Оставить комментарий..." required maxlength="1000" style="padding:6px 9px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px;min-height:50px;resize:vertical"></textarea>
+        <button type="submit" class="cc-open" style="align-self:flex-start;padding:5px 14px">Отправить</button>
+      </form>
+    `;
+  } catch (e) {
+    box.innerHTML = `<div style="font-size:11px;color:var(--red)">Ошибка: ${e.message}</div>`;
+  }
+}
+
+async function postComment(ev, buildId) {
+  ev.preventDefault();
+  const form = ev.target;
+  const author = form.author.value.trim() || 'Аноним';
+  const text = form.text.value.trim();
+  if (!text) return;
+  if (author && author !== 'Аноним') localStorage.setItem('d2calc_author_v1', author);
+  const fp = getFingerprint();
+  try {
+    const r = await fetch(`${PB_API}/comments/records`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ build: buildId, author, text, fingerprint: fp }),
+    });
+    if (r.ok) {
+      // Re-render comments
+      const box = document.getElementById(`cc-comments-${buildId}`);
+      if (box) box.style.display = 'none';
+      // Toggle to refresh
+      const btn = document.querySelector(`button[onclick*="toggleComments('${buildId}'"]`);
+      if (btn) toggleComments(buildId, btn);
+    } else {
+      alert('Ошибка отправки комментария');
+    }
+  } catch (e) {
+    alert('Сбой сети: ' + e.message);
+  }
 }
 function copyBuildUrl(hash,btn){
   if(!hash){return}
@@ -3331,6 +3412,22 @@ function calcBuild(){
   tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo;
   if(Object.values(shd).some(x=>x>0)){
     bonuses.push({color:"#42a5f5",tier:"⌚",nm:"SHD Watch",desc:Object.entries(shd).filter(([,x])=>x).map(([k,x])=>`+${x}% ${k}`).join(" · ")});
+  }
+  // Prototype Gear Attributes (Y8S1) — additive into buckets
+  const proto={slots:v("proto-slots-count"),wd:v("proto-wd"),hsd:v("proto-hsd"),chc:v("proto-chc"),chd:v("proto-chd"),elite:v("proto-elite"),health:v("proto-health")};
+  tWD+=proto.wd; tHSD+=proto.hsd; tCHC+=proto.chc; tCHD+=proto.chd;
+  // elite/health damage are conditional on enemy type, store separately for note
+  const protoSum=proto.wd+proto.hsd+proto.chc+proto.chd+proto.elite+proto.health;
+  if(protoSum>0||proto.slots>0){
+    const parts=[];
+    if(proto.slots>0)parts.push(`${proto.slots}/6 слотов Prototype`);
+    if(proto.wd)parts.push(`+${proto.wd}% WD`);
+    if(proto.hsd)parts.push(`+${proto.hsd}% HSD`);
+    if(proto.chc)parts.push(`+${proto.chc}% CHC`);
+    if(proto.chd)parts.push(`+${proto.chd}% CHD`);
+    if(proto.elite)parts.push(`+${proto.elite}% vs Elite (по элите)`);
+    if(proto.health)parts.push(`+${proto.health}% vs Health (по здоровью)`);
+    bonuses.push({color:"#ab47bc",tier:"🧪",nm:"Prototype Gear",desc:parts.join(" · ")});
   }
   // Recombinator (Y8S1 seasonal modifiers) — only Offense HSD/Ammo go into weapon DPS
   const rc={hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")};
