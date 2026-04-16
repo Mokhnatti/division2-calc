@@ -724,6 +724,13 @@
     </details>
   </div>
 
+  <div class="bsect">
+    <details style="margin-top:0;padding-top:0" id="esc-ref-details">
+      <summary style="cursor:pointer;font-size:12px;color:var(--orange);font-weight:600">📊 Escalation — тиры, дроп, мутаторы</summary>
+      <div id="esc-ref-content" style="margin-top:10px;font-size:11px;color:var(--muted)"></div>
+    </details>
+  </div>
+
   <!-- Validation warnings -->
   <div class="bsect" id="b-warnings-sect" style="display:none">
     <h3>⚠ Проверка билда</h3>
@@ -4059,6 +4066,40 @@ const ESCALATION_TIERS={
   "9":{hp:600,ar:600,dmg:550,label:"Tier 9"},
   "10":{hp:700,ar:700,dmg:550,label:"Tier 10 (макс)"},
 };
+const ESCALATION_DROP_CHANCE={
+  1:0.20,2:0.25,3:0.30,4:0.30,5:0.40,
+  6:0.60,7:0.70,8:1.00,9:1.30,10:1.50
+};
+const PROTO_UPGRADE_COST={
+  2:1,3:2,4:2,5:3,6:3,7:4,8:4,9:5,10:6
+};
+const PROTO_REROLL_COST=[2,4,6,10,16,25];
+const PROTO_ROLL_CHANCE={1:100,2:5,3:1,4:0.1};
+const ESCALATION_MUTATORS={
+  1:{harvester:60,suppressor:0,anchor:0,aid:0},
+  2:{harvester:60,suppressor:0,anchor:0,aid:0},
+  3:{harvester:75,suppressor:35,anchor:0,aid:0},
+  4:{harvester:75,suppressor:35,anchor:0,aid:0},
+  5:{harvester:75,suppressor:35,anchor:35,aid:0},
+  6:{harvester:75,suppressor:35,anchor:60,aid:0},
+  7:{harvester:75,suppressor:35,anchor:60,aid:35},
+  8:{harvester:75,suppressor:35,anchor:75,aid:60},
+  9:{harvester:75,suppressor:60,anchor:75,aid:60},
+  10:{harvester:75,suppressor:60,anchor:75,aid:75}
+};
+const ESCALATION_REWARDS={
+  0:{deposit:0,profit:0,group:2},
+  1:{deposit:1,profit:3,group:2},
+  2:{deposit:3,profit:6,group:3},
+  3:{deposit:7,profit:10,group:4},
+  4:{deposit:12,profit:16,group:5},
+  5:{deposit:20,profit:24,group:7},
+  6:{deposit:29,profit:34,group:10},
+  7:{deposit:41,profit:46,group:13},
+  8:{deposit:54,profit:60,group:16},
+  9:{deposit:70,profit:76,group:20},
+  10:{deposit:87,profit:94,group:25}
+};
 function setEscalationTier(tier){
   const t=ESCALATION_TIERS[tier];
   if(!t)return;
@@ -4224,7 +4265,87 @@ document.addEventListener("click",e=>{
   if(e.target.closest("details>summary")&&e.target.closest("details").querySelector("#rcm-reference")){
     setTimeout(renderRecombinatorRef,50);
   }
+  if(e.target.closest("details>summary")&&e.target.closest("details").id==="esc-ref-details"){
+    setTimeout(renderEscalationRef,50);
+  }
 });
+let __escRefRendered=false;
+function renderEscalationRef(){
+  if(__escRefRendered)return;
+  const el=document.getElementById("esc-ref-content");
+  if(!el)return;
+  __escRefRendered=true;
+  const tblStyle="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:11px";
+  const thStyle="background:rgba(255,255,255,.06);padding:4px 8px;text-align:center;border:1px solid var(--border);color:var(--orange);font-weight:700";
+  const tdStyle="padding:4px 8px;text-align:center;border:1px solid var(--border)";
+  const tdAlt="padding:4px 8px;text-align:center;border:1px solid var(--border);background:rgba(255,255,255,.03)";
+  let h="";
+  h+=`<div style="font-weight:700;color:var(--orange);margin-bottom:6px;font-size:12px">Difficulty Scaling</div>`;
+  h+=`<table style="${tblStyle}"><thead><tr>`;
+  for(const c of["Тир","Deposit","Profit","Group","Enemy DMG","Enemy HP","Enemy AR","Drop %"])h+=`<th style="${thStyle}">${c}</th>`;
+  h+=`</tr></thead><tbody>`;
+  for(let i=0;i<=10;i++){
+    const t=ESCALATION_TIERS[String(i)]||{hp:0,ar:0,dmg:100};
+    const r=ESCALATION_REWARDS[i]||{deposit:0,profit:0,group:0};
+    const d=ESCALATION_DROP_CHANCE[i]||0;
+    const td=i%2===0?tdStyle:tdAlt;
+    h+=`<tr>
+      <td style="${td}">${i===0?"Базовый":"T"+i}</td>
+      <td style="${td}">${r.deposit}</td>
+      <td style="${td}">${r.profit}</td>
+      <td style="${td}">${r.group}</td>
+      <td style="${td}">${t.dmg}%</td>
+      <td style="${td}">+${t.hp}%</td>
+      <td style="${td}">+${t.ar}%</td>
+      <td style="${td}">${i===0?"—":d.toFixed(2)+"%"}</td>
+    </tr>`;
+  }
+  h+=`</tbody></table>`;
+  h+=`<div style="font-weight:700;color:var(--orange);margin-bottom:6px;font-size:12px">Мутаторы по тирам</div>`;
+  h+=`<table style="${tblStyle}"><thead><tr>`;
+  for(const c of["Тир","Harvester","Suppressor","Anchor","Aid Specialist"])h+=`<th style="${thStyle}">${c}</th>`;
+  h+=`</tr></thead><tbody>`;
+  for(let i=1;i<=10;i++){
+    const m=ESCALATION_MUTATORS[i];
+    const td=i%2===0?tdStyle:tdAlt;
+    const fmt=v=>v===0?`<span style="color:#555">—</span>`:`${v}%`;
+    h+=`<tr>
+      <td style="${td}">T${i}</td>
+      <td style="${td}">${fmt(m.harvester)}</td>
+      <td style="${td}">${fmt(m.suppressor)}</td>
+      <td style="${td}">${fmt(m.anchor)}</td>
+      <td style="${td}">${fmt(m.aid)}</td>
+    </tr>`;
+  }
+  h+=`</tbody></table>`;
+  h+=`<div style="font-weight:700;color:var(--orange);margin-bottom:6px;font-size:12px">Prototype Gear</div>`;
+  h+=`<div style="display:flex;gap:16px;flex-wrap:wrap">`;
+  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">Стоимость прокачки (Prototype Cores)</div>`;
+  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">Уровень</th><th style="${thStyle}">Cores</th></tr></thead><tbody>`;
+  for(let i=2;i<=10;i++){
+    const td=i%2===0?tdStyle:tdAlt;
+    h+=`<tr><td style="${td}">${i-1}→${i}</td><td style="${td}">${PROTO_UPGRADE_COST[i]}</td></tr>`;
+  }
+  h+=`</tbody></table></div>`;
+  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">Стоимость перероллов</div>`;
+  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">Ролл</th><th style="${thStyle}">Cores</th></tr></thead><tbody>`;
+  for(let i=0;i<PROTO_REROLL_COST.length;i++){
+    const td=i%2===0?tdStyle:tdAlt;
+    const label=i===PROTO_REROLL_COST.length-1?`${i+1}+`:`${i+1}`;
+    h+=`<tr><td style="${td}">${label}</td><td style="${td}">${PROTO_REROLL_COST[i]}</td></tr>`;
+  }
+  h+=`</tbody></table></div>`;
+  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">Шанс макс. роллов</div>`;
+  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">Макс. роллов</th><th style="${thStyle}">Шанс</th></tr></thead><tbody>`;
+  const rk=Object.keys(PROTO_ROLL_CHANCE);
+  for(let i=0;i<rk.length;i++){
+    const td=i%2===0?tdStyle:tdAlt;
+    h+=`<tr><td style="${td}">${rk[i]}</td><td style="${td}">${PROTO_ROLL_CHANCE[rk[i]]}%</td></tr>`;
+  }
+  h+=`</tbody></table></div>`;
+  h+=`</div>`;
+  el.innerHTML=h;
+}
 
 // If URL has #b=... hash — auto-switch to BUILD tab so user sees the shared build
 if(/^#b=/.test(location.hash)){
