@@ -1,0 +1,1096 @@
+[
+  {
+    "name": "Невидимая Рука",
+    "en": "Invisible Hand",
+    "g": "Штурмовые винтовки",
+    "t": "AR (AUG A3)",
+    "brand": "",
+    "tal": "Perfect Allegro",
+    "d": "+15% скорострельность"
+  },
+  {
+    "name": "Пироман",
+    "en": "Pyromaniac",
+    "g": "Штурмовые винтовки",
+    "t": "AR (Police M4)",
+    "brand": "",
+    "tal": "Perfectly Ignited",
+    "d": "+40% урон по горящим. 2 убийства → следующий загорается"
+  },
+  {
+    "name": "Щитолом",
+    "en": "Shield Splinterer",
+    "g": "Штурмовые винтовки",
+    "t": "AR (F2000)",
+    "brand": "",
+    "tal": "Perfect Optimist",
+    "d": "+5% урон за 10% пустых патронов (макс. 5 стаков)"
+  },
+  {
+    "name": "Дровосек",
+    "en": "The Railsplitter",
+    "g": "Штурмовые винтовки",
+    "t": "AR (CTAR-21)",
+    "brand": "",
+    "tal": "Perfectly Measured",
+    "d": "Верх магазина: +20% RPM −10% урон. Низ: +30% урон −15% RPM"
+  },
+  {
+    "name": "Дикий Росомаха",
+    "en": "Savage Wolverine",
+    "g": "Штурмовые винтовки",
+    "t": "AR (Honey Badger)",
+    "brand": "",
+    "tal": "Perfect Close & Personal",
+    "d": "+40% урон к врагам ближе 7м на 10с после убийства"
+  },
+  {
+    "name": "Механическое Животное",
+    "en": "Mechanical Animal",
+    "g": "Штурмовые винтовки",
+    "t": "AR (SIG 556)",
+    "brand": "",
+    "tal": "Future Perfection",
+    "d": "Убийство +1 Skill Tier на 15с (макс. 5)"
+  },
+  {
+    "name": "Цареломатель",
+    "en": "Kingbreaker",
+    "g": "Штурмовые винтовки",
+    "t": "AR (TKB-408)",
+    "brand": "",
+    "tal": "Perfect Flatline",
+    "d": "+20% урон по Pulse-врагам. 3 убийства → Pulse"
+  },
+  {
+    "name": "Подопытный",
+    "en": "Test Subject",
+    "g": "Штурмовые винтовки",
+    "t": "AR (PDR-C)",
+    "brand": "",
+    "tal": "Perfectly In Sync",
+    "d": "Хит оружием/скиллом → +5% урон другому на 5с"
+  },
+  {
+    "name": "Охотник",
+    "en": "Huntsman",
+    "g": "Штурмовые винтовки",
+    "t": "AR (FAMAS 2010)",
+    "brand": "",
+    "tal": "Perfect Frenzy",
+    "d": "Пустой магазин: +20% урон +35% RPM 7с"
+  },
+  {
+    "name": "Смотритель",
+    "en": "Caretaker",
+    "g": "Штурмовые винтовки",
+    "t": "AR (G36)",
+    "brand": "",
+    "tal": "Perfect Killer",
+    "d": "Крит-убийство → +90% крит. урон 10с"
+  },
+  {
+    "name": "Бур",
+    "en": "The Drill",
+    "g": "Штурмовые винтовки",
+    "t": "AR (Carbine 7)",
+    "brand": "",
+    "tal": "Perfect Precision Strike",
+    "d": "Убийства дальше 20м → стаки усиления"
+  },
+  {
+    "name": "Охрана Эмелин",
+    "en": "Emeline's Guard",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (P90)",
+    "brand": "",
+    "tal": "Perfect Preservation",
+    "d": "Убийство → 15% брони 3с. Хедшот +20% лечения"
+  },
+  {
+    "name": "Безопасная Дистанция",
+    "en": "Safety Distance",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (MPX)",
+    "brand": "",
+    "tal": "Perfect Outsider",
+    "d": "Убийство → +150% дальность и точность 10с"
+  },
+  {
+    "name": "Цепочка Обмена",
+    "en": "Swap Chain",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (MP7)",
+    "brand": "",
+    "tal": "Perfect Allegro",
+    "d": "+15% скорострельность"
+  },
+  {
+    "name": "Квартира",
+    "en": "The Apartment",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (MPX)",
+    "brand": "",
+    "tal": "Perfectly Measured",
+    "d": "Верх/низ магазина разные бонусы"
+  },
+  {
+    "name": "Тёмная Зима",
+    "en": "Dark Winter",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (Vector .45)",
+    "brand": "",
+    "tal": "Perfect Killer",
+    "d": "Крит-убийство → +90% крит. урон 10с"
+  },
+  {
+    "name": "Кабаре",
+    "en": "Cabaret",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (MP5 ST)",
+    "brand": "",
+    "tal": "Perfect Thunderclap",
+    "d": "+35% урон по шокированным. 3 убийства → шок"
+  },
+  {
+    "name": "Обида",
+    "en": "The Grudge",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (Vector 9mm)",
+    "brand": "",
+    "tal": "Perfect Close & Personal",
+    "d": "+40% урон ближе 7м"
+  },
+  {
+    "name": "Grown Great",
+    "en": "Grown Great",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (Tommy Gun)",
+    "brand": "",
+    "tal": "Perfect Stabilize",
+    "d": "Стабильность растёт с попаданиями"
+  },
+  {
+    "name": "Куэлебре",
+    "en": "Cuélebre",
+    "g": "Дробовики",
+    "t": "Дробовик (M870)",
+    "brand": "",
+    "tal": "Perfect Jazz Hands",
+    "d": "+20% скорость перезарядки"
+  },
+  {
+    "name": "Рок-н-Ролл",
+    "en": "Rock 'n' Roll",
+    "g": "Дробовики",
+    "t": "Дробовик (ACS-12)",
+    "brand": "",
+    "tal": "Perfect Extra",
+    "d": "+50% ёмкость магазина"
+  },
+  {
+    "name": "Проводы",
+    "en": "The Send-Off",
+    "g": "Дробовики",
+    "t": "Дробовик (KSG)",
+    "brand": "",
+    "tal": "Perfectly Rooted",
+    "d": "В укрытии: +30% урон/лечение скилла 15с (раз в 60с)"
+  },
+  {
+    "name": "Цунами",
+    "en": "Tsunami",
+    "g": "Дробовики",
+    "t": "Дробовик (SASG-12)",
+    "brand": "",
+    "tal": "Perfect Pummel",
+    "d": "2 убийства телохитами → перезарядка +50% урон 10с"
+  },
+  {
+    "name": "Чёрная Пятница",
+    "en": "Black Friday",
+    "g": "Ручные пулемёты",
+    "t": "LMG (M249)",
+    "brand": "",
+    "tal": "Perfect Unhinged",
+    "d": "+25% урон, −20% управляемость"
+  },
+  {
+    "name": "Слейпнир",
+    "en": "Sleipnir",
+    "g": "Ручные пулемёты",
+    "t": "LMG (MG5)",
+    "brand": "",
+    "tal": "Perfectly Frenzy",
+    "d": "+4% урон и RPM за 10 патронов при перезарядке из пустого"
+  },
+  {
+    "name": "Чистый Лист",
+    "en": "Tabula Rasa",
+    "g": "Ручные пулемёты",
+    "t": "LMG (L86)",
+    "brand": "",
+    "tal": "Perfect Hand Control",
+    "d": "+4% управляемость/хит (макс. 10). На максимуме 10% шанс пополнить магазин"
+  },
+  {
+    "name": "Резня",
+    "en": "Carnage",
+    "g": "Ручные пулемёты",
+    "t": "LMG (Negev)",
+    "brand": "",
+    "tal": "Perfect Bullet King",
+    "d": "Убийства → шанс полного магазина"
+  },
+  {
+    "name": "Назначенный Стрелок",
+    "en": "Designated Hitter",
+    "g": "Снайперские винтовки",
+    "t": "Снайперская (SR-1)",
+    "brand": "",
+    "tal": "Perfect Reformation",
+    "d": "Хедшот-убийство +75% лечение скиллами"
+  },
+  {
+    "name": "Длинная Палка Экима",
+    "en": "Ekim's Long Stick",
+    "g": "Снайперские винтовки",
+    "t": "Снайперская (M700)",
+    "brand": "",
+    "tal": "Perfect Ranger",
+    "d": "+3% урон за каждые 5м до цели"
+  },
+  {
+    "name": "Белая Смерть",
+    "en": "The White Death",
+    "g": "Снайперские винтовки",
+    "t": "Снайперская (M44)",
+    "brand": "",
+    "tal": "Уникальный",
+    "d": "Усиленный хедшот-урон"
+  },
+  {
+    "name": "Скальпель",
+    "en": "Scalpel",
+    "g": "Снайперские винтовки",
+    "t": "Снайперская (Tactical .308)",
+    "brand": "",
+    "tal": "Future Perfection",
+    "d": "Убийство +1 Skill Tier"
+  },
+  {
+    "name": "Инструмент Художника",
+    "en": "Artist's Tool",
+    "g": "Винтовки",
+    "t": "Винтовка (SIG 716)",
+    "brand": "",
+    "tal": "Perfect Rifleman",
+    "d": "Хедшоты +12% урон 5с (макс. 5 стаков)"
+  },
+  {
+    "name": "Вирджинец",
+    "en": "The Virginian",
+    "g": "Винтовки",
+    "t": "Винтовка (1886)",
+    "brand": "",
+    "tal": "Perfect Boomerang",
+    "d": "Крит 75% → пуля в магазин. Следующий +50% урон"
+  },
+  {
+    "name": "Чёртова Дюжина",
+    "en": "Baker's Dozen",
+    "g": "Винтовки",
+    "t": "Винтовка (M1A)",
+    "brand": "",
+    "tal": "Perfect Lucky Shot",
+    "d": "+30% магазин. Промах из укрытия 100% → возврат пули"
+  },
+  {
+    "name": "Гармония",
+    "en": "Harmony",
+    "g": "Винтовки",
+    "t": "Винтовка (Mk47)",
+    "brand": "",
+    "tal": "Perfectly In Sync",
+    "d": "Оружие/скилл → +5% урон другому"
+  },
+  {
+    "name": "Всплеск",
+    "en": "Surge",
+    "g": "Винтовки",
+    "t": "Винтовка (LVOA-C)",
+    "brand": "",
+    "tal": "Perfect Spike",
+    "d": "Хедшот +25% урон скилла 15с"
+  },
+  {
+    "name": "Молниеотвод",
+    "en": "Lightning Rod",
+    "g": "Пистолеты",
+    "t": "Пистолет (PF45)",
+    "brand": "",
+    "tal": "Perfect Salvage",
+    "d": "Убийство 75% → полный магазин"
+  },
+  {
+    "name": "Орбита",
+    "en": "Orbit",
+    "g": "Пистолеты",
+    "t": "Пистолет (586 Magnum)",
+    "brand": "",
+    "tal": "Perfect Finisher",
+    "d": "Смена оружия после убийства → +40% крит. шанс +50% крит. урон 15с"
+  },
+  {
+    "name": "TDI Kard Custom",
+    "en": "TDI Kard Custom",
+    "g": "Пистолеты",
+    "t": "Пистолет (KARD .45)",
+    "brand": "",
+    "tal": "Уникальный",
+    "d": "+1 Skill Tier при ношении"
+  },
+  {
+    "name": "Ночной Страж",
+    "en": "Nightwatcher",
+    "g": "Маски",
+    "t": "Маска",
+    "brand": "Gila Guard",
+    "tal": "Perfect Spotter",
+    "d": "+20% урон по Pulse-врагам",
+    "core": [
+      "armor"
+    ],
+    "attr1": {
+      "scanner pulse haste": 100
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Нокаут",
+    "en": "Punch Drunk",
+    "g": "Маски",
+    "t": "Маска",
+    "brand": "Douglas & Harding",
+    "tal": "Perfect Headshot Trauma",
+    "d": "Хедшоты +20% урон в голову 2с",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "headshot damage": 20
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Пустой Человек",
+    "en": "The Hollow Man",
+    "g": "Маски",
+    "t": "Маска",
+    "brand": "Yaahl Gear",
+    "tal": "Perfectly Insulated",
+    "d": "+50% защита от опасностей",
+    "core": [
+      "armor"
+    ],
+    "attr1": {
+      "damage to health": 14
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Финалист",
+    "en": "Closer",
+    "g": "Маски",
+    "t": "Маска",
+    "brand": "Uzina Getica",
+    "tal": "Perfect Lookout",
+    "d": "+20% урон по Pulse-врагам",
+    "core": [
+      "armor"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Заветный",
+    "en": "Cherished",
+    "g": "Маски",
+    "t": "Маска",
+    "brand": "Habsburg Guard",
+    "tal": "Perfect Trauma",
+    "d": "Голова → слепота (кд 20с). Грудь → кровотечение (кд 20с)",
+    "core": [
+      "armor"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Свирепое Спокойствие",
+    "en": "Ferocious Calm",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Fenris Group AB",
+    "tal": "Perfect Berserk",
+    "d": "+10% урон за каждые 20% сломанной брони",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Серийный Убийца",
+    "en": "Chainkiller",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Walker, Harris & Co.",
+    "tal": "Perfect Headhunter",
+    "d": "Идеальный охотник: после хедшот-убийства следующий выстрел +1250% WD",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Образцовый",
+    "en": "Pristine Example",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Airaldi Holdings",
+    "tal": "Perfect Vigilance",
+    "d": "+30% урон оружием без получения урона (кд 4с)",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Охотник-Убийца",
+    "en": "Hunter-Killer",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Golan Gear",
+    "tal": "Perfect Intimidate",
+    "d": "Бонусная броня → +4%/стак урон ближе 10м (макс. 10)",
+    "core": [
+      "armor"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Хребет",
+    "en": "Backbone",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Lengmo",
+    "tal": "Perfect Unstoppable Force",
+    "d": "Убийство +7% урон 15с (макс. 5). Граната = 2 стака",
+    "core": [
+      "armor"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Ударное Обслуживание",
+    "en": "Percussive Maintenance",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "Alps Summit \nArmament",
+    "tal": "Perfect Tech Support",
+    "d": "Убийство скиллом +30% урон скилла 10с",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Стратегическое Согласование",
+    "en": "Strategic Alignment",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "China Light \nIndustries \nCorporation",
+    "tal": "Perfect Spark",
+    "d": "+20% урон оружием 15с после хита скиллом",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Жертва",
+    "en": "The Sacrifice",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "Providence Defense",
+    "tal": "Perfectly On The Ropes",
+    "d": "+20% урон когда оба скилла на кд",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Перчатки Подрядчика",
+    "en": "Contractor's Gloves",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "Petrov",
+    "tal": "Perfect Completion",
+    "d": "+40% урон скилла 15с после разрушения брони врага",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "damage to armor": 8
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Хватка Смерти",
+    "en": "Deathgrips",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "5.11 Tactical",
+    "tal": "Perfect Clutch",
+    "d": "Крит → 25% здоровья и 2% брони",
+    "core": [
+      "armor"
+    ],
+    "attr1": {
+      "armor on kill": 10
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Крепкое Рукопожатие",
+    "en": "Firm Handshake",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "Sokolov Concern",
+    "tal": "Perfectly Wicked",
+    "d": "+20% урон 20с после статус-эффекта",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "status effects": 16
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Материнская Любовь",
+    "en": "Motherly Love",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "Alps Summit \nArmament",
+    "tal": "Perfect Opportunistic",
+    "d": "Враги получают уязвимость +15% урон из других источников 3с",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {
+      "skill health": 25
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Когти Выпущены",
+    "en": "Claws Out",
+    "g": "Кобуры",
+    "t": "Кобура",
+    "brand": "Wyvern Wear",
+    "tal": "Perfect Bloodlust",
+    "d": "+20% урон 5с после смены оружия",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {
+      "melee damage": 500,
+      "pistol damage": 11
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Кузница",
+    "en": "Forge",
+    "g": "Кобуры",
+    "t": "Кобура",
+    "brand": "Richter & Kaiser",
+    "tal": "Perfect Smith",
+    "d": "Убийство пистолетом → 60% брони",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {
+      "shield health": 50
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Кобура Пикаро",
+    "en": "Picaro's Holster",
+    "g": "Кобуры",
+    "t": "Кобура",
+    "brand": "Brazos de Arcabuz",
+    "tal": "Уникальный",
+    "d": "+10% урон оружием фиксированный",
+    "core": [
+      "armor"
+    ],
+    "attr1": {
+      "weapon damage": 10
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Стража Императора",
+    "en": "Emperor's Guard",
+    "g": "Наколенники",
+    "t": "Наколенники",
+    "brand": "Murakami Industries",
+    "tal": "Perfectly Cloaked",
+    "d": "Разрушение брони → дезориентация врагов 15с (кд 15с)",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {
+      "armor regen": 1
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Молитва Лиса",
+    "en": "Fox's Prayer",
+    "g": "Наколенники",
+    "t": "Наколенники",
+    "brand": "Overlord Armaments",
+    "tal": "Perfectly Entrenched",
+    "d": "Хедшоты из укрытия → 15% брони",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "dmg to target out of cover": 8
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Луд",
+    "en": "Lud",
+    "g": "Штурмовые винтовки",
+    "t": "AR (SOCOM MK16)",
+    "brand": "",
+    "tal": "Perfect Streamline",
+    "d": "+47% урон оружием без развёрнутых навыков (PvP: +37%)"
+  },
+  {
+    "name": "Пурист",
+    "en": "Purist",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (SMG-9 A2)",
+    "brand": "",
+    "tal": "Perfect Streamline",
+    "d": "+47% урон оружием без развёрнутых навыков (PvP: +37%)"
+  },
+  {
+    "name": "Капитан",
+    "en": "Cap'n",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "Imminence Armaments",
+    "tal": "Perfect Leadership",
+    "d": "Перебежка → 20% брони как бонусная вам и союзникам 10с. x3 если ближе 10м к врагу. КД 10с",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Маскировка",
+    "en": "Cloak",
+    "g": "Наколенники",
+    "t": "Наколенники",
+    "brand": "Imminence Armaments",
+    "tal": "Perfect Attribute",
+    "d": "+50% снижение угрозы",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "reduced threat": 50
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Ахиллес",
+    "en": "Achilles",
+    "g": "Пистолеты",
+    "t": "Пистолет (USC .45)",
+    "brand": "",
+    "tal": "Perfect Soft Spot",
+    "d": "Уничтожение слабой точки → +32% урон оружием 15с"
+  },
+  {
+    "name": "Подстрекатель",
+    "en": "Instigator",
+    "g": "Винтовки",
+    "t": "Винтовка (Custom M44)",
+    "brand": "",
+    "tal": "Perfect Soft Spot",
+    "d": "Уничтожение слабой точки → +32% урон оружием 15с"
+  },
+  {
+    "name": "Ловкость",
+    "en": "Sleight",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Urban Lookout",
+    "tal": "Perfect Protected Reload",
+    "d": "+40% бонусной брони при перезарядке. 0-30% брони союзникам при их перезарядке",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Точное Попадание",
+    "en": "Spot-on",
+    "g": "Кобуры",
+    "t": "Кобура",
+    "brand": "Urban Lookout",
+    "tal": "Perfect Attribute",
+    "d": "+38% точность",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "accuracy": 38
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Блокировка",
+    "en": "Lockdown",
+    "g": "Дробовики",
+    "t": "Дробовик (M870)",
+    "brand": "",
+    "tal": "Perfect Immobilize",
+    "d": "+25% урон по опутанным. 3-е убийство → следующий враг опутан"
+  },
+  {
+    "name": "Пена",
+    "en": "Froth",
+    "g": "Пистолеты-пулемёты",
+    "t": "SMG (Vector 9mm)",
+    "brand": "",
+    "tal": "Perfect Immobilize",
+    "d": "+25% урон по опутанным. 3-е убийство → следующий враг опутан"
+  },
+  {
+    "name": "Уравнитель",
+    "en": "Equalizer",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Unit Alloys",
+    "tal": "Perfect Obliterate",
+    "d": "Криты +1% общий урон оружием 10с, макс. 24 стака",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Залп",
+    "en": "Salvo",
+    "g": "Кобуры",
+    "t": "Кобура",
+    "brand": "Unit Alloys",
+    "tal": "Perfect Attribute",
+    "d": "+5% скорострельность",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "rate of fire": 5
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Обмен",
+    "en": "Interchange",
+    "g": "Штурмовые винтовки",
+    "t": "AR (Enhanced AUG A3P)",
+    "brand": "",
+    "tal": "Perfect Back and Forth",
+    "d": "Смена НА это оружие: +13% RPM +12% урон 10с. Смена С этого: +5% RPM +4.5% урон 10с"
+  },
+  {
+    "name": "Торговец",
+    "en": "Trader",
+    "g": "Штурмовые винтовки",
+    "t": "AR (ACR SS)",
+    "brand": "",
+    "tal": "Perfect Back and Forth",
+    "d": "Смена НА: +13% RPM +12% урон. Смена С: +5% RPM +4.5% урон. 10с"
+  },
+  {
+    "name": "Робин",
+    "en": "Robin",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Royal Works",
+    "tal": "Perfect Gunslinger",
+    "d": "Смена оружия +28% урон оружием 5с. Повторная смена во время баффа — потеря на 5с"
+  },
+  {
+    "name": "Бульдог",
+    "en": "Bulldog",
+    "g": "Кобуры",
+    "t": "Кобура",
+    "brand": "Royal Works",
+    "tal": "Perfect Composure",
+    "d": "В укрытии +20% общий урон оружием"
+  },
+  {
+    "name": "Визионарио",
+    "en": "Visionario",
+    "g": "Маски",
+    "t": "Маска",
+    "brand": "Legatus S.p.A.",
+    "tal": "Perfect Attribute",
+    "d": "+50% оптимальная дальность",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "optimal range": 50
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Бдительность",
+    "en": "Vigil",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "Legatus S.p.A.",
+    "tal": "Perfect Versatile",
+    "d": "Смена типа оружия → урон 10с: ПП/дробовик +45% ближе 15м; винтовки +40% дальше 25м; ШВ/LMG +15% 15-25м",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Курьер",
+    "en": "The Courier",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "Habsburg Guard",
+    "tal": "Perfect Creeping Death",
+    "d": "Статус-эффект на враге → распространяется на ближайшего в 10м. КД 10с",
+    "core": [
+      "armor"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Плотник",
+    "en": "Carpenter",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Lengmo",
+    "tal": "Perfect Bombardier",
+    "d": "+75% радиус гранат. Граната-убийство → возврат гранаты. +15% брони при прицеливании гранатой",
+    "core": [
+      "armor"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Зажигатель",
+    "en": "Combustor",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Palisade Steelworks",
+    "tal": "Perfectly Explosive Delivery",
+    "d": "Брошенный навык → взрыв через 1.5с в 5м, потом каждые 5с. Урон от Skill Tier",
+    "core": [
+      "armor"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Прокси",
+    "en": "Proxy",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "Palisade Steelworks",
+    "tal": "Perfectly Tamper Proof",
+    "d": "Враги в 3м от Улья/Башенки/Пульса/Приманки → Шок. КД 8с",
+    "core": [
+      "armor"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Аксель",
+    "en": "Axel",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "Shiny Monkey",
+    "tal": "Perfect Energize",
+    "d": "Аптечка → +1 Skill Tier 15с. При 6-м уровне → Перезарядка. КД 30с",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Смазка",
+    "en": "Grease",
+    "g": "Наколенники",
+    "t": "Наколенники",
+    "brand": "Shiny Monkey",
+    "tal": "Perfect Attribute",
+    "d": "+16% эффекты статусов",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {
+      "status effects": 16
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Анри",
+    "en": "Henri",
+    "g": "Нагрудники",
+    "t": "Нагрудник",
+    "brand": "Electrique",
+    "tal": "Perfect Camaraderie",
+    "d": "+20% урон оружием в 10м от союзника или навыка",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Лавуазье",
+    "en": "Lavoisier",
+    "g": "Рюкзаки",
+    "t": "Рюкзак",
+    "brand": "Electrique",
+    "tal": "Perfect Galvanize",
+    "d": "Слепота/Опутывание/Шок на враге → 50% брони как бонусная вам и союзникам в 30м 10с",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Орлиная Хватка",
+    "en": "Eagles Grasp",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "Zwiadowka Sp. z o.o.",
+    "tal": "",
+    "d": "+15% обращение с оружием",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {
+      "weapon handling": 15
+    },
+    "attr2": {}
+  },
+  {
+    "name": "Окровавленные Костяшки",
+    "en": "Bloody Knuckles",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "",
+    "tal": "Over the top",
+    "d": "Over the Top: меле-убийство → запас брони",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Перчатки BTSU",
+    "en": "BTSU Datagloves",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "",
+    "tal": "Transference Overclock",
+    "d": "Transference Overclock: убийство скиллом → Overclock союзнику",
+    "core": [
+      "skill tier"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Перчатки Exodus",
+    "en": "Exodus Gloves",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "",
+    "tal": "Smoke Screen",
+    "d": "Smoke Screen: убийство → дымовая завеса 5с",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Передозировка",
+    "en": "Overdogs",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "",
+    "tal": "Weakest Link",
+    "d": "Weakest Link: +20% урон по врагу с низким Tier здоровья",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  },
+  {
+    "name": "Прочные Рукавицы",
+    "en": "Rugged Gauntlets",
+    "g": "Перчатки",
+    "t": "Перчатки",
+    "brand": "",
+    "tal": "Iron Grip",
+    "d": "Iron Grip: перезарядка в укрытии → ускоренная перезарядка",
+    "core": [
+      "weapon damage"
+    ],
+    "attr1": {},
+    "attr2": {}
+  }
+]
