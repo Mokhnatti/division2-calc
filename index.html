@@ -262,6 +262,7 @@
         .author-stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 18px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:110px;flex:1}
         .author-stat-card .asv{font-size:22px;font-weight:800;color:var(--orange)}
         .author-stat-card .asl{font-size:11px;color:var(--muted);text-align:center}
+        .stat-tip{cursor:help;border-bottom:1px dotted #888}
     </style>
 </head>
 <body>
@@ -308,22 +309,22 @@
         </div>
         <div class="calc-group">
             <h3>Урон оружием (один бакет, складываются)</h3>
-            <div class="calc-row"><label>Общий урон оружием (WD)</label><input type="number" id="c_wd" value="90" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Общий урон оружием (<span class="stat-tip" data-stat="WD">WD</span>)</label><input type="number" id="c_wd" value="90" step="1"><span class="unit">%</span></div>
             <div class="calc-row"><label>Урон типа оружия (ШВ/ПП/LMG..)</label><input type="number" id="c_wtd" value="30" step="1"><span class="unit">%</span></div>
             <div class="calc-row" style="margin-top:4px"><label style="font-size:10px;color:#555">= итого множитель</label><span id="wd-mult" style="font-size:12px;color:var(--orange);font-weight:700">x2.20</span></div>
         </div>
         <div class="calc-group">
             <h3>Критический удар</h3>
-            <div class="calc-row"><label>Шанс крита (CHC) <span style="color:#555">макс 60%</span></label><input type="number" id="c_chc" value="55" step="1" max="60"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Урон крита (CHD)</label><input type="number" id="c_chd" value="150" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Шанс крита (<span class="stat-tip" data-stat="CHC">CHC</span>) <span style="color:#555">макс 60%</span></label><input type="number" id="c_chc" value="55" step="1" max="60"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон крита (<span class="stat-tip" data-stat="CHD">CHD</span>)</label><input type="number" id="c_chd" value="150" step="1"><span class="unit">%</span></div>
             <div class="calc-row" style="margin-top:4px"><label style="font-size:10px;color:#555">= средний множитель крита</label><span id="crit-mult" style="font-size:12px;color:var(--orange);font-weight:700">x1.83</span></div>
         </div>
         <div class="calc-group">
             <h3>Внешние множители (каждый отдельный!)</h3>
-            <div class="calc-row"><label>Урон в голову (HSD)</label><input type="number" id="c_hsd" value="0" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон в голову (<span class="stat-tip" data-stat="HSD">HSD</span>)</label><input type="number" id="c_hsd" value="0" step="1"><span class="unit">%</span></div>
             <div class="calc-row"><label>% попаданий в голову</label><input type="number" id="c_hsrate" value="0" step="1" max="100"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Урон по броне (DtA) <span style="color:#555">макс ~20%</span></label><input type="number" id="c_dta" value="15" step="1"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Урон вне укрытия (OoC) <span style="color:#555">макс ~30%</span></label><input type="number" id="c_ooc" value="10" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон по броне (<span class="stat-tip" data-stat="DtA">DtA</span>) <span style="color:#555">макс ~20%</span></label><input type="number" id="c_dta" value="15" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон вне укрытия (<span class="stat-tip" data-stat="OoC">OoC</span>) <span style="color:#555">макс ~30%</span></label><input type="number" id="c_ooc" value="10" step="1"><span class="unit">%</span></div>
             <div class="calc-row"><label>Усиленный урон (Amplified)</label><input type="number" id="c_amp" value="0" step="1"><span class="unit">%</span></div>
         </div>
     </div>
@@ -608,13 +609,13 @@
   <div class="bsect">
     <h3>Статы снаряжения (бренды, моды, атрибуты)</h3>
     <div class="bstat-row">
-      <div class="bstat"><label>CHC</label><input id="b-chc" value="20" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>CHD</label><input id="b-chd" value="25" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>HSD доп.</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span></label><input id="b-chc" value="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span></label><input id="b-chd" value="25" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span> доп.</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>% HS</label><input id="b-hsrate" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Вне укрытия</label><input id="b-ooc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Броня цели</label><input id="b-dta" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>WD доп.</label><input id="b-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="OoC">Вне укрытия</span></label><input id="b-ooc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="DtA">Броня цели</span></label><input id="b-dta" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span> доп.</label><input id="b-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
     <div style="font-size:11px;color:#444">CHD базовый 25% уже учтён в формуле. Вводи только дополнительный CHD от брендов/атрибутов.</div>
   </div>
@@ -666,10 +667,10 @@
     <h3>⌚ SHD Watch / Часы Кинера <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· max значения подтверждены 3 источниками (BDDFr + MikeRee + Reddit)</span></h3>
     <div style="font-size:11px;color:#ef5350;margin:4px 0 6px;text-transform:uppercase;letter-spacing:.5px">Атакующие (Offensive)</div>
     <div class="bstat-row">
-      <div class="bstat"><label>WD</label><input id="shd-wd" value="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>HSD</label><input id="shd-hsd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>CHC</label><input id="shd-chc" value="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>CHD</label><input id="shd-chd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span></label><input id="shd-wd" value="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span></label><input id="shd-hsd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span></label><input id="shd-chc" value="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span></label><input id="shd-chd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
     <div style="font-size:11px;color:#fdd835;margin:6px 0;text-transform:uppercase;letter-spacing:.5px">Управление (Handling)</div>
     <div class="bstat-row">
@@ -686,10 +687,10 @@
     <h3>🧪 Prototype Gear Attributes <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· бонусы от Prototype брони (Y8S1, max ×1.5 от обычных)</span></h3>
     <div class="bstat-row">
       <div class="bstat"><label>Slots</label><input id="proto-slots-count" type="number" value="0" min="0" max="6" oninput="calcBuild()"><span class="u">из 6</span></div>
-      <div class="bstat"><label>WD</label><input id="proto-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>HSD</label><input id="proto-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>CHC</label><input id="proto-chc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>CHD</label><input id="proto-chd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span></label><input id="proto-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span></label><input id="proto-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span></label><input id="proto-chc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span></label><input id="proto-chd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>vs Elite</label><input id="proto-elite" value="0" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>vs Health</label><input id="proto-health" value="0" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
@@ -1493,14 +1494,14 @@ function calcDPS(){
 
     // Веса статов — маржинальный DPS за +1%
     const weights = [
-        {name:"Урон оружием (WD)", delta: calcWith("wd",1) - dps},
+        {name:'Урон оружием (<span class="stat-tip" data-stat="WD">WD</span>)', delta: calcWith("wd",1) - dps},
         {name:"Урон типа оружия", delta: calcWith("wtd",1) - dps},
-        {name:"Шанс крита (CHC)", delta: calcWithCHC(1) - dps},
-        {name:"Урон крита (CHD)", delta: calcWithCHD(1) - dps},
-        {name:"Урон в голову (HSD)", delta: calcWithHSD(1) - dps},
-        {name:"Урон по броне (DtA)", delta: calcWithMult("dta",1) - dps},
-        {name:"Урон вне укрытия (OoC)", delta: calcWithMult("ooc",1) - dps},
-        {name:"Усиленный (Amplified)", delta: calcWithMult("amp",1) - dps},
+        {name:'Шанс крита (<span class="stat-tip" data-stat="CHC">CHC</span>)', delta: calcWithCHC(1) - dps},
+        {name:'Урон крита (<span class="stat-tip" data-stat="CHD">CHD</span>)', delta: calcWithCHD(1) - dps},
+        {name:'Урон в голову (<span class="stat-tip" data-stat="HSD">HSD</span>)', delta: calcWithHSD(1) - dps},
+        {name:'Урон по броне (<span class="stat-tip" data-stat="DtA">DtA</span>)', delta: calcWithMult("dta",1) - dps},
+        {name:'Урон вне укрытия (<span class="stat-tip" data-stat="OoC">OoC</span>)', delta: calcWithMult("ooc",1) - dps},
+        {name:'Усиленный (<span class="stat-tip" data-stat="AMP">Amplified</span>)', delta: calcWithMult("amp",1) - dps},
     ];
 
     const maxDelta = Math.max(...weights.map(w=>w.delta));
@@ -1513,6 +1514,7 @@ function calcDPS(){
             <td style="width:40%"><div class="w-bar-bg"><div class="w-bar" style="width:${pct}%"></div></div></td>
             <td class="${best}" style="font-size:11px;width:50px">${(w.delta/dps*100).toFixed(2)}%</td></tr>`;
     }).join("");
+    if(typeof updateStatTooltips==="function")updateStatTooltips();
 
     function calcWith(field, add){
         const wd2 = (field==="wd"?wd+add:wd), wtd2 = (field==="wtd"?wtd+add:wtd);
@@ -2655,8 +2657,9 @@ function decodeBuildHash(hash){
 }
 
 function getStatLabel(key){
-  const m={dmg:"База урона",rpm:"RPM",mag:"Магазин",rel:"Перезарядка",chc:"Крит %",chd:"Крит DMG",hsd:"Хедшот DMG",wd:"Weapon DMG",ooc:"Out of Cover",dta:"Damage to Armor",hsrate:"Хедшот rate"};
-  return m[key]||key;
+  const ru={dmg:"База урона",rpm:"RPM",mag:"Магазин",rel:"Перезарядка",chc:"CHC",chd:"CHD",hsd:"HSD",wd:"WD",ooc:"OoC",dta:"DtA",hsrate:"% HS"};
+  const en={dmg:"Base Damage",rpm:"RPM",mag:"Magazine",rel:"Reload",chc:"CHC",chd:"CHD",hsd:"HSD",wd:"WD",ooc:"OoC",dta:"DtA",hsrate:"HS rate"};
+  return(currentLang==="en"?en:ru)[key]||key;
 }
 
 function formatStatVal(key,val){
@@ -3924,6 +3927,8 @@ function computeBuildWeights(ctx){
     return r.dps;
   };
   const base=calcPeak(tWD,tROF,tMAG,tCHC,tCHD,tHSD);
+  const STAT_TIP_KEYS={"WD":1,"CHC":1,"CHD":1,"HSD":1,"RPM":1,"MAG":1};
+  function wrapStatK(k){return STAT_TIP_KEYS[k]?`<span class="stat-tip" data-stat="${k}">${k}</span>`:k}
   const weights=[
     {k:"WD",d:calcPeak(tWD+1,tROF,tMAG,tCHC,tCHD,tHSD)-base},
     {k:"CHC",d:calcPeak(tWD,tROF,tMAG,tCHC+1,tCHD,tHSD)-base},
@@ -3943,8 +3948,9 @@ function computeBuildWeights(ctx){
     const pctDps=base>0?(w.d/base*100).toFixed(2):"0.00";
     const best=i===0&&w.d>0?' w-best':'';
     const bar=`<div class="w-bar-bg"><div class="w-bar" style="width:${pct}%"></div></div>`;
-    return`<tr><td class="${best}">${i===0&&w.d>0?"⭐ ":""}${w.k}</td><td>+${Math.round(w.d).toLocaleString("ru")}</td><td>${bar}</td><td>+${pctDps}%</td></tr>`;
+    return`<tr><td class="${best}">${i===0&&w.d>0?"⭐ ":""}${wrapStatK(w.k)}</td><td>+${Math.round(w.d).toLocaleString("ru")}</td><td>${bar}</td><td>+${pctDps}%</td></tr>`;
   }).join("");
+  if(typeof updateStatTooltips==="function")updateStatTooltips();
 }
 
 // Returns list of warning objects: {level:'err'|'warn'|'info', text:string}
@@ -4200,6 +4206,40 @@ function getAuthoritativeTalent(talEn){
   return a[talEn]||null;
 }
 
+const STAT_TOOLTIPS={
+  ru:{
+    WD:"Урон оружием (Weapon Damage)",
+    CHC:"Шанс критического попадания (Critical Hit Chance)",
+    CHD:"Урон критического попадания (Critical Hit Damage)",
+    HSD:"Урон в голову (Headshot Damage)",
+    DtA:"Урон по броне (Damage to Armor)",
+    OoC:"Урон вне укрытия (Out of Cover)",
+    AMP:"Усиленный урон (Amplified Damage)",
+    RPM:"Скорострельность (Rounds Per Minute)",
+    MAG:"Размер магазина (Magazine Size)",
+    REL:"Скорость перезарядки (Reload Speed)"
+  },
+  en:{
+    WD:"Weapon Damage — total % bonus to bullet damage",
+    CHC:"Critical Hit Chance — chance to deal critical damage (cap 60%)",
+    CHD:"Critical Hit Damage — bonus damage on critical hits",
+    HSD:"Headshot Damage — bonus damage for headshots",
+    DtA:"Damage to Armor — bonus vs armored targets",
+    OoC:"Out of Cover — bonus vs targets not in cover",
+    AMP:"Amplified Damage — multiplicative damage bonus",
+    RPM:"Rounds Per Minute — weapon fire rate",
+    MAG:"Magazine Size — rounds before reload",
+    REL:"Reload Speed — time to reload weapon"
+  }
+};
+function updateStatTooltips(){
+  document.querySelectorAll(".stat-tip").forEach(el=>{
+    const key=el.dataset.stat;
+    if(STAT_TOOLTIPS[currentLang]&&STAT_TOOLTIPS[currentLang][key])
+      el.title=STAT_TOOLTIPS[currentLang][key];
+  });
+}
+
 // ===== LANGUAGE SWITCHER =====
 // currentLang declared earlier (TDZ fix) — reassign here to ensure localStorage value
 currentLang=localStorage.getItem("d2calc_lang")||"ru";
@@ -4212,13 +4252,14 @@ async function toggleLang(){
   currentLang=currentLang==="ru"?"en":"ru";
   localStorage.setItem("d2calc_lang",currentLang);
   updateLangBtn();
+  updateStatTooltips();
   if(currentLang==="en")await loadTranslations();
-  // Re-render current view (main search or build tab items)
   if(typeof render==="function")render();
   if(activeCat==="build")calcBuild();
   if(activeCat==="community")loadCommunityFeed();
 }
 updateLangBtn();
+updateStatTooltips();
 
 // Init build slots from gear set data
 initBuildSlots();
@@ -4531,6 +4572,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     if(e.dataTransfer.files[0])handleBugFile(e.dataTransfer.files[0]);
   });
 });
+document.addEventListener("DOMContentLoaded",updateStatTooltips);
 </script>
 </body>
 </html>
