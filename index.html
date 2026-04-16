@@ -32,6 +32,27 @@
         .bug-alt{text-align:center;font-size:11px;color:var(--muted);padding:8px;border-top:1px solid var(--border)}
         .bug-alt a{color:var(--blue);text-decoration:none}
         .bug-alt a:hover{text-decoration:underline}
+        /* RECOM SIM */
+        .rsim-bars{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;padding:10px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid var(--border)}
+        .rsim-bar-row{display:flex;align-items:center;gap:8px}
+        .rsim-bar-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;width:58px;flex-shrink:0}
+        .rsim-bar-track{flex:1;height:18px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;position:relative}
+        .rsim-bar-fill{height:100%;transition:width .2s ease;min-width:2px;border-radius:4px}
+        .rsim-bar-val{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:#fff;text-shadow:0 0 4px rgba(0,0,0,.8)}
+        .rsim-tiers{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+        .rsim-tier-row{display:flex;align-items:center;gap:8px}
+        .rsim-tier-label{font-size:11px;color:var(--muted);width:44px;flex-shrink:0;font-weight:600}
+        .rsim-tier-sel{flex:1;background:var(--card);border:1px solid var(--border);color:var(--text);padding:5px 7px;border-radius:5px;font-size:11px;cursor:pointer;outline:none}
+        .rsim-tier-sel:focus{border-color:var(--orange)}
+        .rsim-tier-eff{font-size:10px;color:var(--muted);min-width:120px;text-align:right}
+        .rsim-bonus-table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:11px}
+        .rsim-bonus-table th{background:rgba(255,255,255,.05);padding:5px 8px;text-align:left;border:1px solid var(--border);color:var(--orange);font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.5px}
+        .rsim-bonus-table td{padding:5px 8px;border:1px solid var(--border)}
+        .rsim-bonus-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+        .rsim-apply-btn{background:var(--orange);color:#000;border:none;padding:8px 16px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+        .rsim-apply-btn:hover{background:#ffb74d}
+        .rsim-approx{color:#888;font-size:9px;font-weight:400;font-style:italic;text-transform:none;letter-spacing:0}
+        .rsim-warning{font-size:10px;color:#ef9a9a;padding:4px 0;min-height:16px}
         /* COMMUNITY */
         .comm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;padding:0 4px 30px}
         @media(max-width:500px){.comm-grid{grid-template-columns:1fr}}
@@ -719,6 +740,10 @@
       <div class="bstat"><label>Свободный</label><input id="rc-util3" value="0" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
     <div style="font-size:10px;color:#555;margin-top:6px">В DPS оружия идёт только <b style="color:var(--orange)">Урон в голову</b> и <b style="color:var(--orange)">Патроны</b> (на магазин). Защитные и утилитарные показаны для справки.</div>
+    <details style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px" id="recom-sim-details">
+      <summary style="cursor:pointer;font-size:12px;color:var(--orange);font-weight:600">🧬 Симулятор Рекомбинатора (выбери модификаторы по тирам)</summary>
+      <div id="recom-sim" style="margin-top:10px"></div>
+    </details>
     <details style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px">
       <summary style="cursor:pointer;font-size:12px;color:var(--orange);font-weight:600">📖 Справочник всех 34 модификаторов Y8S1 Rise Up</summary>
       <div id="rcm-reference" style="margin-top:10px;font-size:11px;color:var(--muted)">Загрузка...</div>
@@ -4275,6 +4300,248 @@ async function loadRecombinatorRef(){
     return __rcmCache;
   }catch(e){return null}
 }
+let __simRendered=false;
+async function initRecomSim(){
+  if(__simRendered)return;
+  __simRendered=true;
+  const el=document.getElementById("recom-sim");
+  if(!el)return;
+  const mods=await loadRecombinatorRef();
+  if(!mods||!mods.length){el.innerHTML='<i>Не удалось загрузить модификаторы</i>';return}
+  const cats={Offense:[],Defense:[],Utility:[],Wildcard:[]};
+  for(const m of mods){if(cats[m.category])cats[m.category].push(m)}
+  const catColors={Offense:"#ef5350",Defense:"#42a5f5",Utility:"#fdd835",Wildcard:"#ce93d8"};
+  const catLabels={Offense:"⚔ Offense",Defense:"🛡 Defense",Utility:"🔧 Utility",Wildcard:"⭐ Wildcard"};
+  let optionsHtml='<option value="">— нет —</option>';
+  for(const cat of["Offense","Defense","Utility","Wildcard"]){
+    optionsHtml+=`<optgroup label="${catLabels[cat]}">`;
+    for(const m of cats[cat]){
+      optionsHtml+=`<option value="${m.id}">${m.icon||""} ${m.name} (${cat})</option>`;
+    }
+    optionsHtml+=`</optgroup>`;
+  }
+  let html=`<div class="rsim-bars">`;
+  for(const [key,label,color] of[["offense","Offense","#ef5350"],["defense","Defense","#42a5f5"],["utility","Utility","#fdd835"]]){
+    html+=`<div class="rsim-bar-row">
+      <div class="rsim-bar-label" style="color:${color}">${label}</div>
+      <div class="rsim-bar-track"><div class="rsim-bar-fill" id="rsim-fill-${key}" style="background:${color};width:0%"></div><span class="rsim-bar-val" id="rsim-val-${key}">0</span></div>
+    </div>`;
+  }
+  html+=`</div><div class="rsim-warning" id="rsim-warning"></div><div class="rsim-tiers">`;
+  for(let t=1;t<=10;t++){
+    html+=`<div class="rsim-tier-row">
+      <div class="rsim-tier-label">Tier ${t}</div>
+      <select class="rsim-tier-sel" id="rsim-t${t}" onchange="recalcRecomSim()">${optionsHtml}</select>
+      <div class="rsim-tier-eff" id="rsim-eff${t}"></div>
+    </div>`;
+  }
+  html+=`</div><div id="rsim-bonuses"></div>
+  <button class="rsim-apply-btn" onclick="applyRecomSimToBuild()">Применить к билду (HSD + Патроны)</button>`;
+  el.innerHTML=html;
+  recalcRecomSim();
+}
+
+function _rsimGetMod(id){
+  if(!__rcmCache)return null;
+  return __rcmCache.find(m=>m.id===id)||null;
+}
+
+function recalcRecomSim(){
+  if(!__rcmCache)return;
+  const stacks={offense:0,defense:0,utility:0};
+  const potency={offense:1,defense:1,utility:1};
+  const locked={offense:false,defense:false,utility:false};
+  const saturated={offense:false,defense:false,utility:false};
+  const converts={offense:null,defense:null,utility:null};
+  const history={offense:[],defense:[],utility:[]};
+  const warnings=[];
+  let approx=false;
+
+  const keyMap={Offense:"offense",Defense:"defense",Utility:"utility"};
+  const otherTwo={offense:["defense","utility"],defense:["offense","utility"],utility:["offense","defense"]};
+
+  for(let t=1;t<=10;t++){
+    const sel=document.getElementById("rsim-t"+t);
+    if(!sel)continue;
+    const modId=sel.value;
+    if(!modId){document.getElementById("rsim-eff"+t).textContent="";continue}
+    const mod=_rsimGetMod(modId);
+    if(!mod){document.getElementById("rsim-eff"+t).textContent="";continue}
+
+    const cat=mod.category==="Wildcard"?null:keyMap[mod.category];
+    const effType=mod.effectType;
+
+    if(effType==="none"||effType==="saturate"||effType==="redistribute"){
+      for(const sc of(mod.stackChanges||[])){
+        const k=keyMap[sc.cat];
+        if(k&&!locked[k]){
+          stacks[k]+=sc.amount;
+          history[k].push(sc.amount);
+          if(stacks[k]<0)stacks[k]=0;
+        }
+      }
+      if(effType==="saturate"&&cat)saturated[cat]=true;
+    } else if(effType==="compress"){
+      if(cat&&!locked[cat]){
+        const sc=(mod.stackChanges||[]).find(x=>keyMap[x.cat]===cat);
+        if(sc){stacks[cat]+=sc.amount;history[cat].push(sc.amount);if(stacks[cat]<0)stacks[cat]=0;}
+        potency[cat]*=1.5;
+      }
+    } else if(effType==="convert"){
+      if(cat)converts[cat]=mod.id;
+    } else if(effType==="stabilize"){
+      if(cat)locked[cat]=true;
+    } else if(effType==="invert"){
+      if(cat){
+        const others=otherTwo[cat];
+        const maxOther=Math.max(stacks[others[0]],stacks[others[1]]);
+        if(stacks[others[0]]===stacks[others[1]]||stacks[cat]>=maxOther){
+          warnings.push(`T${t} Invert — не сработал (условие не выполнено)`);
+        } else {
+          const highKey=stacks[others[0]]>stacks[others[1]]?others[0]:others[1];
+          if(!locked[cat]&&!locked[highKey]){
+            const tmp=stacks[cat];stacks[cat]=stacks[highKey];stacks[highKey]=tmp;
+            history[cat].push(0);history[highKey].push(0);
+          }
+        }
+      }
+    } else if(effType==="pivot"){
+      if(cat&&!locked[cat]){
+        const others=otherTwo[cat];
+        const lowKey=stacks[others[0]]<stacks[others[1]]?others[0]:others[1];
+        if(stacks[others[0]]===stacks[others[1]]){
+          approx=true;
+        } else {
+          if(!locked[lowKey]){
+            const boost=Math.floor(stacks[cat]/2);
+            stacks[lowKey]+=boost;history[lowKey].push(boost);
+          }
+        }
+      }
+    } else if(effType==="nullify"){
+      const minVal=Math.min(stacks.offense,stacks.defense,stacks.utility);
+      const ties=[["offense","defense","utility"].filter(k=>stacks[k]===minVal)];
+      if(ties[0].length>1){
+        warnings.push(`T${t} Nullify — не сработал (два и более модуля на минимуме)`);
+      } else {
+        const lowKey=ties[0][0];
+        if(!locked[lowKey]){
+          const delta=history[lowKey].reduce((a,b)=>a+b,0);
+          stacks[lowKey]-=delta*2;
+          if(stacks[lowKey]<0)stacks[lowKey]=0;
+          history[lowKey]=[];
+        }
+      }
+    } else if(effType==="cascade"){
+      const vals=[["offense",stacks.offense],["defense",stacks.defense],["utility",stacks.utility]];
+      vals.sort((a,b)=>b[1]-a[1]);
+      if(vals[0][1]===vals[1][1]){
+        warnings.push(`T${t} Cascade — не сработал (два модуля с одинаковым максимумом)`);
+      } else {
+        const highKey=vals[0][0];
+        const bonus=Math.ceil(stacks[highKey]/2);
+        saturated[highKey]=true;
+        for(const [k] of vals.slice(1)){if(!locked[k]){stacks[k]+=bonus;history[k].push(bonus);}}
+      }
+    } else if(effType==="converge"){
+      const vals=[["offense",stacks.offense],["defense",stacks.defense],["utility",stacks.utility]];
+      vals.sort((a,b)=>a[1]-b[1]);
+      if(vals[0][1]===vals[1][1]){
+        warnings.push(`T${t} Converge — не сработал (два модуля на минимуме)`);
+      } else {
+        const lowKey=vals[0][0];
+        const avg=Math.floor((stacks[vals[1][0]]+stacks[vals[2][0]])/2);
+        if(!locked[lowKey]){stacks[lowKey]=avg;history[lowKey]=[avg];}
+        for(const [k] of vals.slice(1)){if(!locked[k]){stacks[k]=0;history[k]=[];}}
+      }
+    } else if(effType==="equalize"){
+      const sorted=[stacks.offense,stacks.defense,stacks.utility].slice().sort((a,b)=>a-b);
+      const med=sorted[1];
+      if(sorted[0]===sorted[1]||sorted[1]===sorted[2]){
+        warnings.push(`T${t} Equalize — не сработал (медиана не уникальна)`);
+      } else {
+        for(const k of["offense","defense","utility"]){if(!locked[k]){stacks[k]=med;history[k]=[med];}}
+      }
+    } else {
+      approx=true;
+    }
+
+    const effParts=[];
+    effParts.push(`O${stacks.offense>=0?"+":""}${stacks.offense-stacks.offense} D${stacks.defense>=0?"+":""}${0} U${stacks.utility>=0?"+":""}${0}`);
+    const delta={offense:0,defense:0,utility:0};
+    for(const sc of(mod.stackChanges||[])){const k=keyMap[sc.cat];if(k)delta[k]+=sc.amount;}
+    let effStr="";
+    for(const [k,label] of[["offense","O"],["defense","D"],["utility","U"]]){
+      const d=delta[k];
+      if(d!==0)effStr+=`${label}${d>0?"+":""}${d} `;
+    }
+    if(effType==="compress")effStr+="×1.5";
+    if(effType==="stabilize")effStr+="🔒";
+    if(effType==="convert")effStr+="→"+mod.stats?.[0]?.stat||"";
+    if(["invert","pivot","nullify","cascade","converge","equalize"].includes(effType))effStr=effType;
+    document.getElementById("rsim-eff"+t).textContent=effStr.trim()||mod.effectType;
+  }
+
+  const maxStack=Math.max(stacks.offense,stacks.defense,stacks.utility,50);
+  for(const [k,id] of[["offense","offense"],["defense","defense"],["utility","utility"]]){
+    const fill=document.getElementById("rsim-fill-"+id);
+    const val=document.getElementById("rsim-val-"+id);
+    if(fill&&val){
+      fill.style.width=Math.min(100,Math.max(2,(stacks[k]/maxStack)*100))+"%";
+      val.textContent=stacks[k];
+    }
+  }
+
+  const warn=document.getElementById("rsim-warning");
+  if(warn)warn.textContent=warnings.join(" · ");
+
+  const bonusEl=document.getElementById("rsim-bonuses");
+  if(!bonusEl)return;
+
+  const statLabels={weaponHandling:"Weapon Handling",headshotDamage:"Headshot Damage",magazineSize:"Magazine Size",totalArmor:"Total Armor",protectionFromElites:"Protection from Elites",hazardProtection:"Hazard Protection",skillDamage:"Skill Damage",skillRepair:"Skill Repair",statusEffects:"Status Effects"};
+  const statUnits={weaponHandling:"%",headshotDamage:"%",magazineSize:"%",totalArmor:"%",protectionFromElites:"%",hazardProtection:"%",skillDamage:"%",skillRepair:"%",statusEffects:"%"};
+
+  const results=[];
+  function calcModule(key,defaultStat,perStack){
+    if(saturated[key])return{stat:defaultStat,value:0,note:"saturated"};
+    const convId=converts[key];
+    let stat=defaultStat,rate=perStack;
+    if(convId){
+      const cm=_rsimGetMod(convId);
+      if(cm&&cm.stats&&cm.stats[0]){stat=cm.stats[0].stat;rate=cm.stats[0].base/10;}
+    }
+    const val=Math.round(stacks[key]*rate*potency[key]*10)/10;
+    return{stat,value:val,note:convId?_rsimGetMod(convId)?.name||"":null,approx};
+  }
+  results.push({module:"Offense",color:"#ef5350",...calcModule("offense","weaponHandling",1)});
+  results.push({module:"Defense",color:"#42a5f5",...calcModule("defense","totalArmor",0.5)});
+  results.push({module:"Utility",color:"#fdd835",...calcModule("utility","skillDamage",1)});
+
+  let tbl=`<table class="rsim-bonus-table"><thead><tr><th>Модуль</th><th>Стат</th><th>Итого</th><th>Тип</th></tr></thead><tbody>`;
+  for(const r of results){
+    tbl+=`<tr>
+      <td style="color:${r.color};font-weight:700">${r.module}</td>
+      <td>${statLabels[r.stat]||r.stat}</td>
+      <td style="font-weight:700;color:${r.color}">+${r.value}${statUnits[r.stat]||""}${r.approx?` <span class="rsim-approx">(≈)</span>`:""}</td>
+      <td style="color:#888;font-size:10px">${r.note||"default"}${r.note==="saturated"?` <span style="color:#ef5350">SATURATED</span>`:""}</td>
+    </tr>`;
+  }
+  tbl+=`</tbody></table>`;
+  bonusEl.innerHTML=tbl;
+  bonusEl.__simData={results,stacks,converts,potency};
+}
+
+function applyRecomSimToBuild(){
+  const el=document.getElementById("rsim-bonuses");
+  if(!el||!el.__simData)return;
+  const {results}=el.__simData;
+  const hsdR=results.find(r=>r.stat==="headshotDamage");
+  const ammoR=results.find(r=>r.stat==="magazineSize");
+  if(hsdR&&hsdR.value){setInput("rc-hsd",hsdR.value);}
+  if(ammoR&&ammoR.value){setInput("rc-ammo",ammoR.value);}
+  calcBuild();
+}
+
 async function renderRecombinatorRef(){
   const el=document.getElementById("rcm-reference");
   if(!el)return;
@@ -4308,6 +4575,9 @@ document.addEventListener("click",e=>{
   }
   if(e.target.closest("details>summary")&&e.target.closest("details").id==="esc-ref-details"){
     setTimeout(renderEscalationRef,50);
+  }
+  if(e.target.closest("details>summary")&&e.target.closest("details").id==="recom-sim-details"){
+    setTimeout(initRecomSim,50);
   }
 });
 let __escRefRendered=false;
