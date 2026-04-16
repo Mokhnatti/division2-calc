@@ -1062,7 +1062,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Liquid Engineer",
+    "name": "Жидкий инженер",
     "en": "Liquid Engineer",
     "g": "Рюкзак",
     "t": "",
@@ -1072,7 +1072,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Hermano",
+    "name": "Эрмано",
     "en": "Hermano",
     "g": "Рюкзак",
     "t": "",
@@ -1082,7 +1082,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Anarchist's Cookbook",
+    "name": "Поваренная книга анархиста",
     "en": "Anarchist's Cookbook",
     "g": "Рюкзак",
     "t": "",
@@ -1092,7 +1092,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Matador",
+    "name": "Матадор",
     "en": "Matador",
     "g": "Рюкзак",
     "t": "",
@@ -1102,7 +1102,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] The Gift",
+    "name": "Подарок",
     "en": "The Gift",
     "g": "Рюкзак",
     "t": "",
@@ -1112,7 +1112,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Devil's Due",
+    "name": "Долг дьявола",
     "en": "Devil's Due",
     "g": "Рюкзак",
     "t": "",
@@ -1122,7 +1122,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Battery Pack",
+    "name": "Энергоблок",
     "en": "Battery Pack",
     "g": "Рюкзак",
     "t": "",
@@ -1132,7 +1132,7 @@
     "core": "skill tier"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] The Setup",
+    "name": "Ловушка",
     "en": "The Setup",
     "g": "Рюкзак",
     "t": "",
@@ -1142,7 +1142,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Force Multiplier",
+    "name": "Усилитель силы",
     "en": "Force Multiplier",
     "g": "Рюкзак",
     "t": "",
@@ -1152,7 +1152,7 @@
     "core": "skill tier"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Festive Delivery",
+    "name": "Праздничная доставка",
     "en": "Festive Delivery",
     "g": "Рюкзак",
     "t": "",
@@ -1162,7 +1162,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Everyday Carrier",
+    "name": "Ежедневный переносчик",
     "en": "Everyday Carrier",
     "g": "Броня",
     "t": "",
@@ -1172,7 +1172,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Pointman",
+    "name": "Острие",
     "en": "Pointman",
     "g": "Броня",
     "t": "",
@@ -1182,7 +1182,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Vedmedytsya Vest",
+    "name": "Жилет ведмедицы",
     "en": "Vedmedytsya Vest",
     "g": "Броня",
     "t": "",
@@ -1192,7 +1192,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Zero F’s",
+    "name": "Zero F’s",
     "en": "Zero F’s",
     "g": "Броня",
     "t": "",
@@ -1202,7 +1202,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Door-Kicker’s Knock",
+    "name": "Door-Kicker’s Knock",
     "en": "Door-Kicker’s Knock",
     "g": "Броня",
     "t": "",
@@ -1212,7 +1212,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Caesar's Guard",
+    "name": "Охрана цезаря",
     "en": "Caesar's Guard",
     "g": "Броня",
     "t": "",
@@ -1222,7 +1222,7 @@
     "core": "skill tier"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Bober",
+    "name": "Бобёр",
     "en": "Bober",
     "g": "Броня",
     "t": "",
@@ -1232,7 +1232,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Contractor’s Gloves",
+    "name": "Contractor’s Gloves",
     "en": "Contractor’s Gloves",
     "g": "Перчатки",
     "t": "",
@@ -1245,7 +1245,7 @@
     }
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Ammo Dump",
+    "name": "Боеприпас",
     "en": "Ammo Dump",
     "g": "Кобура",
     "t": "",
@@ -1258,7 +1258,7 @@
     }
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Picaros Holster",
+    "name": "Кобура пикаро",
     "en": "Picaros Holster",
     "g": "Кобура",
     "t": "",
@@ -1271,7 +1271,7 @@
     }
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Acosta's Go-Bag",
+    "name": "Боевой рюкзак Акосты",
     "en": "Acosta's Go-Bag",
     "g": "Рюкзак",
     "t": "",
@@ -1281,7 +1281,7 @@
     "core": "skill tier"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Birdie's Quick Fix Pack",
+    "name": "Аптечка Бёрди",
     "en": "Birdie's Quick Fix Pack",
     "g": "Рюкзак",
     "t": "",
@@ -1291,7 +1291,7 @@
     "core": "skill tier"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Memento",
+    "name": "Реликвия",
     "en": "Memento",
     "g": "Рюкзак",
     "t": "",
@@ -1301,7 +1301,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] NinjaBike \nMessenger Backpack",
+    "name": "NinjaBike \nMessenger Backpack",
     "en": "NinjaBike \nMessenger Backpack",
     "g": "Рюкзак",
     "t": "",
@@ -1311,7 +1311,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Collector",
+    "name": "Коллекционер",
     "en": "Collector",
     "g": "Броня",
     "t": "",
@@ -1321,7 +1321,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Provocator",
+    "name": "Провокатор",
     "en": "Provocator",
     "g": "Броня",
     "t": "",
@@ -1331,7 +1331,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Beacon",
+    "name": "Маяк",
     "en": "Beacon",
     "g": "Броня",
     "t": "",
@@ -1341,7 +1341,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Tardigrade \nArmor System",
+    "name": "Tardigrade \nArmor System",
     "en": "Tardigrade \nArmor System",
     "g": "Броня",
     "t": "",
@@ -1351,7 +1351,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Ridgeway's Pride",
+    "name": "Гордость Риджвея",
     "en": "Ridgeway's Pride",
     "g": "Броня",
     "t": "",
@@ -1361,7 +1361,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Centurion Scabbard",
+    "name": "Ножны центуриона",
     "en": "Centurion Scabbard",
     "g": "Кобура",
     "t": "",
@@ -1371,7 +1371,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Dodge City\nGunslinger's Holster",
+    "name": "Dodge City\nGunslinger's Holster",
     "en": "Dodge City\nGunslinger's Holster",
     "g": "Кобура",
     "t": "",
@@ -1381,7 +1381,7 @@
     "core": "weapon damage"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Imperial Dynasty",
+    "name": "Имперская династия",
     "en": "Imperial Dynasty",
     "g": "Кобура",
     "t": "",
@@ -1391,7 +1391,7 @@
     "core": "skill tier"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Shocker Punch",
+    "name": "Шокирующий удар",
     "en": "Shocker Punch",
     "g": "Кобура",
     "t": "",
@@ -1401,7 +1401,7 @@
     "core": "armor"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Waveform",
+    "name": "Волновая форма",
     "en": "Waveform",
     "g": "Кобура",
     "t": "",
@@ -1411,7 +1411,7 @@
     "core": "skill tier"
   },
   {
-    "name": "[ПЕРЕВОД НУЖЕН] Nimble Holster",
+    "name": "Ловкая кобура",
     "en": "Nimble Holster",
     "g": "Кобура",
     "t": "",
