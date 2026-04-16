@@ -562,13 +562,10 @@
     "brand": "5.11 Tactical",
     "tal": "Perfect Clutch",
     "d": "Крит → 25% здоровья и 2% брони",
-    "core": [
-      "armor"
-    ],
+    "core": "armor",
     "attr1": {
       "armor on kill": 10
-    },
-    "attr2": {}
+    }
   },
   {
     "name": "Крепкое Рукопожатие",
@@ -578,13 +575,10 @@
     "brand": "Sokolov Concern",
     "tal": "Perfectly Wicked",
     "d": "+20% урон 20с после статус-эффекта",
-    "core": [
-      "weapon damage"
-    ],
+    "core": "weapon damage",
     "attr1": {
       "status effects": 16
-    },
-    "attr2": {}
+    }
   },
   {
     "name": "Материнская Любовь",
@@ -594,13 +588,10 @@
     "brand": "Alps Summit \nArmament",
     "tal": "Perfect Opportunistic",
     "d": "Враги получают уязвимость +15% урон из других источников 3с",
-    "core": [
-      "skill tier"
-    ],
+    "core": "skill tier",
     "attr1": {
       "skill health": 25
-    },
-    "attr2": {}
+    }
   },
   {
     "name": "Когти Выпущены",
@@ -1015,13 +1006,10 @@
     "brand": "Zwiadowka Sp. z o.o.",
     "tal": "",
     "d": "+15% обращение с оружием",
-    "core": [
-      "weapon damage"
-    ],
+    "core": "weapon damage",
     "attr1": {
       "weapon handling": 15
-    },
-    "attr2": {}
+    }
   },
   {
     "name": "Окровавленные Костяшки",
@@ -1031,11 +1019,7 @@
     "brand": "",
     "tal": "Over the top",
     "d": "Over the Top: меле-убийство → запас брони",
-    "core": [
-      "weapon damage"
-    ],
-    "attr1": {},
-    "attr2": {}
+    "core": "weapon damage"
   },
   {
     "name": "Перчатки BTSU",
@@ -1045,11 +1029,7 @@
     "brand": "",
     "tal": "Transference Overclock",
     "d": "Transference Overclock: убийство скиллом → Overclock союзнику",
-    "core": [
-      "skill tier"
-    ],
-    "attr1": {},
-    "attr2": {}
+    "core": "skill tier"
   },
   {
     "name": "Перчатки Exodus",
@@ -1059,11 +1039,7 @@
     "brand": "",
     "tal": "Smoke Screen",
     "d": "Smoke Screen: убийство → дымовая завеса 5с",
-    "core": [
-      "weapon damage"
-    ],
-    "attr1": {},
-    "attr2": {}
+    "core": "weapon damage"
   },
   {
     "name": "Передозировка",
@@ -1073,11 +1049,7 @@
     "brand": "",
     "tal": "Weakest Link",
     "d": "Weakest Link: +20% урон по врагу с низким Tier здоровья",
-    "core": [
-      "weapon damage"
-    ],
-    "attr1": {},
-    "attr2": {}
+    "core": "weapon damage"
   },
   {
     "name": "Прочные Рукавицы",
@@ -1087,10 +1059,365 @@
     "brand": "",
     "tal": "Iron Grip",
     "d": "Iron Grip: перезарядка в укрытии → ускоренная перезарядка",
-    "core": [
-      "weapon damage"
-    ],
-    "attr1": {},
-    "attr2": {}
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Liquid Engineer",
+    "en": "Liquid Engineer",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Belstone Armory",
+    "tal": "Perfect Bloodsucker",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Hermano",
+    "en": "Hermano",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Brazos de Arcabuz ",
+    "tal": "Perfect Overclock",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Anarchist's Cookbook",
+    "en": "Anarchist's Cookbook",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Golan Gear",
+    "tal": "Perfectly Wicked",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Matador",
+    "en": "Matador",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Walker, Harris & Co.",
+    "tal": "Perfect Adrenaline Rush",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] The Gift",
+    "en": "The Gift",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Providence Defense",
+    "tal": "Perfect Vigilance",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Devil's Due",
+    "en": "Devil's Due",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Ceska Vyroba s.r.o",
+    "tal": "Perfect Clutch",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Battery Pack",
+    "en": "Battery Pack",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Empress International",
+    "tal": "Perfectly Calculated",
+    "d": "",
+    "core": "skill tier"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] The Setup",
+    "en": "The Setup",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Uzina Getica",
+    "tal": "Perfectly Opportunistic",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Force Multiplier",
+    "en": "Force Multiplier",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Hana-U Corporation",
+    "tal": "Perfect Combined Arms",
+    "d": "",
+    "core": "skill tier"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Festive Delivery",
+    "en": "Festive Delivery",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "Grupo Sombra S.A.",
+    "tal": "Fireworks Show",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Everyday Carrier",
+    "en": "Everyday Carrier",
+    "g": "Броня",
+    "t": "",
+    "brand": "Belstone Armory",
+    "tal": "Perfectly Efficient",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Pointman",
+    "en": "Pointman",
+    "g": "Броня",
+    "t": "",
+    "brand": "Gila",
+    "tal": "Perfect Vanguard",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Vedmedytsya Vest",
+    "en": "Vedmedytsya Vest",
+    "g": "Броня",
+    "t": "",
+    "brand": "Petrov",
+    "tal": "Perfect Braced",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Zero F’s",
+    "en": "Zero F’s",
+    "g": "Броня",
+    "t": "",
+    "brand": "Badger Tuff",
+    "tal": "Perfect Unbreakable",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Door-Kicker’s Knock",
+    "en": "Door-Kicker’s Knock",
+    "g": "Броня",
+    "t": "",
+    "brand": "Grupo Sombra S.A.",
+    "tal": "Perfect Spark",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Caesar's Guard",
+    "en": "Caesar's Guard",
+    "g": "Броня",
+    "t": "",
+    "brand": "Empress International",
+    "tal": "Perfectly Skilled",
+    "d": "",
+    "core": "skill tier"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Bober",
+    "en": "Bober",
+    "g": "Броня",
+    "t": "",
+    "brand": "Zwiadowka Sp. z o.o.",
+    "tal": "Perfect Entrench",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Contractor’s Gloves",
+    "en": "Contractor’s Gloves",
+    "g": "Перчатки",
+    "t": "",
+    "brand": "Petrov",
+    "tal": "",
+    "d": "",
+    "core": "weapon damage",
+    "attr1": {
+      "damage to armor": 8
+    }
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Ammo Dump",
+    "en": "Ammo Dump",
+    "g": "Кобура",
+    "t": "",
+    "brand": "Badger Tuff",
+    "tal": "",
+    "d": "",
+    "core": "armor",
+    "attr1": {
+      "ammo capacity": 10
+    }
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Picaros Holster",
+    "en": "Picaros Holster",
+    "g": "Кобура",
+    "t": "",
+    "brand": "Brazos de Arcabuz ",
+    "tal": "",
+    "d": "",
+    "core": "armor",
+    "attr1": {
+      "weapon damage": 10
+    }
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Acosta's Go-Bag",
+    "en": "Acosta's Go-Bag",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "",
+    "tal": "One in the Hand...\n\n\n\n\n...Two in the bag",
+    "d": "",
+    "core": "skill tier"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Birdie's Quick Fix Pack",
+    "en": "Birdie's Quick Fix Pack",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "",
+    "tal": "Combat Medic",
+    "d": "",
+    "core": "skill tier"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Memento",
+    "en": "Memento",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "",
+    "tal": "Kill Confirmed",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] NinjaBike \nMessenger Backpack",
+    "en": "NinjaBike \nMessenger Backpack",
+    "g": "Рюкзак",
+    "t": "",
+    "brand": "",
+    "tal": "Resourceful",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Collector",
+    "en": "Collector",
+    "g": "Броня",
+    "t": "",
+    "brand": "",
+    "tal": "Hoarder",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Provocator",
+    "en": "Provocator",
+    "g": "Броня",
+    "t": "",
+    "brand": "",
+    "tal": "Challenger",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Beacon",
+    "en": "Beacon",
+    "g": "Броня",
+    "t": "",
+    "brand": "",
+    "tal": "Bond",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Tardigrade \nArmor System",
+    "en": "Tardigrade \nArmor System",
+    "g": "Броня",
+    "t": "",
+    "brand": "",
+    "tal": "Ablative Nano-Plating",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Ridgeway's Pride",
+    "en": "Ridgeway's Pride",
+    "g": "Броня",
+    "t": "",
+    "brand": "",
+    "tal": "Bleeding Edge",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Centurion Scabbard",
+    "en": "Centurion Scabbard",
+    "g": "Кобура",
+    "t": "",
+    "brand": "",
+    "tal": "Counter",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Dodge City\nGunslinger's Holster",
+    "en": "Dodge City\nGunslinger's Holster",
+    "g": "Кобура",
+    "t": "",
+    "brand": "",
+    "tal": "Ouick Draw",
+    "d": "",
+    "core": "weapon damage"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Imperial Dynasty",
+    "en": "Imperial Dynasty",
+    "g": "Кобура",
+    "t": "",
+    "brand": "",
+    "tal": "Dragon's Glare",
+    "d": "",
+    "core": "skill tier"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Shocker Punch",
+    "en": "Shocker Punch",
+    "g": "Кобура",
+    "t": "",
+    "brand": "",
+    "tal": "Defibrillator",
+    "d": "",
+    "core": "armor"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Waveform",
+    "en": "Waveform",
+    "g": "Кобура",
+    "t": "",
+    "brand": "",
+    "tal": "Alternating Current",
+    "d": "",
+    "core": "skill tier"
+  },
+  {
+    "name": "[ПЕРЕВОД НУЖЕН] Nimble Holster",
+    "en": "Nimble Holster",
+    "g": "Кобура",
+    "t": "",
+    "brand": "",
+    "tal": "Bob and Weave",
+    "d": "",
+    "core": "weapon damage"
   }
 ]
