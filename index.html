@@ -57,6 +57,26 @@
         .cc-open{background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.4);color:var(--green);padding:4px 12px;border-radius:14px;cursor:pointer;font-size:12px;font-weight:600}
         .cc-open:hover{background:rgba(0,200,83,.2)}
         .cc-time{font-size:10px;color:#555}
+        .cc-like.compared{background:rgba(245,166,35,.25);border-color:rgba(245,166,35,.8);color:var(--orange)}
+        #compare-panel{background:var(--card);border:1px solid rgba(245,166,35,.4);border-radius:12px;padding:16px;margin-bottom:16px}
+        .compare-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+        .compare-header h4{margin:0;color:var(--orange);font-size:14px}
+        .compare-close{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:18px;line-height:1;padding:0 4px}
+        .compare-close:hover{color:var(--text)}
+        .compare-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:start}
+        @media(max-width:600px){.compare-grid{grid-template-columns:1fr;gap:10px}.compare-vs{display:none}}
+        .compare-col{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:6px}
+        .compare-col-title{font-size:13px;font-weight:700;color:var(--named);margin-bottom:4px}
+        .compare-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;gap:8px}
+        .compare-row .lbl{color:var(--muted)}
+        .compare-row .val{font-weight:600;color:var(--text)}
+        .compare-vs{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 14px;gap:10px}
+        .compare-delta{font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap}
+        .compare-delta.positive{background:rgba(0,200,83,.15);color:var(--green);border:1px solid rgba(0,200,83,.3)}
+        .compare-delta.negative{background:rgba(239,83,80,.12);color:var(--red);border:1px solid rgba(239,83,80,.3)}
+        .compare-delta.neutral{background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--border)}
+        .compare-dps{font-size:22px;font-weight:800;color:var(--orange);text-align:center;margin:4px 0}
+        .compare-dps-lbl{font-size:10px;color:var(--muted);text-align:center}
         .search-panel{background:var(--card);border-bottom:1px solid var(--border);padding:14px 20px;max-width:1000px;margin:0 auto}
         .search-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
         .search-row input{flex:1;min-width:180px;padding:9px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:13px;outline:none}
@@ -232,6 +252,16 @@
         .mi-tal{font-size:11px;color:var(--orange);font-weight:600}
         .mi-desc{font-size:11px;color:var(--muted);line-height:1.4;margin-top:3px}
         .mi-math{font-size:10px;color:var(--green);margin-top:3px;font-weight:600}
+        /* AUTHOR PROFILE */
+        #author-profile{padding:0 4px 30px}
+        .author-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:10px}
+        .author-back{background:rgba(66,165,245,.1);border:1px solid rgba(66,165,245,.4);color:var(--blue);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;transition:all .15s}
+        .author-back:hover{background:rgba(66,165,245,.2)}
+        #author-name{color:var(--named);font-size:18px;font-weight:700;margin:0}
+        .author-stats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+        .author-stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 18px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:110px;flex:1}
+        .author-stat-card .asv{font-size:22px;font-weight:800;color:var(--orange)}
+        .author-stat-card .asl{font-size:11px;color:var(--muted);text-align:center}
     </style>
 </head>
 <body>
@@ -786,10 +816,14 @@
       <option value="Pistol">Pistol</option>
       <option value="Mixed">Mixed</option>
     </select>
+    <select id="comm-talent-filter" class="bsel" style="min-width:140px;max-width:200px" onchange="loadCommunityFeed()">
+      <option value="">Все таланты</option>
+    </select>
     <select id="comm-sort" class="bsel" style="min-width:140px;max-width:180px" onchange="loadCommunityFeed()">
-      <option value="-likes,-created">Популярные</option>
-      <option value="-created">Новые</option>
-      <option value="-peak_dps">По DPS</option>
+      <option value="trending">📈 Trending</option>
+      <option value="-likes,-created">🔥 Популярные</option>
+      <option value="-created">🕐 Новые</option>
+      <option value="-peak_dps">💪 По DPS</option>
     </select>
     <select id="comm-scope" class="bsel" style="min-width:120px;max-width:160px" onchange="loadCommunityFeed()">
       <option value="all">Все билды</option>
@@ -800,6 +834,21 @@
     <button class="mf-btn" onclick="promptAdminLogin()" title="Админ логин (только для Мохнатти)" style="opacity:.5">🔑</button>
   </div>
   <div id="comm-status" style="text-align:center;padding:10px;font-size:12px;color:var(--muted)"></div>
+  <div id="compare-panel" style="display:none">
+    <div class="compare-header">
+      <h4>⚖️ Сравнение билдов</h4>
+      <button class="compare-close" onclick="hideComparison()" title="Закрыть">×</button>
+    </div>
+    <div class="compare-grid" id="compare-grid"></div>
+  </div>
+  <div id="author-profile" style="display:none">
+    <div class="author-header">
+      <button class="author-back" onclick="closeAuthorProfile()">← Назад</button>
+      <h3 id="author-name"></h3>
+    </div>
+    <div class="author-stats" id="author-stats"></div>
+    <div class="comm-grid" id="author-builds"></div>
+  </div>
   <div id="comm-list" class="comm-grid"></div>
 </div>
 </div>
@@ -2473,7 +2522,23 @@ function debouncedCommReload(){
   clearTimeout(commReloadTimer);
   commReloadTimer=setTimeout(loadCommunityFeed,350);
 }
+function initCommTalentFilter(){
+  const sel=document.getElementById("comm-talent-filter");
+  if(!sel||sel.options.length>1)return;
+  Object.entries(WEAPON_TALENTS)
+    .filter(([k])=>k!=="none")
+    .map(([k,v])=>({key:k,name:v.name}))
+    .sort((a,b)=>a.name.localeCompare(b.name))
+    .forEach(t=>{
+      const opt=document.createElement("option");
+      opt.value=t.key;
+      opt.textContent=t.name;
+      sel.appendChild(opt);
+    });
+}
+
 async function loadCommunityFeed(){
+  initCommTalentFilter();
   const listEl=document.getElementById("comm-list");
   const status=document.getElementById("comm-status");
   if(!listEl||!status)return;
@@ -2481,7 +2546,10 @@ async function loadCommunityFeed(){
   status.style.color="var(--muted)";
   listEl.innerHTML="";
   const sort=document.getElementById("comm-sort").value||"-likes,-created";
+  const isTrending=sort==="trending";
+  const pbSort=isTrending?"-created":sort;
   const cat=document.getElementById("comm-cat-filter").value||"";
+  const talentFilter=document.getElementById("comm-talent-filter")?.value||"";
   const scope=document.getElementById("comm-scope")?.value||"all";
   const search=(document.getElementById("comm-search")?.value||"").trim();
   const filters=[];
@@ -2490,13 +2558,27 @@ async function loadCommunityFeed(){
     const safe=search.replace(/"/g,'\\"');
     filters.push(`(name~"${safe}" || author~"${safe}" || description~"${safe}" || weapon_name~"${safe}")`);
   }
-  // Scope filters (client-side for "mine" and "liked" since they depend on localStorage)
-  const url=`${PB_API}/builds/records?perPage=100&sort=${encodeURIComponent(sort)}${filters.length?"&filter="+encodeURIComponent(filters.join(" && ")):""}`;
+  const url=`${PB_API}/builds/records?perPage=100&sort=${encodeURIComponent(pbSort)}${filters.length?"&filter="+encodeURIComponent(filters.join(" && ")):""}`;
   try{
     const r=await fetch(url);
     if(!r.ok)throw new Error("HTTP "+r.status);
     const j=await r.json();
     let items=j.items||[];
+    if(isTrending){
+      const now=Date.now();
+      items=items.map(b=>{
+        const hoursAge=(now-Date.parse(b.created))/3600000;
+        return Object.assign({},b,{_trendScore:(b.likes||0)/Math.pow(hoursAge+2,1.5)});
+      }).sort((a,b)=>b._trendScore-a._trendScore);
+    }
+    if(talentFilter){
+      items=items.filter(b=>{
+        if(!b._decoded){
+          b._decoded=b.build_hash?decodeBuildHash(b.build_hash):null;
+        }
+        return b._decoded&&b._decoded.wpnTal===talentFilter;
+      });
+    }
     if(scope==="mine"){
       const mine=getMyBuilds();
       items=items.filter(b=>mine.has(b.id));
@@ -2513,7 +2595,6 @@ async function loadCommunityFeed(){
       status.textContent=msg[scope]||msg.all;
       return;
     }
-    // Show extra stats for mine/liked scope
     let extraStats="";
     if(scope==="mine"){
       const totalLikes=items.reduce((a,b)=>a+(b.likes||0),0);
@@ -2524,18 +2605,128 @@ async function loadCommunityFeed(){
     }
     status.innerHTML=`Найдено: <b>${items.length}</b>${scope==="all"?` (всего в базе: ${j.totalItems})`:""}${extraStats}`;
     const liked=getLikedSet();
-    listEl.innerHTML=items.map(b=>renderBuildCard(b,liked.has(b.id))).join("");
+    currentBuilds=items;
+    listEl.innerHTML=items.map(b=>renderBuildCard(b,liked.has(b.id),isTrending)).join("");
   }catch(e){
     status.textContent="Ошибка загрузки: "+e.message+". Бэкенд PocketBase может быть недоступен.";
     status.style.color="var(--red)";
   }
 }
 
+let currentBuilds=[];
+let compareList=[];
+
+function toggleCompare(buildId,btn){
+  const idx=compareList.findIndex(b=>b.id===buildId);
+  if(idx>=0){
+    compareList.splice(idx,1);
+    btn.classList.remove("compared");
+    if(compareList.length<2)hideComparison();
+  }else{
+    if(compareList.length>=2){
+      const removed=compareList.shift();
+      const old=document.querySelector(`.comm-card[data-id="${removed.id}"] .cc-like[onclick*="toggleCompare"]`);
+      if(old)old.classList.remove("compared");
+    }
+    const build=currentBuilds.find(b=>b.id===buildId);
+    if(!build)return;
+    compareList.push(build);
+    btn.classList.add("compared");
+  }
+  if(compareList.length===2)showComparison();
+}
+
+function hideComparison(){
+  const panel=document.getElementById("compare-panel");
+  if(panel)panel.style.display="none";
+  compareList=[];
+  document.querySelectorAll(".cc-like.compared").forEach(b=>b.classList.remove("compared"));
+}
+
+function decodeBuildHash(hash){
+  try{return JSON.parse(decodeURIComponent(escape(atob(hash))))}catch(e){return null}
+}
+
+function getStatLabel(key){
+  const m={dmg:"База урона",rpm:"RPM",mag:"Магазин",rel:"Перезарядка",chc:"Крит %",chd:"Крит DMG",hsd:"Хедшот DMG",wd:"Weapon DMG",ooc:"Out of Cover",dta:"Damage to Armor",hsrate:"Хедшот rate"};
+  return m[key]||key;
+}
+
+function formatStatVal(key,val){
+  if(val===undefined||val===null||val==="")return"—";
+  if(["chc","chd","hsd","wd","ooc","dta","hsrate"].includes(key))return val+"%";
+  if(key==="rpm")return val+" rpm";
+  if(key==="rel")return val+" сек";
+  return String(val);
+}
+
+function makeDelta(v1,v2,higherBetter=true){
+  const n1=parseFloat(v1),n2=parseFloat(v2);
+  if(isNaN(n1)||isNaN(n2))return`<span class="compare-delta neutral">—</span>`;
+  const d=n2-n1;
+  if(d===0)return`<span class="compare-delta neutral">=</span>`;
+  const better=(d>0)===higherBetter;
+  const sign=d>0?"+":"";
+  return`<span class="compare-delta ${better?"positive":"negative"}">${sign}${Math.round(d*10)/10}</span>`;
+}
+
+function showComparison(){
+  const panel=document.getElementById("compare-panel");
+  const grid=document.getElementById("compare-grid");
+  if(!panel||!grid||compareList.length<2)return;
+  const [b1,b2]=compareList;
+  const s1=b1.build_hash?decodeBuildHash(b1.build_hash):null;
+  const s2=b2.build_hash?decodeBuildHash(b2.build_hash):null;
+  const dps1=b1.peak_dps||0;
+  const dps2=b2.peak_dps||0;
+  const dpsDelta=dps2-dps1;
+  const dpsDeltaSign=dpsDelta>0?"+":"";
+  const dpsDeltaCls=dpsDelta>0?"positive":dpsDelta<0?"negative":"neutral";
+  const statKeys=["dmg","rpm","mag","rel","chc","chd","hsd","wd","ooc","dta"];
+  function getStat(s,key){
+    if(!s)return"";
+    const cw=s.cw||{};
+    const b=s.b||{};
+    if(["dmg","rpm","mag","rel","cat"].includes(key))return cw[key]!==undefined?cw[key]:"";
+    return b[key]!==undefined?b[key]:"";
+  }
+  function colHtml(b,s,align){
+    const dps=b.peak_dps?`${Math.round(b.peak_dps/1000)}k`:"—";
+    const rows=statKeys.map(k=>{
+      const val=getStat(s,k);
+      if(val===""||val===undefined)return"";
+      return`<div class="compare-row"><span class="lbl">${getStatLabel(k)}</span><span class="val">${formatStatVal(k,val)}</span></div>`;
+    }).join("");
+    return`<div class="compare-col">
+      <div class="compare-col-title">${escapeHtml(b.name)}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">${escapeHtml(b.author||"Аноним")} · ${escapeHtml(b.weapon_cat||"")}</div>
+      ${b.weapon_name?`<div style="font-size:11px;color:var(--orange);margin-bottom:6px">🔫 ${escapeHtml(b.weapon_name)}</div>`:""}
+      <div class="compare-dps-lbl">Пик DPS</div>
+      <div class="compare-dps">${dps}</div>
+      ${rows}
+    </div>`;
+  }
+  const vsHtml=`<div class="compare-vs">
+    <div style="font-size:11px;color:var(--muted);font-weight:700">VS</div>
+    <div style="font-size:11px;color:var(--muted)">DPS δ</div>
+    <span class="compare-delta ${dpsDeltaCls}" style="font-size:13px">${dpsDelta===0?"=":(dpsDeltaSign+Math.round(dpsDelta/1000*10)/10+"k")}</span>
+    ${statKeys.map(k=>{
+      const v1=getStat(s1,k),v2=getStat(s2,k);
+      if((v1===""||v1===undefined)&&(v2===""||v2===undefined))return"";
+      const lowerBetter=["rel"].includes(k);
+      return makeDelta(v1,v2,!lowerBetter);
+    }).filter(x=>x).join("")}
+  </div>`;
+  grid.innerHTML=colHtml(b1,s1,"left")+vsHtml+colHtml(b2,s2,"right");
+  panel.style.display="block";
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
 function isAdmin(){return !!localStorage.getItem("d2calc_admin_token")}
 function getMyBuilds(){
   try{return new Set(JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]"))}catch(e){return new Set()}
 }
-function renderBuildCard(b,isLiked){
+function renderBuildCard(b,isLiked,showTrend){
   const weapon=b.weapon_name?`<div class="cc-weapon">🔫 <b>${escapeHtml(b.weapon_name)}</b></div>`:"";
   const dps=b.peak_dps?`<div class="cc-dps">Пик DPS: <b>${Math.round(b.peak_dps/1000)}k</b></div>`:`<div class="cc-dps"></div>`;
   const desc=b.description?`<div class="cc-desc">${escapeHtml(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">— без описания —</div>`;
@@ -2552,7 +2743,7 @@ function renderBuildCard(b,isLiked){
       </div>
     </div>
     <div class="cc-meta">
-      <span class="cc-author" style="cursor:pointer;text-decoration:underline" onclick="filterByAuthor('${escapeHtml(b.author||"Аноним").replace(/'/g,"\\'")}')">${escapeHtml(b.author||"Аноним")}</span>
+      <span class="cc-author" style="cursor:pointer;text-decoration:underline" onclick="showAuthorProfile('${escapeHtml(b.author||"Аноним").replace(/'/g,"\\'")}')">${escapeHtml(b.author||"Аноним")}</span>
       <span class="cc-time">· ${fmtAgo(b.created)}</span>
     </div>
     ${weapon}
@@ -2562,8 +2753,10 @@ function renderBuildCard(b,isLiked){
       <div class="cc-actions">
         ${adminBtn}
         ${copyBtn}
+        <button class="cc-like${compareList.some(x=>x.id===b.id)?" compared":""}" onclick="toggleCompare('${b.id}',this)" title="Сравнить">⚖️</button>
         <button class="cc-like" onclick="toggleComments('${b.id}',this)" title="Комменты">💬</button>
         <button class="cc-like" onclick="forkBuild('${b.id}','${(b.name||'').replace(/'/g,"\\'")}','${b.build_hash||''}')" title="Сохранить себе как новый билд" style="background:rgba(0,200,83,.08);border-color:rgba(0,200,83,.3);color:var(--green)">📋</button>
+        ${showTrend&&b._trendScore!=null?`<span class="cc-like" style="background:rgba(255,152,0,.1);border-color:rgba(255,152,0,.4);color:#ffa000;cursor:default" title="Trending score">📈 ${b._trendScore.toFixed(1)}</span>`:""}
         <button class="cc-like ${isLiked?"liked":""}" onclick="toggleLike('${b.id}',this)" ${isLiked?'title="Убрать лайк"':'title="Лайк"'}>❤ <span>${b.likes||0}</span></button>
         <button class="cc-open" onclick="openCommunityBuild('${b.id}','${b.build_hash||""}')">Открыть</button>
       </div>
@@ -2591,15 +2784,59 @@ function forkBuild(id, name, hash) {
   }
 }
 
-// === FILTER BY AUTHOR (profile pages) ===
-function filterByAuthor(authorName) {
-  // Set search input to author name + reload
-  const searchEl = document.getElementById('comm-search');
-  if (searchEl) {
-    searchEl.value = authorName;
-    debouncedCommReload();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+// === AUTHOR PROFILE ===
+async function showAuthorProfile(authorName) {
+  const profileEl = document.getElementById('author-profile');
+  const listEl = document.getElementById('comm-list');
+  const statsEl = document.getElementById('author-stats');
+  const buildsEl = document.getElementById('author-builds');
+  const nameEl = document.getElementById('author-name');
+  const filterBar = document.querySelector('#community-panel .bsect');
+  const statusEl = document.getElementById('comm-status');
+  if (!profileEl || !listEl) return;
+  nameEl.textContent = authorName;
+  statsEl.innerHTML = '<div style="font-size:12px;color:var(--muted);padding:10px">Загружаю...</div>';
+  buildsEl.innerHTML = '';
+  listEl.style.display = 'none';
+  if (filterBar) filterBar.style.display = 'none';
+  if (statusEl) statusEl.style.display = 'none';
+  profileEl.style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  try {
+    const r = await fetch(`${PB_API}/builds/records?perPage=100&sort=-likes&filter=${encodeURIComponent(`author='${authorName}'`)}`);
+    const j = await r.json();
+    const items = j.items || [];
+    const count = items.length;
+    const totalLikes = items.reduce((s, b) => s + (b.likes || 0), 0);
+    const dpsItems = items.filter(b => b.peak_dps > 0);
+    const avgDps = dpsItems.length ? Math.round(dpsItems.reduce((s, b) => s + b.peak_dps, 0) / dpsItems.length) : 0;
+    const bestBuild = dpsItems.length ? dpsItems.reduce((a, b) => b.peak_dps > a.peak_dps ? b : a) : null;
+    const catCount = {};
+    items.forEach(b => { if (b.weapon_cat) catCount[b.weapon_cat] = (catCount[b.weapon_cat] || 0) + 1; });
+    const favCat = Object.keys(catCount).length ? Object.keys(catCount).reduce((a, b) => catCount[b] > catCount[a] ? b : a) : '—';
+    statsEl.innerHTML = `
+      <div class="author-stat-card"><span class="asv">${count}</span><span class="asl">Билдов</span></div>
+      <div class="author-stat-card"><span class="asv">${totalLikes}</span><span class="asl">Лайков</span></div>
+      <div class="author-stat-card"><span class="asv">${avgDps ? Math.round(avgDps / 1000) + 'k' : '—'}</span><span class="asl">Средний DPS</span></div>
+      <div class="author-stat-card"><span class="asv">${bestBuild ? Math.round(bestBuild.peak_dps / 1000) + 'k' : '—'}</span><span class="asl">Лучший DPS${bestBuild ? '<br><span style="font-size:10px;color:var(--named)">' + escapeHtml(bestBuild.name) + '</span>' : ''}</span></div>
+      <div class="author-stat-card"><span class="asv" style="font-size:16px">${escapeHtml(favCat)}</span><span class="asl">Любимое оружие</span></div>
+    `;
+    const liked = getLikedSet();
+    buildsEl.innerHTML = items.length ? items.map(b => renderBuildCard(b, liked.has(b.id), false)).join('') : '<div style="text-align:center;padding:30px;color:var(--muted);font-size:13px">Нет билдов</div>';
+  } catch (e) {
+    statsEl.innerHTML = `<div style="color:var(--red);font-size:12px;padding:10px">Ошибка загрузки: ${e.message}</div>`;
   }
+}
+
+function closeAuthorProfile() {
+  const profileEl = document.getElementById('author-profile');
+  const listEl = document.getElementById('comm-list');
+  const filterBar = document.querySelector('#community-panel .bsect');
+  const statusEl = document.getElementById('comm-status');
+  if (profileEl) profileEl.style.display = 'none';
+  if (listEl) listEl.style.display = '';
+  if (filterBar) filterBar.style.display = '';
+  if (statusEl) statusEl.style.display = '';
 }
 
 // === COMMENTS ===
