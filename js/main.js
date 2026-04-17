@@ -2607,6 +2607,17 @@ function calcBuild(){
   document.getElementById("b-bonuses").innerHTML=`<div class="bon-list">`+
     bonuses.map(b=>`<div class="bon-item" style="border-color:${b.color}"><span class="bon-v" style="color:${b.color}">${b.nm} ${b.tier}шт</span><span>${b.desc}</span></div>`).join("")+`</div>`;
 
+  // Top: primary sources (exotic + 4pc sets + named)
+  const topKey=document.getElementById("b-top-key");
+  if(topKey){
+    const keys=[];
+    bonuses.forEach(b=>{
+      if(b.tier==="🧿") keys.push(b.nm.replace(/^Экзотик:\s*/,""));
+      else if(typeof b.tier==="number"&&b.tier===4) keys.push(b.nm.split(/\s*—\s*/)[0].replace(/^Боевое снаряжение\s+/,"")+" 4шт");
+    });
+    topKey.innerHTML=keys.length?`<span style="color:var(--muted)">💥 Главное:</span> <b style="color:var(--orange)">${keys.map(k=>escapeHtml(k)).join(" + ")}</b>`:"";
+  }
+
   // Top compact bonus tags
   const topB=document.getElementById("b-top-bonuses");
   if(topB){
