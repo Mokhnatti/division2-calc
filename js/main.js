@@ -2002,7 +2002,9 @@ function calcBuild(){
     bonuses.push({color:"#ab47bc",tier:"🔫",nm:"Оружие: "+wpn.name,desc:(wpn.tal||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
 
-  // Manual stats
+  // Manual stats — поле это ИТОГ из меню игры (уже включает core+attr брони).
+  // Если поле заполнено — используем как итоговый стат (не дублируем gX).
+  // Если пусто — используем tX (авто от сетов/брендов/талантов) + gX (core/attr брони).
   const mCHC=parseFloat(document.getElementById("b-chc").value)||0;
   const mCHD=parseFloat(document.getElementById("b-chd").value)||0;
   const mHSD=parseFloat(document.getElementById("b-hsd").value)||0;
@@ -2010,25 +2012,33 @@ function calcBuild(){
   const mOOC=parseFloat(document.getElementById("b-ooc").value)||0;
   const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
-  tWD+=mWD; tCHC+=mCHC; tCHD+=mCHD; tHSD+=mHSD;
-  // Подписи итогов у ручных полей: Гарант +X + Ручной +Y = Z
-  const setSumTip=(id,g,m)=>{
+  // Снимок auto-значений ДО применения ручных (для отображения)
+  const autoWD=tWD, autoCHC=tCHC, autoCHD=tCHD, autoHSD=tHSD;
+  // Логика: если игрок ввёл поле — это финальное значение из игры (уже включает броню).
+  // Если пусто — собираем из сетов/брендов/талантов + core/attr брони.
+  const applyManual=(auto,g,m)=>m>0?Math.max(m,auto+g):auto+g;
+  tWD=applyManual(autoWD,gWD,mWD);
+  tCHC=applyManual(autoCHC,gCHC,mCHC);
+  tCHD=applyManual(autoCHD,gCHD,mCHD);
+  tHSD=applyManual(autoHSD,gHSD,mHSD);
+  // Подписи под полями
+  const setSumTip=(id,auto,g,m)=>{
     const el=document.getElementById(id);
     if(!el)return;
-    const total=g+m;
-    if(g<=0&&m<=0){el.textContent="";return}
-    el.textContent=`(${g}+${m}=${total}%)`;
-    el.title=`Гарантированные: +${g}% · Ручные: +${m}% · Итого: ${total}%`;
+    const autoSum=auto+g;
+    const total=m>0?Math.max(m,autoSum):autoSum;
+    if(autoSum<=0&&m<=0){el.textContent="";return}
+    el.textContent=m>0?`(ввод ${m}% vs авто ${autoSum}% → итог ${total}%)`:`(из брони ${autoSum}%)`;
+    el.title=`Сеты/бренды/таланты: ${auto}%\nCore/attr брони: ${g}%\nТвой ввод: ${m||"—"}%\nИтог: ${total}%`;
   };
-  setSumTip("b-chc-sum",gCHC,mCHC);
-  setSumTip("b-chd-sum",gCHD,mCHD);
-  setSumTip("b-hsd-sum",gHSD,mHSD);
-  setSumTip("b-wd-sum",gWD,mWD);
-  setSumTip("b-ooc-sum",gOOC,mOOC);
-  setSumTip("b-dta-sum",gDTA,mDTA);
-  // Гарантированные OoC/DtA — тоже прибавим к ручным (их в DPS вливают mOOC/mDTA)
-  const mOOCeff=mOOC+gOOC;
-  const mDTAeff=mDTA+gDTA;
+  setSumTip("b-chc-sum",autoCHC,gCHC,mCHC);
+  setSumTip("b-chd-sum",autoCHD,gCHD,mCHD);
+  setSumTip("b-hsd-sum",autoHSD,gHSD,mHSD);
+  setSumTip("b-wd-sum",autoWD,gWD,mWD);
+  setSumTip("b-ooc-sum",0,gOOC,mOOC);
+  setSumTip("b-dta-sum",0,gDTA,mDTA);
+  const mOOCeff=mOOC>0?Math.max(mOOC,gOOC):gOOC;
+  const mDTAeff=mDTA>0?Math.max(mDTA,gDTA):gDTA;
   // SHD Watch (additive into respective buckets)
   const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
   tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo; tRELOAD+=shd.reload;
