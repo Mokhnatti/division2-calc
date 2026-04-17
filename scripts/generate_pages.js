@@ -171,6 +171,7 @@ ${nav()}
       <tr><td>Магазин</td><td>${mag} патронов</td></tr>
       <tr><td>Перезарядка</td><td>${reload} сек</td></tr>
       <tr><td>Тип оружия</td><td>${escape(cat)}</td></tr>
+      ${item.source_ru ? `<tr><td>Где добыть</td><td>${escape(item.source_ru)}</td></tr>` : ''}
     </table>
   </section>
 
@@ -820,7 +821,11 @@ function writeFile(filePath, content) {
 
 function main() {
   const exoticWeapons = require(path.join(ROOT, 'data/exotic_weapons.json'));
-  const exoticGear = require(path.join(ROOT, 'data/exotics.json'));
+  const exoticGearRaw = require(path.join(ROOT, 'data/exotics.json'));
+  // Build source lookup: en_name → source_ru
+  const exoticSourceMap = {};
+  exoticGearRaw.forEach(i => { if (i.en && i.source_ru) exoticSourceMap[i.en] = i.source_ru; });
+  const exoticGear = exoticGearRaw;
   const namedWeapons = require(path.join(ROOT, 'data/named.json'));
   const namedGear = require(path.join(ROOT, 'data/named_gear.json'));
   const gearSets = require(path.join(ROOT, 'data/gear_sets.json'));
@@ -833,6 +838,7 @@ function main() {
   // — Exotic weapons —
   const exoticWeaponItems = [];
   for (const [key, item] of Object.entries(exoticWeapons)) {
+    if (!item.source_ru && exoticSourceMap[item.en]) item.source_ru = exoticSourceMap[item.en];
     const { slug, html } = generateExoticWeapon(key, item, exoticWeapons);
     if (slugsSeen.has(`exotic/${slug}`)) { console.warn(`Dup exotic-weapon slug: ${slug}`); continue; }
     slugsSeen.add(`exotic/${slug}`);
