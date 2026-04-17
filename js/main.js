@@ -1819,7 +1819,8 @@ function calcBuild(){
   document.getElementById("b-custom-sect").style.display=wpn.kind==="custom"?"block":"none";
   // Weapon info bar
   document.getElementById("b-wpn-stats").innerHTML=
-    `<div class="wpn-stat">Урон: <b>${wpn.dmg.toLocaleString("ru")}</b></div>`+
+    `<div class="wpn-stat">База: <b>${wpn.dmg.toLocaleString("ru")}</b></div>`+
+    `<div class="wpn-stat" id="b-wpn-total-dmg" style="color:var(--orange);border-color:rgba(245,166,35,.3)">Общий урон: <b>—</b></div>`+
     `<div class="wpn-stat">RPM: <b>${wpn.rpm}</b></div>`+
     `<div class="wpn-stat">Магазин: <b>${wpn.mag}</b></div>`+
     `<div class="wpn-stat">Перезарядка: <b>${wpn.reload}с</b></div>`+
@@ -2191,13 +2192,20 @@ function calcBuild(){
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
   // Снимок auto-значений ДО применения ручных (для отображения)
   const autoWD=tWD, autoCHC=tCHC, autoCHD=tCHD, autoHSD=tHSD;
-  // Логика: если игрок ввёл поле — это финальное значение из игры (уже включает броню).
-  // Если пусто — собираем из сетов/брендов/талантов + core/attr брони.
-  const applyManual=(auto,g,m)=>m>0?Math.max(m,auto+g):auto+g;
+  // Логика: если игрок ввёл поле — это ИТОГ из игры (включая часы, все бонусы).
+  // Используем ТОЛЬКО его ввод (auto/g — только для пустых полей, чтобы хоть что-то показать).
+  const applyManual=(auto,g,m)=>m>0?m:(auto+g);
   tWD=applyManual(autoWD,gWD,mWD);
   tCHC=applyManual(autoCHC,gCHC,mCHC);
   tCHD=applyManual(autoCHD,gCHD,mCHD);
   tHSD=applyManual(autoHSD,gHSD,mHSD);
+  // Общий урон (как в меню игры): база × (1 + WD%/100)
+  const totalDmg=Math.round(wpn.dmg*(1+tWD/100));
+  const totalDmgEl=document.getElementById("b-wpn-total-dmg");
+  if(totalDmgEl){
+    const deltaStr=tWD>0?` <span style="color:#00c853;font-size:10px">(+${tWD}% WD)</span>`:"";
+    totalDmgEl.innerHTML=`Общий урон: <b>${totalDmg.toLocaleString("ru")}</b>${deltaStr}`;
+  }
   // Подписи под полями: показываем "из брони X%" и если ввёл — "накатано Y% = итог - брони"
   const setSumTip=(id,auto,g,m)=>{
     const el=document.getElementById(id);
@@ -2206,18 +2214,13 @@ function calcBuild(){
     if(autoSum<=0&&m<=0){el.textContent="";return}
     if(m>0){
       const rolled=m-autoSum;
-      if(rolled>=0){
-        el.textContent=`(из брони ${autoSum}% → накатано +${rolled}%)`;
-        el.style.color="var(--green)";
-      }else{
-        el.textContent=`(из брони ${autoSum}%, ввод ${m}% ниже — используется ${autoSum}%)`;
-        el.style.color="var(--muted)";
-      }
+      el.textContent=`(со шмоток ${autoSum}% · ввод ${m}% → используется ${m}%)`;
+      el.style.color="var(--green)";
     }else{
-      el.textContent=`(из брони ${autoSum}% — используется это)`;
+      el.textContent=`(со шмоток ${autoSum}% — используется это)`;
       el.style.color="var(--muted)";
     }
-    el.title=`Сеты/бренды/таланты: +${auto}%\nCore/attr брони: +${g}%\nТвой ввод (итог из игры): ${m||"—"}%\nРазница (накатано на ролах): ${m>0?(m-autoSum):"—"}%`;
+    el.title=`Сеты/бренды/таланты/часы: +${auto}%\nCore/attr брони: +${g}%\nТвой ввод (итог из игры): ${m||"—"}%\n\nКогда ввёл — используется ТОЛЬКО ввод.\nПустое поле — используется сумма сверху.`;
   };
   setSumTip("b-chc-sum",autoCHC,gCHC,mCHC);
   setSumTip("b-chd-sum",autoCHD,gCHD,mCHD);
