@@ -443,8 +443,9 @@ function initWpnDb(){
       baseStats=WPNS_BASE.find(b=>b.cat===cat)||WPNS_BASE[0];
     }
     const tb=talentBonus(n.tal);
-    const id="named_"+n.en.toLowerCase().replace(/[^a-z0-9]+/g,"_");
-    const full={id,name:n.name,en:n.en,cat:baseStats.cat,dmg:baseStats.dmg,rpm:baseStats.rpm,mag:baseStats.mag,reload:baseStats.reload,base:baseName||baseStats.name,kind:"named",tal:n.tal,tal_desc:n.d,tal_type:"none",named_bonus:tb};
+    const idSrc=(n.en||n.name||"unknown").toString().toLowerCase();
+    const id="named_"+idSrc.replace(/[^a-z0-9]+/g,"_");
+    const full={id,name:n.name,en:n.en||n.name,cat:baseStats.cat,dmg:baseStats.dmg,rpm:baseStats.rpm,mag:baseStats.mag,reload:baseStats.reload,base:baseName||baseStats.name,kind:"named",tal:n.tal,tal_desc:n.d,tal_type:"none",named_bonus:tb};
     WPNS[id]=full;
     WPNS_LIST.push(full);
   });
