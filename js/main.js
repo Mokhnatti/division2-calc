@@ -1824,6 +1824,25 @@ function calcBuild(){
     `<div class="wpn-stat">Магазин: <b>${wpn.mag}</b></div>`+
     `<div class="wpn-stat">Перезарядка: <b>${wpn.reload}с</b></div>`+
     (wpn.tal?`<div class="wpn-stat" style="color:var(--orange);border-color:rgba(245,166,35,.3)">${wpn.tal}</div>`:"");
+  // Lock 4th-roll talent for exotic (they have fixed unique talent), show exotic talent desc
+  const wpnTalSel=document.getElementById("b-wpn-tal");
+  const wpnTalDesc=document.getElementById("b-wpn-tal-desc");
+  if(wpn.kind==="exotic"){
+    if(wpnTalSel){
+      wpnTalSel.disabled=true;
+      wpnTalSel.style.opacity="0.5";
+      wpnTalSel.title="Экзотик имеет фиксированный уникальный талант — 4-й ролл не применяется";
+    }
+    if(wpnTalDesc){
+      wpnTalDesc.innerHTML=`<div style="color:var(--orange);font-weight:600;font-size:12px;margin-top:4px">🧿 Экзотик-талант: ${wpn.tal||""}</div><div style="font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px">${wpn.tal_desc||""}</div>`;
+    }
+  }else{
+    if(wpnTalSel){
+      wpnTalSel.disabled=false;
+      wpnTalSel.style.opacity="";
+      wpnTalSel.title="";
+    }
+  }
 
   // Count set pieces + brand pieces from slotState
   const cnt={};const hasChest={};const hasBP={};
@@ -2095,9 +2114,22 @@ function calcBuild(){
     bonuses.push({color:"#f5a623",tier:"🎽",nm:`Талант ${slotName}`,desc:`${label}: ${descText.slice(0,120)}${descText.length>120?"...":""}`});
   }
 
-  // Weapon 4th-roll talent (applies on top of base/exotic/named)
-  const wtFull=WEAPON_TALENTS_FULL[selectedWpnTalent];
-  const wtOld=WEAPON_TALENTS[selectedWpnTalent];
+  // Exotic weapon talent — always applies, guaranteed
+  if(wpn.kind==="exotic"){
+    const exSrc=`🧿 Экзотик: ${wpn.name}`;
+    if(wpn.tal_type==="kill"&&wpn.tal_bonus){
+      // e.g. Eagle Bearer: stacks of WD on kill
+      pushG("wd",wpn.tal_bonus,exSrc+" (максимум на киллах)",true);
+    }
+    if(wpn.tal_type==="shot_cover"&&wpn.tal_max){
+      pushG("wd",wpn.tal_max,exSrc+" (из укрытия, пик)",true);
+    }
+    bonuses.push({color:"#ab47bc",tier:"🧿",nm:"Экзотик: "+wpn.name,desc:(wpn.tal||"")+": "+(wpn.tal_desc||"").slice(0,140)});
+  }
+
+  // Weapon 4th-roll talent (applies on top of base/exotic/named). For exotic — skip (slot locked)
+  const wtFull=(wpn.kind==="exotic")?null:WEAPON_TALENTS_FULL[selectedWpnTalent];
+  const wtOld=(wpn.kind==="exotic")?null:WEAPON_TALENTS[selectedWpnTalent];
   const wtBonus=(wtFull?.bonus&&Object.keys(wtFull.bonus).length>0)?wtFull.bonus:wtOld?.bonus??null;
   const wtName=wtFull?(wtFull.name_ru?`${wtFull.name_ru} (${wtFull.name_en})`:wtFull.name_en):wtOld?.name||"";
   if(wtBonus){
