@@ -2224,13 +2224,8 @@ function calcBuild(){
   tCHC=applyManual(autoCHC,gCHC,mCHC);
   tCHD=applyManual(autoCHD,gCHD,mCHD);
   tHSD=applyManual(autoHSD,gHSD,mHSD);
-  // Общий урон (как в меню игры): база × (1 + WD%/100)
-  const totalDmg=Math.round(wpn.dmg*(1+tWD/100));
-  const totalDmgEl=document.getElementById("b-wpn-total-dmg");
-  if(totalDmgEl){
-    const deltaStr=tWD>0?` <span style="color:#00c853;font-size:10px">(+${tWD}% WD)</span>`:"";
-    totalDmgEl.innerHTML=`Общий урон: <b>${totalDmg.toLocaleString("ru")}</b>${deltaStr}`;
-  }
+  // Это значение ВД будет ИТОГ (база, без peak-стаков) — используется для отображения "Общий урон"
+  // peak_bonus и Obliterate-стаки попадают в tPeakOnly и добавятся при Infinity в dpsAtTime
   // Подписи под полями: показываем "из брони X%" и если ввёл — "накатано Y% = итог - брони"
   const setSumTip=(id,auto,g,m)=>{
     const el=document.getElementById(id);
@@ -2469,6 +2464,16 @@ function calcBuild(){
   const peak=rows[rows.length-1];
   const baseDPS=rows[0].dps;
   const maxDPS=peak.dps;
+  // Обновим "Общий урон" в инфо-баре оружия: БАЗА (без peak-стаков) + ПИК (со стаками)
+  const baseDmg=Math.round(wpn.dmg*(1+tWD/100));
+  const peakWD=tWD+(tPeakOnly.wd||0);
+  const peakDmg=Math.round(wpn.dmg*(1+peakWD/100));
+  const totalDmgEl=document.getElementById("b-wpn-total-dmg");
+  if(totalDmgEl){
+    const hasPeak=peakWD>tWD;
+    totalDmgEl.innerHTML=`Базовый урон: <b>${baseDmg.toLocaleString("ru")}</b> <span style="color:var(--muted);font-size:10px">(+${tWD}% WD)</span>`+
+      (hasPeak?` · Пик: <b style="color:var(--orange)">${peakDmg.toLocaleString("ru")}</b> <span style="color:#f5a623;font-size:10px">(+${peakWD}% со стаками)</span>`:"");
+  }
   // Simpson-ish average over 10s window (sustained fight)
   const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tt).dps);
   const avgDPS10=samplesAvg.reduce((a,b)=>a+b,0)/samplesAvg.length;
