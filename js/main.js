@@ -2527,10 +2527,9 @@ function calcBuild(){
         const oocM=1+mOOCeff/100;
         const dtaM=1+mDTAeff/100;
         const baseShot=Math.round(wpn.dmg*wdMultPeak*oocM*dtaM*ampMult*expMult);
-        const critShot=Math.round(baseShot*(1+0.25+chdVal)); // с базовым 25%
-        const critShotAlt=Math.round(baseShot*(1+chdVal)); // если игра считает без 25%
+        const critShot=Math.round(baseShot*(1+chdVal));
         const hsShot=Math.round(baseShot*(1+hsdVal));
-        const critHsShot=Math.round(baseShot*(1+0.25+chdVal)*(1+hsdVal));
+        const critHsShot=Math.round(baseShot*(1+chdVal)*(1+hsdVal));
         return `<table style="width:100%;font-size:12px;border-collapse:collapse">
           <thead><tr style="color:var(--muted);font-size:10px;text-transform:uppercase">
             <th style="text-align:left;padding:4px 6px">Тип выстрела</th>
@@ -2538,14 +2537,13 @@ function calcBuild(){
             <th style="text-align:left;padding:4px 6px;color:#666">Формула</th>
           </tr></thead>
           <tbody>
-            <tr><td style="padding:4px 6px">Обычный (не крит, в тело)</td><td style="text-align:right;padding:4px 6px;font-weight:700">${baseShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">база × WD × OoC × DtA × Amp × Exp</td></tr>
-            <tr><td style="padding:4px 6px">Крит (×1+CHD+25%)</td><td style="text-align:right;padding:4px 6px;font-weight:700;color:var(--yellow)">${critShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${(1+0.25+chdVal).toFixed(2)}</td></tr>
-            <tr><td style="padding:4px 6px;color:var(--muted)">Крит (альт формула без 25%)</td><td style="text-align:right;padding:4px 6px;color:var(--muted)">${critShotAlt.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${(1+chdVal).toFixed(2)}</td></tr>
+            <tr><td style="padding:4px 6px">Обычный (не крит, в тело)</td><td style="text-align:right;padding:4px 6px;font-weight:700">${baseShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">база × WD × OoC × DtA × Amp</td></tr>
+            <tr><td style="padding:4px 6px">Крит</td><td style="text-align:right;padding:4px 6px;font-weight:700;color:var(--yellow)">${critShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${(1+chdVal).toFixed(2)}</td></tr>
             <tr><td style="padding:4px 6px">В голову (без крита)</td><td style="text-align:right;padding:4px 6px;font-weight:700;color:var(--blue)">${hsShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${(1+hsdVal).toFixed(2)}</td></tr>
-            <tr><td style="padding:4px 6px">Крит в голову (макс)</td><td style="text-align:right;padding:4px 6px;font-weight:700;color:var(--orange)">${critHsShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${((1+0.25+chdVal)*(1+hsdVal)).toFixed(2)}</td></tr>
+            <tr><td style="padding:4px 6px">Крит в голову (макс)</td><td style="text-align:right;padding:4px 6px;font-weight:700;color:var(--orange)">${critHsShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${((1+chdVal)*(1+hsdVal)).toFixed(2)}</td></tr>
           </tbody>
         </table>
-        <div style="font-size:10px;color:var(--muted);margin-top:4px">Сравни с цифрами над врагом в игре на фул стаках. Если "Крит альт" совпадает лучше — в Division 2 CHD считается без базового +25% (открытая механика).</div>`;
+        <div style="font-size:10px;color:var(--muted);margin-top:4px">Сравни с цифрами над врагом в игре на фул стаках. Формула верифицирована по замерам на манекене.</div>`;
       })()}
     </div>`;
 
