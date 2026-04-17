@@ -500,11 +500,11 @@ function buildItemDb(){
     // named items for this slot
     N.filter(n=>matchGenre(n.g,genre)).forEach(n=>{
       const tb=talentBonus(n.tal);
-      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot,core:n.core,attr1:n.attr1,attr2:n.attr2});
+      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot,core:n.core,attr1:n.attr1,attr2:n.attr2,bonus_ru:n.bonus_ru,bonus_short_en:n.bonus_short_en});
     });
     // exotics
     E.filter(e=>matchGenre(e.g,genre)).forEach(e=>{
-      arr.push({kind:"exotic",name:e.name,en:e.en,talent:e.tal,talentDesc:e.d,slot,core:e.core,attr1:e.attr1,attr2:e.attr2});
+      arr.push({kind:"exotic",name:e.name,en:e.en,talent:e.tal,talentDesc:e.d,slot,core:e.core,attr1:e.attr1,attr2:e.attr2,bonus_ru:e.bonus_ru});
     });
     ITEMS_BY_SLOT[slot]=arr;
   }
@@ -553,9 +553,26 @@ function renderSlotItems(){
       body=`<div class="mi-desc">${(it.bonuses||[]).join(" · ")}</div>`;
     }else if(it.kind==="named"){
       const mathStr=it.talentBonus?Object.entries(it.talentBonus).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" "):"";
-      body=`<div class="mi-tal">${it.talent||""}${it.brand?" · <span style=\"color:var(--blue)\">"+it.brand+"</span>":""}</div>
-            <div class="mi-desc">${it.talentDesc||""}</div>
-            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus.conditional?" (условно)":""}</div>`:""}`;
+      const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
+      const coreStr=coreVal?`<div class="mi-desc" style="color:#ff9800">Core: ${translateStat(coreVal)}</div>`:"";
+      const attr1Str=it.attr1?Object.entries(it.attr1).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", "):"";
+      const attr2Str=it.attr2?Object.entries(it.attr2).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", "):"";
+      const attrsStr=[attr1Str,attr2Str].filter(x=>x).join(" · ");
+      const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
+      const talStr=it.talent?`<div class="mi-tal">${it.talent}${it.brand?" · <span style=\"color:var(--blue)\">"+it.brand+"</span>":""}</div>`:(it.brand?`<div class="mi-tal" style="color:var(--blue)">${it.brand}</div>`:"");
+      body=`${talStr}
+            ${it.talentDesc?`<div class="mi-desc">${it.talentDesc}</div>`:""}
+            ${bonusStr}
+            ${coreStr}
+            ${attrsStr?`<div class="mi-desc" style="color:#4caf50">${attrsStr}</div>`:""}
+            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus&&it.talentBonus.conditional?" (условно)":""}</div>`:""}`;
+    }else if(it.kind==="exotic"){
+      const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
+      const coreStr=coreVal?`<div class="mi-desc" style="color:#ff9800">Core: ${translateStat(coreVal)}</div>`:"";
+      const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
+      body=`<div class="mi-tal">${it.talent||""}</div>
+            ${it.talentDesc?`<div class="mi-desc">${it.talentDesc}</div>`:""}
+            ${bonusStr}${coreStr}`;
     }else{
       body=`<div class="mi-tal">${it.talent||""}</div><div class="mi-desc">${it.talentDesc||""}</div>`;
     }
