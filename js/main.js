@@ -1811,8 +1811,12 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   // External
   const oocM=1+ooc/100;
   const dtaM=1+dta/100;
-  const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*effSPS;
-  return{dps,wdMult,critAvg,hsM,rpm_f,mag_f,stkRows};
+  const ampM=1+(globalThis._buildAmp||0)/100;
+  // Sustained DPS (с циклом перезарядки)
+  const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*effSPS;
+  // Burst DPS (как игра на манекене — без учёта reload)
+  const burstDps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*sps_f;
+  return{dps,burstDps,wdMult,critAvg,hsM,rpm_f,mag_f,stkRows};
 }
 
 function calcBuild(){
@@ -2223,6 +2227,8 @@ function calcBuild(){
   const mRELOAD=parseFloat(document.getElementById("b-reload")?.value)||0;
   const mROF=parseFloat(document.getElementById("b-rof")?.value)||0;
   const mMAG=parseFloat(document.getElementById("b-mag")?.value)||0;
+  const mAMP=parseFloat(document.getElementById("b-amp")?.value)||0;
+  globalThis._buildAmp=mAMP;
   const catBonusMap={
     AR:parseFloat(document.getElementById("b-wd-ar")?.value)||0,
     SMG:parseFloat(document.getElementById("b-wd-smg")?.value)||0,
