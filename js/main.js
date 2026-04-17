@@ -411,10 +411,13 @@ let WPNS_LIST=[];
 
 function initWpnDb(){
   WPNS={};WPNS_LIST=[];
-  // Base weapons
+  // Base weapons: map type→cat и сгенерить id если нет
+  const TYPE_TO_CAT={"AR":"AR","SMG":"SMG","LMG":"LMG","MMR":"MMR","Rifle":"Rifle","Shotgun":"SG","SG":"SG","Pistol":"Pistol"};
   WPNS_BASE.forEach(w=>{
-    const full={...w,kind:"base",tal:"—",tal_type:"none"};
-    WPNS[w.id]=full;
+    const cat=w.cat||TYPE_TO_CAT[w.type]||"AR";
+    const id=w.id||("base_"+(w.name||"unknown").toLowerCase().replace(/[^a-z0-9]+/g,"_"));
+    const full={...w,id,cat,kind:"base",tal:"—",tal_type:"none"};
+    WPNS[id]=full;
     WPNS_LIST.push(full);
   });
   // Exotics from E[]
