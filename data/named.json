@@ -9,7 +9,17 @@
     "d": "+15% скорострельность",
     "aliases_ru": [
       "Невидимая длань"
-    ]
+    ],
+    "dmg": 57206.0,
+    "rpm": 680.0,
+    "mag": 42.0,
+    "range": 26.0,
+    "hsd": 1.55,
+    "class_bonus": "УЗ / 21%",
+    "dps_mult": 648334.6667,
+    "reload": 1.8,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "flavor_en": "\"Do I look like a charity to you? Market forces at work - you want what I've got, so let's make a deal.\" - Cassie Mendoza, the best girl"
   },
   {
     "name": "Пироман",
@@ -18,16 +28,20 @@
     "t": "AR (Police M4)",
     "brand": "",
     "tal": "Perfectly Ignited",
-    "d": "+40% урон по горящим. 2 убийства → следующий загорается",
+    "d": "Увеличение урона от оружия, наносимого противникам с эффектом горения, на 30%. После того как вы убьете 3 противников, на следующую пораженную вами цель будет наложен эффект горения.",
     "dmg": 46908.0,
     "rpm": 850.0,
     "mag": 30.0,
-    "reload": 2.24,
+    "reload": 2.1,
     "range": 31.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 664530,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.24,
+    "d_old": "+40% урон по горящим. 2 убийства → следующий загорается",
+    "talent_ru": "Воспламенение",
+    "flavor_en": "Sometimes the world doesn't burn fast enough."
   },
   {
     "name": "Щитолом",
@@ -36,16 +50,20 @@
     "t": "AR (F2000)",
     "brand": "",
     "tal": "Perfect Optimist",
-    "d": "+5% урон за 10% пустых патронов (макс. 5 стаков)",
+    "d": "За каждые недостающие 10% боеприпасов в магазине агента его урон от оружия увеличивается на 4,5% (2% в PVP).",
     "dmg": 49095.0,
     "rpm": 850.0,
     "mag": 31.0,
-    "reload": 2.4,
+    "reload": 1.8,
     "range": 27.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 695512.5,
-    "source_ru": "Первый раз - ящик охотников Вашингтона, после - у Мендозы"
+    "source_ru": "Первый раз - ящик охотников Вашингтона, после - у Мендозы",
+    "reload_old": 2.4,
+    "d_old": "+5% урон за 10% пустых патронов (макс. 5 стаков)",
+    "talent_ru": "Оптимизм",
+    "flavor_en": "Inscription reads: \"The direct approach is best\""
   },
   {
     "name": "Дровосек",
@@ -54,7 +72,8 @@
     "t": "AR (CTAR-21)",
     "brand": "",
     "tal": "Perfectly Measured",
-    "d": "Верх магазина: +20% RPM −10% урон. Низ: +30% урон −15% RPM"
+    "d": "Верх магазина: +20% RPM −10% урон. Низ: +30% урон −15% RPM",
+    "flavor_en": "\"Took this off one of your dead colleagues. No hard feelings?\" \n- Cassie Mendoza, the Gunrunner"
   },
   {
     "name": "Дикий Росомаха",
@@ -63,7 +82,8 @@
     "t": "AR (Honey Badger)",
     "brand": "",
     "tal": "Perfect Close & Personal",
-    "d": "+40% урон к врагам ближе 7м на 10с после убийства"
+    "d": "+40% урон к врагам ближе 7м на 10с после убийства",
+    "flavor_en": "\"Cornering a vicious animal is certain to anger the beast. My suggestion? Don't do that.\" \n- Zookeeper at the Manning National Zoo"
   },
   {
     "name": "Механическое Животное",
@@ -72,7 +92,8 @@
     "t": "AR (SIG 556)",
     "brand": "",
     "tal": "Future Perfection",
-    "d": "Убийство +1 Skill Tier на 15с (макс. 5)"
+    "d": "Убийство +1 Skill Tier на 15с (макс. 5)",
+    "flavor_en": "\"The perfect soldier. A blending of man and machine, and fully automatic.\" \n\n-Unknown Black tusk executive during a conference call with investors."
   },
   {
     "name": "Цареломатель",
@@ -81,7 +102,8 @@
     "t": "AR (TKB-408)",
     "brand": "",
     "tal": "Perfect Flatline",
-    "d": "+20% урон по Pulse-врагам. 3 убийства → Pulse"
+    "d": "+20% урон по Pulse-врагам. 3 убийства → Pulse",
+    "flavor_en": "\"The limits of tyrants are prescribed by the endurance of those whom they oppress\" \n- Frederick Douglas"
   },
   {
     "name": "Подопытный",
@@ -90,16 +112,20 @@
     "t": "AR (PDR-C)",
     "brand": "",
     "tal": "Perfectly In Sync",
-    "d": "Хит оружием/скиллом → +5% урон другому на 5с",
+    "d": "Попадания по противнику дает +20% к урону от навыков сроком на 5 сек. Применение навыка или нанесение урона с его помощью дает +20% к урону от оружия сроком на 5 сек.\nЕсли оба эффекта действуют одновременно, дополнительный урон удваивается.",
     "dmg": 57606.0,
     "rpm": 700.0,
     "mag": 40.0,
-    "reload": 2.04,
+    "reload": 1.9,
     "range": 31.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 672070,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.04,
+    "d_old": "Хит оружием/скиллом → +5% урон другому на 5с",
+    "talent_ru": "Синхронность",
+    "flavor_en": "-"
   },
   {
     "name": "Охотник",
@@ -111,7 +137,17 @@
     "d": "Пустой магазин: +20% урон +35% RPM 7с",
     "aliases_ru": [
       "Егерь"
-    ]
+    ],
+    "dmg": 45263.0,
+    "rpm": 900.0,
+    "mag": 30.0,
+    "range": 26.0,
+    "hsd": 1.55,
+    "class_bonus": "УЗ / 21%",
+    "dps_mult": 678945,
+    "reload": 2.49,
+    "source_ru": "Получение за ключи всех охотников Бруклина",
+    "flavor_en": "The Hunter becomes the hunted"
   },
   {
     "name": "Смотритель",
@@ -120,16 +156,20 @@
     "t": "AR (G36)",
     "brand": "",
     "tal": "Perfect Killer",
-    "d": "Крит-убийство → +90% крит. урон 10с",
+    "d": "После убийства противника критическим попаданием, урон от критических попаданий увеличивается на 90% сроком на 10 сек.",
     "dmg": 52552.0,
     "rpm": 750.0,
     "mag": 30.0,
-    "reload": 2.34,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 656900,
-    "source_ru": "Проект \"Пропуск в игру\" (27.05.25-10.06.25) на достижение 8 ранга пастыря "
+    "source_ru": "Проект \"Пропуск в игру\" (27.05.25-10.06.25) на достижение 8 ранга пастыря ",
+    "reload_old": 2.34,
+    "d_old": "Крит-убийство → +90% крит. урон 10с",
+    "talent_ru": "Убийца",
+    "flavor_en": "\"We care for our flock here.\""
   },
   {
     "name": "Бур",
@@ -138,7 +178,8 @@
     "t": "AR (Carbine 7)",
     "brand": "",
     "tal": "Perfect Precision Strike",
-    "d": "Убийства дальше 20м → стаки усиления"
+    "d": "Убийства дальше 20м → стаки усиления",
+    "flavor_en": "\"That's the job. Sometimes it's clean, sometimes it's messy, ugly, even. But we do what has to be done. And pave the way to safety.\"\n- Agent Brenda Wells"
   },
   {
     "name": "Охрана Эмелин",
@@ -147,7 +188,8 @@
     "t": "SMG (P90)",
     "brand": "",
     "tal": "Perfect Preservation",
-    "d": "Убийство → 15% брони 3с. Хедшот +20% лечения"
+    "d": "Убийство → 15% брони 3с. Хедшот +20% лечения",
+    "flavor_en": "Inscription reads: \n\n\"For loyal service, Emeline grants rewards. Keep her and the cause forever in your thoughts.\""
   },
   {
     "name": "Безопасная Дистанция",
@@ -156,7 +198,19 @@
     "t": "SMG (MPX)",
     "brand": "",
     "tal": "Perfect Outsider",
-    "d": "Убийство → +150% дальность и точность 10с"
+    "d": "Убив противинка, вы получаете к оптимальной дальности +150% и +125% к меткости сроком на 10 сек.",
+    "dmg": 50989.0,
+    "rpm": 850.0,
+    "mag": 30.0,
+    "range": 22.0,
+    "hsd": 1.5,
+    "class_bonus": "ШК / 21%",
+    "dps_mult": 722344.1667,
+    "reload": 2.3,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "Убийство → +150% дальность и точность 10с",
+    "talent_ru": "На расстоянии",
+    "flavor_en": "\"I don't throw grenades for my health, I throw 'em to watch the bang. Yeah, fuck you. It's cool to watch the explosions.\" - Dash"
   },
   {
     "name": "Цепочка Обмена",
@@ -165,7 +219,8 @@
     "t": "SMG (MP7)",
     "brand": "",
     "tal": "Perfect Allegro",
-    "d": "+15% скорострельность"
+    "d": "+15% скорострельность",
+    "flavor_en": "\"Just take it out, light them up and make sure to stick the landing no matter what! It's not rocket surgery!\""
   },
   {
     "name": "Квартира",
@@ -174,7 +229,19 @@
     "t": "SMG (MPX)",
     "brand": "",
     "tal": "Perfectly Measured",
-    "d": "Верх/низ магазина разные бонусы"
+    "d": "Первая половина патронов в магазине увеличивает скорострельность на 25%, но снижает урон от оружия на -30%. Вторая половина патронов уменьшает скорострельность на -18%,\nно увеличивает урон от оружия на +38%.",
+    "dmg": 50989.0,
+    "rpm": 850.0,
+    "mag": 30.0,
+    "range": 22.0,
+    "hsd": 1.5,
+    "class_bonus": "ШК / 21%",
+    "dps_mult": 722344.1667,
+    "reload": 2.3,
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ",
+    "d_old": "Верх/низ магазина разные бонусы",
+    "talent_ru": "Взвешенность",
+    "flavor_en": "We're saving up for our dream house."
   },
   {
     "name": "Тёмная Зима",
@@ -183,7 +250,19 @@
     "t": "SMG (Vector .45)",
     "brand": "",
     "tal": "Perfect Killer",
-    "d": "Крит-убийство → +90% крит. урон 10с"
+    "d": "После убийства противника критическим попаданием, урон от критических попаданий увеличивается на 90% сроком на 10 сек.",
+    "dmg": 38295.0,
+    "rpm": 1200.0,
+    "mag": 25.0,
+    "range": 15.0,
+    "hsd": 1.5,
+    "class_bonus": "ШК / 21%",
+    "dps_mult": 765900,
+    "reload": 1.6,
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ",
+    "d_old": "Крит-убийство → +90% крит. урон 10с",
+    "talent_ru": "Убийца",
+    "flavor_en": "\"It was supposed to be an exercise. Turns out... we weren't prepared.\" \n- Faye Lau"
   },
   {
     "name": "Кабаре",
@@ -192,7 +271,19 @@
     "t": "SMG (MP5 ST)",
     "brand": "",
     "tal": "Perfect Thunderclap",
-    "d": "+35% урон по шокированным. 3 убийства → шок"
+    "d": "Увеличение урона от оружия, наносимого противникам с эффектом шока, на 35%. После того как вы убьете 3 противников, на следующую пораженную вами цель будет наложен эффект шока.",
+    "dmg": 53893.0,
+    "rpm": 800.0,
+    "mag": 30.0,
+    "range": 21.0,
+    "hsd": 1.5,
+    "class_bonus": "ШК / 21%",
+    "dps_mult": 718573.3333,
+    "reload": 1.8,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "+35% урон по шокированным. 3 убийства → шок",
+    "talent_ru": "Удар грома",
+    "flavor_en": "\"When you're running out of options, it's time to shock and awe.\" BTSU Jack Bonney"
   },
   {
     "name": "Обида",
@@ -201,7 +292,19 @@
     "t": "SMG (Vector 9mm)",
     "brand": "",
     "tal": "Perfect Close & Personal",
-    "d": "+40% урон ближе 7м"
+    "d": "Убийство противника с негативным эффектом повышает шанс критического попадания на 21% и урон от критических попаданий на 21%. Эффект действует 20 сек. и распространяется на всех членов группы в радиусе 20 м.",
+    "dmg": 47838.0,
+    "rpm": 900.0,
+    "mag": 32.0,
+    "range": 21.0,
+    "hsd": 1.5,
+    "class_bonus": "ШК / 21%",
+    "dps_mult": 717570,
+    "reload": 2.07,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "+40% урон ближе 7м",
+    "talent_ru": "Мстительность",
+    "flavor_en": "\"It is all about power now. Power, and survival. They are done but I am not. And you won't be either. Not if you work with me.\" \n- Aaron \"Vanguard\" Keener"
   },
   {
     "name": "Grown Great",
@@ -210,7 +313,8 @@
     "t": "SMG (Tommy Gun)",
     "brand": "",
     "tal": "Perfect Stabilize",
-    "d": "Стабильность растёт с попаданиями"
+    "d": "Стабильность растёт с попаданиями",
+    "flavor_en": "Great weapons aren't born great, they grow great"
   },
   {
     "name": "Куэлебре",
@@ -223,12 +327,14 @@
     "dmg": 703527.0,
     "rpm": 75.0,
     "mag": 5.0,
-    "reload": 3.35,
+    "reload": 3.5,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 879408.75,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.35,
+    "flavor_en": "Inscription reads: \n\nTreasure your life. Defend it with this."
   },
   {
     "name": "Рок-н-ролл",
@@ -242,12 +348,14 @@
     "dmg": 180739.0,
     "rpm": 300.0,
     "mag": 20.0,
-    "reload": 3.35,
+    "reload": 2.0,
     "range": 16.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 903695,
-    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ/Конфликта"
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ/Конфликта",
+    "reload_old": 3.35,
+    "flavor_en": "\"Lots of people love the guitar. Me? I love the drums. BAM. BAM. BAM. Really gets my blood flowing\" \n- Hyena band member"
   },
   {
     "name": "Проводы",
@@ -256,7 +364,8 @@
     "t": "Дробовик (KSG)",
     "brand": "",
     "tal": "Perfectly Rooted",
-    "d": "В укрытии: +30% урон/лечение скилла 15с (раз в 60с)"
+    "d": "В укрытии: +30% урон/лечение скилла 15с (раз в 60с)",
+    "flavor_en": "When you leave this world, all your hear is white noise."
   },
   {
     "name": "Цунами",
@@ -265,16 +374,20 @@
     "t": "Дробовик (SASG-12)",
     "brand": "",
     "tal": "Perfect Pummel",
-    "d": "2 убийства телохитами → перезарядка +50% урон 10с",
+    "d": "После 2 совершенных подряд убийств магазин оружия заполняется, а урон от оружия увеличивается на 40% сроком на 10 сек.",
     "dmg": 349740.0,
     "rpm": 180.0,
     "mag": 7.0,
-    "reload": 3.05,
+    "reload": 2.1,
     "range": 14.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1049220,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.05,
+    "d_old": "2 убийства телохитами → перезарядка +50% урон 10с",
+    "talent_ru": "Избиение",
+    "flavor_en": "The tidal wave stops for nothing, suffocating fire and life, when it rolls in."
   },
   {
     "name": "Чёрная Пятница",
@@ -283,7 +396,19 @@
     "t": "LMG (M249)",
     "brand": "",
     "tal": "Perfect Unhinged",
-    "d": "+25% урон, −20% управляемость"
+    "d": "Урон от оружия увеличивается на 22% ценой снижения стабильности на -25% и точности на -25%.",
+    "dmg": 48289.0,
+    "rpm": 850.0,
+    "mag": 100.0,
+    "range": 35.0,
+    "hsd": 1.65,
+    "class_bonus": "УЦВУ / 12%",
+    "dps_mult": 684094.1667,
+    "reload": 5.6,
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ",
+    "d_old": "+25% урон, −20% управляемость",
+    "talent_ru": "Дисбаланс",
+    "flavor_en": "\"Fire sale! One day only, everything must go.\"\n - Saint Alex to his crew"
   },
   {
     "name": "Слейпнир",
@@ -292,16 +417,19 @@
     "t": "LMG (MG5)",
     "brand": "",
     "tal": "Perfectly Frenzy",
-    "d": "+4% урон и RPM за 10 патронов при перезарядке из пустого",
+    "d": "Зарядка каждых 8 патронов в пустой магазин оружия дает +3% к скорострельности и +3% к урону от оружия сроком на 5 сек.",
     "dmg": 54310.0,
     "rpm": 800.0,
     "mag": 50.0,
-    "reload": 2.96,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 724133.3333,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.96,
+    "d_old": "+4% урон и RPM за 10 патронов при перезарядке из пустого",
+    "talent_ru": "Неистовство"
   },
   {
     "name": "Чистый Лист",
@@ -310,10 +438,22 @@
     "t": "LMG (L86)",
     "brand": "",
     "tal": "Perfect Hand Control",
-    "d": "+4% управляемость/хит (макс. 10). На максимуме 10% шанс пополнить магазин",
+    "d": "Каждое попадание дает +1% к точности и стабильности. Эффект суммируется до 75 раз. После достижения этого количества эффект снимается, а магазин оружия заполняется боеприпасами.",
     "aliases_ru": [
       "Табула раса"
-    ]
+    ],
+    "dmg": 61084.0,
+    "rpm": 700.0,
+    "mag": 30.0,
+    "range": 30.0,
+    "hsd": 1.65,
+    "class_bonus": "УЦВУ / 12%",
+    "dps_mult": 712646.6667,
+    "reload": 2.5,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "+4% управляемость/хит (макс. 10). На максимуме 10% шанс пополнить магазин",
+    "talent_ru": "Твердая рука",
+    "flavor_en": "\"New uniform, a fresh mag, trousers and pair of socks. A clean slate is always inspiring.\" \n- Lieutenant Kelly"
   },
   {
     "name": "Резня",
@@ -322,7 +462,8 @@
     "t": "LMG (Negev)",
     "brand": "",
     "tal": "Perfect Bullet King",
-    "d": "Убийства → шанс полного магазина"
+    "d": "Убийства → шанс полного магазина",
+    "flavor_en": "\"Time to paint this town red.\""
   },
   {
     "name": "Назначенный Стрелок",
@@ -331,7 +472,8 @@
     "t": "Снайперская (SR-1)",
     "brand": "",
     "tal": "Perfect Reformation",
-    "d": "Хедшот-убийство +75% лечение скиллами"
+    "d": "Хедшот-убийство +75% лечение скиллами",
+    "flavor_en": "\"You want me to be your designated hitter, Ridgeway? Convince me, then. Based on your reputation, signing up with you might be bad for my health.\" \n- Captain Briggs to Ridgeway"
   },
   {
     "name": "Длинная Палка Экима",
@@ -340,16 +482,20 @@
     "t": "Снайперская (M700)",
     "brand": "",
     "tal": "Perfect Ranger",
-    "d": "+3% урон за каждые 5м до цели",
+    "d": "Урон от оружия увеличивается на 2% за каждые 4 м расстояния до цели.",
     "dmg": 441461.0,
     "rpm": 55.0,
     "mag": 7.0,
-    "reload": 7.05,
+    "reload": 6.3,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 7.05,
+    "d_old": "+3% урон за каждые 5м до цели",
+    "talent_ru": "Рейнджер",
+    "flavor_en": "You wouldn't poke a hornet's nest with a short stick, would you?"
   },
   {
     "name": "Белая Смерть",
@@ -362,12 +508,14 @@
     "dmg": 433456.0,
     "rpm": 55.0,
     "mag": 5.0,
-    "reload": 4.29,
+    "reload": 4.2,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 137%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 4.29,
+    "flavor_en": "\"I miss the snow\" \n- S.H."
   },
   {
     "name": "Скальпель",
@@ -376,16 +524,20 @@
     "t": "Снайперская (Tactical .308)",
     "brand": "",
     "tal": "Future Perfection",
-    "d": "Убийство +1 Skill Tier",
+    "d": "Убийства оружием дает +1 к уровню навыка сроком на 19 сек. Эффект суммируется до 3 раз. Если уровень навыка уже равен 6, то вы получаете перезаряд сроком на 15 сек. Восстановление перезаряда 90 сек.",
     "dmg": 403709.0,
     "rpm": 70.0,
     "mag": 7.0,
-    "reload": 3.04,
+    "reload": 1.5,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.04,
+    "d_old": "Убийство +1 Skill Tier",
+    "talent_ru": "Совершенное будущее",
+    "flavor_en": "-"
   },
   {
     "name": "Инструмент Художника",
@@ -394,7 +546,8 @@
     "t": "Винтовка (SIG 716)",
     "brand": "",
     "tal": "Perfect Rifleman",
-    "d": "Хедшоты +12% урон 5с (макс. 5 стаков)"
+    "d": "Хедшоты +12% урон 5с (макс. 5 стаков)",
+    "flavor_en": "\"You call it war, we call it art.\" \n- The Hyenas"
   },
   {
     "name": "Вирджинец",
@@ -403,7 +556,19 @@
     "t": "Винтовка (1886)",
     "brand": "",
     "tal": "Perfect Boomerang",
-    "d": "Крит 75% → пуля в магазин. Следующий +50% урон"
+    "d": "При критическом попадании пуля с вероятностью 75% возвращается в магазин. Следующий выстрел после того, как пуля вернется в магазин, наносит на 50% больший урон.",
+    "dmg": 386892.0,
+    "rpm": 100.0,
+    "mag": 8.0,
+    "range": 35.0,
+    "hsd": 1.6,
+    "class_bonus": "УК / 17%",
+    "dps_mult": 644820,
+    "reload": 3.25,
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ",
+    "d_old": "Крит 75% → пуля в магазин. Следующий +50% урон",
+    "talent_ru": "Бумеранг",
+    "flavor_en": "\"Get the fuck off my land. That means you. Now.\" \n- DC Area Resident"
   },
   {
     "name": "Чёртова Дюжина",
@@ -412,7 +577,19 @@
     "t": "Винтовка (M1A)",
     "brand": "",
     "tal": "Perfect Lucky Shot",
-    "d": "+30% магазин. Промах из укрытия 100% → возврат пули"
+    "d": "Вместимость магазина увеличена на 30%. Пули не попавшие в цель при стрельбе из укрытия, с вероятностью 100% возвращаются в магазин.",
+    "dmg": 231290.0,
+    "rpm": 180.0,
+    "mag": 13.0,
+    "range": 60.0,
+    "hsd": 1.6,
+    "class_bonus": "УК / 17%",
+    "dps_mult": 693870,
+    "reload": 2.5,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "+30% магазин. Промах из укрытия 100% → возврат пули",
+    "talent_ru": "Удачный выстрел",
+    "flavor_en": "\"This rifle saw me through the war. May she now see you through yours.\" \n- Sgt. Rolland T. Baker"
   },
   {
     "name": "Гармония",
@@ -421,7 +598,19 @@
     "t": "Винтовка (Mk47)",
     "brand": "",
     "tal": "Perfectly In Sync",
-    "d": "Оружие/скилл → +5% урон другому"
+    "d": "Попадания по противнику дает +20% к урону от навыков сроком на 5 сек. Применение навыка или нанесение урона с его помощью дает +20% к урону от оружия сроком на 5 сек.\nЕсли оба эффекта действуют одновременно, дополнительный урон удваивается.",
+    "dmg": 124870.0,
+    "rpm": 300.0,
+    "mag": 30.0,
+    "range": 55.0,
+    "hsd": 1.6,
+    "class_bonus": "УК / 17%",
+    "dps_mult": 624350,
+    "reload": 1.97,
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ",
+    "d_old": "Оружие/скилл → +5% урон другому",
+    "talent_ru": "Синхронность",
+    "flavor_en": "\"Let your weapon do the singing, but never forget your backup vocals.\" \n\n- Agent Brink"
   },
   {
     "name": "Всплеск",
@@ -430,7 +619,8 @@
     "t": "Винтовка (LVOA-C)",
     "brand": "",
     "tal": "Perfect Spike",
-    "d": "Хедшот +25% урон скилла 15с"
+    "d": "Хедшот +25% урон скилла 15с",
+    "flavor_en": "\"The Machine is learning. We're not.\"\n- A Transhumanist Perspective on Planned Obsolescence"
   },
   {
     "name": "Молниеотвод",
@@ -439,10 +629,22 @@
     "t": "Пистолет (PF45)",
     "brand": "",
     "tal": "Perfect Salvage",
-    "d": "Убийство 75% → полный магазин",
+    "d": "Убийство цели даёт 85% шанс мгновенно заполнить магазин оружия.",
     "aliases_ru": [
       "Громоотвод"
-    ]
+    ],
+    "dmg": 93941.0,
+    "rpm": 370.0,
+    "mag": 15.0,
+    "range": 14.0,
+    "hsd": 2.0,
+    "class_bonus": "-",
+    "dps_mult": 579302.8333,
+    "reload": 1.7,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "Убийство 75% → полный магазин",
+    "talent_ru": "Трофейщик",
+    "flavor_en": "Inscription reads: \n\nStrike hard and fast, but also unexpectedly."
   },
   {
     "name": "Орбита",
@@ -451,16 +653,20 @@
     "t": "Пистолет (586 Magnum)",
     "brand": "",
     "tal": "Perfect Finisher",
-    "d": "Смена оружия после убийства → +40% крит. шанс +50% крит. урон 15с",
+    "d": "Смена оружия в течении 10 сек. после убийства противника из этого оружия, повышает шанс критических попаданий на 35%, а урон от них - на 40%. Эффект длится 15 сек.",
     "dmg": 233223.0,
     "rpm": 160.0,
     "mag": 6.0,
-    "reload": 2.54,
+    "reload": 1.8,
     "range": 16.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 621928,
-    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ"
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ",
+    "reload_old": 2.54,
+    "d_old": "Смена оружия после убийства → +40% крит. шанс +50% крит. урон 15с",
+    "talent_ru": "Добивание",
+    "flavor_en": "An object once set into motion stays in motion, until it finds its target. And then all motion ceases to exist."
   },
   {
     "name": "ТДИ «Кард» Кастом",
@@ -473,7 +679,8 @@
     "tal_ru": "Вторичный атрибут",
     "aliases_ru": [
       "TDI Kard Custom"
-    ]
+    ],
+    "flavor_en": "\"In our line of work, it pays to be slightly ahead of the curve\"\n\n- John Dmitri  Kozak"
   },
   {
     "name": "Луд",
@@ -482,7 +689,7 @@
     "t": "AR (SOCOM MK16)",
     "brand": "",
     "tal": "Perfect Streamline",
-    "d": "+47% урон оружием без развёрнутых навыков (PvP: +37%)",
+    "d": "Увеличивает урон от оружия на 47% (37% в PVP), когда ни один из навыков не находится в процессе восстановления.",
     "dmg": 59210.0,
     "rpm": 650.0,
     "mag": 30.0,
@@ -491,7 +698,10 @@
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 641441.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "+47% урон оружием без развёрнутых навыков (PvP: +37%)",
+    "talent_ru": "Рационализация",
+    "flavor_en": "\"I've got all the skills I need right here.\""
   },
   {
     "name": "Пурист",
@@ -500,7 +710,19 @@
     "t": "SMG (SMG-9 A2)",
     "brand": "",
     "tal": "Perfect Streamline",
-    "d": "+47% урон оружием без развёрнутых навыков (PvP: +37%)"
+    "d": "Увеличивает урон от оружия на 47% (37% в PVP), когда ни один из навыков не находится в процессе восстановления.",
+    "dmg": 46726.0,
+    "rpm": 1000.0,
+    "mag": 32.0,
+    "range": 15.0,
+    "hsd": 1.5,
+    "class_bonus": "ШК / 21%",
+    "dps_mult": 778766.6667,
+    "reload": 1.7,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "+47% урон оружием без развёрнутых навыков (PvP: +37%)",
+    "talent_ru": "Рационализация",
+    "flavor_en": "\"Keep your toys to yourself\""
   },
   {
     "name": "Ахиллес",
@@ -509,7 +731,19 @@
     "t": "Пистолет (USC .45)",
     "brand": "",
     "tal": "Perfect Soft Spot",
-    "d": "Уничтожение слабой точки → +32% урон оружием 15с"
+    "d": "Разрушение уязвимого места дает +32% к урону от оружия сроком на 15 сек.",
+    "dmg": 97719.0,
+    "rpm": 420.0,
+    "mag": 20.0,
+    "range": 55.0,
+    "hsd": 1.6,
+    "class_bonus": "УК / 17%",
+    "dps_mult": 684033,
+    "reload": 2.88,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "Уничтожение слабой точки → +32% урон оружием 15с",
+    "talent_ru": "Слабое место",
+    "flavor_en": "\"Out of every place it could have hit.\" \n- Outcast Rusher"
   },
   {
     "name": "Подстрекатель",
@@ -518,16 +752,20 @@
     "t": "Винтовка (Custom M44)",
     "brand": "",
     "tal": "Perfect Soft Spot",
-    "d": "Уничтожение слабой точки → +32% урон оружием 15с",
+    "d": "Разрушение уязвимого места дает +32% к урону от оружия сроком на 15 сек.",
     "dmg": 417588.0,
     "rpm": 55.0,
     "mag": 5.0,
-    "reload": 4.29,
+    "reload": 1.9,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 4.29,
+    "d_old": "Уничтожение слабой точки → +32% урон оружием 15с",
+    "talent_ru": "Слабое место",
+    "flavor_en": "\"Do I really need this much fuel on me?\" \n- Outcast Thrower"
   },
   {
     "name": "Блокировка",
@@ -536,7 +774,8 @@
     "t": "Дробовик (M870)",
     "brand": "",
     "tal": "Perfect Immobilize",
-    "d": "+25% урон по опутанным. 3-е убийство → следующий враг опутан"
+    "d": "+25% урон по опутанным. 3-е убийство → следующий враг опутан",
+    "flavor_en": "And stay there."
   },
   {
     "name": "Пена",
@@ -545,7 +784,8 @@
     "t": "SMG (Vector 9mm)",
     "brand": "",
     "tal": "Perfect Immobilize",
-    "d": "+25% урон по опутанным. 3-е убийство → следующий враг опутан"
+    "d": "+25% урон по опутанным. 3-е убийство → следующий враг опутан",
+    "flavor_en": "Sit Tight."
   },
   {
     "name": "Обмен",
@@ -563,7 +803,18 @@
     "t": "AR (ACR SS)",
     "brand": "",
     "tal": "Perfect Back and Forth",
-    "d": "Смена НА: +13% RPM +12% урон. Смена С: +5% RPM +4.5% урон. 10с"
+    "d": "Переключившись на это оружие, вы получаете +13% к скорострельности и +12% к урону от оружия сроком на 10 с.\nПереключившись с этого оружия на другое, вы получаете +5% к скорострельности и +4.5% к урону от оружия сроком на 10 с.\nПолучение одной из этих групп преимуществ прекращает действие другой. Две копии этого таланта не могут действовать одновременно.",
+    "dmg": 92344.0,
+    "rpm": 420.0,
+    "mag": 30.0,
+    "range": 45.0,
+    "hsd": 1.6,
+    "class_bonus": "УК / 17%",
+    "dps_mult": 646408,
+    "reload": 2.0,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "Смена НА: +13% RPM +12% урон. Смена С: +5% RPM +4.5% урон. 10с",
+    "talent_ru": "Двухтактный цикл"
   },
   {
     "name": "Первый взгляд",
@@ -582,7 +833,8 @@
     "hsd": 1.85,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 671610,
-    "source_ru": "Падает с хапуги во время ивентов"
+    "source_ru": "Падает с хапуги во время ивентов",
+    "flavor_en": "\"Always go for the head, not the heels\""
   },
   {
     "name": "Маниакальный",
@@ -592,7 +844,8 @@
     "brand": "",
     "tal": "Perfectly Overflowing",
     "d": "Каждые две перезарядки из пустого магазина увеличивают емкость базового магазина на 100%.",
-    "tal_ru": "Идеально переполненный"
+    "tal_ru": "Идеально переполненный",
+    "flavor_en": "\"Just one more time, Dragov. Call me a manic pixie dream girl just one... more... time...\" \n- Vivian Conley"
   },
   {
     "name": "Вратарь",
@@ -601,17 +854,21 @@
     "t": "AR (FAL)",
     "brand": "",
     "tal": "Perfect Pressure Point",
-    "d": "Увеличивает урон от оружия по врагам под действием статусных эффектов на 20%.",
+    "d": "Увеличение урона от оружия, наносимого противникам с негативными эффектами на 20%",
     "tal_ru": "Идеальная точка давления",
     "dmg": 57634.0,
     "rpm": 700.0,
     "mag": 20.0,
-    "reload": 2.13,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 672396.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.13,
+    "d_old": "Увеличивает урон от оружия по врагам под действием статусных эффектов на 20%.",
+    "talent_ru": "Центр давления",
+    "flavor_en": "\"Two to the body, one to the head\""
   },
   {
     "name": "Родился великим",
@@ -621,7 +878,8 @@
     "brand": "",
     "tal": "Perfect Stabilize",
     "d": "1% точности оружия и +1% стабильности оружия за выстрел, вплоть до 75%.\nОстановка стрельбы запустит таймер на 6 секунд, после чего бонусы сбрасываются.",
-    "tal_ru": "Идеальная стабилизация"
+    "tal_ru": "Идеальная стабилизация",
+    "flavor_en": "The future is now, old gun."
   },
   {
     "name": "Выгореть",
@@ -631,7 +889,8 @@
     "brand": "",
     "tal": "Perfect On Empty",
     "d": "Перезарядка из пустого оружия дает 80% управляемости оружия на 10 секунд.",
-    "tal_ru": "Идеально на пустом месте"
+    "tal_ru": "Идеально на пустом месте",
+    "flavor_en": "\"You want me to pick up another shift? Well guess what? Fuck this shit. I'm out\" \n- Krazinski, before \"The Incident\""
   },
   {
     "name": "Слава Дейз",
@@ -641,7 +900,8 @@
     "brand": "",
     "tal": "Perfectly Near Sighted",
     "d": "Получите 100% стабильность за счет 35% оптимальной дальности.",
-    "tal_ru": "Идеально близорукий"
+    "tal_ru": "Идеально близорукий",
+    "flavor_en": "\"Nothing lasts forever\" \n- The Balancer"
   },
   {
     "name": "Лексингтон",
@@ -651,7 +911,8 @@
     "brand": "",
     "tal": "+1,782 Base Damage",
     "d": "+1782 базового урона",
-    "tal_ru": "+1782 базового урона"
+    "tal_ru": "+1782 базового урона",
+    "flavor_en": "\"Negative, Ramos\" - Faye Lau"
   },
   {
     "name": "Дерзай",
@@ -661,7 +922,8 @@
     "brand": "",
     "tal": "Perfect Flatline",
     "d": "Увеличивает урон от оружия импульсивным врагам на 20%. После 3-х убийств накладывает импульс на следующего врага, которого вы заденете.",
-    "tal_ru": "Идеальная плоская линия"
+    "tal_ru": "Идеальная плоская линия",
+    "flavor_en": "\"If you dare to struggle, you darte to win. If you dare not struggle, then damn it, you don't deserve to win\" \n- Fred Hampton"
   },
   {
     "name": "Хорошие времена",
@@ -671,7 +933,8 @@
     "brand": "",
     "tal": "Perfect Fast Hands",
     "d": "Критические попадания добавляют 5% бонуса к скорости перезарядки. Максимальный стек — 40.",
-    "tal_ru": "Идеальные быстрые руки"
+    "tal_ru": "Идеальные быстрые руки",
+    "flavor_en": "\"What you want to do is develop that muscle memory. Unload. Reload. Unload. Reload. After all that training? That's when you have a good time.\""
   },
   {
     "name": "Стингер",
@@ -685,12 +948,14 @@
     "dmg": 48289.0,
     "rpm": 850.0,
     "mag": 100.0,
-    "reload": 4.54,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 684094.1667,
-    "source_ru": "Чертеж на производственной станции в награду за приглашеного друга"
+    "source_ru": "Чертеж на производственной станции в награду за приглашеного друга",
+    "reload_old": 4.54,
+    "flavor_en": "When you miss something more than you ever thought possible, it is tempting to seek solace among destructive friends and old, bad habits."
   },
   {
     "name": "Слейпнер",
@@ -700,7 +965,8 @@
     "brand": "",
     "tal": "Perfect Frenzy",
     "d": "За каждые 8 ​​пуль в емкости магазина увеличивается скорострельность на 3% и урон от оружия на 3% на 9 секунд при перезарядке из пустого магазина.",
-    "tal_ru": "Идеальное безумие"
+    "tal_ru": "Идеальное безумие",
+    "flavor_en": "Inscription reads:\n\nThe best among gods and men, who bears its rider to the land of the dead."
   },
   {
     "name": "Биг Шоу",
@@ -709,11 +975,23 @@
     "t": "LMG (MG5)",
     "brand": "",
     "tal": "Perfect Thunder Strike",
-    "d": "Наносит 35% дополнительного урона пораженным шоком целям.",
+    "d": "Увеличение урона от оружия, наносимого противникам с эффектом шока, на 35%. После того как вы убьете 3 противников, на следующую пораженную вами цель будет наложен эффект шока.",
     "tal_ru": "Идеальный громовой удар",
     "aliases_ru": [
       "Большое шоу"
-    ]
+    ],
+    "dmg": 54310.0,
+    "rpm": 800.0,
+    "mag": 50.0,
+    "range": 35.0,
+    "hsd": 1.65,
+    "class_bonus": "УЦВУ / 12%",
+    "dps_mult": 724133.3333,
+    "reload": 5.6,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные/конфликта",
+    "d_old": "Наносит 35% дополнительного урона пораженным шоком целям.",
+    "talent_ru": "Удар грома",
+    "flavor_en": "\"If budget is no option, and you want to give them the 'shocker' take 'emto the Big Show.\" BTSU Jack Bonney"
   },
   {
     "name": "Новый надежный",
@@ -723,7 +1001,8 @@
     "brand": "",
     "tal": "Perfectly Optimized",
     "d": "Увеличивает управляемость оружия на 40%.",
-    "tal_ru": "Идеально оптимизировано"
+    "tal_ru": "Идеально оптимизировано",
+    "flavor_en": "\"Whoever said 'if it ain't broke, don't fix it' clearly never had any hobbies\""
   },
   {
     "name": "Крикет",
@@ -732,11 +1011,23 @@
     "t": "LMG (GR9)",
     "brand": "",
     "tal": "Perfect Precision Strike",
-    "d": "Убийство врагов на расстоянии более 20 метров накапливает стаки. Максимальный стек — 2.\nПри попадании по врагу в радиусе 20 метров будут использованы все заряды, чтобы обеспечить +35% усиленного урона врагам в радиусе 20 метров на 5 секунд.",
+    "d": "Убивая противников на расстоянии более 20м вы накапливаете заряды. Их максимальное количество 2. Попав впротивника на расстоянии 20м или менее, вы потратите все заряды и будете наносить +35% дополнительного урона врагам в радиусе 20м в течение 5сек.",
     "tal_ru": "Идеальный точный удар",
     "aliases_ru": [
       "Сверчок"
-    ]
+    ],
+    "dmg": 49469.0,
+    "rpm": 750.0,
+    "mag": 200.0,
+    "range": 35.0,
+    "hsd": 1.65,
+    "class_bonus": "УЦВУ / 12%",
+    "dps_mult": 618362.5,
+    "reload": 3.63,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "Убийство врагов на расстоянии более 20 метров накапливает стаки. Максимальный стек — 2.\nПри попадании по врагу в радиусе 20 метров будут использованы все заряды, чтобы обеспечить +35% усиленного урона врагам в радиусе 20 метров на 5 секунд.",
+    "talent_ru": "Точный удар",
+    "flavor_en": "\"How are you not out of ammo?\"\n- Unknown Hyena's last words"
   },
   {
     "name": "Расти",
@@ -746,7 +1037,8 @@
     "brand": "",
     "tal": "Perfect Pressure Point",
     "d": "Увеличивает урон от оружия по врагам под действием статусных эффектов на 20%.",
-    "tal_ru": "Идеальная точка давления"
+    "tal_ru": "Идеальная точка давления",
+    "flavor_en": "\"Hold fire, hold fire!! He's already dead\""
   },
   {
     "name": "Тихий рев",
@@ -756,7 +1048,8 @@
     "brand": "",
     "tal": "Perfect Overwhelm",
     "d": "Подавление врага (который в данный момент не подавлен) увеличивает урон от оружия на 12% на 12 секунд. Максимальный стек — 4.",
-    "tal_ru": "Идеальное подавление"
+    "tal_ru": "Идеальное подавление",
+    "flavor_en": "\"Making a big show of things is for amateurs. A real badass doesn't need theatrics. A real bad mother fucker freezes your blood just by entering the room.\nThe lion doesn't have to roar to make all the other animals go into hiding.\"\n- Raoul \"The Lion\" Fernando"
   },
   {
     "name": "Сани",
@@ -766,7 +1059,8 @@
     "brand": "",
     "tal": "Hidden Rock",
     "d": "Выстрелы в голову накладывают замешательство. Время восстановления: 20 с.",
-    "tal_ru": "Скрытый рок"
+    "tal_ru": "Скрытый рок",
+    "flavor_en": "Reviews are in, and 'The Sleigher' is the top holiday gift for this year! Find yours at Abel's or any participating retail store. \n\n\"Wicked fun! The Sleigher is a blast to play with.\" \n - NYC Toy Review\n\n\"Who says you can't bring a gun to a snowball fight?\" \n - Holiday Gift Guide\n\n\"Unlike that holiday classic, never worry about poking your eye out\" \n - Practical Winter Gifts"
   },
   {
     "name": "Холодные отношения",
@@ -776,7 +1070,8 @@
     "brand": "",
     "tal": "Perfectly Strained",
     "d": "Урон от критического удара увеличивается на 10% за каждые 0,5 секунды стрельбы. Суммируется до 8 раз.",
-    "tal_ru": "идеально напряженный"
+    "tal_ru": "идеально напряженный",
+    "flavor_en": "\"You're going to have to have to pull this from my cold, dead hands.\"\n\"Sounds enjoyable. Don't mind if I do.\" - Duchess"
   },
   {
     "name": "Рогатка",
@@ -786,7 +1081,17 @@
     "brand": "",
     "tal": "+45 Optimal Range (60 total)",
     "d": "+45 Оптимальная дальность (всего 60)",
-    "tal_ru": "+45 Оптимальная дальность (всего 60)"
+    "tal_ru": "+45 Оптимальная дальность (всего 60)",
+    "dmg": 63677.0,
+    "rpm": 650.0,
+    "mag": 25.0,
+    "range": 60.0,
+    "hsd": 1.5,
+    "class_bonus": "ШК / 21%",
+    "dps_mult": 689834.1667,
+    "reload": 2.0,
+    "source_ru": "Во время ивентов с Хапуги",
+    "flavor_en": "\"Set your sights far, not high.\" "
   },
   {
     "name": "Бумстик",
@@ -796,7 +1101,8 @@
     "brand": "",
     "tal": "Perfect Pumped Up",
     "d": "Перезарядка увеличивает урон от оружия на 6% на 10 секунд. Суммируется до 5 раз.",
-    "tal_ru": "Идеальная накачка"
+    "tal_ru": "Идеальная накачка",
+    "flavor_en": "\"I've got two barrels. One for both of ya!\"\n\n- Drunken Idiot"
   },
   {
     "name": "Резервный Бумстик",
@@ -806,7 +1112,8 @@
     "brand": "",
     "tal": "Core Attribute",
     "d": "17,0% урона от дробовика",
-    "tal_ru": "Основной атрибут"
+    "tal_ru": "Основной атрибут",
+    "flavor_en": "\"Always, and I mean always... have a backup\" \n- Drunken Idiot"
   },
   {
     "name": "Как клей",
@@ -816,7 +1123,8 @@
     "brand": "",
     "tal": "Perfect Brazen",
     "d": "Получите +1% усиленного урона при следующем выстреле из оружия за каждую дробинку, попавшую в цель, если попало хотя бы 4 дробинки.",
-    "tal_ru": "Идеальный наглый"
+    "tal_ru": "Идеальный наглый",
+    "flavor_en": "\"No matter what happens, you stick to them like glue.\""
   },
   {
     "name": "Торн",
@@ -825,11 +1133,23 @@
     "t": "SG (Spas-12)",
     "brand": "",
     "tal": "Perfect Brazen",
-    "d": "Получите +1% усиленного урона при следующем выстреле из оружия за каждую дробинку, попавшую в цель, если попало хотя бы 4 дробинки.",
+    "d": "Нанесение 3% (3% в PVP) дополнительного урона при следующем выстреле из оружия за каждую дробинку, попавшую в цель, если в нее попало не менее 4 дробинок. Убийство противника дает +8% дополнительного урона при следующем выстреле.",
     "tal_ru": "Идеальный наглый",
     "aliases_ru": [
       "Колючка"
-    ]
+    ],
+    "dmg": 715833.0,
+    "rpm": 70.0,
+    "mag": 8.0,
+    "range": 16.0,
+    "hsd": 1.45,
+    "class_bonus": "УБ / 12%",
+    "dps_mult": 835138.5,
+    "reload": 5.2,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "Получите +1% усиленного урона при следующем выстреле из оружия за каждую дробинку, попавшую в цель, если попало хотя бы 4 дробинки.",
+    "talent_ru": "Дерзость",
+    "flavor_en": "\"You see, the secret to laughing in the face of danger is that you have to get real fucking close to it.\"\n- Mayhem"
   },
   {
     "name": "Швабра",
@@ -843,12 +1163,14 @@
     "dmg": 409469.0,
     "rpm": 130.0,
     "mag": 7.0,
-    "reload": 3.0,
+    "reload": 1.8,
     "range": 14.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 887182.8333,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.0,
+    "flavor_en": "\"Wet work is a messy business, and some cleanup jobs require a big mop\" \n- Marco \"The Mop\" Mociano"
   },
   {
     "name": "Кулер",
@@ -858,7 +1180,8 @@
     "brand": "",
     "tal": "Refreshing",
     "d": "Оружие стреляет струей воды. Удар по агенту-союзнику накапливает на нем стеки. Максимальный стек — 5. Стеки истощаются каждые 2 секунды. При наличии хотя бы 1 стека союзник будет иметь +50% защиты от опасностей.",
-    "tal_ru": "Освежающий"
+    "tal_ru": "Освежающий",
+    "flavor_en": "Remember to hydrate"
   },
   {
     "name": "Сцена слева",
@@ -868,7 +1191,8 @@
     "brand": "",
     "tal": "Perfect Sledgehammer",
     "d": "Нанесение урона гранатой накладывает метку на цель. Цели с метками получают на 40% больше урона броне и -10% скорости передвижения.",
-    "tal_ru": "Идеальная кувалда"
+    "tal_ru": "Идеальная кувалда",
+    "flavor_en": "\"When you want to make an entrance use Stage Left. \" 13"
   },
   {
     "name": "Вечный взгляд",
@@ -878,7 +1202,8 @@
     "brand": "",
     "tal": "Perfect Perpetuation",
     "d": "Выстрелы в голову увеличивают урон и продолжительность следующего статусного эффекта на 75%. Время восстановления составляет 16 секунд.",
-    "tal_ru": "Идеальное увековечивание"
+    "tal_ru": "Идеальное увековечивание",
+    "flavor_en": "\"Keep yer eye on the prize, boyo. Steady... steady... now!\" - NYCP Instructor"
   },
   {
     "name": "Шепот",
@@ -887,8 +1212,20 @@
     "t": "Rifle (M16A2)",
     "brand": "",
     "tal": "Perfectly Behind You",
-    "d": "Увеличивает урон от оружия на +20% врагам, которые не нацелены на вас.",
-    "tal_ru": "Идеально позади тебя"
+    "d": "Урон от оружия повышается на 25%, если вы атакуете врага, который не целится в вас.",
+    "tal_ru": "Идеально позади тебя",
+    "dmg": 106948.0,
+    "rpm": 400.0,
+    "mag": 30.0,
+    "range": 50.0,
+    "hsd": 1.6,
+    "class_bonus": "УК / 17%",
+    "dps_mult": 712986.6667,
+    "reload": 2.1,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "Увеличивает урон от оружия на +20% врагам, которые не нацелены на вас.",
+    "talent_ru": "Прикрывающий",
+    "flavor_en": "\"Do you hear that?\"\n- Unknown"
   },
   {
     "name": "О, Кэрол",
@@ -898,7 +1235,8 @@
     "brand": "",
     "tal": "137.0% Headshot Damage & Twinkling Lights",
     "d": "Только ночью с мерцающими огнями можно наполнить их головы праздничной мощью.",
-    "tal_ru": "137,0% урона от выстрела в голову и мерцающих огней"
+    "tal_ru": "137,0% урона от выстрела в голову и мерцающих огней",
+    "flavor_en": "\"Christmas is the perfect time to jingle all the bells. Light up the night and empty Santa's sack with a little help from his favorite sleigher.\" The Carolers"
   },
   {
     "name": "Тьма",
@@ -907,17 +1245,21 @@
     "t": "MMR (MK20 SSR\n(FN SCAR-SSR))",
     "brand": "",
     "tal": "Perfect Eyeless",
-    "d": "Нанесите 35% урона от оружия ослепленным врагам. После 3 убийств применяется вслепую к следующему врагу, которого вы заденете.",
+    "d": "Увеличение урона от оружия, наносимого противникам с эффектом ослепления, на 35%. После того как вы убьете 3 противников, на следующую пораженную вами цель будет наложен эффект ослепления.",
     "tal_ru": "Идеальный безглазый",
     "dmg": 145815.0,
     "rpm": 275.0,
     "mag": 20.0,
-    "reload": 4.99,
+    "reload": 1.9,
     "range": 55.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 4.99,
+    "d_old": "Нанесите 35% урона от оружия ослепленным врагам. После 3 убийств применяется вслепую к следующему врагу, которого вы заденете.",
+    "talent_ru": "Незрячий",
+    "flavor_en": "\"Cover conceals truth; deception conveys falsehood. Cover induces inaction; deception induces action.\""
   },
   {
     "name": "укол",
@@ -927,7 +1269,8 @@
     "brand": "",
     "tal": "Perfect First Blood",
     "d": "Если установлен прицел, ваши первые 2 выстрела, произведенные вне боя или после полной перезарядки из пустого оружия, наносят урон в голову любой пораженной части тела. Требуется прицел с увеличением 8x или выше.",
-    "tal_ru": "Идеальная первая кровь"
+    "tal_ru": "Идеальная первая кровь",
+    "flavor_en": "\"Strike fast, strike hard. Rinse, repeat\" \n- Hyena marksman"
   },
   {
     "name": "коммандос",
@@ -936,17 +1279,21 @@
     "t": "MMR (Paratrooper SVD)",
     "brand": "",
     "tal": "Perfectly Naked",
-    "d": "Удар по врагу без брони дает 50% урона в голову на 8 секунд.",
+    "d": "Ранение противников, лишенных брони, дает +50% к урону от выстрелов в голову сроком на 8 сек.",
     "tal_ru": "Идеально обнаженный",
     "dmg": 156626.0,
     "rpm": 260.0,
     "mag": 10.0,
-    "reload": 2.85,
+    "reload": 2.2,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.85,
+    "d_old": "Удар по врагу без брони дает 50% урона в голову на 8 секунд.",
+    "talent_ru": "Смертоносная нагота",
+    "flavor_en": "\"Look. I know you're brave, but don't go jumping into a fight naked\" \n- Cassie Mendoza, the Gunrunner"
   },
   {
     "name": "Корзина",
@@ -960,12 +1307,14 @@
     "dmg": 387000.0,
     "rpm": 60.0,
     "mag": 10.0,
-    "reload": 2.85,
+    "reload": 2.2,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Падает с хапуги во время пасхального события/других ивентов"
+    "source_ru": "Падает с хапуги во время пасхального события/других ивентов",
+    "reload_old": 2.85,
+    "flavor_en": "Don't put all your eggs in one basket"
   },
   {
     "name": "Реликвия",
@@ -974,8 +1323,20 @@
     "t": "MMR (G28 Marksmen Rifle)",
     "brand": "",
     "tal": "Perfectly Determined",
-    "d": "После убийства врага выстрелом в голову следующий выстрел в любого врага будет гарантированным (критическим) выстрелом в голову. Пока талант активен, убийство врага не активирует талант повторно.",
-    "tal_ru": "Совершенно решительный"
+    "d": "После убийства врага выстрелом в голову следующий выстрел по любой враждебной цели гарантированно станет критическим попаданием в голову. Пока этот талант активен, он не будет срабатывать повторно при других убийствах.",
+    "tal_ru": "Совершенно решительный",
+    "dmg": 206376.0,
+    "rpm": 180.0,
+    "mag": 20.0,
+    "range": 50.0,
+    "hsd": 1.0,
+    "class_bonus": "УВГ / 111%",
+    "dps_mult": "-",
+    "reload": 2.0,
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "После убийства врага выстрелом в голову следующий выстрел в любого врага будет гарантированным (критическим) выстрелом в голову. Пока талант активен, убийство врага не активирует талант повторно.",
+    "talent_ru": "Решимость",
+    "flavor_en": "\"With the power of this holy instrument, we can accomplish anything.\" The Priest"
   },
   {
     "name": "Брут",
@@ -984,7 +1345,7 @@
     "t": "MMR (M700 Carbon)",
     "brand": "",
     "tal": "Perfectly Behind You",
-    "d": "Увеличивает урон от оружия на +25% врагам, которые не нацелены на вас.",
+    "d": "Урон от оружия повышается на 25%, если вы атакуете врага, который не целится в вас.",
     "tal_ru": "Идеально позади тебя",
     "dmg": 412412.0,
     "rpm": 55.0,
@@ -994,7 +1355,10 @@
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "d_old": "Увеличивает урон от оружия на +25% врагам, которые не нацелены на вас.",
+    "talent_ru": "Прикрывающий",
+    "flavor_en": "\"You don't hear the bullet that kills you.\"\n- Milla 'Wyvern' Radek"
   },
   {
     "name": "Пророк",
@@ -1003,17 +1367,21 @@
     "t": "Pistol (Police 686 Magnum)",
     "brand": "",
     "tal": "Perfectly Determined",
-    "d": "После убийства врага выстрелом в голову следующий выстрел в любого врага будет гарантированным (критическим) выстрелом в голову. Пока талант активен, убийство врага не активирует талант повторно.",
+    "d": "После убийства врага выстрелом в голову следующий выстрел по любой враждебной цели гарантированно станет критическим попаданием в голову. Пока этот талант активен, он не будет срабатывать повторно при других убийствах.",
     "tal_ru": "Совершенно решительный",
     "dmg": 233223.0,
     "rpm": 160.0,
     "mag": 6.0,
-    "reload": 2.54,
+    "reload": 1.8,
     "range": 16.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 621928,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные, \"дорожка\" 11 сезона"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные, \"дорожка\" 11 сезона",
+    "reload_old": 2.54,
+    "d_old": "После убийства врага выстрелом в голову следующий выстрел в любого врага будет гарантированным (критическим) выстрелом в голову. Пока талант активен, убийство врага не активирует талант повторно.",
+    "talent_ru": "Решимость",
+    "flavor_en": "\"As a prophet of the lord our hand is guided to enact his vengeance.\" The Priest"
   },
   {
     "name": "93R снайпера",
@@ -1023,7 +1391,8 @@
     "brand": "",
     "tal": "Perfect Unwavering",
     "d": "При переключении на это оружие управляемость оружием увеличивается на 400% на 5 секунд. Убийства обновляют бафф. При замене это отключается для всего оружия на 5 секунд.",
-    "tal_ru": "Идеальный непоколебимый"
+    "tal_ru": "Идеальный непоколебимый",
+    "flavor_en": "A 3-round burst weapon for hectic close encounters. The ideal companion for when the situation calls for rapid fire and high mobility."
   },
   {
     "name": "Выживальщик D50",
@@ -1033,7 +1402,8 @@
     "brand": "",
     "tal": "Perfect Sadist",
     "d": "Наносит +25% урона от оружия истекающим кровью врагам. После 3 убийств накладывает кровотечение на следующего врага, которого вы заденете.",
-    "tal_ru": "Идеальный садист"
+    "tal_ru": "Идеальный садист",
+    "flavor_en": "A hard-hitting but precise pistol, the D50 features .44 Magnum rounds and an optic slot for added customization."
   },
   {
     "name": "Мозамбик Специальный",
@@ -1043,7 +1413,8 @@
     "brand": "",
     "tal": "Perfect Breadbasket",
     "d": "При попадании в тело добавляет дополнительный урон в 70% к следующему выстрелу в голову на 10 секунд. Максимальный стек — 2.",
-    "tal_ru": "Идеальная хлебница"
+    "tal_ru": "Идеальная хлебница",
+    "flavor_en": "\"The last thing you want to do when putting someone down is give them a chance to get back up\" \n- Javier Kajika"
   },
   {
     "name": "Максим 9",
@@ -1053,7 +1424,8 @@
     "brand": "",
     "tal": "Perfect Spike",
     "d": "Выстрелы в голову увеличивают урон навыков на 25% на 15 секунд.",
-    "tal_ru": "Идеальный спайк"
+    "tal_ru": "Идеальный спайк",
+    "flavor_en": "Integrally suppressed 9mm pistol for when you don't want to compromise between performance and suppression. A large magazine and added barrel weight from the suppressor minimizes recoil for a very precise weapon."
   },
   {
     "name": "P320 XCompact",
@@ -1062,8 +1434,20 @@
     "t": "Pistol (P320)",
     "brand": "",
     "tal": "Perfect Preservation",
-    "d": "Убийство врага восстанавливает 12% брони за 5 секунд. Убийства выстрелами в голову улучшают ремонт до 24%.",
-    "tal_ru": "Идеальное сохранение"
+    "d": "Убийство противника восстанавливает 12% брони в течение 5 сек. Убийства выстрелами в голову повышают эффективность ремонта на 12%.",
+    "tal_ru": "Идеальное сохранение",
+    "dmg": 87522.0,
+    "rpm": 380.0,
+    "mag": 15.0,
+    "range": 12.0,
+    "hsd": 2.0,
+    "class_bonus": "-",
+    "dps_mult": 554306,
+    "reload": 1.6,
+    "source_ru": "Прокачка специализации \"Пулемётчик\"",
+    "d_old": "Убийство врага восстанавливает 12% брони за 5 секунд. Убийства выстрелами в голову улучшают ремонт до 24%.",
+    "talent_ru": "Аккуратность",
+    "flavor_en": "9mm service pistol of the US military, its compact ergonomic design masks its impressive stopping power."
   },
   {
     "name": "Урожай",
@@ -1082,7 +1466,8 @@
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 637086.75,
-    "source_ru": "Событие лунные пряники, новогодний Хапуга"
+    "source_ru": "Событие лунные пряники, новогодний Хапуга",
+    "flavor_en": "\"Nothing like the rewards at the end of the harvest\""
   },
   {
     "name": "Дицерос Специальный",
@@ -1092,7 +1477,8 @@
     "brand": "",
     "tal": "Perfect Optimist",
     "d": "Урон от оружия увеличивается на 4% за каждые 10% недостающих в магазине боеприпасов.",
-    "tal_ru": "Идеальный оптимист"
+    "tal_ru": "Идеальный оптимист",
+    "flavor_en": "A hard-hitting .357 Magnum revolver. The unusual low barrel design firing from the bottom of the cylinder makes for a balance rarely seen in this category of weapon."
   },
   {
     "name": "Архивариус",
@@ -1114,12 +1500,13 @@
     "dmg": 58886.0,
     "rpm": 650.0,
     "mag": 30.0,
-    "reload": 1.91,
+    "reload": 2.0,
     "range": 31.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 637931.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 1.91
   },
   {
     "name": "Контрабандный АКМ",
@@ -1132,12 +1519,13 @@
     "dmg": 64703.0,
     "rpm": 600.0,
     "mag": 30.0,
-    "reload": 2.3,
+    "reload": 2.2,
     "range": 27.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 647030,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.3
   },
   {
     "name": "Самодельный контрабандный АКМ",
@@ -1150,12 +1538,13 @@
     "dmg": 64703.0,
     "rpm": 600.0,
     "mag": 30.0,
-    "reload": 2.3,
+    "reload": 2.2,
     "range": 27.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 647030,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.3
   },
   {
     "name": "Армейский АКМ",
@@ -1168,12 +1557,13 @@
     "dmg": 64703.0,
     "rpm": 600.0,
     "mag": 30.0,
-    "reload": 2.3,
+    "reload": 2.2,
     "range": 27.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 647030,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.3
   },
   {
     "name": "Мания",
@@ -1181,17 +1571,19 @@
     "g": "Штурмовые винтовки",
     "t": "AKM",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Overflowing",
+    "d": "При каждой 3 перезарядке с пустым магазином его базовая емкость увеличивается на 100%.",
     "dmg": 64703.0,
     "rpm": 600.0,
     "mag": 30.0,
-    "reload": 2.3,
+    "reload": 2.2,
     "range": 27.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 647030,
-    "source_ru": "Тёмная зона, именные контейнеры/мастерство ТЗ"
+    "source_ru": "Тёмная зона, именные контейнеры/мастерство ТЗ",
+    "reload_old": 2.3,
+    "talent_ru": "Переполнение"
   },
   {
     "name": "Толсторог (Режим ШВ)",
@@ -1204,12 +1596,13 @@
     "dmg": 57206.0,
     "rpm": 800.0,
     "mag": 42.0,
-    "reload": 2.16,
+    "reload": 2.0,
     "range": 40.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 762746.6667,
-    "source_ru": "Легендарная сложность, Темная Зона"
+    "source_ru": "Легендарная сложность, Темная Зона",
+    "reload_old": 2.16
   },
   {
     "name": "Толсторог (Режим В)",
@@ -1234,12 +1627,13 @@
     "dmg": 49095.0,
     "rpm": 850.0,
     "mag": 31.0,
-    "reload": 2.4,
+    "reload": 1.8,
     "range": 27.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 695512.5,
-    "source_ru": "Пропуск сезона \"Восстание\", целевые трофеи, экзот. контейнеры"
+    "source_ru": "Пропуск сезона \"Восстание\", целевые трофеи, экзот. контейнеры",
+    "reload_old": 2.4
   },
   {
     "name": "Самодельный F2000",
@@ -1252,12 +1646,13 @@
     "dmg": 49095.0,
     "rpm": 850.0,
     "mag": 31.0,
-    "reload": 2.4,
+    "reload": 1.8,
     "range": 27.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 695512.5,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.4
   },
   {
     "name": "Стрега",
@@ -1288,12 +1683,13 @@
     "dmg": 57634.0,
     "rpm": 700.0,
     "mag": 20.0,
-    "reload": 2.13,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 672396.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.13
   },
   {
     "name": "FAL SA-58 Para",
@@ -1306,12 +1702,13 @@
     "dmg": 57634.0,
     "rpm": 700.0,
     "mag": 20.0,
-    "reload": 2.13,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 672396.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.13
   },
   {
     "name": "Самодельный FAL SA-58 Para",
@@ -1324,12 +1721,13 @@
     "dmg": 57634.0,
     "rpm": 700.0,
     "mag": 20.0,
-    "reload": 2.13,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 672396.6667,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.13
   },
   {
     "name": "Самодельный FAMAS 2010",
@@ -1342,12 +1740,13 @@
     "dmg": 45263.0,
     "rpm": 900.0,
     "mag": 30.0,
-    "reload": 2.49,
+    "reload": 1.9,
     "range": 26.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 678945,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.49
   },
   {
     "name": "Выгорание",
@@ -1355,17 +1754,19 @@
     "g": "Штурмовые винтовки",
     "t": "FAMAS",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect On Empty",
+    "d": "После перезарядки с пустым магазином, эргономичность оружия повышается на 80%. Эффект длится 10 сек.",
     "dmg": 45263.0,
     "rpm": 900.0,
     "mag": 30.0,
-    "reload": 2.49,
+    "reload": 1.9,
     "range": 26.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 678945,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.49,
+    "talent_ru": "До последнего\nпатрона"
   },
   {
     "name": "Улучшенный G36 C",
@@ -1378,12 +1779,13 @@
     "dmg": 52552.0,
     "rpm": 750.0,
     "mag": 30.0,
-    "reload": 2.34,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 656900,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.34
   },
   {
     "name": "Самодельный улучшенный G36 C",
@@ -1396,12 +1798,13 @@
     "dmg": 52552.0,
     "rpm": 750.0,
     "mag": 30.0,
-    "reload": 2.34,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 656900,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.34
   },
   {
     "name": "Прирожденное величие",
@@ -1414,12 +1817,13 @@
     "dmg": 52552.0,
     "rpm": 750.0,
     "mag": 30.0,
-    "reload": 2.34,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 656900,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.34
   },
   {
     "name": "Армейский G36",
@@ -1432,12 +1836,13 @@
     "dmg": 52552.0,
     "rpm": 750.0,
     "mag": 30.0,
-    "reload": 2.34,
+    "reload": 2.0,
     "range": 35.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 656900,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.34
   },
   {
     "name": "Дикая росомаха",
@@ -1445,8 +1850,8 @@
     "g": "Штурмовые винтовки",
     "t": "Honey\nBadger",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Close & Personal",
+    "d": "Убийство цели на дистанции до 7 м. увеличивает урон от оружия на 38%. Эффект длится 10 сек.",
     "dmg": 51261.0,
     "rpm": 800.0,
     "mag": 30.0,
@@ -1455,7 +1860,8 @@
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 683480,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "talent_ru": "Близкий контакт"
   },
   {
     "name": "Дрель",
@@ -1463,17 +1869,19 @@
     "g": "Штурмовые винтовки",
     "t": "М4",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Precision Strike",
+    "d": "Убивая противников на расстоянии более 20м вы накапливаете заряды. Их максимальное количество 2. Попав впротивника на расстоянии 20м или менее, вы потратите все заряды и будете наносить +35% дополнительного урона врагам в радиусе 20м в течение 5сек.",
     "dmg": 49781.0,
     "rpm": 790.0,
     "mag": 30.0,
-    "reload": 2.02,
+    "reload": 2.1,
     "range": 28.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 655449.8333,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.02,
+    "talent_ru": "Точный удар"
   },
   {
     "name": "Полицейский М4",
@@ -1486,12 +1894,13 @@
     "dmg": 46908.0,
     "rpm": 850.0,
     "mag": 30.0,
-    "reload": 2.24,
+    "reload": 2.1,
     "range": 31.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 664530,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.24
   },
   {
     "name": "Самодельный полицейский М4",
@@ -1504,12 +1913,13 @@
     "dmg": 46908.0,
     "rpm": 850.0,
     "mag": 30.0,
-    "reload": 2.24,
+    "reload": 2.1,
     "range": 31.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 664530,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.24
   },
   {
     "name": "Лексингтон (LVOA-C)",
@@ -1540,12 +1950,13 @@
     "dmg": 46908.0,
     "rpm": 850.0,
     "mag": 70.0,
-    "reload": 2.24,
+    "reload": 2.1,
     "range": 31.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 664530,
-    "source_ru": "Пропуск Г5С1 \"Сломанные крылья\" целевые трофеи, экзот. контейнеры"
+    "source_ru": "Пропуск Г5С1 \"Сломанные крылья\" целевые трофеи, экзот. контейнеры",
+    "reload_old": 2.24
   },
   {
     "name": "Блеск славы",
@@ -1553,17 +1964,19 @@
     "g": "Штурмовые винтовки",
     "t": "Р416",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Near Sighted",
+    "d": "Повышение стабильности оружия до 100% ценой уменьшения оптимальной дальности на -35%.",
     "dmg": 47356.0,
     "rpm": 850.0,
     "mag": 30.0,
-    "reload": 2.34,
+    "reload": 2.0,
     "range": 26.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 670876.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.34,
+    "talent_ru": "Близорукость"
   },
   {
     "name": "Орлиное знамя",
@@ -1576,12 +1989,13 @@
     "dmg": 47356.0,
     "rpm": 850.0,
     "mag": 60.0,
-    "reload": 2.34,
+    "reload": 2.2,
     "range": 26.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 670876.6667,
-    "source_ru": "Рейд \"Тяжелые времена\" средняя сложность, Темная Зона"
+    "source_ru": "Рейд \"Тяжелые времена\" средняя сложность, Темная Зона",
+    "reload_old": 2.34
   },
   {
     "name": "Армейский P416 G3",
@@ -1594,12 +2008,13 @@
     "dmg": 47356.0,
     "rpm": 850.0,
     "mag": 30.0,
-    "reload": 2.34,
+    "reload": 2.0,
     "range": 26.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 670876.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.34
   },
   {
     "name": "Конденсатор",
@@ -1612,12 +2027,13 @@
     "dmg": 57606.0,
     "rpm": 700.0,
     "mag": 30.0,
-    "reload": 2.04,
+    "reload": 1.9,
     "range": 31.0,
     "hsd": 1.55,
     "class_bonus": "УБ / 12%",
     "dps_mult": 672070,
-    "source_ru": "Первый раз - саммит, последующие - экзот. контейнеры, целевые трофеи"
+    "source_ru": "Первый раз - саммит, последующие - экзот. контейнеры, целевые трофеи",
+    "reload_old": 2.04
   },
   {
     "name": "Mk16 спецназа США",
@@ -1679,8 +2095,8 @@
     "g": "Штурмовые винтовки",
     "t": "Sig Sauer 556",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Future Perfect",
+    "d": "Убийства оружием дает +1 к уровню навыка сроком на 19 сек. Эффект суммируется до 3 раз. Если уровень навыка уже равен 6, то вы получаете перезаряд сроком на 15 сек. Восстановление перезаряда 90 сек.",
     "dmg": 55922.0,
     "rpm": 700.0,
     "mag": 30.0,
@@ -1689,7 +2105,8 @@
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 652423.3333,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "talent_ru": "Совершенное будущее"
   },
   {
     "name": "Рельсолом",
@@ -1702,12 +2119,13 @@
     "dmg": 44793.0,
     "rpm": 900.0,
     "mag": 30.0,
-    "reload": 2.39,
+    "reload": 2.0,
     "range": 32.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 671895,
-    "source_ru": "Тёмная зона, именные контейнеры/мастерство ТЗ"
+    "source_ru": "Тёмная зона, именные контейнеры/мастерство ТЗ",
+    "reload_old": 2.39
   },
   {
     "name": "Тираноубийца",
@@ -1715,17 +2133,19 @@
     "g": "Штурмовые винтовки",
     "t": "TKB-408",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Flatline",
+    "d": "Увеличивает урон от оружия на 20% по отмеченным врагам. После 3 убийств применяет импульс к следующему пораженному противнику.",
     "dmg": 63493.0,
     "rpm": 600.0,
     "mag": 30.0,
-    "reload": 1.87,
+    "reload": 2.1,
     "range": 27.0,
     "hsd": 1.55,
     "class_bonus": "УЗ / 21%",
     "dps_mult": 634930,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 1.87,
+    "talent_ru": "Изолиния"
   },
   {
     "name": "G28",
@@ -1738,12 +2158,13 @@
     "dmg": 206376.0,
     "rpm": 180.0,
     "mag": 20.0,
-    "reload": 3.6,
+    "reload": 2.0,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.6
   },
   {
     "name": "Sacrum imperium",
@@ -1756,12 +2177,13 @@
     "dmg": 206376.0,
     "rpm": 180.0,
     "mag": 20.0,
-    "reload": 3.6,
+    "reload": 2.0,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Пропуск Сезона 11 \"Царство огня\", целевые трофеи, экзот.контейнеры"
+    "source_ru": "Пропуск Сезона 11 \"Царство огня\", целевые трофеи, экзот.контейнеры",
+    "reload_old": 3.6
   },
   {
     "name": "Самодельный классический карабин М44",
@@ -1774,12 +2196,13 @@
     "dmg": 433456.0,
     "rpm": 55.0,
     "mag": 5.0,
-    "reload": 4.29,
+    "reload": 4.2,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 4.29
   },
   {
     "name": "Рождественский гимн",
@@ -1792,12 +2215,13 @@
     "dmg": 433456.0,
     "rpm": 55.0,
     "mag": 5.0,
-    "reload": 4.29,
+    "reload": 4.2,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 137%",
     "dps_mult": "-",
-    "source_ru": "Падает с хапуги во время новогоднего события"
+    "source_ru": "Падает с хапуги во время новогоднего события",
+    "reload_old": 4.29
   },
   {
     "name": "Доработанный М44",
@@ -1810,12 +2234,13 @@
     "dmg": 417588.0,
     "rpm": 55.0,
     "mag": 5.0,
-    "reload": 4.29,
+    "reload": 1.9,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.29
   },
   {
     "name": "Самодельный доработанный М44",
@@ -1828,12 +2253,13 @@
     "dmg": 417588.0,
     "rpm": 55.0,
     "mag": 5.0,
-    "reload": 4.29,
+    "reload": 1.9,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 4.29
   },
   {
     "name": "Охотничий М44",
@@ -1846,12 +2272,13 @@
     "dmg": 417588.0,
     "rpm": 55.0,
     "mag": 5.0,
-    "reload": 4.29,
+    "reload": 4.2,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.29
   },
   {
     "name": "Саван",
@@ -1882,12 +2309,13 @@
     "dmg": 412412.0,
     "rpm": 55.0,
     "mag": 7.0,
-    "reload": 3.98,
+    "reload": 1.8,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.98
   },
   {
     "name": "Тактическая М700",
@@ -1900,12 +2328,13 @@
     "dmg": 412412.0,
     "rpm": 55.0,
     "mag": 7.0,
-    "reload": 3.98,
+    "reload": 1.8,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.98
   },
   {
     "name": "Самодельная Модель 700",
@@ -1918,12 +2347,13 @@
     "dmg": 441461.0,
     "rpm": 55.0,
     "mag": 7.0,
-    "reload": 7.05,
+    "reload": 6.3,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 7.05
   },
   {
     "name": "Модель 700",
@@ -1936,12 +2366,13 @@
     "dmg": 441461.0,
     "rpm": 55.0,
     "mag": 7.0,
-    "reload": 7.05,
+    "reload": 6.3,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 7.05
   },
   {
     "name": "Самодельный Mk20 SSR Спецназа США",
@@ -1954,12 +2385,13 @@
     "dmg": 145815.0,
     "rpm": 275.0,
     "mag": 20.0,
-    "reload": 4.99,
+    "reload": 1.9,
     "range": 55.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 4.99
   },
   {
     "name": "SR-1",
@@ -1972,12 +2404,13 @@
     "dmg": 409255.0,
     "rpm": 60.0,
     "mag": 5.0,
-    "reload": 3.15,
+    "reload": 1.9,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.15
   },
   {
     "name": "Самодельная SR-1",
@@ -1990,12 +2423,13 @@
     "dmg": 409255.0,
     "rpm": 60.0,
     "mag": 5.0,
-    "reload": 3.15,
+    "reload": 1.9,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.15
   },
   {
     "name": "Снайперский удар",
@@ -2003,17 +2437,19 @@
     "g": "Снайперские винтовки",
     "t": "SR-1",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Reformation",
+    "d": "Попадания в голову дают +80% к ремонту от навыков сроком на 15 сек.",
     "dmg": 409255.0,
     "rpm": 60.0,
     "mag": 5.0,
-    "reload": 3.15,
+    "reload": 1.9,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.15,
+    "talent_ru": "Реформация"
   },
   {
     "name": "Шпилька",
@@ -2021,17 +2457,19 @@
     "g": "Снайперские винтовки",
     "t": "SRS",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect First Blood",
+    "d": "Первые два прицельных выстрела, совершенный в небоевой обстановке или после заполнения магазина, наносит урон от выстрела в голову при попадании в любую часть тела. \nНеобходима 8х+ оптика.",
     "dmg": 409255.0,
     "rpm": 60.0,
     "mag": 7.0,
-    "reload": 4.29,
+    "reload": 2.2,
     "range": 60.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Тёмная зона, именные контейнеры/мастерство ТЗ"
+    "source_ru": "Тёмная зона, именные контейнеры/мастерство ТЗ",
+    "reload_old": 4.29,
+    "talent_ru": "Первая кровь"
   },
   {
     "name": "SRS A1",
@@ -2044,12 +2482,13 @@
     "dmg": 409255.0,
     "rpm": 60.0,
     "mag": 7.0,
-    "reload": 4.29,
+    "reload": 2.2,
     "range": 60.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.29
   },
   {
     "name": "Самодельная SRS A1",
@@ -2062,12 +2501,13 @@
     "dmg": 409255.0,
     "rpm": 60.0,
     "mag": 7.0,
-    "reload": 4.29,
+    "reload": 2.2,
     "range": 60.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 4.29
   },
   {
     "name": "Богомол",
@@ -2080,12 +2520,13 @@
     "dmg": 409255.0,
     "rpm": 60.0,
     "mag": 7.0,
-    "reload": 4.29,
+    "reload": 2.2,
     "range": 60.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "целевые трофеи, экзотические контейнеры"
+    "source_ru": "целевые трофеи, экзотические контейнеры",
+    "reload_old": 4.29
   },
   {
     "name": "СВД из резерва",
@@ -2098,12 +2539,13 @@
     "dmg": 156626.0,
     "rpm": 260.0,
     "mag": 10.0,
-    "reload": 2.85,
+    "reload": 2.2,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.85
   },
   {
     "name": "Суровый приговор",
@@ -2116,12 +2558,13 @@
     "dmg": 156626.0,
     "rpm": 260.0,
     "mag": 10.0,
-    "reload": 2.85,
+    "reload": 2.2,
     "range": 50.0,
     "hsd": 1.0,
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, экзотические контейнеры"
+    "source_ru": "Целевые трофеи, экзотические контейнеры",
+    "reload_old": 2.85
   },
   {
     "name": "Смелость",
@@ -2129,17 +2572,19 @@
     "g": "Ручные пулемёты",
     "t": "GR9",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Flatline",
+    "d": "Увеличивает урон от оружия на 20% по отмеченным врагам. После 3 убийств применяет импульс к следующему пораженному противнику.",
     "dmg": 49469.0,
     "rpm": 750.0,
     "mag": 200.0,
-    "reload": 3.63,
+    "reload": 4.67,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 618362.5,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.63,
+    "talent_ru": "Изолиния"
   },
   {
     "name": "Пулемет \"Стоунер\"",
@@ -2152,12 +2597,13 @@
     "dmg": 62347.0,
     "rpm": 580.0,
     "mag": 200.0,
-    "reload": 3.0,
+    "reload": 4.67,
     "range": 40.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 602687.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.0
   },
   {
     "name": "Тихий рык",
@@ -2165,17 +2611,19 @@
     "g": "Ручные пулемёты",
     "t": "KAC",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Overwhelm",
+    "d": "При подавлении противника, на которого в данный момент не действует подавление, вы получаете +12% к урону от оружия сроком на 12 сек. Эффект суммируется до 4 раз.",
     "dmg": 62347.0,
     "rpm": 580.0,
     "mag": 200.0,
-    "reload": 3.0,
+    "reload": 4.67,
     "range": 40.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 602687.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.0,
+    "talent_ru": "Ошеломление"
   },
   {
     "name": "Самодельный доработанный L86 A2",
@@ -2188,12 +2636,13 @@
     "dmg": 61084.0,
     "rpm": 700.0,
     "mag": 30.0,
-    "reload": 3.18,
+    "reload": 2.5,
     "range": 30.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 712646.6667,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.18
   },
   {
     "name": "Армейский L86 LSW",
@@ -2206,12 +2655,13 @@
     "dmg": 61084.0,
     "rpm": 700.0,
     "mag": 30.0,
-    "reload": 3.18,
+    "reload": 2.5,
     "range": 30.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 712646.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.18
   },
   {
     "name": "Армейский MK46",
@@ -2224,12 +2674,13 @@
     "dmg": 48289.0,
     "rpm": 850.0,
     "mag": 100.0,
-    "reload": 4.54,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 684094.1667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.54
   },
   {
     "name": "Повышение передачи",
@@ -2237,17 +2688,19 @@
     "g": "Ручные пулемёты",
     "t": "M249",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Measured",
+    "d": "Первая половина патронов в магазине увеличивает скорострельность на 25%, но снижает урон от оружия на -30%. Вторая половина патронов уменьшает скорострельность на -18%,\nно увеличивает урон от оружия на +38%.",
     "dmg": 48289.0,
     "rpm": 850.0,
     "mag": 100.0,
-    "reload": 4.54,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 684094.1667,
-    "source_ru": "Пропуск юбилейного сезона \"Годовщина\" (03.03.26-02.04.26), конт. \"Годовщина\""
+    "source_ru": "Пропуск юбилейного сезона \"Годовщина\" (03.03.26-02.04.26), конт. \"Годовщина\"",
+    "reload_old": 4.54,
+    "talent_ru": "Взвешенность"
   },
   {
     "name": "Самодельный армейский МК46",
@@ -2260,12 +2713,13 @@
     "dmg": 48289.0,
     "rpm": 850.0,
     "mag": 100.0,
-    "reload": 4.54,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 684094.1667,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 4.54
   },
   {
     "name": "Мор",
@@ -2278,12 +2732,13 @@
     "dmg": 48289.0,
     "rpm": 850.0,
     "mag": 100.0,
-    "reload": 4.54,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 684094.1667,
-    "source_ru": "Тёмная зона, целевые трофеи, экзотические контейнеры"
+    "source_ru": "Тёмная зона, целевые трофеи, экзотические контейнеры",
+    "reload_old": 4.54
   },
   {
     "name": "Тактический М249 Para",
@@ -2296,12 +2751,13 @@
     "dmg": 48289.0,
     "rpm": 850.0,
     "mag": 100.0,
-    "reload": 4.54,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 684094.1667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.54
   },
   {
     "name": "Самодельный контрабандный М60 Е6",
@@ -2314,12 +2770,13 @@
     "dmg": 65220.0,
     "rpm": 600.0,
     "mag": 100.0,
-    "reload": 3.85,
+    "reload": 5.5,
     "range": 40.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 652200,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.85
   },
   {
     "name": "Веселые времена",
@@ -2327,17 +2784,19 @@
     "g": "Ручные пулемёты",
     "t": "M60",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Fast Hands",
+    "d": "Каждое критическое попадание повышает скорость перезарядки на 5%. Эффект суммируется до 40 раз.",
     "dmg": 65220.0,
     "rpm": 600.0,
     "mag": 100.0,
-    "reload": 3.85,
+    "reload": 5.5,
     "range": 40.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 652200,
-    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ"
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ",
+    "reload_old": 3.85,
+    "talent_ru": "Ловкость рук"
   },
   {
     "name": "Классический М60",
@@ -2350,12 +2809,13 @@
     "dmg": 67698.0,
     "rpm": 600.0,
     "mag": 100.0,
-    "reload": 3.75,
+    "reload": 5.5,
     "range": 40.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 676980,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.75
   },
   {
     "name": "Сенсация",
@@ -2377,12 +2837,13 @@
     "dmg": 67698.0,
     "rpm": 600.0,
     "mag": 100.0,
-    "reload": 3.75,
+    "reload": 5.5,
     "range": 40.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 676980,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.75
   },
   {
     "name": "Армейский М60 Е4",
@@ -2395,12 +2856,13 @@
     "dmg": 65220.0,
     "rpm": 600.0,
     "mag": 100.0,
-    "reload": 3.85,
+    "reload": 5.5,
     "range": 40.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 652200,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.85
   },
   {
     "name": "Самодельный пехотный MG5",
@@ -2413,12 +2875,13 @@
     "dmg": 52322.0,
     "rpm": 800.0,
     "mag": 50.0,
-    "reload": 3.01,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 697626.6667,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.01
   },
   {
     "name": "Железный лун",
@@ -2431,12 +2894,13 @@
     "dmg": 54310.0,
     "rpm": 800.0,
     "mag": 50.0,
-    "reload": 2.96,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 724133.3333,
-    "source_ru": " Целевые трофеи, экзотические контейнеры"
+    "source_ru": " Целевые трофеи, экзотические контейнеры",
+    "reload_old": 2.96
   },
   {
     "name": "MG5",
@@ -2449,12 +2913,13 @@
     "dmg": 54310.0,
     "rpm": 800.0,
     "mag": 50.0,
-    "reload": 2.96,
+    "reload": 5.6,
     "range": 35.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 724133.3333,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.96
   },
   {
     "name": "Бойня",
@@ -2462,17 +2927,19 @@
     "g": "Ручные пулемёты",
     "t": "NEGEV",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Sadist",
+    "d": "Увеличение урона от оружия, наносимого противникам с эффектом кровотечения, на 35% (25% в PVP).После того как вы убьете 3 противников, на следующую пораженную вами цель будет наложен эффект кровотечения.",
     "dmg": 54595.0,
     "rpm": 750.0,
     "mag": 100.0,
-    "reload": 4.0,
+    "reload": 4.3,
     "range": 40.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 682437.5,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 4.0,
+    "talent_ru": "Садист"
   },
   {
     "name": "Король стрелков",
@@ -2503,12 +2970,13 @@
     "dmg": 71524.0,
     "rpm": 600.0,
     "mag": 45.0,
-    "reload": 4.0,
+    "reload": 2.5,
     "range": 30.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 715240,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 4.0
   },
   {
     "name": "Надежная новинка",
@@ -2521,12 +2989,13 @@
     "dmg": 71524.0,
     "rpm": 600.0,
     "mag": 45.0,
-    "reload": 4.0,
+    "reload": 2.5,
     "range": 30.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 715240,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 4.0
   },
   {
     "name": "Ржавчина",
@@ -2534,17 +3003,19 @@
     "g": "Ручные пулемёты",
     "t": "РПК-74",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Pressure Point",
+    "d": "Увеличение урона от оружия, наносимого противникам с негативными эффектами на 20%",
     "dmg": 71524.0,
     "rpm": 600.0,
     "mag": 45.0,
-    "reload": 4.0,
+    "reload": 2.5,
     "range": 30.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 715240,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 4.0,
+    "talent_ru": "Центр давления"
   },
   {
     "name": "Классический РПК-74",
@@ -2557,12 +3028,13 @@
     "dmg": 71524.0,
     "rpm": 600.0,
     "mag": 45.0,
-    "reload": 4.0,
+    "reload": 2.5,
     "range": 30.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 715240,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.0
   },
   {
     "name": "Пахан",
@@ -2575,12 +3047,13 @@
     "dmg": 71524.0,
     "rpm": 600.0,
     "mag": 60.0,
-    "reload": 4.0,
+    "reload": 2.5,
     "range": 30.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 715240,
-    "source_ru": "Пропуск Г7С1 \"Перекрестки\", целевые трофеи, экзотические контейнеры"
+    "source_ru": "Пропуск Г7С1 \"Перекрестки\", целевые трофеи, экзотические контейнеры",
+    "reload_old": 4.0
   },
   {
     "name": "Армейский РПК-74 М",
@@ -2593,12 +3066,13 @@
     "dmg": 71524.0,
     "rpm": 600.0,
     "mag": 45.0,
-    "reload": 4.0,
+    "reload": 2.5,
     "range": 30.0,
     "hsd": 1.65,
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 715240,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.0
   },
   {
     "name": "Врагоукладчик",
@@ -2611,12 +3085,13 @@
     "dmg": 150610.0,
     "rpm": 360.0,
     "mag": 20.0,
-    "reload": 3.35,
+    "reload": 1.8,
     "range": 16.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 903660,
-    "source_ru": "Награда за вход в игру с 25.11.25 по 06.01.26"
+    "source_ru": "Награда за вход в игру с 25.11.25 по 06.01.26",
+    "reload_old": 3.35
   },
   {
     "name": "Левша",
@@ -2624,17 +3099,20 @@
     "g": "Дробовики",
     "t": "АА-12",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Sledgehammer",
+    "d": "Цель, пораженная с помощью гранаты, получает метку. Отмеченные цели получают на 20% больше урона по броне, а их скорость перемещения снижается на 20%. Спустя 10 сек. метка исчезает.",
     "dmg": 180739.0,
     "rpm": 300.0,
     "mag": 20.0,
-    "reload": 3.35,
+    "reload": 1.8,
     "range": 16.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 903695,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.35,
+    "talent_ru": "Кувалда",
+    "flavor_en": "\"When you know you're in the  right, Lefty will have your back.\" 13"
   },
   {
     "name": "Властелин",
@@ -2665,12 +3143,13 @@
     "dmg": 678762.0,
     "rpm": 70.0,
     "mag": 12.0,
-    "reload": 7.99,
+    "reload": 7.8,
     "range": 16.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 791889,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 7.99
   },
   {
     "name": "Запасной обрез",
@@ -2683,12 +3162,13 @@
     "dmg": 635700.0,
     "rpm": 200.0,
     "mag": 2.0,
-    "reload": 2.51,
+    "reload": 1.8,
     "range": 7.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.51
   },
   {
     "name": "Поджигатель",
@@ -2701,12 +3181,14 @@
     "dmg": 635700.0,
     "rpm": 200.0,
     "mag": 2.0,
-    "reload": 2.51,
+    "reload": 1.8,
     "range": 7.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": "-",
-    "source_ru": "Прокачка специализации \"Огнеметчик\""
+    "source_ru": "Прокачка специализации \"Огнеметчик\"",
+    "reload_old": 2.51,
+    "flavor_en": "Chambered shots contain a fine powder that increaases the flammability of targets hit by this shotgun"
   },
   {
     "name": "Двуствольный дробовик",
@@ -2719,12 +3201,13 @@
     "dmg": 677979.0,
     "rpm": 200.0,
     "mag": 2.0,
-    "reload": 3.89,
+    "reload": 1.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.89
   },
   {
     "name": "Самодельный двуствольный дробовик",
@@ -2737,12 +3220,13 @@
     "dmg": 677979.0,
     "rpm": 200.0,
     "mag": 2.0,
-    "reload": 3.89,
+    "reload": 1.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": "-",
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.89
   },
   {
     "name": "Обрез",
@@ -2750,17 +3234,19 @@
     "g": "Дробовики",
     "t": "Двуствольные\nружья",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Pumped Up",
+    "d": "Перезарядка дает +6% к урону от оружия сроком на 10 сек. Эффект суммируется до 5 раз.",
     "dmg": 677979.0,
     "rpm": 200.0,
     "mag": 2.0,
-    "reload": 3.89,
+    "reload": 1.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": "-",
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.89,
+    "talent_ru": "Нагнетание"
   },
   {
     "name": "Самодельный доработанный M870 MCS",
@@ -2773,12 +3259,13 @@
     "dmg": 703527.0,
     "rpm": 75.0,
     "mag": 5.0,
-    "reload": 3.35,
+    "reload": 3.5,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 879408.75,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.35
   },
   {
     "name": "M870 \"Экспресс\"",
@@ -2791,12 +3278,13 @@
     "dmg": 703527.0,
     "rpm": 75.0,
     "mag": 5.0,
-    "reload": 3.35,
+    "reload": 3.5,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 879408.75,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.35
   },
   {
     "name": "Самодельный М870 \"Экспресс\"",
@@ -2809,12 +3297,13 @@
     "dmg": 703527.0,
     "rpm": 75.0,
     "mag": 5.0,
-    "reload": 3.35,
+    "reload": 3.5,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 879408.75,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.35
   },
   {
     "name": "Армейский М870",
@@ -2827,12 +3316,13 @@
     "dmg": 703527.0,
     "rpm": 75.0,
     "mag": 5.0,
-    "reload": 3.35,
+    "reload": 3.5,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 879408.75,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.35
   },
   {
     "name": "Изоляция",
@@ -2840,17 +3330,19 @@
     "g": "Дробовики",
     "t": "М870",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Immobilize",
+    "d": "Увеличение урона от оружия, наносимого прилипшим противникам, на +25% (+10% для PVP). \nПосле того как вы убьете 4 противников, на следующую пораженную вами цель будет наложен эффект прилипания.",
     "dmg": 703527.0,
     "rpm": 75.0,
     "mag": 5.0,
-    "reload": 3.35,
+    "reload": 3.5,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 879408.75,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 3.35,
+    "talent_ru": "Обездвиживание"
   },
   {
     "name": "Самодельный контрабандный SASG-12 S",
@@ -2863,12 +3355,13 @@
     "dmg": 349740.0,
     "rpm": 180.0,
     "mag": 7.0,
-    "reload": 3.05,
+    "reload": 2.1,
     "range": 14.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1049220,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 3.05
   },
   {
     "name": "SASG-12",
@@ -2881,12 +3374,13 @@
     "dmg": 349740.0,
     "rpm": 180.0,
     "mag": 7.0,
-    "reload": 3.05,
+    "reload": 2.1,
     "range": 14.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1049220,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.05
   },
   {
     "name": "Тактический SASG-12 K",
@@ -2899,12 +3393,13 @@
     "dmg": 349740.0,
     "rpm": 180.0,
     "mag": 7.0,
-    "reload": 3.05,
+    "reload": 2.1,
     "range": 14.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1049220,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 3.05
   },
   {
     "name": "Скорпион",
@@ -2917,12 +3412,13 @@
     "dmg": 409469.0,
     "rpm": 130.0,
     "mag": 7.0,
-    "reload": 3.0,
+    "reload": 1.8,
     "range": 14.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 887182.8333,
-    "source_ru": "Целевые трофеи, экзотические контейнеры"
+    "source_ru": "Целевые трофеи, экзотические контейнеры",
+    "reload_old": 3.0
   },
   {
     "name": "SPAS-12",
@@ -2935,12 +3431,13 @@
     "dmg": 715833.0,
     "rpm": 70.0,
     "mag": 8.0,
-    "reload": 5.5,
+    "reload": 5.2,
     "range": 16.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 835138.5,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 5.5
   },
   {
     "name": "Самодельный SPAS-12",
@@ -2953,12 +3450,13 @@
     "dmg": 715833.0,
     "rpm": 70.0,
     "mag": 8.0,
-    "reload": 5.5,
+    "reload": 5.2,
     "range": 16.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 835138.5,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 5.5
   },
   {
     "name": "Сладкий сон",
@@ -2971,12 +3469,13 @@
     "dmg": 715883.0,
     "rpm": 70.0,
     "mag": 8.0,
-    "reload": 5.5,
+    "reload": 5.2,
     "range": 10.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 835196.8333,
-    "source_ru": "Боссы изгоев, целевые трофеи, экзотические контейнеры"
+    "source_ru": "Боссы изгоев, целевые трофеи, экзотические контейнеры",
+    "reload_old": 5.5
   },
   {
     "name": "Липучка",
@@ -2984,17 +3483,19 @@
     "g": "Дробовики",
     "t": "Super 90",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Brazen",
+    "d": "Нанесение 3% (3% в PVP) дополнительного урона при следующем выстреле из оружия за каждую дробинку, попавшую в цель, если в нее попало не менее 4 дробинок. Убийство противника дает +8% дополнительного урона при следующем выстреле.",
     "dmg": 389865.0,
     "rpm": 160.0,
     "mag": 8.0,
-    "reload": 4.65,
+    "reload": 4.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1039640,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 4.65,
+    "talent_ru": "Дерзость"
   },
   {
     "name": "Super 90",
@@ -3007,12 +3508,13 @@
     "dmg": 389865.0,
     "rpm": 160.0,
     "mag": 8.0,
-    "reload": 4.65,
+    "reload": 4.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1039640,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.65
   },
   {
     "name": "Шериф",
@@ -3025,12 +3527,13 @@
     "dmg": 389865.0,
     "rpm": 160.0,
     "mag": 8.0,
-    "reload": 4.65,
+    "reload": 4.8,
     "range": 100.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1039640,
-    "source_ru": "Прохождение миссии облавы Г7С3 \"Мятеж\" на сложности \"Мастер\""
+    "source_ru": "Прохождение миссии облавы Г7С3 \"Мятеж\" на сложности \"Мастер\"",
+    "reload_old": 4.65
   },
   {
     "name": "Самодельный Super 90",
@@ -3043,12 +3546,13 @@
     "dmg": 389865.0,
     "rpm": 160.0,
     "mag": 8.0,
-    "reload": 4.65,
+    "reload": 4.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1039640,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 4.65
   },
   {
     "name": "Вышибала",
@@ -3056,17 +3560,20 @@
     "g": "Дробовики",
     "t": "Super 90",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Pummel",
+    "d": "После 2 совершенных подряд убийств магазин оружия заполняется, а урон от оружия увеличивается на 40% сроком на 10 сек.",
     "dmg": 389865.0,
     "rpm": 160.0,
     "mag": 8.0,
-    "reload": 4.65,
+    "reload": 4.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1039640,
-    "source_ru": "Награда за предзаказ DLC \"Воители Нью-Йорка\""
+    "source_ru": "Награда за предзаказ DLC \"Воители Нью-Йорка\"",
+    "reload_old": 4.65,
+    "talent_ru": "Избиение",
+    "flavor_en": "\"Breach and clear!\""
   },
   {
     "name": "Тактический Super 90 SBS",
@@ -3079,12 +3586,13 @@
     "dmg": 389865.0,
     "rpm": 160.0,
     "mag": 8.0,
-    "reload": 4.65,
+    "reload": 4.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1039640,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 4.65
   },
   {
     "name": "Самодельный тактический Super 90 SBS",
@@ -3097,12 +3605,13 @@
     "dmg": 389865.0,
     "rpm": 160.0,
     "mag": 8.0,
-    "reload": 4.65,
+    "reload": 4.8,
     "range": 11.0,
     "hsd": 1.45,
     "class_bonus": "УБ / 12%",
     "dps_mult": 1039640,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 4.65
   },
   {
     "name": "Снайперская 93R",
@@ -3110,8 +3619,8 @@
     "g": "Пистолеты",
     "t": "Beretta 93R",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Unwavering",
+    "d": "Переключившись на это оружие, вы получаете +400% к эргономичности оружия сроком на 5 сек. Эффект возобновляется после каждого убийства. В случае переключения на другое оружие он становится полностью недоступен на 5 сек.",
     "dmg": 52965.0,
     "rpm": 700.0,
     "mag": 20.0,
@@ -3120,7 +3629,8 @@
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 617925,
-    "source_ru": "Прокачка специализации \"Меткий стрелок\""
+    "source_ru": "Прокачка специализации \"Меткий стрелок\"",
+    "talent_ru": "Непоколебимость"
   },
   {
     "name": "Буря",
@@ -3151,12 +3661,13 @@
     "dmg": 233223.0,
     "rpm": 160.0,
     "mag": 6.0,
-    "reload": 2.54,
+    "reload": 1.8,
     "range": 16.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 621928,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.54
   },
   {
     "name": "Самодельный полицейский 686 \"Магнум\"",
@@ -3169,12 +3680,13 @@
     "dmg": 233223.0,
     "rpm": 160.0,
     "mag": 6.0,
-    "reload": 2.54,
+    "reload": 1.8,
     "range": 16.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 621928,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.54
   },
   {
     "name": "Регул",
@@ -3187,12 +3699,13 @@
     "dmg": 282072.0,
     "rpm": 160.0,
     "mag": 6.0,
-    "reload": 2.54,
+    "reload": 1.8,
     "range": 17.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 752192,
-    "source_ru": "Крафт по контракту после рейда \"Железный конь\""
+    "source_ru": "Крафт по контракту после рейда \"Железный конь\"",
+    "reload_old": 2.54
   },
   {
     "name": "D50 \"Выживальщик\"",
@@ -3200,17 +3713,19 @@
     "g": "Пистолеты",
     "t": "Desert Eagle",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Sadist",
+    "d": "Увеличение урона от оружия, наносимого противникам с эффектом кровотечения, на 35% (25% в PVP).После того как вы убьете 3 противников, на следующую пораженную вами цель будет наложен эффект кровотечения.",
     "dmg": 189126.0,
     "rpm": 150.0,
     "mag": 8.0,
-    "reload": 2.24,
+    "reload": 1.9,
     "range": 18.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 472815,
-    "source_ru": "Прокачка специализации \"Эксперт по выживанию\""
+    "source_ru": "Прокачка специализации \"Эксперт по выживанию\"",
+    "reload_old": 2.24,
+    "talent_ru": "Садист"
   },
   {
     "name": "Свобода",
@@ -3223,12 +3738,13 @@
     "dmg": 189126.0,
     "rpm": 200.0,
     "mag": 8.0,
-    "reload": 2.24,
+    "reload": 1.9,
     "range": 18.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 630420,
-    "source_ru": "Гарантированно - крафт. Экзот. контейнеры, целевые трофеи"
+    "source_ru": "Гарантированно - крафт. Экзот. контейнеры, целевые трофеи",
+    "reload_old": 2.24
   },
   {
     "name": "Тюнингованный KARD",
@@ -3259,12 +3775,13 @@
     "dmg": 117409.0,
     "rpm": 310.0,
     "mag": 7.0,
-    "reload": 2.24,
+    "reload": 1.7,
     "range": 12.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 606613.1667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.24
   },
   {
     "name": "Мозамбикский сувенир",
@@ -3272,17 +3789,19 @@
     "g": "Пистолеты",
     "t": "Colt M1911",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Breadbasket",
+    "d": "Каждое попадание в корпус увеличивает урон от следующего выстрела в голову, совершённого в течение 10 сек., на 70%. Эффект суммируется до 2 раз.",
     "dmg": 117409.0,
     "rpm": 310.0,
     "mag": 7.0,
-    "reload": 2.24,
+    "reload": 1.7,
     "range": 12.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 606613.1667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
+    "reload_old": 2.24,
+    "talent_ru": "Стрельба двойками"
   },
   {
     "name": "Быстрый шаг",
@@ -3295,12 +3814,14 @@
     "dmg": 117409.0,
     "rpm": 310.0,
     "mag": 7.0,
-    "reload": 2.24,
+    "reload": 1.7,
     "range": 12.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 606613.1667,
-    "source_ru": "Событие Хеллоуин 2025"
+    "source_ru": "Событие Хеллоуин 2025",
+    "reload_old": 2.24,
+    "flavor_en": "Spooky fast."
   },
   {
     "name": "Тактический М1911",
@@ -3313,12 +3834,13 @@
     "dmg": 117409.0,
     "rpm": 310.0,
     "mag": 7.0,
-    "reload": 2.24,
+    "reload": 1.7,
     "range": 12.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 606613.1667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 2.24
   },
   {
     "name": "Самодельный тактический М1911",
@@ -3331,12 +3853,13 @@
     "dmg": 117409.0,
     "rpm": 310.0,
     "mag": 7.0,
-    "reload": 2.24,
+    "reload": 1.7,
     "range": 12.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 606613.1667,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.24
   },
   {
     "name": "Самодельный армейский М9",
@@ -3385,12 +3908,13 @@
     "dmg": 95675.0,
     "rpm": 350.0,
     "mag": 20.0,
-    "reload": 1.96,
+    "reload": 1.9,
     "range": 16.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 558104.1667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 1.96
   },
   {
     "name": "PF45 Первой волны",
@@ -3421,12 +3945,13 @@
     "dmg": 79920.0,
     "rpm": 400.0,
     "mag": 30.0,
-    "reload": 1.77,
+    "reload": 1.7,
     "range": 14.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 621008,
-    "source_ru": "Целевые трофеи, экзотические контейнеры"
+    "source_ru": "Целевые трофеи, экзотические контейнеры",
+    "reload_old": 1.77
   },
   {
     "name": "Px4 \"Шторм\". Тип T",
@@ -3439,12 +3964,13 @@
     "dmg": 91670.0,
     "rpm": 380.0,
     "mag": 17.0,
-    "reload": 1.63,
+    "reload": 1.7,
     "range": 12.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 580576.6667,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 1.63
   },
   {
     "name": "Самодельный Px4 \"Шторм\". Тип T",
@@ -3457,12 +3983,13 @@
     "dmg": 91670.0,
     "rpm": 380.0,
     "mag": 17.0,
-    "reload": 1.63,
+    "reload": 1.7,
     "range": 12.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 580576.6667,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 1.63
   },
   {
     "name": "Самодельный дисерос",
@@ -3475,12 +4002,13 @@
     "dmg": 204752.0,
     "rpm": 180.0,
     "mag": 6.0,
-    "reload": 2.0,
+    "reload": 1.8,
     "range": 18.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 614256,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 2.0
   },
   {
     "name": "Особый Дисерос",
@@ -3488,17 +4016,19 @@
     "g": "Пистолеты",
     "t": "Rhino",
     "brand": "",
-    "tal": "",
-    "d": "",
+    "tal": "Perfect Optimist",
+    "d": "За каждые недостающие 10% боеприпасов в магазине агента его урон от оружия увеличивается на 4,5% (2% в PVP).",
     "dmg": 198258.0,
     "rpm": 180.0,
     "mag": 6.0,
-    "reload": 1.93,
+    "reload": 1.8,
     "range": 18.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 594774,
-    "source_ru": "Прокачка специализации \"Подрывник\""
+    "source_ru": "Прокачка специализации \"Подрывник\"",
+    "reload_old": 1.93,
+    "talent_ru": "Оптимизм"
   },
   {
     "name": "Короткоствольный дисерос",
@@ -3511,12 +4041,13 @@
     "dmg": 211246.0,
     "rpm": 180.0,
     "mag": 6.0,
-    "reload": 1.98,
+    "reload": 1.8,
     "range": 18.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 633738,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 1.98
   },
   {
     "name": "Тактический Х-45",
@@ -3529,12 +4060,13 @@
     "dmg": 88301.0,
     "rpm": 400.0,
     "mag": 15.0,
-    "reload": 1.99,
+    "reload": 1.7,
     "range": 16.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 588673.3333,
-    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана"
+    "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
+    "reload_old": 1.99
   },
   {
     "name": "Самодельный тактический Х-45",
@@ -3547,11 +4079,12 @@
     "dmg": 88301.0,
     "rpm": 400.0,
     "mag": 15.0,
-    "reload": 1.99,
+    "reload": 1.7,
     "range": 16.0,
     "hsd": 2.0,
     "class_bonus": "-",
     "dps_mult": 588673.3333,
-    "source_ru": "Производственная станция"
+    "source_ru": "Производственная станция",
+    "reload_old": 1.99
   }
 ]

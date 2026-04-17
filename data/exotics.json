@@ -61,12 +61,13 @@
     "g": "Штурмовые винтовки",
     "t": "AR",
     "tal": "Sustained Voltage",
-    "d": "Каждый выстрел в противника из этого оружия дает 1 заряд. Если агент накапливает 100 зарядов, то следующий магазин этого оружия на 100% заполняется шоковыми боеприпасами.",
+    "d": "«Actum Est» - каждый выстрел в противника из этого оружия дает 1 заряд. Если агент накапливает 100 зарядов, то следующий магазин оружия заполняется шоковыми боеприпасами (магазин заполняется на 50% - для PVP).",
     "tal_ru": "Actum Est",
     "stats_ru": "Урон от штурмовой винтовки (15% макс.)\nУрон здоровью (21% макс.)\n- Случайная характеристика",
     "mods_ru": "Прицел: +15% Урон от крит. попадания\nМагазин: +30 Боезапас\nПодствольная планка: +10% Эргономичости\nДульная насадка: +15% Шанс крит. попадания",
     "source_ru": "- Гарантированная награда за сезон \"Сломанные крылья\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Sometimes the most beautiful and dangerous phenomenon is natural.\"\nanonymous"
+    "flavor_en": "\"Sometimes the most beautiful and dangerous phenomenon is natural.\"\nanonymous",
+    "d_old": "Каждый выстрел в противника из этого оружия дает 1 заряд. Если агент накапливает 100 зарядов, то следующий магазин этого оружия на 100% заполняется шоковыми боеприпасами."
   },
   {
     "name": "Стрега",
@@ -155,12 +156,13 @@
     "g": "Пистолеты-пулемёты",
     "t": "SMG",
     "tal": "Symbiosis",
-    "d": "Прочность поставленного щита уменьшается со скоростью 10% в секунду. Ваш щит получает ремонт в размере 25% от урона, нанесенного этим оружием.",
+    "d": "«Симбиоз» (Symbiosis)\nПрочность поставленного щита уменьшается со скоростью 10% в секунду. Ваш щит получает ремонт в размере 25% от урона, нанесенного этим оружием.",
     "tal_ru": "Симбиоз",
     "stats_ru": "Урон от пистолета-пулемёта (15% макс.)\nШанс крит. попадания (21% макс.)\n- Случайная характеристика",
     "mods_ru": "Дульная насадка: +10 боеприпасов\nПрицел: +50% оптимальная дальность\nПодствольная планка: +15% шанс крит. попадания",
     "source_ru": "- Гарантированная награда за сезон \"Груз Истины\" \n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"The healing is less rewarding than the hurting, but i'm content.\""
+    "flavor_en": "\"The healing is less rewarding than the hurting, but i'm content.\"",
+    "d_old": "Прочность поставленного щита уменьшается со скоростью 10% в секунду. Ваш щит получает ремонт в размере 25% от урона, нанесенного этим оружием."
   },
   {
     "name": "Мор",
@@ -196,13 +198,14 @@
     "g": "Ручные пулемёты",
     "t": "LMG",
     "tal": "Buffer Overflow",
-    "d": "Попадание в противника отмечает его и накладывает на агента заряд эффекта. Всего может быть накоплено до 50 таких зарядов. Попадание в уже отмеченного противника продлевает действие метки и также накладывает на агента заряд эффекта. При использовании навыка, не связанного со щитом, накопленные заряды срабатывают и накладывают на всех отмеченных противников следующие эффекты в зависимости от своего количества: 1-10: метка импульсом на 5 сек. 11-25: \"заморозка\" и метка импульсом на 5 сек. 26-49 - \"заморозка\", дезориентация и метка импульсом отмеченных целей на 5 сек. 50: \"заморозка\", дезориентация и метка импульсом отмеченных целей и всех противников в радиусе 10 м от них на 5 сек. Этот же эффект мгновенно срабатывает при гибели любого отмеченного противника.",
+    "d": "Попадание в противника отмечает его и накладывает на агента заряд эффекта. Всего может быть накоплено до 50 таких зарядов. Попадание в уже отмеченного противника продлевает действие метки и так же накладывает на агента заряд эффекта. При использовании навыка, не связанного со щитом, накопленные заряды сбрасываются и накладывают на всех отмеченных противников следующие эффекты в зависимости от своего количества:\n— 1-10 зарядов: метка импульсом на 5 секунд.\n— 11-25 зарядов: заморозка и метка импульсом на 5 секунд.\n— 26-49 зарядов: заморозка, дезориентация и метка импульсом на 5 секунд.\n— 50 зарядов: заморозка, дезориентация и метка импульсом отмеченных целей и всех противников в радиусе 10 метров от них на 5 секунд. Этот эффект сработает немедленно при гибели любого отмеченного противника.",
     "tal_ru": "Замораживающие патроны",
     "en_tal": "Disruptor Rounds",
     "stats_ru": "Урон от ручного пулемёта (15% макс.)\nУрон цели вне укрытия (12% макс.)\n- Случайная характеристика\n\n*до TU20 - Урон броне (6% макс.)",
     "mods_ru": "Прицел: 20% Скорости перезарядки\nМагазин: +15% Эргономичности\nПодствольная планка: +10% Стабильности\nДульная насадка: +20% Скорострельности",
     "source_ru": "- Гарантированная награда за сезон \"Секретный Альянс\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Cause of death? ... User Error.\""
+    "flavor_en": "\"Cause of death? ... User Error.\"",
+    "d_old": "Попадание в противника отмечает его и накладывает на агента заряд эффекта. Всего может быть накоплено до 50 таких зарядов. Попадание в уже отмеченного противника продлевает действие метки и также накладывает на агента заряд эффекта. При использовании навыка, не связанного со щитом, накопленные заряды срабатывают и накладывают на всех отмеченных противников следующие эффекты в зависимости от своего количества: 1-10: метка импульсом на 5 сек. 11-25: \"заморозка\" и метка импульсом на 5 сек. 26-49 - \"заморозка\", дезориентация и метка импульсом отмеченных целей на 5 сек. 50: \"заморозка\", дезориентация и метка импульсом отмеченных целей и всех противников в радиусе 10 м от них на 5 сек. Этот же эффект мгновенно срабатывает при гибели любого отмеченного противника."
   },
   {
     "name": "Железный лун",
@@ -250,7 +253,11 @@
     "tal": "Sandman",
     "d": "Рукопашные атаки мгновенно убивают всех противников, кроме элитных. Восстановление: 15 сек.",
     "tal_ru": "Песочный человек",
-    "flavor_en": "\"Who are you to disagree?\" \n- Unknown Outcast Engineer\n\n-The name of the weapon and its description are reference to Eurythmics, their song titled \"Sweet Dreams (are made of this). The unknown outcast engineer follows with the next line.\n- Despite being dropped by the Outcasts and having a flavour text relating to the Outcasts, the instakill device on this gun is said to be \"rigged by the Hyenas\".\n- Do not use this gun to do damage, as it has a very low headshot damage modifier.\n- Lore-wise, it makes sense that the Hyenas and Outcasts share a hatred for the True Sons. The True Sons are hated by the Hyenas for being a superior force, and the Outcasts \nwant vengeance on the True Sons for their crimes on Roosevelt Island. There is even an echo where Hyenas and Outcasts are seen raiding a True Sons base in tandem."
+    "flavor_en": "\"Who are you to disagree?\" \n- Unknown Outcast Engineer\n\n-The name of the weapon and its description are reference to Eurythmics, their song titled \"Sweet Dreams (are made of this). The unknown outcast engineer follows with the next line.\n- Despite being dropped by the Outcasts and having a flavour text relating to the Outcasts, the instakill device on this gun is said to be \"rigged by the Hyenas\".\n- Do not use this gun to do damage, as it has a very low headshot damage modifier.\n- Lore-wise, it makes sense that the Hyenas and Outcasts share a hatred for the True Sons. The True Sons are hated by the Hyenas for being a superior force, and the Outcasts \nwant vengeance on the True Sons for their crimes on Roosevelt Island. There is even an echo where Hyenas and Outcasts are seen raiding a True Sons base in tandem.",
+    "en_tal": "Sandman",
+    "stats_ru": "Урон от дробовика (15% макс.)\nУрон броне (12% макс.)\n- Случайная характеристика\n\n*до TU20 - Урон цели вне укрытия\n (10% макс.)",
+    "mods_ru": "Прицел: +15% Точности\nМагазин: +15% Скорости перезарядки\nПодствольная планка: +25% оптимальной дальности",
+    "source_ru": "Колыбельная: Доступна тем, кто купил любое издание игры по предзаказу.\nСладкий сон:\n- Боссы Изгоев\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры\n- Обычные вражеские NPC (наименьший шанс)"
   },
   {
     "name": "Скорпион",
@@ -279,7 +286,8 @@
     "flavor_en": "\"If this is what it takes to make them submit, so be it.\"\n- Dime",
     "aliases_ru": [
       "Overlord"
-    ]
+    ],
+    "tal_ru": "Капитуляция"
   },
   {
     "name": "Шериф",
@@ -370,7 +378,11 @@
     "tal": "Guerrilla Warfare",
     "d": "Это оружие устроено таким образом, что выстрел производится как при нажатии, так и при отпускании спускового крючка. Если оба выстрела поражают одну и ту же цель, вы получаете заряд. После накопления 7 зарядов попадание наносит +500% дополнительного урона цели и вызывает взрыв, наносящий 500% урона от оружия в радиусе 7 м. Заряды при этом обнуляются.",
     "tal_ru": "Двойной спуск",
-    "flavor_en": "\"Some people say I lack empathy. They're wrong. What I lack is mercy.\" \n- Zodiac, Hyenas Councilmember\n\n- Currently, the low damage of this gun combined with its poor handling make it one of the lest desirable exotics."
+    "flavor_en": "\"Some people say I lack empathy. They're wrong. What I lack is mercy.\" \n- Zodiac, Hyenas Councilmember\n\n- Currently, the low damage of this gun combined with its poor handling make it one of the lest desirable exotics.",
+    "en_tal": "Binary Trigger",
+    "stats_ru": "Урон винтовки (15% макс.)\nУрон от крит попадания (17% макс.)\n- Случайная характеристика\n\n*до TU20 - Шанс крит. попадания \n(9.5% макс.)",
+    "mods_ru": "Прицел: +15% Точности\nМагазин: +10% Скорости перезарядки\nПодствольная планка: +15% Эргономичности\nДульная насадка: +15% Стабильности",
+    "source_ru": "Беспощадный: Доступна тем, кто купил издание Ultimate.\nБезжалостный:\n- Боссы Гиен\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры\n- Обычные вражеские NPC (наименьший шанс)"
   },
   {
     "name": "Гремучник",
@@ -406,13 +418,14 @@
     "g": "Винтовки",
     "t": "Винтовка (M1A)",
     "tal": "Doctor Home",
-    "d": "Попадание из этого оружия отмечает цель сроком на 5 сек. Если отмеченная цель погибает, от нее остается бронекомплект, который восстанавливает 10% брони всего отряда. Бронекомплект не дает дополнительной брони.",
+    "d": "Попадание из этого оружия отмечает цель сроком на 5 сек. Если отмеченная цель погибает, от нее остается бронекомплект, который моментально подбирается и восстанавливает 10% брони всего отряда. Бронекомплект не дает дополнительной брони.",
     "tal_ru": "Домашний доктор",
     "en_tal": "Doctor Home",
     "stats_ru": "Урон винтовки (15% макс.)\nУрон от крит попадания (17% макс.)\n- Случайная характеристика\n\n*до TU20 - Урон цели вне укрытия \n(10% макс.)",
     "mods_ru": "Прицел: +10% Точности\nМагазин: +10% Скорости перезарядки\nПодствольная планка: +10% Шанс крит. попадания\nДульная насадка: +10% Эргономичности",
     "source_ru": "- Гарантированная награда за сезон \"Цена Власти\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"A house isn't a home until you can defend it.\" 13"
+    "flavor_en": "\"A house isn't a home until you can defend it.\" 13",
+    "d_old": "Попадание из этого оружия отмечает цель сроком на 5 сек. Если отмеченная цель погибает, от нее остается бронекомплект, который восстанавливает 10% брони всего отряда. Бронекомплект не дает дополнительной брони."
   },
   {
     "name": "Мститель",
@@ -432,11 +445,12 @@
     "g": "Винтовки",
     "t": "Винтовка",
     "tal": "Bittersweet",
-    "d": "Попадания в голову дают заряды эффекта, максимальное число которых может составить 8. Стреляя в союзника или объект навыка, вы лечите или ремонтируете его в объеме 50% общего урона от оружия за каждый заряд. Каждый вылеченный союзник получает 50% от ваших дополнительных навыков ремонта за каждый заряд в виде дополнительной брони сроком на 10 сек. Каждый выстрел в течение 8 сек. после лечения союзника или ремонта объекта навыка при максимуме зарядов гарантированно приводит к попаданию в голову.",
+    "d": "«Переливание крови» (Transfusion):\n- Попадания в голову дают заряды эффекта, максимальное число которых может составить 8.\n- Стреляя в союзника или объект навыка, вы лечите или ремонтируете его в объёме 50% общего урона от оружия за каждый заряд.\n- Каждый вылеченный союзник получает 50% от ваших дополнительных навыков ремонта за каждый заряд в виде дополнительной брони сроком на 10 сек.\n- Каждый выстрел в течение 8 сек. после лечения союзника или ремонта объекта навыка при максимуме зарядов гарантированно приводит к попаданию в голову.",
     "tal_ru": "Переливание крови",
     "stats_ru": "Урон винтовки (15% макс.)\nУрон от крит попадания (17% макс.)\n- Случайная характеристика",
     "mods_ru": "Прицел: +5% урона в голову\nМагазин: +10 боезапасов\nПодствольная планка: +5% урона в голову",
-    "source_ru": "- Гарантированная награда за сезон \"Мятеж\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)"
+    "source_ru": "- Гарантированная награда за сезон \"Мятеж\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "d_old": "Попадания в голову дают заряды эффекта, максимальное число которых может составить 8. Стреляя в союзника или объект навыка, вы лечите или ремонтируете его в объеме 50% общего урона от оружия за каждый заряд. Каждый вылеченный союзник получает 50% от ваших дополнительных навыков ремонта за каждый заряд в виде дополнительной брони сроком на 10 сек. Каждый выстрел в течение 8 сек. после лечения союзника или ремонта объекта навыка при максимуме зарядов гарантированно приводит к попаданию в голову."
   },
   {
     "name": "Свобода",
@@ -486,12 +500,13 @@
     "g": "Пистолеты",
     "t": "Пистолет",
     "tal": "Mosquito",
-    "d": "Каждое попадание по врагу накладывает на него заряд. Эти заряды являются общими для игроков. Если число зарядов равно 5, враг будет в течение 5 сек. целиться только в того игрока, который наложил последний заряд, и получать на 25% больший урон броне. Число зарядов уменьшается раз в 5 сек. Если игроки накладывают на врага этот эффект, все заряды на других врагах обнуляются.",
+    "d": "При каждом попадании по врагу создается заряд. Эти заряды являются общими для игроков. Если число зарядов равно 5, враг будет в течение 5 секунд целиться только в того игрока, который создал последний заряд и получает на 25% больше урона по броне (из всех источников). Число зарядов уменьшается раз в 5 секунд. Если игроки накладывают на врага этот эффект, все заряды на других врагах обнуляются.\n*Талант не работает в PVP",
     "tal_ru": "Комариная песня",
     "stats_ru": "Урон от пистолета (15% макс.)\n- Случайная характеристика",
     "mods_ru": "Магазин: +15% Скорость перезарядки\nДульная насадка: +15% Точность",
     "source_ru": "- Гарантированная награда за сезон \"Авангард\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Time to come out of hibernation, Agent. There's work to do.\"\n- Calvin McManus"
+    "flavor_en": "\"Time to come out of hibernation, Agent. There's work to do.\"\n- Calvin McManus",
+    "d_old": "Каждое попадание по врагу накладывает на него заряд. Эти заряды являются общими для игроков. Если число зарядов равно 5, враг будет в течение 5 сек. целиться только в того игрока, который наложил последний заряд, и получать на 25% больший урон броне. Число зарядов уменьшается раз в 5 сек. Если игроки накладывают на врага этот эффект, все заряды на других врагах обнуляются."
   },
   {
     "name": "Буря",
@@ -515,7 +530,8 @@
     "d": "\"Faster Than Reloading\" - Если это оружие убрано на 5 сек., оно перезаряжается и заряжается. \nВ заряженном состоянии при переключении на это оружие перезаряжаются ваше основное и дополнительное оружие, а также вы получаете +20% к скорострельности и +50% к урону от оружия до тех пор, пока магазин не опустеет.\nПерезарядка или переключение с этого оружия до опустошения магазина снимает бонусы характеристик.",
     "stats_ru": "Урон от пистолета (15% макс.)\n- Случайная характеристика",
     "mods_ru": "Прицел: +10% Урон от крит. попадания\nМагазин: +10%  Шанс крит. попадания\nПодствольная планка: +50% Скорость смены оружия",
-    "source_ru": "Прохождение кульминационной миссии облавы сезона \"Восстание\": ???\n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности."
+    "source_ru": "Прохождение кульминационной миссии облавы сезона \"Восстание\": ???\n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности.",
+    "tal_ru": "Faster Than Reloading"
   },
   {
     "name": "Койот",
@@ -530,7 +546,9 @@
     "flavor_en": "\"Lived through this bullet. I'll live through yours.\" \n- Coyote\n\n- Do not bother farming for this exotic through Coyote at Jefferson Trade Centre. Instead, farm Countdown with mask targeted loot. It is more efficient.\n- The Jefferson Trade Centre mission becomes tragic when you realise that Espinoza is one of Agent Kelso's few trusted friends in DC.\n- Agent Kelso was overly confident that Coyote wouldn't kill Espinoza not because she didn't care, but because she was in denial and couldn't believe\nthat anything bad could happen to him.\n- Kelso and Espinoza's backstory can be heard on the Embassy classified assignment collectibles. Click on this cell to watch a video of that mission.\n-A group member can receive all 3 damage buffs at the same time, However, a group member can only have 1 of each damage buff at a time\n(e.g. if there are 2 CQC players, you will still only get +25% critical hit damage)",
     "aliases_ru": [
       "Маска Койота"
-    ]
+    ],
+    "en_tal": "Pack Instincts",
+    "tal_ru": "Стайный инстинкт"
   },
   {
     "name": "Злодей",
@@ -543,7 +561,8 @@
     "stats_ru": "1 Уровень навыков\nНегативные эффекты (10% макс.)\nЗащита от факторов риска (10% макс.)\n\nСлот для модификаций",
     "mods_ru": "—",
     "source_ru": "- Гарантированная награда за сезон \"Наследие Кинера\". \n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"You cling to life like a rebellious teen resisting curfew. But death is patient... and so am I.\" \n\n- Dr Vilis, BTSU Physician"
+    "flavor_en": "\"You cling to life like a rebellious teen resisting curfew. But death is patient... and so am I.\" \n\n- Dr Vilis, BTSU Physician",
+    "tal_ru": "Токсичный груз"
   },
   {
     "name": "Катарсис",
@@ -556,7 +575,8 @@
     "stats_ru": "Броня (170 000 макс.)\nПолучаемый ремонт ( 20% макс.)\nВосстановление брони (4 925хп/с макс.)\n\nСлот для модификаций",
     "mods_ru": "—",
     "source_ru": "- Гарантированная награда за сезон \"Секретный Альянс\" \n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"The establishment does everything in its power to ensure that revolutionary rage is redirected into empty outlets which provide pressure releases for \ndesires that could become dangerous if allowed to progress\" \n\n-George L. Jackson"
+    "flavor_en": "\"The establishment does everything in its power to ensure that revolutionary rage is redirected into empty outlets which provide pressure releases for \ndesires that could become dangerous if allowed to progress\" \n\n-George L. Jackson",
+    "tal_ru": "Порочный круг"
   },
   {
     "name": "Катализатор",
@@ -568,7 +588,8 @@
     "stats_ru": "Урон оружия (15% макс.)\nЗащита от факторов риска (10% макс.)\nНегативные эффекты (10% макс.)\n\nСлот для модификаций",
     "mods_ru": "—",
     "source_ru": "Случайное выпадение с босса LM-21 \"Мародер\" финальной миссии \"Армейский терминал\" дополнения Битва за Бруклин.",
-    "flavor_en": "\"We're still being tested. The only constant variable is fire\"\n\n\n-the status effect that give stacks do not include foam"
+    "flavor_en": "\"We're still being tested. The only constant variable is fire\"\n\n\n-the status effect that give stacks do not include foam",
+    "tal_ru": "Катализ"
   },
   {
     "name": "Кустарь",
@@ -594,7 +615,8 @@
     "d": "\"Вложение\" - За каждую неосновную характеристику этого предмета вы получаете преимущества в зависимости от ее цвета:\nКрасный: +10% к урону от критических попаданий\nЖелтый: +5% к эффективности навыка\nСиний: +1% к восстановлению брони\nПредмет может обладать любой основной характеристикой. Вместо ячейки модификации предмет обладает третьей случайной характеристикой.\nПредмет не может обладать характеристиками \"Урон от выстрелов в голову\", \"Прочность\" и \"Ремонт от навыков\".",
     "stats_ru": "СЛУЧАЙНЫЕ\nХАРАКТЕРИСТИКИ",
     "mods_ru": "—",
-    "source_ru": "- Гарантированная награда за сезон \"Восстание\". \n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)"
+    "source_ru": "- Гарантированная награда за сезон \"Восстание\". \n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "tal_ru": "Вложение"
   },
   {
     "name": "Мементо",
@@ -607,7 +629,8 @@
     "stats_ru": "Урон оружия (15% макс.)\nБроня (170 000 макс.)\n1 Уровень навыков\n\nСлот для модификаций",
     "mods_ru": "—",
     "source_ru": "- Гарантированная награда за сезон \"Тайные делишки\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"I took from those who watched, hunted, and collected, until only tgheir shadows remained. Now my watch has ended, so yours may begin.\"\n\n- Inscription by an unknown author\n\n\n- The name \"Memento\" is a reference to  the fact that Hunters keep watches of Agents they have killed as sick mementos. \n- The axes on the backpack are Hunter axes. These Crash Axes, the same ones found in planes. While usually used for breaching and rescue, \nHunters use these axes to melee Agents who get too close.\n- +5% Skill Efficiency grants +5% of every yellow minor attribute (skill haste, status effects, skill health...). +1% Skill Efficiency grants +1%.\n- Memento is suspiciously similar to Prism Gloves, a joke exotic posted by Azurmen32 to the Division 2 subreddit. This is part of a running gag about \nrainbow roll items being good."
+    "flavor_en": "\"I took from those who watched, hunted, and collected, until only tgheir shadows remained. Now my watch has ended, so yours may begin.\"\n\n- Inscription by an unknown author\n\n\n- The name \"Memento\" is a reference to  the fact that Hunters keep watches of Agents they have killed as sick mementos. \n- The axes on the backpack are Hunter axes. These Crash Axes, the same ones found in planes. While usually used for breaching and rescue, \nHunters use these axes to melee Agents who get too close.\n- +5% Skill Efficiency grants +5% of every yellow minor attribute (skill haste, status effects, skill health...). +1% Skill Efficiency grants +1%.\n- Memento is suspiciously similar to Prism Gloves, a joke exotic posted by Azurmen32 to the Division 2 subreddit. This is part of a running gag about \nrainbow roll items being good.",
+    "tal_ru": "Смерть подтверждена"
   },
   {
     "name": "Курьерский ВелоНиндзя",
@@ -631,7 +654,9 @@
     "flavor_en": "\"You never know what you're going to need, so it's best to be prepared.\" \n- Eva Acosta, Urban Spelunker\n\n- This backpack can drop with a variety of strap colours, namely red, green and purple. Gotta collect them all!\n- Eva Acosta is a character from Division 1 who left audio logs all over the city detailing her exploration. Due to the nature of what she sees, these logs get \nincreasingly disturbing. Click on this cell to listen to Eva's logs.\n- Eva does not seem to be associated with any organsation, and even her spelunking crew seems to be a group of friends. It is evident, however, that she has\nlived in New York all her life and cares deeply about well being of the city. For this reason, I chose to use a symbol from a redesign of the New York flag.\n- The full redesigned New York flag is from r/Vexillology",
     "aliases_ru": [
       "Рюкзак Акосты"
-    ]
+    ],
+    "en_tal": "One in Hand... + ...Two in the Bag",
+    "tal_ru": "Один в руке..."
   },
   {
     "name": "Аварийный набор Птички",
@@ -660,7 +685,8 @@
     "source_ru": "- Гарантированная награда за юбилейный сезон \"Годовщина\"",
     "aliases_ru": [
       "Гордость Лунь"
-    ]
+    ],
+    "tal_ru": "Перебалансировка"
   },
   {
     "name": "Система Брони «Тихоходка»",
@@ -673,7 +699,8 @@
     "stats_ru": "Броня (170 000 макс.)\nЗащита от взрыва (10% макс.)\nВосстановление брони (4 925хп/с макс.)\n\nСлот для модификаций",
     "mods_ru": "—",
     "source_ru": "- Боссы Истинных Сынов\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "An evolution of the reactive armour concept, ablative nano-plating was initially designed as a prototype technology for self-repairing heat shields on aircraft repeatedly entering and exiting planetary atmospheres.\n\n- This is a science fiction version of ablative heat shielding, which is used primarily on spacecraft. The earliest description of this technology is\nfound in Robert H. Goddard's 1920 letter to the Smithsonian Institution, hence the faction logo. Goddard pioneered much of the technology used in modern space\nexploration, and a lot of his research was made possible through a grant from the Smithsonian Instiitution.\n- In reality self-repairing materials exist, but ablative heat shields do not self-repair. Instead, they are made in a manner which allows them to sustain greatly \ndecreased wear from atmospheric re-entry."
+    "flavor_en": "An evolution of the reactive armour concept, ablative nano-plating was initially designed as a prototype technology for self-repairing heat shields on aircraft repeatedly entering and exiting planetary atmospheres.\n\n- This is a science fiction version of ablative heat shielding, which is used primarily on spacecraft. The earliest description of this technology is\nfound in Robert H. Goddard's 1920 letter to the Smithsonian Institution, hence the faction logo. Goddard pioneered much of the technology used in modern space\nexploration, and a lot of his research was made possible through a grant from the Smithsonian Instiitution.\n- In reality self-repairing materials exist, but ablative heat shields do not self-repair. Instead, they are made in a manner which allows them to sustain greatly \ndecreased wear from atmospheric re-entry.",
+    "tal_ru": "Абляционное нанопокрытие"
   },
   {
     "name": "Гордость Риджвея",
@@ -686,7 +713,8 @@
     "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)\n\nСлот для модификаций",
     "mods_ru": "—",
     "source_ru": "- Первоначальная Награда за прохождение режима \"Саммит\"и зачистку 100 этажа после выполнения квеста.\nВсе способы повторного получения:\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)\nПодробности https://vk.cc/cq55hP",
-    "flavor_en": "\"You can tell a lot about a man by the way he bleeds. Me? I bleed for my country, and nothing else.\" \n\n- General Antwon Ridgeway"
+    "flavor_en": "\"You can tell a lot about a man by the way he bleeds. Me? I bleed for my country, and nothing else.\" \n\n- General Antwon Ridgeway",
+    "tal_ru": "Кровавые раны"
   },
   {
     "name": "Провокатор",
@@ -698,7 +726,8 @@
     "stats_ru": "Броня (170 000 макс.)\nВосстановление брони (4 925хп/с макс.)\nЗащита от факторов риска (10% макс.)\n\nСлот для модификаций",
     "mods_ru": "—",
     "source_ru": "Прохождение кульминационной миссии облавы сезона \"Оттенки красного\" Центр космических исследований: Тео Парнелл\n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности.",
-    "flavor_en": "\"One does not simply wear red into battle. A red knight is not afraid but ready to provoke .\" - Anonymous"
+    "flavor_en": "\"One does not simply wear red into battle. A red knight is not afraid but ready to provoke .\" - Anonymous",
+    "tal_ru": "Претендент"
   },
   {
     "name": "Собиратель",
@@ -735,7 +764,8 @@
     "stats_ru": "1 Уровень навыков\nУбыстрение (12% макс.)\nНавыки ремонта (10% макс.)",
     "mods_ru": "—",
     "source_ru": "- Боссы фракции \"Черный Бивень\" и миссия лагерь \"Уайт-Оук\"\n- Целевые Трофеи\n- Цели Ликвидаций\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Pop always told me 'son, you're only as good as the tools you work with.' So I chose to work with the organisation with the best tools.\" \n- Galveston\n\n- Galveston is the endboss of Camp White Oak, and was in charge of keeping track of President Ellis\n- In real life, judging from crow's flight distance, Camp White Oak is most likely Camp David. This camp is a Presidental retreat, which makes the fact that the \nPresident retreated here a clever pun."
+    "flavor_en": "\"Pop always told me 'son, you're only as good as the tools you work with.' So I chose to work with the organisation with the best tools.\" \n- Galveston\n\n- Galveston is the endboss of Camp White Oak, and was in charge of keeping track of President Ellis\n- In real life, judging from crow's flight distance, Camp White Oak is most likely Camp David. This camp is a Presidental retreat, which makes the fact that the \nPresident retreated here a clever pun.",
+    "tal_ru": "Передаточный разгром"
   },
   {
     "name": "Перчатки Exodus",
@@ -757,7 +787,8 @@
     "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)",
     "mods_ru": "—",
     "source_ru": "- Гарантированная награда за сезон \"Авангард\" \n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Can't say I invented this, but at least I had a hand in it.\" \n- Calvin McManus"
+    "flavor_en": "\"Can't say I invented this, but at least I had a hand in it.\" \n- Calvin McManus",
+    "tal_ru": "Железная хватка"
   },
   {
     "name": "Кровавый кастет",
@@ -772,7 +803,9 @@
     "flavor_en": "\"A broken watch is still a good memento.\" 13",
     "aliases_ru": [
       "Кровавые Кулаки"
-    ]
+    ],
+    "en_tal": "Over the Top",
+    "tal_ru": "За гранью"
   },
   {
     "name": "Претенденты\nна победу",
@@ -787,7 +820,8 @@
     "flavor_en": "\"Start from the bottom and make your way up.\"\n\nNote: Tier 3 is lowest, tier 1 is highest.",
     "aliases_ru": [
       "Главари"
-    ]
+    ],
+    "tal_ru": "Самое слабое звено"
   },
   {
     "name": "Экзотические наколенники Акосты",
@@ -802,7 +836,8 @@
     "flavor_en": "\"They got they asses caught by the JTF, but they don't have my mad parkour skills.\"\n- Eva Acosta",
     "aliases_ru": [
       "Наколенники Акосты"
-    ]
+    ],
+    "tal_ru": "План отхода"
   },
   {
     "name": "Наколенники Сойер",
@@ -815,7 +850,8 @@
     "stats_ru": "Броня (170 000 макс.)\nЗащита от взрыва (10% макс.)\nЗдоровье (18 935 макс.)",
     "mods_ru": "—",
     "source_ru": "- Целевые Трофеи\n- Цели Ликвидаций\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)\nПодробности https://vk.cc/cq55hP",
-    "flavor_en": "\"When I lost my leg, I thought that was it for me. But I found new purpose. I rose, just like the phoenix on my patch. Now it's time for these to find new purpose.\"\n\n- Odessa Sawyer\n\n- There is a deep irony in the fact that Odessa lost her leg to a sniper, causing her kneepads to become an exotic with a talent that greatly benefits players who \nuse sniper rifles.\n- Stand Your Ground does NOT cause players to ignore mortars in the Morozova fight."
+    "flavor_en": "\"When I lost my leg, I thought that was it for me. But I found new purpose. I rose, just like the phoenix on my patch. Now it's time for these to find new purpose.\"\n\n- Odessa Sawyer\n\n- There is a deep irony in the fact that Odessa lost her leg to a sniper, causing her kneepads to become an exotic with a talent that greatly benefits players who \nuse sniper rifles.\n- Stand Your Ground does NOT cause players to ignore mortars in the Morozova fight.",
+    "tal_ru": "Ни шагу назад"
   },
   {
     "name": "Наколенники ВелоНиндзя",
@@ -849,7 +885,8 @@
     "stats_ru": "Урон оружия (15% макс.)\nЭргономичность (8% макс.)\nУрон от выстрелов в голову (10% макс.)",
     "mods_ru": "—",
     "source_ru": "- Первоначально необходимо купить проект у Инайи аль Халик в Белом Доме и выполнить квест.\nВсе способы повторного получения:\n- Целевые Трофеи\n- Цели Ликвидаций\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)\nПодробности https://vk.cc/cq55hP",
-    "flavor_en": "\"Fast is fine, but accuracy is everything. In a gunfight... You need to take your time in a hurry.\" \n\n- Wyatt Earp\n\n-Blueprint flavour text: Ed managed to put together this retro-modern holster blueprint using the parts we found, and some more modern gear.\n- Dodge City is an administrative name for Ford County, Kansas. It is famous for being a \"wild west\" town in the past.\n- Its seal features the Texas Longhorn Steer, a species of cattle that were brought to the town from Texas. In fact, the town was unintentionally created by a\nrancher of these cattle."
+    "flavor_en": "\"Fast is fine, but accuracy is everything. In a gunfight... You need to take your time in a hurry.\" \n\n- Wyatt Earp\n\n-Blueprint flavour text: Ed managed to put together this retro-modern holster blueprint using the parts we found, and some more modern gear.\n- Dodge City is an administrative name for Ford County, Kansas. It is famous for being a \"wild west\" town in the past.\n- Its seal features the Texas Longhorn Steer, a species of cattle that were brought to the town from Texas. In fact, the town was unintentionally created by a\nrancher of these cattle.",
+    "tal_ru": "Быстрое извлечение"
   },
   {
     "name": "Императорская Династия",
@@ -862,7 +899,8 @@
     "stats_ru": "1 Уровень навыков\nНегативные эффекты (10% макс.)\nЗащиты от факторов риска (10% макс.)",
     "mods_ru": "—",
     "source_ru": "- Боссы Чистильщиков\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Symbols are important. Look at the phoenix you wear on your sleeve. The dragon bears a similar significance to me.\" \n- Faye Lau\n\n- SPOILERS AHEAD\n- The Lau (or Liu) family was the ruling family of the Han Dynasty in ancient China. The ancient Chinese were deeply superstitious and the founder of the Han \nDynasty, Liu Bang, claimed that he was conceived after his mother dreamt of a dragon. This was a clever move considering that in ancient China,  dragons were a \nsymbol of imperial power and represented the Emperor. \n- The dragon bears a significance to Faye because just like the Han rebellion in ancient China, she believes that she will wipe out The Division take control."
+    "flavor_en": "\"Symbols are important. Look at the phoenix you wear on your sleeve. The dragon bears a similar significance to me.\" \n- Faye Lau\n\n- SPOILERS AHEAD\n- The Lau (or Liu) family was the ruling family of the Han Dynasty in ancient China. The ancient Chinese were deeply superstitious and the founder of the Han \nDynasty, Liu Bang, claimed that he was conceived after his mother dreamt of a dragon. This was a clever move considering that in ancient China,  dragons were a \nsymbol of imperial power and represented the Emperor. \n- The dragon bears a significance to Faye because just like the Han rebellion in ancient China, she believes that she will wipe out The Division take control.",
+    "tal_ru": "Взгляд Дракона"
   },
   {
     "name": "Форма Волны",
@@ -875,7 +913,8 @@
     "stats_ru": "1 Уровень навыков\nУрон навыков (10% макс.)\nУбыстрение (12% макс.)",
     "mods_ru": "—",
     "source_ru": "- Гарантированная награда за сезон \"Конец Смены\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "Graphite layers are suffused throughout the holster kevlar weave, that when the wearer moves creates an inductive oscillating electromagnetic field. This field allows for remote charging of electrical devices."
+    "flavor_en": "Graphite layers are suffused throughout the holster kevlar weave, that when the wearer moves creates an inductive oscillating electromagnetic field. This field allows for remote charging of electrical devices.",
+    "tal_ru": "Переменный шок"
   },
   {
     "name": "Ножны Центуриона",
@@ -887,7 +926,8 @@
     "stats_ru": "Урон оружия (15% макс.)\nЭргономичность (8% макс.)\nШанс крит.попадания (6% макс.)",
     "mods_ru": "—",
     "source_ru": "- Гарантированная награда за сезон \"Оттенки красного\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"it's better ti have more than one gun in your holster.\""
+    "flavor_en": "\"it's better ti have more than one gun in your holster.\"",
+    "tal_ru": "Счетчик"
   },
   {
     "name": "Шоковый удар",
@@ -929,7 +969,9 @@
     "stats_ru": "Урон винтовки (15% макс.)\nУрон от крит попадания (17% макс.)\n- Случайная характеристика\n\n*до TU20 - Шанс крит. попадания \n(9.5% макс.)",
     "mods_ru": "Прицел: +15% Точности\nМагазин: +10% Скорости перезарядки\nПодствольная планка: +15% Эргономичности\nДульная насадка: +15% Стабильности",
     "source_ru": "Беспощадный: Доступна тем, кто купил издание Ultimate.\nБезжалостный:\n- Боссы Гиен\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Some people say I lack empathy. They're wrong. What I lack is mercy.\" \n- Zodiac, Hyenas Councilmember\n\n- Currently, the low damage of this gun combined with its poor handling make it one of the lest desirable exotics."
+    "flavor_en": "\"Some people say I lack empathy. They're wrong. What I lack is mercy.\" \n- Zodiac, Hyenas Councilmember\n\n- Currently, the low damage of this gun combined with its poor handling make it one of the lest desirable exotics.",
+    "en_tal": "Binary Trigger",
+    "tal_ru": "Двойной спуск"
   },
   {
     "name": "Сладкий сон /\nКолыбельная",
@@ -941,7 +983,9 @@
     "stats_ru": "Урон от дробовика (15% макс.)\nУрон броне (12% макс.)\n- Случайная характеристика\n\n*до TU20 - Урон цели вне укрытия\n (10% макс.)",
     "mods_ru": "Прицел: +15% Точности\nМагазин: +15% Скорости перезарядки\nПодствольная планка: +25% оптимальной дальности",
     "source_ru": "Колыбельная: Доступна тем, кто купил любое издание игры по предзаказу.\nСладкий сон:\n- Боссы Изгоев\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Who are you to disagree?\" \n- Unknown Outcast Engineer\n\n-The name of the weapon and its description are reference to Eurythmics, their song titled \"Sweet Dreams (are made of this). The unknown outcast engineer follows with the next line.\n- Despite being dropped by the Outcasts and having a flavour text relating to the Outcasts, the instakill device on this gun is said to be \"rigged by the Hyenas\".\n- Do not use this gun to do damage, as it has a very low headshot damage modifier.\n- Lore-wise, it makes sense that the Hyenas and Outcasts share a hatred for the True Sons. The True Sons are hated by the Hyenas for being a superior force, and the Outcasts \nwant vengeance on the True Sons for their crimes on Roosevelt Island. There is even an echo where Hyenas and Outcasts are seen raiding a True Sons base in tandem."
+    "flavor_en": "\"Who are you to disagree?\" \n- Unknown Outcast Engineer\n\n-The name of the weapon and its description are reference to Eurythmics, their song titled \"Sweet Dreams (are made of this). The unknown outcast engineer follows with the next line.\n- Despite being dropped by the Outcasts and having a flavour text relating to the Outcasts, the instakill device on this gun is said to be \"rigged by the Hyenas\".\n- Do not use this gun to do damage, as it has a very low headshot damage modifier.\n- Lore-wise, it makes sense that the Hyenas and Outcasts share a hatred for the True Sons. The True Sons are hated by the Hyenas for being a superior force, and the Outcasts \nwant vengeance on the True Sons for their crimes on Roosevelt Island. There is even an echo where Hyenas and Outcasts are seen raiding a True Sons base in tandem.",
+    "en_tal": "Sandman",
+    "tal_ru": "Песочный человек"
   },
   {
     "name": "Курьерский рюкзак «ВелоНиндзя»",
@@ -953,7 +997,9 @@
     "stats_ru": "Урон оружия (15% макс.)\nБроня (170 000 макс.)\n1 Уровень навыков\n\nСлот для модификаций",
     "mods_ru": "—",
     "source_ru": "- Гарантированная награда за сезон \"Царство Огня\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"From the depths of hell, this has been resurrected as if it cannot die.\" The Priest"
+    "flavor_en": "\"From the depths of hell, this has been resurrected as if it cannot die.\" The Priest",
+    "en_tal": "Resourceful",
+    "tal_ru": "Предприимчивость"
   },
   {
     "name": "Исход",
@@ -977,6 +1023,8 @@
     "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)",
     "mods_ru": "—",
     "source_ru": "- Грузы Темной Зоны\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Parkour! Parkour!\" \n- an over-enthusiastic NinjaBike messenger\n\n- I've worked 2 messenger jobs so far and I haven't met one person who knows how to do parkour\n- I haven't met anyone who wears kneepads, either.\n- NinjaBike doesn't exist, but Ninjavan is a real company.\n- The type of vault that players do in game is most likely a clunky version of a speed vault, modified due to carrying a heavy backpack."
+    "flavor_en": "\"Parkour! Parkour!\" \n- an over-enthusiastic NinjaBike messenger\n\n- I've worked 2 messenger jobs so far and I haven't met one person who knows how to do parkour\n- I haven't met anyone who wears kneepads, either.\n- NinjaBike doesn't exist, but Ninjavan is a real company.\n- The type of vault that players do in game is most likely a clunky version of a speed vault, modified due to carrying a heavy backpack.",
+    "en_tal": "Parkour!",
+    "tal_ru": "Паркур"
   }
 ]

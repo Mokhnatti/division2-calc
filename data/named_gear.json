@@ -18,7 +18,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "aliases_ru": [
       "Ночной Страж"
-    ]
+    ],
+    "flavor_en": "\"Through glass and steel; looking at you; a view so cruel.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Scanner Pulse Haste"
   },
   {
     "name": "Нокдаун",
@@ -39,7 +42,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "aliases_ru": [
       "Нокаут"
-    ]
+    ],
+    "flavor_en": "\"If the first shot doesn't drop 'em, the second one will. Or the third, third's usually good.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Extra Headshot Damage"
   },
   {
     "name": "Полый человек",
@@ -60,7 +66,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/ мастерство ТЗ",
     "aliases_ru": [
       "Пустой Человек"
-    ]
+    ],
+    "flavor_en": "\"No whimper. No bang. Just silence. The end of all things.\"",
+    "source_en": "DZ",
+    "bonus_short_en": "Damage to Health"
   },
   {
     "name": "Финалист",
@@ -74,7 +83,10 @@
       "armor"
     ],
     "attr1": {},
-    "attr2": {}
+    "attr2": {},
+    "flavor_en": "-",
+    "source_en": "LZ",
+    "bonus_short_en": "Amplifies total weapon and skill damage by 20% to pulsed enemies."
   },
   {
     "name": "Заветный",
@@ -93,7 +105,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Habsburg Guard a.k.a. \"HG\"",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Травма\n(идеальная)"
+    "talent_ru": "Травма\n(идеальная)",
+    "flavor_en": "\"My gift to you, to protect your sacred heart.\" The Priest",
+    "source_en": "LZ only",
+    "bonus_short_en": "Applies blind to enemy hit in the head. Cooldown 20 seconds. Applies bleed to an enemy hit in the chest. Cooldown 20 seconds "
   },
   {
     "name": "Свирепое спокойствие",
@@ -115,7 +130,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/ мастерство ТЗ",
     "brand_ru": "Fenris Group AB",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Прикрытие\n(идеальное)"
+    "talent_ru": "Прикрытие\n(идеальное)",
+    "flavor_en": "\"The invention of the gun required a redefinition of courage from aggressive ferocity to calmness under fire\" - Robert L . O'Connell",
+    "source_en": "DZ",
+    "bonus_short_en": "After staying in cover for 8 seconds, increase your and all allies’ total weapon and skill damage by 14% as long as you remain in cover or in a cover-to-cover move."
   },
   {
     "name": "Серийный убийца",
@@ -137,7 +155,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Walker",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Охотник за головами\n(идеальный)"
+    "talent_ru": "Охотник за головами\n(идеальный)",
+    "flavor_en": "\"Ninety-nine bottles of beer on the wall, ninety-nine bottles of beer. Shoot one down, watch it explode, ninety-eight bottles of beer on the wall...\"\n\n- Bored True Sons Marksman",
+    "source_en": "LZ",
+    "bonus_short_en": "After killing an enemy with a headshot, your next weapon hit within 30s deals 150% of that killing blow’s damage in addition to it.\n\nDamage is capped to 800% of your weapon damage. This is raised to 1250% if your headshot damage is greater than 150%."
   },
   {
     "name": "Эталонный образец",
@@ -159,7 +180,10 @@
     "source_ru": "целевые трофеи,  именные контейнеры",
     "brand_ru": "Airaldi Holdings",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Фокус\n(идеальный)"
+    "talent_ru": "Фокус\n(идеальный)",
+    "flavor_en": "\"Only the first shot is clean. Everything after that is just messy.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Increases total weapon damage by 6% every second you are aiming while scoped 8x or higher, up to 60%."
   },
   {
     "name": "Охотник-Убийца",
@@ -173,7 +197,10 @@
       "armor"
     ],
     "attr1": {},
-    "attr2": {}
+    "attr2": {},
+    "flavor_en": "\"These guys came out of nowhere. Dressed to kill and armed to the teeth. Turns out, we were the ones they were sent to kill.\" \n- Division Agent",
+    "source_en": "Off-White cache\nthen Cassie Mendoza",
+    "bonus_short_en": "While you have bonus armour, gain 3 stacks each second up to a max of 10. Each stack increases total weapon damage by 4% to enemies within 10m.\n\nAll stacks are lost when you have no bonus armour."
   },
   {
     "name": "Хребет",
@@ -192,7 +219,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Lengmo",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Непреодолимость\n(идеальная)"
+    "talent_ru": "Непреодолимость\n(идеальная)",
+    "flavor_en": "\"Your first kill is hard. But it gets easier the more you do it.\" -The Stratagist",
+    "source_en": "\nLZ",
+    "bonus_short_en": "Killing an enemy increases total weapon damage by 7% for 15s.\nStacks up to 5.\nGrenade kills add 2 stacks."
   },
   {
     "name": "Ударный метод",
@@ -214,7 +244,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Alps Summit Armament",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Техническая поддержка\n(идеальная)"
+    "talent_ru": "Техническая поддержка\n(идеальная)",
+    "flavor_en": "\"Have you tried turning it off and on again?\"\n(note: don't turn your devices on and off. Use the Restart function to solve problems instead. They have different functions.)",
+    "source_en": "LZ",
+    "bonus_short_en": "Skill kills increase total skill damage by 25% for 27s"
   },
   {
     "name": "Стратегический вектор",
@@ -236,7 +269,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "China Light Industries Corporation",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Шок и трепет\n(идеальный)"
+    "talent_ru": "Шок и трепет\n(идеальный)",
+    "flavor_en": "\"I know this is going to look liike we're destroying everything. Don't worry about it. We don't make mistakes. Just happy accidents.\" - Bob Ross",
+    "source_en": "LZ",
+    "bonus_short_en": "Applying a status effect to an enemy increases total skill damage and repair by 20% for 27s"
   },
   {
     "name": "Жертва",
@@ -255,7 +291,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Providence Defense",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Стеклянная пушка\n(идеальная)"
+    "talent_ru": "Стеклянная пушка\n(идеальная)",
+    "flavor_en": "\"Only after everything has been given, can you expect to receive. When the vessel is empty, the soul is complete.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "All damage you deal is amplified by 30%. \nAll damage you take is amplified by 60%."
   },
   {
     "name": "Перчатки наемника",
@@ -277,7 +316,10 @@
       "Перчатки Подрядчика"
     ],
     "bonus_ru": "+8% Урон броне (Данный параметр заменяет дополнительную характеристику)",
-    "source_ru": "целевые трофеи, именные контейнеры"
+    "source_ru": "целевые трофеи, именные контейнеры",
+    "flavor_en": "\"Never met a man I couldn't break. Apply enough pressure on a small enough point, and anything cracks.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Damage to Armor"
   },
   {
     "name": "Хватка смерти",
@@ -295,7 +337,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/ мастерство ТЗ",
     "aliases_ru": [
       "Хватка Смерти"
-    ]
+    ],
+    "flavor_en": "\"Most people are white-knuckling their way through life, sterss levels off the charts. Working dead-end jobs paying off their loans, student debts and fucking lattes. \nThat shit will kill you without clarity in your life, and nothing brings clarity like hanging off the side of a mountain.\"",
+    "source_en": "DZ",
+    "bonus_short_en": "Armor on Kill"
   },
   {
     "name": "Крепкое Рукопожатие",
@@ -310,7 +355,10 @@
       "status effects": 16
     },
     "bonus_ru": "+16% Негативные эффекты (Данный параметр заменяет дополнительную характеристику)",
-    "source_ru": "целевые трофеи, именные контейнеры"
+    "source_ru": "целевые трофеи, именные контейнеры",
+    "flavor_en": "\"You can tell a lot about a person from their handshake. It's also a great pathogenic delivery system.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Extra Status effect"
   },
   {
     "name": "Материнская любовь",
@@ -328,7 +376,10 @@
     "source_ru": "Чертеж для производственной станции на 2 этапе специализации \"Механик\"",
     "aliases_ru": [
       "Материнская Любовь"
-    ]
+    ],
+    "flavor_en": "\"Life is horrible. Once you realise that, it's easier to appreciate the moments that are the exceptions. Makes it all a bit more realistic to endure.\"",
+    "source_en": "Crafted",
+    "bonus_short_en": "Skill Health"
   },
   {
     "name": "Когти веером",
@@ -350,7 +401,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/ мастерство ТЗ",
     "aliases_ru": [
       "Когти Выпущены"
-    ]
+    ],
+    "flavor_en": "\"Rip and tear!\"",
+    "source_en": "DZ",
+    "bonus_short_en": "Melee Damage + Pistol Damage"
   },
   {
     "name": "Горнило",
@@ -371,7 +425,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "aliases_ru": [
       "Кузница"
-    ]
+    ],
+    "flavor_en": "\"The space in between is where you want to be. Not the hammer. Not the anvil. You are the impact, \nthe energy, the potential. Bend or break, you will find purpose. And in purpose, there is truth.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Shield Health"
   },
   {
     "name": "Пикаро",
@@ -413,7 +470,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/ мастерство ТЗ",
     "aliases_ru": [
       "Стража Императора"
-    ]
+    ],
+    "flavor_en": "\"Fall down seven times, get up eight.\"",
+    "source_en": "DZ",
+    "bonus_short_en": "% Armor Regen"
   },
   {
     "name": "Окопная молитва",
@@ -434,7 +494,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "aliases_ru": [
       "Молитва Лиса"
-    ]
+    ],
+    "flavor_en": "\"Ever heard of an atheist in a foxhole? Me neither.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Damage to Targets Out of Cover"
   },
   {
     "name": "Кэп",
@@ -456,7 +519,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Imminence Armaments",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Лидерские качества\n(идеальный)"
+    "talent_ru": "Лидерские качества\n(идеальный)",
+    "flavor_en": "\"Get behind me.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Performing a cover to cover grants 20% of your armor as bonus armor to you and all allies for 10s. \nThis is Tripled if you end within 10m of an enemy. \n\nCooldown: 10s."
   },
   {
     "name": "Маскировщики",
@@ -477,7 +543,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "aliases_ru": [
       "Маскировка"
-    ]
+    ],
+    "flavor_en": "\"No sudden movements.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "% Reduced Threat"
   },
   {
     "name": "Ловкий трюк",
@@ -499,7 +568,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Urban Lookout",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Бронированная перезарядка\n(идеальная)"
+    "talent_ru": "Бронированная перезарядка\n(идеальная)",
+    "flavor_en": "\"I'm feeling generous.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Grants +40% bonus armor while reloading.\n\nGrants 0-30% of your armor as bonus armor to all other allies when they are reloading, based on your Blue core attribute."
   },
   {
     "name": "В яблочко",
@@ -520,7 +592,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "aliases_ru": [
       "Точное Попадание"
-    ]
+    ],
+    "flavor_en": "\"It's all in the hip.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Accuracy "
   },
   {
     "name": "Уравнитель",
@@ -539,7 +614,9 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Unit Alloys",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Тотальное уничтожение\n(идеальное)"
+    "talent_ru": "Тотальное уничтожение\n(идеальное)",
+    "source_en": "LZ",
+    "bonus_short_en": "Critical hits increase total weapon damage by 1% for 10s. Stacks up to 24 times."
   },
   {
     "name": "Залп",
@@ -557,7 +634,9 @@
     },
     "attr2": {},
     "bonus_ru": "5% Скорострельность (Данный параметр заменяет дополнительную характеристику)",
-    "source_ru": "целевые трофеи, именные контейнеры"
+    "source_ru": "целевые трофеи, именные контейнеры",
+    "source_en": "LZ",
+    "bonus_short_en": "Rate of Fire"
   },
   {
     "name": "Зарянка",
@@ -609,7 +688,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "aliases_ru": [
       "Визионарио"
-    ]
+    ],
+    "flavor_en": "\"So far be distant; and good night, sweet friend\" - A Midsummer Night's Dream",
+    "source_en": "LZ",
+    "bonus_short_en": "Extra optimal range"
   },
   {
     "name": "Вигилия",
@@ -631,7 +713,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Legatus S.p.A.",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Универсальность\n(идеальная)"
+    "talent_ru": "Универсальность\n(идеальная)",
+    "flavor_en": "\"Honor the fallen.\"  ",
+    "source_en": "LZ",
+    "bonus_short_en": "Amplifies total weapon damage for 10s when swapping between your primary and secondary weapons if they are different.\n\n45% to enemies within 15m for Shotguns and SMG's.\n45% to enemies further than 25m for Rifles and MMR's.\n20% to enemies between 15-25m for LMG's and AR's\nAt most once per 5s per weapon type."
   },
   {
     "name": "Курьер",
@@ -650,7 +735,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Habsburg Guard a.k.a. \"HG\"",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Ползучая смерть\n(идеальная)"
+    "talent_ru": "Ползучая смерть\n(идеальная)",
+    "flavor_en": "\"May this carry your soul to paradise\" -The Priest",
+    "source_en": "LZ only",
+    "bonus_short_en": "When you apply a status effect, it is also applied to all enemies within 10m of your target. \n\nCooldown: 10s"
   },
   {
     "name": "Плотник",
@@ -669,7 +757,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Lengmo",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Псих с бомбой\n(идеальный)"
+    "talent_ru": "Псих с бомбой\n(идеальный)",
+    "flavor_en": "\"The things i break stay broken.\" - The Stratagist",
+    "source_en": "LZ",
+    "bonus_short_en": "Grenade Radius is increased by 75%\nGrenade that kill an enemy are refunded.\nGrenades can now be ''cooked'' by holding the fire button, making them explode earlier.\nGain 15% bonus armor while aiming grendes"
   },
   {
     "name": "Камера сгорания",
@@ -691,7 +782,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Palisade Steelworks",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Громкая доставка\n(идеальная)"
+    "talent_ru": "Громкая доставка\n(идеальная)",
+    "flavor_en": "\"My operatives would never be left alone in the field\" - Natalya Sokolova",
+    "source_en": "LZ",
+    "bonus_short_en": "Whenever you throw a skill, 1.5 seconds after landing, it creates an explosion damaging enemies within 5m. \nAfterwards explosions will occur evey 5s.\n\nDamage scales with skill tier dealing 25-100% damage of a concussion grenade. \n\nOccurs once per skill. \n\nApplies to Remote Pulse, All Turrets, All Hives, Explosive Seeker, Cluster Seeker, Mender Seeker, Decoy, All Traps."
   },
   {
     "name": "Прокси",
@@ -710,7 +804,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Palisade Steelworks",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Защита от взлома\n(идеальная)"
+    "talent_ru": "Защита от взлома\n(идеальная)",
+    "flavor_en": "\"Hostile detected. Hostile Eliminated.\" -Alexander Ortiz",
+    "source_en": "LZ",
+    "bonus_short_en": "Enemies that walk within 3 meters of your Hive, Turret, Remote Pulse or Decoy are shocked.\n\nArm time: 2 seconds. Cooldown per Skill: 8 seconds\n"
   },
   {
     "name": "Аксель",
@@ -729,7 +826,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Shiny Monkey Gear",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Подзарядка\n(идеальная)"
+    "talent_ru": "Подзарядка\n(идеальная)",
+    "flavor_en": "\"Don't fear your instincts, Society taught you how to fail.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Using an armor kit grants +1 Skill Tier for 15s. \nIf already at Skill Tier 6, grants Overcharge. \n\nCooldown 30s. "
   },
   {
     "name": "Смазка",
@@ -747,7 +847,10 @@
     },
     "attr2": {},
     "bonus_ru": "+16% Негативные эффекты (Данный параметр заменяет дополнительную характеристику)",
-    "source_ru": "целевые трофеи, именные контейнеры"
+    "source_ru": "целевые трофеи, именные контейнеры",
+    "flavor_en": "\"I'm not in danger, you're in danger\"",
+    "source_en": "LZ",
+    "bonus_short_en": "Extra Status effect"
   },
   {
     "name": "Анри",
@@ -766,7 +869,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Electrique",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Компаньон\n(идеальный)"
+    "talent_ru": "Компаньон\n(идеальный)",
+    "flavor_en": "\"We live together, we learn together, we die together. But, first we make each other stronger.\"  Anonymous",
+    "source_en": "LZ",
+    "bonus_short_en": "While you are within 10m of an ally or skill, total weapon damage is increased by 20%"
   },
   {
     "name": "Лавуазье",
@@ -785,7 +891,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Electrique",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Гальванизация\n(идеальная)"
+    "talent_ru": "Гальванизация\n(идеальная)",
+    "flavor_en": "\"A piece of perfection, if you understand what you can do with it.\"  Anonymous",
+    "source_en": "LZ",
+    "bonus_short_en": "Applying Blind, Ensnare, Confuse, or Shock to an enemy grants 50% of your armor as bonus armor to you and all allies within 30 meters of that enemy for 10 seconds."
   },
   {
     "name": "Орлиная хватка",
@@ -803,7 +912,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "aliases_ru": [
       "Орлиная Хватка"
-    ]
+    ],
+    "flavor_en": "\"Just wait until I get my hands on them.\" \n- Saint",
+    "source_en": "LZ",
+    "bonus_short_en": "Weapon Handling"
   },
   {
     "name": "Кровавый кастет",
@@ -879,7 +991,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/мастерство ТЗ",
     "brand_ru": "Belstone Armory",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Кровосос\n(идеальный)"
+    "talent_ru": "Кровосос\n(идеальный)",
+    "flavor_en": "\"Is that oil, or blood?\" -BTSU Combat Medic",
+    "source_en": "DZ",
+    "bonus_short_en": "Killing an enemy adds and refreshes a stack of +12% bonus armor for 10s. Max stack is 10"
   },
   {
     "name": "Эрмано",
@@ -893,7 +1008,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Brazos de Arcabuz",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Разгон\n(идеальный)"
+    "talent_ru": "Разгон\n(идеальный)",
+    "flavor_en": "-",
+    "source_en": "LZ",
+    "bonus_short_en": "You and allies within 15m of your deployed skills, gain +30% reload speed and reduces active cooldowns by 0.6 each second."
   },
   {
     "name": "Поваренная книга анархиста",
@@ -907,7 +1025,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Golan gear",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Коварство\n(идеальное)"
+    "talent_ru": "Коварство\n(идеальное)",
+    "flavor_en": "\"Conley, I think you'll find some great toys in here. Try not to blow everything up while you're looking through it.\" - Aaron Keener",
+    "source_en": "LZ, DZ\nWarlords Campaign\nVivian Conley (story)",
+    "bonus_short_en": "Applying a status effect increases total weapon damage by 18% for 27s"
   },
   {
     "name": "Матадор",
@@ -921,7 +1042,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/мастерство ТЗ",
     "brand_ru": "Walker",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Всплеск адреналина\n(идеальный)"
+    "talent_ru": "Всплеск адреналина\n(идеальный)",
+    "flavor_en": "\"I used to dance with death itself, but grew tired of the performance. I think I prefer having the odds stacked against me instead.\" - The Bull",
+    "source_en": "DZ\n",
+    "bonus_short_en": "When you are within 10m of an enemy, gain 23% bonus armor for 5s. Stacks up to 3 times.\n\nCooldown: 5s"
   },
   {
     "name": "Дар",
@@ -938,7 +1062,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/мастерство ТЗ",
     "brand_ru": "Providence Defense",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Бдительность\n(идеальная)"
+    "talent_ru": "Бдительность\n(идеальная)",
+    "flavor_en": "\"Only after everything has been taken, can you learn to give. When the vessel is full, the soul is empty.\" - Unknown",
+    "source_en": "DZ",
+    "bonus_short_en": "Increases total weapon damage by 25%. \nTaking damage disables buff for 3s"
   },
   {
     "name": "Дьяволу дьяволово",
@@ -955,7 +1082,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/ мастерство ТЗ",
     "brand_ru": "Ceska Vyroba s.r.o",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Хват\n(идеальный)"
+    "talent_ru": "Хват\n(идеальный)",
+    "flavor_en": "When he comes calling\nIt's best not be stalling\nOr you might find yourself falling\nDown, down, down below\n- Inscription inside the pack",
+    "source_en": "DZ",
+    "bonus_short_en": "When you are below 20% armor, critical hits repair 2.5% of missing armour. \nOn kill, critical hits repair 2.5% of missing armor for 4 seconds.\nLowest possible repair is 0% armour\n\nEach red core attribute adds 1 second to the time.\nMaximum is 10 seconds."
   },
   {
     "name": "Батарейный блок",
@@ -972,7 +1102,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Empress International",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Расчетливость\n(идеальная)"
+    "talent_ru": "Расчетливость\n(идеальная)",
+    "flavor_en": "-",
+    "source_en": "LZ",
+    "bonus_short_en": "Kills from cover reduce skill cooldowns by 15%."
   },
   {
     "name": "Подстава",
@@ -989,7 +1122,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Uzina Getica",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Оппортунизм\n(идеальный)"
+    "talent_ru": "Оппортунизм\n(идеальный)",
+    "flavor_en": "-",
+    "source_en": "LZ",
+    "bonus_short_en": " Enemies you hit with shotguns and marksman rifles amplifies the damage they take by 15% from all sources for 5s."
   },
   {
     "name": "Умножитель силы",
@@ -1006,7 +1142,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Hana-U Corporation",
     "gear_type_ru": "Рюкзак",
-    "talent_ru": "Тактическое взаимодействие\n(идеальное)"
+    "talent_ru": "Тактическое взаимодействие\n(идеальное)",
+    "flavor_en": "\"You've got to think about force multipliers in this line of work. You don't always have backup, so make use of what's available.\" - SHD Training Guide",
+    "source_en": "LZ",
+    "bonus_short_en": "Shooting an enemy increases total skill damage by 30% for 3s. "
   },
   {
     "name": "Новогодняя доставка",
@@ -1021,7 +1160,10 @@
     "source_ru": "Зимние проекты 2023 и с новогоднего Хапуги",
     "aliases_ru": [
       "Праздничная доставка"
-    ]
+    ],
+    "flavor_en": "\"You get fireworks, and you get fireworks. Everybody gets fireworks!\"",
+    "source_en": "Special Event Hoarder",
+    "bonus_short_en": "Concussion grenades become Festive Grenades.\n\nHitting an enemy with a Festive Grenade will cause explosions to happen around two other enemies within 20m. 10m in pvp \n\n*Dealing 15% damage in PVP"
   },
   {
     "name": "Повседневный рюкзак",
@@ -1038,7 +1180,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Belstone Armory",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Эффективность\n(идеальная)"
+    "talent_ru": "Эффективность\n(идеальная)",
+    "flavor_en": "\"What's in my everyday carry? As many armour plates as I can fit\" \n\n- Agent Sanders",
+    "source_en": "LZ",
+    "bonus_short_en": "Using an armor kit has a 75% chance to not consume the armor kit. Specialization armor kit bonuses are increased by 100%.\n\nRequires 10 seconds to arm talent"
   },
   {
     "name": "Ключевая фигура",
@@ -1055,7 +1200,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Gila Guard",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Авангард\n(идеальный)"
+    "talent_ru": "Авангард\n(идеальный)",
+    "flavor_en": "\"Knuckles, Ron, you're with me.  Duchess, you're on point. Here, take this. Maybe it'll save yer ass.\" \n- James Dragov",
+    "source_en": "LZ\nWarlords Campaign\nJames Dragov (story)",
+    "bonus_short_en": "Deploying a shield makes it invulnerable for 5s and grants 50% of your armor as bonus armor to all other allies for 20s. \n\nCooldown: 25s"
   },
   {
     "name": "Жилет Vedmedytsya",
@@ -1072,7 +1220,10 @@
     "source_ru": "чертеж для производственной станции за 2 этап спец. \"Пулеметчик\"",
     "brand_ru": "Petrov Defense Group",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Стойкость\n(идеальная)"
+    "talent_ru": "Стойкость\n(идеальная)",
+    "flavor_en": "Brace yourself. Stand firm against the tide of history.",
+    "source_en": "Crafted",
+    "bonus_short_en": "While in cover weapon handling is increased by +50%"
   },
   {
     "name": "Без проблем",
@@ -1089,7 +1240,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Badger Tuff",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Несокрушимость\n(идеальная)"
+    "talent_ru": "Несокрушимость\n(идеальная)",
+    "flavor_en": "\"Behold! The field in which I grow my fucks. Lay thine eyes upon it and see that it is barren.\"",
+    "source_en": "LZ",
+    "bonus_short_en": "When your armor is depleted, repair 100% of your armor. \nCooldown: 55s"
   },
   {
     "name": "Вынос двери",
@@ -1106,7 +1260,10 @@
     "source_ru": "Тёмная зона, контейнеры именные/мастерство ТЗ",
     "brand_ru": "Grupo Sombra S.A.",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Искра\n(идеальная)"
+    "talent_ru": "Искра\n(идеальная)",
+    "flavor_en": "\"Just drop your seeker and let it go. Don't let the bang trip you up. You've got to prepare for the shock.\" - SHD Training Guide",
+    "source_en": "DZ",
+    "bonus_short_en": "Damaging an enemy with a skill increases total weapon damage by 18% for 20 seconds."
   },
   {
     "name": "Защита цезаря",
@@ -1123,7 +1280,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Empress International",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Мастер\n(идеальный)"
+    "talent_ru": "Мастер\n(идеальный)",
+    "flavor_en": "-",
+    "source_en": "LZ",
+    "bonus_short_en": "Skill kills have a 30% chance to reset skill cooldowns"
   },
   {
     "name": "Бобёр",
@@ -1137,7 +1297,10 @@
     "source_ru": "целевые трофеи, именные контейнеры",
     "brand_ru": "Zwiadowka Sp. z o.o.",
     "gear_type_ru": "Бронежилет",
-    "talent_ru": "Укрепленная позиция\n(идеальная)"
+    "talent_ru": "Укрепленная позиция\n(идеальная)",
+    "flavor_en": "\"No way they can get me in this.\" - Diesel",
+    "source_en": "LZ",
+    "bonus_short_en": "If you are below 30% Armor, headshots from cover repair 30% of your armor. Cooldown 2 seconds."
   },
   {
     "name": "Склад боеприпасов",
@@ -1155,7 +1318,10 @@
     "source_ru": "Чертеж для производственной станции на 2 этапе специализации \"Огнеметчик\"",
     "aliases_ru": [
       "Боеприпас"
-    ]
+    ],
+    "flavor_en": "\"Whaddya mean yer outta ammo? Dig around in that mess you call a holster and find something to shove in your gun and shoot!\" \n- True Sons platoon leader",
+    "source_en": "Crafted",
+    "bonus_short_en": "Ammo Capacity"
   },
   {
     "name": "Сумка Акосты",
@@ -1371,7 +1537,10 @@
     "core": [],
     "attr1": {},
     "attr2": {},
-    "_added_from_ru_bonus": true
+    "_added_from_ru_bonus": true,
+    "flavor_en": "\"Revenge is a dish best served cold.\"- Someone who remembers you",
+    "source_en": "Special Event Hoarder",
+    "bonus_short_en": "Has 2 Mod Slots and only 1 Minor Stat"
   },
   {
     "name": "Снежная машина",
@@ -1386,7 +1555,10 @@
     "core": [],
     "attr1": {},
     "attr2": {},
-    "_added_from_ru_bonus": true
+    "_added_from_ru_bonus": true,
+    "flavor_en": "\"Like our friends down under, if we want snow on Christmas we have to make it ourselves\"",
+    "source_en": "Special Event Hoarder",
+    "bonus_short_en": "status effects apply snowfall to target"
   },
   {
     "name": "Сумятица",
@@ -1401,6 +1573,9 @@
     "core": [],
     "attr1": {},
     "attr2": {},
-    "_added_from_ru_bonus": true
+    "_added_from_ru_bonus": true,
+    "flavor_en": "Never let them know your next move.",
+    "source_en": "Limited time April Fools event.",
+    "bonus_short_en": "When dealing Weapon Damage to an enemy, 50% of the damage will be dealt to another enemy within 30m instead. When there are no enemies nearby, deal damage normally. Does not apply to Armor Plates"
   }
 ]
