@@ -1,6 +1,25 @@
 // Language state — must be declared before render() runs (TDZ fix)
 var currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem("d2calc_lang")) || "ru";
 
+const STAT_RU = {
+  "weapon damage":"Урон оружия","armor":"Броня","skill tier":"Уровень скиллов",
+  "damage to armor":"Урон по броне","damage to health":"Урон по здоровью",
+  "headshot damage":"Урон в голову","crit chance":"Шанс крит. попадания",
+  "crit damage":"Урон крит. попадания","rate of fire":"Скорострельность",
+  "weapon handling":"Управление оружием","reload speed":"Скорость перезарядки",
+  "magazine size":"Ёмкость магазина","accuracy":"Точность","stability":"Стабильность",
+  "optimal range":"Оптимальная дистанция","armor on kill":"Броня за убийство",
+  "armor regeneration":"Восстан. брони","health on kill":"HP за убийство",
+  "status effects":"Эффекты состояний","hazard protection":"Защита от опасностей",
+  "skill haste":"Ускорение скиллов","skill duration":"Длительность скиллов",
+  "skill health":"HP скиллов","skill damage":"Урон скиллов",
+  "scanner pulse haste":"Ускорение сканирования","pulse haste":"Ускорение пульса",
+  "pistol damage":"Урон пистолетов","assault rifle damage":"Урон винтовок",
+  "smg damage":"Урон ПП","rifle damage":"Урон винтовок","mmr damage":"Урон снайперок",
+  "lmg damage":"Урон пулемётов","shotgun damage":"Урон дробовиков",
+};
+function translateStat(s){if(!s)return s;return STAT_RU[s.toLowerCase()]||s;}
+
 // ===== GEAR SETS =====
 const G = D2DATA.G;
 
@@ -143,6 +162,10 @@ function render(){
                 const displaySub=isEn?n.name:(n.en||"");
                 h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
                 if(n.brand)h+=`<div class="info">${L("Бренд","Brand")}: ${H(n.brand)}</div>`;
+                const coreVal=Array.isArray(n.core)?n.core[0]:n.core;
+                if(coreVal)h+=`<div class="info" style="color:#ff9800">${L("Осн. реквизит","Core")}: ${H(translateStat(coreVal))}</div>`;
+                if(n.attr1){const a1=Object.entries(n.attr1).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", ");if(a1)h+=`<div class="info" style="color:#4caf50">${L("Атр.1","Attr.1")}: ${H(a1)}</div>`;}
+                if(n.attr2){const a2=Object.entries(n.attr2).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", ");if(a2)h+=`<div class="info" style="color:#4caf50">${L("Атр.2","Attr.2")}: ${H(a2)}</div>`;}
                 h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
                 h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
             });h+='</div>';
@@ -504,7 +527,7 @@ function initBuildSlots(){
   // Populate weapon talent select
   const talSel=document.getElementById("b-wpn-tal");
   if(talSel){
-    talSel.innerHTML=Object.entries(WEAPON_TALENTS).map(([k,v])=>`<option value="${k}">${v.name}</option>`).join("");
+    talSel.innerHTML='<option value="none">— нет —</option>'+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=v.name_ru?`${v.name_ru} (${v.name_en})`:v.name_en;return`<option value="${k}">${label}</option>`}).join("");
     talSel.value=selectedWpnTalent;
   }
   // Populate Prototype Augment selects
@@ -525,9 +548,9 @@ function initBuildSlots(){
 
 function onWpnTalentChange(){
   selectedWpnTalent=document.getElementById("b-wpn-tal").value;
-  const t=WEAPON_TALENTS[selectedWpnTalent];
+  const t=WEAPON_TALENTS_FULL[selectedWpnTalent];
   const desc=document.getElementById("b-wpn-tal-desc");
-  if(desc)desc.textContent=t?.bonus?.note||"";
+  if(desc)desc.textContent=t?.desc_ru||t?.desc_en||"";
   calcBuild();
 }
 
@@ -554,7 +577,7 @@ function applyBuildState(s){
   if(!s)return;
   // Weapon
   if(s.wpn&&WPNS[s.wpn]){selectedWpnId=s.wpn;updateWpnBtn()}
-  if(s.wpnTal&&WEAPON_TALENTS[s.wpnTal]){
+  if(s.wpnTal&&(s.wpnTal==="none"||WEAPON_TALENTS_FULL[s.wpnTal])){
     selectedWpnTalent=s.wpnTal;
     const el=document.getElementById("b-wpn-tal");if(el)el.value=s.wpnTal;
   }
@@ -733,9 +756,8 @@ function debouncedCommReload(){
 function initCommTalentFilter(){
   const sel=document.getElementById("comm-talent-filter");
   if(!sel||sel.options.length>1)return;
-  Object.entries(WEAPON_TALENTS)
-    .filter(([k])=>k!=="none")
-    .map(([k,v])=>({key:k,name:v.name}))
+  Object.entries(WEAPON_TALENTS_FULL)
+    .map(([k,v])=>({key:k,name:v.name_ru?`${v.name_ru} (${v.name_en})`:v.name_en}))
     .sort((a,b)=>a.name.localeCompare(b.name))
     .forEach(t=>{
       const opt=document.createElement("option");
@@ -1376,6 +1398,7 @@ const PROTOTYPE_AUGMENTS = D2DATA.PROTOTYPE_AUGMENTS;
 
 // Weapon 4th-roll talents (generic, rolls on any weapon — not exotic/named talents)
 const WEAPON_TALENTS = D2DATA.WEAPON_TALENTS;
+const WEAPON_TALENTS_FULL = D2DATA.WEAPON_TALENTS_FULL;
 
 // Currently selected weapon (by id from WPNS)
 let selectedWpnId="police_m4";
@@ -1726,9 +1749,12 @@ function calcBuild(){
   }
 
   // Weapon 4th-roll talent (applies on top of base/exotic/named)
-  const wtDef=WEAPON_TALENTS[selectedWpnTalent];
-  if(wtDef&&wtDef.bonus){
-    const tb=wtDef.bonus;
+  const wtFull=WEAPON_TALENTS_FULL[selectedWpnTalent];
+  const wtOld=WEAPON_TALENTS[selectedWpnTalent];
+  const wtBonus=(wtFull?.bonus&&Object.keys(wtFull.bonus).length>0)?wtFull.bonus:wtOld?.bonus??null;
+  const wtName=wtFull?(wtFull.name_ru?`${wtFull.name_ru} (${wtFull.name_en})`:wtFull.name_en):wtOld?.name||"";
+  if(wtBonus){
+    const tb=wtBonus;
     const isCond=tb.conditional;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
@@ -1745,7 +1771,7 @@ function calcBuild(){
     });
     if(tb.reload)tRELOAD+=tb.reload;
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
-    bonuses.push({color:"#f5a623",tier:"🎯",nm:"Талант: "+wtDef.name,desc:mathStr+(isCond?" (условно — только пик)":"")+(tb.note?" · "+tb.note:"")});
+    bonuses.push({color:"#f5a623",tier:"🎯",nm:"Талант: "+wtName,desc:mathStr+(isCond?" (условно — только пик)":"")+(tb.note?" · "+tb.note:"")});
   }
 
   // Named weapon talent (if any) — applies same way as named armor
