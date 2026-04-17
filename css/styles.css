@@ -316,3 +316,11 @@ mark{background:rgba(245,166,35,.3);color:var(--text);border-radius:2px;padding:
   #b-top-nums .rtn-avg .rtn-val{font-size:19px}
   #b-top-nums .rtn-peak .rtn-val{font-size:24px}
 }
+
+/* Community card slot tags */
+.cc-slots{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 8px}
+.cc-slot-tag{font-size:10px;padding:2px 8px;border-radius:10px;border:1px solid;line-height:1.5;white-space:nowrap}
+.cc-slot-tag.set{background:rgba(0,200,83,.08);border-color:rgba(0,200,83,.3);color:var(--green)}
+.cc-slot-tag.brand{background:rgba(66,165,245,.08);border-color:rgba(66,165,245,.3);color:var(--blue)}
+.cc-slot-tag.named{background:rgba(171,71,188,.1);border-color:rgba(171,71,188,.3);color:var(--named)}
+.cc-slot-tag.exotic{background:rgba(255,171,64,.1);border-color:rgba(255,171,64,.35);color:#ffab40}

@@ -1321,10 +1321,50 @@ function isAdmin(){return !!localStorage.getItem("d2calc_admin_token")}
 function getMyBuilds(){
   try{return new Set(JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]"))}catch(e){return new Set()}
 }
+function renderCardSlotTags(b){
+  if(!b.build_hash)return"";
+  const dec=b._decoded||(b._decoded=decodeBuildHash(b.build_hash));
+  if(!dec||!dec.slots)return"";
+  const order=["mask","chest","bp","gloves","holster","knees"];
+  const groups={};
+  for(const slot of order){
+    const s=dec.slots[slot];
+    if(!s||!s.n)continue;
+    let key,short;
+    const k=s.k;
+    if(k==="green"){
+      short=s.n.split(/\s*[—–\-]\s*/)[0].replace(/^Боевое снаряжение\s+/,"").trim();
+      key="set:"+short;
+    }else if(k==="brand"){
+      short=s.n;
+      key="brand:"+short;
+    }else if(k==="named"){
+      short=s.n;
+      key="named:"+slot+":"+short;
+    }else if(k==="exotic"){
+      short=s.n;
+      key="exotic:"+slot+":"+short;
+    }else continue;
+    if(!groups[key])groups[key]={kind:k,short,count:0};
+    groups[key].count++;
+  }
+  const list=Object.values(groups);
+  if(!list.length)return"";
+  list.sort((a,b)=>b.count-a.count);
+  const tags=list.map(g=>{
+    const cls=g.kind==="exotic"?"exotic":(g.kind==="named"?"named":(g.kind==="brand"?"brand":"set"));
+    const icon=g.kind==="exotic"?"🧿 ":(g.kind==="named"?"✦ ":"");
+    const count=g.count>1?` ×${g.count}`:"";
+    return`<span class="cc-slot-tag ${cls}">${icon}${escapeHtml(g.short)}${count}</span>`;
+  }).join("");
+  return`<div class="cc-slots">${tags}</div>`;
+}
+
 function renderBuildCard(b,isLiked,showTrend){
   const weapon=b.weapon_name?`<div class="cc-weapon">🔫 <b>${escapeHtml(b.weapon_name)}</b></div>`:"";
   const dps=b.peak_dps?`<div class="cc-dps">Пик DPS: <b>${Math.round(b.peak_dps/1000)}k</b></div>`:`<div class="cc-dps"></div>`;
   const desc=b.description?`<div class="cc-desc">${escapeHtml(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">— без описания —</div>`;
+  const slotsTags=renderCardSlotTags(b);
   const adminBtn=isAdmin()?`<button class="cc-like" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.4);color:var(--red)" onclick="adminDeleteBuild('${b.id}')" title="Удалить (админ)">🗑</button>`:"";
   const mine=getMyBuilds().has(b.id);
   const myBadge=mine?`<span class="cc-cat" style="background:rgba(0,200,83,.12);color:var(--green);border-color:rgba(0,200,83,.3)">МОЙ</span>`:"";
@@ -1342,6 +1382,7 @@ function renderBuildCard(b,isLiked,showTrend){
       <span class="cc-time">· ${fmtAgo(b.created)}</span>
     </div>
     ${weapon}
+    ${slotsTags}
     ${desc}
     <div class="cc-footer">
       ${dps}
