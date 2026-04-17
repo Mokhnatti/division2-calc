@@ -1812,10 +1812,11 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   const oocM=1+ooc/100;
   const dtaM=1+dta/100;
   const ampM=1+(globalThis._buildAmp||0)/100;
+  const expM=1+(globalThis._buildExpertise||0)/100;
   // Sustained DPS (с циклом перезарядки)
-  const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*effSPS;
+  const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*effSPS;
   // Burst DPS (как игра на манекене — без учёта reload)
-  const burstDps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*sps_f;
+  const burstDps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*sps_f;
   return{dps,burstDps,wdMult,critAvg,hsM,rpm_f,mag_f,stkRows};
 }
 
@@ -2228,7 +2229,9 @@ function calcBuild(){
   const mROF=parseFloat(document.getElementById("b-rof")?.value)||0;
   const mMAG=parseFloat(document.getElementById("b-mag")?.value)||0;
   const mAMP=parseFloat(document.getElementById("b-amp")?.value)||0;
+  const mEXP=parseFloat(document.getElementById("b-expertise")?.value)||0;
   globalThis._buildAmp=mAMP;
+  globalThis._buildExpertise=mEXP;
   const catBonusMap={
     AR:parseFloat(document.getElementById("b-wd-ar")?.value)||0,
     SMG:parseFloat(document.getElementById("b-wd-smg")?.value)||0,
@@ -2449,14 +2452,19 @@ function calcBuild(){
   const baseDPS=rows[0].dps;
   const maxDPS=peak.dps;
   // Обновим "Общий урон" в инфо-баре оружия: БАЗА (без peak-стаков) + ПИК (со стаками)
+  // Сверка с меню игры: без экспертизы/ампа (как показывает карточка оружия в игре)
   const baseDmg=Math.round(wpn.dmg*(1+tWD/100));
   const peakWD=tWD+(tPeakOnly.wd||0);
   const peakDmg=Math.round(wpn.dmg*(1+peakWD/100));
+  // С экспертизой и ампом — реальный урон в бою
+  const realDmg=Math.round(baseDmg*(1+mEXP/100)*(1+mAMP/100));
   const totalDmgEl=document.getElementById("b-wpn-total-dmg");
   if(totalDmgEl){
     const hasPeak=peakWD>tWD;
-    totalDmgEl.innerHTML=`Базовый урон: <b>${baseDmg.toLocaleString("ru")}</b> <span style="color:var(--muted);font-size:10px">(+${tWD}% WD)</span>`+
-      (hasPeak?` · Пик: <b style="color:var(--orange)">${peakDmg.toLocaleString("ru")}</b> <span style="color:#f5a623;font-size:10px">(+${peakWD}% со стаками)</span>`:"");
+    const hasExpAmp=mEXP>0||mAMP>0;
+    totalDmgEl.innerHTML=`<div style="font-size:11px">В игре карточка: <b>${baseDmg.toLocaleString("ru")}</b> <span style="color:var(--muted);font-size:10px">(+${tWD}% WD, БЕЗ экспертизы/ампа)</span></div>`+
+      (hasExpAmp?`<div style="font-size:11px;margin-top:2px">Реальный per-shot: <b style="color:var(--green)">${realDmg.toLocaleString("ru")}</b> <span style="color:var(--muted);font-size:10px">(+${mEXP}% exp × +${mAMP}% amp)</span></div>`:"")+
+      (hasPeak?`<div style="font-size:11px;margin-top:2px">Пик со стаками: <b style="color:var(--orange)">${peakDmg.toLocaleString("ru")}</b> <span style="color:#f5a623;font-size:10px">(+${peakWD}% WD)</span></div>`:"");
   }
   // Simpson-ish average over 10s window (sustained fight)
   const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tt).dps);
