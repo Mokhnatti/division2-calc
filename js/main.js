@@ -1781,6 +1781,27 @@ function calcBuild(){
   // Aggregate bonuses
   let tWD=0,tROF=0,tMAG=0,tCHC=0,tCHD=0,tHSD=0,tRELOAD=0;
   const bonuses=[];const activeStacks=[];
+  // Единый список гарантированных (авто) статов: {stat, value, source, conditional?}
+  const guaranteed=[];
+  const pushG=(stat,value,source,conditional)=>{
+    if(!stat||!value)return;
+    guaranteed.push({stat,value,source,conditional:!!conditional});
+  };
+  const pushGObj=(b,source,wpnCat)=>{
+    if(!b||typeof b!=="object")return;
+    if(b.rof)pushG("rof",b.rof,source);
+    if(b.mag)pushG("mag",b.mag,source);
+    if(b.chc)pushG("chc",b.chc,source);
+    if(b.chd)pushG("chd",b.chd,source);
+    if(b.hsd)pushG("hsd",b.hsd,source);
+    if(b.wd)pushG("wd",b.wd,source);
+    if(b.reload)pushG("reload",b.reload,source);
+    if(b.handling)pushG("handling",b.handling,source);
+    if(b.type_dmg){
+      const match=!b.type||b.type==="ALL"||b.type.split("+").some(t=>wpnCat&&wpnCat.includes(t));
+      if(match)pushG("wd",b.type_dmg,source+" ("+(b.type||"")+")");
+    }
+  };
 
   for(const[nm,count] of Object.entries(cnt)){
     const def=SB[nm];if(!def)continue;
@@ -1802,6 +1823,7 @@ function calcBuild(){
           const match=!b.type||b.type.split("+").some(t=>wpn.cat.includes(t));
           if(match)tWD+=b.type_dmg;
         }
+        pushGObj(b,`${nm} (${tier}pc)`,wpn.cat);
         const noteExtra=(tier===4&&def.p4_note)?` — ${def.p4_note}`:"";
         bonuses.push({color:def.color,tier,nm,desc:bonusDesc(b,wpn.cat)+noteExtra});
       }else if(typeof b==="string"&&b!=="stacks"){
@@ -1855,6 +1877,7 @@ function calcBuild(){
         const match=!b.type||b.type.split("+").some(t=>wpn.cat===catMap[t]||wpn.cat.includes(t));
         if(match)tWD+=b.type_dmg;
       }
+      pushGObj(b,`${brandName} ${i+1}pc`,wpn.cat);
       bonuses.push({color:"#42a5f5",tier:i+1,nm:brandName,desc:"бренд "+(i+1)+"шт: "+(Object.entries(b).filter(([k])=>k!=="type").map(([k,v])=>`+${v}% ${k}`).join(" · ")||"—")});
     }
   }
@@ -1866,46 +1889,64 @@ function calcBuild(){
   const gOtherStats={}; // прочие атрибуты (hazard protection и т.п.) — для отображения
   const coreMode=(document.getElementById("b-core-mode")?.value)||"red";
   const SLOT_LIST=["mask","chest","bp","gloves","holster","knees"];
+  const SLOT_LABELS_RU={mask:"Маска",chest:"Нагрудник",bp:"Рюкзак",gloves:"Перчатки",holster:"Кобура",knees:"Наколенники"};
   const CORE_KEY_TO_STAT={red:"weapon damage",blue:"armor",yellow:"skill tier"};
-  function applyCoreStat(coreVal){
+  function applyCoreStat(coreVal,source){
     const cv=Array.isArray(coreVal)?coreVal[0]:coreVal;
-    if(cv==="weapon damage")gWD+=15;
-    else if(cv==="armor")gARMOR+=16594;
-    else if(cv==="skill tier")gSKILL+=1;
+    if(cv==="weapon damage"){gWD+=15; pushG("wd",15,source);}
+    else if(cv==="armor"){gARMOR+=16594; pushG("armor",16594,source);}
+    else if(cv==="skill tier"){gSKILL+=1; pushG("skill",1,source);}
   }
-  function applyAttr(attrs){
+  function mapAttrKey(rawK){
+    const key=rawK.toLowerCase();
+    if(key.includes("weapon damage"))return "wd";
+    if(key.includes("critical hit chance")||key==="crit chance"||key.includes("crit chance"))return "chc";
+    if(key.includes("critical hit damage")||key==="crit damage"||key.includes("crit damage"))return "chd";
+    if(key.includes("headshot damage"))return "hsd";
+    if(key.includes("damage to armor"))return "dta";
+    if(key.includes("damage out of cover")||key.includes("out of cover"))return "ooc";
+    if(key.includes("rate of fire"))return "rof";
+    if(key.includes("mag size")||key.includes("magazine"))return "mag";
+    if(key.includes("reload"))return "reload";
+    return null;
+  }
+  function applyAttr(attrs,source){
     if(!attrs||typeof attrs!=="object")return;
     for(const[rawK,v] of Object.entries(attrs)){
       if(typeof v!=="number")continue;
-      const key=rawK.toLowerCase();
-      if(key.includes("weapon damage"))gWD+=v;
-      else if(key.includes("critical hit chance")||key==="crit chance"||key.includes("crit chance"))gCHC+=v;
-      else if(key.includes("critical hit damage")||key==="crit damage"||key.includes("crit damage"))gCHD+=v;
-      else if(key.includes("headshot damage"))gHSD+=v;
-      else if(key.includes("damage to armor"))gDTA+=v;
-      else if(key.includes("damage out of cover")||key.includes("out of cover"))gOOC+=v;
-      else if(key.includes("rate of fire"))gROF+=v;
-      else if(key.includes("mag size")||key.includes("magazine"))gMAG+=v;
-      else if(key.includes("reload"))gRELOAD+=v;
+      const stat=mapAttrKey(rawK);
+      if(stat==="wd"){gWD+=v; pushG("wd",v,source);}
+      else if(stat==="chc"){gCHC+=v; pushG("chc",v,source);}
+      else if(stat==="chd"){gCHD+=v; pushG("chd",v,source);}
+      else if(stat==="hsd"){gHSD+=v; pushG("hsd",v,source);}
+      else if(stat==="dta"){gDTA+=v; pushG("dta",v,source);}
+      else if(stat==="ooc"){gOOC+=v; pushG("ooc",v,source);}
+      else if(stat==="rof"){gROF+=v; pushG("rof",v,source);}
+      else if(stat==="mag"){gMAG+=v; pushG("mag",v,source);}
+      else if(stat==="reload"){gRELOAD+=v; pushG("reload",v,source);}
       else {
-        gOtherStats[key]=(gOtherStats[key]||0)+v;
+        const k=rawK.toLowerCase();
+        gOtherStats[k]=(gOtherStats[k]||0)+v;
+        pushG("other:"+k,v,source);
       }
     }
   }
   for(const slot of SLOT_LIST){
     const it=slotState[slot];
+    const slotRu=SLOT_LABELS_RU[slot]||slot;
     if(it&&it.core){
-      applyCoreStat(it.core);
+      applyCoreStat(it.core,`Core (${slotRu})`);
     }else{
       let key=coreMode;
       if(coreMode==="custom"){
         key=(document.getElementById("b-core-"+slot)?.value)||"red";
       }
-      applyCoreStat(CORE_KEY_TO_STAT[key]);
+      applyCoreStat(CORE_KEY_TO_STAT[key],`Core ${slotRu} (${key})`);
     }
     if(it){
-      applyAttr(it.attr1);
-      applyAttr(it.attr2);
+      const itemName=it.name||it.setName||it.brand||slotRu;
+      applyAttr(it.attr1,`Attr1 ${slotRu} · ${itemName}`);
+      applyAttr(it.attr2,`Attr2 ${slotRu} · ${itemName}`);
     }
   }
   // Итог: добавляем к общим totals (до DPS-расчёта)
@@ -1913,46 +1954,13 @@ function calcBuild(){
   tROF+=gROF; tMAG+=gMAG; tRELOAD+=gRELOAD;
   // OoC / DtA — ручные поля-модификаторы, зальём напрямую ниже через mOOC/mDTA.
 
-  // Рендер "Гарантированные статы"
-  const gSect=document.getElementById("b-guaranteed-sect");
-  const gGrid=document.getElementById("b-guaranteed-grid");
-  if(gSect&&gGrid){
-    const items=[];
-    if(gWD)items.push({icon:"⚔️",label:"Урон оружия",val:gWD,unit:"%",color:"#ef5350"});
-    if(gCHC)items.push({icon:"💥",label:"Шанс крита",val:gCHC,unit:"%",color:"#f5a623"});
-    if(gCHD)items.push({icon:"💢",label:"Урон крита",val:gCHD,unit:"%",color:"#f5a623"});
-    if(gHSD)items.push({icon:"🎯",label:"Урон в голову",val:gHSD,unit:"%",color:"#ff7043"});
-    if(gDTA)items.push({icon:"🛡",label:"Урон по броне",val:gDTA,unit:"%",color:"#42a5f5"});
-    if(gOOC)items.push({icon:"🚶",label:"Вне укрытия",val:gOOC,unit:"%",color:"#fdd835"});
-    if(gROF)items.push({icon:"🔥",label:"Скорострельность",val:gROF,unit:"%",color:"#ef5350"});
-    if(gMAG)items.push({icon:"📦",label:"Ёмкость магазина",val:gMAG,unit:"%",color:"#42a5f5"});
-    if(gRELOAD)items.push({icon:"♻️",label:"Перезарядка",val:gRELOAD,unit:"%",color:"#00c853"});
-    if(gARMOR)items.push({icon:"🛡",label:"Броня",val:gARMOR.toLocaleString("ru"),unit:"",color:"#42a5f5"});
-    if(gSKILL)items.push({icon:"🧪",label:"Skill Tier",val:"+"+gSKILL,unit:"",color:"#fdd835"});
-    for(const[k,v] of Object.entries(gOtherStats)){
-      const ru=(typeof translateStat==="function"?translateStat(k):k);
-      items.push({icon:"•",label:ru,val:v,unit:"%",color:"#888"});
-    }
-    if(items.length){
-      gSect.style.display="block";
-      gGrid.innerHTML=items.map(x=>
-        `<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(0,0,0,.15);border-radius:3px;font-size:11px">
-          <span style="font-size:14px">${x.icon}</span>
-          <span style="color:var(--muted);flex:1">${x.label}</span>
-          <span style="color:${x.color};font-weight:700">${typeof x.val==="number"?"+"+x.val:x.val}${x.unit}</span>
-        </div>`
-      ).join("");
-    }else{
-      gSect.style.display="none";
-    }
-  }
-
   // Named item talents (parsed, non-conditional applied as static base)
   let tPeakOnly={wd:0,chc:0,chd:0,hsd:0,rof:0,mag:0};
   for(const ni of namedItems){
     const tb=ni.item.talentBonus;
     if(!tb){bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+" — "+(ni.item.talentDesc||"")});continue}
     const isCond=tb.conditional;
+    const niSrc=`Именной: ${ni.item.name}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -1963,10 +1971,11 @@ function calcBuild(){
           if(k==="hsd")tHSD+=tb[k];
           if(k==="rof")tROF+=tb[k];
           if(k==="mag")tMAG+=tb[k];
+          pushG(k,tb[k],niSrc);
         }
       }
     });
-    if(tb.reload)tRELOAD+=tb.reload;
+    if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,niSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
     bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
@@ -1979,6 +1988,7 @@ function calcBuild(){
   if(wtBonus){
     const tb=wtBonus;
     const isCond=tb.conditional;
+    const wtSrc=`Талант оружия: ${wtName}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -1989,10 +1999,11 @@ function calcBuild(){
           if(k==="hsd")tHSD+=tb[k];
           if(k==="rof")tROF+=tb[k];
           if(k==="mag")tMAG+=tb[k];
+          pushG(k,tb[k],wtSrc);
         }
       }
     });
-    if(tb.reload)tRELOAD+=tb.reload;
+    if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,wtSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
     bonuses.push({color:"#f5a623",tier:"🎯",nm:"Талант: "+wtName,desc:mathStr+(isCond?" (условно — только пик)":"")+(tb.note?" · "+tb.note:"")});
   }
@@ -2001,6 +2012,7 @@ function calcBuild(){
   if(wpn.kind==="named"&&wpn.named_bonus){
     const tb=wpn.named_bonus;
     const isCond=tb.conditional;
+    const nwSrc=`Оружие: ${wpn.name}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -2011,10 +2023,11 @@ function calcBuild(){
           if(k==="hsd")tHSD+=tb[k];
           if(k==="rof")tROF+=tb[k];
           if(k==="mag")tMAG+=tb[k];
+          pushG(k,tb[k],nwSrc);
         }
       }
     });
-    if(tb.reload)tRELOAD+=tb.reload;
+    if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,nwSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
     bonuses.push({color:"#ab47bc",tier:"🔫",nm:"Оружие: "+wpn.name,desc:(wpn.tal||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
@@ -2059,12 +2072,22 @@ function calcBuild(){
   // SHD Watch (additive into respective buckets)
   const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
   tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo; tRELOAD+=shd.reload;
+  if(shd.wd)pushG("wd",shd.wd,"SHD Watch");
+  if(shd.hsd)pushG("hsd",shd.hsd,"SHD Watch");
+  if(shd.chc)pushG("chc",shd.chc,"SHD Watch");
+  if(shd.chd)pushG("chd",shd.chd,"SHD Watch");
+  if(shd.ammo)pushG("mag",shd.ammo,"SHD Watch");
+  if(shd.reload)pushG("reload",shd.reload,"SHD Watch");
   if(Object.values(shd).some(x=>x>0)){
     bonuses.push({color:"#42a5f5",tier:"⌚",nm:"SHD Watch",desc:Object.entries(shd).filter(([,x])=>x).map(([k,x])=>`+${x}% ${k}`).join(" · ")});
   }
   // Prototype Gear Attributes (Y8S1) — additive into buckets
   const proto={slots:v("proto-slots-count"),wd:v("proto-wd"),hsd:v("proto-hsd"),chc:v("proto-chc"),chd:v("proto-chd"),elite:v("proto-elite"),health:v("proto-health")};
   tWD+=proto.wd; tHSD+=proto.hsd; tCHC+=proto.chc; tCHD+=proto.chd;
+  if(proto.wd)pushG("wd",proto.wd,"Prototype Gear");
+  if(proto.hsd)pushG("hsd",proto.hsd,"Prototype Gear");
+  if(proto.chc)pushG("chc",proto.chc,"Prototype Gear");
+  if(proto.chd)pushG("chd",proto.chd,"Prototype Gear");
   // elite/health damage are conditional on enemy type, store separately for note
   const protoSum=proto.wd+proto.hsd+proto.chc+proto.chd+proto.elite+proto.health;
   if(protoSum>0||proto.slots>0){
@@ -2081,6 +2104,8 @@ function calcBuild(){
   // Recombinator (Y8S1 seasonal modifiers) — only Offense HSD/Ammo go into weapon DPS
   const rc={hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")};
   tHSD+=rc.hsd; tMAG+=rc.ammo;
+  if(rc.hsd)pushG("hsd",rc.hsd,"Рекомбинатор: Offense");
+  if(rc.ammo)pushG("mag",rc.ammo,"Рекомбинатор: Offense");
   const rcOff=rc.hsd+rc.ammo+rc.ergo;
   const rcDef=rc.armor+rc.elite+rc.hazprot;
   const rcUtl=rc.status+rc.skilldmg+rc.util3;
@@ -2113,9 +2138,11 @@ function calcBuild(){
     if(key==="echo"){
       // Chance to deal damage twice = +value% WD multiplicatively
       tWD+=value;
+      pushG("wd",value,`Prototype Augment: ${aug.name}`);
     }else if(key==="paradox"){
       // Mag refill chance — approximated as +mag% (sustained DPS proxy)
       tMAG+=value*3; // rough conversion
+      pushG("mag",value*3,`Prototype Augment: ${aug.name}`);
     }
     // Other augments don't directly affect weapon DPS
   }
@@ -2126,6 +2153,64 @@ function calcBuild(){
   }else{
     const descEl=document.getElementById("proto-desc");
     if(descEl)descEl.innerHTML="";
+  }
+
+  // ===== Рендер "Гарантированные статы" =====
+  // Единый блок со всеми авто-бонусами (сеты/бренды/именные/таланты/core/attr/SHD/прототип/рекомбинатор).
+  {
+    const gSect=document.getElementById("b-guaranteed-sect");
+    const gGrid=document.getElementById("b-guaranteed-grid");
+    if(gSect&&gGrid){
+      const statMeta={
+        wd:{icon:"⚔️",label:"Урон оружия",unit:"%"},
+        chc:{icon:"💥",label:"Шанс крита",unit:"%"},
+        chd:{icon:"💢",label:"Урон крита",unit:"%"},
+        hsd:{icon:"🎯",label:"Урон в голову",unit:"%"},
+        dta:{icon:"🛡",label:"Урон по броне",unit:"%"},
+        ooc:{icon:"🚶",label:"Вне укрытия",unit:"%"},
+        rof:{icon:"🔥",label:"Скорострельность",unit:"%"},
+        mag:{icon:"📦",label:"Ёмкость магазина",unit:"%"},
+        reload:{icon:"♻️",label:"Перезарядка",unit:"%"},
+        handling:{icon:"🎯",label:"Управление",unit:"%"},
+        armor:{icon:"🛡",label:"Броня",unit:""},
+        skill:{icon:"⚡",label:"Ур. навыка",unit:""},
+      };
+      const statOrder=["wd","chc","chd","hsd","dta","ooc","rof","mag","reload","handling","armor","skill"];
+      const groupedG={};
+      for(const g of guaranteed){
+        if(!groupedG[g.stat])groupedG[g.stat]=[];
+        groupedG[g.stat].push(g);
+      }
+      const keys=Object.keys(groupedG).sort((a,b)=>{
+        const ia=statOrder.indexOf(a),ib=statOrder.indexOf(b);
+        if(ia===-1&&ib===-1)return a.localeCompare(b);
+        if(ia===-1)return 1;
+        if(ib===-1)return -1;
+        return ia-ib;
+      });
+      const escH=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      const html=keys.map(stat=>{
+        const list=groupedG[stat];
+        const meta=statMeta[stat]||{icon:"•",label:stat.startsWith("other:")?(typeof translateStat==="function"?translateStat(stat.slice(6)):stat.slice(6)):stat,unit:"%"};
+        const total=list.reduce((s,x)=>s+x.value,0);
+        const breakdown=list.map(x=>`${x.value>0?"+":""}${x.value}${meta.unit||""} (${escH(x.source)})`).join(", ");
+        const totalStr=(stat==="armor")?total.toLocaleString("ru"):((total>0?"+":"")+total);
+        return `
+          <div class="g-row" style="padding:6px 8px;background:rgba(0,200,83,.04);border-radius:5px;margin-bottom:4px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span>${meta.icon} <b>${meta.label}</b></span>
+              <b style="color:var(--green);font-size:14px">${totalStr}${meta.unit||""}</b>
+            </div>
+            <div style="font-size:10px;color:var(--muted);margin-top:2px;line-height:1.3">${breakdown}</div>
+          </div>`;
+      }).join("");
+      if(html){
+        gSect.style.display="block";
+        gGrid.innerHTML=html;
+      }else{
+        gSect.style.display="none";
+      }
+    }
   }
 
   // Render bonuses
