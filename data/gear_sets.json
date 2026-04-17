@@ -1,0 +1,418 @@
+[
+  {
+    "name": "Боевое снаряжение Страйкера",
+    "en": "Striker's Battlegear",
+    "type": "red",
+    "bonuses": [
+      "2шт: +15% Управление оружием",
+      "3шт: +15% Скорострельность",
+      "4шт: Попадания +0.65% урона оружием, макс. 100 стаков"
+    ],
+    "chest": "Давление преимуществ — макс. 200 стаков",
+    "bp": "Управление рисками — урон за стак 1%",
+    "chest_talent_en": "Risk Management",
+    "bp_talent_en": "Press the Advantage",
+    "perfect_chest_talent_en": "Press the Advantage",
+    "perfect_bp_talent_en": "Risk Management"
+  },
+  {
+    "name": "Разбиватель сердец",
+    "en": "Heartbreaker",
+    "type": "red",
+    "bonuses": [
+      "2шт: +15% Урон штурмовых винтовок & +15% Урон пулемётов",
+      "3шт: +15% Управление оружием",
+      "4шт: Хедшот метит врага. Попадания по меченому: +1% брони и +1% урона, макс. 50"
+    ],
+    "chest": "Макс. BPM — макс. стаков 100",
+    "bp": "Хладнокровный — бонусная броня 2%/стак",
+    "chest_talent_en": "Max BPM",
+    "bp_talent_en": "Cold",
+    "perfect_chest_talent_en": "Max BPM",
+    "perfect_bp_talent_en": "Cold"
+  },
+  {
+    "name": "Инициатива Умбра",
+    "en": "Umbra Initiative",
+    "type": "red",
+    "bonuses": [
+      "2шт: +15% Шанс крит. удара",
+      "3шт: +30% Скорость перезарядки",
+      "4шт: В укрытии: +1% крит. урон и +0.3% скорострельность/стак (до 50). Вне укрытия: 0.8% брони/стак"
+    ],
+    "chest": "Из тени — макс. 100, темп 20/сек",
+    "bp": "На свет — макс. 100",
+    "chest_talent_en": "Umbra Protocol",
+    "bp_talent_en": "Umbra Surge",
+    "perfect_chest_talent_en": "From the Shadows",
+    "perfect_bp_talent_en": "Into the Light"
+  },
+  {
+    "name": "Ярость охотника",
+    "en": "Hunter's Fury",
+    "type": "red",
+    "bonuses": [
+      "2шт: +15% Урон дробовиков & +15% Урон пистолетов-пулемётов",
+      "3шт: +20% Броня за убийство & +50% Здоровье за убийство",
+      "4шт: Враги в 15м +20% урона. Убийство дезориентирует в 5м, +5% урона 10с (макс. 5)"
+    ],
+    "chest": "Бесконечный голод — длительность 30с",
+    "bp": "Сокрушительная сила — радиус 10м",
+    "chest_talent_en": "Hivemind",
+    "bp_talent_en": "Smart Cooperation",
+    "perfect_chest_talent_en": "Endless Hunger",
+    "perfect_bp_talent_en": "Overwhelming Force"
+  },
+  {
+    "name": "Дилемма переговорщика",
+    "en": "Negotiator's Dilemma",
+    "type": "red",
+    "bonuses": [
+      "2шт: +15% Шанс крит. удара",
+      "3шт: +20% Урон крит. удара",
+      "4шт: Криты метят (до 3). Крит по меченому 60% урона остальным"
+    ],
+    "chest": "Богатство целей — меток 5",
+    "bp": "Критические меры — урон 100%",
+    "chest_talent_en": "Parabellum Rounds",
+    "bp_talent_en": "Trauma Specialist",
+    "perfect_chest_talent_en": "Target Rich Environment",
+    "perfect_bp_talent_en": "Critical Measures"
+  },
+  {
+    "name": "Горячий выстрел",
+    "en": "Hotshot",
+    "type": "red",
+    "bonuses": [
+      "2шт: +30% Урон снайперских винтовок & +30% Управление оружием",
+      "3шт: +30% Урон в голову",
+      "4шт: 1-й хедшот +20%, 2-й +10% брони, 3-й перезаряжает. С 4-го — все вместе"
+    ],
+    "chest": "Дерзкий — бонусная броня 100%",
+    "bp": "Благословлённый — пропуск 1 хедшота",
+    "chest_talent_en": "Endless Hunger",
+    "bp_talent_en": "Overwhelming Force",
+    "perfect_chest_talent_en": "Stand Tall",
+    "perfect_bp_talent_en": "Lucky"
+  },
+  {
+    "name": "Текущая директива",
+    "en": "Ongoing Directive",
+    "type": "red",
+    "bonuses": [
+      "2шт: +15% Эффекты статусов",
+      "3шт: +30% Скорость перезарядки",
+      "4шт: Убийство меченого = магазин разрывных (+20% урон, кровотечение)"
+    ],
+    "chest": "Патроны Парабеллум — +35%",
+    "bp": "Специалист по травмам — кровотечение +50%/+100%",
+    "chest_talent_en": "Hollow-Point Ammo",
+    "bp_talent_en": "Tactical Superiority",
+    "perfect_chest_talent_en": "Parabellum Rounds",
+    "perfect_bp_talent_en": "Trauma Specialist"
+  },
+  {
+    "name": "Истинный патриот",
+    "en": "True Patriot",
+    "type": "red",
+    "bonuses": [
+      "2шт: +30% Ёмкость боезапаса",
+      "3шт: +30% Размер магазина",
+      "4шт: Дебаффы 2с — Кр: +8% урон, Бел: +2% лечение, Син: -8% урон. Флаг=взрыв"
+    ],
+    "chest": "Развевая флаг — 1.5с",
+    "bp": "Патриотический буст — 12%/3%",
+    "chest_talent_en": "Waving the Flag",
+    "bp_talent_en": "Stars and Stripes",
+    "perfect_chest_talent_en": "Waving the Flag",
+    "perfect_bp_talent_en": "Patriotic Boost"
+  },
+  {
+    "name": "Тузы и восьмёрки",
+    "en": "Aces & Eights",
+    "type": "red",
+    "bonuses": [
+      "2шт: +15% Урон снайперских винтовок",
+      "3шт: +30% Урон в голову",
+      "4шт: Попадания → карты, после 5 — выстрел +30%"
+    ],
+    "chest": "Без ограничений — 50%",
+    "bp": "Туз в рукаве — +1 выстрел",
+    "chest_talent_en": "Aces High",
+    "bp_talent_en": "Dead Man's Hand",
+    "perfect_chest_talent_en": "No Limit",
+    "perfect_bp_talent_en": "Ace in the Sleeve"
+  },
+  {
+    "name": "Остриё копья",
+    "en": "Tip of the Spear",
+    "type": "red",
+    "bonuses": [
+      "2шт: +20% Урон фирменного оружия",
+      "3шт: +10% Урон оружием",
+      "4шт: Убийство фирменным +15% 10с, патроны каждые 60с"
+    ],
+    "chest": "Спец. разрушение — 30%, 3-е убийство=патрон",
+    "bp": "Фирменные приёмы — +50% урон 15с",
+    "chest_talent_en": "Sustainability",
+    "bp_talent_en": "Snowball",
+    "perfect_chest_talent_en": "Specialized Destruction",
+    "perfect_bp_talent_en": "Signature Moves"
+  },
+  {
+    "name": "Точка разрыва",
+    "en": "Breaking Point",
+    "type": "red",
+    "bonuses": [
+      "2шт: +25% Урон винтовок & снайперских винтовок",
+      "3шт: +30% Урон в голову & +15% Управление оружием",
+      "4шт: Попадания → стаки, перезарядка → +2% управления и +2% урона 10с"
+    ],
+    "chest": "Точка невозврата — 15с",
+    "bp": "Точка чести — 3%/стак",
+    "chest_talent_en": "Point of no Return",
+    "bp_talent_en": "Point of Honor",
+    "perfect_chest_talent_en": "Point of Honor",
+    "perfect_bp_talent_en": "Point of no Return"
+  },
+  {
+    "name": "Виртуоз",
+    "en": "Virtuoso",
+    "type": "red",
+    "bonuses": [
+      "2шт: +15% Управление оружием & +15% Размер магазина",
+      "3шт: +15% Урон оружием",
+      "4шт: Убийство далеко → бонус ближнему и наоборот. 4 стака = x1.5"
+    ],
+    "chest": "Фортиссимо — x2 бонусы",
+    "bp": "Ускоряясь — 3 стака",
+    "chest_talent_en": "Fortissimo",
+    "bp_talent_en": "Accelerando",
+    "perfect_chest_talent_en": "Fortissimo",
+    "perfect_bp_talent_en": "Accelerando"
+  },
+  {
+    "name": "Переломный момент",
+    "en": "Tipping Scales",
+    "type": "red",
+    "bonuses": [
+      "2шт: +30% Размер магазина",
+      "3шт: +30% Урон пулемётов",
+      "4шт: Стрельба → стаки до 50: +0.5% управления и +4% крит. урон/стак"
+    ],
+    "chest": "Устойчивость — макс. 75",
+    "bp": "Снежный ком — 7%/стак",
+    "chest_talent_en": "Scales of Justice",
+    "bp_talent_en": "Sustainability",
+    "perfect_chest_talent_en": "Sustainability",
+    "perfect_bp_talent_en": "Snowball"
+  },
+  {
+    "name": "Сосредоточенная компания",
+    "en": "Concentrated Company",
+    "type": "red",
+    "bonuses": [
+      "2шт: +10% Урон оружием",
+      "3шт: +30% Управление оружием",
+      "4шт: Смерть меченого +3% урон +2% крит/участника (макс. 35)"
+    ],
+    "chest": "Все за одного — 8 меток",
+    "bp": "Один за всех — 5%/стак",
+    "chest_talent_en": "All for One",
+    "bp_talent_en": "One for All",
+    "perfect_chest_talent_en": "One for All",
+    "perfect_bp_talent_en": "All for One"
+  },
+  {
+    "name": "Оплот оружейни",
+    "en": "Foundry Bulwark",
+    "type": "blue",
+    "bonuses": [
+      "2шт: +10% Общая броня",
+      "3шт: +1% Регенерация брони & +50% Здоровье щита",
+      "4шт: 25% урона восстанавливается за 10с"
+    ],
+    "chest": "Улучшенные материалы — 35%",
+    "bp": "Тех. процесс — 5с",
+    "chest_talent_en": "Makeshift Repairs",
+    "bp_talent_en": "Armor Overflow",
+    "perfect_chest_talent_en": "Process Refinery",
+    "perfect_bp_talent_en": "Improved Materials"
+  },
+  {
+    "name": "Системное повреждение",
+    "en": "System Corruption",
+    "type": "blue",
+    "bonuses": [
+      "2шт: +15% Броня за убийство",
+      "3шт: +40% Сопр. подавлению & пульсу",
+      "4шт: Аптечки → способность: +20% брони, +50% бонусной, скрытие 5с (кд 20с)"
+    ],
+    "chest": "Оптимизация — кд 15с",
+    "bp": "Многопоточность — 100% брони",
+    "chest_talent_en": "Specialized Destruction",
+    "bp_talent_en": "Signature Moves",
+    "perfect_chest_talent_en": "Multithreaded Execution",
+    "perfect_bp_talent_en": "Compiler Optimization"
+  },
+  {
+    "name": "Эгида",
+    "en": "Aegis",
+    "type": "blue",
+    "bonuses": [
+      "2шт: +70% Здоровье",
+      "3шт: +15% Общая броня",
+      "4шт: +3% сопротивления/атакующий враг (множитель группы)"
+    ],
+    "chest": "Обман — двойник считается",
+    "bp": "Полиэтилен — 4%/враг",
+    "chest_talent_en": "Bulwark Protocol",
+    "bp_talent_en": "Shield Surge",
+    "perfect_chest_talent_en": "Polyethylene Plating",
+    "perfect_bp_talent_en": "Deceit"
+  },
+  {
+    "name": "Кавалерист",
+    "en": "Cavalier",
+    "type": "blue",
+    "bonuses": [
+      "2шт: +30% Защита от опасностей",
+      "3шт: +40% Навыки лечения",
+      "4шт: Вне укрытия: -5% урона/сек (макс. 50%). Полный: иммунитет + союзникам"
+    ],
+    "chest": "Сверхзарядка — 70%",
+    "bp": "Безопасная — 10%/сек",
+    "chest_talent_en": "Overcharging",
+    "bp_talent_en": "Safe Charging",
+    "perfect_chest_talent_en": "Overcharging",
+    "perfect_bp_talent_en": "Safe Charging"
+  },
+  {
+    "name": "Такелажник",
+    "en": "Rigger",
+    "type": "yellow",
+    "bonuses": [
+      "2шт: +15% Ускорение навыков",
+      "3шт: +15% Длительность навыков",
+      "4шт: Взаимодействие с навыком +25% урона 10с"
+    ],
+    "chest": "Лучшие друзья — 50%",
+    "bp": "Полное время — отмена сбрасывает кд",
+    "chest_talent_en": "Press the Advantage",
+    "bp_talent_en": "Risk Management",
+    "perfect_chest_talent_en": "Best Buds",
+    "perfect_bp_talent_en": "Complete Uptime"
+  },
+  {
+    "name": "Протокол Затмения",
+    "en": "Eclipse Protocol",
+    "type": "yellow",
+    "bonuses": [
+      "2шт: +15% Эффекты статусов",
+      "3шт: +15% Ускорение навыков & +30% Защита от опасностей",
+      "4шт: Убийство → статус на врагов в 10м (50%)"
+    ],
+    "chest": "Распространение — 15м, 75%",
+    "bp": "Усилитель — +30% урон по статусу",
+    "chest_talent_en": "Proliferation",
+    "bp_talent_en": "Symptom Aggravator",
+    "perfect_chest_talent_en": "Proliferation",
+    "perfect_bp_talent_en": "Symptom Aggravator"
+  },
+  {
+    "name": "Будущая инициатива",
+    "en": "Future Initiative",
+    "type": "yellow",
+    "bonuses": [
+      "2шт: +30% Навыки лечения",
+      "3шт: +15% Ускорение навыков & +30% Длительность навыков",
+      "4шт: Полная броня → команда +15% урон"
+    ],
+    "chest": "Тактическое превосходство — 25%",
+    "bp": "Стратегическая поддержка — 120%",
+    "chest_talent_en": "Tactical Superiority",
+    "bp_talent_en": "Advanced Combat Tactics",
+    "perfect_chest_talent_en": "Tactical Superiority",
+    "perfect_bp_talent_en": "Advanced Combat Tactics"
+  },
+  {
+    "name": "Жёсткая проводка",
+    "en": "Hard Wired",
+    "type": "yellow",
+    "bonuses": [
+      "2шт: +15% Ускорение навыков",
+      "3шт: +15% Урон навыков & +30% Навыки лечения",
+      "4шт: Навык сокращает кд другого на 30с, +10% урон/лечение 20с (раз в 20с)"
+    ],
+    "chest": "Положительное подкрепление — 25%",
+    "bp": "Короткое замыкание — кд 10с",
+    "chest_talent_en": "Overcharge",
+    "bp_talent_en": "Feedback Loop",
+    "perfect_chest_talent_en": "Positive Reinforcement",
+    "perfect_bp_talent_en": "Short Circuit"
+  },
+  {
+    "name": "Ортис: Экзуро",
+    "en": "Ortiz: Exuro",
+    "type": "yellow",
+    "bonuses": [
+      "2шт: +20% Длительность горения & +15% Здоровье навыка",
+      "3шт: +40% Урон от горения",
+      "4шт: Башенка-огнемёт 360°, иммунитет, взрыв"
+    ],
+    "chest": "Цепное возгорание — 2м",
+    "bp": "Тепловой удар — +25% урон/дальность",
+    "chest_talent_en": "Chain Combustion",
+    "bp_talent_en": "Heatstroke",
+    "perfect_chest_talent_en": "Chain Combustion",
+    "perfect_bp_talent_en": "Heatstroke"
+  },
+  {
+    "name": "Переработка",
+    "en": "Refactor",
+    "type": "yellow",
+    "bonuses": [
+      "2шт: +15% Эффекты статусов",
+      "3шт: +25% Урон навыков",
+      "4шт: Лечение 10% урона навыков (вам), 20% (союзникам)"
+    ],
+    "chest": "Повышенный интерес — 25%/35%",
+    "bp": "Сверхтехнологичный — лечение → броня 80%",
+    "chest_talent_en": "Best Buds",
+    "bp_talent_en": "Complete Uptime",
+    "perfect_chest_talent_en": "Increased Interest",
+    "perfect_bp_talent_en": "Over-engineered"
+  },
+  {
+    "name": "Взвешенная сборка",
+    "en": "Measured Assembly",
+    "type": "yellow",
+    "bonuses": [
+      "2шт: +15% Ускорение навыков",
+      "3шт: +60% Навыки лечения & +40% Сопр. взрывам",
+      "4шт: +1 ур. навыка/союзник в зоне. 6-й → Перегрузка 15с"
+    ],
+    "chest": "Разум улья — кд 25с",
+    "bp": "Умное сотрудничество — кд 1с",
+    "chest_talent_en": "Target Rich Environment",
+    "bp_talent_en": "Critical Measures",
+    "perfect_chest_talent_en": "Hivemind",
+    "perfect_bp_talent_en": "Smart Cooperation"
+  },
+  {
+    "name": "Стержневая сила",
+    "en": "Core Strength",
+    "type": "mixed",
+    "bonuses": [
+      "2шт: +10% Управление оружием",
+      "3шт: +5% Урон / +5% Броня / +5% Эффективность навыков",
+      "4шт: Атрибут даёт 40% от двух других. Случайные ядра"
+    ],
+    "chest": "Внутреннее ядро — 75%",
+    "bp": "Внешнее ядро — 3 атрибута",
+    "chest_talent_en": null,
+    "bp_talent_en": null,
+    "perfect_chest_talent_en": null,
+    "perfect_bp_talent_en": null
+  }
+]
