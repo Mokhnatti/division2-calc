@@ -1,22 +1,90 @@
 {
   "trapper_max": {
-    "message_id": 6393,
+    "message_id": 6417,
     "status": "pending"
   },
-  "shd_chd": {
-    "message_id": 6394,
+  "shd_chd_max": {
+    "message_id": 6418,
     "status": "pending"
   },
-  "shd_hsd": {
-    "message_id": 6395,
+  "shd_hsd_max": {
+    "message_id": 6419,
+    "status": "pending"
+  },
+  "shd_wd_max": {
+    "message_id": 6420,
+    "status": "pending"
+  },
+  "shd_chc_max": {
+    "message_id": 6421,
     "status": "pending"
   },
   "escalation_t10_hp": {
-    "message_id": 6396,
+    "message_id": 6422,
     "status": "pending"
   },
   "weapon_dmg_cap": {
-    "message_id": 6397,
+    "message_id": 6423,
+    "status": "pending"
+  },
+  "chc_soft_cap": {
+    "message_id": 6424,
+    "status": "pending"
+  },
+  "base_crit_dmg": {
+    "message_id": 6425,
+    "status": "pending"
+  },
+  "dmg_the_sleigher": {
+    "message_id": 6426,
+    "status": "pending"
+  },
+  "dmg_oh_carol": {
+    "message_id": 6427,
+    "status": "pending"
+  },
+  "dmg_black_friday": {
+    "message_id": 6428,
+    "status": "pending"
+  },
+  "dmg_the_stinger": {
+    "message_id": 6429,
+    "status": "pending"
+  },
+  "dmg_acr_ss": {
+    "message_id": 6430,
+    "status": "pending"
+  },
+  "dmg_shield_splinterer": {
+    "message_id": 6431,
+    "status": "pending"
+  },
+  "dmg_froth": {
+    "message_id": 6432,
+    "status": "pending"
+  },
+  "dmg_big_show": {
+    "message_id": 6433,
+    "status": "pending"
+  },
+  "dmg_maxim_9": {
+    "message_id": 6434,
+    "status": "pending"
+  },
+  "dmg_p320_xcompact": {
+    "message_id": 6435,
+    "status": "pending"
+  },
+  "dmg_goalie": {
+    "message_id": 6436,
+    "status": "pending"
+  },
+  "dmg_diceros_special": {
+    "message_id": 6437,
+    "status": "pending"
+  },
+  "dmg_firestarter": {
+    "message_id": 6438,
     "status": "pending"
   }
 }
