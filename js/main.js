@@ -240,6 +240,11 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
     btn.addEventListener("click",()=>{
         document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
         btn.classList.add("active");activeCat=btn.dataset.cat;
+        // pushState routing
+        const _urlMap={community:'/',build:'/build',dps:'/dps',meta:'/top',all:'/all',gear:'/sets',brand:'/brands',exotic:'/exotics',named:'/named-items',wmods:'/weapon-mods',smods:'/skill-mods',expertise:'/expertise',help:'/help'};
+        const _titleMap={community:'Сообщество',build:'Билд-конструктор',dps:'DPS Калькулятор',meta:'Топ билдов',all:'База данных',gear:'Комплекты',brand:'Бренды',exotic:'Экзотики',named:'Именные предметы',wmods:'Моды оружия',smods:'Моды навыков',expertise:'Экспертиза',help:'Справка'};
+        history.pushState({cat:activeCat},'',_urlMap[activeCat]||'/');
+        document.title=(_titleMap[activeCat]||'Division 2')+' · divcalc.xyz';
         // toggle panels
         const isCalc = activeCat==="dps";
         const isMeta = activeCat==="meta";
