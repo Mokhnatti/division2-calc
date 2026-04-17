@@ -166,8 +166,10 @@ function render(){
                 if(coreVal)h+=`<div class="info" style="color:#ff9800">${L("Осн. реквизит","Core")}: ${H(translateStat(coreVal))}</div>`;
                 if(n.attr1){const a1=Object.entries(n.attr1).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", ");if(a1)h+=`<div class="info" style="color:#4caf50">${L("Атр.1","Attr.1")}: ${H(a1)}</div>`;}
                 if(n.attr2){const a2=Object.entries(n.attr2).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", ");if(a2)h+=`<div class="info" style="color:#4caf50">${L("Атр.2","Attr.2")}: ${H(a2)}</div>`;}
-                h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
-                h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
+                if(n.bonus_ru)h+=`<div class="info" style="color:#ff9800;font-weight:600">${L("Бонус","Bonus")}: ${H(n.bonus_ru)}</div>`;
+                if(tal)h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
+                if(d)h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div>`;
+                h+=`</div>`;
             });h+='</div>';
         });
     }
