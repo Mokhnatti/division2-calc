@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /data_sources/
+Disallow: /scripts/
+Disallow: /*.bak
+
+Sitemap: https://divcalc.xyz/sitemap.xml
