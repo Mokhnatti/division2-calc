@@ -7,7 +7,11 @@
     "penalty_en": null,
     "source_en": "from perks",
     "value": "+50%",
-    "stat": "Optimal Range"
+    "stat": "Optimal Range",
+    "name_ru": "Прицел Acog (4x)",
+    "bonus_ru": "+50% оптимальная дальность",
+    "source_ru": "из льгот",
+    "stat_ru": "Оптимальный диапазон"
   },
   {
     "name_en": "552 Holo Sight",
@@ -17,7 +21,12 @@
     "penalty_en": null,
     "source_en": "Judiciary Square side mission: Police Headquarters (talk to Odessa Sawyer in Story)",
     "value": "+30%",
-    "stat": "Accuracy"
+    "stat": "Accuracy",
+    "name_ru": "552 Голозрение",
+    "bonus_ru": "+30% Точность\nНет масштабирования",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "source_ru": "Побочная миссия на Судебной площади: Главное управление полиции (поговорите с Одессой Сойер в сюжете)",
+    "stat_ru": "Точность"
   },
   {
     "name_en": "C79 Scope (3.4x)",
@@ -27,7 +36,12 @@
     "penalty_en": null,
     "source_en": "Constitution Hall side mission: Missing Scavengers (talk to NPCs in open world hidden safe zone)",
     "value": "+5%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Прицел C79 (3,4x)",
+    "bonus_ru": "+5% шанс критического удара\nДополнительный зум",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "source_ru": "Побочная миссия Зала Конституции: Пропавшие мусорщики (поговорите с NPC в скрытой безопасной зоне открытого мира)",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "CQBSS Scope (8x)",
@@ -37,7 +51,13 @@
     "penalty_en": null,
     "source_en": "East Mall side mission: DC-62 Lab Quarantine",
     "value": "+30%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "Прицел CQBSS (8x)",
+    "bonus_ru": "+30% урона от выстрела в голову\nПринудительное масштабирование",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Оптика",
+    "source_ru": "Побочная миссия Восточного торгового центра: Карантин лаборатории DC-62.",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "VX1 Scope  (12x)",
@@ -47,7 +67,14 @@
     "penalty_en": "-10% Reload Speed",
     "source_en": "Available by default",
     "value": "+35%",
-    "stat": "Headshot damage"
+    "stat": "Headshot damage",
+    "name_ru": "Прицел VX1 (12x)",
+    "bonus_ru": "+35% урона от выстрела в голову\nПринудительное масштабирование",
+    "penalty_ru": "-10% Скорость перезарядки",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Оптика",
+    "source_ru": "Доступно по умолчанию",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "Digital Scope",
@@ -57,7 +84,14 @@
     "penalty_en": "-5% Critical Hit Damage",
     "source_en": "Sharpshooter specialiation perk",
     "value": "+45%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "Цифровой прицел",
+    "bonus_ru": "+45% урона от выстрела в голову\nПринудительное масштабирование\nВкладка для переключения второго масштаба",
+    "penalty_ru": "-5% урона от критического удара",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Оптика",
+    "source_ru": "Перк специализации «Снайпер»",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "GR9 Built-in scope (8x)",
@@ -67,7 +101,13 @@
     "penalty_en": null,
     "source_en": "GR9 only",
     "value": "+5%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "GR9 Встроенный прицел (8x)",
+    "bonus_ru": "+5% шанс критического удара",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Оптика",
+    "source_ru": "только GR9",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Small RDS Scope",
@@ -77,7 +117,14 @@
     "penalty_en": "-20% Accuracy",
     "source_en": "Campus project: outfit rescue team",
     "value": "+50%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Небольшой объем RDS",
+    "bonus_ru": "+50% Стабильность",
+    "penalty_ru": "-20% Точность",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Оптика",
+    "source_ru": "Проект кампуса: экипировка спасательной команды",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "T2 Micro Red Dot Sight",
@@ -87,7 +134,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+30%",
-    "stat": "Accuracy"
+    "stat": "Accuracy",
+    "name_ru": "Прицел T2 Micro Red Dot",
+    "bonus_ru": "+30% Точность",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Длинная/короткая направляющая для оптики",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Точность"
   },
   {
     "name_en": "Russian Red dot Sight",
@@ -97,7 +150,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Русский коллиматорный прицел",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Длинная/короткая направляющая для оптики",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "EXPS3 Holo Sight",
@@ -107,7 +166,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "EXPS3 голографический прицел",
+    "bonus_ru": "+10% урона от выстрела в голову",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Длинная/короткая направляющая для оптики",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "PRO Red Dot Sight",
@@ -117,7 +182,13 @@
     "penalty_en": null,
     "source_en": "Constitution Hall side mission: Outcast Work Camp",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "ПРО красный коллиматорный прицел",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Длинная/короткая направляющая для оптики",
+    "source_ru": "Побочная миссия Зала Конституции: Рабочий лагерь изгоев",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Reflex Sight",
@@ -127,7 +198,13 @@
     "penalty_en": null,
     "source_en": "Theatre Project: Water Pipeline Construction",
     "value": "+12%",
-    "stat": "Weapon Handling"
+    "stat": "Weapon Handling",
+    "name_ru": "Рефлекторное зрение",
+    "bonus_ru": "+12% Обращение с оружием",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Длинная/короткая направляющая для оптики",
+    "source_ru": "Театральный проект: Строительство водопровода",
+    "stat_ru": "Обращение с оружием"
   },
   {
     "name_en": "Rugged Mini Reflex Sight",
@@ -137,7 +214,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+5%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Прочный мини-коллиматорный прицел",
+    "bonus_ru": "+5% шанс критического удара",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Длинная/короткая/микрооптическая направляющая",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Low Reflex Sight",
@@ -147,7 +230,14 @@
     "penalty_en": "-25% Optimal Range",
     "source_en": "Foggy Bottom side mission: Columbia Plaza Broadcast",
     "value": "+15%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "Низкорефлекторное зрение",
+    "bonus_ru": "+15% урона от выстрела в голову",
+    "penalty_ru": "-25% Оптимальный диапазон",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Короткая/микрооптическая направляющая",
+    "source_ru": "Побочная миссия «Туманное дно»: Трансляция Columbia Plaza",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "Open Iron Sights",
@@ -157,7 +247,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+30%",
-    "stat": "Accuracy"
+    "stat": "Accuracy",
+    "name_ru": "Открытые прицелы",
+    "bonus_ru": "+30% Точность",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Слот для железных прицелов",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Точность"
   },
   {
     "name_en": "Streamlined Iron Sights",
@@ -167,7 +263,13 @@
     "penalty_en": null,
     "source_en": "Theatre Project: Outfit Hunting Party",
     "value": "+14%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Оптимизированные прицельные приспособления",
+    "bonus_ru": "+14% Скорость перезарядки",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Слот для железных прицелов",
+    "source_ru": "Театральный проект: Вечеринка по охоте за нарядами",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Weighted Iron Sights",
@@ -177,7 +279,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Взвешенные прицелы",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "ОПТИКА РЕЙКА",
+    "slot_ru": "Слот для железных прицелов",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Counter-Clockwise Tubular Spring",
@@ -187,7 +295,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+5%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "Трубчатая пружина против часовой стрелки",
+    "bonus_ru": "+5% урона от выстрела в голову",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Трубчатый слот для журналов",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "Hard Tubular Spring",
@@ -197,7 +311,13 @@
     "penalty_en": null,
     "source_en": "Southwest side mission: SHD Tech Beacon",
     "value": "+5%",
-    "stat": "Rate of Fire"
+    "stat": "Rate of Fire",
+    "name_ru": "Жесткая трубчатая пружина",
+    "bonus_ru": "+5% к скорострельности",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Трубчатый слот для журналов",
+    "source_ru": "Юго-западная миссия: Технический маяк Спецотряда.",
+    "stat_ru": "Скорострельность"
   },
   {
     "name_en": "Flexible tubular Spring",
@@ -207,7 +327,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Гибкая трубчатая пружина",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Трубчатый слот для журналов",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Non-Disruptive Link",
@@ -217,7 +343,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Ненарушающая связь",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для ремня с боеприпасами",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Nimble Link Belt",
@@ -227,7 +359,13 @@
     "penalty_en": null,
     "source_en": "Foggy Bottom side mission: Navy Hill Transmission",
     "value": "+5%",
-    "stat": "Rate of Fire"
+    "stat": "Rate of Fire",
+    "name_ru": "Ремень «Проворный звено»",
+    "bonus_ru": "+5% к скорострельности",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для ремня с боеприпасами",
+    "source_ru": "Побочная миссия «Туманное дно»: Передача Navy Hill.",
+    "stat_ru": "Скорострельность"
   },
   {
     "name_en": "Tactical Small Pouch",
@@ -237,7 +375,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Тактическая маленькая сумка",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для ремня с боеприпасами",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Large Pouch",
@@ -247,7 +391,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+35",
-    "stat": "rounds"
+    "stat": "rounds",
+    "name_ru": "Большая сумка",
+    "bonus_ru": "+35 раундов",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для ремня с боеприпасами",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "раунды"
   },
   {
     "name_en": "Large Pouch (Gunner mag)",
@@ -257,7 +407,13 @@
     "penalty_en": null,
     "source_en": "Gunner specialisation perk",
     "value": "+50",
-    "stat": "rounds"
+    "stat": "rounds",
+    "name_ru": "Большой подсумок (магазин Gunner)",
+    "bonus_ru": "+50 раундов",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для ремня с боеприпасами",
+    "source_ru": "Бонус за специализацию «Стрелок»",
+    "stat_ru": "раунды"
   },
   {
     "name_en": "Calibrated Link",
@@ -267,7 +423,13 @@
     "penalty_en": null,
     "source_en": "East Mall side mission: Missing Curators",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Калиброванная ссылка",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для ремня с боеприпасами",
+    "source_ru": "Побочная миссия East Mall: Пропавшие кураторы",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Underbalanced Integrated Spring",
@@ -277,7 +439,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+5%",
-    "stat": "Rate of Fire"
+    "stat": "Rate of Fire",
+    "name_ru": "Несбалансированная интегрированная пружина",
+    "bonus_ru": "+5% к скорострельности",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Встроенный слот для журнала",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Скорострельность"
   },
   {
     "name_en": "Compensated Integrated Spring",
@@ -287,7 +455,13 @@
     "penalty_en": null,
     "source_en": "Downtown West side mission: Worksite Community",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Компенсированная интегрированная пружина",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Встроенный слот для журнала",
+    "source_ru": "Миссия в центре Вестсайда: Сообщество рабочей площадки",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Overbalanced Integrated Spring",
@@ -297,7 +471,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Перегруженная интегрированная пружина",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Встроенный слот для журнала",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Stiff Integrated Spring",
@@ -307,7 +487,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+5%",
-    "stat": "Weapon Damage"
+    "stat": "Weapon Damage",
+    "name_ru": "Жесткая интегрированная пружина",
+    "bonus_ru": "+5% урона от оружия",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Встроенный слот для журнала",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Урон от оружия"
   },
   {
     "name_en": "Mended Marksman Mag",
@@ -317,7 +503,13 @@
     "penalty_en": null,
     "source_en": "Federal Triangle side mission: Bureau Headquarters",
     "value": "+50%",
-    "stat": "Optimal Range"
+    "stat": "Optimal Range",
+    "name_ru": "Починенный магазин для стрелков",
+    "bonus_ru": "+50% оптимальная дальность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина Marksman 7.62",
+    "source_ru": "Побочная миссия Федерального треугольника: штаб-квартира Бюро",
+    "stat_ru": "Оптимальный диапазон"
   },
   {
     "name_en": "Lightweight Marksman Mag",
@@ -327,7 +519,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Легкий стрелковый магазин",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина Marksman 7.62",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Tightly Packed Marksman Mag",
@@ -337,7 +535,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+5",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Плотно упакованный магазин для стрелков",
+    "bonus_ru": "+5 раундов",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина Marksman 7.62",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Sturdy Marksman Mag",
@@ -347,7 +551,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+20%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Прочный магазин для стрелков",
+    "bonus_ru": "+20% Стабильность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина Marksman 7.62",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Precision 7.62 Mag",
@@ -357,7 +567,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+10%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "Прецизионный магазин 7,62",
+    "bonus_ru": "+10% урона от выстрела в голову",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "7.62 Слот для журнала",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "Thin 7.62 Mag",
@@ -367,7 +583,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Тонкий магазин 7,62",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "7.62 Слот для журнала",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Light Extended 7.62 Mag",
@@ -377,7 +599,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+15",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Легкий удлиненный магазин 7,62",
+    "bonus_ru": "+15 раундов",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "7.62 Слот для журнала",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Sturdy Extended 7.62 Mag",
@@ -387,7 +615,14 @@
     "penalty_en": "-10% Reload Speed",
     "source_en": "Main Pool",
     "value": "+20",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Прочный удлиненный магазин 7,62",
+    "bonus_ru": "+20 раундов",
+    "penalty_ru": "-10% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "7.62 Слот для журнала",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Weighted 7.62 Mag",
@@ -397,7 +632,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+20%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Взвешенный магазин 7,62",
+    "bonus_ru": "+20% Стабильность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "7.62 Слот для журнала",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Tactical 5.56 Mag",
@@ -407,7 +648,13 @@
     "penalty_en": null,
     "source_en": "West Potomac Park side mission: Outcast Propaganda Outpost (The Mast CP)",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Тактический магазин 5,56",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "5.56 Слот для журнала",
+    "source_ru": "Побочная миссия в Западном Потомакском парке: Застава пропаганды изгоев (The Mast CP)",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Infantry 5.56 Mag",
@@ -417,7 +664,13 @@
     "penalty_en": null,
     "source_en": "Survivalist specialisation perk",
     "value": "+70%",
-    "stat": "Optimal Range"
+    "stat": "Optimal Range",
+    "name_ru": "Пехотный патрон 5,56 Маг.",
+    "bonus_ru": "+70% оптимальная дальность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "5.56 Слот для журнала",
+    "source_ru": "Перк специализации «Выживальщик»",
+    "stat_ru": "Оптимальный диапазон"
   },
   {
     "name_en": "Light Extended 5.56 Mag",
@@ -427,7 +680,13 @@
     "penalty_en": null,
     "source_en": "Federal Triangle side mission: Department of Justice",
     "value": "+15",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Легкий удлиненный магазин 5,56 мм",
+    "bonus_ru": "+15 раундов",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "5.56 Слот для журнала",
+    "source_ru": "Побочная миссия Федерального треугольника: Министерство юстиции",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Sturdy Extended 5.56 Mag",
@@ -437,7 +696,14 @@
     "penalty_en": "-10% Reload Speed",
     "source_en": "Main Pool",
     "value": "+20",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Прочный удлиненный магазин 5,56",
+    "bonus_ru": "+20 раундов",
+    "penalty_ru": "-10% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "5.56 Слот для журнала",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Balanced Spring 5.56 Mag",
@@ -447,7 +713,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Сбалансированная пружина 5,56 Маг.",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "5.56 Слот для журнала",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Force Feed .45 ACP Mag",
@@ -457,7 +729,13 @@
     "penalty_en": null,
     "source_en": "West End side mission: Garage Stash (+Underground faction)",
     "value": "+5%",
-    "stat": "Rate of Fire"
+    "stat": "Rate of Fire",
+    "name_ru": "Магазин с принудительной подачей .45 ACP",
+    "bonus_ru": "+5% к скорострельности",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина .45 ACP",
+    "source_ru": "Побочная миссия Вест-Энда: Гаражный тайник (+Подземная фракция)",
+    "stat_ru": "Скорострельность"
   },
   {
     "name_en": "Short Spring .45 ACP Mag",
@@ -467,7 +745,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Короткая пружина, магазин .45 ACP",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина .45 ACP",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Extended .45 ACP Mag",
@@ -477,7 +761,13 @@
     "penalty_en": null,
     "source_en": "Downtown East side mission: Agent Edwards Support",
     "value": "+15",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Удлиненный магазин .45 ACP",
+    "bonus_ru": "+15 раундов",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина .45 ACP",
+    "source_ru": "Миссия в центре восточной части города: поддержка агента Эдвардса",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Oversized .45 ACP Mag",
@@ -487,7 +777,14 @@
     "penalty_en": "-10% Reload Speed",
     "source_en": "Main Pool",
     "value": "+20",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Увеличенный магазин .45 ACP",
+    "bonus_ru": "+20 раундов",
+    "penalty_ru": "-10% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина .45 ACP",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Precision Feeding .45 Mag",
@@ -497,7 +794,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Точная подача .45 Mag",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина .45 ACP",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Heavy Spring 9mm Mag",
@@ -507,7 +810,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Тяжелый пружинный магазин 9 мм",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина 9 мм",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Oversized 9mm Mag",
@@ -517,7 +826,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+15",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Увеличенный магазин 9 мм",
+    "bonus_ru": "+15 раундов",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина 9 мм",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Extended 9mm Mag",
@@ -527,7 +842,14 @@
     "penalty_en": "-10% Reload speed",
     "source_en": "West Potomac Park side mission: Missing Campus Patrol",
     "value": "+20",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Удлиненный магазин 9 мм",
+    "bonus_ru": "+20 раундов",
+    "penalty_ru": "-10% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина 9 мм",
+    "source_ru": "Побочная миссия в парке Западный Потомак: Пропавший патруль кампуса",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Segmented 9mm Mag",
@@ -537,7 +859,13 @@
     "penalty_en": null,
     "source_en": "East Mall side mission: Agent Brooks Support",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Сегментированный магазин 9 мм",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина 9 мм",
+    "source_ru": "Побочная миссия East Mall: Служба поддержки агента Брукса",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Field Pistol Mag",
@@ -547,7 +875,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+30%",
-    "stat": "Optimal Range"
+    "stat": "Optimal Range",
+    "name_ru": "Магазин полевого пистолета",
+    "bonus_ru": "+30% оптимальная дальность",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина пистолета",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Оптимальный диапазон"
   },
   {
     "name_en": "Police Pistol Mag",
@@ -557,7 +891,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Магазин полицейского пистолета",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина пистолета",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Extended Pistol Mag",
@@ -567,7 +907,13 @@
     "penalty_en": null,
     "source_en": "Downtown West side mission: Beekeeper Jeff",
     "value": "+11",
-    "stat": "Rounds"
+    "stat": "Rounds",
+    "name_ru": "Удлиненный пистолетный магазин",
+    "bonus_ru": "+11 раундов",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для магазина пистолета",
+    "source_ru": "Миссия в центре Вестсайда: Пчеловод Джефф",
+    "stat_ru": "Раунды"
   },
   {
     "name_en": "Speed Loading Revolver Drum",
@@ -577,7 +923,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+20%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Барабан револьвера скоростной загрузки",
+    "bonus_ru": "+20% Скорость перезарядки",
+    "type_ru": "СЛОТ ДЛЯ ЖУРНАЛА",
+    "slot_ru": "Слот для револьверного барабана",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Large Suppressor 7.62",
@@ -587,7 +939,13 @@
     "penalty_en": null,
     "source_en": "West End side mission: Historic District Attack",
     "value": "+30%",
-    "stat": "Accuracy"
+    "stat": "Accuracy",
+    "name_ru": "Большой глушитель 7.62",
+    "bonus_ru": "+30% Точность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "7.62 Дульный паз",
+    "source_ru": "Побочная миссия Вест-Энда: Нападение на исторический район",
+    "stat_ru": "Точность"
   },
   {
     "name_en": "Muzzle Brake 7.62",
@@ -597,7 +955,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+5%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Дульный тормоз 7,62",
+    "bonus_ru": "+5% шанс критического удара",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "7.62 Дульный паз",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Flash Hider 7.62",
@@ -607,7 +971,13 @@
     "penalty_en": null,
     "source_en": "Downtown East side mission: Empire Autumn Hotel",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Пламегаситель 7.62",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "7.62 Дульный паз",
+    "source_ru": "Миссия в центре восточной части города: Отель Empire Autumn",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Loud Vent Brake 7.62",
@@ -617,7 +987,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+50%",
-    "stat": "Optimal Range"
+    "stat": "Optimal Range",
+    "name_ru": "Громкий вентиляционный тормоз 7.62",
+    "bonus_ru": "+50% оптимальная дальность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "7.62 Дульный паз",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Оптимальный диапазон"
   },
   {
     "name_en": "Compensator 7.62",
@@ -627,7 +1003,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Компенсатор 7,62",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "7.62 Дульный паз",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Omega 7.62 Rifle Suppresor",
@@ -637,7 +1019,14 @@
     "penalty_en": "-10% Optimal Range",
     "source_en": "Main Pool",
     "value": "+40%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Омега 7.62 Подавитель винтовки",
+    "bonus_ru": "+40% Стабильность",
+    "penalty_ru": "-10% Оптимальный диапазон",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "7.62 Дульный паз",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Large Suppressor 5.56",
@@ -647,7 +1036,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+30%",
-    "stat": "Accuracy"
+    "stat": "Accuracy",
+    "name_ru": "Большой глушитель 5.56",
+    "bonus_ru": "+30% Точность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "5.56 Дульный паз",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Точность"
   },
   {
     "name_en": "Muzzle Brake 5.56",
@@ -657,7 +1052,13 @@
     "penalty_en": null,
     "source_en": "Theatre Project: Reclaimer Crew",
     "value": "+5%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Дульный тормоз 5.56",
+    "bonus_ru": "+5% шанс критического удара",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "5.56 Дульный паз",
+    "source_ru": "Театральный проект: Команда Восстановителя",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Flash Hider 5.56",
@@ -667,7 +1068,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Пламегаситель 5.56",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "5.56 Дульный паз",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Loud Vent Brake 5.56",
@@ -677,7 +1084,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+50%",
-    "stat": "Optimal Range"
+    "stat": "Optimal Range",
+    "name_ru": "Громкий вентиляционный тормоз 5.56",
+    "bonus_ru": "+50% оптимальная дальность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "5.56 Дульный паз",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Оптимальный диапазон"
   },
   {
     "name_en": "Compensator 5.56",
@@ -687,7 +1100,13 @@
     "penalty_en": null,
     "source_en": "Campus Project: Food Aid Operation",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Компенсатор 5,56",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "5.56 Дульный паз",
+    "source_ru": "Проект кампуса: Операция по оказанию продовольственной помощи",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Omega 5.56 Rifle Suppressor",
@@ -697,7 +1116,14 @@
     "penalty_en": "-10% Optimal Range",
     "source_en": "West End side mission: Potomac Relief Camp",
     "value": "+40%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Омега 5.56 Винтовочный глушитель",
+    "bonus_ru": "+40% Стабильность",
+    "penalty_ru": "-10% Оптимальный диапазон",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "5.56 Дульный паз",
+    "source_ru": "Побочная миссия в Вест-Энде: Потомакский лагерь помощи",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "QDC Sound Suppressor",
@@ -707,7 +1133,13 @@
     "penalty_en": null,
     "source_en": "Stoner only and Dare Only",
     "value": "+20%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Звукоподавитель QDC",
+    "bonus_ru": "+20% Стабильность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "5.56 Дульный паз",
+    "source_ru": "Только Стоунер и Только вызов",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Small Suppressor .45",
@@ -717,7 +1149,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+30%",
-    "stat": "Accuracy"
+    "stat": "Accuracy",
+    "name_ru": "Малый глушитель .45",
+    "bonus_ru": "+30% Точность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный слот .45",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Точность"
   },
   {
     "name_en": "Osprey 45 Suppressor",
@@ -727,7 +1165,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+5%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Подавитель скопы 45",
+    "bonus_ru": "+5% шанс критического удара",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный слот .45",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Flash Hider .45",
@@ -737,7 +1181,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Пламегаситель .45",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный слот .45",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Muzzle Brake .45",
@@ -747,7 +1197,13 @@
     "penalty_en": null,
     "source_en": "Foggy Bottom side mission: Greenhouse Community",
     "value": "+10%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "Дульный тормоз .45",
+    "bonus_ru": "+10% урона от выстрела в голову",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный слот .45",
+    "source_ru": "Побочная миссия «Туманное дно»: Оранжерейное сообщество",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "Loud Vent Brake .45",
@@ -757,7 +1213,13 @@
     "penalty_en": null,
     "source_en": "West Mall side mission: Medical Camp Attack",
     "value": "+50%",
-    "stat": "Optimal Range"
+    "stat": "Optimal Range",
+    "name_ru": "Громкий вентиляционный тормоз .45",
+    "bonus_ru": "+50% оптимальная дальность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный слот .45",
+    "source_ru": "Побочная миссия West Mall: Атака медицинского лагеря",
+    "stat_ru": "Оптимальный диапазон"
   },
   {
     "name_en": "Compensator .45",
@@ -767,7 +1229,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Компенсатор .45",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный слот .45",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Small Suppressor 9mm",
@@ -777,7 +1245,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+30%",
-    "stat": "Accuracy"
+    "stat": "Accuracy",
+    "name_ru": "Малый глушитель 9 мм",
+    "bonus_ru": "+30% Точность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный паз 9 мм",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Точность"
   },
   {
     "name_en": "Osprey 9 Suppressor",
@@ -787,7 +1261,13 @@
     "penalty_en": null,
     "source_en": "Judiciary Square side mission: Missing Wire Scavengers",
     "value": "+5%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Подавитель скопы 9",
+    "bonus_ru": "+5% шанс критического удара",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный паз 9 мм",
+    "source_ru": "Побочная миссия на Судебной площади: Пропавшие мусорщики проводов",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Flash Hider 9mm",
@@ -797,7 +1277,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Пламегаситель 9 мм",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный паз 9 мм",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Muzzle Brake 9mm",
@@ -807,7 +1293,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "Дульный тормоз 9 мм",
+    "bonus_ru": "+10% урона от выстрела в голову",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный паз 9 мм",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "Loud Vent Brake 9mm",
@@ -817,7 +1309,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+50%",
-    "stat": "Optimal Range"
+    "stat": "Optimal Range",
+    "name_ru": "Громкий вентиляционный тормоз 9 мм",
+    "bonus_ru": "+50% оптимальная дальность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный паз 9 мм",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Оптимальный диапазон"
   },
   {
     "name_en": "Compensator 9mm",
@@ -827,7 +1325,13 @@
     "penalty_en": null,
     "source_en": "Federal Triangle side mission: National Archives",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Компенсатор 9мм",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "ДУЛОЧНЫЙ СЛОТ",
+    "slot_ru": "Дульный паз 9 мм",
+    "source_ru": "Побочная миссия Федерального треугольника: Национальный архив",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Short Grip",
@@ -837,7 +1341,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+10%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Короткая ручка",
+    "bonus_ru": "+10% урона от критического удара",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Длинная подствольная направляющая",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Tactical Short Grip",
@@ -847,7 +1357,13 @@
     "penalty_en": null,
     "source_en": "Firewall Specialisation Perk",
     "value": "+15%",
-    "stat": "Critical Hit Damage"
+    "stat": "Critical Hit Damage",
+    "name_ru": "Тактическая короткая рукоятка",
+    "bonus_ru": "+15% урона от критического удара",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Длинная подствольная направляющая",
+    "source_ru": "Перк «Специализация брандмауэра»",
+    "stat_ru": "Критический урон"
   },
   {
     "name_en": "Linked Laser Pointer",
@@ -857,7 +1373,13 @@
     "penalty_en": null,
     "source_en": "Technician Specialisation Perk",
     "value": "Pulses",
-    "stat": "targets at which it's aimed"
+    "stat": "targets at which it's aimed",
+    "name_ru": "Связанная лазерная указка",
+    "bonus_ru": "Импульсы цели, на которые он нацелен",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Длинная подствольная направляющая",
+    "source_ru": "Перк специализации «Техник»",
+    "stat_ru": "цели, на которые он направлен"
   },
   {
     "name_en": "Handstop",
@@ -867,7 +1389,13 @@
     "penalty_en": null,
     "source_en": "Downtown East side mission: Odea Retail Store",
     "value": "+14%",
-    "stat": "Reload Speed"
+    "stat": "Reload Speed",
+    "name_ru": "Ручной стопор",
+    "bonus_ru": "+14% Скорость перезарядки",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Длинная подствольная направляющая",
+    "source_ru": "Миссия в центре восточной части города: розничный магазин Odea.",
+    "stat_ru": "Скорость перезарядки"
   },
   {
     "name_en": "Vertical Grip",
@@ -877,7 +1405,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+30%",
-    "stat": "Accuracy"
+    "stat": "Accuracy",
+    "name_ru": "Вертикальный захват",
+    "bonus_ru": "+30% Точность",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Длинная/короткая подствольная направляющая",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Точность"
   },
   {
     "name_en": "Angled Grip",
@@ -887,7 +1421,13 @@
     "penalty_en": null,
     "source_en": "East Mall side mission: Water Source",
     "value": "+30%",
-    "stat": "Stability"
+    "stat": "Stability",
+    "name_ru": "Угловая ручка",
+    "bonus_ru": "+30% Стабильность",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Длинная/короткая подствольная направляющая",
+    "source_ru": "Побочная миссия East Mall: Источник воды",
+    "stat_ru": "Стабильность"
   },
   {
     "name_en": "Laser Pointer",
@@ -897,7 +1437,13 @@
     "penalty_en": null,
     "source_en": "Constitution Hall side mission: True Sons Broadcast Outpost",
     "value": "+5%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Лазерная указка",
+    "bonus_ru": "+5% шанс критического удара",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Длинная/короткая подствольная планка/\nБоковой слот",
+    "source_ru": "Побочная миссия Зала Конституции: Радиовещательный пост «Истинные сыновья»",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Small Laser Pointer",
@@ -907,7 +1453,13 @@
     "penalty_en": null,
     "source_en": "Demolitionist Specialisation Perk",
     "value": "+7%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Маленькая лазерная указка",
+    "bonus_ru": "+7% шанс критического удара",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Длинная/короткая подствольная планка/\nБоковой слот",
+    "source_ru": "Перк «Специализация подрывника»",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Compact Coupled Small \nLaser Pointer",
@@ -917,7 +1469,13 @@
     "penalty_en": null,
     "source_en": "Complete Story missions and level up White House",
     "value": "+10%",
-    "stat": "Critical Hit Chance"
+    "stat": "Critical Hit Chance",
+    "name_ru": "Компактный Спаренный Малый \nЛазерная указка",
+    "bonus_ru": "+10% шанс критического удара",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Слот для гаджетов",
+    "source_ru": "Выполняйте сюжетные миссии и повышайте уровень Белого дома.",
+    "stat_ru": "Шанс критического удара"
   },
   {
     "name_en": "Compact Coupled Laser Pointer",
@@ -927,7 +1485,13 @@
     "penalty_en": null,
     "source_en": "Main Pool",
     "value": "+10%",
-    "stat": "Headshot Damage"
+    "stat": "Headshot Damage",
+    "name_ru": "Компактная совмещенная лазерная указка",
+    "bonus_ru": "+10% урона от выстрела в голову",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Слот для гаджетов",
+    "source_ru": "Главный бассейн",
+    "stat_ru": "Урон от выстрела в голову"
   },
   {
     "name_en": "Pistol Flashlight",
@@ -937,6 +1501,12 @@
     "penalty_en": null,
     "source_en": "Underground tank (click for more info)",
     "value": "Illuminates",
-    "stat": "dark areas"
+    "stat": "dark areas",
+    "name_ru": "Пистолет-фонарик",
+    "bonus_ru": "Освещает темные участки",
+    "type_ru": "ПОДСТВОЛЬЕ",
+    "slot_ru": "Слот для гаджетов",
+    "source_ru": "Подземный резервуар (нажмите, чтобы узнать больше)",
+    "stat_ru": "темные области"
   }
 ]
