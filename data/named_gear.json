@@ -1360,14 +1360,15 @@
     ]
   },
   {
-    "name": "NinjaBike \nMessenger Backpack",
+    "name": "НиндзяВелосипед \nРюкзак-мессенджер (NinjaBike \nMessenger Backpack)",
     "en": "NinjaBike \nMessenger Backpack",
     "g": "Рюкзак",
     "t": "",
     "brand": "",
     "tal": "Resourceful",
     "d": "",
-    "core": "weapon damage"
+    "core": "weapon damage",
+    "name_old": "NinjaBike \nMessenger Backpack"
   },
   {
     "name": "Собиратель",
@@ -1403,14 +1404,15 @@
     "core": "weapon damage"
   },
   {
-    "name": "Tardigrade \nArmor System",
+    "name": "Тихоходка \nСистема брони (Tardigrade \nArmor System)",
     "en": "Tardigrade \nArmor System",
     "g": "Броня",
     "t": "",
     "brand": "",
     "tal": "Ablative Nano-Plating",
     "d": "",
-    "core": "armor"
+    "core": "armor",
+    "name_old": "Tardigrade \nArmor System"
   },
   {
     "name": "Гордость Риджвея",
@@ -1433,14 +1435,15 @@
     "core": "weapon damage"
   },
   {
-    "name": "Dodge City\nGunslinger's Holster",
+    "name": "Додж Сити\nКобура стрелка (Dodge City\nGunslinger's Holster)",
     "en": "Dodge City\nGunslinger's Holster",
     "g": "Кобура",
     "t": "",
     "brand": "",
     "tal": "Ouick Draw",
     "d": "",
-    "core": "weapon damage"
+    "core": "weapon damage",
+    "name_old": "Dodge City\nGunslinger's Holster"
   },
   {
     "name": "Императорская Династия",

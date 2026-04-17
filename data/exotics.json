@@ -344,7 +344,7 @@
     "flavor_en": "\"You know not the count of the syllables in the utterance of your comdemnation, but you will know when you hear the last one.\""
   },
   {
-    "name": "Sacrum Imperium",
+    "name": "Сакрам Империум (Sacrum Imperium)",
     "en": "Sacrum Imperium",
     "g": "Снайперские винтовки",
     "t": "Снайперская (G28)",
@@ -355,7 +355,8 @@
     "stats_ru": "Урон от снайперской винтовки (15% макс.)\nУрон от выстрелов в голову (111% макс.)\n- Случайная характеристика",
     "mods_ru": "Прицел: +20% Урон от выстрелов в голову\nМагазин: +10% Урон от выстрелов в голову\nПодствольная планка: +20% Стабильности\nДульная насадка: +20% Оптимальной дальности",
     "source_ru": "- Гарантированная награда за сезон \"Царство Огня\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"By holy light, may this help me execute devine right.\" The Priest"
+    "flavor_en": "\"By holy light, may this help me execute devine right.\" The Priest",
+    "name_old": "Sacrum Imperium"
   },
   {
     "name": "Саван",

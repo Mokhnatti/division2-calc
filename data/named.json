@@ -307,14 +307,15 @@
     "flavor_en": "\"It is all about power now. Power, and survival. They are done but I am not. And you won't be either. Not if you work with me.\" \n- Aaron \"Vanguard\" Keener"
   },
   {
-    "name": "Grown Great",
+    "name": "Вырос великим (Grown Great)",
     "en": "Grown Great",
     "g": "Пистолеты-пулемёты",
     "t": "SMG (Tommy Gun)",
     "brand": "",
     "tal": "Perfect Stabilize",
     "d": "Стабильность растёт с попаданиями",
-    "flavor_en": "Great weapons aren't born great, they grow great"
+    "flavor_en": "Great weapons aren't born great, they grow great",
+    "name_old": "Grown Great"
   },
   {
     "name": "Куэлебре",
@@ -1490,7 +1491,7 @@
     "d": ""
   },
   {
-    "name": "ACR-E",
+    "name": "АКР-Э (ACR-E)",
     "en": "ACR-E",
     "g": "Штурмовые винтовки",
     "t": "ACR",
@@ -1506,7 +1507,8 @@
     "class_bonus": "УЗ / 21%",
     "dps_mult": 637931.6667,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 1.91
+    "reload_old": 1.91,
+    "name_old": "ACR-E"
   },
   {
     "name": "Контрабандный АКМ",
@@ -1673,7 +1675,7 @@
     "source_ru": "Пропуск сезона \"Оттенки красного\", целевые трофеи, экзот. контейнеры"
   },
   {
-    "name": "FAL SA-58",
+    "name": "ФАЛ СА-58 (FAL SA-58)",
     "en": "FAL SA-58",
     "g": "Штурмовые винтовки",
     "t": "FAL",
@@ -1689,10 +1691,11 @@
     "class_bonus": "УЗ / 21%",
     "dps_mult": 672396.6667,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 2.13
+    "reload_old": 2.13,
+    "name_old": "FAL SA-58"
   },
   {
-    "name": "FAL SA-58 Para",
+    "name": "ФАЛ СА-58 Пара (FAL SA-58 Para)",
     "en": "FAL SA-58 Para",
     "g": "Штурмовые винтовки",
     "t": "FAL",
@@ -1708,7 +1711,8 @@
     "class_bonus": "УЗ / 21%",
     "dps_mult": 672396.6667,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 2.13
+    "reload_old": 2.13,
+    "name_old": "FAL SA-58 Para"
   },
   {
     "name": "Самодельный FAL SA-58 Para",
@@ -2167,7 +2171,7 @@
     "reload_old": 3.6
   },
   {
-    "name": "Sacrum imperium",
+    "name": "Сакрам империум (Sacrum imperium)",
     "en": "Sacrum Imperium",
     "g": "Снайперские винтовки",
     "t": "G28",
@@ -2183,7 +2187,8 @@
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
     "source_ru": "Пропуск Сезона 11 \"Царство огня\", целевые трофеи, экзот.контейнеры",
-    "reload_old": 3.6
+    "reload_old": 3.6,
+    "name_old": "Sacrum imperium"
   },
   {
     "name": "Самодельный классический карабин М44",
@@ -2394,7 +2399,7 @@
     "reload_old": 4.99
   },
   {
-    "name": "SR-1",
+    "name": "СР-1 (SR-1)",
     "en": "SR-1",
     "g": "Снайперские винтовки",
     "t": "SR-1",
@@ -2410,7 +2415,8 @@
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 3.15
+    "reload_old": 3.15,
+    "name_old": "SR-1"
   },
   {
     "name": "Самодельная SR-1",
@@ -2472,7 +2478,7 @@
     "talent_ru": "Первая кровь"
   },
   {
-    "name": "SRS A1",
+    "name": "СРС А1 (SRS A1)",
     "en": "SRS A1",
     "g": "Снайперские винтовки",
     "t": "SRS",
@@ -2488,7 +2494,8 @@
     "class_bonus": "УВГ / 111%",
     "dps_mult": "-",
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 4.29
+    "reload_old": 4.29,
+    "name_old": "SRS A1"
   },
   {
     "name": "Самодельная SRS A1",
@@ -2903,7 +2910,7 @@
     "reload_old": 2.96
   },
   {
-    "name": "MG5",
+    "name": "МГ5 (MG5)",
     "en": "MG5",
     "g": "Ручные пулемёты",
     "t": "MG5",
@@ -2919,7 +2926,8 @@
     "class_bonus": "УЦВУ / 12%",
     "dps_mult": 724133.3333,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 2.96
+    "reload_old": 2.96,
+    "name_old": "MG5"
   },
   {
     "name": "Бойня",
@@ -3364,7 +3372,7 @@
     "reload_old": 3.05
   },
   {
-    "name": "SASG-12",
+    "name": "САСГ-12 (SASG-12)",
     "en": "SASG-12",
     "g": "Дробовики",
     "t": "SASG-12",
@@ -3380,7 +3388,8 @@
     "class_bonus": "УБ / 12%",
     "dps_mult": 1049220,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 3.05
+    "reload_old": 3.05,
+    "name_old": "SASG-12"
   },
   {
     "name": "Тактический SASG-12 K",
@@ -3421,7 +3430,7 @@
     "reload_old": 3.0
   },
   {
-    "name": "SPAS-12",
+    "name": "СПАС-12 (SPAS-12)",
     "en": "SPAS-12",
     "g": "Дробовики",
     "t": "SPAS-12",
@@ -3437,7 +3446,8 @@
     "class_bonus": "УБ / 12%",
     "dps_mult": 835138.5,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 5.5
+    "reload_old": 5.5,
+    "name_old": "SPAS-12"
   },
   {
     "name": "Самодельный SPAS-12",
@@ -3498,7 +3508,7 @@
     "talent_ru": "Дерзость"
   },
   {
-    "name": "Super 90",
+    "name": "Супер 90 (Super 90)",
     "en": "Super 90",
     "g": "Дробовики",
     "t": "Super 90",
@@ -3514,7 +3524,8 @@
     "class_bonus": "УБ / 12%",
     "dps_mult": 1039640,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана",
-    "reload_old": 4.65
+    "reload_old": 4.65,
+    "name_old": "Super 90"
   },
   {
     "name": "Шериф",
