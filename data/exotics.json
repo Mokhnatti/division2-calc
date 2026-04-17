@@ -267,13 +267,19 @@
     "flavor_en": "This weapon fires debilitating venomous rounds inspired by the scorpion (specifically Hottentotta). The weapon developed in conjunction with DARPA failed to get approval due to it being in contravention of the Hague Convention of 1899."
   },
   {
-    "name": "Overlord",
+    "name": "Властелин",
     "en": "Overlord",
     "g": "Дробовики",
     "t": "Дробовик",
     "tal": "Warlord",
-    "d": "Упор: несколько статусов + бонус по бронированным",
-    "flavor_en": "\"If this is what it takes to make them submit, so be it.\"\n- Dime"
+    "d": "\"Капитуляция\" - Попадание в противника снижает его скорость передвижения на 4% за каждую попавшую дробинку сроком на 5 секунд. Следующее попадание в того же противника повторно накладывает заряды эффекта.",
+    "stats_ru": "Урон от дробовика (15% макс.)\nУрон броне (12% макс.)\n- Случайная характеристика",
+    "mods_ru": "Прицел: +15% Урона от крит. попадания\nМагазин: +15% Скорости перезарядки\nПодствольная планка: +20% Стабильности",
+    "source_ru": "- Гарантированная награда за сезон \"Первый ренегат\".\nВсе способы получения:\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "flavor_en": "\"If this is what it takes to make them submit, so be it.\"\n- Dime",
+    "aliases_ru": [
+      "Overlord"
+    ]
   },
   {
     "name": "Шериф",
@@ -512,13 +518,19 @@
     "source_ru": "Прохождение кульминационной миссии облавы сезона \"Восстание\": ???\n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности."
   },
   {
-    "name": "Маска Койота",
-    "en": "Coyote's Mask",
+    "name": "Койот",
+    "en": "Coyote’s Mask",
     "g": "Маски",
     "t": "Маска",
     "tal": "Pack Instincts",
-    "d": "0-15м +25% крит. урон; 15-25м +10%/+10%; 25+м +25% крит. шанс",
-    "flavor_en": "\"Lived through this bullet. I'll live through yours.\" \n- Coyote\n\n- Do not bother farming for this exotic through Coyote at Jefferson Trade Centre. Instead, farm Countdown with mask targeted loot. It is more efficient.\n- The Jefferson Trade Centre mission becomes tragic when you realise that Espinoza is one of Agent Kelso's few trusted friends in DC.\n- Agent Kelso was overly confident that Coyote wouldn't kill Espinoza not because she didn't care, but because she was in denial and couldn't believe\nthat anything bad could happen to him.\n- Kelso and Espinoza's backstory can be heard on the Embassy classified assignment collectibles. Click on this cell to watch a video of that mission.\n-A group member can receive all 3 damage buffs at the same time, However, a group member can only have 1 of each damage buff at a time\n(e.g. if there are 2 CQC players, you will still only get +25% critical hit damage)"
+    "d": "\"Стайный инстинкт\" - Все союзники получают определенное усиление в зависимости от расстояния до последнего раненного вами противника. Действие эффекта распространяется и на вас самих:\n0-15 метров: +25% к критическому урону\n15-25 метров: +10% к критическому урону и +10% к шансу критического урона\nболее 25 метров: +25% к шансу критического урона",
+    "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)\n\nСлот для модификаций",
+    "mods_ru": "—",
+    "source_ru": "- Гарантированная награда за сезон \"Тени сгущяются\"\n- Босс Гиен Койот на миссии ТЦ Джефферсон\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "flavor_en": "\"Lived through this bullet. I'll live through yours.\" \n- Coyote\n\n- Do not bother farming for this exotic through Coyote at Jefferson Trade Centre. Instead, farm Countdown with mask targeted loot. It is more efficient.\n- The Jefferson Trade Centre mission becomes tragic when you realise that Espinoza is one of Agent Kelso's few trusted friends in DC.\n- Agent Kelso was overly confident that Coyote wouldn't kill Espinoza not because she didn't care, but because she was in denial and couldn't believe\nthat anything bad could happen to him.\n- Kelso and Espinoza's backstory can be heard on the Embassy classified assignment collectibles. Click on this cell to watch a video of that mission.\n-A group member can receive all 3 damage buffs at the same time, However, a group member can only have 1 of each damage buff at a time\n(e.g. if there are 2 CQC players, you will still only get +25% critical hit damage)",
+    "aliases_ru": [
+      "Маска Койота"
+    ]
   },
   {
     "name": "Злодей",
@@ -559,13 +571,19 @@
     "flavor_en": "\"We're still being tested. The only constant variable is fire\"\n\n\n-the status effect that give stacks do not include foam"
   },
   {
-    "name": "Умелец",
+    "name": "Кустарь",
     "en": "Tinkerer",
     "g": "Маски",
     "t": "Маска",
     "tal": "Abridged",
-    "d": "Оба оружия одного типа → талант доп. применяется к основному",
-    "flavor_en": "\"Why not both.\""
+    "d": "«Краткость» - Если ваше основное и дополнительное оружие не является экзотическим или именным и относится к одному и тому же типу, талант дополнительного оружия будет также действовать на основное. Не распространяется на таланты, учитывающие смену оружия.\n! Не применяется к талантам, включающим смену оружия\n! Не применяется, если основное и дополнительное оружие имеют одинаковый талант.",
+    "stats_ru": "",
+    "mods_ru": "",
+    "source_ru": "Прохождение кульминационной миссии облавы сезона \"Перекрестки\" \n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности.",
+    "flavor_en": "\"Why not both.\"",
+    "aliases_ru": [
+      "Умелец"
+    ]
   },
   {
     "name": "Инвестор",
@@ -601,30 +619,48 @@
     "flavor_en": "\"From the depths of hell, this has been resurrected as if it cannot die.\" The Priest"
   },
   {
-    "name": "Рюкзак Акосты",
+    "name": "Сумка Акосты",
     "en": "Acosta's Go-Bag",
     "g": "Рюкзаки",
     "t": "Рюкзак",
-    "tal": "One in Hand...",
-    "d": "Граната +1 Skill Tier 15с",
-    "flavor_en": "\"You never know what you're going to need, so it's best to be prepared.\" \n- Eva Acosta, Urban Spelunker\n\n- This backpack can drop with a variety of strap colours, namely red, green and purple. Gotta collect them all!\n- Eva Acosta is a character from Division 1 who left audio logs all over the city detailing her exploration. Due to the nature of what she sees, these logs get \nincreasingly disturbing. Click on this cell to listen to Eva's logs.\n- Eva does not seem to be associated with any organsation, and even her spelunking crew seems to be a group of friends. It is evident, however, that she has\nlived in New York all her life and cares deeply about well being of the city. For this reason, I chose to use a symbol from a redesign of the New York flag.\n- The full redesigned New York flag is from r/Vexillology"
+    "tal": "One in Hand... + ...Two in the Bag",
+    "d": "\"Один в руке...\" - Бросив гранату, вы немедленно возвращаете ее в свой боезапас и получаете +1 к уровню навыка сроком на 15 секунд.\nЕсли уровень навыка уже равен 6, вы получаете \"перезаряд\". Восстановление 60 сек.\n\"Два в мешке...\"\nЗапас бронекомплектов +1\nЗапас гранат +3\nБоезапас +25%\nРемонт с помощью навыков +10%\nНегативные эффекты +10%",
+    "stats_ru": "1 Уровень навыков\nУбыстрение (12% макс.)\nУрон навыков (10% макс.)\n\nСлот для модификаций",
+    "mods_ru": "—",
+    "source_ru": "- Контейнеры фракций\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "flavor_en": "\"You never know what you're going to need, so it's best to be prepared.\" \n- Eva Acosta, Urban Spelunker\n\n- This backpack can drop with a variety of strap colours, namely red, green and purple. Gotta collect them all!\n- Eva Acosta is a character from Division 1 who left audio logs all over the city detailing her exploration. Due to the nature of what she sees, these logs get \nincreasingly disturbing. Click on this cell to listen to Eva's logs.\n- Eva does not seem to be associated with any organsation, and even her spelunking crew seems to be a group of friends. It is evident, however, that she has\nlived in New York all her life and cares deeply about well being of the city. For this reason, I chose to use a symbol from a redesign of the New York flag.\n- The full redesigned New York flag is from r/Vexillology",
+    "aliases_ru": [
+      "Рюкзак Акосты"
+    ]
   },
   {
-    "name": "Скорая Помощь Берди",
-    "en": "Birdie's Quick Fix",
+    "name": "Аварийный набор Птички",
+    "en": "Birdie’s Quick Fix",
     "g": "Рюкзаки",
     "t": "Рюкзак",
     "tal": "Combat Medic",
-    "d": "Восстановление брони при умениях",
-    "flavor_en": "\"Get up, we're out of body bags.\""
+    "d": "«Военный врач» (Combat Medic)\n+90% к скорости реанимации.\n-50% к длительности эффекта ослабления.\n+45% к эффективности улья.\nРеанимируемые и проводящие реанимацию агенты получают +50% к сопротивлению урону на 5 сек. после успешной реанимации ульем и на 10 сек. после реанимации вручную.\nЛюбая успешная реанимация дает +1 к уровню навыка сроком на 5 сек. Реанимация на уровне навыка 6 дает перезаряд сроком на 30 сек.",
+    "stats_ru": "1 Уровень навыков\nУбыстрение (12% макс.)\nНавыки ремонта (20% макс.)\n\nСлот для модификаций",
+    "mods_ru": "__",
+    "source_ru": "Прохождение кульминационной миссии облавы сезона \"Груз Истины\" Остров Рузвельта: Алани Келсо\n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности.",
+    "flavor_en": "\"Get up, we're out of body bags.\"",
+    "aliases_ru": [
+      "Скорая Помощь Берди"
+    ]
   },
   {
-    "name": "Гордость Лунь",
+    "name": "Гордость \"Харриерc\"",
     "en": "Harrier Pride",
     "g": "Рюкзаки",
     "t": "Рюкзак",
     "tal": "Harrier Pride",
-    "d": "Механика смены оружия (Y7/Y8)"
+    "d": "\"Перебалансировка\":\n- Каждое убийство или 3-е попадание в противника дает красный заряд, увеличивающий урон от оружия на 0.5%.\n- Каждое 3-е получение ранения дает синий заряд, увеличивающий сопротивление урону на 0.5%.\n- При накоплении суммарно 80 зарядов обоих типов они сгорают, давая отдельное преимущество в виде 0.5% к сопротивлению урону за каждый красный заряд и 0.5% к урону от оружия за каждый синий заряд. Это преимущество действует до следующего накопления максимального числа зарядов.",
+    "stats_ru": "Урон оружия (15% макс.)\nБроня (170 000 макс.)\n1 Уровень навыков\n\nСлот для модификаций",
+    "mods_ru": "—",
+    "source_ru": "- Гарантированная награда за юбилейный сезон \"Годовщина\"",
+    "aliases_ru": [
+      "Гордость Лунь"
+    ]
   },
   {
     "name": "Система Брони «Тихоходка»",
@@ -724,31 +760,49 @@
     "flavor_en": "\"Can't say I invented this, but at least I had a hand in it.\" \n- Calvin McManus"
   },
   {
-    "name": "Кровавые Кулаки",
+    "name": "Кровавый кастет",
     "en": "Bloody Knuckles",
     "g": "Перчатки",
     "t": "Перчатки",
     "tal": "Over the Top",
-    "d": "Усиление рукопашного урона",
-    "flavor_en": "\"A broken watch is still a good memento.\" 13"
+    "d": "\"За гранью\" - Нанесение урона противнику в рукопашной или с помощью гранаты вызывает эффект «Красная дымка».\n- Эффект «Красная дымка» дает +25% к урону от оружия и +100% к урону в рукопашной.\n- «Красная дымка» длится 20 сек. и восстанавливается 60 сек. после окончания своего действия.\n- Если вы нанесете урон в рукопашной или с помощью гранаты в период восстановления эффекта, оно завершится немедленно.",
+    "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)",
+    "mods_ru": "—",
+    "source_ru": "- Гарантированная награда за сезон \"Цена Власти\" \n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "flavor_en": "\"A broken watch is still a good memento.\" 13",
+    "aliases_ru": [
+      "Кровавые Кулаки"
+    ]
   },
   {
-    "name": "Главари",
+    "name": "Претенденты\nна победу",
     "en": "Overdogs",
     "g": "Перчатки",
     "t": "Перчатки",
     "tal": "Overdogs",
-    "d": "Лучшие exotic gloves 2026 (Y7/Y8)",
-    "flavor_en": "\"Start from the bottom and make your way up.\"\n\nNote: Tier 3 is lowest, tier 1 is highest."
+    "d": "\"Самое слабое звено\" - Увеличивает урон оружия на 30% по противникам с самым низким рангом в иерархии своего класса.\nКласс 1: охотник, ренегат, командир, танк, щитовик, тяжелый пехотинец, гранатометчик, врач, оператор, боевой пес, мародер.\nКласс 2: боец поддержки, инженер, телохранитель, иммобилизатор, бомбист, мини-танк, оператор дрона.\nКласс 3: любой другой противник или объект навыка.",
+    "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)",
+    "mods_ru": "—",
+    "source_ru": "- Гарантированная награда за сезон \"Пакт\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "flavor_en": "\"Start from the bottom and make your way up.\"\n\nNote: Tier 3 is lowest, tier 1 is highest.",
+    "aliases_ru": [
+      "Главари"
+    ]
   },
   {
-    "name": "Наколенники Акосты",
+    "name": "Экзотические наколенники Акосты",
     "en": "Acosta's Kneepads",
     "g": "Наколенники",
     "t": "Наколенники",
     "tal": "Acosta's Kneepads",
-    "d": "Перекат снижает кд умений",
-    "flavor_en": "\"They got they asses caught by the JTF, but they don't have my mad parkour skills.\"\n- Eva Acosta"
+    "d": "\"План отхода\":\n- Перепрыгивание препятствий дает +10% к скорости передвижения сроком на 3 секунды.\n- Неподвижность в течение 5 секунд дает +20% к скорости передвижения сроком на 5 секунд.\n- Получение эффекта состояния дает +10% к скорости передвижения сроком на 5 секунд.\n- Максимальное повышение скорости передвижения составляет 20% Не суммируется с повышением скорости передвижения из других источников.\n- -50% к снижению скорости передвижения, вызванному эффектами негативными эффектами.",
+    "stats_ru": "Броня (170 000 макс.)\nУрон от крит. попадания (12% макс.)\nЗдоровье (18 935 макс.)",
+    "mods_ru": "—",
+    "source_ru": "- Гарантированная награда за сезон \"Первый ренегат\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "flavor_en": "\"They got they asses caught by the JTF, but they don't have my mad parkour skills.\"\n- Eva Acosta",
+    "aliases_ru": [
+      "Наколенники Акосты"
+    ]
   },
   {
     "name": "Наколенники Сойер",
@@ -836,22 +890,34 @@
     "flavor_en": "\"it's better ti have more than one gun in your holster.\""
   },
   {
-    "name": "Шокер",
+    "name": "Шоковый удар",
     "en": "Shocker Punch",
     "g": "Кобуры",
     "t": "Кобура",
     "tal": "Defibrillator",
-    "d": "Рукопашный удар оглушает + броня",
-    "flavor_en": "\"After getting sucker punched at the mall, I came up with a shocking solution.\" Anonymous"
+    "d": "Талант «Дефибриллятор» - при использовании экзотической кобуры «Шоковый удар» оглушение, получаемое агентом от эффекта шока, сокращается на 50%.\nИспользование щита дает 100% защиту от урона в рукопашной.\nИспользование экзотической штурмовой винтовки «Мотор святого Эльма» с кобурой увеличивает наносимый урон в рукопашной на 100%, при этом следующая рукопашная атака накладывает эффект шока.\nИспользование всех трех предметов дает все вышеперечисленные преимущества, а также увеличивает радиус действия шока от рукопашных атак до 5 метров вокруг первой цели.\nВремя восстановления 15 секунд.",
+    "stats_ru": "Броня (170 000 макс.)\nЗащита от факторов риска (10% макс.)\nЗащита от взрыва (10% макс.)",
+    "mods_ru": "—",
+    "source_ru": "- Гарантированная награда за сезон \"Сломанные крылья\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "flavor_en": "\"After getting sucker punched at the mall, I came up with a shocking solution.\" Anonymous",
+    "aliases_ru": [
+      "Шокер"
+    ]
   },
   {
-    "name": "Проворная Кобура",
+    "name": "Гибкая экзотическая кобура",
     "en": "Nimble Holster",
     "g": "Кобуры",
     "t": "Кобура",
     "tal": "Nimble",
-    "d": "Ускоренная смена и мобильность",
-    "flavor_en": "\"Run for your life.\""
+    "d": "«Всегда в движении»:\nPVE: Восстанавливает 5% вашей суммарной брони за каждый метр, который вы пробежали между укрытиями. Урон, полученный во время перебежки между укрытиями, восстанавливается в течение 10 сек.\nPVP: Восстанавливает 3% вашей суммарной брони за каждый метр, который вы пробежали между укрытиями. Урон, полученный во время перебежки между укрытиями, восстанавливается в течение 10 сек.",
+    "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)",
+    "mods_ru": "—",
+    "source_ru": "- Гарантированная награда за сезон \"Перекрестки\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
+    "flavor_en": "\"Run for your life.\"",
+    "aliases_ru": [
+      "Проворная Кобура"
+    ]
   },
   {
     "name": "Безжалостный /\nБеспощадный",
@@ -878,42 +944,6 @@
     "flavor_en": "\"Who are you to disagree?\" \n- Unknown Outcast Engineer\n\n-The name of the weapon and its description are reference to Eurythmics, their song titled \"Sweet Dreams (are made of this). The unknown outcast engineer follows with the next line.\n- Despite being dropped by the Outcasts and having a flavour text relating to the Outcasts, the instakill device on this gun is said to be \"rigged by the Hyenas\".\n- Do not use this gun to do damage, as it has a very low headshot damage modifier.\n- Lore-wise, it makes sense that the Hyenas and Outcasts share a hatred for the True Sons. The True Sons are hated by the Hyenas for being a superior force, and the Outcasts \nwant vengeance on the True Sons for their crimes on Roosevelt Island. There is even an echo where Hyenas and Outcasts are seen raiding a True Sons base in tandem."
   },
   {
-    "name": "Властелин",
-    "en": "Overlord",
-    "g": "",
-    "t": "",
-    "tal": "",
-    "d": "\"Капитуляция\" - Попадание в противника снижает его скорость передвижения на 4% за каждую попавшую дробинку сроком на 5 секунд. Следующее попадание в того же противника повторно накладывает заряды эффекта.",
-    "stats_ru": "Урон от дробовика (15% макс.)\nУрон броне (12% макс.)\n- Случайная характеристика",
-    "mods_ru": "Прицел: +15% Урона от крит. попадания\nМагазин: +15% Скорости перезарядки\nПодствольная планка: +20% Стабильности",
-    "source_ru": "- Гарантированная награда за сезон \"Первый ренегат\".\nВсе способы получения:\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"If this is what it takes to make them submit, so be it.\"\n- Dime"
-  },
-  {
-    "name": "Сумка Акосты",
-    "en": "Acosta's Go-Bag",
-    "g": "",
-    "t": "",
-    "tal": "One in Hand... + ...Two in the Bag",
-    "d": "\"Один в руке...\" - Бросив гранату, вы немедленно возвращаете ее в свой боезапас и получаете +1 к уровню навыка сроком на 15 секунд.\nЕсли уровень навыка уже равен 6, вы получаете \"перезаряд\". Восстановление 60 сек.\n\"Два в мешке...\"\nЗапас бронекомплектов +1\nЗапас гранат +3\nБоезапас +25%\nРемонт с помощью навыков +10%\nНегативные эффекты +10%",
-    "stats_ru": "1 Уровень навыков\nУбыстрение (12% макс.)\nУрон навыков (10% макс.)\n\nСлот для модификаций",
-    "mods_ru": "—",
-    "source_ru": "- Контейнеры фракций\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"You never know what you're going to need, so it's best to be prepared.\" \n- Eva Acosta, Urban Spelunker\n\n- This backpack can drop with a variety of strap colours, namely red, green and purple. Gotta collect them all!\n- Eva Acosta is a character from Division 1 who left audio logs all over the city detailing her exploration. Due to the nature of what she sees, these logs get \nincreasingly disturbing. Click on this cell to listen to Eva's logs.\n- Eva does not seem to be associated with any organsation, and even her spelunking crew seems to be a group of friends. It is evident, however, that she has\nlived in New York all her life and cares deeply about well being of the city. For this reason, I chose to use a symbol from a redesign of the New York flag.\n- The full redesigned New York flag is from r/Vexillology"
-  },
-  {
-    "name": "Аварийный набор Птички",
-    "en": "Birdie’s Quick Fix",
-    "g": "",
-    "t": "",
-    "tal": "",
-    "d": "«Военный врач» (Combat Medic)\n+90% к скорости реанимации.\n-50% к длительности эффекта ослабления.\n+45% к эффективности улья.\nРеанимируемые и проводящие реанимацию агенты получают +50% к сопротивлению урону на 5 сек. после успешной реанимации ульем и на 10 сек. после реанимации вручную.\nЛюбая успешная реанимация дает +1 к уровню навыка сроком на 5 сек. Реанимация на уровне навыка 6 дает перезаряд сроком на 30 сек.",
-    "stats_ru": "1 Уровень навыков\nУбыстрение (12% макс.)\nНавыки ремонта (20% макс.)\n\nСлот для модификаций",
-    "mods_ru": "__",
-    "source_ru": "Прохождение кульминационной миссии облавы сезона \"Груз Истины\" Остров Рузвельта: Алани Келсо\n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности.",
-    "flavor_en": "\"Get up, we're out of body bags.\""
-  },
-  {
     "name": "Курьерский рюкзак «ВелоНиндзя»",
     "en": "NinjaBike Bag",
     "g": "",
@@ -924,17 +954,6 @@
     "mods_ru": "—",
     "source_ru": "- Гарантированная награда за сезон \"Царство Огня\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
     "flavor_en": "\"From the depths of hell, this has been resurrected as if it cannot die.\" The Priest"
-  },
-  {
-    "name": "Гордость \"Харриерc\"",
-    "en": "Harrier Pride",
-    "g": "",
-    "t": "",
-    "tal": "",
-    "d": "\"Перебалансировка\":\n- Каждое убийство или 3-е попадание в противника дает красный заряд, увеличивающий урон от оружия на 0.5%.\n- Каждое 3-е получение ранения дает синий заряд, увеличивающий сопротивление урону на 0.5%.\n- При накоплении суммарно 80 зарядов обоих типов они сгорают, давая отдельное преимущество в виде 0.5% к сопротивлению урону за каждый красный заряд и 0.5% к урону от оружия за каждый синий заряд. Это преимущество действует до следующего накопления максимального числа зарядов.",
-    "stats_ru": "Урон оружия (15% макс.)\nБроня (170 000 макс.)\n1 Уровень навыков\n\nСлот для модификаций",
-    "mods_ru": "—",
-    "source_ru": "- Гарантированная награда за юбилейный сезон \"Годовщина\""
   },
   {
     "name": "Исход",
@@ -949,54 +968,6 @@
     "flavor_en": "\"I'd like to make a withdrawal.\""
   },
   {
-    "name": "Кровавый кастет",
-    "en": "Bloody Knuckles",
-    "g": "",
-    "t": "",
-    "tal": "Over the Top",
-    "d": "\"За гранью\" - Нанесение урона противнику в рукопашной или с помощью гранаты вызывает эффект «Красная дымка».\n- Эффект «Красная дымка» дает +25% к урону от оружия и +100% к урону в рукопашной.\n- «Красная дымка» длится 20 сек. и восстанавливается 60 сек. после окончания своего действия.\n- Если вы нанесете урон в рукопашной или с помощью гранаты в период восстановления эффекта, оно завершится немедленно.",
-    "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)",
-    "mods_ru": "—",
-    "source_ru": "- Гарантированная награда за сезон \"Цена Власти\" \n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"A broken watch is still a good memento.\" 13"
-  },
-  {
-    "name": "Претенденты\nна победу",
-    "en": "Overdogs",
-    "g": "",
-    "t": "",
-    "tal": "",
-    "d": "\"Самое слабое звено\" - Увеличивает урон оружия на 30% по противникам с самым низким рангом в иерархии своего класса.\nКласс 1: охотник, ренегат, командир, танк, щитовик, тяжелый пехотинец, гранатометчик, врач, оператор, боевой пес, мародер.\nКласс 2: боец поддержки, инженер, телохранитель, иммобилизатор, бомбист, мини-танк, оператор дрона.\nКласс 3: любой другой противник или объект навыка.",
-    "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)",
-    "mods_ru": "—",
-    "source_ru": "- Гарантированная награда за сезон \"Пакт\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Start from the bottom and make your way up.\"\n\nNote: Tier 3 is lowest, tier 1 is highest."
-  },
-  {
-    "name": "Гибкая экзотическая кобура",
-    "en": "Nimble Holster",
-    "g": "",
-    "t": "",
-    "tal": "",
-    "d": "«Всегда в движении»:\nPVE: Восстанавливает 5% вашей суммарной брони за каждый метр, который вы пробежали между укрытиями. Урон, полученный во время перебежки между укрытиями, восстанавливается в течение 10 сек.\nPVP: Восстанавливает 3% вашей суммарной брони за каждый метр, который вы пробежали между укрытиями. Урон, полученный во время перебежки между укрытиями, восстанавливается в течение 10 сек.",
-    "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)",
-    "mods_ru": "—",
-    "source_ru": "- Гарантированная награда за сезон \"Перекрестки\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Run for your life.\""
-  },
-  {
-    "name": "Шоковый удар",
-    "en": "Shocker Punch",
-    "g": "",
-    "t": "",
-    "tal": "",
-    "d": "Талант «Дефибриллятор» - при использовании экзотической кобуры «Шоковый удар» оглушение, получаемое агентом от эффекта шока, сокращается на 50%.\nИспользование щита дает 100% защиту от урона в рукопашной.\nИспользование экзотической штурмовой винтовки «Мотор святого Эльма» с кобурой увеличивает наносимый урон в рукопашной на 100%, при этом следующая рукопашная атака накладывает эффект шока.\nИспользование всех трех предметов дает все вышеперечисленные преимущества, а также увеличивает радиус действия шока от рукопашных атак до 5 метров вокруг первой цели.\nВремя восстановления 15 секунд.",
-    "stats_ru": "Броня (170 000 макс.)\nЗащита от факторов риска (10% макс.)\nЗащита от взрыва (10% макс.)",
-    "mods_ru": "—",
-    "source_ru": "- Гарантированная награда за сезон \"Сломанные крылья\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"After getting sucker punched at the mall, I came up with a shocking solution.\" Anonymous"
-  },
-  {
     "name": "Курьерские наколенники \"ВелоНиндзя\"",
     "en": "NinjaBike Messenger Kneepads",
     "g": "",
@@ -1007,41 +978,5 @@
     "mods_ru": "—",
     "source_ru": "- Грузы Темной Зоны\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
     "flavor_en": "\"Parkour! Parkour!\" \n- an over-enthusiastic NinjaBike messenger\n\n- I've worked 2 messenger jobs so far and I haven't met one person who knows how to do parkour\n- I haven't met anyone who wears kneepads, either.\n- NinjaBike doesn't exist, but Ninjavan is a real company.\n- The type of vault that players do in game is most likely a clunky version of a speed vault, modified due to carrying a heavy backpack."
-  },
-  {
-    "name": "Экзотические наколенники Акосты",
-    "en": "Acosta's Kneepads",
-    "g": "",
-    "t": "",
-    "tal": "",
-    "d": "\"План отхода\":\n- Перепрыгивание препятствий дает +10% к скорости передвижения сроком на 3 секунды.\n- Неподвижность в течение 5 секунд дает +20% к скорости передвижения сроком на 5 секунд.\n- Получение эффекта состояния дает +10% к скорости передвижения сроком на 5 секунд.\n- Максимальное повышение скорости передвижения составляет 20% Не суммируется с повышением скорости передвижения из других источников.\n- -50% к снижению скорости передвижения, вызванному эффектами негативными эффектами.",
-    "stats_ru": "Броня (170 000 макс.)\nУрон от крит. попадания (12% макс.)\nЗдоровье (18 935 макс.)",
-    "mods_ru": "—",
-    "source_ru": "- Гарантированная награда за сезон \"Первый ренегат\"\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"They got they asses caught by the JTF, but they don't have my mad parkour skills.\"\n- Eva Acosta"
-  },
-  {
-    "name": "Койот",
-    "en": "Coyote’s Mask",
-    "g": "",
-    "t": "",
-    "tal": "Pack Instincts",
-    "d": "\"Стайный инстинкт\" - Все союзники получают определенное усиление в зависимости от расстояния до последнего раненного вами противника. Действие эффекта распространяется и на вас самих:\n0-15 метров: +25% к критическому урону\n15-25 метров: +10% к критическому урону и +10% к шансу критического урона\nболее 25 метров: +25% к шансу критического урона",
-    "stats_ru": "Урон оружия (15% макс.)\nШанс крит. попадания (6% макс.)\nУрон от крит. попадания (12% макс.)\n\nСлот для модификаций",
-    "mods_ru": "—",
-    "source_ru": "- Гарантированная награда за сезон \"Тени сгущяются\"\n- Босс Гиен Койот на миссии ТЦ Джефферсон\n- Целевые Трофеи\n- Боссы Героизма, Легендарной сложности, Рейда, Вылазки\n- Экзотические контейнеры.\n- Обычные вражеские NPC (наименьший шанс)",
-    "flavor_en": "\"Lived through this bullet. I'll live through yours.\" \n- Coyote\n\n- Do not bother farming for this exotic through Coyote at Jefferson Trade Centre. Instead, farm Countdown with mask targeted loot. It is more efficient.\n- The Jefferson Trade Centre mission becomes tragic when you realise that Espinoza is one of Agent Kelso's few trusted friends in DC.\n- Agent Kelso was overly confident that Coyote wouldn't kill Espinoza not because she didn't care, but because she was in denial and couldn't believe\nthat anything bad could happen to him.\n- Kelso and Espinoza's backstory can be heard on the Embassy classified assignment collectibles. Click on this cell to watch a video of that mission.\n-A group member can receive all 3 damage buffs at the same time, However, a group member can only have 1 of each damage buff at a time\n(e.g. if there are 2 CQC players, you will still only get +25% critical hit damage)"
-  },
-  {
-    "name": "Кустарь",
-    "en": "Tinkerer",
-    "g": "",
-    "t": "",
-    "tal": "",
-    "d": "«Краткость» - Если ваше основное и дополнительное оружие не является экзотическим или именным и относится к одному и тому же типу, талант дополнительного оружия будет также действовать на основное. Не распространяется на таланты, учитывающие смену оружия.\n! Не применяется к талантам, включающим смену оружия\n! Не применяется, если основное и дополнительное оружие имеют одинаковый талант.",
-    "stats_ru": "",
-    "mods_ru": "",
-    "source_ru": "Прохождение кульминационной миссии облавы сезона \"Перекрестки\" \n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности.",
-    "flavor_en": "\"Why not both.\""
   }
 ]
