@@ -415,11 +415,11 @@
         </div>
       </div>
     </div>
-    <div style="margin-top:10px;padding:10px;background:rgba(66,165,245,.04);border-radius:6px;border:1px solid rgba(66,165,245,.2)">
+    <div style="margin-top:10px;padding:10px;background:rgba(66,165,245,.04);border-radius:6px;border:1px solid rgba(66,165,245,.2);display:none">
       <div style="font-size:11px;color:var(--blue);margin-bottom:6px;font-weight:600">CORE-АТРИБУТЫ СВОБОДНЫХ СЛОТОВ (не именных/экзотик)</div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
         <label style="display:flex;align-items:center;gap:5px;font-size:12px">🔴 Красных (WD +15% каждый):
-          <input type="number" id="core-red" value="7" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
+          <input type="number" id="core-red" value="0" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
         </label>
         <label style="display:flex;align-items:center;gap:5px;font-size:12px">🔵 Синих (+16594 брони):
           <input type="number" id="core-blue" value="0" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
@@ -448,18 +448,39 @@
   <!-- Manual stats -->
   <div class="bsect">
     <h3>Статистика из игры — <span style="color:var(--orange)">итоговые значения</span></h3>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Вводи ИТОГ из меню оружия в игре. Калькулятор сам вычтет гарантированные выше и покажет сколько "накатано" на ролах/модах.</div>
-    <div class="bstat-row">
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span> (итог из игры)</label><input id="b-chc" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-chc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span> (итог из игры)</label><input id="b-chd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-chd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span> (итог из игры)</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-hsd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label title="Процент выстрелов которые попадают в голову. Нужен для правильного расчёта DPS с HSD. Типично 30-60% для снайперов, 10-20% для AR.">% попаданий в голову <span style="cursor:help;color:var(--blue)">ⓘ</span></label><input id="b-hsrate" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="OoC">Вне укрытия</span> (итог)</label><input id="b-ooc" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-ooc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="DtA">Броня цели</span> (итог)</label><input id="b-dta" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-dta-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span> (итог из игры)</label><input id="b-wd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-wd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label title="Итоговая скорость перезарядки из меню оружия (от всех источников: бренды, атрибуты, эргономика). Тяжело посчитать автоматом — вводи из игры.">Перезарядка (итог) ⓘ</label><input id="b-reload" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-reload-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px">
+      Вводи итоги из меню оружия в игре (вкладка "Наступление"). Калькулятор использует только твои цифры.
     </div>
-    <div style="font-size:11px;color:#444">CHD базовый 25% уже учтён в формуле. Эргономика влияет на скорость перезарядки — введи итоговое значение из меню оружия вручную.</div>
+
+    <div style="font-size:11px;color:#ef5350;margin:6px 0;text-transform:uppercase">Критический</div>
+    <div class="bstat-row">
+      <div class="bstat"><label>CHC (шанс крита, макс 60%)</label><input id="b-chc" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHD (урон крита, 25 базовый)</label><input id="b-chd" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>HSD (урон в голову)</label><input id="b-hsd" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label title="% выстрелов в голову. Нужен для расчёта DPS с HSD.">% попаданий в голову ⓘ</label><input id="b-hsrate" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
+
+    <div style="font-size:11px;color:#f5a623;margin:6px 0;text-transform:uppercase">Доп. урон (категория "Наступление")</div>
+    <div id="b-wpn-cat-hint" style="font-size:11px;color:var(--green);margin-bottom:4px"></div>
+    <div class="bstat-row">
+      <div class="bstat"><label>Доп. урон от всего оружия</label><input id="b-wd" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>От AR (штурмовых)</label><input id="b-wd-ar" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>От SMG (ПП)</label><input id="b-wd-smg" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>От LMG (пулемёты)</label><input id="b-wd-lmg" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>От MMR (снайперки)</label><input id="b-wd-mmr" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>От Rifle (винтовки)</label><input id="b-wd-rifle" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>От SG (дробовики)</label><input id="b-wd-sg" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>От Pistol (пистолеты)</label><input id="b-wd-pistol" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
+
+    <div style="font-size:11px;color:#42a5f5;margin:6px 0;text-transform:uppercase">Прочее</div>
+    <div class="bstat-row">
+      <div class="bstat"><label>Вне укрытия (OoC)</label><input id="b-ooc" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Урон по броне (DtA)</label><input id="b-dta" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Скорость перезарядки</label><input id="b-reload" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Скорострельность (RoF)</label><input id="b-rof" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Магазин (mag %)</label><input id="b-mag" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
   </div>
 
   <!-- Prototype Augments (Y8S1) -->

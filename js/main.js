@@ -721,7 +721,7 @@ function getBuildState(){
     wpnTal:selectedWpnTalent,
     cw:{dmg:v("cw-dmg"),rpm:v("cw-rpm"),mag:v("cw-mag"),rel:parseFloat(document.getElementById("cw-rel")?.value)||2,cat:document.getElementById("cw-cat")?.value||"AR"},
     slots,
-    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd")},
+    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd"),reload:v("b-reload"),rof:v("b-rof"),mag:v("b-mag"),"wd-ar":v("b-wd-ar"),"wd-smg":v("b-wd-smg"),"wd-lmg":v("b-wd-lmg"),"wd-mmr":v("b-wd-mmr"),"wd-rifle":v("b-wd-rifle"),"wd-sg":v("b-wd-sg"),"wd-pistol":v("b-wd-pistol")},
     core:{mode:document.getElementById("b-core-mode")?.value||"red",mask:document.getElementById("b-core-mask")?.value||"red",chest:document.getElementById("b-core-chest")?.value||"red",bp:document.getElementById("b-core-bp")?.value||"red",gloves:document.getElementById("b-core-gloves")?.value||"red",holster:document.getElementById("b-core-holster")?.value||"red",knees:document.getElementById("b-core-knees")?.value||"red"},
     shd:{wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo")},
     rc:{hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")},
@@ -759,7 +759,7 @@ function applyBuildState(s){
     updateSlotBtn(slot);
   }
   // Manual stats
-  ["chc","chd","hsd","hsrate","ooc","dta","wd"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
+  ["chc","chd","hsd","hsrate","ooc","dta","wd","reload","rof","mag","wd-ar","wd-smg","wd-lmg","wd-mmr","wd-rifle","wd-sg","wd-pistol"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
   if(s.core){
     const modeSel=document.getElementById("b-core-mode");
     if(modeSel&&s.core.mode)modeSel.value=s.core.mode;
@@ -903,6 +903,8 @@ function resetCurrentBuild(){
   // Reset manual stats to defaults
   setInput("b-chc",0);setInput("b-chd",0);setInput("b-hsd",0);
   setInput("b-hsrate",0);setInput("b-ooc",0);setInput("b-dta",0);setInput("b-wd",0);
+  setInput("b-reload",0);setInput("b-rof",0);setInput("b-mag",0);
+  ["b-wd-ar","b-wd-smg","b-wd-lmg","b-wd-mmr","b-wd-rifle","b-wd-sg","b-wd-pistol"].forEach(id=>setInput(id,0));
   // Keep SHD at maxed defaults (пользователь просил)
   setInput("shd-wd",10);setInput("shd-hsd",20);setInput("shd-chc",10);setInput("shd-chd",20);setInput("shd-ammo",0);
   // Recombinator back to zeros
@@ -2205,9 +2207,12 @@ function calcBuild(){
     bonuses.push({color:"#ab47bc",tier:"🔫",nm:"Оружие: "+wpn.name,desc:(wpn.tal||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
 
-  // Manual stats — поле это ИТОГ из меню игры (уже включает core+attr брони).
-  // Если поле заполнено — используем как итоговый стат (не дублируем gX).
-  // Если пусто — используем tX (авто от сетов/брендов/талантов) + gX (core/attr брони).
+  // Manual stats — пользователь вводит ИТОГИ из меню игры ("Наступление").
+  // Калькулятор НЕ суммирует авто-бонусы от core/сетов/брендов/талантов в tWD/tCHC/...
+  // (классовые перки делают автосчёт ненадёжным). Из авто-сбора остаются только:
+  // - tPeakOnly (conditional-стаки, экзотиков peak_bonus) → применяются при пиковом DPS
+  // - activeStacks (Страйкер и т.п.)
+  // - bonuses (для отображения источников)
   const mCHC=parseFloat(document.getElementById("b-chc").value)||0;
   const mCHD=parseFloat(document.getElementById("b-chd").value)||0;
   const mHSD=parseFloat(document.getElementById("b-hsd").value)||0;
@@ -2216,62 +2221,41 @@ function calcBuild(){
   const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
   const mRELOAD=parseFloat(document.getElementById("b-reload")?.value)||0;
-  // Снимок auto-значений ДО применения ручных (для отображения)
-  const autoWD=tWD, autoCHC=tCHC, autoCHD=tCHD, autoHSD=tHSD;
-  // Логика: если игрок ввёл поле — это ИТОГ из игры (включая часы, все бонусы).
-  // Используем ТОЛЬКО его ввод (auto/g — только для пустых полей, чтобы хоть что-то показать).
-  const applyManual=(auto,g,m)=>m>0?m:(auto+g);
-  tWD=applyManual(autoWD,gWD,mWD);
-  tCHC=applyManual(autoCHC,gCHC,mCHC);
-  tCHD=applyManual(autoCHD,gCHD,mCHD);
-  tHSD=applyManual(autoHSD,gHSD,mHSD);
-  // Reload: если ввёл — используем его итог, иначе оставляем авто
-  if(mRELOAD>0)tRELOAD=mRELOAD;
-  // Это значение ВД будет ИТОГ (база, без peak-стаков) — используется для отображения "Общий урон"
-  // peak_bonus и Obliterate-стаки попадают в tPeakOnly и добавятся при Infinity в dpsAtTime
-  // Подписи под полями: показываем "из брони X%" и если ввёл — "накатано Y% = итог - брони"
-  const setSumTip=(id,auto,g,m)=>{
-    const el=document.getElementById(id);
-    if(!el)return;
-    const autoSum=auto+g;
-    if(autoSum<=0&&m<=0){el.textContent="";return}
-    if(m>0){
-      const rolled=m-autoSum;
-      el.textContent=`(со шмоток ${autoSum}% · ввод ${m}% → используется ${m}%)`;
-      el.style.color="var(--green)";
-    }else{
-      el.textContent=`(со шмоток ${autoSum}% — используется это)`;
-      el.style.color="var(--muted)";
-    }
-    el.title=`Сеты/бренды/таланты/часы: +${auto}%\nCore/attr брони: +${g}%\nТвой ввод (итог из игры): ${m||"—"}%\n\nКогда ввёл — используется ТОЛЬКО ввод.\nПустое поле — используется сумма сверху.`;
+  const mROF=parseFloat(document.getElementById("b-rof")?.value)||0;
+  const mMAG=parseFloat(document.getElementById("b-mag")?.value)||0;
+  const catBonusMap={
+    AR:parseFloat(document.getElementById("b-wd-ar")?.value)||0,
+    SMG:parseFloat(document.getElementById("b-wd-smg")?.value)||0,
+    LMG:parseFloat(document.getElementById("b-wd-lmg")?.value)||0,
+    MMR:parseFloat(document.getElementById("b-wd-mmr")?.value)||0,
+    Rifle:parseFloat(document.getElementById("b-wd-rifle")?.value)||0,
+    SG:parseFloat(document.getElementById("b-wd-sg")?.value)||0,
+    Pistol:parseFloat(document.getElementById("b-wd-pistol")?.value)||0,
   };
-  setSumTip("b-chc-sum",autoCHC,gCHC,mCHC);
-  setSumTip("b-chd-sum",autoCHD,gCHD,mCHD);
-  setSumTip("b-hsd-sum",autoHSD,gHSD,mHSD);
-  setSumTip("b-wd-sum",autoWD,gWD,mWD);
-  setSumTip("b-ooc-sum",0,gOOC,mOOC);
-  setSumTip("b-dta-sum",0,gDTA,mDTA);
-  setSumTip("b-reload-sum",0,gRELOAD,mRELOAD);
-  const mOOCeff=mOOC>0?Math.max(mOOC,gOOC):gOOC;
-  const mDTAeff=mDTA>0?Math.max(mDTA,gDTA):gDTA;
-  // SHD Watch — статы часов ВХОДЯТ в итог из меню игры
-  // Добавляем только если пользователь НЕ ввёл свой итог вручную (иначе дубль)
+  const catBonus=catBonusMap[wpn.cat]||0;
+  const wpnCatLabel={AR:"AR (штурмовая)",SMG:"SMG (ПП)",LMG:"LMG (пулемёт)",MMR:"MMR (снайперка)",Rifle:"Rifle (винтовка)",SG:"SG (дробовик)",Pistol:"Pistol"};
+  const hintEl=document.getElementById("b-wpn-cat-hint");
+  if(hintEl){
+    const lbl=wpnCatLabel[wpn.cat]||wpn.cat||"—";
+    hintEl.textContent=`→ активен бонус "От ${lbl}"`;
+  }
+  // ОБНУЛЯЕМ все авто-накопления: берём ИТОГ только из ручных полей
+  tWD=mWD+catBonus;
+  tCHC=mCHC;
+  tCHD=mCHD;
+  tHSD=mHSD;
+  tROF=mROF;
+  tMAG=mMAG;
+  tRELOAD=mRELOAD;
+  const mOOCeff=mOOC;
+  const mDTAeff=mDTA;
+  // SHD / Prototype Gear / Recombinator — больше не суммируются в DPS (итог уже введён в игре).
+  // Читаем только чтобы показать их в списке bonuses (информативно).
   const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
-  if(mWD<=0)tWD+=shd.wd;
-  if(mHSD<=0)tHSD+=shd.hsd;
-  if(mCHC<=0)tCHC+=shd.chc;
-  if(mCHD<=0)tCHD+=shd.chd;
-  tMAG+=shd.ammo; tRELOAD+=shd.reload;
   if(Object.values(shd).some(x=>x>0)){
     bonuses.push({color:"#42a5f5",tier:"⌚",nm:"SHD Watch",desc:Object.entries(shd).filter(([,x])=>x).map(([k,x])=>`+${x}% ${k}`).join(" · ")});
   }
-  // Prototype Gear Attributes (Y8S1) — additive into buckets
-  // Такие же правила: если итог введён вручную — не дублировать
   const proto={slots:v("proto-slots-count"),wd:v("proto-wd"),hsd:v("proto-hsd"),chc:v("proto-chc"),chd:v("proto-chd"),elite:v("proto-elite"),health:v("proto-health")};
-  if(mWD<=0)tWD+=proto.wd;
-  if(mHSD<=0)tHSD+=proto.hsd;
-  if(mCHC<=0)tCHC+=proto.chc;
-  if(mCHD<=0)tCHD+=proto.chd;
   if(proto.wd)pushG("wd",proto.wd,"Prototype Gear");
   if(proto.hsd)pushG("hsd",proto.hsd,"Prototype Gear");
   if(proto.chc)pushG("chc",proto.chc,"Prototype Gear");
@@ -2289,9 +2273,8 @@ function calcBuild(){
     if(proto.health)parts.push(`+${proto.health}% vs Health (по здоровью)`);
     bonuses.push({color:"#ab47bc",tier:"🧪",nm:"Prototype Gear",desc:parts.join(" · ")});
   }
-  // Recombinator (Y8S1 seasonal modifiers) — only Offense HSD/Ammo go into weapon DPS
+  // Recombinator (Y8S1 seasonal modifiers) — информативно, не влияет на DPS (итог вводится вручную)
   const rc={hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")};
-  tHSD+=rc.hsd; tMAG+=rc.ammo;
   if(rc.hsd)pushG("hsd",rc.hsd,"Рекомбинатор: Offense");
   if(rc.ammo)pushG("mag",rc.ammo,"Рекомбинатор: Offense");
   const rcOff=rc.hsd+rc.ammo+rc.ergo;
@@ -2322,17 +2305,9 @@ function calcBuild(){
     const valEl=document.getElementById(`proto-${i}-val`);
     if(valEl)valEl.textContent=value.toFixed(1)+aug.unit;
     augActive.push({key,name:aug.name,lvl,value,desc:aug.desc,impact:aug.dps_impact});
-    // Apply DPS math (approximations)
-    if(key==="echo"){
-      // Chance to deal damage twice = +value% WD multiplicatively
-      tWD+=value;
-      pushG("wd",value,`Prototype Augment: ${aug.name}`);
-    }else if(key==="paradox"){
-      // Mag refill chance — approximated as +mag% (sustained DPS proxy)
-      tMAG+=value*3; // rough conversion
-      pushG("mag",value*3,`Prototype Augment: ${aug.name}`);
-    }
-    // Other augments don't directly affect weapon DPS
+    // Augments информативно (итог вводится вручную, автосчёт отключён)
+    if(key==="echo")pushG("wd",value,`Prototype Augment: ${aug.name}`);
+    else if(key==="paradox")pushG("mag",value*3,`Prototype Augment: ${aug.name}`);
   }
   if(augActive.length){
     bonuses.push({color:"#ab47bc",tier:"🧪",nm:"Prototype Augments",desc:augActive.map(a=>`${a.name} lvl${a.lvl} (${a.value.toFixed(1)}${PROTOTYPE_AUGMENTS[a.key].unit})`).join(" · ")});
@@ -2343,9 +2318,8 @@ function calcBuild(){
     if(descEl)descEl.innerHTML="";
   }
 
-  // ===== Рендер "Гарантированные статы" =====
-  // Единый блок со всеми авто-бонусами (сеты/бренды/именные/таланты/core/attr/SHD/прототип/рекомбинатор).
-  {
+  // ===== Рендер "Гарантированные статы" — отключён (пользователь вводит итоги руками) =====
+  if(false){
     const gSect=document.getElementById("b-guaranteed-sect");
     const gGrid=document.getElementById("b-guaranteed-grid");
     if(gSect&&gGrid){
