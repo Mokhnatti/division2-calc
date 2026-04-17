@@ -30,7 +30,7 @@ const B = D2DATA.B;
 const E = D2DATA.E;
 
 // ===== NAMED ITEMS =====
-const N = D2DATA.N;
+const N = [...(D2DATA.N||[]), ...(D2DATA.NAMED_GEAR||[])];
 
 // ===== LOGIC =====
 const TL = D2DATA.TL;
