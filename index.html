@@ -450,13 +450,13 @@
     <h3>Статистика из игры — <span style="color:var(--orange)">итоговые значения</span></h3>
     <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Вводи ИТОГ из меню оружия в игре. Калькулятор сам вычтет гарантированные выше и покажет сколько "накатано" на ролах/модах.</div>
     <div class="bstat-row">
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span> доп.</label><input id="b-chc" value="20" oninput="calcBuild()"><span class="u">%</span><span id="b-chc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span> доп.</label><input id="b-chd" value="25" oninput="calcBuild()"><span class="u">%</span><span id="b-chd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span> доп.</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-hsd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span> (итог из игры)</label><input id="b-chc" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-chc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span> (итог из игры)</label><input id="b-chd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-chd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span> (итог из игры)</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-hsd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
       <div class="bstat"><label title="Процент выстрелов которые попадают в голову. Нужен для правильного расчёта DPS с HSD. Типично 30-60% для снайперов, 10-20% для AR.">% попаданий в голову <span style="cursor:help;color:var(--blue)">ⓘ</span></label><input id="b-hsrate" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="OoC">Вне укрытия</span> доп.</label><input id="b-ooc" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-ooc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="DtA">Броня цели</span> доп.</label><input id="b-dta" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-dta-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span> доп.</label><input id="b-wd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-wd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="OoC">Вне укрытия</span> (итог)</label><input id="b-ooc" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-ooc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="DtA">Броня цели</span> (итог)</label><input id="b-dta" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-dta-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span> (итог из игры)</label><input id="b-wd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-wd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
     </div>
     <div style="font-size:11px;color:#444">CHD базовый 25% уже учтён в формуле. Вводи только дополнительный CHD от брендов/атрибутов.</div>
   </div>
@@ -508,17 +508,17 @@
     <h3>⌚ SHD Watch / Часы Кинера <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· max значения подтверждены 3 источниками (BDDFr + MikeRee + Reddit)</span></h3>
     <div style="font-size:11px;color:#ef5350;margin:4px 0 6px;text-transform:uppercase;letter-spacing:.5px">Атакующие (Offensive)</div>
     <div class="bstat-row">
-      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span></label><input id="shd-wd" value="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span></label><input id="shd-hsd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span></label><input id="shd-chc" value="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span></label><input id="shd-chd" value="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span> <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-wd" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span> <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-hsd" value="20" max="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span> <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-chc" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span> <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-chd" value="20" max="20" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
     <div style="font-size:11px;color:#fdd835;margin:6px 0;text-transform:uppercase;letter-spacing:.5px">Управление (Handling)</div>
     <div class="bstat-row">
-      <div class="bstat"><label>Магазин</label><input id="shd-ammo" value="20" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Перезарядка</label><input id="shd-reload" value="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Точность</label><input id="shd-accuracy" value="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Стабильность</label><input id="shd-stability" value="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Боезапас <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-ammo" value="20" max="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Перезарядка <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-reload" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Точность <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-accuracy" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Стабильность <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-stability" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
     <div style="font-size:10px;color:#555">SHD 1000+ → +10% CHC/CHD/WD навсегда. CHC итоговый софт-кап 60%. Точность/стабильность не входят в DPS математику.</div>
   </div>

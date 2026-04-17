@@ -901,7 +901,7 @@ function resetCurrentBuild(){
   const talSel=document.getElementById("b-wpn-tal");
   if(talSel)talSel.value="none";
   // Reset manual stats to defaults
-  setInput("b-chc",20);setInput("b-chd",25);setInput("b-hsd",0);
+  setInput("b-chc",0);setInput("b-chd",0);setInput("b-hsd",0);
   setInput("b-hsrate",0);setInput("b-ooc",0);setInput("b-dta",0);setInput("b-wd",0);
   // Keep SHD at maxed defaults (пользователь просил)
   setInput("shd-wd",10);setInput("shd-hsd",20);setInput("shd-chc",10);setInput("shd-chd",20);setInput("shd-ammo",0);
@@ -2198,12 +2198,7 @@ function calcBuild(){
   // SHD Watch (additive into respective buckets)
   const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
   tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo; tRELOAD+=shd.reload;
-  if(shd.wd)pushG("wd",shd.wd,"SHD Watch");
-  if(shd.hsd)pushG("hsd",shd.hsd,"SHD Watch");
-  if(shd.chc)pushG("chc",shd.chc,"SHD Watch");
-  if(shd.chd)pushG("chd",shd.chd,"SHD Watch");
-  if(shd.ammo)pushG("mag",shd.ammo,"SHD Watch");
-  if(shd.reload)pushG("reload",shd.reload,"SHD Watch");
+  // Часы НЕ в "Гарантированных" — их статы входят в ИТОГ из меню игры, который пользователь видит и вводит
   if(Object.values(shd).some(x=>x>0)){
     bonuses.push({color:"#42a5f5",tier:"⌚",nm:"SHD Watch",desc:Object.entries(shd).filter(([,x])=>x).map(([k,x])=>`+${x}% ${k}`).join(" · ")});
   }
