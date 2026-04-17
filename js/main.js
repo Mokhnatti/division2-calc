@@ -2092,12 +2092,35 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     const ts=t===Infinity?wpn.tal_max:Math.min(sps0*t,wpn.tal_max);
     talWD=ts;
   }
-  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus;
-  // Новые типы экзотик-талантов: все идут в wd% бакет (аддитивно с ручным wd)
-  if((wpn.tal_type==="amp"||wpn.tal_type==="stacks"||wpn.tal_type==="hs_kill"||wpn.tal_type==="swap_in")&&wpn.tal_bonus){
+  // Экзотик-таланты: растут со временем до пикового значения
+  if(wpn.tal_type==="kill"&&wpn.tal_bonus){
+    // Стаки на убийствах: 0.33 kill/sec, линейно до пика
+    const maxK=wpn.tal_max||50;
+    const kills=t===Infinity?maxK:Math.min(t*0.33,maxK);
+    talWD=(wpn.tal_bonus/maxK)*kills;
+  }
+  else if(wpn.tal_type==="stacks"&&wpn.tal_bonus){
+    // Стаки за попадания: sps0 попаданий/сек, нарастают до пика
+    const maxHits=wpn.tal_max||30;
+    const hits=t===Infinity?maxHits:Math.min(sps0*t,maxHits);
+    talWD=(wpn.tal_bonus/maxHits)*hits;
+  }
+  else if(wpn.tal_type==="amp"&&wpn.tal_bonus){
+    // Постоянный бонус: активен всегда (с первого выстрела)
     talWD=wpn.tal_bonus;
   }
-  // conditional (burst-таланты Merciless/Mantis/Vindicator и т.п.) — не в sustained формулу
+  else if(wpn.tal_type==="hs_kill"&&wpn.tal_bonus){
+    // HS-kill стаки: растут медленнее чем обычные kills
+    talWD=t===Infinity?wpn.tal_bonus:Math.min(t*0.15*wpn.tal_bonus/10,wpn.tal_bonus);
+  }
+  else if(wpn.tal_type==="swap_in"&&wpn.tal_bonus){
+    // Swap-in бонус на 10-20 сек: активен сразу, затухает
+    talWD=t<=20?wpn.tal_bonus:0;
+  }
+  else if(wpn.tal_type==="conditional"&&wpn.tal_bonus){
+    // Условные (первый выстрел, после перезарядки и т.п.) — только пиковый
+    talWD=t===Infinity?wpn.tal_bonus:0;
+  }
   const talAmp=0;
   // WD bucket: ручной ввод + экзотик-талант (но НЕ стаки сетов — они amp)
   const wdMult=1+(totalWD+talWD)/100;
