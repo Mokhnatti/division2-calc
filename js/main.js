@@ -2166,18 +2166,17 @@ function onTtkMultChange(){
 function clamp(x,lo,hi){return Math.max(lo,Math.min(hi,x))}
 function renderTtk(base,avg,peak){
   lastDps={base,avg,peak};
-  const enemies=ENEMY_HP[ttkDiff];
+  const enemies=ENEMY_HP.types||ENEMY_HP[ttkDiff]||[];
   const hpMult=clamp(parseFloat(document.getElementById("ttk-hp-mult")?.value)||0,0,800);
   const arMult=clamp(parseFloat(document.getElementById("ttk-ar-mult")?.value)||0,0,800);
-  // EHP scaling: split base hp 25% health / 75% armor
-  const effMult=0.25*(1+hpMult/100)+0.75*(1+arMult/100);
   const hasBoost=hpMult>0||arMult>0;
   const body=enemies.map(e=>{
-    const ehp=e.hp*effMult;
+    const baseEhp=(e.hp||0)+(e.armor||0);
+    const ehp=(e.hp||0)*(1+hpMult/100)+(e.armor||0)*(1+arMult/100);
     const tb=base>0?ehp/base:Infinity;
     const ta=avg>0?ehp/avg:Infinity;
     const tp=peak>0?ehp/peak:Infinity;
-    const hpLabel=hasBoost?`${(ehp/1e6).toFixed(1)}М <span style="font-size:10px;color:#555">(×${effMult.toFixed(2)})</span>`:`${(e.hp/1e6).toFixed(1)}М`;
+    const hpLabel=hasBoost?`${(ehp/1e6).toFixed(1)}М <span style="font-size:10px;color:#555">(было ${(baseEhp/1e6).toFixed(1)}М)</span>`:`${(baseEhp/1e6).toFixed(1)}М`;
     return`<tr>
       <td style="text-align:left">${e.name}</td>
       <td>${hpLabel}</td>
