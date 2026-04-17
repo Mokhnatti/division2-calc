@@ -177,6 +177,61 @@ function render(){
 }
 
 document.querySelectorAll("#s1,#s2,#s3").forEach(el=>el.addEventListener("input",render));
+
+// ===== SEARCH HINTS (autocomplete) =====
+let _searchIndex=null;
+function buildSearchIndex(){
+  if(_searchIndex)return _searchIndex;
+  const out=[];const seen=new Set();
+  const push=(name,kind)=>{
+    if(!name)return;const key=name.toLowerCase();if(seen.has(key+"|"+kind))return;seen.add(key+"|"+kind);
+    out.push({name,kind});
+  };
+  try{(D2DATA.E||[]).forEach(i=>{push(i.name,"экзотик");push(i.en,"экзотик");});}catch(e){}
+  try{(D2DATA.N||[]).forEach(i=>{push(i.name,"именной");push(i.en,"именной");});}catch(e){}
+  try{(D2DATA.NAMED_GEAR||[]).forEach(i=>{push(i.name,"именной");push(i.en,"именной");});}catch(e){}
+  try{(D2DATA.G||[]).forEach(i=>{push(i.name,"сет");push(i.en,"сет");});}catch(e){}
+  try{(D2DATA.B||[]).forEach(i=>{push(i.name,"бренд");push(i.en,"бренд");});}catch(e){}
+  try{Object.keys(D2DATA.WEAPON_TALENTS||{}).forEach(k=>{push(k,"талант");});}catch(e){}
+  try{Object.keys(D2DATA.TL||{}).forEach(k=>{push(k,"талант");});}catch(e){}
+  _searchIndex=out;return out;
+}
+function showHints(inputId){
+  const input=document.getElementById(inputId);
+  const hints=document.getElementById(inputId+"-hints");
+  if(!input||!hints)return;
+  const q=input.value.toLowerCase().trim();
+  if(!q||q.length<2){hints.style.display="none";hints.innerHTML="";return}
+  const idx=buildSearchIndex();
+  const matches=[];const seen=new Set();
+  for(const item of idx){
+    if(matches.length>=10)break;
+    if(item.name.toLowerCase().includes(q)){
+      const k=item.name.toLowerCase();
+      if(seen.has(k))continue;seen.add(k);
+      matches.push(item);
+    }
+  }
+  if(!matches.length){hints.style.display="none";hints.innerHTML="";return}
+  hints.innerHTML=matches.map(m=>{
+    const esc=String(m.name).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    return `<div class="sh-item" data-val="${esc}"><span>${esc}</span><span class="sh-kind">${m.kind}</span></div>`;
+  }).join("");
+  hints.style.display="block";
+  hints.querySelectorAll(".sh-item").forEach(el=>{
+    el.addEventListener("mousedown",ev=>{
+      ev.preventDefault();
+      input.value=el.getAttribute("data-val")||"";
+      hints.style.display="none";hints.innerHTML="";
+      render();
+    });
+  });
+}
+document.querySelectorAll("#s1,#s2,#s3").forEach(el=>{
+  el.addEventListener("input",()=>showHints(el.id));
+  el.addEventListener("focus",()=>showHints(el.id));
+  el.addEventListener("blur",()=>{setTimeout(()=>{const h=document.getElementById(el.id+"-hints");if(h){h.style.display="none";h.innerHTML=""}},150);});
+});
 document.querySelectorAll('input[name="mode"]').forEach(el=>el.addEventListener("change",render));
 document.querySelectorAll(".cat-btn").forEach(btn=>{
     btn.addEventListener("click",()=>{
@@ -647,6 +702,23 @@ function shareBuild(){
     );
   }else fallbackCopy(url);
   history.replaceState(null,"",hash);
+}
+async function exportBuildAsPng(){
+  const area=document.getElementById("build-export-area")||document.getElementById("build-panel");
+  if(!area){alert("Панель билда не найдена");return}
+  if(typeof html2canvas==="undefined"){alert("html2canvas не загружен");return}
+  document.body.classList.add("capturing");
+  try{
+    const canvas=await html2canvas(area,{backgroundColor:"#121212",scale:2,useCORS:true,logging:false});
+    const link=document.createElement("a");
+    const wpn=(getWeapon()||{}).name||"build";
+    const safe=String(wpn).replace(/[^A-Za-z0-9а-яА-Я_\-]+/g,"_").slice(0,40);
+    link.download=`divcalc-build-${safe}-${Date.now()}.png`;
+    link.href=canvas.toDataURL("image/png");
+    document.body.appendChild(link);link.click();document.body.removeChild(link);
+    showShareStatus("Картинка сохранена",3000);
+  }catch(e){alert("Ошибка экспорта: "+(e&&e.message?e.message:e));}
+  finally{document.body.classList.remove("capturing");}
 }
 function fallbackCopy(txt){
   const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);

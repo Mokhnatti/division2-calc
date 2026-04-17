@@ -47,8 +47,12 @@
     }
     </script>
 
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f5a623">
+
     <link rel="stylesheet" href="css/styles.css">
     <script src="data/all.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 <div class="header">
@@ -59,9 +63,9 @@
 </div>
 <div class="search-panel">
     <div class="search-row">
-        <input type="text" id="s1" placeholder="Поиск 1 — урон в голову">
-        <input type="text" id="s2" placeholder="Поиск 2 — снайперские">
-        <input type="text" id="s3" placeholder="Поиск 3 — крит">
+        <div class="s-wrap"><input type="text" id="s1" placeholder="Поиск 1 — урон в голову" autocomplete="off"><div class="search-hints" id="s1-hints" style="display:none"></div></div>
+        <div class="s-wrap"><input type="text" id="s2" placeholder="Поиск 2 — снайперские" autocomplete="off"><div class="search-hints" id="s2-hints" style="display:none"></div></div>
+        <div class="s-wrap"><input type="text" id="s3" placeholder="Поиск 3 — крит" autocomplete="off"><div class="search-hints" id="s3-hints" style="display:none"></div></div>
     </div>
     <div class="controls">
         <label><input type="radio" name="mode" value="and" checked> <b>И</b> — пересечения</label>
@@ -344,7 +348,8 @@
     <button class="mf-btn" onclick="saveCurrentBuild()" title="Сохранить текущий">Сохранить</button>
     <button class="mf-btn" onclick="deleteSelectedBuild()" title="Удалить выбранный" style="color:#ef5350">Удалить</button>
     <button class="mf-btn" onclick="resetCurrentBuild()" title="Сбросить все слоты и статы к нулю" style="color:#ef5350">♻ Сброс</button>
-    <button class="mf-btn" onclick="shareBuild()" title="Скопировать ссылку" style="background:rgba(66,165,245,.15);border-color:rgba(66,165,245,.4);color:var(--blue)">🔗 Поделиться</button>
+    <button class="mf-btn no-export" onclick="shareBuild()" title="Скопировать ссылку" style="background:rgba(66,165,245,.15);border-color:rgba(66,165,245,.4);color:var(--blue)">🔗 Поделиться</button>
+    <button class="mf-btn no-export" onclick="exportBuildAsPng()" title="Сохранить билд как PNG" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.4);color:var(--orange)">📷 Сохранить как картинку</button>
     <button class="mf-btn" onclick="openPublishModal()" title="Опубликовать в сообществе" style="background:rgba(0,200,83,.15);border-color:rgba(0,200,83,.4);color:var(--green)">🚀 Опубликовать</button>
     <div id="b-share-status" style="font-size:11px;color:var(--muted);flex-basis:100%;text-align:center;min-height:14px"></div>
   </div>

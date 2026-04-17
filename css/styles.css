@@ -1,4 +1,12 @@
 :root { --bg:#0a0a0f; --card:#12121a; --border:#1e1e2e; --orange:#f5a623; --green:#00c853; --blue:#42a5f5; --yellow:#fdd835; --red:#ef5350; --text:#e0e0e0; --muted:#888; --named:#ab47bc; }
+.capturing .no-export{display:none!important}
+.search-hints{position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--border);border-top:none;border-radius:0 0 8px 8px;max-height:260px;overflow-y:auto;z-index:1000;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.search-hints .sh-item{padding:7px 12px;cursor:pointer;font-size:12px;color:var(--text);border-bottom:1px solid rgba(255,255,255,.03);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.search-hints .sh-item:hover,.search-hints .sh-item.sh-active{background:rgba(245,166,35,.12);color:var(--orange)}
+.search-hints .sh-kind{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;flex-shrink:0}
+.search-row{position:relative}
+.search-row .s-wrap{position:relative;flex:1;min-width:180px;display:flex}
+.search-row .s-wrap input{width:100%}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Tahoma,sans-serif;min-height:100vh}
 .header{background:linear-gradient(135deg,#0d0d15,#1a1a2e);border-bottom:2px solid var(--orange);padding:18px;text-align:center;position:relative}
