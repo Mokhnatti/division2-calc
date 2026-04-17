@@ -396,41 +396,25 @@
       <div class="slt"><label>Кобура</label><div class="slot-wrap"><div class="slot-btn" id="bs-holster" onclick="openSlot('holster')"><span class="ss">— пусто —</span></div></div></div>
       <div class="slt"><label>Наколенники</label><div class="slot-wrap"><div class="slot-btn" id="bs-knees" onclick="openSlot('knees')"><span class="ss">— пусто —</span></div></div></div>
     </div>
-    <div style="margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-      <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px">Core-атрибуты (слоты без именной/экзотик):</label>
-      <select id="b-core-mode" onchange="onCoreModeChange()" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);color:var(--txt);padding:4px 8px;font-size:12px;border-radius:3px">
-        <option value="red">Red — +15% Урон оружия (×6)</option>
-        <option value="blue">Blue — +16594 Броня (×6)</option>
-        <option value="yellow">Yellow — +1 Skill Tier (×6)</option>
-        <option value="custom">Custom — задать по слотам</option>
-      </select>
-    </div>
-    <div id="b-core-custom" style="display:none;margin-top:8px;padding:8px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px">
-      <div style="font-size:10px;color:var(--muted);margin-bottom:6px">Для слотов с именной/экзотик вещью её собственный core не перекрывается.</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px">
-        <label style="font-size:11px;display:flex;gap:6px;align-items:center">Маска <select id="b-core-mask" class="bsel" onchange="calcBuild()" style="flex:1;padding:2px 4px"><option value="red">Red (WD)</option><option value="blue">Blue (Armor)</option><option value="yellow">Yellow (Skill)</option></select></label>
-        <label style="font-size:11px;display:flex;gap:6px;align-items:center">Нагрудник <select id="b-core-chest" class="bsel" onchange="calcBuild()" style="flex:1;padding:2px 4px"><option value="red">Red (WD)</option><option value="blue">Blue (Armor)</option><option value="yellow">Yellow (Skill)</option></select></label>
-        <label style="font-size:11px;display:flex;gap:6px;align-items:center">Рюкзак <select id="b-core-bp" class="bsel" onchange="calcBuild()" style="flex:1;padding:2px 4px"><option value="red">Red (WD)</option><option value="blue">Blue (Armor)</option><option value="yellow">Yellow (Skill)</option></select></label>
-        <label style="font-size:11px;display:flex;gap:6px;align-items:center">Перчатки <select id="b-core-gloves" class="bsel" onchange="calcBuild()" style="flex:1;padding:2px 4px"><option value="red">Red (WD)</option><option value="blue">Blue (Armor)</option><option value="yellow">Yellow (Skill)</option></select></label>
-        <label style="font-size:11px;display:flex;gap:6px;align-items:center">Кобура <select id="b-core-holster" class="bsel" onchange="calcBuild()" style="flex:1;padding:2px 4px"><option value="red">Red (WD)</option><option value="blue">Blue (Armor)</option><option value="yellow">Yellow (Skill)</option></select></label>
-        <label style="font-size:11px;display:flex;gap:6px;align-items:center">Наколенники <select id="b-core-knees" class="bsel" onchange="calcBuild()" style="flex:1;padding:2px 4px"><option value="red">Red (WD)</option><option value="blue">Blue (Armor)</option><option value="yellow">Yellow (Skill)</option></select></label>
-      </div>
-    </div>
+    <input type="hidden" id="b-core-mode" value="red">
+    <input type="hidden" id="b-core-mask" value="red">
+    <input type="hidden" id="b-core-chest" value="red">
+    <input type="hidden" id="b-core-bp" value="red">
+    <input type="hidden" id="b-core-gloves" value="red">
+    <input type="hidden" id="b-core-holster" value="red">
+    <input type="hidden" id="b-core-knees" value="red">
   </div>
 
   <!-- Guaranteed stats (auto from gear) -->
   <div class="bsect" id="b-guaranteed-sect" style="display:none;background:rgba(0,200,83,.05);border-left:3px solid var(--green)">
     <h4 style="color:var(--green);margin:0 0 8px 0;font-size:12px">✓ Гарантированные статы (автоматом из шмоток)</h4>
     <div id="b-guaranteed-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:6px"></div>
-    <div style="font-size:11px;color:var(--muted);padding:8px 0 0 0;margin-top:8px;border-top:1px dashed var(--border)">
-      💡 Ниже в полях вводи ТОЛЬКО дополнительные % статов (они добавятся к гарантированным выше).
-    </div>
   </div>
 
   <!-- Manual stats -->
   <div class="bsect">
-    <h3>Ручные статы — <span style="color:var(--orange)">поверх гарантированных</span></h3>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Статы снаряжения (бренды, моды, атрибуты, перки) — заполни из игры. Эти значения добавятся к гарантированным выше.</div>
+    <h3>Статистика из игры — <span style="color:var(--orange)">итоговые значения</span></h3>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Вводи ИТОГ из меню оружия в игре. Калькулятор сам вычтет гарантированные выше и покажет сколько "накатано" на ролах/модах.</div>
     <div class="bstat-row">
       <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span> доп.</label><input id="b-chc" value="20" oninput="calcBuild()"><span class="u">%</span><span id="b-chc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
       <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span> доп.</label><input id="b-chd" value="25" oninput="calcBuild()"><span class="u">%</span><span id="b-chd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>

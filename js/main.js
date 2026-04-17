@@ -1799,7 +1799,12 @@ function calcBuild(){
     if(b.handling)pushG("handling",b.handling,source);
     if(b.type_dmg){
       const match=!b.type||b.type==="ALL"||b.type.split("+").some(t=>wpnCat&&wpnCat.includes(t));
-      if(match)pushG("wd",b.type_dmg,source+" ("+(b.type||"")+")");
+      const typeLbl=b.type||"";
+      if(match){
+        pushG("wd",b.type_dmg,source+" ("+typeLbl+")");
+      }else{
+        pushG("wd",b.type_dmg,source+" ("+typeLbl+" ✗ не твой тип)",true);
+      }
     }
   };
 
@@ -2051,15 +2056,22 @@ function calcBuild(){
   tCHC=applyManual(autoCHC,gCHC,mCHC);
   tCHD=applyManual(autoCHD,gCHD,mCHD);
   tHSD=applyManual(autoHSD,gHSD,mHSD);
-  // Подписи под полями
+  // Подписи под полями: показываем "из брони X%" и если ввёл — "накатано Y% = итог - брони"
   const setSumTip=(id,auto,g,m)=>{
     const el=document.getElementById(id);
     if(!el)return;
     const autoSum=auto+g;
-    const total=m>0?Math.max(m,autoSum):autoSum;
     if(autoSum<=0&&m<=0){el.textContent="";return}
-    el.textContent=m>0?`(ввод ${m}% vs авто ${autoSum}% → итог ${total}%)`:`(из брони ${autoSum}%)`;
-    el.title=`Сеты/бренды/таланты: ${auto}%\nCore/attr брони: ${g}%\nТвой ввод: ${m||"—"}%\nИтог: ${total}%`;
+    if(m>0){
+      const rolled=m-autoSum;
+      const rolledStr=rolled>=0?`накатано +${rolled}%`:`введено меньше брони (−${-rolled}%)`;
+      el.textContent=`(из брони ${autoSum}% → ${rolledStr})`;
+      el.style.color=rolled>=0?"var(--green)":"var(--red)";
+    }else{
+      el.textContent=`(из брони ${autoSum}%)`;
+      el.style.color="var(--muted)";
+    }
+    el.title=`Сеты/бренды/таланты: +${auto}%\nCore/attr брони: +${g}%\nТвой ввод (итог из игры): ${m||"—"}%\nРазница (накатано на ролах): ${m>0?(m-autoSum):"—"}%`;
   };
   setSumTip("b-chc-sum",autoCHC,gCHC,mCHC);
   setSumTip("b-chd-sum",autoCHD,gCHD,mCHD);
@@ -2191,9 +2203,12 @@ function calcBuild(){
       const escH=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
       const html=keys.map(stat=>{
         const list=groupedG[stat];
+        const active=list.filter(x=>!x.conditional);
+        const condit=list.filter(x=>x.conditional);
         const meta=statMeta[stat]||{icon:"•",label:stat.startsWith("other:")?(typeof translateStat==="function"?translateStat(stat.slice(6)):stat.slice(6)):stat,unit:"%"};
-        const total=list.reduce((s,x)=>s+x.value,0);
-        const breakdown=list.map(x=>`${x.value>0?"+":""}${x.value}${meta.unit||""} (${escH(x.source)})`).join(", ");
+        const total=active.reduce((s,x)=>s+x.value,0);
+        const activeStr=active.map(x=>`${x.value>0?"+":""}${x.value}${meta.unit||""} (${escH(x.source)})`).join(", ");
+        const conditStr=condit.map(x=>`${x.value>0?"+":""}${x.value}${meta.unit||""} (${escH(x.source)})`).join(", ");
         const totalStr=(stat==="armor")?total.toLocaleString("ru"):((total>0?"+":"")+total);
         return `
           <div class="g-row" style="padding:6px 8px;background:rgba(0,200,83,.04);border-radius:5px;margin-bottom:4px">
@@ -2201,7 +2216,8 @@ function calcBuild(){
               <span>${meta.icon} <b>${meta.label}</b></span>
               <b style="color:var(--green);font-size:14px">${totalStr}${meta.unit||""}</b>
             </div>
-            <div style="font-size:10px;color:var(--muted);margin-top:2px;line-height:1.3">${breakdown}</div>
+            ${activeStr?`<div style="font-size:10px;color:var(--muted);margin-top:2px;line-height:1.3">${activeStr}</div>`:""}
+            ${conditStr?`<div style="font-size:10px;color:#f5a623;opacity:.75;margin-top:2px;line-height:1.3">⚠ ${conditStr}</div>`:""}
           </div>`;
       }).join("");
       if(html){
