@@ -721,7 +721,7 @@ function getBuildState(){
     wpnTal:selectedWpnTalent,
     cw:{dmg:v("cw-dmg"),rpm:v("cw-rpm"),mag:v("cw-mag"),rel:parseFloat(document.getElementById("cw-rel")?.value)||2,cat:document.getElementById("cw-cat")?.value||"AR"},
     slots,
-    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd"),reload:v("b-reload"),rof:v("b-rof"),mag:v("b-mag"),"wd-ar":v("b-wd-ar"),"wd-smg":v("b-wd-smg"),"wd-lmg":v("b-wd-lmg"),"wd-mmr":v("b-wd-mmr"),"wd-rifle":v("b-wd-rifle"),"wd-sg":v("b-wd-sg"),"wd-pistol":v("b-wd-pistol")},
+    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd"),reload:v("b-reload"),rof:v("b-rof"),mag:v("b-mag"),amp:v("b-amp"),expertise:v("b-expertise"),"wd-ar":v("b-wd-ar"),"wd-smg":v("b-wd-smg"),"wd-lmg":v("b-wd-lmg"),"wd-mmr":v("b-wd-mmr"),"wd-rifle":v("b-wd-rifle"),"wd-sg":v("b-wd-sg"),"wd-pistol":v("b-wd-pistol")},
     core:{mode:document.getElementById("b-core-mode")?.value||"red",mask:document.getElementById("b-core-mask")?.value||"red",chest:document.getElementById("b-core-chest")?.value||"red",bp:document.getElementById("b-core-bp")?.value||"red",gloves:document.getElementById("b-core-gloves")?.value||"red",holster:document.getElementById("b-core-holster")?.value||"red",knees:document.getElementById("b-core-knees")?.value||"red"},
     shd:{wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo")},
     rc:{hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")},
@@ -759,7 +759,7 @@ function applyBuildState(s){
     updateSlotBtn(slot);
   }
   // Manual stats
-  ["chc","chd","hsd","hsrate","ooc","dta","wd","reload","rof","mag","wd-ar","wd-smg","wd-lmg","wd-mmr","wd-rifle","wd-sg","wd-pistol"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
+  ["chc","chd","hsd","hsrate","ooc","dta","wd","reload","rof","mag","amp","expertise","wd-ar","wd-smg","wd-lmg","wd-mmr","wd-rifle","wd-sg","wd-pistol"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
   if(s.core){
     const modeSel=document.getElementById("b-core-mode");
     if(modeSel&&s.core.mode)modeSel.value=s.core.mode;
@@ -1782,13 +1782,15 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     if(s.def.chc_base!==undefined) sCHC+=stks*s.def.chc_base;
     stkRows.push({name:s.name,stks:Math.round(stks),max:maxS,color:s.color});
   }
-  // Weapon talent WD (Alejandro)
+  // Weapon talent: Алехандро shot_cover и Eagle Bearer kill работают как AMP (внешний множитель)
+  // НЕ в WD бакет, а ×(1+bonus/100) после wdMult
   let talWD=0;
+  let talAmp=0;
   if(wpn.tal_type==="shot_cover"){
     const ts=t===Infinity?wpn.tal_max:Math.min(sps0*t,wpn.tal_max);
-    talWD=ts;
+    talAmp=ts;
   }
-  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus;
+  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talAmp=wpn.tal_bonus;
   // WD bucket
   const wdMult=1+(totalWD+sWD+talWD)/100;
   // ROF
@@ -1811,7 +1813,7 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   // External
   const oocM=1+ooc/100;
   const dtaM=1+dta/100;
-  const ampM=1+(globalThis._buildAmp||0)/100;
+  const ampM=(1+(globalThis._buildAmp||0)/100)*(1+talAmp/100);
   const expM=1+(globalThis._buildExpertise||0)/100;
   // Sustained DPS (с циклом перезарядки)
   const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*effSPS;
