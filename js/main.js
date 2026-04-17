@@ -619,7 +619,8 @@ function updateSlotBtn(slot){
   const it=slotState[slot];
   el.className="slot-btn"+(it?" filled "+it.kind:"");
   if(!it){el.innerHTML='<span class="ss">— пусто —</span>';return}
-  const sub=it.kind==="green"?it.setName:it.kind==="brand"?it.brand:it.kind==="named"?(it.brand||"")+" · "+(it.talent||""):(it.talent||"Экзотик");
+  const talLocal=it.talent?talentName(it.talent):"";
+  const sub=it.kind==="green"?it.setName:it.kind==="brand"?it.brand:it.kind==="named"?(it.brand||"")+" · "+talLocal:(talLocal||"Экзотик");
   el.innerHTML=`<span class="sn ${it.kind}">${it.name}</span><span class="ss">${sub}</span>`+
     `<span class="clr" onclick="clearSlot(event,'${slot}')">×</span>`;
 }
@@ -3217,6 +3218,23 @@ async function toggleLang(){
   updateLangBtn();
   updateStatTooltips();
   if(currentLang==="en")await loadTranslations();
+  // Re-init slot buttons + talent selects to re-render labels
+  try{Object.keys(slotState).forEach(updateSlotBtn);}catch(e){}
+  try{
+    const chestSel=document.getElementById("b-chest-talent");
+    const bpSel=document.getElementById("b-bp-talent");
+    if(chestSel)chestSel.innerHTML='<option value="">— не выбран —</option>';
+    if(bpSel)bpSel.innerHTML='<option value="">— не выбран —</option>';
+    initGearTalentSelects();
+  }catch(e){}
+  try{
+    const talSel=document.getElementById("b-wpn-tal");
+    if(talSel&&typeof WEAPON_TALENTS_FULL!=='undefined'){
+      const prev=talSel.value;
+      talSel.innerHTML='<option value="none">— нет —</option>'+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=currentLang==='en'?(v.name_en||v.name_ru):(v.name_ru||v.name_en);return`<option value="${k}">${label}</option>`}).join("");
+      talSel.value=prev;
+    }
+  }catch(e){}
   if(typeof render==="function")render();
   if(activeCat==="build")calcBuild();
   if(activeCat==="community")loadCommunityFeed();
