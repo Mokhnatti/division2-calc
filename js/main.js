@@ -2093,6 +2093,11 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     talWD=ts;
   }
   if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus;
+  // Новые типы экзотик-талантов: все идут в wd% бакет (аддитивно с ручным wd)
+  if((wpn.tal_type==="amp"||wpn.tal_type==="stacks"||wpn.tal_type==="hs_kill"||wpn.tal_type==="swap_in")&&wpn.tal_bonus){
+    talWD=wpn.tal_bonus;
+  }
+  // conditional (burst-таланты Merciless/Mantis/Vindicator и т.п.) — не в sustained формулу
   const talAmp=0;
   // WD bucket: ручной ввод + экзотик-талант (но НЕ стаки сетов — они amp)
   const wdMult=1+(totalWD+talWD)/100;
@@ -2107,8 +2112,10 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   const critAvg=1+chcCap*totalCHD;
   // HSD multiplier (independent bucket)
   const hsM=1+(hsRate/100)*(hsdTotal/100);
-  // Reload
-  const noReload=typeof document!=="undefined"&&document.getElementById("b-no-reload")?.checked;
+  // Reload — Bullet King и no_reload чекбокс обнуляют время перезарядки
+  const noReloadCheckbox=typeof document!=="undefined"&&document.getElementById("b-no-reload")?.checked;
+  const noReloadExotic=wpn.tal_type==="no_reload";
+  const noReload=noReloadCheckbox||noReloadExotic;
   const reloadFinal=noReload?0:(wpn.reload/(1+reloadBonus/100));
   // Cycle
   const sps_f=rpm_f/60;
@@ -2445,11 +2452,28 @@ function calcBuild(){
   if(wpn.kind==="exotic"){
     const exSrc=`🧿 Экзотик: ${wpn.name}`;
     if(wpn.tal_type==="kill"&&wpn.tal_bonus){
-      // e.g. Eagle Bearer: stacks of WD on kill
       pushG("wd",wpn.tal_bonus,exSrc+" (максимум на киллах)",true);
     }
     if(wpn.tal_type==="shot_cover"&&wpn.tal_max){
       pushG("wd",wpn.tal_max,exSrc+" (из укрытия, пик)",true);
+    }
+    if(wpn.tal_type==="amp"&&wpn.tal_bonus){
+      pushG("wd",wpn.tal_bonus,exSrc+" (постоянный бонус)",false);
+    }
+    if(wpn.tal_type==="stacks"&&wpn.tal_bonus){
+      pushG("wd",wpn.tal_bonus,exSrc+" (пик стаков)",true);
+    }
+    if(wpn.tal_type==="hs_kill"&&wpn.tal_bonus){
+      pushG("wd",wpn.tal_bonus,exSrc+" (HS-kill, пик)",true);
+    }
+    if(wpn.tal_type==="swap_in"&&wpn.tal_bonus){
+      pushG("wd",wpn.tal_bonus,exSrc+" (swap-in бонус 10-20s)",true);
+    }
+    if(wpn.tal_type==="no_reload"){
+      pushG("wd",0,exSrc+" (Bullet King: без перезарядки)",false);
+    }
+    if(wpn.tal_type==="conditional"&&wpn.tal_bonus){
+      pushG("wd",wpn.tal_bonus,exSrc+" (условно — burst-шот)",true);
     }
     const exStats=EXOTIC_WPNS[wpn.name]||{};
     if(exStats.static_bonus){

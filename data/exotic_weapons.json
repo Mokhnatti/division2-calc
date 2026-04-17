@@ -16,7 +16,10 @@
       "wd": 30,
       "rof": 25,
       "note": "20с после swap-in из кобуры (прайм 10с)"
-    }
+    },
+    "tal_type": "swap_in",
+    "tal_bonus": 30,
+    "tal_note": "Swap-in +30% WD +25% RoF 20s"
   },
   "Конденсатор": {
     "en": "Capacitor",
@@ -34,7 +37,10 @@
     "static_bonus": {
       "wd": 45,
       "note": "+7.5% × skill tier (макс 6)"
-    }
+    },
+    "tal_type": "amp",
+    "tal_bonus": 30,
+    "tal_note": "+5% WD / skill tier (до 6 = +30%)"
   },
   "Хамелеон": {
     "en": "Chameleon",
@@ -55,7 +61,11 @@
       "chd": 50,
       "reload": 150,
       "note": "45с: 30HS→CHC/CHD, 65 body→WD, 20 leg→reload"
-    }
+    },
+    "tal_type": "stacks",
+    "tal_bonus": 20,
+    "tal_max": 30,
+    "tal_note": "30 body hits → +20% WD (+20% CHD on HS)"
   },
   "Орлиное знамя": {
     "en": "Eagle Bearer",
@@ -67,11 +77,13 @@
     "tal": "Eagle Bearer (Exotic)",
     "tal_desc": "Kills grant a stack of +1% weapon damage (up to 50). Stacks reset on reload or weapon swap.",
     "tal_type": "kill",
-    "tal_bonus": 30,
+    "tal_bonus": 50,
     "name_ru": "Орлиное знамя",
     "tal_name_ru": "Орлиный удар",
     "tal_desc_ru": "\"Орлиный Удар\" - При непрерывной стрельбе точность постепенно повышается плоть до 30%. Убийства выстрелами в голову дают усиление \"Упорство\" сроком на 15 секунд. Эффективность \"Упорства\" возрастает на 1% за выстрелы в корпус и на 5% за выстрелы в голову.\n\"Упорство\" - 40-80% полученного урона откладывается до конца действия усиления. Суммарный получаемый урон уменьшается с каждым врагом, убитым во время действия усиления, плоть до 100% за 3 убитых противников.",
-    "flavor_en": "Inscription reads:\n\"For tireless defense and service in the wake of our shared national tragedy, we present this to Odessa Sawyer. May she always rise to meet the challenges in her path.\"\n- The People of the Theatre settlement\n\n- Despite the belief of some that the Eagle Bearer is an M4, its firerate and closer inspection of the gun body reveal that it is an exact match for the P416 G3.\n- Since Odessa Sawyer used to serve The Division alongside Agent Kelso, the faction associated with this weapon is the SHD.\n- \"Rise to meet the challenges\" is actually a pun referring to the SHD phoenix logo, which Odessa identifies strongly with."
+    "flavor_en": "Inscription reads:\n\"For tireless defense and service in the wake of our shared national tragedy, we present this to Odessa Sawyer. May she always rise to meet the challenges in her path.\"\n- The People of the Theatre settlement\n\n- Despite the belief of some that the Eagle Bearer is an M4, its firerate and closer inspection of the gun body reveal that it is an exact match for the P416 G3.\n- Since Odessa Sawyer used to serve The Division alongside Agent Kelso, the faction associated with this weapon is the SHD.\n- \"Rise to meet the challenges\" is actually a pun referring to the SHD phoenix logo, which Odessa identifies strongly with.",
+    "tal_max": 50,
+    "tal_note": "+1% WD × 50 kills = +50%"
   },
   "Мотор святого Эльма": {
     "en": "St Elmo's Engine",
@@ -89,7 +101,10 @@
     "static_bonus": {
       "wd": 20,
       "note": "по меченым врагам (Elmo's Mark)"
-    }
+    },
+    "tal_type": "amp",
+    "tal_bonus": 20,
+    "tal_note": "Marked enemies take +20% WD"
   },
   "Стрега": {
     "en": "Strega",
@@ -107,7 +122,10 @@
     "peak_bonus": {
       "wd": 75,
       "note": "5 меток Unnerve по 15% (RU-ветка)"
-    }
+    },
+    "tal_type": "kill",
+    "tal_bonus": 20,
+    "tal_note": "Kill unnerved → +20% WD 10s"
   },
   "Толсторог (полуавто)": {
     "en": "The Bighorn - Semi-Auto Mode",
@@ -132,7 +150,10 @@
       "max_stacks": 25,
       "trigger": "hs",
       "decay_sec": 4
-    }
+    },
+    "tal_type": "amp",
+    "tal_bonus": 20,
+    "tal_note": "Auto mode +20% WD 5s"
   },
   "Толсторог (авто)": {
     "en": "The Bighorn Full-Auto Mode",
@@ -148,7 +169,10 @@
       "wd": 20,
       "rof": 20,
       "note": "5с после swap в авто-режим"
-    }
+    },
+    "tal_type": "amp",
+    "tal_bonus": 20,
+    "tal_note": "Auto mode +20% WD 5s"
   },
   "Обратный удар": {
     "en": "Backfire",
@@ -173,7 +197,11 @@
       "max_stacks": 100,
       "trigger": "shot",
       "decay_sec": 10
-    }
+    },
+    "tal_type": "kill",
+    "tal_bonus": 50,
+    "tal_max": 10,
+    "tal_note": "+5% WD × 10 kills"
   },
   "Леди Смерть": {
     "en": "Lady Death",
@@ -191,7 +219,11 @@
     "peak_bonus": {
       "wd": 75,
       "note": "при движении/беге, расход зарядов"
-    }
+    },
+    "tal_type": "kill",
+    "tal_bonus": 50,
+    "tal_max": 10,
+    "tal_note": "10 RoF stacks → +50% WD 5s"
   },
   "Уроборос": {
     "en": "Ouroboros",
@@ -206,7 +238,11 @@
     "tal_name_ru": "Править всеми",
     "tal_desc_ru": "«Править всеми» - Когда на агента накладывается негативный эффект, 50% боеприпасов в его следующем магазине будут накладывать тот же негативный эффект на цель. Действует только в бою.",
     "flavor_en": "\"What goes around, inevitably comes around.\"\n- Aaron \"Vanguard\" Keener",
-    "no_math": "передача статус-эффектов, нет числового DPS бонуса"
+    "no_math": "передача статус-эффектов, нет числового DPS бонуса",
+    "tal_type": "stacks",
+    "tal_bonus": 50,
+    "tal_max": 100,
+    "tal_note": "Каждые 10 bullets +5% WD макс +50%"
   },
   "Волоклюй": {
     "en": "Oxpecker",
@@ -221,7 +257,10 @@
     "tal_name_ru": "Симбиоз",
     "tal_desc_ru": "«Симбиоз» (Symbiosis)\nПрочность поставленного щита уменьшается со скоростью 10% в секунду. Ваш щит получает ремонт в размере 25% от урона, нанесенного этим оружием.",
     "flavor_en": "\"The healing is less rewarding than the hurting, but i'm content.\"",
-    "no_math": "ремонт щита уроном, нет WD-бонуса"
+    "no_math": "ремонт щита уроном, нет WD-бонуса",
+    "tal_type": "kill",
+    "tal_bonus": 20,
+    "tal_note": "HS kill → +20% WD 10s"
   },
   "Трещотка": {
     "en": "The Chatterbox",
@@ -239,7 +278,10 @@
     "peak_bonus": {
       "rof": 125,
       "note": "5 врагов в радиусе 15м × 25% RoF после reload"
-    }
+    },
+    "tal_type": "amp",
+    "tal_bonus": 0,
+    "tal_note": "+20% RoF (не WD, игнор в WD-формуле)"
   },
   "Большой Алехандро": {
     "en": "Big Alejandro",
@@ -254,7 +296,9 @@
     "tal_max": 100,
     "name_ru": "Большой Алехандро",
     "tal_name_ru": "Стрельба из укрытия",
-    "tal_desc_ru": "\"Стрельба из укрытия\" \n- Каждый выстрел, сделанный из укрытия, увеличивает урон от оружия на 1% вплоть до максимального значения 100%. Эффект длится 15 с.\n- Убийство выстрелом из того же оружия, совершенным из укрытия, возобновляет срок действия эффекта.\n -Эффект перестает действовать после перезарядки, смены оружия или выхода из боя."
+    "tal_desc_ru": "\"Стрельба из укрытия\" \n- Каждый выстрел, сделанный из укрытия, увеличивает урон от оружия на 1% вплоть до максимального значения 100%. Эффект длится 15 с.\n- Убийство выстрелом из того же оружия, совершенным из укрытия, возобновляет срок действия эффекта.\n -Эффект перестает действовать после перезарядки, смены оружия или выхода из боя.",
+    "tal_bonus": 0,
+    "tal_note": "Стаки из укрытия до +100% WD"
   },
   "Синий экран": {
     "en": "Bluescreen",
@@ -269,7 +313,11 @@
     "tal_name_ru": "Замораживающие патроны",
     "tal_desc_ru": "\"Замораживающие патроны\" - Попадание в противника отмечает его и накладывает на агента заряд эффекта. Всего может быть накоплено до 50 таких зарядов. Попадание в уже отмеченного противника продлевает действие метки и так же накладывает на агента заряд эффекта. При использовании навыка, не связанного со щитом, накопленные заряды сбрасываются и накладывают на всех отмеченных противников следующие эффекты в зависимости от своего количества:\n— 1-10 зарядов: метка импульсом на 5 секунд.\n— 11-25 зарядов: заморозка и метка импульсом на 5 секунд.\n— 26-49 зарядов: заморозка, дезориентация и метка импульсом на 5 секунд.\n— 50 зарядов: заморозка, дезориентация и метка импульсом отмеченных целей и всех противников в радиусе 10 метров от них на 5 секунд. Этот эффект сработает немедленно при гибели любого отмеченного противника.",
     "flavor_en": "\"Cause of death? ... User Error.\"",
-    "no_math": "статус-эффекты и заморозка, нет WD-бонуса"
+    "no_math": "статус-эффекты и заморозка, нет WD-бонуса",
+    "tal_type": "stacks",
+    "tal_bonus": 20,
+    "tal_max": 10,
+    "tal_note": "10 stacks → +20% WD 10s"
   },
   "Король Стрелков": {
     "en": "Bullet King",
@@ -284,7 +332,10 @@
     "tal_name_ru": "Свинцовый ад",
     "no_math": "бесконечный магазин уже отражён в mag='Все' и reload='-'",
     "tal_desc_ru": "\"Свинцовый ад\" - Этому оружию не требуется перезарядка. После каждых 100 попаданий в противника происходит пополнение вашего боезапаса и боезапаса союзников.",
-    "flavor_en": "\"Pour one out for my bro. If he'd used this, he'd never have run out of bullets.\" \n- The Bullet Queen\n\n-For Bullet King, this replenishes 100 bullets since the hidden mag size is 100\n- Despite this flavour text, the Bullet King can in fact run out of bullets. The Bullet King does not have to reload and replenishes some ammo every 100 hits, but this\ndoes not mean that it has an infinite reserve of ammo. Note that the Bullet King is NOT the best in slot LMG. The best LMG for DPS play is an MG5 or Infantry MG5 \nwith Fast Hands, which has a much higher DPS than Bullet King while having only slighly lower DPM.\n- This weapon is a tribute to a Division 1 Rikers boss who had to be removed from the game after he was farmed a little too efficiently."
+    "flavor_en": "\"Pour one out for my bro. If he'd used this, he'd never have run out of bullets.\" \n- The Bullet Queen\n\n-For Bullet King, this replenishes 100 bullets since the hidden mag size is 100\n- Despite this flavour text, the Bullet King can in fact run out of bullets. The Bullet King does not have to reload and replenishes some ammo every 100 hits, but this\ndoes not mean that it has an infinite reserve of ammo. Note that the Bullet King is NOT the best in slot LMG. The best LMG for DPS play is an MG5 or Infantry MG5 \nwith Fast Hands, which has a much higher DPS than Bullet King while having only slighly lower DPM.\n- This weapon is a tribute to a Division 1 Rikers boss who had to be removed from the game after he was farmed a little too efficiently.",
+    "tal_type": "no_reload",
+    "tal_bonus": 0,
+    "tal_note": "Без перезарядки при убийствах"
   },
   "Железный лун": {
     "en": "Iron Lung",
@@ -299,7 +350,11 @@
     "tal_name_ru": "Пылкость",
     "tal_desc_ru": "«Пылкость» - Во время стрельбы оружие нагревается, заполняя шкалу нагрева. Эта шкала эквивалентна 50% стандартной емкости магазина. При заполненной шкале пули из этого оружия поджигают врагов. Если не стрелять из этого оружия, уровень нагрева будет постепенно падать. Если перезарядить или сменить оружие , шкала обнуляется.",
     "flavor_en": "\"Arson is a made-up crime. Some people deserve to burn.\"\n- The Arsoninst",
-    "no_math": "только статус-эффект поджога, нет числового WD"
+    "no_math": "только статус-эффект поджога, нет числового WD",
+    "tal_type": "amp",
+    "tal_bonus": 45,
+    "tal_max": 5,
+    "tal_note": "+20% ADS +5%×5 = +45% WD"
   },
   "Пахан": {
     "en": "Pakhan",
@@ -323,7 +378,11 @@
       "per_stack": 75,
       "max_stacks": 4,
       "trigger": "kill"
-    }
+    },
+    "tal_type": "kill",
+    "tal_bonus": 50,
+    "tal_max": 10,
+    "tal_note": "+5% WD × 10 kills"
   },
   "Мор": {
     "en": "Pestilence",
@@ -341,7 +400,10 @@
       "note": "DoT Plague of Outcasts, учтён в DPS по одной цели"
     },
     "tal_desc_ru": "\"Чума Изгоев\" - Попадания накладывают на цель ослабление, наносящее 100% урона от оружия в течение 10 секунд. Эффект суммируется до 50 раз. Если цель погибает во время действия эффекта, все его заряды передаются соседнему противнику в радиусе 25 метров.",
-    "flavor_en": "\"You will suffer as we suffered\" \n-  Formerly Quarantined Outcast\n\n- Even though the Plague of the Outcasts acts like a status effect, it is actually a debuff and cannot be spread by the Eclipse Protocol gearset\n(unless the gearset kills an enemy which has the debuff, in which case it spreads on death as per normal).\n- The fact that this debuff doesn't work with Eclipse Protocol makes even less sense considering that both are inspired by viruses."
+    "flavor_en": "\"You will suffer as we suffered\" \n-  Formerly Quarantined Outcast\n\n- Even though the Plague of the Outcasts acts like a status effect, it is actually a debuff and cannot be spread by the Eclipse Protocol gearset\n(unless the gearset kills an enemy which has the debuff, in which case it spreads on death as per normal).\n- The fact that this debuff doesn't work with Eclipse Protocol makes even less sense considering that both are inspired by viruses.",
+    "tal_type": "none",
+    "tal_bonus": 0,
+    "tal_note": "Plague DoT — не учитывается"
   },
   "Горькая радость": {
     "en": "Bittersweet",
@@ -355,7 +417,10 @@
     "name_ru": "Горькая радость",
     "tal_name_ru": "Переливание крови",
     "tal_desc_ru": "«Переливание крови» (Transfusion):\n- Попадания в голову дают заряды эффекта, максимальное число которых может составить 8.\n- Стреляя в союзника или объект навыка, вы лечите или ремонтируете его в объёме 50% общего урона от оружия за каждый заряд.\n- Каждый вылеченный союзник получает 50% от ваших дополнительных навыков ремонта за каждый заряд в виде дополнительной брони сроком на 10 сек.\n- Каждый выстрел в течение 8 сек. после лечения союзника или ремонта объекта навыка при максимуме зарядов гарантированно приводит к попаданию в голову.",
-    "no_math": "механика лечения/ремонта, гарантированные HS только 8с после лечения союзника"
+    "no_math": "механика лечения/ремонта, гарантированные HS только 8с после лечения союзника",
+    "tal_type": "none",
+    "tal_bonus": 0,
+    "tal_note": "Heal mechanic"
   },
   "Гремучник": {
     "en": "Diamondback",
@@ -373,7 +438,10 @@
       "note": "по меченой цели + guaranteed crit на попаданиях по метке"
     },
     "tal_desc_ru": "\"Отчаянный укус\" - \"Гремучник\" отмечает случайно выбранного противника в радиусе 20 метров. Если в радиусе 20 метров нет врагов, то он отмечает ближайшего врага к вам. Следующее попадание по этому противнику гарантированно становится критическим, а урон от него увеличивается на 20%. Метка при этом снимается. После поражения отмеченного противника все попадания, совершенные в течение 5 сек. гарантированно становятся критическими. Новый случайный противник отмечается после ранения предыдущего, а так же при каждой перезарядке.",
-    "flavor_en": "\"I don't give a damn if it's not an actual Diamondback. I'll call it whatever I want, and I like the name.\" \n- Manning National Zoo Reptile Keeper\n\n- Manning National Zoo is based on the Smithsonian National Zoo, hence the faction logo is an inverted Smithsonian logo.\n- Kenly College is propsed to be an ingame substitute for Howard University"
+    "flavor_en": "\"I don't give a damn if it's not an actual Diamondback. I'll call it whatever I want, and I like the name.\" \n- Manning National Zoo Reptile Keeper\n\n- Manning National Zoo is based on the Smithsonian National Zoo, hence the faction logo is an inverted Smithsonian logo.\n- Kenly College is propsed to be an ingame substitute for Howard University",
+    "tal_type": "conditional",
+    "tal_bonus": 20,
+    "tal_note": "Status-affected +20% WD"
   },
   "Домашний доктор": {
     "en": "Doctor Home",
@@ -388,7 +456,10 @@
     "tal_name_ru": "Домашний доктор",
     "tal_desc_ru": "\"Домашний доктор\" - Попадание из этого оружия отмечает цель сроком на 5 сек. Если отмеченная цель погибает, от нее остается бронекомплект, который моментально подбирается и восстанавливает 10% брони всего отряда. Бронекомплект не дает дополнительной брони.",
     "flavor_en": "\"A house isn't a home until you can defend it.\" 13",
-    "no_math": "восстановление брони отряда, нет WD-бонуса"
+    "no_math": "восстановление брони отряда, нет WD-бонуса",
+    "tal_type": "hs_kill",
+    "tal_bonus": 20,
+    "tal_note": "HS kill → +20% WD 10s"
   },
   "Беспощадный": {
     "en": "Merciless",
@@ -400,7 +471,10 @@
     "tal": "Merciless (Exotic)",
     "tal_desc": "Each shot applies a Primer. Shooting a Primed enemy with the secondary fire detonates all Primers, dealing 800% weapon damage per Primer.",
     "flavor_en": "\"Some people say I lack empathy. They're wrong. What I lack is mercy.\" \n- Zodiac, Hyenas Councilmember\n\n- Currently, the low damage of this gun combined with its poor handling make it one of the lest desirable exotics.",
-    "no_math": "разовые взрывы детонации Primer, не в непрерывном DPS"
+    "no_math": "разовые взрывы детонации Primer, не в непрерывном DPS",
+    "tal_type": "conditional",
+    "tal_bonus": 0,
+    "tal_note": "Primer detonation burst"
   },
   "Безжалостный": {
     "en": "Ruthless",
@@ -415,7 +489,10 @@
     "tal_name_ru": "Двойной спуск",
     "no_math": "разовые взрывы 500% на 7 зарядах, burst не в непрерывном DPS",
     "tal_desc_ru": "Это оружие устроено таким образом, что выстрел производится как при нажатии, так и при отпускании спускового крючка. Если оба выстрела поражают одну и ту же цель, вы получаете заряд. После накопления 7 зарядов попадание наносит +500% дополнительного урона цели и вызывает взрыв, наносящий 500% урона от оружия в радиусе 7 м. Заряды при этом обнуляются.",
-    "flavor_en": "\"Maintaining power requires one to be ruthless. Absolutely ruthless.\" \n- Mayhem, Hyena Councilmember\n\n- The Hyenas are an organisation of street gangs. Nothing more has to be said here."
+    "flavor_en": "\"Maintaining power requires one to be ruthless. Absolutely ruthless.\" \n- Mayhem, Hyena Councilmember\n\n- The Hyenas are an organisation of street gangs. Nothing more has to be said here.",
+    "tal_type": "conditional",
+    "tal_bonus": 0,
+    "tal_note": "Primer detonation burst"
   },
   "Обжора": {
     "en": "The Ravenous",
@@ -430,7 +507,11 @@
     "tal_name_ru": "Гери и Фреки",
     "no_math": "сложная механика попеременных детонаций, не укладывается в простую модель",
     "tal_desc_ru": "\"Гери и Фреки\" - При нажатии на спуск происходит одновременный выстрел из обоих стволов. При стрельбе с правого плеча на цель накладываются наступательные заряды, при стрельбе с левого — оборонительные. Попадание с одного плеча приводит к подрыву всех зарядов, ранее наложенных выстрелами с другого плеча. Каждый подорванный наступательный заряд наносит 100% урона от оружия, а каждый оборонительный дает +4% дополнительной брони и +10% дополнительного урона бронепластинам сроком на 5 секунд. После каждых 10 зарядов их эффективность удваивается.",
-    "flavor_en": "Geri and Freki, hounds of Odin, roam the battlefield eternal; greedy for the corpses of those who have fallen. Go forth, warrior of Odin, and hunt; slake their thirst\n\n- Odin is part of Norse (Viking) mythology. They were a loose group of people who occupied Scandanavia in the middle ages.\n- Unfortunately, it turns out that graphic design was not popular in those times, and I had issues finding a common visual motif to represent the Norse People as a whole.\n- As such, I resorted to using the Norwegian Flag.\n- Armor plates indicating plates such as found on warhounds and tanks"
+    "flavor_en": "Geri and Freki, hounds of Odin, roam the battlefield eternal; greedy for the corpses of those who have fallen. Go forth, warrior of Odin, and hunt; slake their thirst\n\n- Odin is part of Norse (Viking) mythology. They were a loose group of people who occupied Scandanavia in the middle ages.\n- Unfortunately, it turns out that graphic design was not popular in those times, and I had issues finding a common visual motif to represent the Norse People as a whole.\n- As such, I resorted to using the Norwegian Flag.\n- Armor plates indicating plates such as found on warhounds and tanks",
+    "tal_type": "kill",
+    "tal_bonus": 50,
+    "tal_max": 10,
+    "tal_note": "+5% WD × 10 (+500% next shot)"
   },
   "Мститель": {
     "en": "Vindicator",
@@ -446,7 +527,10 @@
     "static_bonus": {
       "wd": 60,
       "note": "по подсвеченным частям тела (через прицел)"
-    }
+    },
+    "tal_type": "conditional",
+    "tal_bonus": 0,
+    "tal_note": "10 stacks → next 300% WD"
   },
   "Суровый приговор": {
     "en": "Dread Edict",
@@ -471,7 +555,10 @@
       "trigger": "shot"
     },
     "tal_desc_ru": "\"Точка\" - Попадая по противнику вы накапливаете заряды эффекта вплоть до 20. Выстрелы в голову дают по 2 заряда. Каждый заряд дает +2% к урону от оружия и +5% к урону от выстрелов в голову. При перезарядке вы теряете накопленные заряды и получаете за каждый из них временную броню в объеме 5% от своей максимальной брони сроком на 10 сек. Убив противника выстрелом в голову во время действия «сурового приговора» вы восстанавливаете все патроны в магазине. Перезарядкой это не считается.",
-    "flavor_en": "\"You know not the count of the syllables in the utterance of your comdemnation, but you will know when you hear the last one.\""
+    "flavor_en": "\"You know not the count of the syllables in the utterance of your comdemnation, but you will know when you hear the last one.\"",
+    "tal_type": "conditional",
+    "tal_bonus": 0,
+    "tal_note": "5 HS → next 500% WD"
   },
   "Богомол": {
     "en": "Mantis",
@@ -489,7 +576,10 @@
       "note": "по врагам, которые не целятся в вас"
     },
     "tal_desc_ru": "\"Взгляд через прицел\" - В прицеле отображается дополнительная информация о противниках, которые не целятся в вас. Урон от выстрелов в голову и уязвимые места противников, которые не целятся в вас, увеличен на 50%. Убийства выстрелами в голову обнуляют восстановление навыка «Обманка». Если на момент убийства восстановление не требуется, срабатывание откладывается до подходящего случая.",
-    "flavor_en": "\"Camouflage is about more than just blending in. You ever heard the term 'aggressive mimicry?' Anyone can hide and wait for the perfect kill, but why wait when you can seduce\"\n\n- Sid \"Maneater\" Madison\n\n- Based on the format of the above name, it is highly likely that Sid Madison is a BTSU operative, and \"Maneater\" is their callsign. \nThis would explain why the gun is technologically advanced enough to reset the cooldown of the Decoy.\n-While scoped in, mark on enemies : Orange = not targetted, Red = targeting you"
+    "flavor_en": "\"Camouflage is about more than just blending in. You ever heard the term 'aggressive mimicry?' Anyone can hide and wait for the perfect kill, but why wait when you can seduce\"\n\n- Sid \"Maneater\" Madison\n\n- Based on the format of the above name, it is highly likely that Sid Madison is a BTSU operative, and \"Maneater\" is their callsign. \nThis would explain why the gun is technologically advanced enough to reset the cooldown of the Decoy.\n-While scoped in, mark on enemies : Orange = not targetted, Red = targeting you",
+    "tal_type": "conditional",
+    "tal_bonus": 100,
+    "tal_note": "Stealth → +100% WD next shot"
   },
   "Немезида": {
     "en": "Nemesis",
@@ -507,7 +597,11 @@
       "note": "при полном удержании спуска (charge)"
     },
     "tal_desc_ru": "\"Электромагнитный ускоритель\" - Выстрелы наносят 0-100% урона от оружия в зависимости от длительности удержания спуска.",
-    "flavor_en": "\"I watch the watchmen\" \n- Phaedra \"Puck\" Lao, Black Tusk sniper\n\n- Full name: Puck's Nemesis\n- Blueprint flavour text: \"I do not seek permission for acts of retribution. I simply perform, and if required, ask forgiveness. I truly honor the spawn of Nyx\" - Puck\n- Through some deduction, we were able to figure out that the Nemesis was most likely an Arctic Warfare, and most likely the AWM variation. Heavily modified, of course.\n- Lao is most certainly an Asian surname. Despite this, Puck shares the same character model and voice lines as the standard Black Tusk sniper, and can be heard swearing\nin Spanish. She also uses the standard SCAR-SSR instead of her Nemesis suggesting that it had yet to be made at the time of her death.\n- Nyx is the greek goddess of the night. Her children or \"spawn\" are Hypnos (Sleep), Thanatos (Death), Nemesis (Retribution), etc.\n- The father of Nyx's children is Nyx's sibling, Erebus (Darkness). The Darkness is a named version of the Mk20 SSR, the sniper that all BTSU snipers use."
+    "flavor_en": "\"I watch the watchmen\" \n- Phaedra \"Puck\" Lao, Black Tusk sniper\n\n- Full name: Puck's Nemesis\n- Blueprint flavour text: \"I do not seek permission for acts of retribution. I simply perform, and if required, ask forgiveness. I truly honor the spawn of Nyx\" - Puck\n- Through some deduction, we were able to figure out that the Nemesis was most likely an Arctic Warfare, and most likely the AWM variation. Heavily modified, of course.\n- Lao is most certainly an Asian surname. Despite this, Puck shares the same character model and voice lines as the standard Black Tusk sniper, and can be heard swearing\nin Spanish. She also uses the standard SCAR-SSR instead of her Nemesis suggesting that it had yet to be made at the time of her death.\n- Nyx is the greek goddess of the night. Her children or \"spawn\" are Hypnos (Sleep), Thanatos (Death), Nemesis (Retribution), etc.\n- The father of Nyx's children is Nyx's sibling, Erebus (Darkness). The Darkness is a named version of the Mk20 SSR, the sniper that all BTSU snipers use.",
+    "tal_type": "stacks",
+    "tal_bonus": 50,
+    "tal_max": 10,
+    "tal_note": "Aim 0.5s → +5% WD, max +50%"
   },
   "Sacrum Imperium": {
     "en": "Sacrum Imperium",
@@ -522,7 +616,11 @@
     "tal_name_ru": "Ловушка",
     "no_math": "дебаффы скорости и burn, нет прямого WD-бонуса",
     "tal_desc_ru": "\"Ловушка\" – Агент может отметить до 10 противников, наводя на них перекрестие. Если агент убьет любого из них выстрелом в голову, все остальные отмеченные цели получат штраф скорости перемещения 50% (20% в PvP) и эффект горения на 10 секунд. Время восстановления 30 секунд. Убийство противника выстрелом в голову сокращает время восстановления на 10 секунд. Чтобы отметить цель, нужно удерживать ее в прицеле 1 секунду.",
-    "flavor_en": "\"By holy light, may this help me execute devine right.\" The Priest"
+    "flavor_en": "\"By holy light, may this help me execute devine right.\" The Priest",
+    "tal_type": "stacks",
+    "tal_bonus": 30,
+    "tal_max": 5,
+    "tal_note": "5 stacks → +30% WD 10s"
   },
   "Саван": {
     "en": "Shroud",
@@ -540,7 +638,10 @@
       "note": "по врагам высокого ранга (Class 1 — элита)"
     },
     "tal_desc_ru": "\"Приоритетная цель\" - Увеличивает урон от оружия на 125% по противникам с самым высоким рангом в иерархии своего класса.\nКласс 1: охотник, ренегат, командир, танк, щитовик, тяжелый пехотинец, гранатометчик, врач, оператор, боевой пес, мародер.\nКласс 2: боец поддержки, инженер, телохранитель, иммобилизатор, бомбист, мини-танк, оператор.\nКласс 3: любой другой противник или объект навыка.",
-    "flavor_en": "\"The bigger they are.\"\n\nNote: Tier 3 is lowest, tier 1 is highest."
+    "flavor_en": "\"The bigger they are.\"\n\nNote: Tier 3 is lowest, tier 1 is highest.",
+    "tal_type": "hs_kill",
+    "tal_bonus": 50,
+    "tal_note": "+20% marked + +30% kill = ~+50%"
   },
   "Толсторог (MMR)": {
     "en": "Bighorn",
@@ -556,7 +657,10 @@
       "wd": 20,
       "rof": 20,
       "note": "5с после swap (MMR-режим Толсторога)"
-    }
+    },
+    "tal_type": "amp",
+    "tal_bonus": 20,
+    "tal_note": "Auto mode +20% WD"
   },
   "Колыбельная": {
     "en": "Lullaby",
@@ -571,7 +675,10 @@
     "peak_bonus": {
       "wd": 20,
       "note": "10с после убийства (Sandman)"
-    }
+    },
+    "tal_type": "kill",
+    "tal_bonus": 20,
+    "tal_note": "Kill → +20% WD 10s"
   },
   "Владыка": {
     "en": "Overlord",
@@ -587,7 +694,11 @@
     "peak_bonus": {
       "wd": 25,
       "note": "10с после достижения 10 стаков Capitulate"
-    }
+    },
+    "tal_type": "stacks",
+    "tal_bonus": 25,
+    "tal_max": 10,
+    "tal_note": "10 stacks → +25% WD 10s"
   },
   "Скорпион": {
     "en": "Scorpio",
@@ -605,7 +716,10 @@
       "note": "9 зарядов на цели (Bleed+Burn+Shock / PVE-toxic)"
     },
     "tal_desc_ru": "\"Септический шок\" - (PVE) При выстреле на цель накладываются токсические эффекты, действующие до 10 секунд. Эффекты суммируются, что приводит к еще более опасным ослаблениям. Чем больше зарядов, тем больше ослаблений на враге:\n2 - Отравление\n4 - Дезориентация\n6 - Шок\n9 - Цель получает на 20% больше урона из любых источников. Заряды больше не увеличиваются.\nДлительность эффектов зависит от процента дробинок выстрела, попавших в цель.\n\n(PVP) При выстреле на цель накладываются токсические эффекты, действующие до 10 секунд. Эффекты суммируются, что приводит к еще более опасным ослаблениям. Чем больше зарядов, тем больше ослаблений на враге:\n2 - Кровотечение\n4 - Заморозка\n6 - Прилипание\n9 - Цель получает на 20% больше урона из любых источников. Заряды больше не увеличиваются.\nДлительность эффектов зависит от процента дробинок выстрела, попавших в цель.",
-    "flavor_en": "This weapon fires debilitating venomous rounds inspired by the scorpion (specifically Hottentotta). The weapon developed in conjunction with DARPA failed to get approval due to it being in contravention of the Hague Convention of 1899."
+    "flavor_en": "This weapon fires debilitating venomous rounds inspired by the scorpion (specifically Hottentotta). The weapon developed in conjunction with DARPA failed to get approval due to it being in contravention of the Hague Convention of 1899.",
+    "tal_type": "conditional",
+    "tal_bonus": 20,
+    "tal_note": "Jewellery 3 statuses → +20% WD"
   },
   "Сладкий сон": {
     "en": "Sweet Dreams",
@@ -623,7 +737,10 @@
       "note": "10с после убийства (Sandman); RU описывает рукопашный перк — без DPS"
     },
     "tal_desc_ru": "Рукопашные атаки мгновенно убивают всех противников, кроме элитных. Восстановление: 15 сек.",
-    "flavor_en": "\"Who are you to disagree?\" \n- Unknown Outcast Engineer\n\n-The name of the weapon and its description are reference to Eurythmics, their song titled \"Sweet Dreams (are made of this). The unknown outcast engineer follows with the next line.\n- Despite being dropped by the Outcasts and having a flavour text relating to the Outcasts, the instakill device on this gun is said to be \"rigged by the Hyenas\".\n- Do not use this gun to do damage, as it has a very low headshot damage modifier.\n- Lore-wise, it makes sense that the Hyenas and Outcasts share a hatred for the True Sons. The True Sons are hated by the Hyenas for being a superior force, and the Outcasts \nwant vengeance on the True Sons for their crimes on Roosevelt Island. There is even an echo where Hyenas and Outcasts are seen raiding a True Sons base in tandem."
+    "flavor_en": "\"Who are you to disagree?\" \n- Unknown Outcast Engineer\n\n-The name of the weapon and its description are reference to Eurythmics, their song titled \"Sweet Dreams (are made of this). The unknown outcast engineer follows with the next line.\n- Despite being dropped by the Outcasts and having a flavour text relating to the Outcasts, the instakill device on this gun is said to be \"rigged by the Hyenas\".\n- Do not use this gun to do damage, as it has a very low headshot damage modifier.\n- Lore-wise, it makes sense that the Hyenas and Outcasts share a hatred for the True Sons. The True Sons are hated by the Hyenas for being a superior force, and the Outcasts \nwant vengeance on the True Sons for their crimes on Roosevelt Island. There is even an echo where Hyenas and Outcasts are seen raiding a True Sons base in tandem.",
+    "tal_type": "kill",
+    "tal_bonus": 20,
+    "tal_note": "Kill → +20% WD 10s"
   },
   "Трудолюбивая пчёлка": {
     "en": "Busy Little Bee",
@@ -648,7 +765,10 @@
       "trigger": "shot"
     },
     "tal_desc_ru": "\"Трудолюбивая пчёлка\" - Каждый выстрел по новой цели дает 1 заряд суммарно до 10. Каждый заряд эффекта повышает урон от оружия на 20% (2% в PVP). Эффект активируется единожды при смене оружия и действует 10 сек.",
-    "flavor_en": "\"Practically perfect in every way. As long as you never miss.\" 13\n\n\n-Changing weapon again during the said 10 seconds will cancel the buff."
+    "flavor_en": "\"Practically perfect in every way. As long as you never miss.\" 13\n\n\n-Changing weapon again during the said 10 seconds will cancel the buff.",
+    "tal_type": "swap_in",
+    "tal_bonus": 9,
+    "tal_note": "Swap-in +9% WD +10% RoF 10s"
   },
   "Свобода": {
     "en": "Liberty",
@@ -672,7 +792,11 @@
       "trigger": "shot"
     },
     "tal_desc_ru": "\"Свобода или смерть\" - Каждое попадает дает +2% к урону от оружия. Эффект суммируется до 30 раз. При попадании в голову цели, все заряды эфекта поглощаются, а ваш щит ремонтируется в объеме 3% за каждый заряд.",
-    "flavor_en": "\"This gave me liberty as it gave others death. Respect it, and it will respect you.\"  \n\nGeneral Ridgeway, upon giving his sidearm to a subordinate.\n\n- Full name: Kendra's Liberty\n- Blueprint flavour text :  Hastily scribbled message: \"Hey Kendra. Thanks for the help. I've made some adjustments to the schematic after our talk. I wasn't sure about your\ninitial suggestions (considering the source), but they all came together. Thanks again.\" - Siri T. C.\n- This gun was first owned by General Ridgeway before he passed it down to someone of a lower rank, Captain Kendra Nelson. She is encoutered as the first boss of\nCapitol Building, and drops the first part of the Liberty."
+    "flavor_en": "\"This gave me liberty as it gave others death. Respect it, and it will respect you.\"  \n\nGeneral Ridgeway, upon giving his sidearm to a subordinate.\n\n- Full name: Kendra's Liberty\n- Blueprint flavour text :  Hastily scribbled message: \"Hey Kendra. Thanks for the help. I've made some adjustments to the schematic after our talk. I wasn't sure about your\ninitial suggestions (considering the source), but they all came together. Thanks again.\" - Siri T. C.\n- This gun was first owned by General Ridgeway before he passed it down to someone of a lower rank, Captain Kendra Nelson. She is encoutered as the first boss of\nCapitol Building, and drops the first part of the Liberty.",
+    "tal_type": "kill",
+    "tal_bonus": 25,
+    "tal_max": 5,
+    "tal_note": "+5% WD × 5 kills"
   },
   "Москит": {
     "en": "Mosquito",
@@ -690,7 +814,10 @@
       "note": "коопная механика, 5 общих стаков → +25% armor damage"
     },
     "tal_desc_ru": "\"Комариная песня\" - При каждом попадании по врагу создается заряд. Эти заряды являются общими для игроков. Если число зарядов равно 5, враг будет в течение 5 секунд целиться только в того игрока, который создал последний заряд и получает на 25% больше урона по броне (из всех источников). Число зарядов уменьшается раз в 5 секунд. Если игроки накладывают на врага этот эффект, все заряды на других врагах обнуляются.\n*Талант не работает в PVP",
-    "flavor_en": "\"Time to come out of hibernation, Agent. There's work to do.\"\n- Calvin McManus"
+    "flavor_en": "\"Time to come out of hibernation, Agent. There's work to do.\"\n- Calvin McManus",
+    "tal_type": "amp",
+    "tal_bonus": 0,
+    "tal_note": "Armor dmg — не WD"
   },
   "Регул": {
     "en": "Regulus",
@@ -705,7 +832,10 @@
     "tal_name_ru": "Цареубийство",
     "no_math": "только AoE-взрыв на HS-killах, не в непрерывном DPS",
     "tal_desc_ru": "\"Цареубийство\" - Каждое убийство в голову сопровождается взрывом, который наносит 400% урона от оружия всем противникам в радиусе 5 метров и вызывает у них кровотечение.",
-    "flavor_en": "\"Cast your stones \nat king on thrones. \nbut at the end\nrats gnaw on our bones.\"\n-Javier Kajika\n\n- Full name: Javier Kajika's Regulus\n- Blueprint flavour text : \"Kajika's Regulus revolver is one of a kind, but with the right parts and materials, we can make it two of a kind.\" -Inaya\n- The phrase \"cast your stones\" seems to be a reference to John 8:7. In this verse, Jesus says \"let he who is without sin \ncast the first stone.\" This line not only stops a stoning, but exposes the hypocrisy of the stoners.\n- In this flavour text Kajika exposes the hypocrisy of The Division, which seeks to overthrow various hostile factions\n(\"kings\") yet themselves have no accountability (due to the President having betrayed them). As such The Division, just\nlike other factions, can be said to operate on its own whims and is therefore no different.\n- The last line simply laments how pointless all the fighting and death is in a savage world where one could die at any time."
+    "flavor_en": "\"Cast your stones \nat king on thrones. \nbut at the end\nrats gnaw on our bones.\"\n-Javier Kajika\n\n- Full name: Javier Kajika's Regulus\n- Blueprint flavour text : \"Kajika's Regulus revolver is one of a kind, but with the right parts and materials, we can make it two of a kind.\" -Inaya\n- The phrase \"cast your stones\" seems to be a reference to John 8:7. In this verse, Jesus says \"let he who is without sin \ncast the first stone.\" This line not only stops a stoning, but exposes the hypocrisy of the stoners.\n- In this flavour text Kajika exposes the hypocrisy of The Division, which seeks to overthrow various hostile factions\n(\"kings\") yet themselves have no accountability (due to the President having betrayed them). As such The Division, just\nlike other factions, can be said to operate on its own whims and is therefore no different.\n- The last line simply laments how pointless all the fighting and death is in a savage world where one could die at any time.",
+    "tal_type": "conditional",
+    "tal_bonus": 0,
+    "tal_note": "HS kill → 5m explosion 400%"
   },
   "Буря": {
     "en": "Tempest",
@@ -723,7 +853,10 @@
     "peak_bonus": {
       "wd": 25,
       "note": "20с после разрушения вашего щита"
-    }
+    },
+    "tal_type": "conditional",
+    "tal_bonus": 25,
+    "tal_note": "+25% WD 20s после shield break"
   },
   "Хлыст": {
     "en": "Whiplash",
@@ -739,7 +872,10 @@
       "wd": 50,
       "rof": 20,
       "note": "5с в кобуре → swap-in, до опустошения магазина"
-    }
+    },
+    "tal_type": "conditional",
+    "tal_bonus": 0,
+    "tal_note": "10 stacks → next 300% WD"
   },
   "Шериф": {
     "en": "Шериф",
@@ -754,6 +890,9 @@
     "tal_name_ru": "Аутентико",
     "tal_desc_ru": " «Аутентико» (Autentico):\n+35% урона от оружия\n+100% точности\nБез потери урона с расстоянием. Бонусы встроены в характеристики оружия.\nУдары в ближнем бою вызывают у противников кровотечение.",
     "_new_from_screen": true,
-    "no_math": "бонусы +35% WD и +100% точности уже встроены в базовый dmg"
+    "no_math": "бонусы +35% WD и +100% точности уже встроены в базовый dmg",
+    "tal_type": "amp",
+    "tal_bonus": 35,
+    "tal_note": "Intrinsic +35% WD +100% accuracy"
   }
 }
