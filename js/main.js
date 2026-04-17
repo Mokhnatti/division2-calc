@@ -67,6 +67,7 @@ function render(){
         document.getElementById("dps-panel").style.display="none";
         document.getElementById("meta-panel").style.display="block";
         document.getElementById("rc").innerHTML='';
+        if(typeof loadTopBuilds==="function")loadTopBuilds();
         return;
     }
     document.getElementById("meta-panel").style.display="none";
@@ -266,6 +267,7 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         else if(isCalc) calcDPS();
         else if(isBuild) calcBuild();
         else if(isCommunity) loadCommunityFeed();
+        else if(isMeta) loadTopBuilds();
         else if(isWmods) renderWeaponMods();
         else if(isSmods) renderSkillGearMods();
         else if(isExpertise) renderExpertise();
@@ -924,6 +926,163 @@ const PB_BASE=(location.hostname==="divcalc.xyz"||location.hostname==="www.divca
   : "https://divcalc.xyz";
 const PB_API=PB_BASE+"/api/collections";
 
+// ===== AUTH =====
+const AUTH_KEY="d2calc_auth_v1";
+let currentUser=null;
+
+function saveAuth(auth){
+  localStorage.setItem(AUTH_KEY,JSON.stringify(auth));
+  currentUser=auth;
+  updateAuthUI();
+}
+function loadAuth(){
+  try{
+    const a=JSON.parse(localStorage.getItem(AUTH_KEY)||"null");
+    if(a&&a.token)currentUser=a;
+  }catch(e){}
+  updateAuthUI();
+}
+function logoutUser(){
+  localStorage.removeItem(AUTH_KEY);
+  currentUser=null;
+  hideAuthDropdown();
+  updateAuthUI();
+}
+async function loginUser(email,password){
+  const r=await fetch(`${PB_BASE}/api/collections/users/auth-with-password`,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({identity:email,password})
+  });
+  if(!r.ok){
+    let msg="Login failed";
+    try{const j=await r.json();msg=j.message||msg;}catch(e){}
+    throw new Error(msg);
+  }
+  const data=await r.json();
+  saveAuth({
+    id:data.record.id,
+    email:data.record.email,
+    username:data.record.username||(data.record.email||"").split("@")[0],
+    token:data.token
+  });
+}
+async function registerUser(email,password,username){
+  const r=await fetch(`${PB_BASE}/api/collections/users/records`,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({email,password,passwordConfirm:password,username,emailVisibility:false})
+  });
+  if(!r.ok){
+    let msg="Registration failed";
+    try{const j=await r.json();msg=j.message||msg;if(j.data){const keys=Object.keys(j.data);if(keys.length){const first=j.data[keys[0]];msg=`${keys[0]}: ${(first&&first.message)||msg}`;}}}catch(e){}
+    throw new Error(msg);
+  }
+  await loginUser(email,password);
+}
+function updateAuthUI(){
+  const btn=document.getElementById("auth-btn");
+  if(!btn)return;
+  if(currentUser){
+    btn.innerHTML=`👤 ${escapeHtml(currentUser.username||"user")}`;
+    btn.onclick=toggleAuthDropdown;
+  }else{
+    btn.innerHTML="👤 Войти";
+    btn.onclick=openAuthModal;
+    hideAuthDropdown();
+  }
+}
+function toggleAuthDropdown(){
+  const dd=document.getElementById("auth-dropdown");
+  if(!dd)return;
+  dd.style.display=dd.style.display==="block"?"none":"block";
+}
+function hideAuthDropdown(){
+  const dd=document.getElementById("auth-dropdown");
+  if(dd)dd.style.display="none";
+}
+document.addEventListener("click",(e)=>{
+  const wrap=document.getElementById("auth-wrap");
+  if(wrap&&!wrap.contains(e.target))hideAuthDropdown();
+});
+
+function openAuthModal(){
+  const m=document.getElementById("auth-modal");
+  if(!m)return;
+  m.classList.add("open");
+  switchAuthTab("login");
+  const s1=document.getElementById("auth-login-status");if(s1){s1.textContent="";s1.className="bug-status";}
+  const s2=document.getElementById("auth-register-status");if(s2){s2.textContent="";s2.className="bug-status";}
+}
+function closeAuthModal(){
+  const m=document.getElementById("auth-modal");
+  if(m)m.classList.remove("open");
+}
+function switchAuthTab(tab){
+  const tl=document.getElementById("auth-tab-login");
+  const tr=document.getElementById("auth-tab-register");
+  const fl=document.getElementById("auth-login-form");
+  const fr=document.getElementById("auth-register-form");
+  const title=document.getElementById("auth-modal-title");
+  const isLogin=tab==="login";
+  if(tl)tl.classList.toggle("on",isLogin);
+  if(tr)tr.classList.toggle("on",!isLogin);
+  if(fl)fl.style.display=isLogin?"":"none";
+  if(fr)fr.style.display=isLogin?"none":"";
+  if(title)title.textContent=isLogin?"👤 Вход":"👤 Регистрация";
+}
+async function submitLogin(ev){
+  ev.preventDefault();
+  const f=ev.target;
+  const btn=document.getElementById("auth-login-btn");
+  const status=document.getElementById("auth-login-status");
+  btn.disabled=true;btn.textContent="Вход...";
+  status.className="bug-status";status.textContent="";
+  try{
+    await loginUser(f.email.value.trim(),f.password.value);
+    status.className="bug-status ok";
+    status.textContent="✓ Успешный вход";
+    setTimeout(()=>{closeAuthModal();},800);
+  }catch(e){
+    status.className="bug-status err";
+    status.textContent="Ошибка: "+e.message;
+  }finally{
+    btn.disabled=false;btn.textContent="Войти";
+  }
+}
+async function submitRegister(ev){
+  ev.preventDefault();
+  const f=ev.target;
+  const btn=document.getElementById("auth-register-btn");
+  const status=document.getElementById("auth-register-status");
+  status.className="bug-status";status.textContent="";
+  if(f.password.value!==f.password_confirm.value){
+    status.className="bug-status err";
+    status.textContent="Пароли не совпадают";
+    return;
+  }
+  btn.disabled=true;btn.textContent="Регистрация...";
+  try{
+    await registerUser(f.email.value.trim(),f.password.value,f.username.value.trim());
+    status.className="bug-status ok";
+    status.textContent="✓ Аккаунт создан, вошёл";
+    setTimeout(()=>{closeAuthModal();},800);
+  }catch(e){
+    status.className="bug-status err";
+    status.textContent="Ошибка: "+e.message;
+  }finally{
+    btn.disabled=false;btn.textContent="Зарегистрироваться";
+  }
+}
+function openMyBuilds(){
+  hideAuthDropdown();
+  const commBtn=document.querySelector('.cat-btn[data-cat="community"]');
+  if(commBtn)commBtn.click();
+  const scope=document.getElementById("comm-scope");
+  if(scope){scope.value="mine";if(typeof loadCommunityFeed==="function")loadCommunityFeed();}
+}
+document.addEventListener("DOMContentLoaded",loadAuth);
+
 // Stable per-browser fingerprint for anti-spam likes
 function getFingerprint(){
   let fp=localStorage.getItem("d2calc_fp_v1");
@@ -1538,13 +1697,14 @@ async function submitPublish(ev){
     const wpn=getWeapon();
     const payload={
       name:form.name.value.trim(),
-      author:form.author.value.trim()||"Аноним",
+      author:(currentUser&&currentUser.username)||form.author.value.trim()||"Аноним",
       description:form.description.value.trim(),
       weapon_cat:form.weapon_cat.value,
       weapon_name:wpn?wpn.name:"",
       build_hash:hashB64,
       peak_dps:peakNum||0,
       likes:0,
+      author_id:(currentUser&&currentUser.id)||null,
     };
     const r=await fetch(`${PB_API}/builds/records`,{
       method:"POST",
@@ -3605,4 +3765,33 @@ function renderExpertise(){
       </div>
     </div>
   `;
+}
+
+// ===== TOP BUILDS (META TAB) =====
+let topBuildsFilter="all";
+function setTopFilter(f){
+  topBuildsFilter=f;
+  document.querySelectorAll("#meta-panel .mf-btn").forEach(b=>
+    b.classList.toggle("on",b.dataset.filter===f));
+  loadTopBuilds();
+}
+async function loadTopBuilds(){
+  const host=document.getElementById("top-builds-content");
+  if(!host)return;
+  host.innerHTML='<div style="padding:40px;text-align:center;color:var(--muted)">Загрузка...</div>';
+  try{
+    const filter=topBuildsFilter==="all"?"":`&filter=${encodeURIComponent(`weapon_cat="${topBuildsFilter}"`)}`;
+    const r=await fetch(`${PB_API}/builds/records?sort=-likes&perPage=20${filter}`);
+    const data=await r.json();
+    const items=data.items||[];
+    if(!items.length){
+      host.innerHTML='<div style="padding:40px;text-align:center;color:var(--muted)">Пока нет билдов в этой категории. <a href="#" onclick="document.querySelector(\'.cat-btn[data-cat=build]\').click();return false" style="color:var(--orange)">Собери и опубликуй свой!</a></div>';
+      return;
+    }
+    const liked=getLikedSet();
+    const html=items.map(b=>renderBuildCard(b,liked.has(b.id),false)).join("");
+    host.innerHTML=`<div class="comm-grid">${html}</div>`;
+  }catch(e){
+    host.innerHTML=`<div style="padding:40px;text-align:center;color:var(--red)">Ошибка: ${escapeHtml(e.message)}</div>`;
+  }
 }

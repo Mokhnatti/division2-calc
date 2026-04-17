@@ -80,6 +80,13 @@
 <div class="header">
     <button class="lang-btn" onclick="toggleLang()" title="Switch language / Переключить язык" id="lang-btn">🇷🇺 RU</button>
     <button class="bug-btn" onclick="openBugModal()" title="Сообщить об ошибке в данных или математике">🐛 Баг-репорт</button>
+    <div id="auth-wrap" style="position:absolute;top:12px;right:155px;z-index:20">
+      <button class="lang-btn" id="auth-btn" onclick="openAuthModal()" style="position:static;min-width:100px">👤 Войти</button>
+      <div id="auth-dropdown" style="display:none;position:absolute;top:100%;right:0;margin-top:4px;background:#151515;border:1px solid rgba(255,255,255,.12);border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.6);min-width:160px;overflow:hidden">
+        <button class="mf-btn" onclick="openMyBuilds()" style="width:100%;border:none;border-radius:0;text-align:left;padding:10px 14px">📦 Мои билды</button>
+        <button class="mf-btn" onclick="logoutUser()" style="width:100%;border:none;border-radius:0;text-align:left;padding:10px 14px;border-top:1px solid rgba(255,255,255,.08)">🚪 Выйти</button>
+      </div>
+    </div>
     <h1>The Division 2</h1>
     <p>Gear Sets / Brand Sets / Exotics / Named Items — Full Database</p>
 </div>
@@ -99,7 +106,7 @@
     <button class="cat-btn active" data-cat="community" style="background:rgba(171,71,188,.15);border-color:rgba(171,71,188,.4);color:var(--named)">🏆 Сообщество</button>
     <button class="cat-btn" data-cat="build" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">⚙ BUILD</button>
     <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS Калькулятор</button>
-    <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">META Билды</button>
+    <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">🏆 Топ билдов</button>
     <button class="cat-btn" data-cat="all">Все</button>
     <button class="cat-btn" data-cat="gear">Комплекты (26)</button>
     <button class="cat-btn" data-cat="brand">Бренды (36)</button>
@@ -168,197 +175,22 @@
 </div>
 
 <div id="meta-panel" style="display:none">
-<div class="meta-wrap">
-    <div style="text-align:center;margin-bottom:16px">
-        <div style="font-size:13px;color:var(--muted)">Актуальные мета сборки · S = топ DPS · A = высокий DPS · B = ситуативный</div>
+  <div style="padding:20px 0;text-align:center">
+    <h3 style="color:var(--orange)">🏆 Топ билдов сообщества</h3>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Самые залайканные билды — это реальная мета от игроков</div>
+    <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:14px">
+      <button class="mf-btn on" onclick="setTopFilter('all')" data-filter="all">Все</button>
+      <button class="mf-btn" onclick="setTopFilter('AR')" data-filter="AR">AR</button>
+      <button class="mf-btn" onclick="setTopFilter('SMG')" data-filter="SMG">SMG</button>
+      <button class="mf-btn" onclick="setTopFilter('LMG')" data-filter="LMG">LMG</button>
+      <button class="mf-btn" onclick="setTopFilter('MMR')" data-filter="MMR">MMR</button>
+      <button class="mf-btn" onclick="setTopFilter('Rifle')" data-filter="Rifle">Rifle</button>
+      <button class="mf-btn" onclick="setTopFilter('SG')" data-filter="SG">SG</button>
+      <button class="mf-btn" onclick="setTopFilter('Pistol')" data-filter="Pistol">Pistol</button>
     </div>
-    <div class="meta-grid">
-
-        <!-- LMG КРИТ -->
-        <div class="meta-card tier-s">
-            <div class="meta-head">
-                <div class="meta-tier s">S</div>
-                <div>
-                    <div class="meta-title">LMG Крит — Переломный момент</div>
-                    <div class="meta-sub">Tipping Scales · Лучший sustained LMG билд</div>
-                </div>
-            </div>
-            <div class="meta-tags">
-                <span class="meta-tag mt-dmg">HIGH DPS</span>
-                <span class="meta-tag mt-crit">КРИТ</span>
-                <span class="meta-tag mt-cover">ИЗ УКРЫТИЯ</span>
-            </div>
-            <div class="meta-weapon"><b>Оружие:</b> Big Alejandro (экзотика) — талант: каждый выстрел из укрытия +1% урона (макс +100%, 15с)</div>
-            <div class="meta-slots">
-                <div class="meta-slot"><span class="sl">Маска</span><span class="sv brand">Providence / любой с CHC</span></div>
-                <div class="meta-slot"><span class="sl">Нагрудник</span><span class="sv gear">Tipping Scales — макс 75 стаков</span></div>
-                <div class="meta-slot"><span class="sl">Рюкзак</span><span class="sv gear">Tipping Scales — +7% крит урон/стак</span></div>
-                <div class="meta-slot"><span class="sl">Перчатки</span><span class="sv gear">Tipping Scales</span></div>
-                <div class="meta-slot"><span class="sl">Кобура</span><span class="sv gear">Tipping Scales</span></div>
-                <div class="meta-slot"><span class="sl">Наколенники</span><span class="sv brand">Overlord / Providence — CHC/CHD</span></div>
-            </div>
-            <div class="meta-mech">
-                <b>Механика:</b> 75 стаков × (4% + 7%) = <b>+825% крит урон</b> · +30% магазин (200→260) · +30% урон LMG<br>
-                <b>Пик урона:</b> base × 1.30 (LMG) × 2.0 (Алехандро) × 9.5 (крит) = ~24.7× базы<br>
-                <b>Рамп-ап:</b> ~3 сек до макс стаков · стаки сбрасываются при перезарядке
-            </div>
-            <div class="meta-req">⚡ Требует: 50%+ шанс крита · стрелять из укрытия</div>
-        </div>
-
-        <!-- AR STRIKER -->
-        <div class="meta-card tier-s">
-            <div class="meta-head">
-                <div class="meta-tier s">S</div>
-                <div>
-                    <div class="meta-title">AR Sustained — Боевик</div>
-                    <div class="meta-sub">Striker's Battlegear · Универсальный топ</div>
-                </div>
-            </div>
-            <div class="meta-tags">
-                <span class="meta-tag mt-dmg">HIGH DPS</span>
-                <span class="meta-tag mt-sus">SUSTAINED</span>
-            </div>
-            <div class="meta-weapon"><b>Оружие:</b> Eagle Bearer (экзотика, AR) — талант Стрелок орла: убийство → 30% урон 10с · ИЛИ любой AR с Berserk/Determined</div>
-            <div class="meta-slots">
-                <div class="meta-slot"><span class="sl">Маска</span><span class="sv gear">Striker's</span></div>
-                <div class="meta-slot"><span class="sl">Нагрудник</span><span class="sv gear">Striker's — макс 200 стаков</span></div>
-                <div class="meta-slot"><span class="sl">Рюкзак</span><span class="sv gear">Striker's — 0.90%/стак</span></div>
-                <div class="meta-slot"><span class="sl">Перчатки</span><span class="sv gear">Striker's</span></div>
-                <div class="meta-slot"><span class="sl">Кобура</span><span class="sv brand">Petrov / Overlord — WD%</span></div>
-                <div class="meta-slot"><span class="sl">Наколенники</span><span class="sv brand">Overlord — OoC бонус</span></div>
-            </div>
-            <div class="meta-mech">
-                <b>Механика:</b> 200 стаков × 0.90% = <b>+180% урон оружием</b> · +15% скорострельность · +15% управление<br>
-                <b>Важно:</b> стаки 100-200 тают -3/сек · нагрудник обязателен для 200 стаков<br>
-                <b>Пик:</b> активно сражаться, не давать стакам упасть
-            </div>
-            <div class="meta-req">⚡ Требует: непрерывная стрельба · сохранять стаки</div>
-        </div>
-
-        <!-- ONESHOT СНАЙПЕР -->
-        <div class="meta-card tier-s">
-            <div class="meta-head">
-                <div class="meta-tier s">S</div>
-                <div>
-                    <div class="meta-title">Oneshot Снайпер — Охотник</div>
-                    <div class="meta-sub">Chainkiller + Providence · 13-20М за выстрел</div>
-                </div>
-            </div>
-            <div class="meta-tags">
-                <span class="meta-tag mt-dmg">BURST</span>
-                <span class="meta-tag mt-cover">ХЕДШОТ</span>
-            </div>
-            <div class="meta-weapon"><b>Оружие:</b> Classic M1A · ИЛИ G28 Реликвия (298% HSD, гарантированный крит в голову после хедшот-убийства)</div>
-            <div class="meta-slots">
-                <div class="meta-slot"><span class="sl">Маска</span><span class="sv exotic">Холодок — +24% в голову</span></div>
-                <div class="meta-slot"><span class="sl">Нагрудник</span><span class="sv exotic">Chainkiller (W&H) — Охотник +1250%</span></div>
-                <div class="meta-slot"><span class="sl">Рюкзак</span><span class="sv brand">Providence + Бдительность — +13% гол, +25% урон</span></div>
-                <div class="meta-slot"><span class="sl">Перчатки</span><span class="sv brand">Petrov (Подрядчик) — +8% броне</span></div>
-                <div class="meta-slot"><span class="sl">Кобура</span><span class="sv brand">Habsburg Guard — +20% урон ШВ</span></div>
-                <div class="meta-slot"><span class="sl">Наколенники</span><span class="sv brand">Overlord (Fox's Prayer) — +8% OoC, +10% винтовки</span></div>
-            </div>
-            <div class="meta-mech">
-                <b>Механика:</b> Нагрудник Chainkiller = +1250% урон в голову (Идеальный охотник)<br>
-                <b>G28:</b> после 1-го хедшот убийства все выстрелы = 100% крит в голову → 20М+ урон<br>
-                <b>Моды:</b> оба кумушки = крит урон (~57% итого CHD — ценнее чем HSD)
-            </div>
-            <div class="meta-req">⚡ Требует: стрелять в голову · медленный темп, одиночные цели</div>
-        </div>
-
-        <!-- NEGOTIATOR -->
-        <div class="meta-card tier-a">
-            <div class="meta-head">
-                <div class="meta-tier a">A</div>
-                <div>
-                    <div class="meta-title">Крит-цепочка — Переговорщик</div>
-                    <div class="meta-sub">Negotiator's Dilemma · Крит по одному = урон всем</div>
-                </div>
-            </div>
-            <div class="meta-tags">
-                <span class="meta-tag mt-crit">КРИТ</span>
-                <span class="meta-tag mt-dmg">AoE</span>
-            </div>
-            <div class="meta-weapon"><b>Оружие:</b> Chameleon (AR, адаптивный урон) · ИЛИ Merciless (бинарный триггер, бурст)</div>
-            <div class="meta-slots">
-                <div class="meta-slot"><span class="sl">Маска</span><span class="sv gear">Negotiator's</span></div>
-                <div class="meta-slot"><span class="sl">Нагрудник</span><span class="sv gear">Negotiator's — 5 меток</span></div>
-                <div class="meta-slot"><span class="sl">Рюкзак</span><span class="sv gear">Negotiator's — 100% урон</span></div>
-                <div class="meta-slot"><span class="sl">Перчатки</span><span class="sv gear">Negotiator's</span></div>
-                <div class="meta-slot"><span class="sl">Кобура</span><span class="sv brand">Providence — CHC/CHD</span></div>
-                <div class="meta-slot"><span class="sl">Наколенники</span><span class="sv brand">Providence — CHC/CHD</span></div>
-            </div>
-            <div class="meta-mech">
-                <b>Механика:</b> 4шт: каждый крит метит врага (до 5 меток с нагрудником)<br>
-                Крит по меченому = <b>100% урона</b> (рюкзак) переходит на остальных меченых<br>
-                <b>Идеально:</b> группы врагов · 15% шанс крита (2шт) + 20% крит урон (3шт)
-            </div>
-            <div class="meta-req">⚡ Требует: 45%+ шанс крита · несколько врагов рядом</div>
-        </div>
-
-        <!-- HUNTER'S FURY -->
-        <div class="meta-card tier-a">
-            <div class="meta-head">
-                <div class="meta-tier a">A</div>
-                <div>
-                    <div class="meta-title">Агрессив ближний — Ярость охотника</div>
-                    <div class="meta-sub">Hunter's Fury · ПП / Дробовик в ближнем бою</div>
-                </div>
-            </div>
-            <div class="meta-tags">
-                <span class="meta-tag mt-mobile">МОБИЛЬНЫЙ</span>
-                <span class="meta-tag mt-dmg">БЛИЖНИЙ БОЙ</span>
-            </div>
-            <div class="meta-weapon"><b>Оружие:</b> Lady Death (ПП, экзотика) — горение стак · ИЛИ Vector .45 / P90 с Boomerang/Pummel</div>
-            <div class="meta-slots">
-                <div class="meta-slot"><span class="sl">Маска</span><span class="sv gear">Hunter's Fury</span></div>
-                <div class="meta-slot"><span class="sl">Нагрудник</span><span class="sv gear">Hunter's Fury — длительность 30с</span></div>
-                <div class="meta-slot"><span class="sl">Рюкзак</span><span class="sv gear">Hunter's Fury — радиус 10м</span></div>
-                <div class="meta-slot"><span class="sl">Перчатки</span><span class="sv gear">Hunter's Fury</span></div>
-                <div class="meta-slot"><span class="sl">Кобура</span><span class="sv brand">Petrov — броня/урон</span></div>
-                <div class="meta-slot"><span class="sl">Наколенники</span><span class="sv brand">Uzina / любой защита</span></div>
-            </div>
-            <div class="meta-mech">
-                <b>Механика:</b> 4шт: враги в 15м +20% урона · убийство = дезориентация 5м + +5% урон 10с (до 5 стаков)<br>
-                <b>Нагрудник:</b> эффект длится 30с · <b>Рюкзак:</b> радиус дезориентации 10м<br>
-                <b>Стиль:</b> врываться в толпу, убивать быстро, поддерживать стаки
-            </div>
-            <div class="meta-req">⚡ Требует: агрессивный стиль · держаться в 15м от врагов</div>
-        </div>
-
-        <!-- БЕСКОНЕЧНЫЙ ШВ -->
-        <div class="meta-card tier-a">
-            <div class="meta-head">
-                <div class="meta-tier a">A</div>
-                <div>
-                    <div class="meta-title">Бесконечный магазин ШВ</div>
-                    <div class="meta-sub">Unit Alloys + Royal Works · Никогда не перезаряжать</div>
-                </div>
-            </div>
-            <div class="meta-tags">
-                <span class="meta-tag mt-sus">SUSTAINED</span>
-                <span class="meta-tag mt-dmg">ШВ</span>
-            </div>
-            <div class="meta-weapon"><b>Оружие:</b> AUG A3-CQC (база 42 патрона) с талантом <b>Steady Handed</b> — 100+ патронов = бесконечный магазин</div>
-            <div class="meta-slots">
-                <div class="meta-slot"><span class="sl">Маска</span><span class="sv brand">Unit Alloys — +20% урон ШВ</span></div>
-                <div class="meta-slot"><span class="sl">Нагрудник</span><span class="sv brand">Unit Alloys — +5% скорострельность</span></div>
-                <div class="meta-slot"><span class="sl">Рюкзак</span><span class="sv brand">Unit Alloys — +50% магазин</span></div>
-                <div class="meta-slot"><span class="sl">Перчатки</span><span class="sv brand">Royal Works — +5% управление</span></div>
-                <div class="meta-slot"><span class="sl">Кобура</span><span class="sv brand">Royal Works — +32.5% магазин</span></div>
-                <div class="meta-slot"><span class="sl">Наколенники</span><span class="sv brand">Zwiadowka — +15% магазин</span></div>
-            </div>
-            <div class="meta-mech">
-                <b>Расчёт:</b> 42 × (1 + 0.50 + 0.325 + 0.15) + 20 = <b>~103 патрона</b><br>
-                Steady Handed при 100+ патрон: убийство = +10 патрон = <b>никогда не перезаряжаешь</b><br>
-                <b>+20% урон ШВ</b> (Unit Alloys 2шт) + <b>+5% ROF</b> (Unit Alloys 3шт)
-            </div>
-            <div class="meta-req">⚡ Требует: AUG A3-CQC именно с Steady Handed · не мазать</div>
-        </div>
-
-    </div>
+    <div id="top-builds-content"></div>
+  </div>
 </div>
-</div>
-
 <div id="build-panel" style="display:none">
 <div class="bw">
 
@@ -866,6 +698,56 @@
     <div class="bug-alt">
       или <a href="https://github.com/Mokhnatti/division2-calc/issues/new" target="_blank">открыть issue на GitHub</a>
     </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-bg" id="auth-modal" onclick="if(event.target===this)closeAuthModal()">
+  <div class="modal-box" style="max-width:440px">
+    <div class="modal-head">
+      <h3 id="auth-modal-title">👤 Вход</h3>
+      <button class="modal-close" onclick="closeAuthModal()">×</button>
+    </div>
+    <div style="display:flex;gap:6px;margin-bottom:14px">
+      <button type="button" class="mf-btn on" id="auth-tab-login" onclick="switchAuthTab('login')" style="flex:1">Вход</button>
+      <button type="button" class="mf-btn" id="auth-tab-register" onclick="switchAuthTab('register')" style="flex:1">Регистрация</button>
+    </div>
+
+    <form class="bug-form" id="auth-login-form" onsubmit="submitLogin(event)">
+      <div>
+        <label>Email</label>
+        <input name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div>
+        <label>Пароль</label>
+        <input name="password" type="password" required minlength="8" autocomplete="current-password" placeholder="минимум 8 символов">
+      </div>
+      <div class="bug-status" id="auth-login-status"></div>
+      <button type="submit" class="bug-submit" id="auth-login-btn" style="background:var(--blue);color:#fff">Войти</button>
+    </form>
+
+    <form class="bug-form" id="auth-register-form" onsubmit="submitRegister(event)" style="display:none">
+      <div>
+        <label>Email *</label>
+        <input name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div>
+        <label>Ник *</label>
+        <input name="username" type="text" required minlength="3" maxlength="40" pattern="[a-zA-Z0-9_\-]+" placeholder="латиница, цифры, _- (3-40)">
+      </div>
+      <div class="bug-row">
+        <div>
+          <label>Пароль *</label>
+          <input name="password" type="password" required minlength="8" autocomplete="new-password" placeholder="минимум 8">
+        </div>
+        <div>
+          <label>Повтор пароля *</label>
+          <input name="password_confirm" type="password" required minlength="8" autocomplete="new-password" placeholder="ещё раз">
+        </div>
+      </div>
+      <div class="bug-status" id="auth-register-status"></div>
+      <button type="submit" class="bug-submit" id="auth-register-btn" style="background:var(--green);color:#000">Зарегистрироваться</button>
+    </form>
   </div>
 </div>
 
