@@ -128,8 +128,8 @@ function render(){
             h+=`<div class="sub">${gr} (${eg[gr].length})</div><div class="grid">`;
             eg[gr].forEach(e=>{
                 const en=trExotic(e.en);
-                let tal=isEn&&en&&en.tal?en.tal:e.tal;
-                let d=isEn&&en&&en.d?en.d:e.d;
+                let tal=isEn?(en&&en.tal?en.tal:e.tal):(e.tal_ru||talentName(e.tal));
+                let d=isEn?(en&&en.d?en.d:e.d):(e.tal_ru_full||e.d);
                 // Override with authoritative game text if available
                 if(isEn){
                   const auth=getAuthoritativeTalent(e.tal);
@@ -153,8 +153,8 @@ function render(){
             h+=`<div class="sub">${gr} (${ng[gr].length})</div><div class="grid">`;
             ng[gr].forEach(n=>{
                 const en=trNamed(n.en);
-                let tal=isEn&&en&&en.tal?en.tal:n.tal;
-                let d=isEn&&en&&en.d?en.d:n.d;
+                let tal=isEn?(en&&en.tal?en.tal:n.tal):(n.tal_ru||talentName(n.tal));
+                let d=isEn?(en&&en.d?en.d:n.d):n.d;
                 if(isEn){
                   const auth=getAuthoritativeTalent(n.tal);
                   if(auth&&auth.d){tal=auth.tal;d=auth.d}
@@ -572,7 +572,8 @@ function renderSlotItems(){
       const attr2Str=it.attr2?Object.entries(it.attr2).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", "):"";
       const attrsStr=[attr1Str,attr2Str].filter(x=>x).join(" · ");
       const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
-      const talStr=it.talent?`<div class="mi-tal">${it.talent}${it.brand?" · <span style=\"color:var(--blue)\">"+it.brand+"</span>":""}</div>`:(it.brand?`<div class="mi-tal" style="color:var(--blue)">${it.brand}</div>`:"");
+      const talLocal=talentName(it.talent);
+      const talStr=it.talent?`<div class="mi-tal">${talLocal}${it.brand?" · <span style=\"color:var(--blue)\">"+it.brand+"</span>":""}</div>`:(it.brand?`<div class="mi-tal" style="color:var(--blue)">${it.brand}</div>`:"");
       body=`${talStr}
             ${it.talentDesc?`<div class="mi-desc">${it.talentDesc}</div>`:""}
             ${bonusStr}
@@ -583,11 +584,11 @@ function renderSlotItems(){
       const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
       const coreStr=coreVal?`<div class="mi-desc" style="color:#ff9800">Core: ${translateStat(coreVal)}</div>`:"";
       const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
-      body=`<div class="mi-tal">${it.talent||""}</div>
+      body=`<div class="mi-tal">${talentName(it.talent)||""}</div>
             ${it.talentDesc?`<div class="mi-desc">${it.talentDesc}</div>`:""}
             ${bonusStr}${coreStr}`;
     }else{
-      body=`<div class="mi-tal">${it.talent||""}</div><div class="mi-desc">${it.talentDesc||""}</div>`;
+      body=`<div class="mi-tal">${talentName(it.talent)||""}</div><div class="mi-desc">${it.talentDesc||""}</div>`;
     }
     return`<div class="mitem" onclick="pickItem(${globalIdx})">
       <div class="mi-h">
@@ -640,7 +641,7 @@ function initBuildSlots(){
   // Populate weapon talent select
   const talSel=document.getElementById("b-wpn-tal");
   if(talSel){
-    talSel.innerHTML='<option value="none">— нет —</option>'+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=v.name_ru?`${v.name_ru} (${v.name_en})`:v.name_en;return`<option value="${k}">${label}</option>`}).join("");
+    talSel.innerHTML='<option value="none">— нет —</option>'+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=currentLang==='en'?(v.name_en||v.name_ru):(v.name_ru||v.name_en);return`<option value="${k}">${label}</option>`}).join("");
     talSel.value=selectedWpnTalent;
   }
   // Populate Prototype Augment selects
@@ -672,19 +673,22 @@ function initGearTalentSelects(){
   const bpSel=document.getElementById("b-bp-talent");
   if(!chestSel||!bpSel)return;
   const fill=(sel,slot)=>{
-    const talents=GEAR_TALENTS.filter(t=>t.slot===slot).sort((a,b)=>(a.name_ru||a.name_en||"").localeCompare(b.name_ru||b.name_en||""));
-    const og=document.createElement("optgroup");og.label="Обычные";
-    const pg=document.createElement("optgroup");pg.label="Совершенные";
+    const en=currentLang==='en';
+    const talents=GEAR_TALENTS.filter(t=>t.slot===slot).sort((a,b)=>(en?(a.name_en||a.name_ru):(a.name_ru||a.name_en||"")).localeCompare(en?(b.name_en||b.name_ru):(b.name_ru||b.name_en||"")));
+    const og=document.createElement("optgroup");og.label=en?"Regular":"Обычные";
+    const pg=document.createElement("optgroup");pg.label=en?"Perfect":"Совершенные";
     for(const t of talents){
       const key=t.id||t.name_en;
       const setSuffix=t.set?` (${t.set})`:"";
+      const baseName=en?(t.name_en||t.name_ru):(t.name_ru||t.name_en);
       const oReg=document.createElement("option");
       oReg.value=key;
-      oReg.textContent=(t.name_ru||t.name_en)+setSuffix;
+      oReg.textContent=baseName+setSuffix;
       og.appendChild(oReg);
+      const perfName=en?(t.perfect_name_en||`Perfect ${baseName}`):(t.perfect_name_ru||`${baseName} (идеальный)`);
       const oPerf=document.createElement("option");
       oPerf.value="perfect:"+key;
-      oPerf.textContent=(t.perfect_name_ru||`${t.name_ru||t.name_en} (идеальный)`)+setSuffix;
+      oPerf.textContent=perfName+setSuffix;
       pg.appendChild(oPerf);
     }
     sel.appendChild(og);
@@ -1356,6 +1360,30 @@ const SET_LEGACY_MAP = {
   "Стержневая сила":"Сила мышечного корсета"
 };
 function resolveSetName(n){ return SET_LEGACY_MAP[n]||n; }
+
+// Локализация таланта: возвращает имя на текущем языке
+function talentName(en){
+  if(!en)return '';
+  if(currentLang==='en')return en;
+  try{
+    const t = WEAPON_TALENTS_FULL&&Object.values(WEAPON_TALENTS_FULL).find(x=>x.name_en===en||x.perfect_name_en===en);
+    if(t){
+      if(t.perfect_name_en===en)return t.perfect_name_ru||en;
+      return t.name_ru||en;
+    }
+  }catch(e){}
+  try{
+    if(typeof D2DATA!=='undefined'&&D2DATA.GEAR_TALENTS){
+      const g = D2DATA.GEAR_TALENTS.find(x=>x.name_en===en);
+      if(g&&g.name_ru)return g.name_ru;
+    }
+  }catch(e){}
+  return en;
+}
+function talentDesc(enDesc, ruDesc){
+  if(currentLang==='en')return enDesc||'';
+  return ruDesc||enDesc||'';
+}
 
 // Короткие имена сетов (из официальной RU таблицы Ubisoft) — теперь идентичны полным
 const SET_SHORT = {
@@ -2112,7 +2140,7 @@ function calcBuild(){
     `<div class="wpn-stat">RPM: <b>${wpn.rpm}</b></div>`+
     `<div class="wpn-stat">Магазин: <b>${wpn.mag}</b></div>`+
     `<div class="wpn-stat">Перезарядка: <b>${wpn.reload}с</b></div>`+
-    (wpn.tal?`<div class="wpn-stat" style="color:var(--orange);border-color:rgba(245,166,35,.3)">${wpn.tal}</div>`:"");
+    (wpn.tal?`<div class="wpn-stat" style="color:var(--orange);border-color:rgba(245,166,35,.3)">${talentName(wpn.tal)}</div>`:"");
   // Lock 4th-roll talent for exotic (they have fixed unique talent), show exotic talent desc
   const wpnTalSel=document.getElementById("b-wpn-tal");
   const wpnTalDesc=document.getElementById("b-wpn-tal-desc");
@@ -2123,7 +2151,7 @@ function calcBuild(){
       wpnTalSel.title="Экзотик имеет фиксированный уникальный талант — 4-й ролл не применяется";
     }
     if(wpnTalDesc){
-      wpnTalDesc.innerHTML=`<div style="color:var(--orange);font-weight:600;font-size:12px;margin-top:4px">🧿 Экзотик-талант: ${wpn.tal||""}</div><div style="font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px">${wpn.tal_desc||""}</div>`;
+      wpnTalDesc.innerHTML=`<div style="color:var(--orange);font-weight:600;font-size:12px;margin-top:4px">🧿 Экзотик-талант: ${talentName(wpn.tal)||""}</div><div style="font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px">${talentDesc(wpn.tal_desc, wpn.tal_ru_full||wpn.tal_desc_ru)||""}</div>`;
     }
   }else{
     if(wpnTalSel){
@@ -2447,7 +2475,7 @@ function calcBuild(){
         }
       });
     }
-    bonuses.push({color:"#ab47bc",tier:"🧿",nm:"Экзотик: "+wpn.name,desc:(wpn.tal||"")+": "+(wpn.tal_desc||"").slice(0,140)});
+    bonuses.push({color:"#ab47bc",tier:"🧿",nm:"Экзотик: "+wpn.name,desc:(talentName(wpn.tal)||"")+": "+(talentDesc(wpn.tal_desc,wpn.tal_ru_full||wpn.tal_desc_ru)||"").slice(0,140)});
   }
 
   // Weapon 4th-roll talent (applies on top of base/exotic/named). For exotic — skip (slot locked)
@@ -2499,7 +2527,7 @@ function calcBuild(){
     });
     if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,nwSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
-    bonuses.push({color:"#ab47bc",tier:"🔫",nm:"Оружие: "+wpn.name,desc:(wpn.tal||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
+    bonuses.push({color:"#ab47bc",tier:"🔫",nm:"Оружие: "+wpn.name,desc:(talentName(wpn.tal)||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
 
   // Manual stats — пользователь вводит ИТОГИ из меню игры ("Наступление").
