@@ -16,19 +16,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Tahoma,sans-s
 .bug-btn:hover{background:rgba(239,83,80,.2);border-color:var(--red)}
 .lang-btn{position:absolute;top:12px;left:12px;background:rgba(66,165,245,.12);border:1px solid rgba(66,165,245,.4);color:var(--blue);padding:7px 12px;border-radius:7px;font-size:11px;cursor:pointer;font-weight:700;transition:all .15s}
 .lang-btn:hover{background:rgba(66,165,245,.22);border-color:var(--blue)}
-@media(max-width:700px){
-  .header{padding:56px 8px 10px}
-  .header h1{font-size:20px;letter-spacing:1.5px}
-  .header p{font-size:10px;padding:0 8px}
-  .bug-btn{top:8px!important;right:8px!important;padding:5px 8px!important;font-size:10px!important}
-  .lang-btn{top:8px!important;left:8px!important;padding:5px 8px!important;font-size:10px!important}
-  #auth-wrap{position:absolute!important;top:8px!important;right:auto!important;left:50%!important;transform:translateX(-50%)!important}
-  #auth-wrap .lang-btn{position:static!important;min-width:auto!important;padding:5px 10px!important;font-size:10px!important}
-}
-@media(max-width:400px){
-  .header h1{font-size:16px;letter-spacing:1px}
-  .header p{display:none}
-}
+@media(max-width:500px){.bug-btn{top:8px;right:8px;padding:5px 9px;font-size:10px} .lang-btn{top:8px;left:8px;padding:5px 9px;font-size:10px}}
 .bug-form{display:flex;flex-direction:column;gap:10px;padding:16px}
 .bug-form label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px}
 .bug-form input,.bug-form select,.bug-form textarea{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:13px;outline:none;font-family:inherit}
@@ -297,3 +285,34 @@ mark{background:rgba(245,166,35,.3);color:var(--text);border-radius:2px;padding:
 .author-stat-card .asv{font-size:22px;font-weight:800;color:var(--orange)}
 .author-stat-card .asl{font-size:11px;color:var(--muted);text-align:center}
 .stat-tip{cursor:help;border-bottom:1px dotted #888}
+
+/* Collapsible bsect */
+.bsect details > summary{list-style:none;outline:none;cursor:pointer;user-select:none;padding:0;margin:0}
+.bsect details > summary::-webkit-details-marker{display:none}
+.bsect details > summary::marker{content:''}
+.bsect details > summary h3{display:inline-block;margin:0}
+.bsect details > summary .caret{display:inline-block;transition:transform .2s;font-size:.7em;margin-right:4px;color:var(--muted)}
+.bsect details:not([open]) > summary .caret{transform:rotate(-90deg)}
+.bsect details > summary:hover h3{opacity:.8}
+.bsect details > .bsect-body{margin-top:10px}
+.bsect details[open] > summary{margin-bottom:8px}
+
+/* Top result panel */
+#b-result-top{background:linear-gradient(180deg,rgba(245,166,35,.1),rgba(245,166,35,.02));border:1px solid rgba(245,166,35,.35);border-left:3px solid var(--orange)}
+#b-result-top h3{color:var(--orange)}
+#b-top-nums{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center}
+#b-top-nums .rtn-val{font-weight:700;line-height:1.1}
+#b-top-nums .rtn-lbl{font-size:10px;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
+#b-top-nums .rtn-base .rtn-val{font-size:20px;color:#888}
+#b-top-nums .rtn-avg .rtn-val{font-size:24px;color:#f5a623}
+#b-top-nums .rtn-peak .rtn-val{font-size:30px;color:var(--orange)}
+#b-top-bonuses{display:flex;flex-wrap:wrap;gap:6px}
+#b-top-bonuses .rtb-tag{font-size:11px;padding:3px 8px;border-radius:10px;background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.3);color:var(--green)}
+#b-top-bonuses .rtb-tag.named{background:rgba(171,71,188,.1);border-color:rgba(171,71,188,.3);color:var(--named)}
+#b-top-bonuses .rtb-tag.exotic{background:rgba(255,171,64,.12);border-color:rgba(255,171,64,.3);color:#ffab40}
+#b-top-bonuses .rtb-hint{font-size:10px;color:var(--muted);width:100%}
+@media(max-width:500px){
+  #b-top-nums .rtn-base .rtn-val{font-size:16px}
+  #b-top-nums .rtn-avg .rtn-val{font-size:19px}
+  #b-top-nums .rtn-peak .rtn-val{font-size:24px}
+}

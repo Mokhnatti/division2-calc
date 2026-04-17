@@ -61,13 +61,6 @@ function hl(s,qs){
 
 let activeCat="community";
 
-// Slug for static page links
-const _TR={'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh','щ':'shch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'};
-function _slug(en,ru){
-  const s=en||ru||'';
-  return s.toLowerCase().split('').map(c=>_TR[c]!==undefined?_TR[c]:c).join('').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
-}
-
 function render(){
     if(activeCat==="meta"){
         document.getElementById("mc").style.display="none";
@@ -107,8 +100,7 @@ function render(){
             const bonuses=isEn&&en&&en.bonuses?en.bonuses:g.bonuses;
             const chest=isEn&&en&&en.chest?en.chest:g.chest;
             const bp=isEn&&en&&en.bp?en.bp:g.bp;
-            const _gSlug=_slug(g.en,g.name);
-            h+=`<div class="card"><div class="card-h"><div><div class="cn gear"><a href="/set/${_gSlug}" style="color:inherit;text-decoration:none" title="Подробнее">${H(isEn&&g.en?g.en:g.name)}</a>${wikiIcon(g.en)}</div><div class="en">${H(isEn?g.name:g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
+            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(isEn&&g.en?g.en:g.name)}${wikiIcon(g.en)}</div><div class="en">${H(isEn?g.name:g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
             bonuses.forEach(b=>{const[t,...r]=b.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+=`<div class="tl"><div class="t-line"><span class="t-name">${L("Нагрудник","Chest")}:</span><span class="t-desc">${H(chest)}</span></div>`;
             h+=`<div class="t-line"><span class="t-name">${L("Рюкзак","Backpack")}:</span><span class="t-desc">${H(bp)}</span></div></div></div>`;
@@ -121,8 +113,7 @@ function render(){
         fB.forEach(b=>{
             const en=trBrand(b.name);
             const bonuses=isEn&&en&&en.bonuses?en.bonuses:b.bonuses;
-            const _bSlug=_slug(b.name,b.name);
-            h+=`<div class="card"><div class="card-h"><div class="cn brand"><a href="/brand/${_bSlug}" style="color:inherit;text-decoration:none" title="Подробнее">${H(b.name)}</a>${wikiIcon(b.name)}</div><span class="badge b-brand">${L("Бренд","Brand")}</span></div>`;
+            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(b.name)}${wikiIcon(b.name)}</div><span class="badge b-brand">${L("Бренд","Brand")}</span></div>`;
             bonuses.forEach(bn=>{const[t,...r]=bn.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+='</div>';
         });h+='</div>';
@@ -146,8 +137,7 @@ function render(){
                 }
                 const displayName=isEn&&e.en?e.en:e.name;
                 const displaySub=isEn?e.name:(e.en||"");
-                const _eSlug=_slug(e.en,e.name);
-                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic"><a href="/exotic/${_eSlug}" style="color:inherit;text-decoration:none" title="Подробнее">${H(displayName)}</a>${wikiIcon(e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
+                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(displayName)}${wikiIcon(e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
                 h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
                 h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
             });h+='</div>';
@@ -171,8 +161,7 @@ function render(){
                 }
                 const displayName=isEn&&n.en?n.en:n.name;
                 const displaySub=isEn?n.name:(n.en||"");
-                const _nSlug=_slug(n.en,n.name);
-                h+=`<div class="card"><div class="card-h"><div><div class="cn named"><a href="/named/${_nSlug}" style="color:inherit;text-decoration:none" title="Подробнее">${H(displayName)}</a>${wikiIcon(n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
+                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
                 if(n.brand)h+=`<div class="info">${L("Бренд","Brand")}: ${H(n.brand)}</div>`;
                 const coreVal=Array.isArray(n.core)?n.core[0]:n.core;
                 if(coreVal)h+=`<div class="info" style="color:#ff9800">${L("Осн. реквизит","Core")}: ${H(translateStat(coreVal))}</div>`;
@@ -251,11 +240,6 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
     btn.addEventListener("click",()=>{
         document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
         btn.classList.add("active");activeCat=btn.dataset.cat;
-        // pushState routing
-        const _urlMap={community:'/',build:'/build',dps:'/dps',meta:'/top',all:'/all',gear:'/sets',brand:'/brands',exotic:'/exotics',named:'/named-items',wmods:'/weapon-mods',smods:'/skill-mods',expertise:'/expertise'};
-        const _titleMap={community:'Сообщество',build:'Билд-конструктор',dps:'DPS Калькулятор',meta:'Топ билдов',all:'База данных',gear:'Комплекты',brand:'Бренды',exotic:'Экзотики',named:'Именные предметы',wmods:'Моды оружия',smods:'Моды навыков',expertise:'Экспертиза'};
-        history.pushState({cat:activeCat},'',_urlMap[activeCat]||'/');
-        document.title=(_titleMap[activeCat]||'Division 2')+' · divcalc.xyz';
         // toggle panels
         const isCalc = activeCat==="dps";
         const isMeta = activeCat==="meta";
@@ -2579,6 +2563,41 @@ function calcBuild(){
   document.getElementById("b-bonuses").innerHTML=`<div class="bon-list">`+
     bonuses.map(b=>`<div class="bon-item" style="border-color:${b.color}"><span class="bon-v" style="color:${b.color}">${b.nm} ${b.tier}шт</span><span>${b.desc}</span></div>`).join("")+`</div>`;
 
+  // Top compact bonus tags
+  const topB=document.getElementById("b-top-bonuses");
+  if(topB){
+    const seen=new Set();
+    const tags=bonuses.map(b=>{
+      let kind="";
+      if(/Экзотик/i.test(b.nm)||b.tier==="🧿") kind="exotic";
+      else if(b.tier==="им") kind="named";
+      const short=b.nm.replace(/^(Экзотик: |Оружие: )/,"");
+      const isNum=typeof b.tier==="number";
+      const tierLbl=isNum?` ${b.tier}шт`:(b.tier&&b.tier!=="им"?` ${b.tier}`:"");
+      const setKey=(isNum?short:short+"|"+b.tier);
+      if(isNum){
+        if(seen.has(short+"-max")) return "";
+        seen.add(short+"-peak-"+b.tier);
+      }
+      return `<span class="rtb-tag ${kind}">${short}${tierLbl}</span>`;
+    }).filter(Boolean);
+    const maxTierBySet={};
+    bonuses.forEach(b=>{if(typeof b.tier==="number"){maxTierBySet[b.nm]=Math.max(maxTierBySet[b.nm]||0,b.tier);}});
+    const finalTags=bonuses.filter(b=>{
+      if(typeof b.tier==="number") return b.tier===maxTierBySet[b.nm];
+      return true;
+    }).map(b=>{
+      let kind="";
+      if(/Экзотик/i.test(b.nm)||b.tier==="🧿") kind="exotic";
+      else if(b.tier==="им") kind="named";
+      const short=b.nm.replace(/^(Экзотик: |Оружие: )/,"");
+      const isNum=typeof b.tier==="number";
+      const tierLbl=isNum?` ${b.tier}шт`:(b.tier==="им"?"":` ${b.tier||""}`);
+      return `<span class="rtb-tag ${kind}">${short}${tierLbl}</span>`;
+    });
+    topB.innerHTML=finalTags.join("")||`<span class="rtb-hint">Нет активных сет-бонусов — набери 2/3/4 предмета одного сета/бренда.</span>`;
+  }
+
   // Stack info
   let stkHtml="";
   const sps=wpn.rpm/60;
@@ -2678,17 +2697,17 @@ function calcBuild(){
   renderTtk(baseDPS,avgDPS10,maxDPS);
 
   document.getElementById("b-peak").innerHTML=
-    `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">
-      <div style="min-width:0;overflow:hidden">
-        <div style="font-size:clamp(13px,4.5vw,22px);font-weight:700;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${Math.round(baseDPS).toLocaleString("ru")}</div>
+    `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
+      <div>
+        <div style="font-size:22px;font-weight:700;color:#888">${Math.round(baseDPS).toLocaleString("ru")}</div>
         <div style="font-size:10px;color:var(--muted);margin-top:2px">БАЗА (без стаков)</div>
       </div>
-      <div style="min-width:0;overflow:hidden">
-        <div style="font-size:clamp(15px,5.5vw,26px);font-weight:700;color:#f5a623;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${Math.round(avgDPS10).toLocaleString("ru")}</div>
+      <div>
+        <div style="font-size:26px;font-weight:700;color:#f5a623">${Math.round(avgDPS10).toLocaleString("ru")}</div>
         <div style="font-size:10px;color:var(--muted);margin-top:2px">СРЕДНИЙ (10с бой)</div>
       </div>
-      <div style="min-width:0;overflow:hidden">
-        <div style="font-size:clamp(17px,6.5vw,32px);font-weight:700;color:var(--orange);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${Math.round(maxDPS).toLocaleString("ru")}</div>
+      <div>
+        <div style="font-size:32px;font-weight:700;color:var(--orange)">${Math.round(maxDPS).toLocaleString("ru")}</div>
         <div style="font-size:10px;color:var(--muted);margin-top:2px">ПИК (фул стаки)</div>
       </div>
     </div>
@@ -2729,6 +2748,27 @@ function calcBuild(){
 
   document.getElementById("b-results-sect").style.display="block";
   document.getElementById("b-ttk-sect").style.display="block";
+
+  // Top compact result panel
+  const topN=document.getElementById("b-top-nums");
+  const topSect=document.getElementById("b-result-top");
+  if(topN&&topSect){
+    topN.innerHTML=`
+      <div class="rtn-base">
+        <div class="rtn-val">${Math.round(baseDPS).toLocaleString("ru")}</div>
+        <div class="rtn-lbl">База · без стаков</div>
+      </div>
+      <div class="rtn-avg">
+        <div class="rtn-val">${Math.round(avgDPS10).toLocaleString("ru")}</div>
+        <div class="rtn-lbl">Средний · 10с бой</div>
+      </div>
+      <div class="rtn-peak">
+        <div class="rtn-val">${Math.round(maxDPS).toLocaleString("ru")}</div>
+        <div class="rtn-lbl">Пик · фул стаки</div>
+      </div>`;
+    topSect.style.display="block";
+  }
+
   // Store for publish flow
   window._lastBuildDPS={base:baseDPS,avg:avgDPS10,peak:maxDPS};
   // Build validation
@@ -3811,18 +3851,3 @@ async function loadTopBuilds(){
     host.innerHTML=`<div style="padding:40px;text-align:center;color:var(--red)">Ошибка: ${escapeHtml(e.message)}</div>`;
   }
 }
-
-// ===== URL ROUTING =====
-const _routeMap={'/':'community','/build':'build','/dps':'dps','/top':'meta','/all':'all','/sets':'gear','/brands':'brand','/exotics':'exotic','/named-items':'named','/weapon-mods':'wmods','/skill-mods':'smods','/expertise':'expertise'};
-function _activateCat(cat){
-  const btn=document.querySelector(`.cat-btn[data-cat="${cat}"]`);
-  if(btn)btn.click();
-}
-window.addEventListener('popstate',e=>{
-  const cat=e.state&&e.state.cat;
-  if(cat)_activateCat(cat);
-});
-(function _initRoute(){
-  const cat=_routeMap[location.pathname];
-  if(cat&&cat!=='community')_activateCat(cat);
-})();
