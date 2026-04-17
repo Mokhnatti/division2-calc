@@ -75,6 +75,9 @@
     <button class="cat-btn" data-cat="brand">Бренды (36)</button>
     <button class="cat-btn" data-cat="exotic">Экзотики (~70)</button>
     <button class="cat-btn" data-cat="named">Именные (~96)</button>
+    <button class="cat-btn" data-cat="wmods" style="background:rgba(66,165,245,.12);border-color:rgba(66,165,245,.35);color:var(--blue)">🔧 Моды оружия</button>
+    <button class="cat-btn" data-cat="smods" style="background:rgba(66,165,245,.12);border-color:rgba(66,165,245,.35);color:var(--blue)">🛠 Моды скиллов+гир</button>
+    <button class="cat-btn" data-cat="expertise" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.35);color:var(--orange)">⭐ Экспертиза</button>
 </div>
 <div class="result-count" id="rc"></div>
 <div class="content" id="mc"></div>
@@ -554,10 +557,22 @@
   <!-- TTK Meter -->
   <div class="bsect" id="b-ttk-sect" style="display:none">
     <h3>⏱ Время до убийства (TTK)</h3>
-    <div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
+    <div style="display:flex;gap:8px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
       <span style="font-size:11px;color:var(--muted)">Сложность:</span>
-      <button class="mf-btn on" onclick="setTtkDiff('heroic')" id="ttk-heroic">Heroic</button>
-      <button class="mf-btn" onclick="setTtkDiff('legendary')" id="ttk-legendary">Legendary</button>
+      <select id="ttk-diff" class="bsel" style="max-width:180px" onchange="setTtkDiff(this.value)">
+        <option value="normal">Средняя</option>
+        <option value="high">Высокая</option>
+        <option value="challenging">Испытание</option>
+        <option value="heroic" selected>Героизм</option>
+        <option value="legendary">Легендарная</option>
+      </select>
+      <span style="font-size:11px;color:var(--muted)">Состав группы:</span>
+      <select id="ttk-players" class="bsel" style="max-width:140px" onchange="setTtkPlayers(this.value)">
+        <option value="1" selected>1 игрок</option>
+        <option value="2">2 игрока</option>
+        <option value="3">3 игрока</option>
+        <option value="4">4 игрока</option>
+      </select>
     </div>
     <div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
       <span style="font-size:11px;color:var(--muted)">Escalation Tier:</span>
@@ -771,6 +786,47 @@
     </div>
     <div class="modal-list" id="mod-list"></div>
   </div>
+</div>
+
+<div id="wmods-panel" style="display:none">
+<div class="bw" style="max-width:1200px;margin:0 auto;padding:14px">
+  <div class="bsect">
+    <h3>🔧 Моды оружия — Weapon Mods</h3>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Группировка по типу слота. Бонусы и штрафы указаны. Названия на английском — игра англоязычная.</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
+      <input type="text" id="wmods-search" placeholder="Поиск — название, стат..." class="bsel" style="flex:1;min-width:180px;max-width:320px" oninput="renderWeaponMods()">
+      <select id="wmods-type" class="bsel" style="min-width:160px;max-width:220px" onchange="renderWeaponMods()">
+        <option value="">Все типы</option>
+      </select>
+    </div>
+  </div>
+  <div class="content" id="wmods-content"></div>
+</div>
+</div>
+
+<div id="smods-panel" style="display:none">
+<div class="bw" style="max-width:1200px;margin:0 auto;padding:14px">
+  <div class="bsect">
+    <h3>🛠 Моды скиллов и снаряжения</h3>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Сверху — моды навыков по слотам. Снизу — моды снаряжения (атака/защита/польза).</div>
+  </div>
+  <div class="content" id="smods-content"></div>
+</div>
+</div>
+
+<div id="expertise-panel" style="display:none">
+<div class="bw" style="max-width:1200px;margin:0 auto;padding:14px">
+  <div class="bsect">
+    <h3>⭐ Экспертиза — стоимость прокачки 1→31</h3>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Три категории: оружие, снаряжение, навыки. Суммарные затраты материалов на каждый уровень.</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
+      <button class="mf-btn on" onclick="setExpertiseCat('weapon')" id="exp-cat-weapon">Оружие</button>
+      <button class="mf-btn" onclick="setExpertiseCat('gear')" id="exp-cat-gear">Снаряжение</button>
+      <button class="mf-btn" onclick="setExpertiseCat('skill')" id="exp-cat-skill">Навыки</button>
+    </div>
+  </div>
+  <div class="content" id="expertise-content"></div>
+</div>
 </div>
 
 <div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>

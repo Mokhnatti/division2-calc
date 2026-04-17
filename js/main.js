@@ -187,7 +187,10 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         const isMeta = activeCat==="meta";
         const isBuild = activeCat==="build";
         const isCommunity = activeCat==="community";
-        const hideMain = isCalc||isMeta||isBuild||isCommunity;
+        const isWmods = activeCat==="wmods";
+        const isSmods = activeCat==="smods";
+        const isExpertise = activeCat==="expertise";
+        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise;
         document.getElementById("mc").style.display=hideMain?"none":"";
         document.getElementById("rc").style.display=hideMain?"none":"";
         document.querySelector(".search-panel").style.display=hideMain?"none":"";
@@ -196,10 +199,19 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         document.getElementById("build-panel").style.display=isBuild?"block":"none";
         const commPanel=document.getElementById("community-panel");
         if(commPanel)commPanel.style.display=isCommunity?"block":"none";
+        const wmodsPanel=document.getElementById("wmods-panel");
+        if(wmodsPanel)wmodsPanel.style.display=isWmods?"block":"none";
+        const smodsPanel=document.getElementById("smods-panel");
+        if(smodsPanel)smodsPanel.style.display=isSmods?"block":"none";
+        const expPanel=document.getElementById("expertise-panel");
+        if(expPanel)expPanel.style.display=isExpertise?"block":"none";
         if(!hideMain) render();
         else if(isCalc) calcDPS();
         else if(isBuild) calcBuild();
         else if(isCommunity) loadCommunityFeed();
+        else if(isWmods) renderWeaponMods();
+        else if(isSmods) renderSkillGearMods();
+        else if(isExpertise) renderExpertise();
     });
 });
 render();
@@ -2125,6 +2137,25 @@ function runBuildValidation(ctx){
 // ===== TTK =====
 const ENEMY_HP = D2DATA.ENEMY_HP;
 let ttkDiff="heroic";
+let ttkPlayers=1;
+const TTK_DIFF_NAME_MAP = (function(){
+  const m = {};
+  const diffs = (ENEMY_HP && ENEMY_HP.difficulties) || [];
+  const pairs = [
+    ["normal",   n => n.includes("СРЕД")],
+    ["high",     n => n.includes("ВЫСО")],
+    ["challenging", n => n.includes("ИСПЫ")],
+    ["heroic",   n => n.includes("ГЕРО")],
+    ["legendary",n => n.includes("ЛЕГЕН")],
+  ];
+  for(const d of diffs){
+    const name=(d.name||"").toUpperCase();
+    for(const [key,fn] of pairs){
+      if(fn(name)){ m[key]=d; break; }
+    }
+  }
+  return m;
+})();
 // Escalation tier → HP/armor multiplier (datamined from Y8S1 TU28, r/thedivision)
 const ESCALATION_TIERS = D2DATA.ESCALATION_TIERS;
 const ESCALATION_DROP_CHANCE = D2DATA.ESCALATION_DROP_CHANCE;
@@ -2143,8 +2174,14 @@ function setEscalationTier(tier){
 let lastDps={base:0,avg:0,peak:0};
 function setTtkDiff(d){
   ttkDiff=d;
-  document.getElementById("ttk-heroic").classList.toggle("on",d==="heroic");
-  document.getElementById("ttk-legendary").classList.toggle("on",d==="legendary");
+  const sel=document.getElementById("ttk-diff");
+  if(sel && sel.value!==d) sel.value=d;
+  renderTtk(lastDps.base,lastDps.avg,lastDps.peak);
+}
+function setTtkPlayers(n){
+  ttkPlayers=parseInt(n,10)||1;
+  const sel=document.getElementById("ttk-players");
+  if(sel && sel.value!==String(ttkPlayers)) sel.value=String(ttkPlayers);
   renderTtk(lastDps.base,lastDps.avg,lastDps.peak);
 }
 function fmtTime(s){
@@ -2166,10 +2203,23 @@ function onTtkMultChange(){
 function clamp(x,lo,hi){return Math.max(lo,Math.min(hi,x))}
 function renderTtk(base,avg,peak){
   lastDps={base,avg,peak};
-  const enemies=ENEMY_HP.types||ENEMY_HP[ttkDiff]||[];
   const hpMult=clamp(parseFloat(document.getElementById("ttk-hp-mult")?.value)||0,0,800);
   const arMult=clamp(parseFloat(document.getElementById("ttk-ar-mult")?.value)||0,0,800);
   const hasBoost=hpMult>0||arMult>0;
+  const pKey="p"+ttkPlayers;
+  const diffRow=TTK_DIFF_NAME_MAP[ttkDiff];
+  const enemyTypesRu=ENEMY_HP.enemy_types_ru||{normal:"Рядовые",veteran:"Ветераны",elite:"Элитные",named:"Именные"};
+  const typeIcons={normal:"🔴",veteran:"🟣",elite:"🟠",named:"🟡"};
+  let enemies;
+  if(diffRow && diffRow.health && diffRow.armor){
+    enemies=["normal","veteran","elite","named"].map(t=>{
+      const hp=(diffRow.health[t]&&diffRow.health[t][pKey])||0;
+      const ar=(diffRow.armor[t]&&diffRow.armor[t][pKey])||0;
+      return { name:`${typeIcons[t]||""} ${enemyTypesRu[t]||t}`, hp:hp, armor:ar };
+    });
+  } else {
+    enemies=ENEMY_HP.types||ENEMY_HP[ttkDiff]||[];
+  }
   const body=enemies.map(e=>{
     const baseEhp=(e.hp||0)+(e.armor||0);
     const ehp=(e.hp||0)*(1+hpMult/100)+(e.armor||0)*(1+arMult/100);
@@ -2819,3 +2869,185 @@ document.addEventListener("DOMContentLoaded",()=>{
   });
 });
 document.addEventListener("DOMContentLoaded",updateStatTooltips);
+
+// ===== WEAPON MODS TAB =====
+const WEAPON_MODS = D2DATA.WEAPON_MODS || [];
+const SKILL_MODS = D2DATA.SKILL_MODS || [];
+const GEAR_MODS = D2DATA.GEAR_MODS || [];
+const EXPERTISE = D2DATA.EXPERTISE || {};
+
+function escHtml(s){
+  return (s==null?"":String(s)).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+let __wmodsTypeInit=false;
+function initWmodsTypeOptions(){
+  if(__wmodsTypeInit)return;
+  const sel=document.getElementById("wmods-type");
+  if(!sel)return;
+  const types=Array.from(new Set(WEAPON_MODS.map(m=>m.type_en).filter(Boolean))).sort();
+  for(const t of types){
+    const o=document.createElement("option");
+    o.value=t;o.textContent=t;sel.appendChild(o);
+  }
+  __wmodsTypeInit=true;
+}
+
+function renderWeaponMods(){
+  initWmodsTypeOptions();
+  const host=document.getElementById("wmods-content");
+  if(!host)return;
+  const q=(document.getElementById("wmods-search")?.value||"").trim().toLowerCase();
+  const typeFilter=document.getElementById("wmods-type")?.value||"";
+  let items=WEAPON_MODS.slice();
+  if(typeFilter) items=items.filter(m=>(m.type_en||"")===typeFilter);
+  if(q){
+    items=items.filter(m=>{
+      const hay=[m.name_en,m.bonus_en,m.penalty_en,m.stat,m.slot_en,m.source_en].map(x=>(x||"").toLowerCase()).join(" ");
+      return hay.includes(q);
+    });
+  }
+  const groups={};
+  for(const m of items){
+    const k=m.type_en||"Other";
+    (groups[k]=groups[k]||[]).push(m);
+  }
+  const order=["OPTICS RAIL","MAGAZINE SLOT","MUZZLE SLOT","UNDERBARREL","Other"];
+  const keys=Object.keys(groups).sort((a,b)=>{
+    const ia=order.indexOf(a), ib=order.indexOf(b);
+    return (ia<0?99:ia)-(ib<0?99:ib);
+  });
+  if(!keys.length){
+    host.innerHTML=`<div class="bsect" style="text-align:center;color:var(--muted)">Нет модов по фильтру.</div>`;
+    return;
+  }
+  const typeIcon={ "OPTICS RAIL":"🔭", "MAGAZINE SLOT":"📦", "MUZZLE SLOT":"💥", "UNDERBARREL":"🔻" };
+  const html=keys.map(k=>{
+    const arr=groups[k];
+    const cards=arr.map(m=>{
+      const bonus=m.bonus_en?`<div style="color:var(--green);font-weight:600;font-size:12px;margin-top:4px">+ ${escHtml(m.bonus_en)}</div>`:"";
+      const penalty=m.penalty_en?`<div style="color:var(--red);font-size:11px;margin-top:2px">− ${escHtml(m.penalty_en)}</div>`:"";
+      const slot=m.slot_en?`<div style="color:var(--muted);font-size:10px;margin-top:6px">${escHtml(m.slot_en)}</div>`:"";
+      const src=m.source_en?`<div style="color:#555;font-size:10px">${escHtml(m.source_en)}</div>`:"";
+      const val=m.value?`<div style="position:absolute;top:10px;right:12px;color:var(--orange);font-weight:700;font-size:12px">${escHtml(m.value)}</div>`:"";
+      return `<div style="position:relative;background:var(--card);border:1px solid var(--border);border-radius:9px;padding:12px 14px">
+        ${val}
+        <div style="font-weight:700;color:var(--text);font-size:13px;padding-right:60px">${escHtml(m.name_en||"—")}</div>
+        ${m.stat?`<div style="color:var(--blue);font-size:11px;margin-top:2px">${escHtml(m.stat)}</div>`:""}
+        ${bonus}${penalty}${slot}${src}
+      </div>`;
+    }).join("");
+    return `<div class="bsect">
+      <h3>${typeIcon[k]||""} ${escHtml(k)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">${cards}</div>
+    </div>`;
+  }).join("");
+  host.innerHTML=html;
+}
+
+// ===== SKILL + GEAR MODS TAB =====
+function renderSkillGearMods(){
+  const host=document.getElementById("smods-content");
+  if(!host)return;
+  const bySkill={};
+  for(const m of SKILL_MODS){
+    const k=m.skill_ru||"Прочее";
+    (bySkill[k]=bySkill[k]||[]).push(m);
+  }
+  const skillHtml=Object.keys(bySkill).sort().map(k=>{
+    const arr=bySkill[k];
+    const rows=arr.map(m=>`<tr>
+      <td style="text-align:left;color:var(--muted);font-size:11px">${escHtml(m.slot_en||"—")}</td>
+      <td style="text-align:left">${escHtml(m.stat_ru||m.stat_en||"—")}</td>
+      <td style="color:var(--orange);font-weight:700">${escHtml(m.value||"—")}</td>
+    </tr>`).join("");
+    return `<div class="bsect">
+      <h3>🛠 ${escHtml(k)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
+      <table class="btl">
+        <thead><tr><th style="text-align:left">Слот</th><th style="text-align:left">Характеристика</th><th>Значение</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+  }).join("");
+  const byCat={};
+  for(const m of GEAR_MODS){
+    const k=m.category_ru||"Прочее";
+    (byCat[k]=byCat[k]||[]).push(m);
+  }
+  const gearHtml=Object.keys(byCat).sort().map(k=>{
+    const arr=byCat[k];
+    const rows=arr.map(m=>{
+      let val=m.value;
+      if(typeof val==="number"){
+        val = val<=1 ? (val*100).toFixed(2).replace(/\.00$/,"")+"%" : String(val);
+      }
+      return `<tr>
+        <td style="text-align:left">${escHtml(m.stat_ru||"—")}</td>
+        <td style="color:var(--orange);font-weight:700">${escHtml(val||"—")}</td>
+      </tr>`;
+    }).join("");
+    return `<div class="bsect">
+      <h3>🎽 ${escHtml(k)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
+      <table class="btl">
+        <thead><tr><th style="text-align:left">Характеристика</th><th>Максимум</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+  }).join("");
+  host.innerHTML = `
+    <div class="bsect"><h3>📟 Моды навыков (${SKILL_MODS.length})</h3></div>
+    ${skillHtml}
+    <div class="bsect" style="margin-top:16px"><h3>🎽 Моды снаряжения (${GEAR_MODS.length})</h3></div>
+    ${gearHtml}
+  `;
+}
+
+// ===== EXPERTISE TAB =====
+let expertiseCat="weapon";
+function setExpertiseCat(c){
+  expertiseCat=c;
+  for(const k of ["weapon","gear","skill"]){
+    const b=document.getElementById("exp-cat-"+k);
+    if(b) b.classList.toggle("on",k===c);
+  }
+  renderExpertise();
+}
+function renderExpertise(){
+  const host=document.getElementById("expertise-content");
+  if(!host)return;
+  const key=expertiseCat+"_ru";
+  const data=EXPERTISE[key];
+  if(!data || !data.rows){
+    host.innerHTML=`<div class="bsect" style="text-align:center;color:var(--muted)">Нет данных для «${escHtml(expertiseCat)}».</div>`;
+    return;
+  }
+  const headers=data.headers||[];
+  const rows=data.rows||[];
+  const dataKeys=headers.slice(1);
+  const headHtml=headers.map((h,i)=>
+    `<th style="${i===0?"text-align:left":""}">${escHtml(h)}</th>`
+  ).join("");
+  const bodyHtml=rows.map(r=>{
+    const isTotal=r.level==="ИТОГО";
+    const lvl=r.level;
+    const cells=[`<td style="text-align:left;color:${isTotal?"var(--orange)":"var(--text)"};font-weight:${isTotal?"700":"400"}">${escHtml(lvl==null?"—":String(lvl))}</td>`];
+    for(const h of dataKeys){
+      const v=r[h];
+      const disp=v==null?`<span style="color:#444">—</span>`:escHtml(String(v));
+      cells.push(`<td style="${isTotal?"color:var(--orange);font-weight:700":""}">${disp}</td>`);
+    }
+    return `<tr${isTotal?' style="background:rgba(245,166,35,.08)"':""}>${cells.join("")}</tr>`;
+  }).join("");
+  const titleMap={weapon:"🔫 Оружие",gear:"🎽 Снаряжение",skill:"📟 Навыки"};
+  host.innerHTML=`
+    <div class="bsect">
+      <h3>${titleMap[expertiseCat]||expertiseCat}</h3>
+      <div style="overflow-x:auto">
+        <table class="btl">
+          <thead><tr>${headHtml}</tr></thead>
+          <tbody>${bodyHtml}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
