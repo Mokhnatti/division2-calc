@@ -115,6 +115,7 @@
     <button class="cat-btn" data-cat="wmods" style="background:rgba(66,165,245,.12);border-color:rgba(66,165,245,.35);color:var(--blue)">🔧 Моды оружия</button>
     <button class="cat-btn" data-cat="smods" style="background:rgba(66,165,245,.12);border-color:rgba(66,165,245,.35);color:var(--blue)">🛠 Моды скиллов+гир</button>
     <button class="cat-btn" data-cat="expertise" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.35);color:var(--orange)">⭐ Экспертиза</button>
+    <button class="cat-btn" data-cat="help" style="background:rgba(66,165,245,.1);border-color:rgba(66,165,245,.35);color:var(--blue)">❓ Справка</button>
 </div>
 <div class="result-count" id="rc"></div>
 <div class="content" id="mc"></div>
@@ -853,6 +854,125 @@
     </div>
   </div>
   <div class="content" id="expertise-content"></div>
+</div>
+</div>
+
+<div id="help-panel" style="display:none">
+<div class="bw" style="max-width:900px;margin:0 auto;padding:14px">
+  <div class="bsect">
+    <h3>❓ Справка — как пользоваться калькулятором</h3>
+    <p style="font-size:12px;color:var(--muted);margin-top:4px">Короткий гайд для новичков. Если что-то непонятно — жми 🐛 Баг-репорт в шапке.</p>
+  </div>
+
+  <div class="bsect">
+    <h3>🎯 Что это за сайт</h3>
+    <div style="font-size:13px;line-height:1.6">
+      Калькулятор урона (DPS) и билдов для <b>The Division 2</b>. Что умеет:
+      <ul style="margin:8px 0 0 18px;padding:0">
+        <li>Считать DPS по реальным цифрам из меню игры</li>
+        <li>Хранить твои билды локально + публиковать в общий каталог</li>
+        <li>Смотреть/лайкать/форкать чужие билды из Сообщества</li>
+        <li>Сравнивать, считать TTK по 5 сложностям и Escalation Tier</li>
+        <li>Советовать что качать дальше (веса статов)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bsect">
+    <h3>🚀 Как собрать свой билд за 5 шагов</h3>
+    <ol style="margin:8px 0 0 20px;padding:0;font-size:13px;line-height:1.7">
+      <li>Открой вкладку <b style="color:var(--green)">⚙ BUILD</b></li>
+      <li>Нажми <b>— выбери оружие —</b> и найди свою пушку (экзотик/именное/обычное)</li>
+      <li>Заполни 6 слотов шмотками: маска, нагрудник, рюкзак, перчатки, кобура, наколенники</li>
+      <li>Если нагрудник/рюкзак обычные — выбери их таланты в селектах</li>
+      <li>В блоке <b>«Статистика из игры»</b> вбей итоговые значения из меню оружия в игре (вкладка «Наступление»): CHC, CHD, HSD, WD и т.д.</li>
+    </ol>
+    <div style="font-size:12px;color:var(--muted);margin-top:10px;padding:8px 10px;background:rgba(245,166,35,.05);border-left:2px solid var(--orange);border-radius:4px">
+      💡 Результат DPS появится сверху в блоке <b style="color:var(--orange)">⚡ Итог билда</b> (База / Средний / Пик).
+    </div>
+  </div>
+
+  <div class="bsect">
+    <h3>💡 Что такое бакеты (множители)</h3>
+    <div style="font-size:13px;line-height:1.6;margin-bottom:10px">
+      Урон считается как произведение независимых множителей. Каждый — отдельный «бакет». <b>Внутри</b> бакета значения складываются, <b>между</b> бакетами — умножаются.
+    </div>
+    <div style="font-family:monospace;background:rgba(0,0,0,.3);padding:10px;border-radius:6px;font-size:13px;color:var(--orange);overflow-x:auto">
+      Урон = База × WD × Крит × HS × DtA × OoC × Amp × Expertise
+    </div>
+    <table style="width:100%;margin-top:12px;font-size:12px;border-collapse:collapse">
+      <thead><tr style="color:var(--muted);text-transform:uppercase;font-size:10px">
+        <th style="text-align:left;padding:6px;border-bottom:1px solid var(--border)">Бакет</th>
+        <th style="text-align:left;padding:6px;border-bottom:1px solid var(--border)">Что внутри</th>
+        <th style="text-align:left;padding:6px;border-bottom:1px solid var(--border)">Пример</th>
+      </tr></thead>
+      <tbody style="font-size:12px">
+        <tr><td style="padding:6px;color:var(--orange)"><b>WD</b></td><td style="padding:6px">Общий урон оружием + урон по типу (LMG/AR/SMG...)</td><td style="padding:6px;color:var(--muted)">90% + 30% → ×2.20</td></tr>
+        <tr><td style="padding:6px;color:var(--red)"><b>Крит</b></td><td style="padding:6px">CHC × CHD (средний множитель)</td><td style="padding:6px;color:var(--muted)">55% × 150% → ×1.83</td></tr>
+        <tr><td style="padding:6px;color:var(--blue)"><b>HSD</b></td><td style="padding:6px">Урон в голову × % попаданий</td><td style="padding:6px;color:var(--muted)">145% × 30% → ×1.43</td></tr>
+        <tr><td style="padding:6px;color:var(--green)"><b>DtA</b></td><td style="padding:6px">Урон по броне (макс ~20%)</td><td style="padding:6px;color:var(--muted)">+15% → ×1.15</td></tr>
+        <tr><td style="padding:6px;color:#f5a623"><b>OoC</b></td><td style="padding:6px">Вне укрытия (макс ~30%)</td><td style="padding:6px;color:var(--muted)">+10% → ×1.10</td></tr>
+        <tr><td style="padding:6px;color:var(--named)"><b>Amp</b></td><td style="padding:6px">Амплифицированный (Страйкер 4pc, некот. экзотики)</td><td style="padding:6px;color:var(--muted)">+20% → ×1.20</td></tr>
+        <tr><td style="padding:6px;color:#ffab40"><b>Expertise</b></td><td style="padding:6px">Отдельный множитель поверх WD</td><td style="padding:6px;color:var(--muted)">+15 ур. → ×1.15</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bsect">
+    <h3>🏆 Как посмотреть/опубликовать билд в Сообществе</h3>
+    <div style="font-size:13px;line-height:1.7">
+      <b style="color:var(--named)">Посмотреть:</b> вкладка 🏆 Сообщество → фильтры по категории/таланту → кнопка «Открыть».<br>
+      <b style="color:var(--green)">Опубликовать:</b> в BUILD собери билд → жми 🚀 Опубликовать → название, категория, описание → готово.<br>
+      <b style="color:var(--blue)">Форк:</b> в любой карточке жми 📋 — билд скопируется к тебе в «Мои билды», можно изменять.<br>
+      <b style="color:#ffab40">Ссылка:</b> 🔗 копирует URL — поделись в Discord/Telegram.<br>
+      <b style="color:var(--muted)">Картинкой:</b> 📷 сохранит PNG билда для соцсетей.
+    </div>
+  </div>
+
+  <div class="bsect">
+    <h3>❓ Частые вопросы</h3>
+    <details style="padding:8px 0;border-bottom:1px solid var(--border)">
+      <summary style="cursor:pointer;font-weight:600;color:var(--orange)">Почему мой DPS не равен цифре в меню игры?</summary>
+      <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.5">
+        Игровое меню показывает только <b>База × WD</b> без крита, без хедшотов, без стаков. Калькулятор считает <b>полный</b> урон на фул стаках с учётом всех бакетов — отсюда «Пик DPS» сильно выше.
+      </div>
+    </details>
+    <details style="padding:8px 0;border-bottom:1px solid var(--border)">
+      <summary style="cursor:pointer;font-weight:600;color:var(--orange)">Что такое SHD Watch / Часы Скиира?</summary>
+      <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.5">
+        С SHD 1000+ получаешь пермачные бонусы: +10% WD, +20% HSD, +10% CHC, +20% CHD + управление. Впиши их в блок ⌚ SHD Watch — они добавятся к итогу. Суммарный CHC кап — 60%.
+      </div>
+    </details>
+    <details style="padding:8px 0;border-bottom:1px solid var(--border)">
+      <summary style="cursor:pointer;font-weight:600;color:var(--orange)">Что считается из Рекомбинатора Y8S1?</summary>
+      <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.5">
+        В DPS оружия идут только <b>Урон в голову</b> и <b>Патроны</b> (на магазин). Защитные и утилитарные модификаторы показаны для справки — в расчёт не попадают.
+      </div>
+    </details>
+    <details style="padding:8px 0;border-bottom:1px solid var(--border)">
+      <summary style="cursor:pointer;font-weight:600;color:var(--orange)">Что такое «База / Средний / Пик DPS»?</summary>
+      <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.5">
+        <b>База</b> — DPS без накопленных стаков (первая пуля в бою).<br>
+        <b>Средний</b> — DPS за 10 секунд боя (стаки набираются постепенно).<br>
+        <b>Пик</b> — DPS на фул стаках (финальная фаза боя).
+      </div>
+    </details>
+    <details style="padding:8px 0">
+      <summary style="cursor:pointer;font-weight:600;color:var(--orange)">Что значат теги на карточке билда?</summary>
+      <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.5">
+        Теги показывают состав: <span class="cc-slot-tag set" style="font-size:10px">Страйкер ×4</span> — 4 предмета сета, <span class="cc-slot-tag brand" style="font-size:10px">Petrov</span> — 1 предмет бренда, <span class="cc-slot-tag named" style="font-size:10px">✦ Salvo</span> — именной, <span class="cc-slot-tag exotic" style="font-size:10px">🧿 Мантис</span> — экзотик.
+      </div>
+    </details>
+  </div>
+
+  <div class="bsect" style="background:rgba(66,165,245,.05);border-left:3px solid var(--blue)">
+    <h3>🔗 Полезные ссылки</h3>
+    <div style="font-size:13px;line-height:1.8">
+      <div>🐛 <b>Нашёл баг / ошибку в данных:</b> жми «Баг-репорт» в шапке</div>
+      <div>💬 <b>Telegram:</b> <a href="https://t.me/mokhnatti" style="color:var(--blue)">@mokhnatti</a></div>
+      <div>⚙ <b>GitHub:</b> <a href="https://github.com/Mokhnatti/division2-calc" style="color:var(--blue)" target="_blank">Mokhnatti/division2-calc</a></div>
+    </div>
+  </div>
 </div>
 </div>
 

@@ -248,7 +248,8 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         const isWmods = activeCat==="wmods";
         const isSmods = activeCat==="smods";
         const isExpertise = activeCat==="expertise";
-        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise;
+        const isHelp = activeCat==="help";
+        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise||isHelp;
         document.getElementById("mc").style.display=hideMain?"none":"";
         document.getElementById("rc").style.display=hideMain?"none":"";
         document.querySelector(".search-panel").style.display=hideMain?"none":"";
@@ -263,6 +264,8 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         if(smodsPanel)smodsPanel.style.display=isSmods?"block":"none";
         const expPanel=document.getElementById("expertise-panel");
         if(expPanel)expPanel.style.display=isExpertise?"block":"none";
+        const helpPanel=document.getElementById("help-panel");
+        if(helpPanel)helpPanel.style.display=isHelp?"block":"none";
         if(!hideMain) render();
         else if(isCalc) calcDPS();
         else if(isBuild) calcBuild();
