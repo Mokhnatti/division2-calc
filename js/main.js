@@ -654,6 +654,61 @@ function onWpnTalentChange(){
   calcBuild();
 }
 
+function initGearTalentSelects(){
+  const chestSel=document.getElementById("b-chest-talent");
+  const bpSel=document.getElementById("b-bp-talent");
+  if(!chestSel||!bpSel)return;
+  const fill=(sel,slot)=>{
+    const talents=GEAR_TALENTS.filter(t=>t.slot===slot).sort((a,b)=>(a.name_ru||a.name_en||"").localeCompare(b.name_ru||b.name_en||""));
+    const og=document.createElement("optgroup");og.label="Обычные";
+    const pg=document.createElement("optgroup");pg.label="Совершенные";
+    for(const t of talents){
+      const key=t.id||t.name_en;
+      const setSuffix=t.set?` (${t.set})`:"";
+      const oReg=document.createElement("option");
+      oReg.value=key;
+      oReg.textContent=(t.name_ru||t.name_en)+setSuffix;
+      og.appendChild(oReg);
+      const oPerf=document.createElement("option");
+      oPerf.value="perfect:"+key;
+      oPerf.textContent=(t.perfect_name_ru||`${t.name_ru||t.name_en} (идеальный)`)+setSuffix;
+      pg.appendChild(oPerf);
+    }
+    sel.appendChild(og);
+    sel.appendChild(pg);
+  };
+  fill(chestSel,"chest");
+  fill(bpSel,"backpack");
+}
+
+function onChestTalentChange(){
+  const id=document.getElementById("b-chest-talent").value;
+  const desc=document.getElementById("b-chest-talent-desc");
+  if(!desc)return;
+  if(!id){desc.textContent="";return;}
+  const isPerfect=id.startsWith("perfect:");
+  const baseId=isPerfect?id.slice(8):id;
+  const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
+  if(t){
+    const prefix=isPerfect?"⭐ СОВЕРШЕННЫЙ — ":"";
+    desc.textContent=prefix+(t.desc_ru||t.description||"");
+  }
+}
+
+function onBpTalentChange(){
+  const id=document.getElementById("b-bp-talent").value;
+  const desc=document.getElementById("b-bp-talent-desc");
+  if(!desc)return;
+  if(!id){desc.textContent="";return;}
+  const isPerfect=id.startsWith("perfect:");
+  const baseId=isPerfect?id.slice(8):id;
+  const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
+  if(t){
+    const prefix=isPerfect?"⭐ СОВЕРШЕННЫЙ — ":"";
+    desc.textContent=prefix+(t.desc_ru||t.description||"");
+  }
+}
+
 // ===== BUILD STATE =====
 function getBuildState(){
   const slots={};
@@ -671,6 +726,8 @@ function getBuildState(){
     shd:{wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo")},
     rc:{hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")},
     ttk:{diff:ttkDiff,hp:v("ttk-hp-mult"),ar:v("ttk-ar-mult")},
+    chestTal:document.getElementById("b-chest-talent")?.value||"",
+    bpTal:document.getElementById("b-bp-talent")?.value||"",
   };
 }
 
@@ -718,6 +775,14 @@ function applyBuildState(s){
   if(s.ttk){
     if(s.ttk.diff)setTtkDiff(s.ttk.diff);
     setInput("ttk-hp-mult",s.ttk.hp);setInput("ttk-ar-mult",s.ttk.ar);
+  }
+  if(s.chestTal){
+    const el=document.getElementById("b-chest-talent");
+    if(el){el.value=s.chestTal;onChestTalentChange();}
+  }
+  if(s.bpTal){
+    const el=document.getElementById("b-bp-talent");
+    if(el){el.value=s.bpTal;onBpTalentChange();}
   }
   calcBuild();
 }
@@ -1534,6 +1599,7 @@ const PROTOTYPE_AUGMENTS = D2DATA.PROTOTYPE_AUGMENTS;
 // Weapon 4th-roll talents (generic, rolls on any weapon — not exotic/named talents)
 const WEAPON_TALENTS = D2DATA.WEAPON_TALENTS;
 const WEAPON_TALENTS_FULL = D2DATA.WEAPON_TALENTS_FULL;
+const GEAR_TALENTS = D2DATA.GEAR_TALENTS || [];
 
 // Currently selected weapon (by id from WPNS)
 let selectedWpnId="police_m4";
@@ -1983,6 +2049,46 @@ function calcBuild(){
     if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,niSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
     bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
+  }
+
+  // Gear talents (chest + backpack) — selected from dropdown
+  const chestTalId=document.getElementById("b-chest-talent")?.value;
+  const bpTalId=document.getElementById("b-bp-talent")?.value;
+  for(const[selId,slotName] of [[chestTalId,"Нагрудник"],[bpTalId,"Рюкзак"]]){
+    if(!selId)continue;
+    const isPerfect=selId.startsWith("perfect:");
+    const baseId=isPerfect?selId.slice(8):selId;
+    const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
+    if(!t)continue;
+    const slotKey=slotName==="Нагрудник"?"chest":"bp";
+    const it=slotState[slotKey];
+    if(it&&(it.kind==="named"||it.kind==="exotic")&&it.talent){
+      bonuses.push({color:"#ffa000",tier:"⚠️",nm:"Талант "+slotName,desc:`Уже задан вещью "${it.name}": ${it.talent}. Селект игнорируется.`});
+      continue;
+    }
+    // Для Perfect сначала пробуем "Perfect X", потом X. Для обычного — X, потом "Perfect X".
+    const tb=isPerfect?(talentBonus("Perfect "+t.name_en)||talentBonus(t.perfect_name_ru)||talentBonus(t.name_en)):(talentBonus(t.name_en)||talentBonus("Perfect "+t.name_en));
+    if(tb){
+      const isCond=tb.conditional;
+      ["wd","chc","chd","hsd","rof","mag","reload"].forEach(k=>{
+        if(tb[k]){
+          if(isCond)tPeakOnly[k]=(tPeakOnly[k]||0)+tb[k];
+          else{
+            if(k==="wd")tWD+=tb[k];
+            else if(k==="chc")tCHC+=tb[k];
+            else if(k==="chd")tCHD+=tb[k];
+            else if(k==="hsd")tHSD+=tb[k];
+            else if(k==="rof")tROF+=tb[k];
+            else if(k==="mag")tMAG+=tb[k];
+            else if(k==="reload")tRELOAD+=tb[k];
+          }
+          pushG(k,tb[k],`${slotName}: ${isPerfect?"⭐ ":""}${t.name_ru||t.name_en}`,isCond);
+        }
+      });
+    }
+    const label=isPerfect?(t.perfect_name_ru||`${t.name_ru||t.name_en} (идеальный)`):(t.name_ru||t.name_en);
+    const descText=t.desc_ru||t.description||"";
+    bonuses.push({color:"#f5a623",tier:"🎽",nm:`Талант ${slotName}`,desc:`${label}: ${descText.slice(0,120)}${descText.length>120?"...":""}`});
   }
 
   // Weapon 4th-roll talent (applies on top of base/exotic/named)
@@ -2654,6 +2760,7 @@ updateStatTooltips();
 
 // Init build slots from gear set data
 initBuildSlots();
+initGearTalentSelects();
 
 // Lazy-load Recombinator modifiers reference (Y8S1 Rise Up)
 let __rcmCache=null;

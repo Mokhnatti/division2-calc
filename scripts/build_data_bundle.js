@@ -41,6 +41,7 @@ const FILES = {
   GEAR_MODS: "gear_mods.json",
   SKILL_MODS: "skill_mods.json",
   EXPERTISE: "expertise.json",
+  GEAR_TALENTS: "gear_talents.json",
 };
 
 const obj = {};

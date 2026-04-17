@@ -396,6 +396,25 @@
       <div class="slt"><label>Кобура</label><div class="slot-wrap"><div class="slot-btn" id="bs-holster" onclick="openSlot('holster')"><span class="ss">— пусто —</span></div></div></div>
       <div class="slt"><label>Наколенники</label><div class="slot-wrap"><div class="slot-btn" id="bs-knees" onclick="openSlot('knees')"><span class="ss">— пусто —</span></div></div></div>
     </div>
+    <div style="margin-top:10px;padding:10px;background:rgba(245,166,35,.04);border-radius:6px;border:1px solid rgba(245,166,35,.2)">
+      <div style="font-size:11px;color:var(--orange);margin-bottom:6px;font-weight:600">ТАЛАНТЫ НАГРУДНИКА И РЮКЗАКА</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div>
+          <label style="font-size:10px;color:var(--muted);display:block;margin-bottom:2px">Талант нагрудника</label>
+          <select id="b-chest-talent" class="bsel" onchange="onChestTalentChange(); calcBuild()" style="width:100%;padding:5px">
+            <option value="">— не выбран —</option>
+          </select>
+          <div id="b-chest-talent-desc" style="font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3;min-height:20px"></div>
+        </div>
+        <div>
+          <label style="font-size:10px;color:var(--muted);display:block;margin-bottom:2px">Талант рюкзака</label>
+          <select id="b-bp-talent" class="bsel" onchange="onBpTalentChange(); calcBuild()" style="width:100%;padding:5px">
+            <option value="">— не выбран —</option>
+          </select>
+          <div id="b-bp-talent-desc" style="font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3;min-height:20px"></div>
+        </div>
+      </div>
+    </div>
     <input type="hidden" id="b-core-mode" value="red">
     <input type="hidden" id="b-core-mask" value="red">
     <input type="hidden" id="b-core-chest" value="red">
