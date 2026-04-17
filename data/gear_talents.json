@@ -1,1200 +1,1206 @@
 [
- {
-  "id": "gt_obliterate",
-  "name_en": "Obliterate",
-  "description": "Critical hits increase weapon damage by 1% for 5s, stacking up to 25%.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Тотальное уничтожение",
-  "desc_ru": "Критические попадания увеличивают общий урон от оружия на 1% сроком на 10 сек. Эффект суммируется до 20 раз.",
-  "perfect_name_ru": "Тотальное уничтожение (идеальное)",
-  "perfect_desc_ru": "Критические попадания увеличивают общий урон от оружия на 1% сроком на 10 сек. Эффект суммируется до 24 раз."
- },
- {
-  "id": "gt_intimidate",
-  "name_en": "Intimidate",
-  "description": "+35% weapon damage to enemies within 10m while you have bonus armor.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Устрашение",
-  "desc_ru": "Наличие у вас дополнительной брони  дает ежесекундно 3 заряда (максимум 9). Каждый заряд увеличивает урон от оружия, наносимый противникам в радиусе 10 метров на 4%. Когда дополнительная броня исчезает, все заряды теряются. "
- },
- {
-  "id": "gt_focus",
-  "name_en": "Focus",
-  "description": "Increases total weapon damage by 5% every second while aiming with 8x scope or higher, up to 50%.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Фокус",
-  "desc_ru": "Увеличение общего урона от оружия на 5% за каждую секунду прицеливания через оптику кратностью 8х и выше (вплоть до 50%).",
-  "perfect_name_ru": "Фокус (идеальный)",
-  "perfect_desc_ru": "Увеличение общего урона от оружия на 5% за каждую секунду прицеливания через оптику кратностью 8х и выше (вплоть до 60%)."
- },
- {
-  "id": "gt_headhunter",
-  "name_en": "Headhunter",
-  "description": "After killing an enemy with a headshot, your next weapon hit within 30s deals 125% of that killing blow's damage in addition to it.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Охотник за головами",
-  "desc_ru": "После убийства противника выстрелами в голову, следующий выстрел из оружия, совершенный в течение 30 секунд, дополнительно наносит 125% урона от предыдущего смертельного выстрела. Максимальный размер дополнительного урона составляет 800% общего урона от оружия. Урон увеличивается до 1250%, если ваша характеристика урон от выстрела в голову больше 150%.",
-  "perfect_name_ru": "Охотник за головами (идеальный)",
-  "perfect_desc_ru": "После убийства противника выстрелами в голову, следующий выстрел из оружия, совершенный в течение 30 секунд, дополнительно наносит 150% урона от предыдущего смертельного выстрела. Максимальный размер дополнительного урона составляет 800% общего урона от оружия. Урон увеличивается до 1250%, если ваша характеристика урон от выстрела в голову больше 150%."
- },
- {
-  "id": "gt_overwatch",
-  "name_en": "Overwatch",
-  "description": "After staying in cover for 10s, increase your and all allies' total weapon and skill damage by 12% as long as you remain in cover.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Прикрытие",
-  "desc_ru": "Проведя в укрытии 10 сек., вы повышаете общий урон от оружия и навыков всех своих союзников на 12%. Эффект действует все время, пока вы находитесь в укрытии или совершаете рывки от укрытия к укрытию. Действие эффекта распространяется и на вас.",
-  "perfect_name_ru": "Прикрытие (идеальное)",
-  "perfect_desc_ru": "Проведя в укрытии 8 сек., вы повышаете общий урон от оружия и навыков всех своих союзников на 14%. Эффекст действует все время, пока вы находитесь в укрытии или совершаете рывки от укрытия к укрытию. Действие эффекта распространяется и на вас."
- },
- {
-  "id": "gt_trauma",
-  "name_en": "Trauma",
-  "description": "Applies blind to an enemy hit in the head. Applies bleed to an enemy hit in the chest. Cooldown: 30s.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Травма",
-  "desc_ru": "На противника, которого вы ранили в голову, накладывается эффект слепоты. Восстановление: 30 сек.\nНа противника, которого вы ранили в грудь, накладывается эффект кровотечения. Восстановление: 30 сек.",
-  "perfect_name_ru": "Травма (идеальная)",
-  "perfect_desc_ru": "На противника, которого вы ранили в голову, накладывается эффект слепоты. Восстановление: 20 сек.\nНа противника, которого вы ранили в грудь, накладывается эффект кровотечения. Восстановление: 20 сек."
- },
- {
-  "id": "gt_mad_bomber",
-  "name_en": "Mad Bomber",
-  "description": "Grenade radius increased by 50%. Grenades that kill an enemy are refunded. Grenades can be cooked.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Псих с бомбой",
-  "desc_ru": "Радиус поражения гранат увеличивается на 50%. Если взрыв гранаты убивает противника, вы получаете еще одну такую же гранату. Вы можете взвести гранату заранее, чтобы сократить задержку перед ее взрывом. Для этого удерживайте кнопку стрельбы. +15% к броне во время прицеливания перед броском гранаты.",
-  "perfect_name_ru": "Псих с бомбой (идеальный)",
-  "perfect_desc_ru": "Радиус поражения гранат увеличивается на 75%. Если взрыв гранаты убивает противника, вы получаете еще одну такую же гранату. Вы можете взвести гранату заранее, чтобы сократить задержку перед ее взрывом. Для этого удерживайте кнопку стрельбы. +15% к броне во время прицеливания перед броском гранаты."
- },
- {
-  "id": "gt_braced",
-  "name_en": "Braced",
-  "description": "While in cover weapon handling is increased by 45%.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Стойкость",
-  "desc_ru": "При нахождении в укрытии эргономичность оружия повышается на 45%.",
-  "perfect_name_ru": "Стойкость (идеальная)",
-  "perfect_desc_ru": "При нахождении в укрытии эргономичность оружия повышается на 50%."
- },
- {
-  "id": "gt_skilled",
-  "name_en": "Skilled",
-  "description": "Skill kills have a 25% chance to reset skill cooldowns.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Мастер",
-  "desc_ru": "Убийства с помощью навыков дают 25% шанс мгновенно восстановить навыки.",
-  "perfect_name_ru": "Мастер (идеальный)",
-  "perfect_desc_ru": "Убийства с помощью навыков дают 30% шанс мгновенно восстановить навыки."
- },
- {
-  "id": "gt_tag_team",
-  "name_en": "Tag Team",
-  "description": "The last enemy damaged with a skill is marked. Dealing weapon damage to that enemy reduces active cooldowns by 6s. Cooldown: 4s.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Парная команда",
-  "desc_ru": "Последний противник, раненный вами с помощью навыков, получает метку. Нанесение урона оружием отмеченному противнику снимает метку и ускоряет восстановление активных навыков на 6 сек. Метка не снимается, если нет навыков на восстановлении. Восстановление: 4 сек."
- },
- {
-  "id": "gt_tamper_proof",
-  "name_en": "Tamper Proof",
-  "description": "Enemies that walk within 3m of your hive, turret, remote pulse, or decoy are shocked. Cooldown per skill: 10s.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Защита от взлома",
-  "desc_ru": "На противников, оказавшихся в радиусе 3 м. от вашего улья, турели или дистанционного импульса, накладывается эффект шока. Время срабатывания: 2 сек. Восстановление на навык: 10 сек."
- },
- {
-  "id": "gt_reassigned",
-  "name_en": "Reassigned",
-  "description": "Killing an enemy adds 1 round of random special ammo into your sidearm. Cooldown: 15s.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Переназначение",
-  "desc_ru": "Каждое убийство противника добавляет в магазин пистолета 1 особый боеприпас случайно выбранного типа. Восстановление: 15 сек."
- },
- {
-  "id": "gt_efficient",
-  "name_en": "Efficient",
-  "description": "Using an armor kit has a 50% chance to not consume the armor kit. Specialization armor kit bonuses are increased by 100%.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Эффективность",
-  "desc_ru": "При использовании бронекомплекта есть 50% шанс, что этот бронекомплект не будет истрачен.\nПреимущества бронекомплектов от специализации повышаются на 100%.",
-  "perfect_name_ru": "Эффективность (идеальная)",
-  "perfect_desc_ru": "При использовании бронекомплекта есть 75% шанс, что этот бронекомплект не будет истрачен.\nПреимущества бронекомплектов от специализации повышаются на 100%."
- },
- {
-  "id": "gt_spark",
-  "name_en": "Spark",
-  "description": "Applying a status effect grants +15% weapon damage for 15s.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Искра",
-  "desc_ru": "Нанося противникам урон с помощью навыков, вы получаете +15% к общему урону от оружия сроком на 15 сек.",
-  "perfect_name_ru": "Компаньон (идеальный)",
-  "perfect_desc_ru": "Если вы находитесь в пределах 10 м от союзника или объекта навыка, общий урон от оружия увеличивается на 20%."
- },
- {
-  "id": "gt_empathic_resolve",
-  "name_en": "Empathic Resolve",
-  "description": "Repairing an ally increases their weapon and skill damage by up to 15% for 20s.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_kinetic_momentum",
-  "name_en": "Kinetic Momentum",
-  "description": "Each active skill generates stacks granting +1% skill damage and +2% skill repair, up to 15 stacks.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Кинетический момент",
-  "desc_ru": "Во время боя за каждый навык, который является активным или не восстанавливается, вы получаете один заряд эффекта. Каждый заряд повышает общий урон от навыков на 1,5%, а общий ремонт от навыков на 2%. За каждый навык можно получить до 15 зарядов. При восстановлении навыка заряды теряются.",
-  "perfect_name_ru": "Кинетический момент (идеальный)",
-  "perfect_desc_ru": "Во время боя за каждый навык, который является активным или не восстанавливается, вы получаете один заряд эффекта. Каждый заряд повышает общий урон от навыков на 1,5%, а общий ремонт от навыков на 2%. За каждый навык можно получить до 18 зарядов. При восстановлении навыка заряды теряются."
- },
- {
-  "id": "gt_vanguard",
-  "name_en": "Vanguard",
-  "description": "Deploying a shield makes it invulnerable for 5s and grants 45% armor as bonus armor to allies for 20s.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Авангард",
-  "desc_ru": "Выставив щит, вы получаете его неуязвимость сроком на 5 сек., а все ваши союзники - дополнительную броню в размере 45% от вашей брони сроком на 20 сек. Восстановление: 25 сек.",
-  "perfect_name_ru": "Авангард (идеальный)",
-  "perfect_desc_ru": "Выставив щит, вы получаете неуязвимость сроком на 5 сек., а все ваши союзники - дополнительную броню в размере 50% от вашей брони сроком на 20 сек. Восстановление: 25 сек."
- },
- {
-  "id": "gt_spotter",
-  "name_en": "Spotter",
-  "description": "+15% weapon and skill damage to pulsed enemies.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Наводчик",
-  "desc_ru": "Увеличение общего урона от оружия и навыков на 15% по противникам, отмеченным импульсом.",
-  "perfect_name_ru": "Наводчик (идеальный)",
-  "perfect_desc_ru": "Увеличение общего урона от оружия и навыков на 20% по противникам, отмеченным импульсом."
- },
- {
-  "id": "gt_glass_cannon",
-  "name_en": "Glass Cannon",
-  "description": "All damage amplified by 25%. All damage taken amplified by 50%.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Стеклянная пушка",
-  "desc_ru": "Увеличение всего наносимого вами урона на 25%. Увеличение всего получаемого вами урона на 50%.",
-  "perfect_name_ru": "Стеклянная пушка (идеальная)",
-  "perfect_desc_ru": "Увеличение всего наносимого вами урона на 30%. Увеличение всего получаемого вами урона на 60%."
- },
- {
-  "id": "gt_unbreakable",
-  "name_en": "Unbreakable",
-  "description": "When armor is depleted, repair 95% of total armor. Cooldown 60s.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Несокрушимость",
-  "desc_ru": "Полностью лишившись брони, вы восстанавливаете 95% (50% для PVP) от ее максимального запаса. Восстановление: 60 сек.",
-  "perfect_name_ru": "Несокрушимость (идеальная)",
-  "perfect_desc_ru": "Полностью лишившись брони, вы восстанавливаете 100% (55% для PVP) от ее максимального запаса. Восстановление: 55 сек."
- },
- {
-  "id": "gt_gunslinger",
-  "name_en": "Gunslinger",
-  "description": "Weapon swapping increases total weapon damage by 23% for 5s. This buff is lost for 5s if you weapon swap while it is active.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Пистолетчик",
-  "desc_ru": "После каждой смены оружия вы получаете +23% к общему урону от оружия сроком на 5 сек. \nЕсли сменить оружие во время действия эффекта, он будет снят на 5 сек.",
-  "perfect_name_ru": "Пистолетчик (идеальный)",
-  "perfect_desc_ru": "После каждой смены оружия вы получаете +28% к общему урону от оружия сроком на 5 сек. \nЕсли сменить оружие во время действия эффекта, он будет снят на 5 сек."
- },
- {
-  "id": "gt_entrench",
-  "name_en": "Entrench",
-  "description": "If you are below 30% armor, headshots from cover repair 20% of your armor. Cooldown: 2s.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Укрепленная позиция",
-  "desc_ru": "Если у вас осталось менее 30% брони, каждое попадание в голову из укрытия восстанавливает 20% вашей брони. Восстановление: 2 сек.",
-  "perfect_name_ru": "Укрепленная позиция (идеальная)",
-  "perfect_desc_ru": "Если у вас осталось менее 30% брони, каждое попадание в голову из укрытия восстанавливает 30% вашей брони. Восстановление: 1 сек."
- },
- {
-  "id": "gt_protected_reload",
-  "name_en": "Protected Reload",
-  "description": "Grants +20% bonus armor while reloading. Grants 0-18% of your armor as bonus armor to allies when they reload.",
-  "slot": "chest",
-  "set": null,
-  "name_ru": "Бронированная перезарядка",
-  "desc_ru": "20% дополнительной брони при каждой перезарядке. Все союзники, перезаряжая оружие, получают дополнительную броню в размере 0-18% от вашей брони. Точная цифра зависит от количества основных Оборонительных характеристик.",
-  "perfect_name_ru": "Бронированная перезарядка (идеальная)",
-  "perfect_desc_ru": "40% дополнительной брони при каждой перезарядке. Все союзники, перезаряжая оружие, получают дополнительную броню в размере 0-30% от вашей брони. Точная цифра зависит от количества основных Оборонительных характеристик."
- },
- {
-  "id": "gt_challenger",
-  "name_en": "Challenger",
-  "description": "Exotic: Killing an enemy within 10m grants +5% weapon damage for 10s, stacking up to 10 times.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_bond",
-  "name_en": "Bond",
-  "description": "Exotic: Gain +5% weapon damage for each active skill. Gain +5% skill damage for each active weapon.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_parabellum_rounds",
-  "name_en": "Parabellum Rounds",
-  "description": "Ongoing Directive 4pc amplifier: Increases Hollow-Point Ammo damage from 20% to 50%. Does not apply to party members.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_ridgeway_bleeding",
-  "name_en": "Bleeding Edge",
-  "description": "Shooting enemies within 15m applies bleed. Repair 3-48% armor/s per bleeding enemy within 15m.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_tardigrade_nano",
-  "name_en": "Ablative Nano-Plating",
-  "description": "When armor breaks (you or ally), grant 80% of your armor as bonus armor for 10s. Cooldown 45s per ally.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_collector_hoarder",
-  "name_en": "Hoarder",
-  "description": "+3 Grenade Capacity, +50% Grenade Radius, +35% Grenade Damage, +25% per extra enemy in blast. Auto-regen grenades every 30s if below 2.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_obliterate",
-  "name_en": "Perfect Obliterate",
-  "description": "Critical hits increase weapon damage by 1% for 5s, stacking up to 25%. Stacks refresh on crit.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_intimidate",
-  "name_en": "Perfect Intimidate",
-  "description": "+40% weapon damage to enemies within 10m while you have bonus armor.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_spark",
-  "name_en": "Perfect Spark",
-  "description": "Applying a status effect grants +20% weapon damage for 15s.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_glass_cannon",
-  "name_en": "Perfect Glass Cannon",
-  "description": "All damage amplified by 30%. All damage taken amplified by 50%.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_unbreakable",
-  "name_en": "Perfectly Unbreakable",
-  "description": "When armor is depleted, repair 115% of total armor. Cooldown 60s.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_gunslinger",
-  "name_en": "Perfect Gunslinger",
-  "description": "Weapon swapping increases total weapon damage by 28% for 5s. This buff is lost for 5s if you weapon swap while it is active.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_vanguard",
-  "name_en": "Perfect Vanguard",
-  "description": "Deploying a shield makes it invulnerable for 5s and grants 60% of your armor as bonus armor to all allies for 20s.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_spotter",
-  "name_en": "Perfect Spotter",
-  "description": "+20% weapon and skill damage to pulsed enemies.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_overwatch",
-  "name_en": "Perfect Overwatch",
-  "description": "While in cover, shots that hit enemies beyond 25m grant +3% weapon damage for 5s, stacking up to 15 times.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_headhunter",
-  "name_en": "Perfect Headhunter",
-  "description": "After landing a headshot, your next weapon shot deals +150% of that weapon's damage.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_trauma",
-  "name_en": "Perfect Trauma",
-  "description": "Headshots apply bleed to the target. Bleeding enemies take +20% weapon damage from you.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_kinetic",
-  "name_en": "Perfect Kinetic Momentum",
-  "description": "Each active skill generates stacks granting +1.5% skill damage and +3% skill repair, up to 15 stacks.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_companion",
-  "name_en": "Perfect Companion",
-  "description": "While a skill is active, gain +15% weapon damage. While no skill is active, gain +15% skill damage.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_explosive_del",
-  "name_en": "Perfectly Explosive Delivery",
-  "description": "Throwing a grenade grants +35% weapon damage for 10s.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_mad_bomber",
-  "name_en": "Perfectly Mad Bomber",
-  "description": "+50% Grenade Damage. +50% Grenade Radius.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_braced",
-  "name_en": "Perfect Braced",
-  "description": "While in cover, gain +20% weapon damage and +20% weapon handling.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_focus",
-  "name_en": "Perfect Focus",
-  "description": "Every 0.5s you remain stationary, gain +5% weapon damage, up to +50%.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_entrench",
-  "name_en": "Perfect Entrench",
-  "description": "Headshots while in cover grant +10% armor for 5s.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_perfect_skilled",
-  "name_en": "Perfectly Skilled",
-  "description": "Activating a skill grants +25% weapon damage for 15s.",
-  "slot": "chest",
-  "set": null
- },
- {
-  "id": "gt_set_risk_management",
-  "name_en": "Risk Management",
-  "description": "Striker's Battlegear: Increases total weapon damage gained per stack of Striker's Gamble from 0.65% to 0.9%.",
-  "slot": "chest",
-  "set": "Striker's Battlegear"
- },
- {
-  "id": "gt_set_hardwired_chest",
-  "name_en": "Overcharge",
-  "description": "Hard Wired: Activating a skill grants Overcharge for 15s. Cooldown: 60s.",
-  "slot": "chest",
-  "set": "Hard Wired"
- },
- {
-  "id": "gt_set_eclipse_chest",
-  "name_en": "Proliferation",
-  "description": "Eclipse Protocol: Status effects you apply spread to one additional enemy within 8m. Cooldown: 5s.",
-  "slot": "chest",
-  "set": "Eclipse Protocol"
- },
- {
-  "id": "gt_set_acesandeights_chest",
-  "name_en": "Aces High",
-  "description": "Aces & Eights: Headshots grant a stack of +5% weapon damage (max 8). Stacks are lost when you reload.",
-  "slot": "chest",
-  "set": "Aces & Eights"
- },
- {
-  "id": "gt_set_aegis_chest",
-  "name_en": "Bulwark Protocol",
-  "description": "Aegis: Deploying a shield grants +20% weapon damage to all allies within 20m for 10s.",
-  "slot": "chest",
-  "set": "Aegis"
- },
- {
-  "id": "gt_set_umbra_chest",
-  "name_en": "Umbra Protocol",
-  "description": "Umbra Initiative: Kills grant +5% weapon damage for 10s, stacking up to 5 times.",
-  "slot": "chest",
-  "set": "Umbra Initiative"
- },
- {
-  "id": "gt_set_tipping_chest",
-  "name_en": "Scales of Justice",
-  "description": "Tipping Scales: Kills with LMGs grant +5% weapon damage for 10s, stacking up to 5 times.",
-  "slot": "chest",
-  "set": "Tipping Scales"
- },
- {
-  "id": "gt_set_snowball",
-  "name_en": "Snowball",
-  "description": "Tipping Scales: Increase the Critical Hit Damage received per stack from 4% to 7%.",
-  "slot": "chest",
-  "set": "Tipping Scales"
- },
- {
-  "id": "gt_set_ongoing_chest",
-  "name_en": "Hollow-Point Ammo",
-  "description": "Ongoing Directive: Enemies affected by a status effect drop Hollow-Point Ammo on death. Hollow-Point Ammo deals +20% weapon damage.",
-  "slot": "chest",
-  "set": "Ongoing Directive"
- },
- {
-  "id": "gt_set_foundry_chest",
-  "name_en": "Makeshift Repairs",
-  "description": "Foundry Bulwark: Shooting an enemy repairs 0.5% of your armor per hit. Cooldown: 0.5s.",
-  "slot": "chest",
-  "set": "Foundry Bulwark"
- },
- {
-  "id": "gt_set_breakingpoint_chest",
-  "name_en": "Point of no Return",
-  "description": "Breaking Point: Increase On Point bonuses timer from 10s to 15s.",
-  "slot": "chest",
-  "set": "Breaking Point"
- },
- {
-  "id": "gt_set_cavalier_chest",
-  "name_en": "Overcharging",
-  "description": "Cavalier: Increases Charger max incoming damage protection to 70%.",
-  "slot": "chest",
-  "set": "Cavalier"
- },
- {
-  "id": "gt_set_concentrated_chest",
-  "name_en": "All for One",
-  "description": "Concentrated Company: Increase the amount of marks that can be placed from 4 to 8.",
-  "slot": "chest",
-  "set": "Concentrated Company"
- },
- {
-  "id": "gt_set_future_chest",
-  "name_en": "Tactical Superiority",
-  "description": "Future Initiative: Increases Ground Control damage bonus from 15% to 25%.",
-  "slot": "chest",
-  "set": "Future Initiative"
- },
- {
-  "id": "gt_set_heartbreaker_chest",
-  "name_en": "Max BPM",
-  "description": "Heartbreaker: Max stack is now 100.",
-  "slot": "chest",
-  "set": "Heartbreaker"
- },
- {
-  "id": "gt_set_hotshot_chest",
-  "name_en": "Endless Hunger",
-  "description": "Hotshot: Increases the duration of Apex Predator stacks from 10s to 30s.",
-  "slot": "chest",
-  "set": "Hotshot"
- },
- {
-  "id": "gt_set_huntersfury_chest",
-  "name_en": "Hivemind",
-  "description": "Hunter's Fury: Decrease the Overcharge cooldown from 40s to 25s.",
-  "slot": "chest",
-  "set": "Hunter's Fury"
- },
- {
-  "id": "gt_set_measured_chest",
-  "name_en": "Target Rich Environment",
-  "description": "Measured Assembly: Increases Crowd Control mark count from 3 to 5.",
-  "slot": "chest",
-  "set": "Measured Assembly"
- },
- {
-  "id": "gt_set_negotiator_chest",
-  "name_en": "Parabellum Rounds",
-  "description": "Negotiator's Dilemma: Increases Hollow-Point Ammo weapon damage amplification to 50%.",
-  "slot": "chest",
-  "set": "Negotiator's Dilemma"
- },
- {
-  "id": "gt_set_ortiz_chest",
-  "name_en": "Chain Combustion",
-  "description": "Ortiz: Exuro: Enemies set ablaze by the Ortiz Incinerator Turret Prototype ignite other enemies within 2m.",
-  "slot": "chest",
-  "set": "Ortiz: Exuro"
- },
- {
-  "id": "gt_set_refactor_chest",
-  "name_en": "Best Buds",
-  "description": "Refactor: Increase the damage buff from 25% to 50%.",
-  "slot": "chest",
-  "set": "Refactor"
- },
- {
-  "id": "gt_set_rigger_chest",
-  "name_en": "Press the Advantage",
-  "description": "Rigger: Increases max stacks for Striker's Gamble from 100 to 200.",
-  "slot": "chest",
-  "set": "Rigger"
- },
- {
-  "id": "gt_set_syscorrupt_chest",
-  "name_en": "Specialized Destruction",
-  "description": "System Corruption: Increase Aggressive Recon Signature Weapon Damage bonus from 15% to 30%.",
-  "slot": "chest",
-  "set": "System Corruption"
- },
- {
-  "id": "gt_set_tipofspear_chest",
-  "name_en": "Sustainability",
-  "description": "Tip of the Spear: Increase the maximum number of stacks from 50 to 75.",
-  "slot": "chest",
-  "set": "Tip of the Spear"
- },
- {
-  "id": "gt_set_patriot_chest",
-  "name_en": "Waving the Flag",
-  "description": "True Patriot: Increases Red, White, and Blue rotation speed to 1.5 seconds.",
-  "slot": "chest",
-  "set": "True Patriot"
- },
- {
-  "id": "gt_set_virtuoso_chest",
-  "name_en": "Fortissimo",
-  "description": "Virtuoso: Double the weapon damage bonus from Symphony.",
-  "slot": "chest",
-  "set": "Virtuoso"
- },
- {
-  "id": "gt_vigilance",
-  "name_en": "Vigilance",
-  "description": "Increases weapon damage by 25%. Taking damage disables this bonus for 4s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Бдительность",
-  "desc_ru": "Увеличение общего урона от оружия на 25%. Получив урон, вы лишаетесь этого усиления на 4 сек.",
-  "perfect_name_ru": "Бдительность (идеальная)",
-  "perfect_desc_ru": "Увеличение общего урона от оружия на 25%. Получив урон, вы лишаетесь этого усиления на 3 сек."
- },
- {
-  "id": "gt_combined_arms",
-  "name_en": "Combined Arms",
-  "description": "Shooting an enemy increases total skill damage by 25% for 3s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Тактическое взаимодействие",
-  "desc_ru": "Выстрел в противника увеличивает общий урон от навыков на 25% сроком на 3 сек.",
-  "perfect_name_ru": "Тактическое взаимодействие (идеальное)",
-  "perfect_desc_ru": "Выстрел в противника увеличивает общий урон от навыков на 30% сроком на 3 сек."
- },
- {
-  "id": "gt_tech_support",
-  "name_en": "Tech Support",
-  "description": "Skill kills increase total skill damage by 25% for 25s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Техническая поддержка",
-  "desc_ru": "Убивая противников с помощью навыков, вы получаете +25% к общему урону от навыков сроком на 20 сек.",
-  "perfect_name_ru": "Техническая поддержка (идеальная)",
-  "perfect_desc_ru": "Убивая противников с помощью навыков, вы получаете +25% к общему урону от навыков сроком на 27 сек."
- },
- {
-  "id": "gt_opportunistic",
-  "name_en": "Opportunistic",
-  "description": "Enemies hit with shotguns and marksman rifles amplify the damage they take by 10% from all sources for 5s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Оппортунизм",
-  "desc_ru": "Противники, раненные вами из дробовиков и снайперских винтовок, получают на 10% больший урон из любых источников в течение 5 сек.",
-  "perfect_name_ru": "Оппортунизм (идеальный)",
-  "perfect_desc_ru": "Противники, раненные вами из дробовиков и снайперских винтовок, получают на 15% больший урон из любых источников в течение 5 сек."
- },
- {
-  "id": "gt_safeguard",
-  "name_en": "Safeguard",
-  "description": "While at full armor, increases total skill repair by 130%.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Страховка",
-  "desc_ru": "При полной броне вы получаете +130% ко всему ремонту с помощью навыков."
- },
- {
-  "id": "gt_leadership",
-  "name_en": "Leadership",
-  "description": "Performing a cover to cover grants 15% of your armor as bonus armor to you and all allies for 10s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Лидерские качества",
-  "desc_ru": "При совершении вами рывков от укрытия к укрытию 15% от вашей брони добавляется в качестве дополнительной брони вам и всем вашим союзникам на\n10 сек. Эффект удваивается, если вы заканчиваете рывок не более чем в 10 м от противника. Восстановление: 10 сек.",
-  "perfect_name_ru": "Лидерские качества (идеальный)",
-  "perfect_desc_ru": "При совершении вами рывков от укрытия к укрытию 20% от вашей брони добавляется в качестве дополнительной брони вам и всем вашим союзникам на \n10 сек. Эффект утраивается, если вы заканчиваете рывок не более чем в 10 м от противника. Восстановление: 10 сек."
- },
- {
-  "id": "gt_protector",
-  "name_en": "Protector",
-  "description": "When your shield is damaged, you gain +5% and all other allies gain +15% of your armor as bonus armor for 3s. Cooldown: 3s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Защитная система",
-  "desc_ru": "При повреждении щита вы получаете +5% дополнительной брони, а все ваши союзники - дополнительную броню в размере 15% от вашей брони срокомна 3 сек. Восстановление: 3 сек."
- },
- {
-  "id": "gt_adrenaline_rush",
-  "name_en": "Adrenaline Rush",
-  "description": "When you are within 10m of an enemy, gain 20% bonus armor for 5s. Stacks up to 3 times. Cooldown: 5s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_galvanize",
-  "name_en": "Galvanize",
-  "description": "Applying a Blind, Ensnare, Confuse, or Shock to an enemy grants 40% of your armor as bonus armor to you and all allies within 20m for 10s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Гальванизация",
-  "desc_ru": "Наложение эффекта слепоты, прилипания, растерянности или шока на противника дает вашим союзникам в радиусе 20 м от цели дополнительную броню в размере 40% от вашей брони сроком на 10 сек.",
-  "perfect_name_ru": "Гальванизация (идеальная)",
-  "perfect_desc_ru": "Наложение эффекта слепоты, прилипания, растерянности или шока на противника дает вашим союзникам в радиусе 30м от цели дополнительную броню в размере 50% от вашей брони сроком на 10 сек."
- },
- {
-  "id": "gt_energize",
-  "name_en": "Energize",
-  "description": "Using an armor kit grants +1 skill tier for 15s. If already at skill tier 6, grants overcharge. Cooldown: 60s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Подзарядка",
-  "desc_ru": "Использование бронекомплекта дает +1 к уровню навыка сроком на 15 сек. Если уровень навыка уже равен 6, вы получаете перезаряд.                       Восстановление: 60 сек.",
-  "perfect_name_ru": "Подзарядка (идеальная)",
-  "perfect_desc_ru": "Использование бронекомплекта дает +1 к уровню навыка сроком на 15 сек. Если уровень навыка уже равен 6, Вы получаете перезаряд. \nВосстановление: 30 сек."
- },
- {
-  "id": "gt_calculated",
-  "name_en": "Calculated",
-  "description": "Kills from cover reduce skill cooldowns by 10%.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Расчетливость",
-  "desc_ru": "После убийства из укрытия восстановление навыков ускоряется на 10%.",
-  "perfect_name_ru": "Расчетливость (идеальная)",
-  "perfect_desc_ru": "После убийства из укрытия восстановление навыков ускоряется на 15%."
- },
- {
-  "id": "gt_overclock",
-  "name_en": "Overclock",
-  "description": "You and allies within 7m of your deployed skills gain +25% reload speed and reduces active cooldowns by 0.2 each second.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Разгон",
-  "desc_ru": "Союзники в радиусе 7 м от ваших объектов навыков получают +25% к скорости перезарядки и ускорение восстановления активных навыков на 0,2 сек. за каждую секунду.",
-  "perfect_name_ru": "Разгон (идеальный)",
-  "perfect_desc_ru": "Союзники в радиусе 15 м от ваших объектов навыков получают +30% к скорости перезарядки и ускорение восстановления активных навыков на 0,6 сек. за каждую секунду."
- },
- {
-  "id": "gt_creeping_death",
-  "name_en": "Creeping Death",
-  "description": "When you apply a status effect it also applies to all enemies within 8m. Cooldown 15s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Ползучая смерть",
-  "desc_ru": "Негативный эффект, наложенный вами на цель, также передается всем противникам в радиусе 8 м от нее. Восстановление: 15 сек.",
-  "perfect_name_ru": "Защита от взлома (идеальная)",
-  "perfect_desc_ru": "На противников, оказавшихся в радиусе 3 м. от вашего улья, турели или дистанционного импульса, накладывается эффект шока. Время срабатывания: 2 сек. Восстановление на навык: 8 сек."
- },
- {
-  "id": "gt_composure",
-  "name_en": "Composure",
-  "description": "While in cover, increases total weapon damage by 15%.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Самообладание",
-  "desc_ru": "Находясь в укрытии, вы получаете +15% к общему урону от оружия.",
-  "perfect_name_ru": "Самообладание (идеальное)",
-  "perfect_desc_ru": "Находясь в укрытии, вы получаете +20% к общему урону от оружия."
- },
- {
-  "id": "gt_hardened",
-  "name_en": "Hardened",
-  "description": "Increases armor by 10%.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_clutch",
-  "name_en": "Clutch",
-  "description": "Critical hits restore 2% armor.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Хват",
-  "desc_ru": "Если у вас осталось менее 15% брони, каждое критическое попадание восстанавливает 2.5% от недостающей брони. При каждом убийстве вы ремонтируете 100% брони в течение 4-10 сек. Точная цифра зависит от количества наступательных характеристик.",
-  "perfect_name_ru": "Хват (идеальный)",
-  "perfect_desc_ru": "Если у вас осталось менее 20% брони, каждое критическое попадание восстанавливает 2.5% от недостающей брони. При каждом убийстве вы ремонтируете 100% брони в течение 4-10 сек. Точная цифра зависит от количества наступательных характеристик."
- },
- {
-  "id": "gt_patience",
-  "name_en": "Patience",
-  "description": "After being in cover for 3s, repair 3% armor per second.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_concussion",
-  "name_en": "Concussion",
-  "description": "Headshots grant +10% headshot damage for 10s, stacking up to 5 times.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Контузия",
-  "desc_ru": "Попадания в голову увеличивают общий урон от оружия на 10% сроком на 1.5 сек. Для снайперских винтовок срок составляет 5 сек. Убийства выстрелами в голову увеличивают общий урон от оружия на 15% сроком на 10 сек."
- },
- {
-  "id": "gt_shock_and_awe",
-  "name_en": "Shock & Awe",
-  "description": "Applying a status effect to an enemy increases total skill damage and repair by 20% for 20s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_wicked",
-  "name_en": "Wicked",
-  "description": "+18% weapon damage for 20s after applying a status effect.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Коварство",
-  "desc_ru": "За каждый наложенный негативный эффект вы получаете +18% к общему урону от оружия сроком на 20 сек.",
-  "perfect_name_ru": "Коварство (идеальное)",
-  "perfect_desc_ru": "За каждый наложенный негативный эффект вы получаете +18% к общему урону от оружия сроком на 27 сек."
- },
- {
-  "id": "gt_bloodsucker",
-  "name_en": "Bloodsucker",
-  "description": "Killing an enemy adds +10% bonus armor for 10s. Max 10 stacks.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Кровосос",
-  "desc_ru": "За каждое убийство противника вы получаете +10% дополнительной брони сроком на 10 сек. Если этот эффект уже наложен, его действие продлевается. Эффект суммируется до 10 раз.",
-  "perfect_name_ru": "Кровосос (идеальный)",
-  "perfect_desc_ru": "За каждое убийство противника вы получаете +12% дополнительной брони сроком на 10 сек. Если этот эффект уже наложен, его действие продлевается. Эффект суммируется до 10 раз."
- },
- {
-  "id": "gt_unstoppable",
-  "name_en": "Unstoppable Force",
-  "description": "Killing an enemy increases weapon damage by 5% for 15s. Stacks up to 5.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_versatile",
-  "name_en": "Versatile",
-  "description": "Swapping weapons amplifies weapon damage based on weapon type for 10s.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Универсальность",
-  "desc_ru": "Увеличение общего урона от оружия сроком на 10 сек. после переключения между основным и дополнительным оружием (если они разные):\n35% на дистанции до 15 м для Д и ПП; \n35% на дистанции свыше 25 м для В и СВ; \n10% на дистанции 15-25 м для РП и ШВ.\nПроисходит не чаще, чем раз в 5 сек. для каждого типа оружия.",
-  "perfect_name_ru": "Универсальность (идеальная)",
-  "perfect_desc_ru": "Увеличение общего урона от оружия сроком на 10 сек. после переключения между основным и дополнительным оружием (если они разные):\n45% (35% PVP) на дистанции до 15 м для Д и ПП; \n45% (35% PVP) на дистанции свыше 25 м для В и СВ; \n20% на дистанции 15-25 м для РП и ШВ.\nПроисходит не чаще, чем раз в 5 сек. для каждого типа оружия."
- },
- {
-  "id": "gt_companion",
-  "name_en": "Companion",
-  "description": "While you are within 5m of an ally or skill, total weapon damage is increased by 15%.",
-  "slot": "backpack",
-  "set": null,
-  "name_ru": "Компаньон",
-  "desc_ru": "Если вы находитесь в пределах 5 м от союзника или объекта навыка, общий урон от оружия увеличивается на 15%."
- },
- {
-  "id": "gt_fireworks_show",
-  "name_en": "Fireworks Show",
-  "description": "Killing an enemy with a grenade grants +30% weapon damage for 10s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_rebalance",
-  "name_en": "Rebalance",
-  "description": "Exotic: Gain +10% weapon damage for each equipped gear set or brand set bonus active.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_combat_medic",
-  "name_en": "Combat Medic",
-  "description": "Exotic: Repairing an ally also repairs 20% of your armor. Repairing yourself also repairs 20% of all allies' armor.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_memento_kill",
-  "name_en": "Kill Confirmed",
-  "description": "Enemies drop trophies on death. Collecting grants short-term buff (scales with core count) and long-term +1% WD/SE/0.1% ArmorRegen per trophy for 300s (max 30).",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_acostas_one",
-  "name_en": "One in Hand",
-  "description": "Throwing a grenade refunds it and grants +1 Skill Tier for 15s. Grants Overcharge if already at Tier 6. Cooldown 60s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_ninjabike_resource",
-  "name_en": "Resourceful",
-  "description": "Slots in with any equipped Gear Set or Brand Set to fulfill a set bonus requirement. Can unlock bonuses from multiple sets simultaneously.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_hardened",
-  "name_en": "Perfect Hardened",
-  "description": "Increases armor by 15%.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_vigilance",
-  "name_en": "Perfect Vigilance",
-  "description": "Increases weapon damage by 30%. Taking damage disables this bonus for 4s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_composure",
-  "name_en": "Perfect Composure",
-  "description": "While in cover, increases total weapon damage by 20%.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_clutch",
-  "name_en": "Perfect Clutch",
-  "description": "Critical hits restore 3% armor.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_concussion",
-  "name_en": "Perfect Concussion",
-  "description": "Headshots grant +15% headshot damage for 10s, stacking up to 5 times.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_wicked",
-  "name_en": "Perfectly Wicked",
-  "description": "+25% weapon damage for 20s after applying a status effect.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_bloodsucker",
-  "name_en": "Perfect Bloodsucker",
-  "description": "Killing an enemy adds +15% bonus armor for 10s. Max 10 stacks.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_unstoppable",
-  "name_en": "Perfectly Unstoppable Force",
-  "description": "Killing an enemy increases weapon damage by 8% for 15s. Stacks up to 5.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_versatile",
-  "name_en": "Perfect Versatile",
-  "description": "Swapping weapons amplifies weapon damage based on weapon type for 10s. Bonus is 50% higher.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_shock_awe",
-  "name_en": "Perfect Shock and Awe",
-  "description": "Applying a status effect grants +25% weapon damage for 10s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_creeping_death",
-  "name_en": "Perfect Creeping Death",
-  "description": "When you apply a status effect it also applies to all enemies within 12m. Cooldown 10s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_overclock",
-  "name_en": "Perfect Overclock",
-  "description": "Activating a skill overcharges it for 10s, granting +50% skill damage and +50% skill repair.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_leadership",
-  "name_en": "Perfect Leadership",
-  "description": "Kills grant +5% weapon damage to all allies for 10s. Stacks up to 5 times.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_adrenaline",
-  "name_en": "Perfect Adrenaline Rush",
-  "description": "Sprinting for 0.5s grants +20% weapon damage for 5s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_combined_arms",
-  "name_en": "Perfect Combined Arms",
-  "description": "Damaging an enemy with a skill increases weapon damage by 25% for 10s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_calculated",
-  "name_en": "Perfectly Calculated",
-  "description": "Skill kills grant +30% skill damage for 15s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_energize",
-  "name_en": "Perfect Energize",
-  "description": "Activating a skill grants +20% weapon damage for 15s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_galvanize",
-  "name_en": "Perfect Galvanize",
-  "description": "Applying a status effect grants +30% skill damage for 15s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_tech_support",
-  "name_en": "Perfect Tech Support",
-  "description": "Repairing a skill grants +25% skill damage for 15s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_tamper_proof",
-  "name_en": "Perfectly Tamper Proof",
-  "description": "Enemies that destroy your skills take 500% of the skill's remaining health as damage.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_perfect_opportunistic",
-  "name_en": "Perfectly Opportunistic",
-  "description": "Applying a disrupt, blind, or confuse to an enemy grants +25% weapon damage for 10s.",
-  "slot": "backpack",
-  "set": null
- },
- {
-  "id": "gt_set_striker_bp",
-  "name_en": "Press the Advantage",
-  "description": "Striker's Battlegear: Increases max stacks for Striker's Gamble from 100 to 200.",
-  "slot": "backpack",
-  "set": "Striker's Battlegear"
- },
- {
-  "id": "gt_set_hardwired_bp",
-  "name_en": "Feedback Loop",
-  "description": "Hard Wired: Skill kills reduce all skill cooldowns by 20%.",
-  "slot": "backpack",
-  "set": "Hard Wired"
- },
- {
-  "id": "gt_set_eclipse_bp",
-  "name_en": "Symptom Aggravator",
-  "description": "Eclipse Protocol: Enemies with 3 or more status effects take +20% weapon and skill damage.",
-  "slot": "backpack",
-  "set": "Eclipse Protocol"
- },
- {
-  "id": "gt_set_acesandeights_bp",
-  "name_en": "Dead Man's Hand",
-  "description": "Aces & Eights: Headshots deal +50% weapon damage when you have 8 stacks of Aces High.",
-  "slot": "backpack",
-  "set": "Aces & Eights"
- },
- {
-  "id": "gt_set_aegis_bp",
-  "name_en": "Shield Surge",
-  "description": "Aegis: Shield health is increased by 50%. Destroying a shield grants +20% weapon damage for 10s.",
-  "slot": "backpack",
-  "set": "Aegis"
- },
- {
-  "id": "gt_set_umbra_bp",
-  "name_en": "Umbra Surge",
-  "description": "Umbra Initiative: Kills grant +5% weapon damage for 10s, stacking up to 5 times.",
-  "slot": "backpack",
-  "set": "Umbra Initiative"
- },
- {
-  "id": "gt_set_tipping_bp",
-  "name_en": "Sustainability",
-  "description": "Tipping Scales: Increase the maximum number of stacks from 50 to 75.",
-  "slot": "backpack",
-  "set": "Tipping Scales"
- },
- {
-  "id": "gt_set_ongoing_bp",
-  "name_en": "Tactical Superiority",
-  "description": "Ongoing Directive: Hollow-Point Ammo also applies a status effect on hit.",
-  "slot": "backpack",
-  "set": "Ongoing Directive"
- },
- {
-  "id": "gt_set_foundry_bp",
-  "name_en": "Armor Overflow",
-  "description": "Foundry Bulwark: Bonus armor from Foundry set bonuses is increased by 50%.",
-  "slot": "backpack",
-  "set": "Foundry Bulwark"
- },
- {
-  "id": "gt_set_patriot_bp",
-  "name_en": "Stars and Stripes",
-  "description": "True Patriot: Shooting an enemy applies a debuff. Debuffed enemies take +10% weapon damage from all sources.",
-  "slot": "backpack",
-  "set": "True Patriot"
- },
- {
-  "id": "gt_set_breakingpoint_bp",
-  "name_en": "Point of Honor",
-  "description": "Breaking Point: Increases On Point Weapon Damage bonus from 4% to 7.2%.",
-  "slot": "backpack",
-  "set": "Breaking Point"
- },
- {
-  "id": "gt_set_cavalier_bp",
-  "name_en": "Safe Charging",
-  "description": "Cavalier: Charging gives 10% protection per second.",
-  "slot": "backpack",
-  "set": "Cavalier"
- },
- {
-  "id": "gt_set_concentrated_bp",
-  "name_en": "One for All",
-  "description": "Concentrated Company: Increase the Weapon Damage bonus per stack from 3% to 5%.",
-  "slot": "backpack",
-  "set": "Concentrated Company"
- },
- {
-  "id": "gt_set_future_bp",
-  "name_en": "Advanced Combat Tactics",
-  "description": "Future Initiative: Increases Ground Control proximity repair from 60% to 120%.",
-  "slot": "backpack",
-  "set": "Future Initiative"
- },
- {
-  "id": "gt_set_heartbreaker_bp",
-  "name_en": "Cold",
-  "description": "Heartbreaker: Stacks now supply +2% bonus armor.",
-  "slot": "backpack",
-  "set": "Heartbreaker"
- },
- {
-  "id": "gt_set_hotshot_bp",
-  "name_en": "Overwhelming Force",
-  "description": "Hotshot: Increases the radius of disorient on Apex Predator kills from 5m to 10m.",
-  "slot": "backpack",
-  "set": "Hotshot"
- },
- {
-  "id": "gt_set_huntersfury_bp",
-  "name_en": "Smart Cooperation",
-  "description": "Hunter's Fury: Decrease the cooldown for destroying Mortars and enemy skills from 10s to 1s.",
-  "slot": "backpack",
-  "set": "Hunter's Fury"
- },
- {
-  "id": "gt_set_measured_bp",
-  "name_en": "Critical Measures",
-  "description": "Measured Assembly: Increases Crowd Control damage to additional marked enemies from 60% to 112%.",
-  "slot": "backpack",
-  "set": "Measured Assembly"
- },
- {
-  "id": "gt_set_negotiator_bp",
-  "name_en": "Trauma Specialist",
-  "description": "Negotiator's Dilemma: Increases duration of bleed status effects by 50% and all bleed damage done by 100%.",
-  "slot": "backpack",
-  "set": "Negotiator's Dilemma"
- },
- {
-  "id": "gt_set_ortiz_bp",
-  "name_en": "Heatstroke",
-  "description": "Ortiz: Exuro: +25% Weapon Damage to enemies set on fire by the Ortiz Incinerator Turret Prototype.",
-  "slot": "backpack",
-  "set": "Ortiz: Exuro"
- },
- {
-  "id": "gt_set_refactor_bp",
-  "name_en": "Complete Uptime",
-  "description": "Refactor: Cancelling your skills will reset their cooldown.",
-  "slot": "backpack",
-  "set": "Refactor"
- },
- {
-  "id": "gt_set_rigger_bp",
-  "name_en": "Risk Management",
-  "description": "Rigger: Increases total weapon damage gained per stack of Striker's Gamble from 0.65% to 0.9%.",
-  "slot": "backpack",
-  "set": "Rigger"
- },
- {
-  "id": "gt_set_syscorrupt_bp",
-  "name_en": "Signature Moves",
-  "description": "System Corruption: +50% Weapon Damage for 15s after fully depleting the Signature Weapon of ammo.",
-  "slot": "backpack",
-  "set": "System Corruption"
- },
- {
-  "id": "gt_set_tipofspear_bp",
-  "name_en": "Snowball",
-  "description": "Tip of the Spear: Increase the Critical Hit Damage received per stack from 4% to 7%.",
-  "slot": "backpack",
-  "set": "Tip of the Spear"
- },
- {
-  "id": "gt_set_virtuoso_bp",
-  "name_en": "Accelerando",
-  "description": "Virtuoso: Decreases the number of stacks needed to proc the Symphony double buffs from 4 to 3.",
-  "slot": "backpack",
-  "set": "Virtuoso"
- }
+  {
+    "id": "gt_obliterate",
+    "name_en": "Obliterate",
+    "description": "Critical hits increase weapon damage by 1% for 5s, stacking up to 25%.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Тотальное уничтожение",
+    "desc_ru": "Критические попадания увеличивают общий урон от оружия на 1% сроком на 10 сек. Эффект суммируется до 20 раз.",
+    "perfect_name_ru": "Тотальное уничтожение (идеальное)",
+    "perfect_desc_ru": "Критические попадания увеличивают общий урон от оружия на 1% сроком на 10 сек. Эффект суммируется до 24 раз."
+  },
+  {
+    "id": "gt_intimidate",
+    "name_en": "Intimidate",
+    "description": "+35% weapon damage to enemies within 10m while you have bonus armor.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Устрашение",
+    "desc_ru": "Наличие у вас дополнительной брони  дает ежесекундно 3 заряда (максимум 9). Каждый заряд увеличивает урон от оружия, наносимый противникам в радиусе 10 метров на 4%. Когда дополнительная броня исчезает, все заряды теряются. "
+  },
+  {
+    "id": "gt_focus",
+    "name_en": "Focus",
+    "description": "Increases total weapon damage by 5% every second while aiming with 8x scope or higher, up to 50%.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Фокус",
+    "desc_ru": "Увеличение общего урона от оружия на 5% за каждую секунду прицеливания через оптику кратностью 8х и выше (вплоть до 50%).",
+    "perfect_name_ru": "Фокус (идеальный)",
+    "perfect_desc_ru": "Увеличение общего урона от оружия на 5% за каждую секунду прицеливания через оптику кратностью 8х и выше (вплоть до 60%)."
+  },
+  {
+    "id": "gt_headhunter",
+    "name_en": "Headhunter",
+    "description": "After killing an enemy with a headshot, your next weapon hit within 30s deals 125% of that killing blow's damage in addition to it.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Охотник за головами",
+    "desc_ru": "После убийства противника выстрелами в голову, следующий выстрел из оружия, совершенный в течение 30 секунд, дополнительно наносит 125% урона от предыдущего смертельного выстрела. Максимальный размер дополнительного урона составляет 800% общего урона от оружия. Урон увеличивается до 1250%, если ваша характеристика урон от выстрела в голову больше 150%.",
+    "perfect_name_ru": "Охотник за головами (идеальный)",
+    "perfect_desc_ru": "После убийства противника выстрелами в голову, следующий выстрел из оружия, совершенный в течение 30 секунд, дополнительно наносит 150% урона от предыдущего смертельного выстрела. Максимальный размер дополнительного урона составляет 800% общего урона от оружия. Урон увеличивается до 1250%, если ваша характеристика урон от выстрела в голову больше 150%."
+  },
+  {
+    "id": "gt_overwatch",
+    "name_en": "Overwatch",
+    "description": "After staying in cover for 10s, increase your and all allies' total weapon and skill damage by 12% as long as you remain in cover.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Прикрытие",
+    "desc_ru": "Проведя в укрытии 10 сек., вы повышаете общий урон от оружия и навыков всех своих союзников на 12%. Эффект действует все время, пока вы находитесь в укрытии или совершаете рывки от укрытия к укрытию. Действие эффекта распространяется и на вас.",
+    "perfect_name_ru": "Прикрытие (идеальное)",
+    "perfect_desc_ru": "Проведя в укрытии 8 сек., вы повышаете общий урон от оружия и навыков всех своих союзников на 14%. Эффекст действует все время, пока вы находитесь в укрытии или совершаете рывки от укрытия к укрытию. Действие эффекта распространяется и на вас."
+  },
+  {
+    "id": "gt_trauma",
+    "name_en": "Trauma",
+    "description": "Applies blind to an enemy hit in the head. Applies bleed to an enemy hit in the chest. Cooldown: 30s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Травма",
+    "desc_ru": "На противника, которого вы ранили в голову, накладывается эффект слепоты. Восстановление: 30 сек.\nНа противника, которого вы ранили в грудь, накладывается эффект кровотечения. Восстановление: 30 сек.",
+    "perfect_name_ru": "Травма (идеальная)",
+    "perfect_desc_ru": "На противника, которого вы ранили в голову, накладывается эффект слепоты. Восстановление: 20 сек.\nНа противника, которого вы ранили в грудь, накладывается эффект кровотечения. Восстановление: 20 сек."
+  },
+  {
+    "id": "gt_mad_bomber",
+    "name_en": "Mad Bomber",
+    "description": "Grenade radius increased by 50%. Grenades that kill an enemy are refunded. Grenades can be cooked.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Псих с бомбой",
+    "desc_ru": "Радиус поражения гранат увеличивается на 50%. Если взрыв гранаты убивает противника, вы получаете еще одну такую же гранату. Вы можете взвести гранату заранее, чтобы сократить задержку перед ее взрывом. Для этого удерживайте кнопку стрельбы. +15% к броне во время прицеливания перед броском гранаты.",
+    "perfect_name_ru": "Псих с бомбой (идеальный)",
+    "perfect_desc_ru": "Радиус поражения гранат увеличивается на 75%. Если взрыв гранаты убивает противника, вы получаете еще одну такую же гранату. Вы можете взвести гранату заранее, чтобы сократить задержку перед ее взрывом. Для этого удерживайте кнопку стрельбы. +15% к броне во время прицеливания перед броском гранаты."
+  },
+  {
+    "id": "gt_braced",
+    "name_en": "Braced",
+    "description": "While in cover weapon handling is increased by 45%.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Стойкость",
+    "desc_ru": "При нахождении в укрытии эргономичность оружия повышается на 45%.",
+    "perfect_name_ru": "Стойкость (идеальная)",
+    "perfect_desc_ru": "При нахождении в укрытии эргономичность оружия повышается на 50%."
+  },
+  {
+    "id": "gt_skilled",
+    "name_en": "Skilled",
+    "description": "Skill kills have a 25% chance to reset skill cooldowns.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Мастер",
+    "desc_ru": "Убийства с помощью навыков дают 25% шанс мгновенно восстановить навыки.",
+    "perfect_name_ru": "Мастер (идеальный)",
+    "perfect_desc_ru": "Убийства с помощью навыков дают 30% шанс мгновенно восстановить навыки."
+  },
+  {
+    "id": "gt_tag_team",
+    "name_en": "Tag Team",
+    "description": "The last enemy damaged with a skill is marked. Dealing weapon damage to that enemy reduces active cooldowns by 6s. Cooldown: 4s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Парная команда",
+    "desc_ru": "Последний противник, раненный вами с помощью навыков, получает метку. Нанесение урона оружием отмеченному противнику снимает метку и ускоряет восстановление активных навыков на 6 сек. Метка не снимается, если нет навыков на восстановлении. Восстановление: 4 сек."
+  },
+  {
+    "id": "gt_tamper_proof",
+    "name_en": "Tamper Proof",
+    "description": "Enemies that walk within 3m of your hive, turret, remote pulse, or decoy are shocked. Cooldown per skill: 10s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Защита от взлома",
+    "desc_ru": "На противников, оказавшихся в радиусе 3 м. от вашего улья, турели или дистанционного импульса, накладывается эффект шока. Время срабатывания: 2 сек. Восстановление на навык: 10 сек."
+  },
+  {
+    "id": "gt_reassigned",
+    "name_en": "Reassigned",
+    "description": "Killing an enemy adds 1 round of random special ammo into your sidearm. Cooldown: 15s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Переназначение",
+    "desc_ru": "Каждое убийство противника добавляет в магазин пистолета 1 особый боеприпас случайно выбранного типа. Восстановление: 15 сек."
+  },
+  {
+    "id": "gt_efficient",
+    "name_en": "Efficient",
+    "description": "Using an armor kit has a 50% chance to not consume the armor kit. Specialization armor kit bonuses are increased by 100%.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Эффективность",
+    "desc_ru": "При использовании бронекомплекта есть 50% шанс, что этот бронекомплект не будет истрачен.\nПреимущества бронекомплектов от специализации повышаются на 100%.",
+    "perfect_name_ru": "Эффективность (идеальная)",
+    "perfect_desc_ru": "При использовании бронекомплекта есть 75% шанс, что этот бронекомплект не будет истрачен.\nПреимущества бронекомплектов от специализации повышаются на 100%."
+  },
+  {
+    "id": "gt_spark",
+    "name_en": "Spark",
+    "description": "Applying a status effect grants +15% weapon damage for 15s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Искра",
+    "desc_ru": "Нанося противникам урон с помощью навыков, вы получаете +15% к общему урону от оружия сроком на 15 сек.",
+    "perfect_name_ru": "Компаньон (идеальный)",
+    "perfect_desc_ru": "Если вы находитесь в пределах 10 м от союзника или объекта навыка, общий урон от оружия увеличивается на 20%."
+  },
+  {
+    "id": "gt_empathic_resolve",
+    "name_en": "Empathic Resolve",
+    "description": "Repairing an ally increases their weapon and skill damage by up to 15% for 20s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Эмпатическая храбрость",
+    "desc_ru": "Ремонтируя союзника, вы повышаете его общий урон от оружия и навыков на 3-15% сроком на 20 сек., 1-7% при саморемонте. Эффективность возрастает с повышением уровня навыка."
+  },
+  {
+    "id": "gt_kinetic_momentum",
+    "name_en": "Kinetic Momentum",
+    "description": "Each active skill generates stacks granting +1% skill damage and +2% skill repair, up to 15 stacks.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Кинетический момент",
+    "desc_ru": "Во время боя за каждый навык, который является активным или не восстанавливается, вы получаете один заряд эффекта. Каждый заряд повышает общий урон от навыков на 1,5%, а общий ремонт от навыков на 2%. За каждый навык можно получить до 15 зарядов. При восстановлении навыка заряды теряются.",
+    "perfect_name_ru": "Кинетический момент (идеальный)",
+    "perfect_desc_ru": "Во время боя за каждый навык, который является активным или не восстанавливается, вы получаете один заряд эффекта. Каждый заряд повышает общий урон от навыков на 1,5%, а общий ремонт от навыков на 2%. За каждый навык можно получить до 18 зарядов. При восстановлении навыка заряды теряются."
+  },
+  {
+    "id": "gt_vanguard",
+    "name_en": "Vanguard",
+    "description": "Deploying a shield makes it invulnerable for 5s and grants 45% armor as bonus armor to allies for 20s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Авангард",
+    "desc_ru": "Выставив щит, вы получаете его неуязвимость сроком на 5 сек., а все ваши союзники - дополнительную броню в размере 45% от вашей брони сроком на 20 сек. Восстановление: 25 сек.",
+    "perfect_name_ru": "Авангард (идеальный)",
+    "perfect_desc_ru": "Выставив щит, вы получаете неуязвимость сроком на 5 сек., а все ваши союзники - дополнительную броню в размере 50% от вашей брони сроком на 20 сек. Восстановление: 25 сек."
+  },
+  {
+    "id": "gt_spotter",
+    "name_en": "Spotter",
+    "description": "+15% weapon and skill damage to pulsed enemies.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Наводчик",
+    "desc_ru": "Увеличение общего урона от оружия и навыков на 15% по противникам, отмеченным импульсом.",
+    "perfect_name_ru": "Наводчик (идеальный)",
+    "perfect_desc_ru": "Увеличение общего урона от оружия и навыков на 20% по противникам, отмеченным импульсом."
+  },
+  {
+    "id": "gt_glass_cannon",
+    "name_en": "Glass Cannon",
+    "description": "All damage amplified by 25%. All damage taken amplified by 50%.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Стеклянная пушка",
+    "desc_ru": "Увеличение всего наносимого вами урона на 25%. Увеличение всего получаемого вами урона на 50%.",
+    "perfect_name_ru": "Стеклянная пушка (идеальная)",
+    "perfect_desc_ru": "Увеличение всего наносимого вами урона на 30%. Увеличение всего получаемого вами урона на 60%."
+  },
+  {
+    "id": "gt_unbreakable",
+    "name_en": "Unbreakable",
+    "description": "When armor is depleted, repair 95% of total armor. Cooldown 60s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Несокрушимость",
+    "desc_ru": "Полностью лишившись брони, вы восстанавливаете 95% (50% для PVP) от ее максимального запаса. Восстановление: 60 сек.",
+    "perfect_name_ru": "Несокрушимость (идеальная)",
+    "perfect_desc_ru": "Полностью лишившись брони, вы восстанавливаете 100% (55% для PVP) от ее максимального запаса. Восстановление: 55 сек."
+  },
+  {
+    "id": "gt_gunslinger",
+    "name_en": "Gunslinger",
+    "description": "Weapon swapping increases total weapon damage by 23% for 5s. This buff is lost for 5s if you weapon swap while it is active.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Пистолетчик",
+    "desc_ru": "После каждой смены оружия вы получаете +23% к общему урону от оружия сроком на 5 сек. \nЕсли сменить оружие во время действия эффекта, он будет снят на 5 сек.",
+    "perfect_name_ru": "Пистолетчик (идеальный)",
+    "perfect_desc_ru": "После каждой смены оружия вы получаете +28% к общему урону от оружия сроком на 5 сек. \nЕсли сменить оружие во время действия эффекта, он будет снят на 5 сек."
+  },
+  {
+    "id": "gt_entrench",
+    "name_en": "Entrench",
+    "description": "If you are below 30% armor, headshots from cover repair 20% of your armor. Cooldown: 2s.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Укрепленная позиция",
+    "desc_ru": "Если у вас осталось менее 30% брони, каждое попадание в голову из укрытия восстанавливает 20% вашей брони. Восстановление: 2 сек.",
+    "perfect_name_ru": "Укрепленная позиция (идеальная)",
+    "perfect_desc_ru": "Если у вас осталось менее 30% брони, каждое попадание в голову из укрытия восстанавливает 30% вашей брони. Восстановление: 1 сек."
+  },
+  {
+    "id": "gt_protected_reload",
+    "name_en": "Protected Reload",
+    "description": "Grants +20% bonus armor while reloading. Grants 0-18% of your armor as bonus armor to allies when they reload.",
+    "slot": "chest",
+    "set": null,
+    "name_ru": "Бронированная перезарядка",
+    "desc_ru": "20% дополнительной брони при каждой перезарядке. Все союзники, перезаряжая оружие, получают дополнительную броню в размере 0-18% от вашей брони. Точная цифра зависит от количества основных Оборонительных характеристик.",
+    "perfect_name_ru": "Бронированная перезарядка (идеальная)",
+    "perfect_desc_ru": "40% дополнительной брони при каждой перезарядке. Все союзники, перезаряжая оружие, получают дополнительную броню в размере 0-30% от вашей брони. Точная цифра зависит от количества основных Оборонительных характеристик."
+  },
+  {
+    "id": "gt_challenger",
+    "name_en": "Challenger",
+    "description": "Exotic: Killing an enemy within 10m grants +5% weapon damage for 10s, stacking up to 10 times.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_bond",
+    "name_en": "Bond",
+    "description": "Exotic: Gain +5% weapon damage for each active skill. Gain +5% skill damage for each active weapon.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_parabellum_rounds",
+    "name_en": "Parabellum Rounds",
+    "description": "Ongoing Directive 4pc amplifier: Increases Hollow-Point Ammo damage from 20% to 50%. Does not apply to party members.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_ridgeway_bleeding",
+    "name_en": "Bleeding Edge",
+    "description": "Shooting enemies within 15m applies bleed. Repair 3-48% armor/s per bleeding enemy within 15m.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_tardigrade_nano",
+    "name_en": "Ablative Nano-Plating",
+    "description": "When armor breaks (you or ally), grant 80% of your armor as bonus armor for 10s. Cooldown 45s per ally.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_collector_hoarder",
+    "name_en": "Hoarder",
+    "description": "+3 Grenade Capacity, +50% Grenade Radius, +35% Grenade Damage, +25% per extra enemy in blast. Auto-regen grenades every 30s if below 2.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_obliterate",
+    "name_en": "Perfect Obliterate",
+    "description": "Critical hits increase weapon damage by 1% for 5s, stacking up to 25%. Stacks refresh on crit.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_intimidate",
+    "name_en": "Perfect Intimidate",
+    "description": "+40% weapon damage to enemies within 10m while you have bonus armor.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_spark",
+    "name_en": "Perfect Spark",
+    "description": "Applying a status effect grants +20% weapon damage for 15s.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_glass_cannon",
+    "name_en": "Perfect Glass Cannon",
+    "description": "All damage amplified by 30%. All damage taken amplified by 50%.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_unbreakable",
+    "name_en": "Perfectly Unbreakable",
+    "description": "When armor is depleted, repair 115% of total armor. Cooldown 60s.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_gunslinger",
+    "name_en": "Perfect Gunslinger",
+    "description": "Weapon swapping increases total weapon damage by 28% for 5s. This buff is lost for 5s if you weapon swap while it is active.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_vanguard",
+    "name_en": "Perfect Vanguard",
+    "description": "Deploying a shield makes it invulnerable for 5s and grants 60% of your armor as bonus armor to all allies for 20s.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_spotter",
+    "name_en": "Perfect Spotter",
+    "description": "+20% weapon and skill damage to pulsed enemies.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_overwatch",
+    "name_en": "Perfect Overwatch",
+    "description": "While in cover, shots that hit enemies beyond 25m grant +3% weapon damage for 5s, stacking up to 15 times.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_headhunter",
+    "name_en": "Perfect Headhunter",
+    "description": "After landing a headshot, your next weapon shot deals +150% of that weapon's damage.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_trauma",
+    "name_en": "Perfect Trauma",
+    "description": "Headshots apply bleed to the target. Bleeding enemies take +20% weapon damage from you.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_kinetic",
+    "name_en": "Perfect Kinetic Momentum",
+    "description": "Each active skill generates stacks granting +1.5% skill damage and +3% skill repair, up to 15 stacks.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_companion",
+    "name_en": "Perfect Companion",
+    "description": "While a skill is active, gain +15% weapon damage. While no skill is active, gain +15% skill damage.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_explosive_del",
+    "name_en": "Perfectly Explosive Delivery",
+    "description": "Throwing a grenade grants +35% weapon damage for 10s.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_mad_bomber",
+    "name_en": "Perfectly Mad Bomber",
+    "description": "+50% Grenade Damage. +50% Grenade Radius.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_braced",
+    "name_en": "Perfect Braced",
+    "description": "While in cover, gain +20% weapon damage and +20% weapon handling.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_focus",
+    "name_en": "Perfect Focus",
+    "description": "Every 0.5s you remain stationary, gain +5% weapon damage, up to +50%.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_entrench",
+    "name_en": "Perfect Entrench",
+    "description": "Headshots while in cover grant +10% armor for 5s.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_skilled",
+    "name_en": "Perfectly Skilled",
+    "description": "Activating a skill grants +25% weapon damage for 15s.",
+    "slot": "chest",
+    "set": null
+  },
+  {
+    "id": "gt_set_risk_management",
+    "name_en": "Risk Management",
+    "description": "Striker's Battlegear: Increases total weapon damage gained per stack of Striker's Gamble from 0.65% to 0.9%.",
+    "slot": "chest",
+    "set": "Striker's Battlegear"
+  },
+  {
+    "id": "gt_set_hardwired_chest",
+    "name_en": "Overcharge",
+    "description": "Hard Wired: Activating a skill grants Overcharge for 15s. Cooldown: 60s.",
+    "slot": "chest",
+    "set": "Hard Wired"
+  },
+  {
+    "id": "gt_set_eclipse_chest",
+    "name_en": "Proliferation",
+    "description": "Eclipse Protocol: Status effects you apply spread to one additional enemy within 8m. Cooldown: 5s.",
+    "slot": "chest",
+    "set": "Eclipse Protocol"
+  },
+  {
+    "id": "gt_set_acesandeights_chest",
+    "name_en": "Aces High",
+    "description": "Aces & Eights: Headshots grant a stack of +5% weapon damage (max 8). Stacks are lost when you reload.",
+    "slot": "chest",
+    "set": "Aces & Eights"
+  },
+  {
+    "id": "gt_set_aegis_chest",
+    "name_en": "Bulwark Protocol",
+    "description": "Aegis: Deploying a shield grants +20% weapon damage to all allies within 20m for 10s.",
+    "slot": "chest",
+    "set": "Aegis"
+  },
+  {
+    "id": "gt_set_umbra_chest",
+    "name_en": "Umbra Protocol",
+    "description": "Umbra Initiative: Kills grant +5% weapon damage for 10s, stacking up to 5 times.",
+    "slot": "chest",
+    "set": "Umbra Initiative"
+  },
+  {
+    "id": "gt_set_tipping_chest",
+    "name_en": "Scales of Justice",
+    "description": "Tipping Scales: Kills with LMGs grant +5% weapon damage for 10s, stacking up to 5 times.",
+    "slot": "chest",
+    "set": "Tipping Scales"
+  },
+  {
+    "id": "gt_set_snowball",
+    "name_en": "Snowball",
+    "description": "Tipping Scales: Increase the Critical Hit Damage received per stack from 4% to 7%.",
+    "slot": "chest",
+    "set": "Tipping Scales"
+  },
+  {
+    "id": "gt_set_ongoing_chest",
+    "name_en": "Hollow-Point Ammo",
+    "description": "Ongoing Directive: Enemies affected by a status effect drop Hollow-Point Ammo on death. Hollow-Point Ammo deals +20% weapon damage.",
+    "slot": "chest",
+    "set": "Ongoing Directive"
+  },
+  {
+    "id": "gt_set_foundry_chest",
+    "name_en": "Makeshift Repairs",
+    "description": "Foundry Bulwark: Shooting an enemy repairs 0.5% of your armor per hit. Cooldown: 0.5s.",
+    "slot": "chest",
+    "set": "Foundry Bulwark"
+  },
+  {
+    "id": "gt_set_breakingpoint_chest",
+    "name_en": "Point of no Return",
+    "description": "Breaking Point: Increase On Point bonuses timer from 10s to 15s.",
+    "slot": "chest",
+    "set": "Breaking Point"
+  },
+  {
+    "id": "gt_set_cavalier_chest",
+    "name_en": "Overcharging",
+    "description": "Cavalier: Increases Charger max incoming damage protection to 70%.",
+    "slot": "chest",
+    "set": "Cavalier"
+  },
+  {
+    "id": "gt_set_concentrated_chest",
+    "name_en": "All for One",
+    "description": "Concentrated Company: Increase the amount of marks that can be placed from 4 to 8.",
+    "slot": "chest",
+    "set": "Concentrated Company"
+  },
+  {
+    "id": "gt_set_future_chest",
+    "name_en": "Tactical Superiority",
+    "description": "Future Initiative: Increases Ground Control damage bonus from 15% to 25%.",
+    "slot": "chest",
+    "set": "Future Initiative"
+  },
+  {
+    "id": "gt_set_heartbreaker_chest",
+    "name_en": "Max BPM",
+    "description": "Heartbreaker: Max stack is now 100.",
+    "slot": "chest",
+    "set": "Heartbreaker"
+  },
+  {
+    "id": "gt_set_hotshot_chest",
+    "name_en": "Endless Hunger",
+    "description": "Hotshot: Increases the duration of Apex Predator stacks from 10s to 30s.",
+    "slot": "chest",
+    "set": "Hotshot"
+  },
+  {
+    "id": "gt_set_huntersfury_chest",
+    "name_en": "Hivemind",
+    "description": "Hunter's Fury: Decrease the Overcharge cooldown from 40s to 25s.",
+    "slot": "chest",
+    "set": "Hunter's Fury"
+  },
+  {
+    "id": "gt_set_measured_chest",
+    "name_en": "Target Rich Environment",
+    "description": "Measured Assembly: Increases Crowd Control mark count from 3 to 5.",
+    "slot": "chest",
+    "set": "Measured Assembly"
+  },
+  {
+    "id": "gt_set_negotiator_chest",
+    "name_en": "Parabellum Rounds",
+    "description": "Negotiator's Dilemma: Increases Hollow-Point Ammo weapon damage amplification to 50%.",
+    "slot": "chest",
+    "set": "Negotiator's Dilemma"
+  },
+  {
+    "id": "gt_set_ortiz_chest",
+    "name_en": "Chain Combustion",
+    "description": "Ortiz: Exuro: Enemies set ablaze by the Ortiz Incinerator Turret Prototype ignite other enemies within 2m.",
+    "slot": "chest",
+    "set": "Ortiz: Exuro"
+  },
+  {
+    "id": "gt_set_refactor_chest",
+    "name_en": "Best Buds",
+    "description": "Refactor: Increase the damage buff from 25% to 50%.",
+    "slot": "chest",
+    "set": "Refactor"
+  },
+  {
+    "id": "gt_set_rigger_chest",
+    "name_en": "Press the Advantage",
+    "description": "Rigger: Increases max stacks for Striker's Gamble from 100 to 200.",
+    "slot": "chest",
+    "set": "Rigger"
+  },
+  {
+    "id": "gt_set_syscorrupt_chest",
+    "name_en": "Specialized Destruction",
+    "description": "System Corruption: Increase Aggressive Recon Signature Weapon Damage bonus from 15% to 30%.",
+    "slot": "chest",
+    "set": "System Corruption"
+  },
+  {
+    "id": "gt_set_tipofspear_chest",
+    "name_en": "Sustainability",
+    "description": "Tip of the Spear: Increase the maximum number of stacks from 50 to 75.",
+    "slot": "chest",
+    "set": "Tip of the Spear"
+  },
+  {
+    "id": "gt_set_patriot_chest",
+    "name_en": "Waving the Flag",
+    "description": "True Patriot: Increases Red, White, and Blue rotation speed to 1.5 seconds.",
+    "slot": "chest",
+    "set": "True Patriot"
+  },
+  {
+    "id": "gt_set_virtuoso_chest",
+    "name_en": "Fortissimo",
+    "description": "Virtuoso: Double the weapon damage bonus from Symphony.",
+    "slot": "chest",
+    "set": "Virtuoso"
+  },
+  {
+    "id": "gt_vigilance",
+    "name_en": "Vigilance",
+    "description": "Increases weapon damage by 25%. Taking damage disables this bonus for 4s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Бдительность",
+    "desc_ru": "Увеличение общего урона от оружия на 25%. Получив урон, вы лишаетесь этого усиления на 4 сек.",
+    "perfect_name_ru": "Бдительность (идеальная)",
+    "perfect_desc_ru": "Увеличение общего урона от оружия на 25%. Получив урон, вы лишаетесь этого усиления на 3 сек."
+  },
+  {
+    "id": "gt_combined_arms",
+    "name_en": "Combined Arms",
+    "description": "Shooting an enemy increases total skill damage by 25% for 3s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Тактическое взаимодействие",
+    "desc_ru": "Выстрел в противника увеличивает общий урон от навыков на 25% сроком на 3 сек.",
+    "perfect_name_ru": "Тактическое взаимодействие (идеальное)",
+    "perfect_desc_ru": "Выстрел в противника увеличивает общий урон от навыков на 30% сроком на 3 сек."
+  },
+  {
+    "id": "gt_tech_support",
+    "name_en": "Tech Support",
+    "description": "Skill kills increase total skill damage by 25% for 25s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Техническая поддержка",
+    "desc_ru": "Убивая противников с помощью навыков, вы получаете +25% к общему урону от навыков сроком на 20 сек.",
+    "perfect_name_ru": "Техническая поддержка (идеальная)",
+    "perfect_desc_ru": "Убивая противников с помощью навыков, вы получаете +25% к общему урону от навыков сроком на 27 сек."
+  },
+  {
+    "id": "gt_opportunistic",
+    "name_en": "Opportunistic",
+    "description": "Enemies hit with shotguns and marksman rifles amplify the damage they take by 10% from all sources for 5s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Оппортунизм",
+    "desc_ru": "Противники, раненные вами из дробовиков и снайперских винтовок, получают на 10% больший урон из любых источников в течение 5 сек.",
+    "perfect_name_ru": "Оппортунизм (идеальный)",
+    "perfect_desc_ru": "Противники, раненные вами из дробовиков и снайперских винтовок, получают на 15% больший урон из любых источников в течение 5 сек."
+  },
+  {
+    "id": "gt_safeguard",
+    "name_en": "Safeguard",
+    "description": "While at full armor, increases total skill repair by 130%.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Страховка",
+    "desc_ru": "При полной броне вы получаете +130% ко всему ремонту с помощью навыков."
+  },
+  {
+    "id": "gt_leadership",
+    "name_en": "Leadership",
+    "description": "Performing a cover to cover grants 15% of your armor as bonus armor to you and all allies for 10s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Лидерские качества",
+    "desc_ru": "При совершении вами рывков от укрытия к укрытию 15% от вашей брони добавляется в качестве дополнительной брони вам и всем вашим союзникам на\n10 сек. Эффект удваивается, если вы заканчиваете рывок не более чем в 10 м от противника. Восстановление: 10 сек.",
+    "perfect_name_ru": "Лидерские качества (идеальный)",
+    "perfect_desc_ru": "При совершении вами рывков от укрытия к укрытию 20% от вашей брони добавляется в качестве дополнительной брони вам и всем вашим союзникам на \n10 сек. Эффект утраивается, если вы заканчиваете рывок не более чем в 10 м от противника. Восстановление: 10 сек."
+  },
+  {
+    "id": "gt_protector",
+    "name_en": "Protector",
+    "description": "When your shield is damaged, you gain +5% and all other allies gain +15% of your armor as bonus armor for 3s. Cooldown: 3s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Защитная система",
+    "desc_ru": "При повреждении щита вы получаете +5% дополнительной брони, а все ваши союзники - дополнительную броню в размере 15% от вашей брони срокомна 3 сек. Восстановление: 3 сек."
+  },
+  {
+    "id": "gt_adrenaline_rush",
+    "name_en": "Adrenaline Rush",
+    "description": "When you are within 10m of an enemy, gain 20% bonus armor for 5s. Stacks up to 3 times. Cooldown: 5s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Всплеск адреналина",
+    "desc_ru": "Оказавшись на расстоянии 10 м от противника вы получаете 20% дополнительной брони сроком на 5 сек. Эффект суммируется до 3 раз.\nВосстановление 5 сек."
+  },
+  {
+    "id": "gt_galvanize",
+    "name_en": "Galvanize",
+    "description": "Applying a Blind, Ensnare, Confuse, or Shock to an enemy grants 40% of your armor as bonus armor to you and all allies within 20m for 10s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Гальванизация",
+    "desc_ru": "Наложение эффекта слепоты, прилипания, растерянности или шока на противника дает вашим союзникам в радиусе 20 м от цели дополнительную броню в размере 40% от вашей брони сроком на 10 сек.",
+    "perfect_name_ru": "Гальванизация (идеальная)",
+    "perfect_desc_ru": "Наложение эффекта слепоты, прилипания, растерянности или шока на противника дает вашим союзникам в радиусе 30м от цели дополнительную броню в размере 50% от вашей брони сроком на 10 сек."
+  },
+  {
+    "id": "gt_energize",
+    "name_en": "Energize",
+    "description": "Using an armor kit grants +1 skill tier for 15s. If already at skill tier 6, grants overcharge. Cooldown: 60s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Подзарядка",
+    "desc_ru": "Использование бронекомплекта дает +1 к уровню навыка сроком на 15 сек. Если уровень навыка уже равен 6, вы получаете перезаряд.                       Восстановление: 60 сек.",
+    "perfect_name_ru": "Подзарядка (идеальная)",
+    "perfect_desc_ru": "Использование бронекомплекта дает +1 к уровню навыка сроком на 15 сек. Если уровень навыка уже равен 6, Вы получаете перезаряд. \nВосстановление: 30 сек."
+  },
+  {
+    "id": "gt_calculated",
+    "name_en": "Calculated",
+    "description": "Kills from cover reduce skill cooldowns by 10%.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Расчетливость",
+    "desc_ru": "После убийства из укрытия восстановление навыков ускоряется на 10%.",
+    "perfect_name_ru": "Расчетливость (идеальная)",
+    "perfect_desc_ru": "После убийства из укрытия восстановление навыков ускоряется на 15%."
+  },
+  {
+    "id": "gt_overclock",
+    "name_en": "Overclock",
+    "description": "You and allies within 7m of your deployed skills gain +25% reload speed and reduces active cooldowns by 0.2 each second.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Разгон",
+    "desc_ru": "Союзники в радиусе 7 м от ваших объектов навыков получают +25% к скорости перезарядки и ускорение восстановления активных навыков на 0,2 сек. за каждую секунду.",
+    "perfect_name_ru": "Разгон (идеальный)",
+    "perfect_desc_ru": "Союзники в радиусе 15 м от ваших объектов навыков получают +30% к скорости перезарядки и ускорение восстановления активных навыков на 0,6 сек. за каждую секунду."
+  },
+  {
+    "id": "gt_creeping_death",
+    "name_en": "Creeping Death",
+    "description": "When you apply a status effect it also applies to all enemies within 8m. Cooldown 15s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Ползучая смерть",
+    "desc_ru": "Негативный эффект, наложенный вами на цель, также передается всем противникам в радиусе 8 м от нее. Восстановление: 15 сек.",
+    "perfect_name_ru": "Защита от взлома (идеальная)",
+    "perfect_desc_ru": "На противников, оказавшихся в радиусе 3 м. от вашего улья, турели или дистанционного импульса, накладывается эффект шока. Время срабатывания: 2 сек. Восстановление на навык: 8 сек."
+  },
+  {
+    "id": "gt_composure",
+    "name_en": "Composure",
+    "description": "While in cover, increases total weapon damage by 15%.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Самообладание",
+    "desc_ru": "Находясь в укрытии, вы получаете +15% к общему урону от оружия.",
+    "perfect_name_ru": "Самообладание (идеальное)",
+    "perfect_desc_ru": "Находясь в укрытии, вы получаете +20% к общему урону от оружия."
+  },
+  {
+    "id": "gt_hardened",
+    "name_en": "Hardened",
+    "description": "Increases armor by 10%.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_clutch",
+    "name_en": "Clutch",
+    "description": "Critical hits restore 2% armor.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Хват",
+    "desc_ru": "Если у вас осталось менее 15% брони, каждое критическое попадание восстанавливает 2.5% от недостающей брони. При каждом убийстве вы ремонтируете 100% брони в течение 4-10 сек. Точная цифра зависит от количества наступательных характеристик.",
+    "perfect_name_ru": "Хват (идеальный)",
+    "perfect_desc_ru": "Если у вас осталось менее 20% брони, каждое критическое попадание восстанавливает 2.5% от недостающей брони. При каждом убийстве вы ремонтируете 100% брони в течение 4-10 сек. Точная цифра зависит от количества наступательных характеристик."
+  },
+  {
+    "id": "gt_patience",
+    "name_en": "Patience",
+    "description": "After being in cover for 3s, repair 3% armor per second.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_concussion",
+    "name_en": "Concussion",
+    "description": "Headshots grant +10% headshot damage for 10s, stacking up to 5 times.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Контузия",
+    "desc_ru": "Попадания в голову увеличивают общий урон от оружия на 10% сроком на 1.5 сек. Для снайперских винтовок срок составляет 5 сек. Убийства выстрелами в голову увеличивают общий урон от оружия на 15% сроком на 10 сек."
+  },
+  {
+    "id": "gt_shock_and_awe",
+    "name_en": "Shock & Awe",
+    "description": "Applying a status effect to an enemy increases total skill damage and repair by 20% for 20s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_wicked",
+    "name_en": "Wicked",
+    "description": "+18% weapon damage for 20s after applying a status effect.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Коварство",
+    "desc_ru": "За каждый наложенный негативный эффект вы получаете +18% к общему урону от оружия сроком на 20 сек.",
+    "perfect_name_ru": "Коварство (идеальное)",
+    "perfect_desc_ru": "За каждый наложенный негативный эффект вы получаете +18% к общему урону от оружия сроком на 27 сек."
+  },
+  {
+    "id": "gt_bloodsucker",
+    "name_en": "Bloodsucker",
+    "description": "Killing an enemy adds +10% bonus armor for 10s. Max 10 stacks.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Кровосос",
+    "desc_ru": "За каждое убийство противника вы получаете +10% дополнительной брони сроком на 10 сек. Если этот эффект уже наложен, его действие продлевается. Эффект суммируется до 10 раз.",
+    "perfect_name_ru": "Кровосос (идеальный)",
+    "perfect_desc_ru": "За каждое убийство противника вы получаете +12% дополнительной брони сроком на 10 сек. Если этот эффект уже наложен, его действие продлевается. Эффект суммируется до 10 раз."
+  },
+  {
+    "id": "gt_unstoppable",
+    "name_en": "Unstoppable Force",
+    "description": "Killing an enemy increases weapon damage by 5% for 15s. Stacks up to 5.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Непреодолимость",
+    "desc_ru": "За каждое убийство противника вы получаете +5% к общему урону от оружия сроком на 15 сек. Эффект суммируется до 5 раз."
+  },
+  {
+    "id": "gt_versatile",
+    "name_en": "Versatile",
+    "description": "Swapping weapons amplifies weapon damage based on weapon type for 10s.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Универсальность",
+    "desc_ru": "Увеличение общего урона от оружия сроком на 10 сек. после переключения между основным и дополнительным оружием (если они разные):\n35% на дистанции до 15 м для Д и ПП; \n35% на дистанции свыше 25 м для В и СВ; \n10% на дистанции 15-25 м для РП и ШВ.\nПроисходит не чаще, чем раз в 5 сек. для каждого типа оружия.",
+    "perfect_name_ru": "Универсальность (идеальная)",
+    "perfect_desc_ru": "Увеличение общего урона от оружия сроком на 10 сек. после переключения между основным и дополнительным оружием (если они разные):\n45% (35% PVP) на дистанции до 15 м для Д и ПП; \n45% (35% PVP) на дистанции свыше 25 м для В и СВ; \n20% на дистанции 15-25 м для РП и ШВ.\nПроисходит не чаще, чем раз в 5 сек. для каждого типа оружия."
+  },
+  {
+    "id": "gt_companion",
+    "name_en": "Companion",
+    "description": "While you are within 5m of an ally or skill, total weapon damage is increased by 15%.",
+    "slot": "backpack",
+    "set": null,
+    "name_ru": "Компаньон",
+    "desc_ru": "Если вы находитесь в пределах 5 м от союзника или объекта навыка, общий урон от оружия увеличивается на 15%."
+  },
+  {
+    "id": "gt_fireworks_show",
+    "name_en": "Fireworks Show",
+    "description": "Killing an enemy with a grenade grants +30% weapon damage for 10s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_rebalance",
+    "name_en": "Rebalance",
+    "description": "Exotic: Gain +10% weapon damage for each equipped gear set or brand set bonus active.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_combat_medic",
+    "name_en": "Combat Medic",
+    "description": "Exotic: Repairing an ally also repairs 20% of your armor. Repairing yourself also repairs 20% of all allies' armor.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_memento_kill",
+    "name_en": "Kill Confirmed",
+    "description": "Enemies drop trophies on death. Collecting grants short-term buff (scales with core count) and long-term +1% WD/SE/0.1% ArmorRegen per trophy for 300s (max 30).",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_acostas_one",
+    "name_en": "One in Hand",
+    "description": "Throwing a grenade refunds it and grants +1 Skill Tier for 15s. Grants Overcharge if already at Tier 6. Cooldown 60s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_ninjabike_resource",
+    "name_en": "Resourceful",
+    "description": "Slots in with any equipped Gear Set or Brand Set to fulfill a set bonus requirement. Can unlock bonuses from multiple sets simultaneously.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_hardened",
+    "name_en": "Perfect Hardened",
+    "description": "Increases armor by 15%.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_vigilance",
+    "name_en": "Perfect Vigilance",
+    "description": "Increases weapon damage by 30%. Taking damage disables this bonus for 4s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_composure",
+    "name_en": "Perfect Composure",
+    "description": "While in cover, increases total weapon damage by 20%.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_clutch",
+    "name_en": "Perfect Clutch",
+    "description": "Critical hits restore 3% armor.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_concussion",
+    "name_en": "Perfect Concussion",
+    "description": "Headshots grant +15% headshot damage for 10s, stacking up to 5 times.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_wicked",
+    "name_en": "Perfectly Wicked",
+    "description": "+25% weapon damage for 20s after applying a status effect.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_bloodsucker",
+    "name_en": "Perfect Bloodsucker",
+    "description": "Killing an enemy adds +15% bonus armor for 10s. Max 10 stacks.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_unstoppable",
+    "name_en": "Perfectly Unstoppable Force",
+    "description": "Killing an enemy increases weapon damage by 8% for 15s. Stacks up to 5.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_versatile",
+    "name_en": "Perfect Versatile",
+    "description": "Swapping weapons amplifies weapon damage based on weapon type for 10s. Bonus is 50% higher.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_shock_awe",
+    "name_en": "Perfect Shock and Awe",
+    "description": "Applying a status effect grants +25% weapon damage for 10s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_creeping_death",
+    "name_en": "Perfect Creeping Death",
+    "description": "When you apply a status effect it also applies to all enemies within 12m. Cooldown 10s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_overclock",
+    "name_en": "Perfect Overclock",
+    "description": "Activating a skill overcharges it for 10s, granting +50% skill damage and +50% skill repair.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_leadership",
+    "name_en": "Perfect Leadership",
+    "description": "Kills grant +5% weapon damage to all allies for 10s. Stacks up to 5 times.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_adrenaline",
+    "name_en": "Perfect Adrenaline Rush",
+    "description": "Sprinting for 0.5s grants +20% weapon damage for 5s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_combined_arms",
+    "name_en": "Perfect Combined Arms",
+    "description": "Damaging an enemy with a skill increases weapon damage by 25% for 10s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_calculated",
+    "name_en": "Perfectly Calculated",
+    "description": "Skill kills grant +30% skill damage for 15s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_energize",
+    "name_en": "Perfect Energize",
+    "description": "Activating a skill grants +20% weapon damage for 15s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_galvanize",
+    "name_en": "Perfect Galvanize",
+    "description": "Applying a status effect grants +30% skill damage for 15s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_tech_support",
+    "name_en": "Perfect Tech Support",
+    "description": "Repairing a skill grants +25% skill damage for 15s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_tamper_proof",
+    "name_en": "Perfectly Tamper Proof",
+    "description": "Enemies that destroy your skills take 500% of the skill's remaining health as damage.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_perfect_opportunistic",
+    "name_en": "Perfectly Opportunistic",
+    "description": "Applying a disrupt, blind, or confuse to an enemy grants +25% weapon damage for 10s.",
+    "slot": "backpack",
+    "set": null
+  },
+  {
+    "id": "gt_set_striker_bp",
+    "name_en": "Press the Advantage",
+    "description": "Striker's Battlegear: Increases max stacks for Striker's Gamble from 100 to 200.",
+    "slot": "backpack",
+    "set": "Striker's Battlegear"
+  },
+  {
+    "id": "gt_set_hardwired_bp",
+    "name_en": "Feedback Loop",
+    "description": "Hard Wired: Skill kills reduce all skill cooldowns by 20%.",
+    "slot": "backpack",
+    "set": "Hard Wired"
+  },
+  {
+    "id": "gt_set_eclipse_bp",
+    "name_en": "Symptom Aggravator",
+    "description": "Eclipse Protocol: Enemies with 3 or more status effects take +20% weapon and skill damage.",
+    "slot": "backpack",
+    "set": "Eclipse Protocol"
+  },
+  {
+    "id": "gt_set_acesandeights_bp",
+    "name_en": "Dead Man's Hand",
+    "description": "Aces & Eights: Headshots deal +50% weapon damage when you have 8 stacks of Aces High.",
+    "slot": "backpack",
+    "set": "Aces & Eights"
+  },
+  {
+    "id": "gt_set_aegis_bp",
+    "name_en": "Shield Surge",
+    "description": "Aegis: Shield health is increased by 50%. Destroying a shield grants +20% weapon damage for 10s.",
+    "slot": "backpack",
+    "set": "Aegis"
+  },
+  {
+    "id": "gt_set_umbra_bp",
+    "name_en": "Umbra Surge",
+    "description": "Umbra Initiative: Kills grant +5% weapon damage for 10s, stacking up to 5 times.",
+    "slot": "backpack",
+    "set": "Umbra Initiative"
+  },
+  {
+    "id": "gt_set_tipping_bp",
+    "name_en": "Sustainability",
+    "description": "Tipping Scales: Increase the maximum number of stacks from 50 to 75.",
+    "slot": "backpack",
+    "set": "Tipping Scales"
+  },
+  {
+    "id": "gt_set_ongoing_bp",
+    "name_en": "Tactical Superiority",
+    "description": "Ongoing Directive: Hollow-Point Ammo also applies a status effect on hit.",
+    "slot": "backpack",
+    "set": "Ongoing Directive"
+  },
+  {
+    "id": "gt_set_foundry_bp",
+    "name_en": "Armor Overflow",
+    "description": "Foundry Bulwark: Bonus armor from Foundry set bonuses is increased by 50%.",
+    "slot": "backpack",
+    "set": "Foundry Bulwark"
+  },
+  {
+    "id": "gt_set_patriot_bp",
+    "name_en": "Stars and Stripes",
+    "description": "True Patriot: Shooting an enemy applies a debuff. Debuffed enemies take +10% weapon damage from all sources.",
+    "slot": "backpack",
+    "set": "True Patriot"
+  },
+  {
+    "id": "gt_set_breakingpoint_bp",
+    "name_en": "Point of Honor",
+    "description": "Breaking Point: Increases On Point Weapon Damage bonus from 4% to 7.2%.",
+    "slot": "backpack",
+    "set": "Breaking Point"
+  },
+  {
+    "id": "gt_set_cavalier_bp",
+    "name_en": "Safe Charging",
+    "description": "Cavalier: Charging gives 10% protection per second.",
+    "slot": "backpack",
+    "set": "Cavalier"
+  },
+  {
+    "id": "gt_set_concentrated_bp",
+    "name_en": "One for All",
+    "description": "Concentrated Company: Increase the Weapon Damage bonus per stack from 3% to 5%.",
+    "slot": "backpack",
+    "set": "Concentrated Company"
+  },
+  {
+    "id": "gt_set_future_bp",
+    "name_en": "Advanced Combat Tactics",
+    "description": "Future Initiative: Increases Ground Control proximity repair from 60% to 120%.",
+    "slot": "backpack",
+    "set": "Future Initiative"
+  },
+  {
+    "id": "gt_set_heartbreaker_bp",
+    "name_en": "Cold",
+    "description": "Heartbreaker: Stacks now supply +2% bonus armor.",
+    "slot": "backpack",
+    "set": "Heartbreaker"
+  },
+  {
+    "id": "gt_set_hotshot_bp",
+    "name_en": "Overwhelming Force",
+    "description": "Hotshot: Increases the radius of disorient on Apex Predator kills from 5m to 10m.",
+    "slot": "backpack",
+    "set": "Hotshot"
+  },
+  {
+    "id": "gt_set_huntersfury_bp",
+    "name_en": "Smart Cooperation",
+    "description": "Hunter's Fury: Decrease the cooldown for destroying Mortars and enemy skills from 10s to 1s.",
+    "slot": "backpack",
+    "set": "Hunter's Fury"
+  },
+  {
+    "id": "gt_set_measured_bp",
+    "name_en": "Critical Measures",
+    "description": "Measured Assembly: Increases Crowd Control damage to additional marked enemies from 60% to 112%.",
+    "slot": "backpack",
+    "set": "Measured Assembly"
+  },
+  {
+    "id": "gt_set_negotiator_bp",
+    "name_en": "Trauma Specialist",
+    "description": "Negotiator's Dilemma: Increases duration of bleed status effects by 50% and all bleed damage done by 100%.",
+    "slot": "backpack",
+    "set": "Negotiator's Dilemma"
+  },
+  {
+    "id": "gt_set_ortiz_bp",
+    "name_en": "Heatstroke",
+    "description": "Ortiz: Exuro: +25% Weapon Damage to enemies set on fire by the Ortiz Incinerator Turret Prototype.",
+    "slot": "backpack",
+    "set": "Ortiz: Exuro"
+  },
+  {
+    "id": "gt_set_refactor_bp",
+    "name_en": "Complete Uptime",
+    "description": "Refactor: Cancelling your skills will reset their cooldown.",
+    "slot": "backpack",
+    "set": "Refactor"
+  },
+  {
+    "id": "gt_set_rigger_bp",
+    "name_en": "Risk Management",
+    "description": "Rigger: Increases total weapon damage gained per stack of Striker's Gamble from 0.65% to 0.9%.",
+    "slot": "backpack",
+    "set": "Rigger"
+  },
+  {
+    "id": "gt_set_syscorrupt_bp",
+    "name_en": "Signature Moves",
+    "description": "System Corruption: +50% Weapon Damage for 15s after fully depleting the Signature Weapon of ammo.",
+    "slot": "backpack",
+    "set": "System Corruption"
+  },
+  {
+    "id": "gt_set_tipofspear_bp",
+    "name_en": "Snowball",
+    "description": "Tip of the Spear: Increase the Critical Hit Damage received per stack from 4% to 7%.",
+    "slot": "backpack",
+    "set": "Tip of the Spear"
+  },
+  {
+    "id": "gt_set_virtuoso_bp",
+    "name_en": "Accelerando",
+    "description": "Virtuoso: Decreases the number of stacks needed to proc the Symphony double buffs from 4 to 3.",
+    "slot": "backpack",
+    "set": "Virtuoso"
+  }
 ]

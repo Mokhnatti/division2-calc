@@ -1,0 +1,1003 @@
+{
+  "Perfect Vigilance": {
+    "wd": 30,
+    "note": "без получения урона 4с",
+    "conditional": true
+  },
+  "Perfect Killer": {
+    "chd": 90,
+    "note": "после крит-убийства 10с",
+    "conditional": true
+  },
+  "Perfect Close & Personal": {
+    "wd": 40,
+    "note": "ближе 7м",
+    "conditional": true
+  },
+  "Perfect Frenzy": {
+    "wd": 20,
+    "rof": 35,
+    "note": "пустой магазин 7с",
+    "conditional": true
+  },
+  "Perfect Unstoppable Force": {
+    "wd": 35,
+    "note": "макс 5 стаков × 7%",
+    "conditional": true
+  },
+  "Perfect Intimidate": {
+    "wd": 40,
+    "note": "макс 10 × 4% бонусной брони",
+    "conditional": true
+  },
+  "Perfect Bloodlust": {
+    "wd": 20,
+    "note": "после смены оружия 5с",
+    "conditional": true
+  },
+  "Perfect Spark": {
+    "wd": 20,
+    "note": "после скилла 15с",
+    "conditional": true
+  },
+  "Perfect Tech Support": {
+    "note": "урон скилла после убийства, не DPS оружия"
+  },
+  "Perfect On The Ropes": {
+    "wd": 20,
+    "note": "оба скилла на кд",
+    "conditional": true
+  },
+  "Perfect Spotter": {
+    "wd": 20,
+    "note": "по Pulse-врагам",
+    "conditional": true
+  },
+  "Perfect Lookout": {
+    "wd": 20,
+    "note": "по Pulse-врагам",
+    "conditional": true
+  },
+  "Perfectly On The Ropes": {
+    "wd": 20,
+    "note": "оба скилла на кд",
+    "conditional": true
+  },
+  "Perfect Headshot Trauma": {
+    "hsd": 20,
+    "note": "хедшоты 2с"
+  },
+  "Perfect Berserk": {
+    "wd": 50,
+    "note": "при 100% сломанной брони (прогрессивно)",
+    "conditional": true
+  },
+  "Perfect Entrenched": {
+    "note": "ремонт, не DPS"
+  },
+  "Perfect Completion": {
+    "note": "урон скилла"
+  },
+  "Perfect Salvage": {
+    "note": "боезапас"
+  },
+  "Perfect Boomerang": {
+    "wd": 25,
+    "note": "каждый крит даёт усиленную пулю",
+    "conditional": true
+  },
+  "Perfect Allegro": {
+    "rof": 15
+  },
+  "Perfect Ignited": {
+    "wd": 40,
+    "note": "по горящим",
+    "conditional": true
+  },
+  "Perfectly Ignited": {
+    "wd": 40,
+    "note": "по горящим",
+    "conditional": true
+  },
+  "Perfect Optimist": {
+    "wd": 25,
+    "note": "5 стаков по 5% при пустом магазине",
+    "conditional": true
+  },
+  "Perfect Measured": {
+    "wd": 15,
+    "note": "−30% WD + +30% WD (усреднено)",
+    "conditional": true
+  },
+  "Perfectly Measured": {
+    "wd": 15,
+    "note": "верх/низ магазина",
+    "conditional": true
+  },
+  "Perfect Rifleman": {
+    "wd": 60,
+    "note": "5 стаков × 12% WD от HS",
+    "conditional": true
+  },
+  "Perfect Pummel": {
+    "wd": 50,
+    "note": "2 убийства телохитом 10с",
+    "conditional": true
+  },
+  "Perfect Unhinged": {
+    "wd": 25,
+    "note": "−20% управление",
+    "static": true
+  },
+  "Perfect Stabilize": {
+    "note": "стабильность"
+  },
+  "Perfect Jazz Hands": {
+    "reload": 20
+  },
+  "Perfect Extra": {
+    "mag": 50
+  },
+  "Perfect Streamline": {
+    "wd": 47,
+    "note": "без развёрнутых навыков",
+    "conditional": true
+  },
+  "Perfect Thunderclap": {
+    "wd": 35,
+    "note": "по шокированным",
+    "conditional": true
+  },
+  "Perfect Ranger": {
+    "wd": 30,
+    "note": "10 × 3% за 5м до цели",
+    "conditional": true
+  },
+  "Perfect Wicked": {
+    "wd": 20,
+    "note": "20с после статуса",
+    "conditional": true
+  },
+  "Perfectly Wicked": {
+    "wd": 20,
+    "note": "20с после статуса",
+    "conditional": true
+  },
+  "Perfect Opportunistic": {
+    "wd": 15,
+    "note": "уязвимость 3с",
+    "conditional": true
+  },
+  "Perfect Clutch": {
+    "note": "лечение"
+  },
+  "Perfect Finisher": {
+    "chc": 40,
+    "chd": 50,
+    "note": "после смены оружия 15с",
+    "conditional": true
+  },
+  "Perfect Precision Strike": {
+    "wd": 20,
+    "note": "убийства дальше 20м",
+    "conditional": true
+  },
+  "Perfect Hand Control": {
+    "note": "управление"
+  },
+  "Perfect Bullet King": {
+    "mag": 50,
+    "note": "шанс полного магазина"
+  },
+  "Perfect Flatline": {
+    "wd": 20,
+    "note": "+20% WD по Pulse-врагам (3 убийства → Pulse)",
+    "conditional": true
+  },
+  "Perfect Soft Spot": {
+    "hsd": 10,
+    "note": "+10% HSD к критичным точкам",
+    "conditional": true
+  },
+  "Perfect Versatile": {
+    "wd": 20,
+    "note": "+20% WD по близким/далёким врагам в зависимости от дистанции",
+    "conditional": true
+  },
+  "Perfect Back and Forth": {
+    "wd": 15,
+    "note": "+15% WD 10с после смены оружия",
+    "conditional": true
+  },
+  "Perfect Gunslinger": {
+    "wd": 20,
+    "note": "+20% WD пистолета после попадания основным",
+    "conditional": true
+  },
+  "Perfect Obliterate": {
+    "wd": 15,
+    "note": "+15% WD по врагам со статус-эффектом",
+    "conditional": true
+  },
+  "Perfect Preservation": {
+    "note": "ремонт брони при убийстве, не DPS"
+  },
+  "Perfect Reformation": {
+    "note": "лечение после хедшот-убийства, не DPS"
+  },
+  "Future Perfection": {
+    "note": "+1 Skill Tier при убийстве, не DPS"
+  },
+  "Perfect Rooted": {
+    "note": "+30% урон/лечение скилла в укрытии"
+  },
+  "Perfect Attribute": {
+    "note": "+3 атрибута (по 33% эффекта), гибкий"
+  },
+  "Perfect Immobilize": {
+    "note": "иммобилизация после убийства, не DPS"
+  },
+  "Perfect Composure": {
+    "reload": 20,
+    "note": "+20% reload speed в укрытии"
+  },
+  "Perfect Leadership": {
+    "wd": 10,
+    "note": "+10% WD команде после убийства",
+    "conditional": true
+  },
+  "Perfect Camaraderie": {
+    "note": "+Skill Tier команде, не DPS оружия"
+  },
+  "Perfect Galvanize": {
+    "note": "бонусная броня команде, не DPS"
+  },
+  "Perfect Smith": {
+    "note": "броня после убийства пистолетом, не DPS"
+  },
+  "Perfectly Cloaked": {
+    "note": "дезориентация врагов, не DPS"
+  },
+  "Perfectly Insulated": {
+    "note": "+50% hazard protection, не DPS"
+  },
+  "Perfect Trauma": {
+    "note": "статус-эффекты от хедшота, не прямой DPS"
+  },
+  "Perfect Bombardier": {
+    "note": "гранаты, не weapon DPS"
+  },
+  "Perfect Protected Reload": {
+    "note": "броня при перезарядке, не DPS"
+  },
+  "Perfectly Explosive Delivery": {
+    "note": "взрыв гранаты, не weapon DPS"
+  },
+  "Perfectly Tamper Proof": {
+    "note": "защита навыков, не DPS"
+  },
+  "Perfectly Rooted": {
+    "note": "+30% урон/лечение скилла в укрытии"
+  },
+  "Perfectly Frenzy": {
+    "wd": 20,
+    "rof": 35,
+    "conditional": true,
+    "note": "+20% WD +35% RPM при перезарядке из пустого 7с"
+  },
+  "Perfect Creeping Death": {
+    "note": "распространение статусов"
+  },
+  "Perfect Energize": {
+    "note": "перезарядка скиллов"
+  },
+  "Perfect Spike": {
+    "wd": 25,
+    "conditional": true,
+    "note": "+25% WD 15с после хедшота (использует skill damage)"
+  },
+  "Perfect Focus": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Increases total weapon damage by 5% every second while aiming with 8x scope or higher, up to 50%."
+  },
+  "Perfect Headhunter": {
+    "hsd": 15,
+    "conditional": true,
+    "note": "After killing an enemy with a headshot, your next weapon hit within 30s deals 125% of that killing blow's damage in addition to it."
+  },
+  "Perfect Overwatch": {
+    "wd": 12,
+    "conditional": true,
+    "note": "After staying in cover for 10s, increase your and all allies' total weapon and skill damage by 12% as long as you remain in cover."
+  },
+  "Perfect Mad Bomber": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Grenade radius increased by 50%. Grenades that kill an enemy are refunded. Grenades can be cooked."
+  },
+  "Perfect Skilled": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Skill kills have a 25% chance to reset skill cooldowns."
+  },
+  "Perfect Tag Team": {
+    "wd": 0,
+    "conditional": true,
+    "note": "The last enemy damaged with a skill is marked. Dealing weapon damage to that enemy reduces active cooldowns by 6s. Cooldown: 4s."
+  },
+  "Perfect Tamper Proof": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Enemies that walk within 3m of your hive, turret, remote pulse, or decoy are shocked. Cooldown per skill: 10s."
+  },
+  "Perfect Reassigned": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Killing an enemy adds 1 round of random special ammo into your sidearm. Cooldown: 15s."
+  },
+  "Perfect Efficient": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Using an armor kit has a 50% chance to not consume the armor kit. Specialization armor kit bonuses are increased by 100%."
+  },
+  "Perfect Empathic Resolve": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Repairing an ally increases their weapon and skill damage by up to 15% for 20s."
+  },
+  "Perfect Kinetic Momentum": {
+    "wd": 15,
+    "conditional": true,
+    "note": "Each active skill generates stacks granting +1% skill damage and +2% skill repair, up to 15 stacks."
+  },
+  "Perfect Vanguard": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Deploying a shield makes it invulnerable for 5s and grants 45% armor as bonus armor to allies for 20s."
+  },
+  "Perfect Glass Cannon": {
+    "wd": 25,
+    "conditional": true,
+    "note": "All damage amplified by 25%. All damage taken amplified by 50%."
+  },
+  "Perfect Protector": {
+    "wd": 0,
+    "conditional": true,
+    "note": "When your shield is damaged, you gain +5% and all other allies gain +15% of your armor as bonus armor for 3s. Cooldown: 3s."
+  },
+  "Perfect Adrenaline Rush": {
+    "wd": 0,
+    "conditional": true,
+    "note": "When you are within 10m of an enemy, gain 20% bonus armor for 5s. Stacks up to 3 times. Cooldown: 5s."
+  },
+  "Perfect Calculated": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Kills from cover reduce skill cooldowns by 10%."
+  },
+  "Perfect Overclock": {
+    "wd": 0,
+    "conditional": true,
+    "note": "You and allies within 7m of your deployed skills gain +25% reload speed and reduces active cooldowns by 0.2 each second."
+  },
+  "Perfect Concussion": {
+    "hsd": 15,
+    "conditional": true,
+    "note": "Headshots grant +10% headshot damage for 10s, stacking up to 5 times."
+  },
+  "Perfect Perfect Obliterate": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Critical hits increase weapon damage by 1% for 5s, stacking up to 25%. Stacks refresh on crit."
+  },
+  "Perfect Perfect Intimidate": {
+    "wd": 40,
+    "conditional": true,
+    "note": "+40% weapon damage to enemies within 10m while you have bonus armor."
+  },
+  "Perfect Perfect Spark": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Applying a status effect grants +20% weapon damage for 15s."
+  },
+  "Perfect Perfect Glass Cannon": {
+    "wd": 30,
+    "conditional": true,
+    "note": "All damage amplified by 30%. All damage taken amplified by 50%."
+  },
+  "Perfect Perfect Gunslinger": {
+    "wd": 28,
+    "conditional": true,
+    "note": "Weapon swapping increases total weapon damage by 28% for 5s. This buff is lost for 5s if you weapon swap while it is active."
+  },
+  "Perfect Perfect Vanguard": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Deploying a shield makes it invulnerable for 5s and grants 60% of your armor as bonus armor to all allies for 20s."
+  },
+  "Perfect Perfect Spotter": {
+    "wd": 20,
+    "conditional": true,
+    "note": "+20% weapon and skill damage to pulsed enemies."
+  },
+  "Perfect Perfect Overwatch": {
+    "wd": 20,
+    "conditional": true,
+    "note": "While in cover, shots that hit enemies beyond 25m grant +3% weapon damage for 5s, stacking up to 15 times."
+  },
+  "Perfect Perfect Headhunter": {
+    "hsd": 20,
+    "conditional": true,
+    "note": "After landing a headshot, your next weapon shot deals +150% of that weapon's damage."
+  },
+  "Perfect Perfect Trauma": {
+    "hsd": 15,
+    "conditional": true,
+    "note": "Headshots apply bleed to the target. Bleeding enemies take +20% weapon damage from you."
+  },
+  "Perfect Perfect Companion": {
+    "wd": 15,
+    "conditional": true,
+    "note": "While a skill is active, gain +15% weapon damage. While no skill is active, gain +15% skill damage."
+  },
+  "Perfect Perfectly Explosive Delivery": {
+    "wd": 35,
+    "conditional": true,
+    "note": "Throwing a grenade grants +35% weapon damage for 10s."
+  },
+  "Perfect Perfectly Mad Bomber": {
+    "wd": 0,
+    "conditional": true,
+    "note": "+50% Grenade Damage. +50% Grenade Radius."
+  },
+  "Perfect Perfect Braced": {
+    "wd": 20,
+    "conditional": true,
+    "note": "While in cover, gain +20% weapon damage and +20% weapon handling."
+  },
+  "Perfect Perfect Focus": {
+    "wd": 30,
+    "conditional": true,
+    "note": "Every 0.5s you remain stationary, gain +5% weapon damage, up to +50%."
+  },
+  "Perfect Entrench": {
+    "wd": 0,
+    "conditional": true,
+    "note": "If you are below 30% armor, headshots from cover repair 20% of your armor. Cooldown: 2s."
+  },
+  "Perfect Companion": {
+    "wd": 15,
+    "conditional": true,
+    "note": "While you are within 5m of an ally or skill, total weapon damage is increased by 15%."
+  },
+  "Perfect Perfectly Skilled": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Activating a skill grants +25% weapon damage for 15s."
+  },
+  "Perfect Challenger": {
+    "wd": 30,
+    "conditional": true,
+    "note": "Exotic: Killing an enemy within 10m grants +5% weapon damage for 10s, stacking up to 10 times."
+  },
+  "Perfect Bond": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Exotic: Gain +5% weapon damage for each active skill. Gain +5% skill damage for each active weapon."
+  },
+  "Perfect Parabellum Rounds": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Ongoing Directive 4pc amplifier: Increases Hollow-Point Ammo damage from 20% to 50%. Does not apply to party members."
+  },
+  "Perfect Snowball": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Tipping Scales: Increase the Critical Hit Damage received per stack from 4% to 7%."
+  },
+  "Perfect Risk Management": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Striker's Battlegear: Increases total weapon damage gained per stack of Striker's Gamble from 0.65% to 0.9%."
+  },
+  "Perfect Hollow-Point Ammo": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Ongoing Directive: Enemies affected by a status effect drop Hollow-Point Ammo on death. Hollow-Point Ammo deals +20% weapon damage."
+  },
+  "Perfect Aces High": {
+    "wd": 40,
+    "conditional": true,
+    "note": "Aces & Eights: Headshots grant a stack of +5% weapon damage (max 8). Stacks are lost when you reload."
+  },
+  "Perfect Bulwark Protocol": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Aegis: Deploying a shield grants +20% weapon damage to all allies within 20m for 10s."
+  },
+  "Perfect Umbra Protocol": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Umbra Initiative: Kills grant +5% weapon damage for 10s, stacking up to 5 times."
+  },
+  "Perfect Scales of Justice": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Tipping Scales: Kills with LMGs grant +5% weapon damage for 10s, stacking up to 5 times."
+  },
+  "Perfect Press the Advantage": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Striker's Battlegear: Increases max stacks for Striker's Gamble from 100 to 200."
+  },
+  "Perfect Stars and Stripes": {
+    "wd": 10,
+    "conditional": true,
+    "note": "True Patriot: Shooting an enemy applies a debuff. Debuffed enemies take +10% weapon damage from all sources."
+  },
+  "Perfect Tactical Superiority": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Ongoing Directive: Hollow-Point Ammo also applies a status effect on hit."
+  },
+  "Perfect Symptom Aggravator": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Eclipse Protocol: Enemies with 3 or more status effects take +20% weapon and skill damage."
+  },
+  "Perfect Dead Man's Hand": {
+    "hsd": 50,
+    "conditional": true,
+    "note": "Aces & Eights: Headshots deal +50% weapon damage when you have 8 stacks of Aces High."
+  },
+  "Perfect Shield Surge": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Aegis: Shield health is increased by 50%. Destroying a shield grants +20% weapon damage for 10s."
+  },
+  "Perfect Umbra Surge": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Umbra Initiative: Kills grant +5% weapon damage for 10s, stacking up to 5 times."
+  },
+  "Perfect Sustainability": {
+    "wd": 15,
+    "conditional": true,
+    "note": "Tipping Scales: Increase the maximum number of stacks from 50 to 75."
+  },
+  "Perfect Point of no Return": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Breaking Point: Increase On Point bonuses timer from 10s to 15s."
+  },
+  "Perfect Overcharging": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Cavalier: Increases Charger max incoming damage protection to 70%."
+  },
+  "Perfect All for One": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Concentrated Company: Increase the amount of marks that can be placed from 4 to 8."
+  },
+  "Perfect Max BPM": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Heartbreaker: Max stack is now 100."
+  },
+  "Perfect Endless Hunger": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Hotshot: Increases the duration of Apex Predator stacks from 10s to 30s."
+  },
+  "Perfect Target Rich Environment": {
+    "chd": 10,
+    "conditional": true,
+    "note": "Measured Assembly: Increases Crowd Control mark count from 3 to 5."
+  },
+  "Perfect Chain Combustion": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Ortiz: Exuro: Enemies set ablaze by the Ortiz Incinerator Turret Prototype ignite other enemies within 2m."
+  },
+  "Perfect Specialized Destruction": {
+    "wd": 15,
+    "conditional": true,
+    "note": "System Corruption: Increase Aggressive Recon Signature Weapon Damage bonus from 15% to 30%."
+  },
+  "Perfect Waving the Flag": {
+    "wd": 10,
+    "conditional": true,
+    "note": "True Patriot: Increases Red, White, and Blue rotation speed to 1.5 seconds."
+  },
+  "Perfect Fortissimo": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Virtuoso: Double the weapon damage bonus from Symphony."
+  },
+  "Perfect Point of Honor": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Breaking Point: Increases On Point Weapon Damage bonus from 4% to 7.2%."
+  },
+  "Perfect Safe Charging": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Cavalier: Charging gives 10% protection per second."
+  },
+  "Perfect One for All": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Concentrated Company: Increase the Weapon Damage bonus per stack from 3% to 5%."
+  },
+  "Perfect Overwhelming Force": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Hotshot: Increases the radius of disorient on Apex Predator kills from 5m to 10m."
+  },
+  "Perfect Critical Measures": {
+    "chd": 15,
+    "conditional": true,
+    "note": "Measured Assembly: Increases Crowd Control damage to additional marked enemies from 60% to 112%."
+  },
+  "Perfect Trauma Specialist": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Negotiator's Dilemma: Increases duration of bleed status effects by 50% and all bleed damage done by 100%."
+  },
+  "Perfect Heatstroke": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Ortiz: Exuro: +25% Weapon Damage to enemies set on fire by the Ortiz Incinerator Turret Prototype."
+  },
+  "Perfect Signature Moves": {
+    "wd": 20,
+    "conditional": true,
+    "note": "System Corruption: +50% Weapon Damage for 15s after fully depleting the Signature Weapon of ammo."
+  },
+  "Perfect Accelerando": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Virtuoso: Decreases the number of stacks needed to proc the Symphony double buffs from 4 to 3."
+  },
+  "Perfect Perfect Vigilance": {
+    "wd": 30,
+    "conditional": true,
+    "note": "Increases weapon damage by 30%. Taking damage disables this bonus for 4s."
+  },
+  "Perfect Perfect Composure": {
+    "wd": 20,
+    "conditional": true,
+    "note": "While in cover, increases total weapon damage by 20%."
+  },
+  "Perfect Perfect Clutch": {
+    "chc": 6,
+    "conditional": true,
+    "note": "Critical hits restore 3% armor."
+  },
+  "Perfect Perfect Concussion": {
+    "hsd": 20,
+    "conditional": true,
+    "note": "Headshots grant +15% headshot damage for 10s, stacking up to 5 times."
+  },
+  "Perfect Perfectly Wicked": {
+    "wd": 25,
+    "conditional": true,
+    "note": "+25% weapon damage for 20s after applying a status effect."
+  },
+  "Perfect Perfectly Unstoppable Force": {
+    "wd": 30,
+    "conditional": true,
+    "note": "Killing an enemy increases weapon damage by 8% for 15s. Stacks up to 5."
+  },
+  "Perfect Perfect Versatile": {
+    "wd": 45,
+    "conditional": true,
+    "note": "Swapping weapons amplifies weapon damage based on weapon type for 10s. Bonus is 50% higher."
+  },
+  "Perfect Perfect Shock and Awe": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Applying a status effect grants +25% weapon damage for 10s."
+  },
+  "Perfect Perfect Creeping Death": {
+    "wd": 15,
+    "conditional": true,
+    "note": "When you apply a status effect it also applies to all enemies within 12m. Cooldown 10s."
+  },
+  "Perfect Perfect Leadership": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Kills grant +5% weapon damage to all allies for 10s. Stacks up to 5 times."
+  },
+  "Perfect Perfect Adrenaline Rush": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Sprinting for 0.5s grants +20% weapon damage for 5s."
+  },
+  "Perfect Perfect Combined Arms": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Damaging an enemy with a skill increases weapon damage by 25% for 10s."
+  },
+  "Perfect Perfect Energize": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Activating a skill grants +20% weapon damage for 15s."
+  },
+  "Perfect Perfectly Tamper Proof": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Enemies that destroy your skills take 500% of the skill's remaining health as damage."
+  },
+  "Perfect Perfectly Opportunistic": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Applying a disrupt, blind, or confuse to an enemy grants +25% weapon damage for 10s."
+  },
+  "Perfect Fireworks Show": {
+    "wd": 30,
+    "conditional": true,
+    "note": "Killing an enemy with a grenade grants +30% weapon damage for 10s."
+  },
+  "Perfect Rebalance": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Exotic: Gain +10% weapon damage for each equipped gear set or brand set bonus active."
+  },
+  "Perfect Bewildered": {
+    "wd": 40,
+    "conditional": true,
+    "note": "Applying a disorient to an enemy grants +40% weapon damage for 10s."
+  },
+  "Perfect Pack Instinct": {
+    "chc": 10,
+    "chd": 10,
+    "conditional": true,
+    "note": "0-15m: +25% CHD. 15-25m: +10% CHD +10% CHC. 25m+: +25% CHC."
+  },
+  "Perfect Vicious Cycle": {
+    "wd": 15,
+    "conditional": true,
+    "note": "Taking damage builds stacks (max 30), each granting 1% WD. At max stacks, purge triggers a healing cloud restoring 5% armor/s for 10s."
+  },
+  "Perfect Bleeding Edge": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Shooting enemies within 15m applies bleed. Repair 3-48% armor/s per bleeding enemy within 15m."
+  },
+  "Perfect Hoarder": {
+    "wd": 0,
+    "conditional": true,
+    "note": "+3 Grenade Capacity, +50% Grenade Radius, +35% Grenade Damage, +25% per extra enemy in blast. Auto-regen grenades every 30s if below 2."
+  },
+  "Perfect Kill Confirmed": {
+    "wd": 15,
+    "conditional": true,
+    "note": "Enemies drop trophies on death. Collecting grants short-term buff (scales with core count) and long-term +1% WD/SE/0.1% ArmorRegen per trophy for 300s (max 30)."
+  },
+  "Perfect Resourceful": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Slots in with any equipped Gear Set or Brand Set to fulfill a set bonus requirement. Can unlock bonuses from multiple sets simultaneously."
+  },
+  "Perfect Over the Top": {
+    "wd": 25,
+    "conditional": true,
+    "note": "Grenade or melee hit activates Seeing Red: +25% WD +100% melee damage for 20s. Cooldown 60s (reset by melee/grenade hit)."
+  },
+  "Perfect Weakest Link": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Shots mark the enemy with the lowest armor in a group. Marked enemies take +20% weapon damage from all sources for 10s."
+  },
+  "Perfect Quick Draw": {
+    "hsd": 20,
+    "conditional": true,
+    "note": "While pistol is holstered, gain stacking buff every 0.5s (max 100). Swapping to pistol consumes buff: first shot deals +10% damage per stack as headshot damage."
+  },
+  "Perfect Counter": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Weapon swapping cycles bonuses: 1) +20% RoF +20% WD, 2) +50% Mag Size +50% Reload Speed. Each lasts 12s or until next swap. Sidearm swap does not trigger."
+  },
+  "Perfect Defibrillator": {
+    "wd": 0,
+    "conditional": true,
+    "note": "-50% stun from Shock. Shield melee deals +100% damage. With St. Elmo's: melee applies Shock with 5m radius. Cooldown 15s."
+  },
+  "Perfect Escape Plan": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Vaulting/climbing/dropping gives +10% Move Speed for 3s. Not moving for 5s gives +20% Move Speed for 5s. Status effect gives +10% Move Speed for 5s. -50% movement impairment from s"
+  },
+  "Perfect Slotted (Investor)": {
+    "chd": 10,
+    "conditional": true,
+    "note": "Receive bonuses for each non-Core Attribute on this item: Red = +10% Crit Damage, Yellow = +5% Skill Efficiency, Blue = +1% Armor Regen. (PvP: 0.5% Armor Regen)"
+  },
+  "Perfect Augment: Quantum": {
+    "wd": 0,
+    "conditional": true,
+    "note": "Provides a small chance to become temporarily immune to damage."
+  },
+  "Perfect Augment: Echo": {
+    "wd": 10,
+    "conditional": true,
+    "note": "Each bullet fired has a chance to deal its damage a second time."
+  },
+  "Perfect Augment: Paradox": {
+    "wd": 5,
+    "conditional": true,
+    "note": "Provides a chance to refill part of your magazine while firing."
+  },
+  "Perfect Breadbasket": {
+    "hsd": 165,
+    "conditional": true,
+    "note": "Landing body shots adds a stack of bonus +70% headshot damage to the next headshot for 10s. Max stack is 2."
+  },
+  "Perfect Strained": {
+    "chd": 50,
+    "conditional": true,
+    "note": "Gain 10% critical hit damage for every 0.5s you are firing. Stacks up to 8 times."
+  },
+  "Perfectly Close & Personal": {
+    "wd": 30,
+    "conditional": true,
+    "note": "Killing a target within 7m grants +38% weapon damage for 10s."
+  },
+  "Perfect Fast Hands": {
+    "reload": 120,
+    "conditional": true,
+    "note": "Critical hits add a stack of 5% reload speed bonus. Max stack is 40."
+  },
+  "Perfectly In Sync": {
+    "wd": 15,
+    "conditional": true,
+    "note": "Hitting an enemy grants +20% skill damage for 5s. Using a skill or damaging an enemy with a skill grants +20% weapon damage for 5s. Damage increases are doubled while both buffs ar"
+  },
+  "Perfect On Empty": {
+    "handling": 60,
+    "conditional": true,
+    "note": "Reloading from empty grants +80% weapon handling for 10s."
+  },
+  "Perfectly Naked": {
+    "hsd": 50,
+    "conditional": true,
+    "note": "Hitting an enemy with no armor grants +50% headshot damage for 8s."
+  },
+  "Perfect Unwavering": {
+    "handling": 300,
+    "conditional": true,
+    "note": "Swapping to this weapon grants +400% weapon handling for 5s. Kills refresh the buff. Swapping away disables this from all weapons for 5s."
+  },
+  "Perfect Overwhelm": {
+    "wd": 40,
+    "conditional": true,
+    "note": "Suppressing an enemy, that is not currently suppressed, grants +12% weapon damage for 12 seconds. Max stack is 4."
+  },
+  "Perfect Pumped Up": {
+    "wd": 30,
+    "conditional": true,
+    "note": "Reloading grants +6% weapon damage for 10s. Stacks up to 5 times."
+  },
+  "Perfect Adaptive Instincts": {
+    "chc": 20,
+    "chd": 50,
+    "wd": 90,
+    "reload": 150,
+    "conditional": true,
+    "note": "Hitting 30 headshots grants 20% critical hit chance and 50% critical hit damage for 45s. Hitting 65 body shots grants 90% weapon damage for 45s. Hitting 20 leg shots grants 150% re"
+  },
+  "Perfect Big Game Hunter": {
+    "hsd": 150,
+    "conditional": true,
+    "note": "When scoped, switches to semi-automatic fire mode, dealing 450% weapon damage. Headshots grant +6% headshot damage. Stacks up to 25 times. Once at full stacks, 10 stacks decay ever"
+  },
+  "Perfect Perturb": {
+    "rof": 25,
+    "wd": 30,
+    "conditional": true,
+    "note": "While holstered for 10s, weapon becomes Primed. Swapping to Primed weapon grants +25% Rate of Fire, +30% Weapon Damage and 100% more Threat for 20s."
+  },
+  "Perfect Pakhan": {
+    "mag": 300,
+    "conditional": true,
+    "note": "Each kill gains a stack of 75% Base Magazine Size increase to the next magazine, up to 4 stacks."
+  },
+  "Perfect Payment in kind": {
+    "chd": 200,
+    "conditional": true,
+    "note": "Dealing damage adds a stack of 2% Critical Hit Damage, up to 100 stacks, lasting 10s. On reload apply a 10s bleed to yourself."
+  },
+  "Perfect Incessant Chatter": {
+    "rof": 125,
+    "conditional": true,
+    "note": "When you reload, rate of fire is increased by 25% for each enemy within 15m. Max stacks: 5. Kills refill 50% magazine."
+  },
+  "Perfect Geri and Freki": {
+    "wd": 1000,
+    "conditional": true,
+    "note": "On trigger pull, fire both barrels at once. When fired from the right shoulder, hits add offensive primers, and defensive primers when fired drom the left shoulder. Hits from one s"
+  },
+  "Perfect Full Stop": {
+    "wd": 40,
+    "hsd": 100,
+    "conditional": true,
+    "note": "Shooting builds stacks (cap 20). Headshots grant 2. Each stack grants 2% Weapon Damage and 5% Headshot Damage. Reload grants temp armor based on stacks."
+  },
+  "Perfect Liberty or Death": {
+    "wd": 60,
+    "conditional": true,
+    "note": "Hits grant +2% weapon damage. Stacks up to 30. Headshots consume all stacks, repairing shield for 3% per stack."
+  },
+  "Perfect Mosquito Song": {
+    "dta": 125,
+    "conditional": true,
+    "note": "Hitting an enemy applies a stack. At 5 stacks, enemy targets you for 5s and takes 25% more damage to armor."
+  },
+  "Perfect On Point": {
+    "handling": 200,
+    "wd": 400,
+    "conditional": true,
+    "note": "Hits grant stacks. Reloading grants 2% handling and 4% WD per stack for 10s."
+  },
+  "Perfect Heartstopper": {
+    "wd": 55.00000000000001,
+    "conditional": true,
+    "note": "Hits on pulsed enemies add +1% bonus armor and +1.1% WD. Max 50."
+  },
+  "Perfect Cold": {
+    "wd": 55.00000000000001,
+    "conditional": true,
+    "note": "Stacks now supply +2% bonus armor."
+  },
+  "Perfect Crowd Control": {
+    "chd": 40,
+    "conditional": true,
+    "note": "Crits mark targets (Max 3). 60% damage shared between marks."
+  },
+  "Perfect Hackstep Protocol": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Instant: 50% bonus armor, 20% repair, up to 20% WD."
+  },
+  "Perfect Multithreaded Execution": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Increases bonus armor from 50% to 100%."
+  },
+  "Perfect Compiler Optimization": {
+    "wd": 20,
+    "conditional": true,
+    "note": "Decreases cooldown from 20s to 15s."
+  },
+  "Perfect Aggressive Recon": {
+    "reload": 25,
+    "conditional": true,
+    "note": "Signature kill: 15% Sig Damage and 25% reload speed."
+  },
+  "Perfect Throttle Control": {
+    "handling": 25,
+    "chd": 200,
+    "conditional": true,
+    "note": "Shooting builds stacks. +0.5% Handling and +4% CHD."
+  },
+  "Perfect Perfect Overclock": {
+    "reload": 30,
+    "conditional": true,
+    "note": "You and allies within 15m of your deployed skills gain +30% reload speed and reduces active cooldowns by 0.6s each second."
+  },
+  "Perfect Pack Instincts": {
+    "chc": 25,
+    "chd": 25,
+    "conditional": true,
+    "note": "Bonus based on distance of the last enemy hit. 0-15m: +25% CHD; 15-25m: +10% CHC and +10% CHD; 25m+: +25% CHC."
+  },
+  "Perfect Catalysis": {
+    "wd": 24,
+    "conditional": true,
+    "note": "Dealing/receiving status effects builds stacks (Max 12). Each stack grants +2% WD and +2% Status Effects. Stacks decay if no enemies nearby."
+  }
+}

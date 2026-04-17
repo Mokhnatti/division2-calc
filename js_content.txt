@@ -1,25 +1,6 @@
 // Language state — must be declared before render() runs (TDZ fix)
 var currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem("d2calc_lang")) || "ru";
 
-const STAT_RU = {
-  "weapon damage":"Урон оружия","armor":"Броня","skill tier":"Уровень скиллов",
-  "damage to armor":"Урон по броне","damage to health":"Урон по здоровью",
-  "headshot damage":"Урон в голову","crit chance":"Шанс крит. попадания",
-  "crit damage":"Урон крит. попадания","rate of fire":"Скорострельность",
-  "weapon handling":"Управление оружием","reload speed":"Скорость перезарядки",
-  "magazine size":"Ёмкость магазина","accuracy":"Точность","stability":"Стабильность",
-  "optimal range":"Оптимальная дистанция","armor on kill":"Броня за убийство",
-  "armor regeneration":"Восстан. брони","health on kill":"HP за убийство",
-  "status effects":"Эффекты состояний","hazard protection":"Защита от опасностей",
-  "skill haste":"Ускорение скиллов","skill duration":"Длительность скиллов",
-  "skill health":"HP скиллов","skill damage":"Урон скиллов",
-  "scanner pulse haste":"Ускорение сканирования","pulse haste":"Ускорение пульса",
-  "pistol damage":"Урон пистолетов","assault rifle damage":"Урон винтовок",
-  "smg damage":"Урон ПП","rifle damage":"Урон винтовок","mmr damage":"Урон снайперок",
-  "lmg damage":"Урон пулемётов","shotgun damage":"Урон дробовиков",
-};
-function translateStat(s){if(!s)return s;return STAT_RU[s.toLowerCase()]||s;}
-
 // ===== GEAR SETS =====
 const G = D2DATA.G;
 
@@ -30,7 +11,7 @@ const B = D2DATA.B;
 const E = D2DATA.E;
 
 // ===== NAMED ITEMS =====
-const N = [...(D2DATA.N||[]), ...(D2DATA.NAMED_GEAR||[])];
+const N = D2DATA.N;
 
 // ===== LOGIC =====
 const TL = D2DATA.TL;
@@ -67,7 +48,6 @@ function render(){
         document.getElementById("dps-panel").style.display="none";
         document.getElementById("meta-panel").style.display="block";
         document.getElementById("rc").innerHTML='';
-        if(typeof loadTopBuilds==="function")loadTopBuilds();
         return;
     }
     document.getElementById("meta-panel").style.display="none";
@@ -163,14 +143,8 @@ function render(){
                 const displaySub=isEn?n.name:(n.en||"");
                 h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
                 if(n.brand)h+=`<div class="info">${L("Бренд","Brand")}: ${H(n.brand)}</div>`;
-                const coreVal=Array.isArray(n.core)?n.core[0]:n.core;
-                if(coreVal)h+=`<div class="info" style="color:#ff9800">${L("Осн. реквизит","Core")}: ${H(translateStat(coreVal))}</div>`;
-                if(n.attr1){const a1=Object.entries(n.attr1).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", ");if(a1)h+=`<div class="info" style="color:#4caf50">${L("Атр.1","Attr.1")}: ${H(a1)}</div>`;}
-                if(n.attr2){const a2=Object.entries(n.attr2).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", ");if(a2)h+=`<div class="info" style="color:#4caf50">${L("Атр.2","Attr.2")}: ${H(a2)}</div>`;}
-                if(n.bonus_ru)h+=`<div class="info" style="color:#ff9800;font-weight:600">${L("Бонус","Bonus")}: ${H(n.bonus_ru)}</div>`;
-                if(tal)h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
-                if(d)h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div>`;
-                h+=`</div>`;
+                h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
+                h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
             });h+='</div>';
         });
     }
@@ -180,81 +154,17 @@ function render(){
 }
 
 document.querySelectorAll("#s1,#s2,#s3").forEach(el=>el.addEventListener("input",render));
-
-// ===== SEARCH HINTS (autocomplete) =====
-let _searchIndex=null;
-function buildSearchIndex(){
-  if(_searchIndex)return _searchIndex;
-  const out=[];const seen=new Set();
-  const push=(name,kind)=>{
-    if(!name)return;const key=name.toLowerCase();if(seen.has(key+"|"+kind))return;seen.add(key+"|"+kind);
-    out.push({name,kind});
-  };
-  try{(D2DATA.E||[]).forEach(i=>{push(i.name,"экзотик");push(i.en,"экзотик");});}catch(e){}
-  try{(D2DATA.N||[]).forEach(i=>{push(i.name,"именной");push(i.en,"именной");});}catch(e){}
-  try{(D2DATA.NAMED_GEAR||[]).forEach(i=>{push(i.name,"именной");push(i.en,"именной");});}catch(e){}
-  try{(D2DATA.G||[]).forEach(i=>{push(i.name,"сет");push(i.en,"сет");});}catch(e){}
-  try{(D2DATA.B||[]).forEach(i=>{push(i.name,"бренд");push(i.en,"бренд");});}catch(e){}
-  try{Object.keys(D2DATA.WEAPON_TALENTS||{}).forEach(k=>{push(k,"талант");});}catch(e){}
-  try{Object.keys(D2DATA.TL||{}).forEach(k=>{push(k,"талант");});}catch(e){}
-  _searchIndex=out;return out;
-}
-function showHints(inputId){
-  const input=document.getElementById(inputId);
-  const hints=document.getElementById(inputId+"-hints");
-  if(!input||!hints)return;
-  const q=input.value.toLowerCase().trim();
-  if(!q||q.length<2){hints.style.display="none";hints.innerHTML="";return}
-  const idx=buildSearchIndex();
-  const matches=[];const seen=new Set();
-  for(const item of idx){
-    if(matches.length>=10)break;
-    if(item.name.toLowerCase().includes(q)){
-      const k=item.name.toLowerCase();
-      if(seen.has(k))continue;seen.add(k);
-      matches.push(item);
-    }
-  }
-  if(!matches.length){hints.style.display="none";hints.innerHTML="";return}
-  hints.innerHTML=matches.map(m=>{
-    const esc=String(m.name).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    return `<div class="sh-item" data-val="${esc}"><span>${esc}</span><span class="sh-kind">${m.kind}</span></div>`;
-  }).join("");
-  hints.style.display="block";
-  hints.querySelectorAll(".sh-item").forEach(el=>{
-    el.addEventListener("mousedown",ev=>{
-      ev.preventDefault();
-      input.value=el.getAttribute("data-val")||"";
-      hints.style.display="none";hints.innerHTML="";
-      render();
-    });
-  });
-}
-document.querySelectorAll("#s1,#s2,#s3").forEach(el=>{
-  el.addEventListener("input",()=>showHints(el.id));
-  el.addEventListener("focus",()=>showHints(el.id));
-  el.addEventListener("blur",()=>{setTimeout(()=>{const h=document.getElementById(el.id+"-hints");if(h){h.style.display="none";h.innerHTML=""}},150);});
-});
 document.querySelectorAll('input[name="mode"]').forEach(el=>el.addEventListener("change",render));
 document.querySelectorAll(".cat-btn").forEach(btn=>{
     btn.addEventListener("click",()=>{
         document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
         btn.classList.add("active");activeCat=btn.dataset.cat;
-        // pushState routing
-        const _urlMap={community:'/',build:'/build',dps:'/dps',meta:'/top',all:'/all',gear:'/sets',brand:'/brands',exotic:'/exotics',named:'/named-items',wmods:'/weapon-mods',smods:'/skill-mods',expertise:'/expertise',help:'/help'};
-        const _titleMap={community:'Сообщество',build:'Билд-конструктор',dps:'DPS Калькулятор',meta:'Топ билдов',all:'База данных',gear:'Комплекты',brand:'Бренды',exotic:'Экзотики',named:'Именные предметы',wmods:'Моды оружия',smods:'Моды навыков',expertise:'Экспертиза',help:'Справка'};
-        history.pushState({cat:activeCat},'',_urlMap[activeCat]||'/');
-        document.title=(_titleMap[activeCat]||'Division 2')+' · divcalc.xyz';
         // toggle panels
         const isCalc = activeCat==="dps";
         const isMeta = activeCat==="meta";
         const isBuild = activeCat==="build";
         const isCommunity = activeCat==="community";
-        const isWmods = activeCat==="wmods";
-        const isSmods = activeCat==="smods";
-        const isExpertise = activeCat==="expertise";
-        const isHelp = activeCat==="help";
-        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise||isHelp;
+        const hideMain = isCalc||isMeta||isBuild||isCommunity;
         document.getElementById("mc").style.display=hideMain?"none":"";
         document.getElementById("rc").style.display=hideMain?"none":"";
         document.querySelector(".search-panel").style.display=hideMain?"none":"";
@@ -263,22 +173,10 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         document.getElementById("build-panel").style.display=isBuild?"block":"none";
         const commPanel=document.getElementById("community-panel");
         if(commPanel)commPanel.style.display=isCommunity?"block":"none";
-        const wmodsPanel=document.getElementById("wmods-panel");
-        if(wmodsPanel)wmodsPanel.style.display=isWmods?"block":"none";
-        const smodsPanel=document.getElementById("smods-panel");
-        if(smodsPanel)smodsPanel.style.display=isSmods?"block":"none";
-        const expPanel=document.getElementById("expertise-panel");
-        if(expPanel)expPanel.style.display=isExpertise?"block":"none";
-        const helpPanel=document.getElementById("help-panel");
-        if(helpPanel)helpPanel.style.display=isHelp?"block":"none";
         if(!hideMain) render();
         else if(isCalc) calcDPS();
         else if(isBuild) calcBuild();
         else if(isCommunity) loadCommunityFeed();
-        else if(isMeta) loadTopBuilds();
-        else if(isWmods) renderWeaponMods();
-        else if(isSmods) renderSkillGearMods();
-        else if(isExpertise) renderExpertise();
     });
 });
 render();
@@ -421,13 +319,10 @@ let WPNS_LIST=[];
 
 function initWpnDb(){
   WPNS={};WPNS_LIST=[];
-  // Base weapons: map type→cat и сгенерить id если нет
-  const TYPE_TO_CAT={"AR":"AR","SMG":"SMG","LMG":"LMG","MMR":"MMR","Rifle":"Rifle","Shotgun":"SG","SG":"SG","Pistol":"Pistol"};
+  // Base weapons
   WPNS_BASE.forEach(w=>{
-    const cat=w.cat||TYPE_TO_CAT[w.type]||"AR";
-    const id=w.id||("base_"+(w.name||"unknown").toLowerCase().replace(/[^a-z0-9]+/g,"_"));
-    const full={...w,id,cat,kind:"base",tal:"—",tal_type:"none"};
-    WPNS[id]=full;
+    const full={...w,kind:"base",tal:"—",tal_type:"none"};
+    WPNS[w.id]=full;
     WPNS_LIST.push(full);
   });
   // Exotics from E[]
@@ -458,9 +353,8 @@ function initWpnDb(){
       baseStats=WPNS_BASE.find(b=>b.cat===cat)||WPNS_BASE[0];
     }
     const tb=talentBonus(n.tal);
-    const idSrc=(n.en||n.name||"unknown").toString().toLowerCase();
-    const id="named_"+idSrc.replace(/[^a-z0-9]+/g,"_");
-    const full={id,name:n.name,en:n.en||n.name,cat:baseStats.cat,dmg:baseStats.dmg,rpm:baseStats.rpm,mag:baseStats.mag,reload:baseStats.reload,base:baseName||baseStats.name,kind:"named",tal:n.tal,tal_desc:n.d,tal_type:"none",named_bonus:tb};
+    const id="named_"+n.en.toLowerCase().replace(/[^a-z0-9]+/g,"_");
+    const full={id,name:n.name,en:n.en,cat:baseStats.cat,dmg:baseStats.dmg,rpm:baseStats.rpm,mag:baseStats.mag,reload:baseStats.reload,base:baseName||baseStats.name,kind:"named",tal:n.tal,tal_desc:n.d,tal_type:"none",named_bonus:tb};
     WPNS[id]=full;
     WPNS_LIST.push(full);
   });
@@ -489,19 +383,6 @@ function talentBonus(talentName){
 
 // Database of items per armor slot
 const ITEMS_BY_SLOT={};
-const GENRE_ALIASES={
-  "Маски":["Маски","Маска"],
-  "Нагрудники":["Нагрудники","Нагрудник","Броня","Бронежилет","Бронежилеты"],
-  "Рюкзаки":["Рюкзаки","Рюкзак"],
-  "Перчатки":["Перчатки"],
-  "Кобуры":["Кобуры","Кобура"],
-  "Наколенники":["Наколенники","Наколенник"]
-};
-function matchGenre(g,target){
-  if(!g)return false;
-  const list=GENRE_ALIASES[target]||[target];
-  return list.includes(g);
-}
 function buildItemDb(){
   for(const slot of Object.keys(SLOT_META)){
     const genre=SLOT_META[slot].genre;
@@ -511,13 +392,13 @@ function buildItemDb(){
     // brands: one entry per brand per slot
     B.forEach(b=>arr.push({kind:"brand",name:b.name+" — "+genre,brand:b.name,bonuses:b.bonuses,slot}));
     // named items for this slot
-    N.filter(n=>matchGenre(n.g,genre)).forEach(n=>{
+    N.filter(n=>n.g===genre).forEach(n=>{
       const tb=talentBonus(n.tal);
-      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot,core:n.core,attr1:n.attr1,attr2:n.attr2,bonus_ru:n.bonus_ru,bonus_short_en:n.bonus_short_en});
+      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot});
     });
     // exotics
-    E.filter(e=>matchGenre(e.g,genre)).forEach(e=>{
-      arr.push({kind:"exotic",name:e.name,en:e.en,talent:e.tal,talentDesc:e.d,slot,core:e.core,attr1:e.attr1,attr2:e.attr2,bonus_ru:e.bonus_ru});
+    E.filter(e=>e.g===genre).forEach(e=>{
+      arr.push({kind:"exotic",name:e.name,en:e.en,talent:e.tal,talentDesc:e.d,slot});
     });
     ITEMS_BY_SLOT[slot]=arr;
   }
@@ -566,26 +447,9 @@ function renderSlotItems(){
       body=`<div class="mi-desc">${(it.bonuses||[]).join(" · ")}</div>`;
     }else if(it.kind==="named"){
       const mathStr=it.talentBonus?Object.entries(it.talentBonus).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" "):"";
-      const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
-      const coreStr=coreVal?`<div class="mi-desc" style="color:#ff9800">Core: ${translateStat(coreVal)}</div>`:"";
-      const attr1Str=it.attr1?Object.entries(it.attr1).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", "):"";
-      const attr2Str=it.attr2?Object.entries(it.attr2).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", "):"";
-      const attrsStr=[attr1Str,attr2Str].filter(x=>x).join(" · ");
-      const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
-      const talStr=it.talent?`<div class="mi-tal">${it.talent}${it.brand?" · <span style=\"color:var(--blue)\">"+it.brand+"</span>":""}</div>`:(it.brand?`<div class="mi-tal" style="color:var(--blue)">${it.brand}</div>`:"");
-      body=`${talStr}
-            ${it.talentDesc?`<div class="mi-desc">${it.talentDesc}</div>`:""}
-            ${bonusStr}
-            ${coreStr}
-            ${attrsStr?`<div class="mi-desc" style="color:#4caf50">${attrsStr}</div>`:""}
-            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus&&it.talentBonus.conditional?" (условно)":""}</div>`:""}`;
-    }else if(it.kind==="exotic"){
-      const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
-      const coreStr=coreVal?`<div class="mi-desc" style="color:#ff9800">Core: ${translateStat(coreVal)}</div>`:"";
-      const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
-      body=`<div class="mi-tal">${it.talent||""}</div>
-            ${it.talentDesc?`<div class="mi-desc">${it.talentDesc}</div>`:""}
-            ${bonusStr}${coreStr}`;
+      body=`<div class="mi-tal">${it.talent||""}${it.brand?" · <span style=\"color:var(--blue)\">"+it.brand+"</span>":""}</div>
+            <div class="mi-desc">${it.talentDesc||""}</div>
+            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus.conditional?" (условно)":""}</div>`:""}`;
     }else{
       body=`<div class="mi-tal">${it.talent||""}</div><div class="mi-desc">${it.talentDesc||""}</div>`;
     }
@@ -640,7 +504,7 @@ function initBuildSlots(){
   // Populate weapon talent select
   const talSel=document.getElementById("b-wpn-tal");
   if(talSel){
-    talSel.innerHTML='<option value="none">— нет —</option>'+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=v.name_ru?`${v.name_ru} (${v.name_en})`:v.name_en;return`<option value="${k}">${label}</option>`}).join("");
+    talSel.innerHTML=Object.entries(WEAPON_TALENTS).map(([k,v])=>`<option value="${k}">${v.name}</option>`).join("");
     talSel.value=selectedWpnTalent;
   }
   // Populate Prototype Augment selects
@@ -661,65 +525,10 @@ function initBuildSlots(){
 
 function onWpnTalentChange(){
   selectedWpnTalent=document.getElementById("b-wpn-tal").value;
-  const t=WEAPON_TALENTS_FULL[selectedWpnTalent];
+  const t=WEAPON_TALENTS[selectedWpnTalent];
   const desc=document.getElementById("b-wpn-tal-desc");
-  if(desc)desc.textContent=t?.desc_ru||t?.desc_en||"";
+  if(desc)desc.textContent=t?.bonus?.note||"";
   calcBuild();
-}
-
-function initGearTalentSelects(){
-  const chestSel=document.getElementById("b-chest-talent");
-  const bpSel=document.getElementById("b-bp-talent");
-  if(!chestSel||!bpSel)return;
-  const fill=(sel,slot)=>{
-    const talents=GEAR_TALENTS.filter(t=>t.slot===slot).sort((a,b)=>(a.name_ru||a.name_en||"").localeCompare(b.name_ru||b.name_en||""));
-    const og=document.createElement("optgroup");og.label="Обычные";
-    const pg=document.createElement("optgroup");pg.label="Совершенные";
-    for(const t of talents){
-      const key=t.id||t.name_en;
-      const setSuffix=t.set?` (${t.set})`:"";
-      const oReg=document.createElement("option");
-      oReg.value=key;
-      oReg.textContent=(t.name_ru||t.name_en)+setSuffix;
-      og.appendChild(oReg);
-      const oPerf=document.createElement("option");
-      oPerf.value="perfect:"+key;
-      oPerf.textContent=(t.perfect_name_ru||`${t.name_ru||t.name_en} (идеальный)`)+setSuffix;
-      pg.appendChild(oPerf);
-    }
-    sel.appendChild(og);
-    sel.appendChild(pg);
-  };
-  fill(chestSel,"chest");
-  fill(bpSel,"backpack");
-}
-
-function onChestTalentChange(){
-  const id=document.getElementById("b-chest-talent").value;
-  const desc=document.getElementById("b-chest-talent-desc");
-  if(!desc)return;
-  if(!id){desc.textContent="";return;}
-  const isPerfect=id.startsWith("perfect:");
-  const baseId=isPerfect?id.slice(8):id;
-  const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
-  if(t){
-    const prefix=isPerfect?"⭐ СОВЕРШЕННЫЙ — ":"";
-    desc.textContent=prefix+(t.desc_ru||t.description||"");
-  }
-}
-
-function onBpTalentChange(){
-  const id=document.getElementById("b-bp-talent").value;
-  const desc=document.getElementById("b-bp-talent-desc");
-  if(!desc)return;
-  if(!id){desc.textContent="";return;}
-  const isPerfect=id.startsWith("perfect:");
-  const baseId=isPerfect?id.slice(8):id;
-  const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
-  if(t){
-    const prefix=isPerfect?"⭐ СОВЕРШЕННЫЙ — ":"";
-    desc.textContent=prefix+(t.desc_ru||t.description||"");
-  }
 }
 
 // ===== BUILD STATE =====
@@ -734,13 +543,10 @@ function getBuildState(){
     wpnTal:selectedWpnTalent,
     cw:{dmg:v("cw-dmg"),rpm:v("cw-rpm"),mag:v("cw-mag"),rel:parseFloat(document.getElementById("cw-rel")?.value)||2,cat:document.getElementById("cw-cat")?.value||"AR"},
     slots,
-    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd"),reload:v("b-reload"),rof:v("b-rof"),mag:v("b-mag"),amp:v("b-amp"),expertise:v("b-expertise"),"wd-ar":v("b-wd-ar"),"wd-smg":v("b-wd-smg"),"wd-lmg":v("b-wd-lmg"),"wd-mmr":v("b-wd-mmr"),"wd-rifle":v("b-wd-rifle"),"wd-sg":v("b-wd-sg"),"wd-pistol":v("b-wd-pistol")},
-    core:{mode:document.getElementById("b-core-mode")?.value||"red",mask:document.getElementById("b-core-mask")?.value||"red",chest:document.getElementById("b-core-chest")?.value||"red",bp:document.getElementById("b-core-bp")?.value||"red",gloves:document.getElementById("b-core-gloves")?.value||"red",holster:document.getElementById("b-core-holster")?.value||"red",knees:document.getElementById("b-core-knees")?.value||"red"},
+    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd")},
     shd:{wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo")},
     rc:{hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")},
     ttk:{diff:ttkDiff,hp:v("ttk-hp-mult"),ar:v("ttk-ar-mult")},
-    chestTal:document.getElementById("b-chest-talent")?.value||"",
-    bpTal:document.getElementById("b-bp-talent")?.value||"",
   };
 }
 
@@ -748,7 +554,7 @@ function applyBuildState(s){
   if(!s)return;
   // Weapon
   if(s.wpn&&WPNS[s.wpn]){selectedWpnId=s.wpn;updateWpnBtn()}
-  if(s.wpnTal&&(s.wpnTal==="none"||WEAPON_TALENTS_FULL[s.wpnTal])){
+  if(s.wpnTal&&WEAPON_TALENTS[s.wpnTal]){
     selectedWpnTalent=s.wpnTal;
     const el=document.getElementById("b-wpn-tal");if(el)el.value=s.wpnTal;
   }
@@ -772,41 +578,16 @@ function applyBuildState(s){
     updateSlotBtn(slot);
   }
   // Manual stats
-  ["chc","chd","hsd","hsrate","ooc","dta","wd","reload","rof","mag","amp","expertise","wd-ar","wd-smg","wd-lmg","wd-mmr","wd-rifle","wd-sg","wd-pistol"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
-  if(s.core){
-    const modeSel=document.getElementById("b-core-mode");
-    if(modeSel&&s.core.mode)modeSel.value=s.core.mode;
-    ["mask","chest","bp","gloves","holster","knees"].forEach(slot=>{
-      const el=document.getElementById("b-core-"+slot);
-      if(el&&s.core[slot])el.value=s.core[slot];
-    });
-    const box=document.getElementById("b-core-custom");
-    if(box)box.style.display=(s.core.mode==="custom")?"block":"none";
-  }
+  ["chc","chd","hsd","hsrate","ooc","dta","wd"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
   ["wd","hsd","chc","chd","ammo"].forEach(k=>{if(s.shd&&s.shd[k]!==undefined)setInput("shd-"+k,s.shd[k])});
   ["hsd","ammo","ergo","armor","elite","hazprot","status","skilldmg","util3"].forEach(k=>{if(s.rc&&s.rc[k]!==undefined)setInput("rc-"+k,s.rc[k])});
   if(s.ttk){
     if(s.ttk.diff)setTtkDiff(s.ttk.diff);
     setInput("ttk-hp-mult",s.ttk.hp);setInput("ttk-ar-mult",s.ttk.ar);
   }
-  if(s.chestTal){
-    const el=document.getElementById("b-chest-talent");
-    if(el){el.value=s.chestTal;onChestTalentChange();}
-  }
-  if(s.bpTal){
-    const el=document.getElementById("b-bp-talent");
-    if(el){el.value=s.bpTal;onBpTalentChange();}
-  }
   calcBuild();
 }
 function setInput(id,val){const el=document.getElementById(id);if(el&&val!==undefined&&val!==null)el.value=val}
-
-function onCoreModeChange(){
-  const mode=document.getElementById("b-core-mode")?.value||"red";
-  const box=document.getElementById("b-core-custom");
-  if(box)box.style.display=mode==="custom"?"block":"none";
-  calcBuild();
-}
 
 // ===== URL SHARING =====
 function buildToHash(){
@@ -831,23 +612,6 @@ function shareBuild(){
     );
   }else fallbackCopy(url);
   history.replaceState(null,"",hash);
-}
-async function exportBuildAsPng(){
-  const area=document.getElementById("build-export-area")||document.getElementById("build-panel");
-  if(!area){alert("Панель билда не найдена");return}
-  if(typeof html2canvas==="undefined"){alert("html2canvas не загружен");return}
-  document.body.classList.add("capturing");
-  try{
-    const canvas=await html2canvas(area,{backgroundColor:"#121212",scale:2,useCORS:true,logging:false});
-    const link=document.createElement("a");
-    const wpn=(getWeapon()||{}).name||"build";
-    const safe=String(wpn).replace(/[^A-Za-z0-9а-яА-Я_\-]+/g,"_").slice(0,40);
-    link.download=`divcalc-build-${safe}-${Date.now()}.png`;
-    link.href=canvas.toDataURL("image/png");
-    document.body.appendChild(link);link.click();document.body.removeChild(link);
-    showShareStatus("Картинка сохранена",3000);
-  }catch(e){alert("Ошибка экспорта: "+(e&&e.message?e.message:e));}
-  finally{document.body.classList.remove("capturing");}
 }
 function fallbackCopy(txt){
   const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);
@@ -914,10 +678,8 @@ function resetCurrentBuild(){
   const talSel=document.getElementById("b-wpn-tal");
   if(talSel)talSel.value="none";
   // Reset manual stats to defaults
-  setInput("b-chc",0);setInput("b-chd",0);setInput("b-hsd",0);
+  setInput("b-chc",20);setInput("b-chd",25);setInput("b-hsd",0);
   setInput("b-hsrate",0);setInput("b-ooc",0);setInput("b-dta",0);setInput("b-wd",0);
-  setInput("b-reload",0);setInput("b-rof",0);setInput("b-mag",0);
-  ["b-wd-ar","b-wd-smg","b-wd-lmg","b-wd-mmr","b-wd-rifle","b-wd-sg","b-wd-pistol"].forEach(id=>setInput(id,0));
   // Keep SHD at maxed defaults (пользователь просил)
   setInput("shd-wd",10);setInput("shd-hsd",20);setInput("shd-chc",10);setInput("shd-chd",20);setInput("shd-ammo",0);
   // Recombinator back to zeros
@@ -933,163 +695,6 @@ const PB_BASE=(location.hostname==="divcalc.xyz"||location.hostname==="www.divca
   ? location.origin
   : "https://divcalc.xyz";
 const PB_API=PB_BASE+"/api/collections";
-
-// ===== AUTH =====
-const AUTH_KEY="d2calc_auth_v1";
-let currentUser=null;
-
-function saveAuth(auth){
-  localStorage.setItem(AUTH_KEY,JSON.stringify(auth));
-  currentUser=auth;
-  updateAuthUI();
-}
-function loadAuth(){
-  try{
-    const a=JSON.parse(localStorage.getItem(AUTH_KEY)||"null");
-    if(a&&a.token)currentUser=a;
-  }catch(e){}
-  updateAuthUI();
-}
-function logoutUser(){
-  localStorage.removeItem(AUTH_KEY);
-  currentUser=null;
-  hideAuthDropdown();
-  updateAuthUI();
-}
-async function loginUser(email,password){
-  const r=await fetch(`${PB_BASE}/api/collections/users/auth-with-password`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({identity:email,password})
-  });
-  if(!r.ok){
-    let msg="Login failed";
-    try{const j=await r.json();msg=j.message||msg;}catch(e){}
-    throw new Error(msg);
-  }
-  const data=await r.json();
-  saveAuth({
-    id:data.record.id,
-    email:data.record.email,
-    username:data.record.username||(data.record.email||"").split("@")[0],
-    token:data.token
-  });
-}
-async function registerUser(email,password,username){
-  const r=await fetch(`${PB_BASE}/api/collections/users/records`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({email,password,passwordConfirm:password,username,emailVisibility:false})
-  });
-  if(!r.ok){
-    let msg="Registration failed";
-    try{const j=await r.json();msg=j.message||msg;if(j.data){const keys=Object.keys(j.data);if(keys.length){const first=j.data[keys[0]];msg=`${keys[0]}: ${(first&&first.message)||msg}`;}}}catch(e){}
-    throw new Error(msg);
-  }
-  await loginUser(email,password);
-}
-function updateAuthUI(){
-  const btn=document.getElementById("auth-btn");
-  if(!btn)return;
-  if(currentUser){
-    btn.innerHTML=`👤 ${escapeHtml(currentUser.username||"user")}`;
-    btn.onclick=toggleAuthDropdown;
-  }else{
-    btn.innerHTML="👤 Войти";
-    btn.onclick=openAuthModal;
-    hideAuthDropdown();
-  }
-}
-function toggleAuthDropdown(){
-  const dd=document.getElementById("auth-dropdown");
-  if(!dd)return;
-  dd.style.display=dd.style.display==="block"?"none":"block";
-}
-function hideAuthDropdown(){
-  const dd=document.getElementById("auth-dropdown");
-  if(dd)dd.style.display="none";
-}
-document.addEventListener("click",(e)=>{
-  const wrap=document.getElementById("auth-wrap");
-  if(wrap&&!wrap.contains(e.target))hideAuthDropdown();
-});
-
-function openAuthModal(){
-  const m=document.getElementById("auth-modal");
-  if(!m)return;
-  m.classList.add("open");
-  switchAuthTab("login");
-  const s1=document.getElementById("auth-login-status");if(s1){s1.textContent="";s1.className="bug-status";}
-  const s2=document.getElementById("auth-register-status");if(s2){s2.textContent="";s2.className="bug-status";}
-}
-function closeAuthModal(){
-  const m=document.getElementById("auth-modal");
-  if(m)m.classList.remove("open");
-}
-function switchAuthTab(tab){
-  const tl=document.getElementById("auth-tab-login");
-  const tr=document.getElementById("auth-tab-register");
-  const fl=document.getElementById("auth-login-form");
-  const fr=document.getElementById("auth-register-form");
-  const title=document.getElementById("auth-modal-title");
-  const isLogin=tab==="login";
-  if(tl)tl.classList.toggle("on",isLogin);
-  if(tr)tr.classList.toggle("on",!isLogin);
-  if(fl)fl.style.display=isLogin?"":"none";
-  if(fr)fr.style.display=isLogin?"none":"";
-  if(title)title.textContent=isLogin?"👤 Вход":"👤 Регистрация";
-}
-async function submitLogin(ev){
-  ev.preventDefault();
-  const f=ev.target;
-  const btn=document.getElementById("auth-login-btn");
-  const status=document.getElementById("auth-login-status");
-  btn.disabled=true;btn.textContent="Вход...";
-  status.className="bug-status";status.textContent="";
-  try{
-    await loginUser(f.email.value.trim(),f.password.value);
-    status.className="bug-status ok";
-    status.textContent="✓ Успешный вход";
-    setTimeout(()=>{closeAuthModal();},800);
-  }catch(e){
-    status.className="bug-status err";
-    status.textContent="Ошибка: "+e.message;
-  }finally{
-    btn.disabled=false;btn.textContent="Войти";
-  }
-}
-async function submitRegister(ev){
-  ev.preventDefault();
-  const f=ev.target;
-  const btn=document.getElementById("auth-register-btn");
-  const status=document.getElementById("auth-register-status");
-  status.className="bug-status";status.textContent="";
-  if(f.password.value!==f.password_confirm.value){
-    status.className="bug-status err";
-    status.textContent="Пароли не совпадают";
-    return;
-  }
-  btn.disabled=true;btn.textContent="Регистрация...";
-  try{
-    await registerUser(f.email.value.trim(),f.password.value,f.username.value.trim());
-    status.className="bug-status ok";
-    status.textContent="✓ Аккаунт создан, вошёл";
-    setTimeout(()=>{closeAuthModal();},800);
-  }catch(e){
-    status.className="bug-status err";
-    status.textContent="Ошибка: "+e.message;
-  }finally{
-    btn.disabled=false;btn.textContent="Зарегистрироваться";
-  }
-}
-function openMyBuilds(){
-  hideAuthDropdown();
-  const commBtn=document.querySelector('.cat-btn[data-cat="community"]');
-  if(commBtn)commBtn.click();
-  const scope=document.getElementById("comm-scope");
-  if(scope){scope.value="mine";if(typeof loadCommunityFeed==="function")loadCommunityFeed();}
-}
-document.addEventListener("DOMContentLoaded",loadAuth);
 
 // Stable per-browser fingerprint for anti-spam likes
 function getFingerprint(){
@@ -1128,8 +733,9 @@ function debouncedCommReload(){
 function initCommTalentFilter(){
   const sel=document.getElementById("comm-talent-filter");
   if(!sel||sel.options.length>1)return;
-  Object.entries(WEAPON_TALENTS_FULL)
-    .map(([k,v])=>({key:k,name:v.name_ru?`${v.name_ru} (${v.name_en})`:v.name_en}))
+  Object.entries(WEAPON_TALENTS)
+    .filter(([k])=>k!=="none")
+    .map(([k,v])=>({key:k,name:v.name}))
     .sort((a,b)=>a.name.localeCompare(b.name))
     .forEach(t=>{
       const opt=document.createElement("option");
@@ -1329,113 +935,10 @@ function isAdmin(){return !!localStorage.getItem("d2calc_admin_token")}
 function getMyBuilds(){
   try{return new Set(JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]"))}catch(e){return new Set()}
 }
-// Legacy map для сохранённых билдов: старое имя → новое правильное
-const SET_LEGACY_MAP = {
-  "Боевое снаряжение Страйкера":"Боевик",
-  "Разбиватель сердец":"Разбиватель Сердец",
-  "Инициатива Умбра":"Umbra Initiative",
-  "Ярость охотника":"Ярость Охотника",
-  "Дилемма переговорщика":"Дилемма Переговорщика",
-  "Горячий выстрел":"Горячая штучка",
-  "Текущая директива":"Бессрочная Директива",
-  "Истинный патриот":"Истинный Патриот",
-  "Тузы и восьмёрки":"Восьмёрки и Тузы",
-  "Остриё копья":"Остриё Копья",
-  "Точка разрыва":"Переломная точка",
-  "Переломный момент":"Tipping Scales",
-  "Сосредоточенная компания":"Точка концентрации",
-  "Оплот оружейни":"Сталелитейный Бастион",
-  "Системное повреждение":"Коррупция в Системе",
-  "Кавалерист":"Кавалер",
-  "Протокол Затмения":"Протокол Затмение",
-  "Будущая инициатива":"Инициатива Будущего",
-  "Жёсткая проводка":"Спецпрограмма",
-  "Ортис: Экзуро":"Экскуро",
-  "Переработка":"Рефакторинг",
-  "Взвешенная сборка":"Аккуратная сборка",
-  "Стержневая сила":"Сила мышечного корсета"
-};
-function resolveSetName(n){ return SET_LEGACY_MAP[n]||n; }
-
-// Короткие имена сетов (из официальной RU таблицы Ubisoft) — теперь идентичны полным
-const SET_SHORT = {
-  "Боевое снаряжение Страйкера":"Боевик",
-  "Разбиватель сердец":"Разбиватель Сердец",
-  "Инициатива Умбра":"Umbra",
-  "Ярость охотника":"Ярость Охотника",
-  "Дилемма переговорщика":"Переговорщик",
-  "Горячий выстрел":"Горячая штучка",
-  "Текущая директива":"Бессрочная Директива",
-  "Истинный патриот":"Истинный Патриот",
-  "Тузы и восьмёрки":"Восьмёрки и Тузы",
-  "Остриё копья":"Остриё Копья",
-  "Точка разрыва":"Переломная точка",
-  "Виртуоз":"Виртуоз",
-  "Переломный момент":"Tipping Scales",
-  "Сосредоточенная компания":"Точка концентрации",
-  "Оплот оружейни":"Сталелитейный Бастион",
-  "Системное повреждение":"Коррупция в Системе",
-  "Эгида":"Эгида",
-  "Кавалерист":"Кавалер",
-  "Такелажник":"Такелажник",
-  "Протокол Затмения":"Протокол Затмение",
-  "Будущая инициатива":"Инициатива Будущего",
-  "Жёсткая проводка":"Спецпрограмма",
-  "Ортис: Экзуро":"Экскуро",
-  "Переработка":"Рефакторинг",
-  "Взвешенная сборка":"Аккуратная сборка",
-  "Стержневая сила":"Сила мышечного корсета"
-};
-function setShort(full){
-  if(!full)return full;
-  const clean=full.split(/\s*[—–\-]\s*/)[0].trim();
-  return SET_SHORT[clean]||clean;
-}
-
-function renderCardSlotTags(b){
-  if(!b.build_hash)return"";
-  const dec=b._decoded||(b._decoded=decodeBuildHash(b.build_hash));
-  if(!dec||!dec.slots)return"";
-  const order=["mask","chest","bp","gloves","holster","knees"];
-  const groups={};
-  for(const slot of order){
-    const s=dec.slots[slot];
-    if(!s||!s.n)continue;
-    let key,short;
-    const k=s.k;
-    if(k==="green"){
-      short=setShort(s.n);
-      key="set:"+short;
-    }else if(k==="brand"){
-      short=s.n;
-      key="brand:"+short;
-    }else if(k==="named"){
-      short=s.n;
-      key="named:"+slot+":"+short;
-    }else if(k==="exotic"){
-      short=s.n;
-      key="exotic:"+slot+":"+short;
-    }else continue;
-    if(!groups[key])groups[key]={kind:k,short,count:0};
-    groups[key].count++;
-  }
-  const list=Object.values(groups);
-  if(!list.length)return"";
-  list.sort((a,b)=>b.count-a.count);
-  const tags=list.map(g=>{
-    const cls=g.kind==="exotic"?"exotic":(g.kind==="named"?"named":(g.kind==="brand"?"brand":"set"));
-    const icon=g.kind==="exotic"?"🧿 ":(g.kind==="named"?"✦ ":"");
-    const count=g.count>1?` ×${g.count}`:"";
-    return`<span class="cc-slot-tag ${cls}">${icon}${escapeHtml(g.short)}${count}</span>`;
-  }).join("");
-  return`<div class="cc-slots">${tags}</div>`;
-}
-
 function renderBuildCard(b,isLiked,showTrend){
   const weapon=b.weapon_name?`<div class="cc-weapon">🔫 <b>${escapeHtml(b.weapon_name)}</b></div>`:"";
   const dps=b.peak_dps?`<div class="cc-dps">Пик DPS: <b>${Math.round(b.peak_dps/1000)}k</b></div>`:`<div class="cc-dps"></div>`;
   const desc=b.description?`<div class="cc-desc">${escapeHtml(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">— без описания —</div>`;
-  const slotsTags=renderCardSlotTags(b);
   const adminBtn=isAdmin()?`<button class="cc-like" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.4);color:var(--red)" onclick="adminDeleteBuild('${b.id}')" title="Удалить (админ)">🗑</button>`:"";
   const mine=getMyBuilds().has(b.id);
   const myBadge=mine?`<span class="cc-cat" style="background:rgba(0,200,83,.12);color:var(--green);border-color:rgba(0,200,83,.3)">МОЙ</span>`:"";
@@ -1453,7 +956,6 @@ function renderBuildCard(b,isLiked,showTrend){
       <span class="cc-time">· ${fmtAgo(b.created)}</span>
     </div>
     ${weapon}
-    ${slotsTags}
     ${desc}
     <div class="cc-footer">
       ${dps}
@@ -1809,14 +1311,13 @@ async function submitPublish(ev){
     const wpn=getWeapon();
     const payload={
       name:form.name.value.trim(),
-      author:(currentUser&&currentUser.username)||form.author.value.trim()||"Аноним",
+      author:form.author.value.trim()||"Аноним",
       description:form.description.value.trim(),
       weapon_cat:form.weapon_cat.value,
       weapon_name:wpn?wpn.name:"",
       build_hash:hashB64,
       peak_dps:peakNum||0,
       likes:0,
-      author_id:(currentUser&&currentUser.id)||null,
     };
     const r=await fetch(`${PB_API}/builds/records`,{
       method:"POST",
@@ -1875,8 +1376,6 @@ const PROTOTYPE_AUGMENTS = D2DATA.PROTOTYPE_AUGMENTS;
 
 // Weapon 4th-roll talents (generic, rolls on any weapon — not exotic/named talents)
 const WEAPON_TALENTS = D2DATA.WEAPON_TALENTS;
-const WEAPON_TALENTS_FULL = D2DATA.WEAPON_TALENTS_FULL;
-const GEAR_TALENTS = D2DATA.GEAR_TALENTS || [];
 
 // Currently selected weapon (by id from WPNS)
 let selectedWpnId="police_m4";
@@ -2036,8 +1535,8 @@ function getStackRate(stkDef, sps){
 
 function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRate,reloadBonus,ooc,dta,activeStacks,hasChest,hasBP,t){
   const sps0=wpn.rpm/60;
-  // Stack bonuses at time t — ВНЕ WD БАКЕТА как AMP (по замерам на манекене Y9)
-  let sAmpWD=0,sCHD=0,sROF=0,sCHC=0;
+  // Stack bonuses at time t
+  let sWD=0,sCHD=0,sROF=0,sCHC=0;
   const stkRows=[];
   for(const s of activeStacks){
     const maxS=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
@@ -2047,7 +1546,7 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     const stks=stacksAtTime(rate,maxS,dA,dR,t);
     if(s.def.wd_base!==undefined){
       const pp=(hasBP[s.name]&&s.def.wd_bp!==undefined)?s.def.wd_bp:s.def.wd_base;
-      sAmpWD+=stks*pp; // накопленный amp% от стаков (additive между разными сетами)
+      sWD+=stks*pp;
     }
     if(s.def.chd_base!==undefined){
       const pp=s.def.chd_base+(hasBP[s.name]?(s.def.chd_bp_extra||0):0);
@@ -2057,48 +1556,37 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     if(s.def.chc_base!==undefined) sCHC+=stks*s.def.chc_base;
     stkRows.push({name:s.name,stks:Math.round(stks),max:maxS,color:s.color});
   }
-  // Экзотик-таланты (Алехандро, Eagle Bearer) — в WD бакет (по описанию игры)
+  // Weapon talent WD (Alejandro)
   let talWD=0;
   if(wpn.tal_type==="shot_cover"){
     const ts=t===Infinity?wpn.tal_max:Math.min(sps0*t,wpn.tal_max);
     talWD=ts;
   }
   if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus;
-  const talAmp=0;
-  // WD bucket: ручной ввод + экзотик-талант (но НЕ стаки сетов — они amp)
-  const wdMult=1+(totalWD+talWD)/100;
+  // WD bucket
+  const wdMult=1+(totalWD+sWD+talWD)/100;
   // ROF
   const rpm_f=wpn.rpm*(1+(totalROF+sROF)/100);
   // Mag
   const mag_f=Math.round(wpn.mag*(1+totalMAG/100));
   // CHC capped 60%
   const chcCap=Math.min(chcTotal+sCHC,60)/100;
-  // CHD: ввод уже включает базовый (по замерам на манекене Y9 — base × (1 + CHD/100))
-  const totalCHD=chdTotal/100+sCHD/100;
+  // CHD: base 25% + flat + stack
+  const totalCHD=0.25+chdTotal/100+sCHD/100;
   const critAvg=1+chcCap*totalCHD;
   // HSD multiplier (independent bucket)
   const hsM=1+(hsRate/100)*(hsdTotal/100);
   // Reload
-  const noReload=typeof document!=="undefined"&&document.getElementById("b-no-reload")?.checked;
-  const reloadFinal=noReload?0:(wpn.reload/(1+reloadBonus/100));
+  const reloadFinal=wpn.reload/(1+reloadBonus/100);
   // Cycle
   const sps_f=rpm_f/60;
   const cycleT=mag_f/sps_f+reloadFinal;
-  const effSPS=noReload?sps_f:(mag_f/cycleT);
+  const effSPS=mag_f/cycleT;
   // External
   const oocM=1+ooc/100;
   const dtaM=1+dta/100;
-  // Amp множители (все внешние): ручной Amp + стаки сетов + экзотик-талант (Алехандро/Eagle Bearer)
-  const ampM=(1+(globalThis._buildAmp||0)/100)*(1+sAmpWD/100)*(1+talAmp/100);
-  // Expertise — отключена (по замерам на манекене не применяется к per-shot в Y9)
-  const expM=1;
-  // Общий wdMult_total для отображения (база + стаки + Алехандро "эквивалентно")
-  const wdMultDisplay=wdMult*ampM;
-  // Sustained DPS
-  const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*effSPS;
-  // Burst DPS (без учёта reload)
-  const burstDps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*sps_f;
-  return{dps,burstDps,wdMult:wdMultDisplay,critAvg,hsM,rpm_f,mag_f,stkRows};
+  const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*effSPS;
+  return{dps,wdMult,critAvg,hsM,rpm_f,mag_f,stkRows};
 }
 
 function calcBuild(){
@@ -2107,37 +1595,16 @@ function calcBuild(){
   document.getElementById("b-custom-sect").style.display=wpn.kind==="custom"?"block":"none";
   // Weapon info bar
   document.getElementById("b-wpn-stats").innerHTML=
-    `<div class="wpn-stat">База: <b>${wpn.dmg.toLocaleString("ru")}</b></div>`+
-    `<div class="wpn-stat" id="b-wpn-total-dmg" style="color:var(--orange);border-color:rgba(245,166,35,.3)">Общий урон: <b>—</b></div>`+
+    `<div class="wpn-stat">Урон: <b>${wpn.dmg.toLocaleString("ru")}</b></div>`+
     `<div class="wpn-stat">RPM: <b>${wpn.rpm}</b></div>`+
     `<div class="wpn-stat">Магазин: <b>${wpn.mag}</b></div>`+
     `<div class="wpn-stat">Перезарядка: <b>${wpn.reload}с</b></div>`+
     (wpn.tal?`<div class="wpn-stat" style="color:var(--orange);border-color:rgba(245,166,35,.3)">${wpn.tal}</div>`:"");
-  // Lock 4th-roll talent for exotic (they have fixed unique talent), show exotic talent desc
-  const wpnTalSel=document.getElementById("b-wpn-tal");
-  const wpnTalDesc=document.getElementById("b-wpn-tal-desc");
-  if(wpn.kind==="exotic"){
-    if(wpnTalSel){
-      wpnTalSel.disabled=true;
-      wpnTalSel.style.opacity="0.5";
-      wpnTalSel.title="Экзотик имеет фиксированный уникальный талант — 4-й ролл не применяется";
-    }
-    if(wpnTalDesc){
-      wpnTalDesc.innerHTML=`<div style="color:var(--orange);font-weight:600;font-size:12px;margin-top:4px">🧿 Экзотик-талант: ${wpn.tal||""}</div><div style="font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px">${wpn.tal_desc||""}</div>`;
-    }
-  }else{
-    if(wpnTalSel){
-      wpnTalSel.disabled=false;
-      wpnTalSel.style.opacity="";
-      wpnTalSel.title="";
-    }
-  }
 
   // Count set pieces + brand pieces from slotState
   const cnt={};const hasChest={};const hasBP={};
   const brandCnt={};
   const namedItems=[];
-  let ninjaBikeBag=false;
   for(const[slot,it] of Object.entries(slotState)){
     if(!it)continue;
     if(it.kind==="green"){
@@ -2149,47 +1616,13 @@ function calcBuild(){
     }else if(it.kind==="named"){
       if(it.brand)brandCnt[it.brand]=(brandCnt[it.brand]||0)+1;
       namedItems.push({slot,item:it});
-    }else if(it.kind==="exotic"){
-      // NinjaBike Bag (Resourceful): +1 к каждому сету/бренду где уже есть хотя бы 1 предмет
-      if(slot==="bp"&&(it.en==="NinjaBike Bag"||/ВелоНиндз/.test(it.name||""))){
-        ninjaBikeBag=true;
-      }
     }
-  }
-  if(ninjaBikeBag){
-    for(const k of Object.keys(cnt)){if(cnt[k]>=1)cnt[k]++;}
-    for(const k of Object.keys(brandCnt)){if(brandCnt[k]>=1)brandCnt[k]++;}
+    // exotics: no count, just talent (TODO)
   }
 
   // Aggregate bonuses
   let tWD=0,tROF=0,tMAG=0,tCHC=0,tCHD=0,tHSD=0,tRELOAD=0;
   const bonuses=[];const activeStacks=[];
-  // Единый список гарантированных (авто) статов: {stat, value, source, conditional?}
-  const guaranteed=[];
-  const pushG=(stat,value,source,conditional)=>{
-    if(!stat||!value)return;
-    guaranteed.push({stat,value,source,conditional:!!conditional});
-  };
-  const pushGObj=(b,source,wpnCat)=>{
-    if(!b||typeof b!=="object")return;
-    if(b.rof)pushG("rof",b.rof,source);
-    if(b.mag)pushG("mag",b.mag,source);
-    if(b.chc)pushG("chc",b.chc,source);
-    if(b.chd)pushG("chd",b.chd,source);
-    if(b.hsd)pushG("hsd",b.hsd,source);
-    if(b.wd)pushG("wd",b.wd,source);
-    if(b.reload)pushG("reload",b.reload,source);
-    if(b.handling)pushG("handling",b.handling,source);
-    if(b.type_dmg){
-      const match=!b.type||b.type==="ALL"||b.type.split("+").some(t=>wpnCat&&wpnCat.includes(t));
-      const typeLbl=b.type||"";
-      if(match){
-        pushG("wd",b.type_dmg,source+" ("+typeLbl+")");
-      }else{
-        pushG("wd",b.type_dmg,source+" ("+typeLbl+" ✗ не твой тип)",true);
-      }
-    }
-  };
 
   for(const[nm,count] of Object.entries(cnt)){
     const def=SB[nm];if(!def)continue;
@@ -2211,7 +1644,6 @@ function calcBuild(){
           const match=!b.type||b.type.split("+").some(t=>wpn.cat.includes(t));
           if(match)tWD+=b.type_dmg;
         }
-        pushGObj(b,`${nm} (${tier}pc)`,wpn.cat);
         const noteExtra=(tier===4&&def.p4_note)?` — ${def.p4_note}`:"";
         bonuses.push({color:def.color,tier,nm,desc:bonusDesc(b,wpn.cat)+noteExtra});
       }else if(typeof b==="string"&&b!=="stacks"){
@@ -2265,86 +1697,9 @@ function calcBuild(){
         const match=!b.type||b.type.split("+").some(t=>wpn.cat===catMap[t]||wpn.cat.includes(t));
         if(match)tWD+=b.type_dmg;
       }
-      pushGObj(b,`${brandName} ${i+1}pc`,wpn.cat);
       bonuses.push({color:"#42a5f5",tier:i+1,nm:brandName,desc:"бренд "+(i+1)+"шт: "+(Object.entries(b).filter(([k])=>k!=="type").map(([k,v])=>`+${v}% ${k}`).join(" · ")||"—")});
     }
   }
-
-  // ===== Guaranteed stats aggregation =====
-  // Собираем из core/attr1/attr2 каждого занятого слота. Для пустых слотов или слотов
-  // без явного core (green/brand) — применяем глобальный режим (red/blue/yellow/custom).
-  let gWD=0,gCHC=0,gCHD=0,gHSD=0,gDTA=0,gOOC=0,gROF=0,gMAG=0,gRELOAD=0,gARMOR=0,gSKILL=0;
-  const gOtherStats={}; // прочие атрибуты (hazard protection и т.п.) — для отображения
-  const coreMode=(document.getElementById("b-core-mode")?.value)||"red";
-  const SLOT_LIST=["mask","chest","bp","gloves","holster","knees"];
-  const SLOT_LABELS_RU={mask:"Маска",chest:"Нагрудник",bp:"Рюкзак",gloves:"Перчатки",holster:"Кобура",knees:"Наколенники"};
-  const CORE_KEY_TO_STAT={red:"weapon damage",blue:"armor",yellow:"skill tier"};
-  function applyCoreStat(coreVal,source){
-    const cv=Array.isArray(coreVal)?coreVal[0]:coreVal;
-    if(cv==="weapon damage"){gWD+=15; pushG("wd",15,source);}
-    else if(cv==="armor"){gARMOR+=16594; pushG("armor",16594,source);}
-    else if(cv==="skill tier"){gSKILL+=1; pushG("skill",1,source);}
-  }
-  function mapAttrKey(rawK){
-    const key=rawK.toLowerCase();
-    if(key.includes("weapon damage"))return "wd";
-    if(key.includes("critical hit chance")||key==="crit chance"||key.includes("crit chance"))return "chc";
-    if(key.includes("critical hit damage")||key==="crit damage"||key.includes("crit damage"))return "chd";
-    if(key.includes("headshot damage"))return "hsd";
-    if(key.includes("damage to armor"))return "dta";
-    if(key.includes("damage out of cover")||key.includes("out of cover"))return "ooc";
-    if(key.includes("rate of fire"))return "rof";
-    if(key.includes("mag size")||key.includes("magazine"))return "mag";
-    if(key.includes("reload"))return "reload";
-    return null;
-  }
-  function applyAttr(attrs,source){
-    if(!attrs||typeof attrs!=="object")return;
-    for(const[rawK,v] of Object.entries(attrs)){
-      if(typeof v!=="number")continue;
-      const stat=mapAttrKey(rawK);
-      if(stat==="wd"){gWD+=v; pushG("wd",v,source);}
-      else if(stat==="chc"){gCHC+=v; pushG("chc",v,source);}
-      else if(stat==="chd"){gCHD+=v; pushG("chd",v,source);}
-      else if(stat==="hsd"){gHSD+=v; pushG("hsd",v,source);}
-      else if(stat==="dta"){gDTA+=v; pushG("dta",v,source);}
-      else if(stat==="ooc"){gOOC+=v; pushG("ooc",v,source);}
-      else if(stat==="rof"){gROF+=v; pushG("rof",v,source);}
-      else if(stat==="mag"){gMAG+=v; pushG("mag",v,source);}
-      else if(stat==="reload"){gRELOAD+=v; pushG("reload",v,source);}
-      else {
-        const k=rawK.toLowerCase();
-        gOtherStats[k]=(gOtherStats[k]||0)+v;
-        pushG("other:"+k,v,source);
-      }
-    }
-  }
-  // Сначала учитываем core именных/экзотиков
-  let slotsWithOwnCore=0;
-  for(const slot of SLOT_LIST){
-    const it=slotState[slot];
-    const slotRu=SLOT_LABELS_RU[slot]||slot;
-    if(it&&it.core){
-      applyCoreStat(it.core,`Core (${slotRu})`);
-      slotsWithOwnCore++;
-    }
-    if(it){
-      const itemName=it.name||it.setName||it.brand||slotRu;
-      applyAttr(it.attr1,`Attr1 ${slotRu} · ${itemName}`);
-      applyAttr(it.attr2,`Attr2 ${slotRu} · ${itemName}`);
-    }
-  }
-  // Свободные слоты — распределяются по счётчикам Red/Blue/Yellow
-  const cntRed=parseInt(document.getElementById("core-red")?.value)||0;
-  const cntBlue=parseInt(document.getElementById("core-blue")?.value)||0;
-  const cntYellow=parseInt(document.getElementById("core-yellow")?.value)||0;
-  for(let i=0;i<cntRed;i++)applyCoreStat("weapon damage",`🔴 Core Red #${i+1}`);
-  for(let i=0;i<cntBlue;i++)applyCoreStat("armor",`🔵 Core Blue #${i+1}`);
-  for(let i=0;i<cntYellow;i++)applyCoreStat("skill tier",`🟡 Core Yellow #${i+1}`);
-  // Итог: добавляем к общим totals (до DPS-расчёта)
-  tWD+=gWD; tCHC+=gCHC; tCHD+=gCHD; tHSD+=gHSD;
-  tROF+=gROF; tMAG+=gMAG; tRELOAD+=gRELOAD;
-  // OoC / DtA — ручные поля-модификаторы, зальём напрямую ниже через mOOC/mDTA.
 
   // Named item talents (parsed, non-conditional applied as static base)
   let tPeakOnly={wd:0,chc:0,chd:0,hsd:0,rof:0,mag:0};
@@ -2352,7 +1707,6 @@ function calcBuild(){
     const tb=ni.item.talentBonus;
     if(!tb){bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+" — "+(ni.item.talentDesc||"")});continue}
     const isCond=tb.conditional;
-    const niSrc=`Именной: ${ni.item.name}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -2363,102 +1717,19 @@ function calcBuild(){
           if(k==="hsd")tHSD+=tb[k];
           if(k==="rof")tROF+=tb[k];
           if(k==="mag")tMAG+=tb[k];
-          pushG(k,tb[k],niSrc);
         }
       }
     });
-    if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,niSrc);}
+    if(tb.reload)tRELOAD+=tb.reload;
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
     bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
 
-  // Gear talents (chest + backpack) — selected from dropdown
-  const chestTalId=document.getElementById("b-chest-talent")?.value;
-  const bpTalId=document.getElementById("b-bp-talent")?.value;
-  for(const[selId,slotName] of [[chestTalId,"Нагрудник"],[bpTalId,"Рюкзак"]]){
-    if(!selId)continue;
-    const isPerfect=selId.startsWith("perfect:");
-    const baseId=isPerfect?selId.slice(8):selId;
-    const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
-    if(!t)continue;
-    const slotKey=slotName==="Нагрудник"?"chest":"bp";
-    const it=slotState[slotKey];
-    if(it&&(it.kind==="named"||it.kind==="exotic")&&it.talent){
-      bonuses.push({color:"#ffa000",tier:"⚠️",nm:"Талант "+slotName,desc:`Уже задан вещью "${it.name}": ${it.talent}. Селект игнорируется.`});
-      continue;
-    }
-    // Для Perfect сначала пробуем "Perfect X", потом X. Для обычного — X, потом "Perfect X".
-    const tb=isPerfect?(talentBonus("Perfect "+t.name_en)||talentBonus(t.perfect_name_ru)||talentBonus(t.name_en)):(talentBonus(t.name_en)||talentBonus("Perfect "+t.name_en));
-    if(tb){
-      const isCond=tb.conditional;
-      ["wd","chc","chd","hsd","rof","mag","reload"].forEach(k=>{
-        if(tb[k]){
-          if(isCond)tPeakOnly[k]=(tPeakOnly[k]||0)+tb[k];
-          else{
-            if(k==="wd")tWD+=tb[k];
-            else if(k==="chc")tCHC+=tb[k];
-            else if(k==="chd")tCHD+=tb[k];
-            else if(k==="hsd")tHSD+=tb[k];
-            else if(k==="rof")tROF+=tb[k];
-            else if(k==="mag")tMAG+=tb[k];
-            else if(k==="reload")tRELOAD+=tb[k];
-          }
-          pushG(k,tb[k],`${slotName}: ${isPerfect?"⭐ ":""}${t.name_ru||t.name_en}`,isCond);
-        }
-      });
-    }
-    const label=isPerfect?(t.perfect_name_ru||`${t.name_ru||t.name_en} (идеальный)`):(t.name_ru||t.name_en);
-    const descText=t.desc_ru||t.description||"";
-    bonuses.push({color:"#f5a623",tier:"🎽",nm:`Талант ${slotName}`,desc:`${label}: ${descText.slice(0,120)}${descText.length>120?"...":""}`});
-  }
-
-  // Exotic weapon talent — always applies, guaranteed
-  if(wpn.kind==="exotic"){
-    const exSrc=`🧿 Экзотик: ${wpn.name}`;
-    if(wpn.tal_type==="kill"&&wpn.tal_bonus){
-      // e.g. Eagle Bearer: stacks of WD on kill
-      pushG("wd",wpn.tal_bonus,exSrc+" (максимум на киллах)",true);
-    }
-    if(wpn.tal_type==="shot_cover"&&wpn.tal_max){
-      pushG("wd",wpn.tal_max,exSrc+" (из укрытия, пик)",true);
-    }
-    const exStats=EXOTIC_WPNS[wpn.name]||{};
-    if(exStats.static_bonus){
-      const sb=exStats.static_bonus;
-      ["wd","chc","chd","hsd","rof","mag","reload"].forEach(k=>{
-        if(sb[k]){
-          if(k==="wd")tWD+=sb[k];
-          else if(k==="chc")tCHC+=sb[k];
-          else if(k==="chd")tCHD+=sb[k];
-          else if(k==="hsd")tHSD+=sb[k];
-          else if(k==="rof")tROF+=sb[k];
-          else if(k==="mag")tMAG+=sb[k];
-          else if(k==="reload")tRELOAD+=sb[k];
-          pushG(k,sb[k],exSrc+" (статический)"+(sb.note?" · "+sb.note:""));
-        }
-      });
-    }
-    if(exStats.peak_bonus){
-      const pb=exStats.peak_bonus;
-      ["wd","chc","chd","hsd","rof","mag","reload"].forEach(k=>{
-        if(pb[k]){
-          tPeakOnly[k]=(tPeakOnly[k]||0)+pb[k];
-          pushG(k,pb[k],exSrc+" (пик)"+(pb.note?" · "+pb.note:""),true);
-        }
-      });
-    }
-    bonuses.push({color:"#ab47bc",tier:"🧿",nm:"Экзотик: "+wpn.name,desc:(wpn.tal||"")+": "+(wpn.tal_desc||"").slice(0,140)});
-  }
-
-  // Weapon 4th-roll talent (applies on top of base/exotic/named). For exotic — skip (slot locked)
-  const wtFull=(wpn.kind==="exotic")?null:WEAPON_TALENTS_FULL[selectedWpnTalent];
-  const wtOld=(wpn.kind==="exotic")?null:WEAPON_TALENTS[selectedWpnTalent];
-  const wtBonus=(wtFull?.bonus&&Object.keys(wtFull.bonus).length>0)?wtFull.bonus:wtOld?.bonus??null;
-  const wtName=wtFull?(wtFull.name_ru?`${wtFull.name_ru} (${wtFull.name_en})`:wtFull.name_en):wtOld?.name||"";
-  if(wtBonus){
-    const tb=wtBonus;
+  // Weapon 4th-roll talent (applies on top of base/exotic/named)
+  const wtDef=WEAPON_TALENTS[selectedWpnTalent];
+  if(wtDef&&wtDef.bonus){
+    const tb=wtDef.bonus;
     const isCond=tb.conditional;
-    const wtSrc=`Талант оружия: ${wtName}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -2469,20 +1740,18 @@ function calcBuild(){
           if(k==="hsd")tHSD+=tb[k];
           if(k==="rof")tROF+=tb[k];
           if(k==="mag")tMAG+=tb[k];
-          pushG(k,tb[k],wtSrc);
         }
       }
     });
-    if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,wtSrc);}
+    if(tb.reload)tRELOAD+=tb.reload;
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
-    bonuses.push({color:"#f5a623",tier:"🎯",nm:"Талант: "+wtName,desc:mathStr+(isCond?" (условно — только пик)":"")+(tb.note?" · "+tb.note:"")});
+    bonuses.push({color:"#f5a623",tier:"🎯",nm:"Талант: "+wtDef.name,desc:mathStr+(isCond?" (условно — только пик)":"")+(tb.note?" · "+tb.note:"")});
   }
 
   // Named weapon talent (if any) — applies same way as named armor
   if(wpn.kind==="named"&&wpn.named_bonus){
     const tb=wpn.named_bonus;
     const isCond=tb.conditional;
-    const nwSrc=`Оружие: ${wpn.name}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -2493,21 +1762,15 @@ function calcBuild(){
           if(k==="hsd")tHSD+=tb[k];
           if(k==="rof")tROF+=tb[k];
           if(k==="mag")tMAG+=tb[k];
-          pushG(k,tb[k],nwSrc);
         }
       }
     });
-    if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,nwSrc);}
+    if(tb.reload)tRELOAD+=tb.reload;
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
     bonuses.push({color:"#ab47bc",tier:"🔫",nm:"Оружие: "+wpn.name,desc:(wpn.tal||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
   }
 
-  // Manual stats — пользователь вводит ИТОГИ из меню игры ("Наступление").
-  // Калькулятор НЕ суммирует авто-бонусы от core/сетов/брендов/талантов в tWD/tCHC/...
-  // (классовые перки делают автосчёт ненадёжным). Из авто-сбора остаются только:
-  // - tPeakOnly (conditional-стаки, экзотиков peak_bonus) → применяются при пиковом DPS
-  // - activeStacks (Страйкер и т.п.)
-  // - bonuses (для отображения источников)
+  // Manual stats
   const mCHC=parseFloat(document.getElementById("b-chc").value)||0;
   const mCHD=parseFloat(document.getElementById("b-chd").value)||0;
   const mHSD=parseFloat(document.getElementById("b-hsd").value)||0;
@@ -2515,50 +1778,16 @@ function calcBuild(){
   const mOOC=parseFloat(document.getElementById("b-ooc").value)||0;
   const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
-  const mRELOAD=parseFloat(document.getElementById("b-reload")?.value)||0;
-  const mROF=parseFloat(document.getElementById("b-rof")?.value)||0;
-  const mMAG=parseFloat(document.getElementById("b-mag")?.value)||0;
-  const mAMP=parseFloat(document.getElementById("b-amp")?.value)||0;
-  const mEXP=parseFloat(document.getElementById("b-expertise")?.value)||0;
-  globalThis._buildAmp=mAMP;
-  globalThis._buildExpertise=mEXP;
-  const catBonusMap={
-    AR:parseFloat(document.getElementById("b-wd-ar")?.value)||0,
-    SMG:parseFloat(document.getElementById("b-wd-smg")?.value)||0,
-    LMG:parseFloat(document.getElementById("b-wd-lmg")?.value)||0,
-    MMR:parseFloat(document.getElementById("b-wd-mmr")?.value)||0,
-    Rifle:parseFloat(document.getElementById("b-wd-rifle")?.value)||0,
-    SG:parseFloat(document.getElementById("b-wd-sg")?.value)||0,
-    Pistol:parseFloat(document.getElementById("b-wd-pistol")?.value)||0,
-  };
-  const catBonus=catBonusMap[wpn.cat]||0;
-  const wpnCatLabel={AR:"AR (штурмовая)",SMG:"SMG (ПП)",LMG:"LMG (пулемёт)",MMR:"MMR (снайперка)",Rifle:"Rifle (винтовка)",SG:"SG (дробовик)",Pistol:"Pistol"};
-  const hintEl=document.getElementById("b-wpn-cat-hint");
-  if(hintEl){
-    const lbl=wpnCatLabel[wpn.cat]||wpn.cat||"—";
-    hintEl.textContent=`→ активен бонус "От ${lbl}"`;
-  }
-  // ОБНУЛЯЕМ все авто-накопления: берём ИТОГ только из ручных полей
-  tWD=mWD+catBonus;
-  tCHC=mCHC;
-  tCHD=mCHD;
-  tHSD=mHSD;
-  tROF=mROF;
-  tMAG=mMAG;
-  tRELOAD=mRELOAD;
-  const mOOCeff=mOOC;
-  const mDTAeff=mDTA;
-  // SHD / Prototype Gear / Recombinator — больше не суммируются в DPS (итог уже введён в игре).
-  // Читаем только чтобы показать их в списке bonuses (информативно).
+  tWD+=mWD; tCHC+=mCHC; tCHD+=mCHD; tHSD+=mHSD;
+  // SHD Watch (additive into respective buckets)
   const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
+  tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo; tRELOAD+=shd.reload;
   if(Object.values(shd).some(x=>x>0)){
     bonuses.push({color:"#42a5f5",tier:"⌚",nm:"SHD Watch",desc:Object.entries(shd).filter(([,x])=>x).map(([k,x])=>`+${x}% ${k}`).join(" · ")});
   }
+  // Prototype Gear Attributes (Y8S1) — additive into buckets
   const proto={slots:v("proto-slots-count"),wd:v("proto-wd"),hsd:v("proto-hsd"),chc:v("proto-chc"),chd:v("proto-chd"),elite:v("proto-elite"),health:v("proto-health")};
-  if(proto.wd)pushG("wd",proto.wd,"Prototype Gear");
-  if(proto.hsd)pushG("hsd",proto.hsd,"Prototype Gear");
-  if(proto.chc)pushG("chc",proto.chc,"Prototype Gear");
-  if(proto.chd)pushG("chd",proto.chd,"Prototype Gear");
+  tWD+=proto.wd; tHSD+=proto.hsd; tCHC+=proto.chc; tCHD+=proto.chd;
   // elite/health damage are conditional on enemy type, store separately for note
   const protoSum=proto.wd+proto.hsd+proto.chc+proto.chd+proto.elite+proto.health;
   if(protoSum>0||proto.slots>0){
@@ -2572,10 +1801,9 @@ function calcBuild(){
     if(proto.health)parts.push(`+${proto.health}% vs Health (по здоровью)`);
     bonuses.push({color:"#ab47bc",tier:"🧪",nm:"Prototype Gear",desc:parts.join(" · ")});
   }
-  // Recombinator (Y8S1 seasonal modifiers) — информативно, не влияет на DPS (итог вводится вручную)
+  // Recombinator (Y8S1 seasonal modifiers) — only Offense HSD/Ammo go into weapon DPS
   const rc={hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")};
-  if(rc.hsd)pushG("hsd",rc.hsd,"Рекомбинатор: Offense");
-  if(rc.ammo)pushG("mag",rc.ammo,"Рекомбинатор: Offense");
+  tHSD+=rc.hsd; tMAG+=rc.ammo;
   const rcOff=rc.hsd+rc.ammo+rc.ergo;
   const rcDef=rc.armor+rc.elite+rc.hazprot;
   const rcUtl=rc.status+rc.skilldmg+rc.util3;
@@ -2604,9 +1832,15 @@ function calcBuild(){
     const valEl=document.getElementById(`proto-${i}-val`);
     if(valEl)valEl.textContent=value.toFixed(1)+aug.unit;
     augActive.push({key,name:aug.name,lvl,value,desc:aug.desc,impact:aug.dps_impact});
-    // Augments информативно (итог вводится вручную, автосчёт отключён)
-    if(key==="echo")pushG("wd",value,`Prototype Augment: ${aug.name}`);
-    else if(key==="paradox")pushG("mag",value*3,`Prototype Augment: ${aug.name}`);
+    // Apply DPS math (approximations)
+    if(key==="echo"){
+      // Chance to deal damage twice = +value% WD multiplicatively
+      tWD+=value;
+    }else if(key==="paradox"){
+      // Mag refill chance — approximated as +mag% (sustained DPS proxy)
+      tMAG+=value*3; // rough conversion
+    }
+    // Other augments don't directly affect weapon DPS
   }
   if(augActive.length){
     bonuses.push({color:"#ab47bc",tier:"🧪",nm:"Prototype Augments",desc:augActive.map(a=>`${a.name} lvl${a.lvl} (${a.value.toFixed(1)}${PROTOTYPE_AUGMENTS[a.key].unit})`).join(" · ")});
@@ -2617,104 +1851,11 @@ function calcBuild(){
     if(descEl)descEl.innerHTML="";
   }
 
-  // ===== Рендер "Гарантированные статы" — отключён (пользователь вводит итоги руками) =====
-  if(false){
-    const gSect=document.getElementById("b-guaranteed-sect");
-    const gGrid=document.getElementById("b-guaranteed-grid");
-    if(gSect&&gGrid){
-      const statMeta={
-        wd:{icon:"⚔️",label:"Урон оружия",unit:"%"},
-        chc:{icon:"💥",label:"Шанс крита",unit:"%"},
-        chd:{icon:"💢",label:"Урон крита",unit:"%"},
-        hsd:{icon:"🎯",label:"Урон в голову",unit:"%"},
-        dta:{icon:"🛡",label:"Урон по броне",unit:"%"},
-        ooc:{icon:"🚶",label:"Вне укрытия",unit:"%"},
-        rof:{icon:"🔥",label:"Скорострельность",unit:"%"},
-        mag:{icon:"📦",label:"Ёмкость магазина",unit:"%"},
-        reload:{icon:"♻️",label:"Перезарядка",unit:"%"},
-        handling:{icon:"🎯",label:"Управление",unit:"%"},
-        armor:{icon:"🛡",label:"Броня",unit:""},
-        skill:{icon:"⚡",label:"Ур. навыка",unit:""},
-      };
-      const statOrder=["wd","chc","chd","hsd","dta","ooc","rof","mag","reload","handling","armor","skill"];
-      const groupedG={};
-      for(const g of guaranteed){
-        if(!groupedG[g.stat])groupedG[g.stat]=[];
-        groupedG[g.stat].push(g);
-      }
-      const keys=Object.keys(groupedG).sort((a,b)=>{
-        const ia=statOrder.indexOf(a),ib=statOrder.indexOf(b);
-        if(ia===-1&&ib===-1)return a.localeCompare(b);
-        if(ia===-1)return 1;
-        if(ib===-1)return -1;
-        return ia-ib;
-      });
-      const escH=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-      const html=keys.map(stat=>{
-        const list=groupedG[stat];
-        const active=list.filter(x=>!x.conditional);
-        const condit=list.filter(x=>x.conditional);
-        const meta=statMeta[stat]||{icon:"•",label:stat.startsWith("other:")?(typeof translateStat==="function"?translateStat(stat.slice(6)):stat.slice(6)):stat,unit:"%"};
-        const total=active.reduce((s,x)=>s+x.value,0);
-        const activeStr=active.map(x=>`${x.value>0?"+":""}${x.value}${meta.unit||""} (${escH(x.source)})`).join(", ");
-        const conditStr=condit.map(x=>`${x.value>0?"+":""}${x.value}${meta.unit||""} (${escH(x.source)})`).join(", ");
-        const totalStr=(stat==="armor")?total.toLocaleString("ru"):((total>0?"+":"")+total);
-        return `
-          <div class="g-row" style="padding:6px 8px;background:rgba(0,200,83,.04);border-radius:5px;margin-bottom:4px">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <span>${meta.icon} <b>${meta.label}</b></span>
-              <b style="color:var(--green);font-size:14px">${totalStr}${meta.unit||""}</b>
-            </div>
-            ${activeStr?`<div style="font-size:10px;color:var(--muted);margin-top:2px;line-height:1.3">${activeStr}</div>`:""}
-            ${conditStr?`<div style="font-size:10px;color:#f5a623;opacity:.75;margin-top:2px;line-height:1.3">⚠ ${conditStr}</div>`:""}
-          </div>`;
-      }).join("");
-      if(html){
-        gSect.style.display="block";
-        gGrid.innerHTML=html;
-      }else{
-        gSect.style.display="none";
-      }
-    }
-  }
-
   // Render bonuses
   const bsect=document.getElementById("b-bonuses-sect");
   bsect.style.display=bonuses.length?"block":"none";
   document.getElementById("b-bonuses").innerHTML=`<div class="bon-list">`+
     bonuses.map(b=>`<div class="bon-item" style="border-color:${b.color}"><span class="bon-v" style="color:${b.color}">${b.nm} ${b.tier}шт</span><span>${b.desc}</span></div>`).join("")+`</div>`;
-
-  // Top: primary sources (exotic + 4pc sets + named)
-  const topKey=document.getElementById("b-top-key");
-  if(topKey){
-    const keys=[];
-    bonuses.forEach(b=>{
-      if(b.tier==="🧿") keys.push(b.nm.replace(/^Экзотик:\s*/,""));
-      else if(typeof b.tier==="number"&&b.tier===4) keys.push(setShort(b.nm)+" 4шт");
-    });
-    topKey.innerHTML=keys.length?`<span style="color:var(--muted)">💥 Главное:</span> <b style="color:var(--orange)">${keys.map(k=>escapeHtml(k)).join(" + ")}</b>`:"";
-  }
-
-  // Top compact bonus tags
-  const topB=document.getElementById("b-top-bonuses");
-  if(topB){
-    const maxTierBySet={};
-    bonuses.forEach(b=>{if(typeof b.tier==="number"){maxTierBySet[b.nm]=Math.max(maxTierBySet[b.nm]||0,b.tier);}});
-    const finalTags=bonuses.filter(b=>{
-      if(typeof b.tier==="number") return b.tier===maxTierBySet[b.nm];
-      return true;
-    }).map(b=>{
-      let kind="";
-      if(/Экзотик/i.test(b.nm)||b.tier==="🧿") kind="exotic";
-      else if(b.tier==="им") kind="named";
-      let short=b.nm.replace(/^(Экзотик: |Оружие: )/,"");
-      const isNum=typeof b.tier==="number";
-      if(isNum)short=setShort(short);
-      const tierLbl=isNum?` ${b.tier}шт`:(b.tier==="им"?"":` ${b.tier||""}`);
-      return `<span class="rtb-tag ${kind}">${short}${tierLbl}</span>`;
-    });
-    topB.innerHTML=finalTags.join("")||`<span class="rtb-hint">Нет активных сет-бонусов — набери 2/3/4 предмета одного сета/бренда.</span>`;
-  }
 
   // Stack info
   let stkHtml="";
@@ -2768,28 +1909,13 @@ function calcBuild(){
     const chcX=tCHC+(isPeak?tPeakOnly.chc:0);
     const chdX=tCHD+(isPeak?tPeakOnly.chd:0);
     const hsdX=tHSD+(isPeak?tPeakOnly.hsd:0);
-    return{...tp,...dpsAtTime(wpn,wdX,rofX,magX,chcX,chdX,hsdX,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tp.t)};
+    return{...tp,...dpsAtTime(wpn,wdX,rofX,magX,chcX,chdX,hsdX,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,tp.t)};
   });
   const peak=rows[rows.length-1];
   const baseDPS=rows[0].dps;
   const maxDPS=peak.dps;
-  // Обновим "Общий урон" в инфо-баре оружия: БАЗА (без peak-стаков) + ПИК (со стаками)
-  // Сверка с меню игры: без экспертизы/ампа (как показывает карточка оружия в игре)
-  const baseDmg=Math.round(wpn.dmg*(1+tWD/100));
-  const peakWD=tWD+(tPeakOnly.wd||0);
-  const peakDmg=Math.round(wpn.dmg*(1+peakWD/100));
-  // С экспертизой и ампом — реальный урон в бою
-  const realDmg=Math.round(baseDmg*(1+mEXP/100)*(1+mAMP/100));
-  const totalDmgEl=document.getElementById("b-wpn-total-dmg");
-  if(totalDmgEl){
-    const hasPeak=peakWD>tWD;
-    const hasExpAmp=mEXP>0||mAMP>0;
-    totalDmgEl.innerHTML=`<div style="font-size:11px">В игре карточка: <b>${baseDmg.toLocaleString("ru")}</b> <span style="color:var(--muted);font-size:10px">(+${tWD}% WD, БЕЗ экспертизы/ампа)</span></div>`+
-      (hasExpAmp?`<div style="font-size:11px;margin-top:2px">Реальный per-shot: <b style="color:var(--green)">${realDmg.toLocaleString("ru")}</b> <span style="color:var(--muted);font-size:10px">(+${mEXP}% exp × +${mAMP}% amp)</span></div>`:"")+
-      (hasPeak?`<div style="font-size:11px;margin-top:2px">Пик со стаками: <b style="color:var(--orange)">${peakDmg.toLocaleString("ru")}</b> <span style="color:#f5a623;font-size:10px">(+${peakWD}% WD)</span></div>`:"");
-  }
   // Simpson-ish average over 10s window (sustained fight)
-  const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tt).dps);
+  const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,tt).dps);
   const avgDPS10=samplesAvg.reduce((a,b)=>a+b,0)/samplesAvg.length;
 
   document.getElementById("b-stacks").innerHTML=stkHtml;
@@ -2831,68 +1957,16 @@ function calcBuild(){
     </div>
     <div style="font-size:11px;color:var(--muted);margin-top:12px;border-top:1px solid var(--border);padding-top:8px">
       Прирост база→пик: <b style="color:${rampPct>0?"#00c853":"#888"}">+${rampPct}%</b> · WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · HS ×${peak.hsM.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f}
-    </div>
-    <div style="margin-top:14px;border-top:1px solid var(--border);padding-top:10px">
-      <h4 style="margin:0 0 6px;font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.5px">💥 Урон за выстрел (для сверки с манекеном в игре)</h4>
-      ${(()=>{
-        // Считаем урон per-shot на ФУЛ стаках
-        const wdMultPeak=peak.wdMult;
-        const chdVal=mCHD/100; // CHD input без базового 25%
-        const hsdVal=mHSD/100;
-        const ampMult=(1+mAMP/100); // без talAmp — уже в WD
-        const expMult=(1+mEXP/100);
-        const oocM=1+mOOCeff/100;
-        const dtaM=1+mDTAeff/100;
-        const baseShot=Math.round(wpn.dmg*wdMultPeak*oocM*dtaM*ampMult*expMult);
-        const critShot=Math.round(baseShot*(1+chdVal));
-        const hsShot=Math.round(baseShot*(1+hsdVal));
-        const critHsShot=Math.round(baseShot*(1+chdVal)*(1+hsdVal));
-        return `<table style="width:100%;font-size:12px;border-collapse:collapse">
-          <thead><tr style="color:var(--muted);font-size:10px;text-transform:uppercase">
-            <th style="text-align:left;padding:4px 6px">Тип выстрела</th>
-            <th style="text-align:right;padding:4px 6px">Урон</th>
-            <th style="text-align:left;padding:4px 6px;color:#666">Формула</th>
-          </tr></thead>
-          <tbody>
-            <tr><td style="padding:4px 6px">Обычный (не крит, в тело)</td><td style="text-align:right;padding:4px 6px;font-weight:700">${baseShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">база × WD × OoC × DtA × Amp</td></tr>
-            <tr><td style="padding:4px 6px">Крит</td><td style="text-align:right;padding:4px 6px;font-weight:700;color:var(--yellow)">${critShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${(1+chdVal).toFixed(2)}</td></tr>
-            <tr><td style="padding:4px 6px">В голову (без крита)</td><td style="text-align:right;padding:4px 6px;font-weight:700;color:var(--blue)">${hsShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${(1+hsdVal).toFixed(2)}</td></tr>
-            <tr><td style="padding:4px 6px">Крит в голову (макс)</td><td style="text-align:right;padding:4px 6px;font-weight:700;color:var(--orange)">${critHsShot.toLocaleString("ru")}</td><td style="padding:4px 6px;color:#666;font-size:10px">обычный × ${((1+chdVal)*(1+hsdVal)).toFixed(2)}</td></tr>
-          </tbody>
-        </table>
-        <div style="font-size:10px;color:var(--muted);margin-top:4px">Сравни с цифрами над врагом в игре на фул стаках. Формула верифицирована по замерам на манекене.</div>`;
-      })()}
     </div>`;
 
   document.getElementById("b-results-sect").style.display="block";
   document.getElementById("b-ttk-sect").style.display="block";
-
-  // Top compact result panel
-  const topN=document.getElementById("b-top-nums");
-  const topSect=document.getElementById("b-result-top");
-  if(topN&&topSect){
-    topN.innerHTML=`
-      <div class="rtn-base">
-        <div class="rtn-val">${Math.round(baseDPS).toLocaleString("ru")}</div>
-        <div class="rtn-lbl">База · без стаков</div>
-      </div>
-      <div class="rtn-avg">
-        <div class="rtn-val">${Math.round(avgDPS10).toLocaleString("ru")}</div>
-        <div class="rtn-lbl">Средний · 10с бой</div>
-      </div>
-      <div class="rtn-peak">
-        <div class="rtn-val">${Math.round(maxDPS).toLocaleString("ru")}</div>
-        <div class="rtn-lbl">Пик · фул стаки</div>
-      </div>`;
-    topSect.style.display="block";
-  }
-
   // Store for publish flow
   window._lastBuildDPS={base:baseDPS,avg:avgDPS10,peak:maxDPS};
   // Build validation
   runBuildValidation({wpn,cnt,hasChest,hasBP,brandCnt,tCHC,tWD,tHSD,tROF,namedItems,slotState});
   // Stat weights — what to level up next
-  computeBuildWeights({wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC:mOOCeff,mDTA:mDTAeff,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS});
+  computeBuildWeights({wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC,mDTA,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS});
   // Autosave last state
   try{localStorage.setItem("d2calc_last",JSON.stringify(getBuildState()))}catch(e){}
 }
@@ -2974,8 +2048,12 @@ function runBuildValidation(ctx){
     }
   }
 
-  // Brand: 1pc is fine (gives its single-piece bonus), no warning.
-  // Only note if 2pc skipped when there are 3 of the same brand — unlikely in practice.
+  // Brand piece count warnings (1-2 pcs = incomplete)
+  for(const[brand,count] of Object.entries(brandCnt)){
+    if(count===1){
+      warns.push({level:"info",text:`Бренд "${brand}" — только 1шт. Для 2шт/3шт бонусов добавь ещё предметов этого бренда.`});
+    }
+  }
 
   // Weapon cat mismatch with set type damage
   if(wpn&&wpn.cat){
@@ -3021,25 +2099,6 @@ function runBuildValidation(ctx){
 // ===== TTK =====
 const ENEMY_HP = D2DATA.ENEMY_HP;
 let ttkDiff="heroic";
-let ttkPlayers=1;
-const TTK_DIFF_NAME_MAP = (function(){
-  const m = {};
-  const diffs = (ENEMY_HP && ENEMY_HP.difficulties) || [];
-  const pairs = [
-    ["normal",   n => n.includes("СРЕД")],
-    ["high",     n => n.includes("ВЫСО")],
-    ["challenging", n => n.includes("ИСПЫ")],
-    ["heroic",   n => n.includes("ГЕРО")],
-    ["legendary",n => n.includes("ЛЕГЕН")],
-  ];
-  for(const d of diffs){
-    const name=(d.name||"").toUpperCase();
-    for(const [key,fn] of pairs){
-      if(fn(name)){ m[key]=d; break; }
-    }
-  }
-  return m;
-})();
 // Escalation tier → HP/armor multiplier (datamined from Y8S1 TU28, r/thedivision)
 const ESCALATION_TIERS = D2DATA.ESCALATION_TIERS;
 const ESCALATION_DROP_CHANCE = D2DATA.ESCALATION_DROP_CHANCE;
@@ -3058,14 +2117,8 @@ function setEscalationTier(tier){
 let lastDps={base:0,avg:0,peak:0};
 function setTtkDiff(d){
   ttkDiff=d;
-  const sel=document.getElementById("ttk-diff");
-  if(sel && sel.value!==d) sel.value=d;
-  renderTtk(lastDps.base,lastDps.avg,lastDps.peak);
-}
-function setTtkPlayers(n){
-  ttkPlayers=parseInt(n,10)||1;
-  const sel=document.getElementById("ttk-players");
-  if(sel && sel.value!==String(ttkPlayers)) sel.value=String(ttkPlayers);
+  document.getElementById("ttk-heroic").classList.toggle("on",d==="heroic");
+  document.getElementById("ttk-legendary").classList.toggle("on",d==="legendary");
   renderTtk(lastDps.base,lastDps.avg,lastDps.peak);
 }
 function fmtTime(s){
@@ -3087,30 +2140,18 @@ function onTtkMultChange(){
 function clamp(x,lo,hi){return Math.max(lo,Math.min(hi,x))}
 function renderTtk(base,avg,peak){
   lastDps={base,avg,peak};
+  const enemies=ENEMY_HP[ttkDiff];
   const hpMult=clamp(parseFloat(document.getElementById("ttk-hp-mult")?.value)||0,0,800);
   const arMult=clamp(parseFloat(document.getElementById("ttk-ar-mult")?.value)||0,0,800);
+  // EHP scaling: split base hp 25% health / 75% armor
+  const effMult=0.25*(1+hpMult/100)+0.75*(1+arMult/100);
   const hasBoost=hpMult>0||arMult>0;
-  const pKey="p"+ttkPlayers;
-  const diffRow=TTK_DIFF_NAME_MAP[ttkDiff];
-  const enemyTypesRu=ENEMY_HP.enemy_types_ru||{normal:"Рядовые",veteran:"Ветераны",elite:"Элитные",named:"Именные"};
-  const typeIcons={normal:"🔴",veteran:"🟣",elite:"🟠",named:"🟡"};
-  let enemies;
-  if(diffRow && diffRow.health && diffRow.armor){
-    enemies=["normal","veteran","elite","named"].map(t=>{
-      const hp=(diffRow.health[t]&&diffRow.health[t][pKey])||0;
-      const ar=(diffRow.armor[t]&&diffRow.armor[t][pKey])||0;
-      return { name:`${typeIcons[t]||""} ${enemyTypesRu[t]||t}`, hp:hp, armor:ar };
-    });
-  } else {
-    enemies=ENEMY_HP.types||ENEMY_HP[ttkDiff]||[];
-  }
   const body=enemies.map(e=>{
-    const baseEhp=(e.hp||0)+(e.armor||0);
-    const ehp=(e.hp||0)*(1+hpMult/100)+(e.armor||0)*(1+arMult/100);
+    const ehp=e.hp*effMult;
     const tb=base>0?ehp/base:Infinity;
     const ta=avg>0?ehp/avg:Infinity;
     const tp=peak>0?ehp/peak:Infinity;
-    const hpLabel=hasBoost?`${(ehp/1e6).toFixed(1)}М <span style="font-size:10px;color:#555">(было ${(baseEhp/1e6).toFixed(1)}М)</span>`:`${(baseEhp/1e6).toFixed(1)}М`;
+    const hpLabel=hasBoost?`${(ehp/1e6).toFixed(1)}М <span style="font-size:10px;color:#555">(×${effMult.toFixed(2)})</span>`:`${(e.hp/1e6).toFixed(1)}М`;
     return`<tr>
       <td style="text-align:left">${e.name}</td>
       <td>${hpLabel}</td>
@@ -3198,7 +2239,6 @@ updateStatTooltips();
 
 // Init build slots from gear set data
 initBuildSlots();
-initGearTalentSelects();
 
 // Lazy-load Recombinator modifiers reference (Y8S1 Rise Up)
 let __rcmCache=null;
@@ -3754,214 +2794,3 @@ document.addEventListener("DOMContentLoaded",()=>{
   });
 });
 document.addEventListener("DOMContentLoaded",updateStatTooltips);
-
-// ===== WEAPON MODS TAB =====
-const WEAPON_MODS = D2DATA.WEAPON_MODS || [];
-const SKILL_MODS = D2DATA.SKILL_MODS || [];
-const GEAR_MODS = D2DATA.GEAR_MODS || [];
-const EXPERTISE = D2DATA.EXPERTISE || {};
-
-function escHtml(s){
-  return (s==null?"":String(s)).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
-}
-
-let __wmodsTypeInit=false;
-function initWmodsTypeOptions(){
-  if(__wmodsTypeInit)return;
-  const sel=document.getElementById("wmods-type");
-  if(!sel)return;
-  const types=Array.from(new Set(WEAPON_MODS.map(m=>m.type_en).filter(Boolean))).sort();
-  for(const t of types){
-    const o=document.createElement("option");
-    o.value=t;o.textContent=t;sel.appendChild(o);
-  }
-  __wmodsTypeInit=true;
-}
-
-function renderWeaponMods(){
-  initWmodsTypeOptions();
-  const host=document.getElementById("wmods-content");
-  if(!host)return;
-  const q=(document.getElementById("wmods-search")?.value||"").trim().toLowerCase();
-  const typeFilter=document.getElementById("wmods-type")?.value||"";
-  let items=WEAPON_MODS.slice();
-  if(typeFilter) items=items.filter(m=>(m.type_en||"")===typeFilter);
-  if(q){
-    items=items.filter(m=>{
-      const hay=[m.name_en,m.bonus_en,m.penalty_en,m.stat,m.slot_en,m.source_en].map(x=>(x||"").toLowerCase()).join(" ");
-      return hay.includes(q);
-    });
-  }
-  const groups={};
-  for(const m of items){
-    const k=m.type_en||"Other";
-    (groups[k]=groups[k]||[]).push(m);
-  }
-  const order=["OPTICS RAIL","MAGAZINE SLOT","MUZZLE SLOT","UNDERBARREL","Other"];
-  const keys=Object.keys(groups).sort((a,b)=>{
-    const ia=order.indexOf(a), ib=order.indexOf(b);
-    return (ia<0?99:ia)-(ib<0?99:ib);
-  });
-  if(!keys.length){
-    host.innerHTML=`<div class="bsect" style="text-align:center;color:var(--muted)">Нет модов по фильтру.</div>`;
-    return;
-  }
-  const typeIcon={ "OPTICS RAIL":"🔭", "MAGAZINE SLOT":"📦", "MUZZLE SLOT":"💥", "UNDERBARREL":"🔻" };
-  const html=keys.map(k=>{
-    const arr=groups[k];
-    const cards=arr.map(m=>{
-      const bonus=m.bonus_en?`<div style="color:var(--green);font-weight:600;font-size:12px;margin-top:4px">+ ${escHtml(m.bonus_en)}</div>`:"";
-      const penalty=m.penalty_en?`<div style="color:var(--red);font-size:11px;margin-top:2px">− ${escHtml(m.penalty_en)}</div>`:"";
-      const slot=m.slot_en?`<div style="color:var(--muted);font-size:10px;margin-top:6px">${escHtml(m.slot_en)}</div>`:"";
-      const src=m.source_en?`<div style="color:#555;font-size:10px">${escHtml(m.source_en)}</div>`:"";
-      const val=m.value?`<div style="position:absolute;top:10px;right:12px;color:var(--orange);font-weight:700;font-size:12px">${escHtml(m.value)}</div>`:"";
-      return `<div style="position:relative;background:var(--card);border:1px solid var(--border);border-radius:9px;padding:12px 14px">
-        ${val}
-        <div style="font-weight:700;color:var(--text);font-size:13px;padding-right:60px">${escHtml(m.name_en||"—")}</div>
-        ${m.stat?`<div style="color:var(--blue);font-size:11px;margin-top:2px">${escHtml(m.stat)}</div>`:""}
-        ${bonus}${penalty}${slot}${src}
-      </div>`;
-    }).join("");
-    return `<div class="bsect">
-      <h3>${typeIcon[k]||""} ${escHtml(k)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">${cards}</div>
-    </div>`;
-  }).join("");
-  host.innerHTML=html;
-}
-
-// ===== SKILL + GEAR MODS TAB =====
-function renderSkillGearMods(){
-  const host=document.getElementById("smods-content");
-  if(!host)return;
-  const bySkill={};
-  for(const m of SKILL_MODS){
-    const k=m.skill_ru||"Прочее";
-    (bySkill[k]=bySkill[k]||[]).push(m);
-  }
-  const skillHtml=Object.keys(bySkill).sort().map(k=>{
-    const arr=bySkill[k];
-    const rows=arr.map(m=>`<tr>
-      <td style="text-align:left;color:var(--muted);font-size:11px">${escHtml(m.slot_en||"—")}</td>
-      <td style="text-align:left">${escHtml(m.stat_ru||m.stat_en||"—")}</td>
-      <td style="color:var(--orange);font-weight:700">${escHtml(m.value||"—")}</td>
-    </tr>`).join("");
-    return `<div class="bsect">
-      <h3>🛠 ${escHtml(k)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
-      <table class="btl">
-        <thead><tr><th style="text-align:left">Слот</th><th style="text-align:left">Характеристика</th><th>Значение</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>`;
-  }).join("");
-  const byCat={};
-  for(const m of GEAR_MODS){
-    const k=m.category_ru||"Прочее";
-    (byCat[k]=byCat[k]||[]).push(m);
-  }
-  const gearHtml=Object.keys(byCat).sort().map(k=>{
-    const arr=byCat[k];
-    const rows=arr.map(m=>{
-      let val=m.value;
-      if(typeof val==="number"){
-        val = val<=1 ? (val*100).toFixed(2).replace(/\.00$/,"")+"%" : String(val);
-      }
-      return `<tr>
-        <td style="text-align:left">${escHtml(m.stat_ru||"—")}</td>
-        <td style="color:var(--orange);font-weight:700">${escHtml(val||"—")}</td>
-      </tr>`;
-    }).join("");
-    return `<div class="bsect">
-      <h3>🎽 ${escHtml(k)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
-      <table class="btl">
-        <thead><tr><th style="text-align:left">Характеристика</th><th>Максимум</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>`;
-  }).join("");
-  host.innerHTML = `
-    <div class="bsect"><h3>📟 Моды навыков (${SKILL_MODS.length})</h3></div>
-    ${skillHtml}
-    <div class="bsect" style="margin-top:16px"><h3>🎽 Моды снаряжения (${GEAR_MODS.length})</h3></div>
-    ${gearHtml}
-  `;
-}
-
-// ===== EXPERTISE TAB =====
-let expertiseCat="weapon";
-function setExpertiseCat(c){
-  expertiseCat=c;
-  for(const k of ["weapon","gear","skill"]){
-    const b=document.getElementById("exp-cat-"+k);
-    if(b) b.classList.toggle("on",k===c);
-  }
-  renderExpertise();
-}
-function renderExpertise(){
-  const host=document.getElementById("expertise-content");
-  if(!host)return;
-  const key=expertiseCat+"_ru";
-  const data=EXPERTISE[key];
-  if(!data || !data.rows){
-    host.innerHTML=`<div class="bsect" style="text-align:center;color:var(--muted)">Нет данных для «${escHtml(expertiseCat)}».</div>`;
-    return;
-  }
-  const headers=data.headers||[];
-  const rows=data.rows||[];
-  const dataKeys=headers.slice(1);
-  const headHtml=headers.map((h,i)=>
-    `<th style="${i===0?"text-align:left":""}">${escHtml(h)}</th>`
-  ).join("");
-  const bodyHtml=rows.map(r=>{
-    const isTotal=r.level==="ИТОГО";
-    const lvl=r.level;
-    const cells=[`<td style="text-align:left;color:${isTotal?"var(--orange)":"var(--text)"};font-weight:${isTotal?"700":"400"}">${escHtml(lvl==null?"—":String(lvl))}</td>`];
-    for(const h of dataKeys){
-      const v=r[h];
-      const disp=v==null?`<span style="color:#444">—</span>`:escHtml(String(v));
-      cells.push(`<td style="${isTotal?"color:var(--orange);font-weight:700":""}">${disp}</td>`);
-    }
-    return `<tr${isTotal?' style="background:rgba(245,166,35,.08)"':""}>${cells.join("")}</tr>`;
-  }).join("");
-  const titleMap={weapon:"🔫 Оружие",gear:"🎽 Снаряжение",skill:"📟 Навыки"};
-  host.innerHTML=`
-    <div class="bsect">
-      <h3>${titleMap[expertiseCat]||expertiseCat}</h3>
-      <div style="overflow-x:auto">
-        <table class="btl">
-          <thead><tr>${headHtml}</tr></thead>
-          <tbody>${bodyHtml}</tbody>
-        </table>
-      </div>
-    </div>
-  `;
-}
-
-// ===== TOP BUILDS (META TAB) =====
-let topBuildsFilter="all";
-function setTopFilter(f){
-  topBuildsFilter=f;
-  document.querySelectorAll("#meta-panel .mf-btn").forEach(b=>
-    b.classList.toggle("on",b.dataset.filter===f));
-  loadTopBuilds();
-}
-async function loadTopBuilds(){
-  const host=document.getElementById("top-builds-content");
-  if(!host)return;
-  host.innerHTML='<div style="padding:40px;text-align:center;color:var(--muted)">Загрузка...</div>';
-  try{
-    const filter=topBuildsFilter==="all"?"":`&filter=${encodeURIComponent(`weapon_cat="${topBuildsFilter}"`)}`;
-    const r=await fetch(`${PB_API}/builds/records?sort=-likes&perPage=20${filter}`);
-    const data=await r.json();
-    const items=data.items||[];
-    if(!items.length){
-      host.innerHTML='<div style="padding:40px;text-align:center;color:var(--muted)">Пока нет билдов в этой категории. <a href="#" onclick="document.querySelector(\'.cat-btn[data-cat=build]\').click();return false" style="color:var(--orange)">Собери и опубликуй свой!</a></div>';
-      return;
-    }
-    const liked=getLikedSet();
-    const html=items.map(b=>renderBuildCard(b,liked.has(b.id),false)).join("");
-    host.innerHTML=`<div class="comm-grid">${html}</div>`;
-  }catch(e){
-    host.innerHTML=`<div style="padding:40px;text-align:center;color:var(--red)">Ошибка: ${escapeHtml(e.message)}</div>`;
-  }
-}

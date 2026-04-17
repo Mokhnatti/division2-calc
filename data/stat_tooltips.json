@@ -1,0 +1,26 @@
+{
+  "ru": {
+    "WD": "Урон оружием (Weapon Damage)",
+    "CHC": "Шанс критического попадания (Critical Hit Chance)",
+    "CHD": "Урон критического попадания (Critical Hit Damage)",
+    "HSD": "Урон в голову (Headshot Damage)",
+    "DtA": "Урон по броне (Damage to Armor)",
+    "OoC": "Урон вне укрытия (Out of Cover)",
+    "AMP": "Усиленный урон (Amplified Damage)",
+    "RPM": "Скорострельность (Rounds Per Minute)",
+    "MAG": "Размер магазина (Magazine Size)",
+    "REL": "Скорость перезарядки (Reload Speed)"
+  },
+  "en": {
+    "WD": "Weapon Damage — total % bonus to bullet damage",
+    "CHC": "Critical Hit Chance — chance to deal critical damage (cap 60%)",
+    "CHD": "Critical Hit Damage — bonus damage on critical hits",
+    "HSD": "Headshot Damage — bonus damage for headshots",
+    "DtA": "Damage to Armor — bonus vs armored targets",
+    "OoC": "Out of Cover — bonus vs targets not in cover",
+    "AMP": "Amplified Damage — multiplicative damage bonus",
+    "RPM": "Rounds Per Minute — weapon fire rate",
+    "MAG": "Magazine Size — rounds before reload",
+    "REL": "Reload Speed — time to reload weapon"
+  }
+}

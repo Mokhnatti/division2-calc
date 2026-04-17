@@ -1,0 +1,62 @@
+{
+  "1": {
+    "harvester": 60,
+    "suppressor": 0,
+    "anchor": 0,
+    "aid": 0
+  },
+  "2": {
+    "harvester": 60,
+    "suppressor": 0,
+    "anchor": 0,
+    "aid": 0
+  },
+  "3": {
+    "harvester": 75,
+    "suppressor": 35,
+    "anchor": 0,
+    "aid": 0
+  },
+  "4": {
+    "harvester": 75,
+    "suppressor": 35,
+    "anchor": 0,
+    "aid": 0
+  },
+  "5": {
+    "harvester": 75,
+    "suppressor": 35,
+    "anchor": 35,
+    "aid": 0
+  },
+  "6": {
+    "harvester": 75,
+    "suppressor": 35,
+    "anchor": 60,
+    "aid": 0
+  },
+  "7": {
+    "harvester": 75,
+    "suppressor": 35,
+    "anchor": 60,
+    "aid": 35
+  },
+  "8": {
+    "harvester": 75,
+    "suppressor": 35,
+    "anchor": 75,
+    "aid": 60
+  },
+  "9": {
+    "harvester": 75,
+    "suppressor": 60,
+    "anchor": 75,
+    "aid": 60
+  },
+  "10": {
+    "harvester": 75,
+    "suppressor": 60,
+    "anchor": 75,
+    "aid": 75
+  }
+}
