@@ -1798,8 +1798,8 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   const mag_f=Math.round(wpn.mag*(1+totalMAG/100));
   // CHC capped 60%
   const chcCap=Math.min(chcTotal+sCHC,60)/100;
-  // CHD: base 25% + flat + stack
-  const totalCHD=0.25+chdTotal/100+sCHD/100;
+  // CHD: ввод уже включает базовый (по замерам на манекене Y9 — base × (1 + CHD/100))
+  const totalCHD=chdTotal/100+sCHD/100;
   const critAvg=1+chcCap*totalCHD;
   // HSD multiplier (independent bucket)
   const hsM=1+(hsRate/100)*(hsdTotal/100);
