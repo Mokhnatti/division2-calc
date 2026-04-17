@@ -2174,11 +2174,15 @@ function calcBuild(){
     if(autoSum<=0&&m<=0){el.textContent="";return}
     if(m>0){
       const rolled=m-autoSum;
-      const rolledStr=rolled>=0?`накатано +${rolled}%`:`введено меньше брони (−${-rolled}%)`;
-      el.textContent=`(из брони ${autoSum}% → ${rolledStr})`;
-      el.style.color=rolled>=0?"var(--green)":"var(--red)";
+      if(rolled>=0){
+        el.textContent=`(из брони ${autoSum}% → накатано +${rolled}%)`;
+        el.style.color="var(--green)";
+      }else{
+        el.textContent=`(из брони ${autoSum}%, ввод ${m}% ниже — используется ${autoSum}%)`;
+        el.style.color="var(--muted)";
+      }
     }else{
-      el.textContent=`(из брони ${autoSum}%)`;
+      el.textContent=`(из брони ${autoSum}% — используется это)`;
       el.style.color="var(--muted)";
     }
     el.title=`Сеты/бренды/таланты: +${auto}%\nCore/attr брони: +${g}%\nТвой ввод (итог из игры): ${m||"—"}%\nРазница (накатано на ролах): ${m>0?(m-autoSum):"—"}%`;
