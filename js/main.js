@@ -2255,16 +2255,24 @@ function calcBuild(){
   setSumTip("b-dta-sum",0,gDTA,mDTA);
   const mOOCeff=mOOC>0?Math.max(mOOC,gOOC):gOOC;
   const mDTAeff=mDTA>0?Math.max(mDTA,gDTA):gDTA;
-  // SHD Watch (additive into respective buckets)
+  // SHD Watch — статы часов ВХОДЯТ в итог из меню игры
+  // Добавляем только если пользователь НЕ ввёл свой итог вручную (иначе дубль)
   const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
-  tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo; tRELOAD+=shd.reload;
-  // Часы НЕ в "Гарантированных" — их статы входят в ИТОГ из меню игры, который пользователь видит и вводит
+  if(mWD<=0)tWD+=shd.wd;
+  if(mHSD<=0)tHSD+=shd.hsd;
+  if(mCHC<=0)tCHC+=shd.chc;
+  if(mCHD<=0)tCHD+=shd.chd;
+  tMAG+=shd.ammo; tRELOAD+=shd.reload;
   if(Object.values(shd).some(x=>x>0)){
     bonuses.push({color:"#42a5f5",tier:"⌚",nm:"SHD Watch",desc:Object.entries(shd).filter(([,x])=>x).map(([k,x])=>`+${x}% ${k}`).join(" · ")});
   }
   // Prototype Gear Attributes (Y8S1) — additive into buckets
+  // Такие же правила: если итог введён вручную — не дублировать
   const proto={slots:v("proto-slots-count"),wd:v("proto-wd"),hsd:v("proto-hsd"),chc:v("proto-chc"),chd:v("proto-chd"),elite:v("proto-elite"),health:v("proto-health")};
-  tWD+=proto.wd; tHSD+=proto.hsd; tCHC+=proto.chc; tCHD+=proto.chd;
+  if(mWD<=0)tWD+=proto.wd;
+  if(mHSD<=0)tHSD+=proto.hsd;
+  if(mCHC<=0)tCHC+=proto.chc;
+  if(mCHD<=0)tCHD+=proto.chd;
   if(proto.wd)pushG("wd",proto.wd,"Prototype Gear");
   if(proto.hsd)pushG("hsd",proto.hsd,"Prototype Gear");
   if(proto.chc)pushG("chc",proto.chc,"Prototype Gear");
