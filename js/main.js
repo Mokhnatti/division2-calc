@@ -1807,11 +1807,12 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   // HSD multiplier (independent bucket)
   const hsM=1+(hsRate/100)*(hsdTotal/100);
   // Reload
-  const reloadFinal=wpn.reload/(1+reloadBonus/100);
+  const noReload=typeof document!=="undefined"&&document.getElementById("b-no-reload")?.checked;
+  const reloadFinal=noReload?0:(wpn.reload/(1+reloadBonus/100));
   // Cycle
   const sps_f=rpm_f/60;
   const cycleT=mag_f/sps_f+reloadFinal;
-  const effSPS=mag_f/cycleT;
+  const effSPS=noReload?sps_f:(mag_f/cycleT);
   // External
   const oocM=1+ooc/100;
   const dtaM=1+dta/100;
