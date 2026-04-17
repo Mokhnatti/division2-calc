@@ -474,6 +474,19 @@ function talentBonus(talentName){
 
 // Database of items per armor slot
 const ITEMS_BY_SLOT={};
+const GENRE_ALIASES={
+  "Маски":["Маски","Маска"],
+  "Нагрудники":["Нагрудники","Нагрудник","Броня","Бронежилет","Бронежилеты"],
+  "Рюкзаки":["Рюкзаки","Рюкзак"],
+  "Перчатки":["Перчатки"],
+  "Кобуры":["Кобуры","Кобура"],
+  "Наколенники":["Наколенники","Наколенник"]
+};
+function matchGenre(g,target){
+  if(!g)return false;
+  const list=GENRE_ALIASES[target]||[target];
+  return list.includes(g);
+}
 function buildItemDb(){
   for(const slot of Object.keys(SLOT_META)){
     const genre=SLOT_META[slot].genre;
@@ -483,12 +496,12 @@ function buildItemDb(){
     // brands: one entry per brand per slot
     B.forEach(b=>arr.push({kind:"brand",name:b.name+" — "+genre,brand:b.name,bonuses:b.bonuses,slot}));
     // named items for this slot
-    N.filter(n=>n.g===genre).forEach(n=>{
+    N.filter(n=>matchGenre(n.g,genre)).forEach(n=>{
       const tb=talentBonus(n.tal);
       arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot});
     });
     // exotics
-    E.filter(e=>e.g===genre).forEach(e=>{
+    E.filter(e=>matchGenre(e.g,genre)).forEach(e=>{
       arr.push({kind:"exotic",name:e.name,en:e.en,talent:e.tal,talentDesc:e.d,slot});
     });
     ITEMS_BY_SLOT[slot]=arr;
