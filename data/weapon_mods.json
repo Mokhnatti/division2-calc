@@ -1,0 +1,942 @@
+[
+  {
+    "name_en": "Acog Scope (4x)",
+    "type_en": null,
+    "slot_en": null,
+    "bonus_en": "+50% Optimal Range",
+    "penalty_en": null,
+    "source_en": "from perks",
+    "value": "+50%",
+    "stat": "Optimal Range"
+  },
+  {
+    "name_en": "552 Holo Sight",
+    "type_en": "OPTICS RAIL",
+    "slot_en": null,
+    "bonus_en": "+30% Accuracy\nNo zoom",
+    "penalty_en": null,
+    "source_en": "Judiciary Square side mission: Police Headquarters (talk to Odessa Sawyer in Story)",
+    "value": "+30%",
+    "stat": "Accuracy"
+  },
+  {
+    "name_en": "C79 Scope (3.4x)",
+    "type_en": "OPTICS RAIL",
+    "slot_en": null,
+    "bonus_en": "+5% Critical Hit Chance\nOptional zoom",
+    "penalty_en": null,
+    "source_en": "Constitution Hall side mission: Missing Scavengers (talk to NPCs in open world hidden safe zone)",
+    "value": "+5%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "CQBSS Scope (8x)",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Optics",
+    "bonus_en": "+30% Headshot Damage\nForced zoom",
+    "penalty_en": null,
+    "source_en": "East Mall side mission: DC-62 Lab Quarantine",
+    "value": "+30%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "VX1 Scope  (12x)",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Optics",
+    "bonus_en": "+35% Headshot damage\nForced zoom",
+    "penalty_en": "-10% Reload Speed",
+    "source_en": "Available by default",
+    "value": "+35%",
+    "stat": "Headshot damage"
+  },
+  {
+    "name_en": "Digital Scope",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Optics",
+    "bonus_en": "+45% Headshot Damage\nForced zoom\nTab to toggle second zoom",
+    "penalty_en": "-5% Critical Hit Damage",
+    "source_en": "Sharpshooter specialiation perk",
+    "value": "+45%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "GR9 Built-in scope (8x)",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Optics",
+    "bonus_en": "+5% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "GR9 only",
+    "value": "+5%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Small RDS Scope",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Optics",
+    "bonus_en": "+50% Stability",
+    "penalty_en": "-20% Accuracy",
+    "source_en": "Campus project: outfit rescue team",
+    "value": "+50%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "T2 Micro Red Dot Sight",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Long/Short Optics Rail",
+    "bonus_en": "+30% Accuracy",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+30%",
+    "stat": "Accuracy"
+  },
+  {
+    "name_en": "Russian Red dot Sight",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Long/Short Optics Rail",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "EXPS3 Holo Sight",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Long/Short Optics Rail",
+    "bonus_en": "+10% Headshot Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "PRO Red Dot Sight",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Long/Short Optics Rail",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Constitution Hall side mission: Outcast Work Camp",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Reflex Sight",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Long/Short Optics Rail",
+    "bonus_en": "+12% Weapon Handling",
+    "penalty_en": null,
+    "source_en": "Theatre Project: Water Pipeline Construction",
+    "value": "+12%",
+    "stat": "Weapon Handling"
+  },
+  {
+    "name_en": "Rugged Mini Reflex Sight",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Long/Short/Micro Optics Rail",
+    "bonus_en": "+5% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+5%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Low Reflex Sight",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Short/Micro Optics Rail",
+    "bonus_en": "+15% Headshot Damage",
+    "penalty_en": "-25% Optimal Range",
+    "source_en": "Foggy Bottom side mission: Columbia Plaza Broadcast",
+    "value": "+15%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "Open Iron Sights",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Iron Sights Slot",
+    "bonus_en": "+30% Accuracy",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+30%",
+    "stat": "Accuracy"
+  },
+  {
+    "name_en": "Streamlined Iron Sights",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Iron Sights Slot",
+    "bonus_en": "+14% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Theatre Project: Outfit Hunting Party",
+    "value": "+14%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Weighted Iron Sights",
+    "type_en": "OPTICS RAIL",
+    "slot_en": "Iron Sights Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Counter-Clockwise Tubular Spring",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Tubular Magazine Slot",
+    "bonus_en": "+5% Headshot Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+5%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "Hard Tubular Spring",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Tubular Magazine Slot",
+    "bonus_en": "+5% Rate of Fire",
+    "penalty_en": null,
+    "source_en": "Southwest side mission: SHD Tech Beacon",
+    "value": "+5%",
+    "stat": "Rate of Fire"
+  },
+  {
+    "name_en": "Flexible tubular Spring",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Tubular Magazine Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Non-Disruptive Link",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Ammunition Belt Slot",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Nimble Link Belt",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Ammunition Belt Slot",
+    "bonus_en": "+5% Rate of Fire",
+    "penalty_en": null,
+    "source_en": "Foggy Bottom side mission: Navy Hill Transmission",
+    "value": "+5%",
+    "stat": "Rate of Fire"
+  },
+  {
+    "name_en": "Tactical Small Pouch",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Ammunition Belt Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Large Pouch",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Ammunition Belt Slot",
+    "bonus_en": "+35 rounds",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+35",
+    "stat": "rounds"
+  },
+  {
+    "name_en": "Large Pouch (Gunner mag)",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Ammunition Belt Slot",
+    "bonus_en": "+50 rounds",
+    "penalty_en": null,
+    "source_en": "Gunner specialisation perk",
+    "value": "+50",
+    "stat": "rounds"
+  },
+  {
+    "name_en": "Calibrated Link",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Ammunition Belt Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "East Mall side mission: Missing Curators",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Underbalanced Integrated Spring",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Integrated Magazine Slot",
+    "bonus_en": "+5% Rate of Fire",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+5%",
+    "stat": "Rate of Fire"
+  },
+  {
+    "name_en": "Compensated Integrated Spring",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Integrated Magazine Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Downtown West side mission: Worksite Community",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Overbalanced Integrated Spring",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Integrated Magazine Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Stiff Integrated Spring",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Integrated Magazine Slot",
+    "bonus_en": "+5% Weapon Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+5%",
+    "stat": "Weapon Damage"
+  },
+  {
+    "name_en": "Mended Marksman Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Marksman 7.62 Magazine Slot",
+    "bonus_en": "+50% Optimal Range",
+    "penalty_en": null,
+    "source_en": "Federal Triangle side mission: Bureau Headquarters",
+    "value": "+50%",
+    "stat": "Optimal Range"
+  },
+  {
+    "name_en": "Lightweight Marksman Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Marksman 7.62 Magazine Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Tightly Packed Marksman Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Marksman 7.62 Magazine Slot",
+    "bonus_en": "+5 Rounds",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+5",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Sturdy Marksman Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Marksman 7.62 Magazine Slot",
+    "bonus_en": "+20% Stability",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+20%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Precision 7.62 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "7.62 Magazine Slot",
+    "bonus_en": "+10% Headshot Damage",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+10%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "Thin 7.62 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "7.62 Magazine Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Light Extended 7.62 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "7.62 Magazine Slot",
+    "bonus_en": "+15 Rounds",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+15",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Sturdy Extended 7.62 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "7.62 Magazine Slot",
+    "bonus_en": "+20 Rounds",
+    "penalty_en": "-10% Reload Speed",
+    "source_en": "Main Pool",
+    "value": "+20",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Weighted 7.62 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "7.62 Magazine Slot",
+    "bonus_en": "+20% Stability",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+20%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Tactical 5.56 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "5.56 Magazine Slot",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "West Potomac Park side mission: Outcast Propaganda Outpost (The Mast CP)",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Infantry 5.56 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "5.56 Magazine Slot",
+    "bonus_en": "+70% Optimal Range",
+    "penalty_en": null,
+    "source_en": "Survivalist specialisation perk",
+    "value": "+70%",
+    "stat": "Optimal Range"
+  },
+  {
+    "name_en": "Light Extended 5.56 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "5.56 Magazine Slot",
+    "bonus_en": "+15 Rounds",
+    "penalty_en": null,
+    "source_en": "Federal Triangle side mission: Department of Justice",
+    "value": "+15",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Sturdy Extended 5.56 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "5.56 Magazine Slot",
+    "bonus_en": "+20 Rounds",
+    "penalty_en": "-10% Reload Speed",
+    "source_en": "Main Pool",
+    "value": "+20",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Balanced Spring 5.56 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "5.56 Magazine Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Force Feed .45 ACP Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": ".45 ACP Magazine Slot",
+    "bonus_en": "+5% Rate of Fire",
+    "penalty_en": null,
+    "source_en": "West End side mission: Garage Stash (+Underground faction)",
+    "value": "+5%",
+    "stat": "Rate of Fire"
+  },
+  {
+    "name_en": "Short Spring .45 ACP Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": ".45 ACP Magazine Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Extended .45 ACP Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": ".45 ACP Magazine Slot",
+    "bonus_en": "+15 Rounds",
+    "penalty_en": null,
+    "source_en": "Downtown East side mission: Agent Edwards Support",
+    "value": "+15",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Oversized .45 ACP Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": ".45 ACP Magazine Slot",
+    "bonus_en": "+20 Rounds",
+    "penalty_en": "-10% Reload Speed",
+    "source_en": "Main Pool",
+    "value": "+20",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Precision Feeding .45 Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": ".45 ACP Magazine Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Heavy Spring 9mm Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "9mm Magazine Slot",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Oversized 9mm Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "9mm Magazine Slot",
+    "bonus_en": "+15 Rounds",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+15",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Extended 9mm Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "9mm Magazine Slot",
+    "bonus_en": "+20 Rounds",
+    "penalty_en": "-10% Reload speed",
+    "source_en": "West Potomac Park side mission: Missing Campus Patrol",
+    "value": "+20",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Segmented 9mm Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "9mm Magazine Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "East Mall side mission: Agent Brooks Support",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Field Pistol Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Pistol Magazine Slot",
+    "bonus_en": "+30% Optimal Range",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+30%",
+    "stat": "Optimal Range"
+  },
+  {
+    "name_en": "Police Pistol Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Pistol Magazine Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Extended Pistol Mag",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Pistol Magazine Slot",
+    "bonus_en": "+11 Rounds",
+    "penalty_en": null,
+    "source_en": "Downtown West side mission: Beekeeper Jeff",
+    "value": "+11",
+    "stat": "Rounds"
+  },
+  {
+    "name_en": "Speed Loading Revolver Drum",
+    "type_en": "MAGAZINE SLOT",
+    "slot_en": "Revolver Drum Slot",
+    "bonus_en": "+20% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+20%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Large Suppressor 7.62",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "7.62 Muzzle Slot",
+    "bonus_en": "+30% Accuracy",
+    "penalty_en": null,
+    "source_en": "West End side mission: Historic District Attack",
+    "value": "+30%",
+    "stat": "Accuracy"
+  },
+  {
+    "name_en": "Muzzle Brake 7.62",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "7.62 Muzzle Slot",
+    "bonus_en": "+5% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+5%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Flash Hider 7.62",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "7.62 Muzzle Slot",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Downtown East side mission: Empire Autumn Hotel",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Loud Vent Brake 7.62",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "7.62 Muzzle Slot",
+    "bonus_en": "+50% Optimal Range",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+50%",
+    "stat": "Optimal Range"
+  },
+  {
+    "name_en": "Compensator 7.62",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "7.62 Muzzle Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Omega 7.62 Rifle Suppresor",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "7.62 Muzzle Slot",
+    "bonus_en": "+40% Stability",
+    "penalty_en": "-10% Optimal Range",
+    "source_en": "Main Pool",
+    "value": "+40%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Large Suppressor 5.56",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "5.56 Muzzle Slot",
+    "bonus_en": "+30% Accuracy",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+30%",
+    "stat": "Accuracy"
+  },
+  {
+    "name_en": "Muzzle Brake 5.56",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "5.56 Muzzle Slot",
+    "bonus_en": "+5% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "Theatre Project: Reclaimer Crew",
+    "value": "+5%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Flash Hider 5.56",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "5.56 Muzzle Slot",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Loud Vent Brake 5.56",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "5.56 Muzzle Slot",
+    "bonus_en": "+50% Optimal Range",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+50%",
+    "stat": "Optimal Range"
+  },
+  {
+    "name_en": "Compensator 5.56",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "5.56 Muzzle Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Campus Project: Food Aid Operation",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Omega 5.56 Rifle Suppressor",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "5.56 Muzzle Slot",
+    "bonus_en": "+40% Stability",
+    "penalty_en": "-10% Optimal Range",
+    "source_en": "West End side mission: Potomac Relief Camp",
+    "value": "+40%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "QDC Sound Suppressor",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "5.56 Muzzle Slot",
+    "bonus_en": "+20% Stability",
+    "penalty_en": null,
+    "source_en": "Stoner only and Dare Only",
+    "value": "+20%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Small Suppressor .45",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": ".45 Muzzle Slot",
+    "bonus_en": "+30% Accuracy",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+30%",
+    "stat": "Accuracy"
+  },
+  {
+    "name_en": "Osprey 45 Suppressor",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": ".45 Muzzle Slot",
+    "bonus_en": "+5% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+5%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Flash Hider .45",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": ".45 Muzzle Slot",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Muzzle Brake .45",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": ".45 Muzzle Slot",
+    "bonus_en": "+10% Headshot Damage",
+    "penalty_en": null,
+    "source_en": "Foggy Bottom side mission: Greenhouse Community",
+    "value": "+10%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "Loud Vent Brake .45",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": ".45 Muzzle Slot",
+    "bonus_en": "+50% Optimal Range",
+    "penalty_en": null,
+    "source_en": "West Mall side mission: Medical Camp Attack",
+    "value": "+50%",
+    "stat": "Optimal Range"
+  },
+  {
+    "name_en": "Compensator .45",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": ".45 Muzzle Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Small Suppressor 9mm",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "9mm Muzzle Slot",
+    "bonus_en": "+30% Accuracy",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+30%",
+    "stat": "Accuracy"
+  },
+  {
+    "name_en": "Osprey 9 Suppressor",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "9mm Muzzle Slot",
+    "bonus_en": "+5% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "Judiciary Square side mission: Missing Wire Scavengers",
+    "value": "+5%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Flash Hider 9mm",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "9mm Muzzle Slot",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Muzzle Brake 9mm",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "9mm Muzzle Slot",
+    "bonus_en": "+10% Headshot Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "Loud Vent Brake 9mm",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "9mm Muzzle Slot",
+    "bonus_en": "+50% Optimal Range",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+50%",
+    "stat": "Optimal Range"
+  },
+  {
+    "name_en": "Compensator 9mm",
+    "type_en": "MUZZLE SLOT",
+    "slot_en": "9mm Muzzle Slot",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "Federal Triangle side mission: National Archives",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Short Grip",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Long Underbarrel Rail",
+    "bonus_en": "+10% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+10%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Tactical Short Grip",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Long Underbarrel Rail",
+    "bonus_en": "+15% Critical Hit Damage",
+    "penalty_en": null,
+    "source_en": "Firewall Specialisation Perk",
+    "value": "+15%",
+    "stat": "Critical Hit Damage"
+  },
+  {
+    "name_en": "Linked Laser Pointer",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Long Underbarrel Rail",
+    "bonus_en": "Pulses targets at which it's aimed",
+    "penalty_en": null,
+    "source_en": "Technician Specialisation Perk",
+    "value": "Pulses",
+    "stat": "targets at which it's aimed"
+  },
+  {
+    "name_en": "Handstop",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Long Underbarrel Rail",
+    "bonus_en": "+14% Reload Speed",
+    "penalty_en": null,
+    "source_en": "Downtown East side mission: Odea Retail Store",
+    "value": "+14%",
+    "stat": "Reload Speed"
+  },
+  {
+    "name_en": "Vertical Grip",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Long/Short Underbarrel Rail",
+    "bonus_en": "+30% Accuracy",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+30%",
+    "stat": "Accuracy"
+  },
+  {
+    "name_en": "Angled Grip",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Long/Short Underbarrel Rail",
+    "bonus_en": "+30% Stability",
+    "penalty_en": null,
+    "source_en": "East Mall side mission: Water Source",
+    "value": "+30%",
+    "stat": "Stability"
+  },
+  {
+    "name_en": "Laser Pointer",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Long/Short Underbarrel Rail/\nSide slot",
+    "bonus_en": "+5% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "Constitution Hall side mission: True Sons Broadcast Outpost",
+    "value": "+5%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Small Laser Pointer",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Long/Short Underbarrel Rail/\nSide slot",
+    "bonus_en": "+7% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "Demolitionist Specialisation Perk",
+    "value": "+7%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Compact Coupled Small \nLaser Pointer",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Gadget Slot",
+    "bonus_en": "+10% Critical Hit Chance",
+    "penalty_en": null,
+    "source_en": "Complete Story missions and level up White House",
+    "value": "+10%",
+    "stat": "Critical Hit Chance"
+  },
+  {
+    "name_en": "Compact Coupled Laser Pointer",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Gadget Slot",
+    "bonus_en": "+10% Headshot Damage",
+    "penalty_en": null,
+    "source_en": "Main Pool",
+    "value": "+10%",
+    "stat": "Headshot Damage"
+  },
+  {
+    "name_en": "Pistol Flashlight",
+    "type_en": "UNDERBARREL",
+    "slot_en": "Gadget Slot",
+    "bonus_en": "Illuminates dark areas",
+    "penalty_en": null,
+    "source_en": "Underground tank (click for more info)",
+    "value": "Illuminates",
+    "stat": "dark areas"
+  }
+]

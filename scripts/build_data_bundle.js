@@ -37,6 +37,10 @@ const FILES = {
   ESCALATION_MUTATORS: "escalation_mutators.json",
   ESCALATION_REWARDS: "escalation_rewards.json",
   STAT_TOOLTIPS: "stat_tooltips.json",
+  WEAPON_MODS: "weapon_mods.json",
+  GEAR_MODS: "gear_mods.json",
+  SKILL_MODS: "skill_mods.json",
+  EXPERTISE: "expertise.json",
 };
 
 const obj = {};

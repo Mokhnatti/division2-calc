@@ -1,0 +1,527 @@
+[
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Agitator Slot",
+    "stat_ru": "Сила огня",
+    "stat_en": "Burn Strength",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Agitator Slot",
+    "stat_ru": "Урон",
+    "stat_en": "Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Agitator Slot",
+    "stat_ru": "Сила прилипания",
+    "stat_en": "Ensnare Health",
+    "value": "17.5%"
+  },
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Agitator Slot",
+    "stat_ru": "Длительность прилипания",
+    "stat_en": "Ensnare Duration",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Agitator Slot",
+    "stat_ru": "Лечение",
+    "stat_en": "Heal",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Pneumatics Slot",
+    "stat_ru": "Боезапас",
+    "stat_en": "Ammo",
+    "value": 1.0
+  },
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Pneumatics Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Pneumatics Slot",
+    "stat_ru": "Радиус",
+    "stat_en": "Radius",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Химустановка",
+    "slot_en": "Pneumatics Slot",
+    "stat_ru": "Убыстрение",
+    "stat_en": "Skill Haste",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Обманка",
+    "slot_en": "Housing Slot",
+    "stat_ru": "Здоровье",
+    "stat_en": "Health",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Обманка",
+    "slot_en": "Projector Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Дрон",
+    "slot_en": "Battery Slot",
+    "stat_ru": "Длительность отклонения",
+    "stat_en": "Deflect Duration",
+    "value": "7.50%"
+  },
+  {
+    "skill_ru": "Дрон",
+    "slot_en": "Battery Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": "7.50%"
+  },
+  {
+    "skill_ru": "Дрон",
+    "slot_en": "Feed Slot",
+    "stat_ru": "Восстановление брони",
+    "stat_en": "Armor Repair",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Дрон",
+    "slot_en": "Feed Slot",
+    "stat_ru": "Урон",
+    "stat_en": "Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Дрон",
+    "slot_en": "Feed Slot",
+    "stat_ru": "Снижение урона",
+    "stat_en": "Damage Reduction",
+    "value": 0.06
+  },
+  {
+    "skill_ru": "Дрон",
+    "slot_en": "Hull Slot",
+    "stat_ru": "Дополнительные боезапасы",
+    "stat_en": "Extra Bombs",
+    "value": 2.0
+  },
+  {
+    "skill_ru": "Дрон",
+    "slot_en": "Hull Slot",
+    "stat_ru": "Здоровье",
+    "stat_en": "Health",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Дрон",
+    "slot_en": "Hull Slot",
+    "stat_ru": "Радиус сканирования",
+    "stat_en": "Scan Range",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Светлячок",
+    "slot_en": "Payload Slot",
+    "stat_ru": "Длительность ослепления",
+    "stat_en": "Blind Effect Duration",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Светлячок",
+    "slot_en": "Payload Slot",
+    "stat_ru": "Урон",
+    "stat_en": "Damage",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Светлячок",
+    "slot_en": "Propulsion Slot",
+    "stat_ru": "Скорость",
+    "stat_en": "Speed",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Светлячок",
+    "slot_en": "Propulsion Slot",
+    "stat_ru": "Убыстрение",
+    "stat_en": "Skill Haste",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Светлячок",
+    "slot_en": "Targeting Slot",
+    "stat_ru": "Максимум целей",
+    "stat_en": "Max Targets",
+    "value": 1.0
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "Drones Slot",
+    "stat_ru": "Урон",
+    "stat_en": "Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "Drones Slot",
+    "stat_ru": "Лечение",
+    "stat_en": "Healing",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "Drones Slot",
+    "stat_ru": "Востановленная броня",
+    "stat_en": "Revived Armor",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "Drones Slot",
+    "stat_ru": "Эффективность стимуляции",
+    "stat_en": "Stim Efficiency",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "Launcher Slot",
+    "stat_ru": "Радиус",
+    "stat_en": "Radius",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "Launcher Slot",
+    "stat_ru": "Ремонтные заряды",
+    "stat_en": "Repair Charges",
+    "value": 4.0
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "Launcher Slot",
+    "stat_ru": "Заряды стимулятора",
+    "stat_en": "Stim Charges",
+    "value": 4.0
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "Launcher Slot",
+    "stat_ru": "Заряды стингера",
+    "stat_en": "Stinger Charges",
+    "value": 4.0
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "System Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Улей",
+    "slot_en": "System Slot",
+    "stat_ru": "Здоровье",
+    "stat_en": "Health",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Импульс",
+    "slot_en": "System Slot",
+    "stat_ru": "Размер конуса",
+    "stat_en": "Cone Size",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Импульс",
+    "slot_en": "System Slot",
+    "stat_ru": "Радиус",
+    "stat_en": "Radius",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Импульс",
+    "slot_en": "Housing Slot",
+    "stat_ru": "Длительность эффекта",
+    "stat_en": "Effect duration",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Импульс",
+    "slot_en": "Housing Slot",
+    "stat_ru": "Здоровье",
+    "stat_en": "Health",
+    "value": "17.5%"
+  },
+  {
+    "skill_ru": "Импульс",
+    "slot_en": "Housing Slot",
+    "stat_ru": "Убыстрение",
+    "stat_en": "Skill Haste",
+    "value": 0.06
+  },
+  {
+    "skill_ru": "Самонаводящаяся мина",
+    "slot_en": "Drive Slot",
+    "stat_ru": "Урон",
+    "stat_en": "Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Самонаводящаяся мина",
+    "slot_en": "Drive Slot",
+    "stat_ru": "Радиус",
+    "stat_en": "Radius",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Самонаводящаяся мина",
+    "slot_en": "Drive Slot",
+    "stat_ru": "Убыстрение",
+    "stat_en": "Skill Haste",
+    "value": 0.06
+  },
+  {
+    "skill_ru": "Самонаводящаяся мина",
+    "slot_en": "Payload Slot",
+    "stat_ru": "Урон",
+    "stat_en": "Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Самонаводящаяся мина",
+    "slot_en": "Payload Slot",
+    "stat_ru": "Лечение",
+    "stat_en": "Healing",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Самонаводящаяся мина",
+    "slot_en": "Payload Slot",
+    "stat_ru": "Убыстрение",
+    "stat_en": "Skill Haste",
+    "value": 0.06
+  },
+  {
+    "skill_ru": "Самонаводящаяся мина",
+    "slot_en": "Targeting Slot",
+    "stat_ru": "Кассетная мина",
+    "stat_en": "Cluster Mines",
+    "value": 1.0
+  },
+  {
+    "skill_ru": "Самонаводящаяся мина",
+    "slot_en": "Targeting Slot",
+    "stat_ru": "Здоровье",
+    "stat_en": "Health",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Circuit Board Slot",
+    "stat_ru": "Дополнительный урон (на цель)",
+    "stat_en": "Damage Bonus (Per Enemy):",
+    "value": 0.01
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Circuit Board Slot",
+    "stat_ru": "Урон дефлектора",
+    "stat_en": "Deflector Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Circuit Board Slot",
+    "stat_ru": "Восстановление (убрано)",
+    "stat_en": "Holstered Regeneration",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Circuit Board Slot",
+    "stat_ru": "Здоровье щита",
+    "stat_en": "Shield Health",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Gyro Slot",
+    "stat_ru": "Дополнительный урон (на цель)",
+    "stat_en": "Damage Bonus (Per Enemy):",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Gyro Slot",
+    "stat_ru": "Урон дефлектора",
+    "stat_en": "Deflector Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Gyro Slot",
+    "stat_ru": "Восстановление (убрано)",
+    "stat_en": "Holstered Regeneration",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Hard Coating Slot",
+    "stat_ru": "Восстановление (используется)",
+    "stat_en": "Active Regeneration",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Hard Coating Slot",
+    "stat_ru": "Урон дефлектора",
+    "stat_en": "Deflector Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Щит",
+    "slot_en": "Hard Coating Slot",
+    "stat_ru": "Здоровье щита",
+    "stat_en": "Shield Health",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Бомба-липучка",
+    "slot_en": "Launcher Slot",
+    "stat_ru": "Радиус взрыва",
+    "stat_en": "Blast Radius",
+    "value": 0.06
+  },
+  {
+    "skill_ru": "Бомба-липучка",
+    "slot_en": "Launcher Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Бомба-липучка",
+    "slot_en": "Launcher Slot",
+    "stat_ru": "Убыстрение",
+    "stat_en": "Skill Haste",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Бомба-липучка",
+    "slot_en": "Payload slot",
+    "stat_ru": "Радиус взрыва",
+    "stat_en": "Blast Radius",
+    "value": 0.06
+  },
+  {
+    "skill_ru": "Бомба-липучка",
+    "slot_en": "Payload slot",
+    "stat_ru": "Длительность горения",
+    "stat_en": "Burn Duration",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Бомба-липучка",
+    "slot_en": "Payload slot",
+    "stat_ru": "Урон",
+    "stat_en": "Damage",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Бомба-липучка",
+    "slot_en": "Payload slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Ловушка",
+    "slot_en": "Charge Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Ловушка",
+    "slot_en": "Electronics Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Ловушка",
+    "slot_en": "Electronics Slot",
+    "stat_ru": "Радиус поражения шоком",
+    "stat_en": "Shock Radius",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Турель",
+    "slot_en": "Firing Mechanism \nSlot",
+    "stat_ru": "Сила огня",
+    "stat_en": "Burn Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Турель",
+    "slot_en": "Firing Mechanism \nSlot",
+    "stat_ru": "Урон",
+    "stat_en": "Damage",
+    "value": 0.05
+  },
+  {
+    "skill_ru": "Турель",
+    "slot_en": "Housing Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Турель",
+    "slot_en": "Housing Slot",
+    "stat_ru": "Здоровье",
+    "stat_en": "Health",
+    "value": 0.1
+  },
+  {
+    "skill_ru": "Турель",
+    "slot_en": "Housing Slot",
+    "stat_ru": "Заряд для минометной турели",
+    "stat_en": "Mortar Ammo",
+    "value": 1.0
+  },
+  {
+    "skill_ru": "Турель",
+    "slot_en": "Housing Slot",
+    "stat_ru": "Заряд для снайперской турели",
+    "stat_en": "Sniper Ammo",
+    "value": 1.0
+  },
+  {
+    "skill_ru": "Турель",
+    "slot_en": "Targeting Slot",
+    "stat_ru": "Длительность",
+    "stat_en": "Duration",
+    "value": "7.5%"
+  },
+  {
+    "skill_ru": "Турель",
+    "slot_en": "Targeting Slot",
+    "stat_ru": "Убыстрение",
+    "stat_en": "Skill Haste",
+    "value": "7.5%"
+  }
+]

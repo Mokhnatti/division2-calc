@@ -1,0 +1,495 @@
+[
+  {
+    "name": "Providence Defense",
+    "bonuses": [
+      "1шт: +13% Урон в голову",
+      "2шт: +8% Шанс крит. удара",
+      "3шт: +13% Урон крит. удара"
+    ],
+    "name_full_en": "Providence Defense",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Uzina Getica",
+    "bonuses": [
+      "1шт: +5% Общая броня",
+      "2шт: +10% Броня за убийство",
+      "3шт: +30% Защита от опасностей"
+    ],
+    "name_full_en": "Uzina Getica",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Empress International",
+    "bonuses": [
+      "1шт: +10% Здоровье навыка",
+      "2шт: +10% Урон навыков",
+      "3шт: +8% Эффективность навыков"
+    ],
+    "name_full_en": "Empress International",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "Wyvern Wear",
+    "bonuses": [
+      "1шт: +8% Урон навыков",
+      "2шт: +18% Эффекты статусов",
+      "3шт: +45% Длительность навыков"
+    ],
+    "name_full_en": "Wyvern Wear",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "Belstone Armory",
+    "bonuses": [
+      "1шт: +1% Регенерация брони",
+      "2шт: +10% Броня за убийство",
+      "3шт: +45% Входящий ремонт"
+    ],
+    "name_full_en": "Belstone Armory",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Alps Summit",
+    "bonuses": [
+      "1шт: +18% Навыки лечения",
+      "2шт: +30% Длительность навыков",
+      "3шт: +30% Ускорение навыков"
+    ],
+    "name_full_en": "Alps Summit Armaments",
+    "aliases_en": [
+      "Alps Summit"
+    ],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "China Light",
+    "bonuses": [
+      "1шт: +15% Урон взрывчаткой",
+      "2шт: +20% Ускорение навыков",
+      "3шт: +25% Эффекты статусов"
+    ],
+    "name_full_en": "China Light Industries Corporation",
+    "aliases_en": [
+      "China Light"
+    ],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "Palisade Steelworks",
+    "bonuses": [
+      "1шт: +10% Броня за убийство",
+      "2шт: +60% Здоровье",
+      "3шт: +1 Уровень навыка"
+    ],
+    "name_full_en": "Palisade Steelworks",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Brazos de Arcabuz",
+    "bonuses": [
+      "1шт: +10% Ускорение навыков",
+      "2шт: +1 Уровень навыка",
+      "3шт: +50% Размер магазина"
+    ],
+    "name_full_en": "Brazos de Arcabuz",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Gila Guard",
+    "bonuses": [
+      "1шт: +5% Общая броня",
+      "2шт: +60% Здоровье",
+      "3шт: +2% Регенерация брони"
+    ],
+    "name_full_en": "Gila Guard",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Fenris Group",
+    "bonuses": [
+      "1шт: +10% Урон штурмовых винтовок",
+      "2шт: +30% Скорость перезарядки",
+      "3шт: +50% Устойчивость оружия"
+    ],
+    "name_full_en": "Fenris Group AB",
+    "aliases_en": [
+      "Fenris Group"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Petrov Defense Group",
+    "bonuses": [
+      "1шт: +10% Урон пулемётов",
+      "2шт: +15% Управление оружием",
+      "3шт: +50% Ёмкость боезапаса"
+    ],
+    "name_full_en": "Petrov Defense Group",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Overlord Armaments",
+    "bonuses": [
+      "1шт: +10% Урон винтовок",
+      "2шт: +30% Точность оружия",
+      "3шт: +30% Управление оружием"
+    ],
+    "name_full_en": "Overlord Armaments",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Walker, Harris & Co",
+    "bonuses": [
+      "1шт: +5% Урон оружием",
+      "2шт: +5% Урон по броне",
+      "3шт: +10% Урон по здоровью"
+    ],
+    "name_full_en": "Walker, Harris & Co.",
+    "aliases_en": [
+      "Walker, Harris & Co"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Yaahl Gear",
+    "bonuses": [
+      "1шт: +10% Защита от опасностей",
+      "2шт: +10% Урон оружием",
+      "3шт: +40% Сопротивление пульсу"
+    ],
+    "name_full_en": "Yaahl Gear",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Electrique",
+    "bonuses": [
+      "1шт: +10% Эффекты статусов",
+      "2шт: +20% Сопротивление шоку",
+      "3шт: +30% Урон пистолетов-пулемётов"
+    ],
+    "name_full_en": "Electrique",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "Hana-U",
+    "bonuses": [
+      "1шт: +10% Ускорение навыков",
+      "2шт: +10% Урон навыков",
+      "3шт: +15% Урон оружием"
+    ],
+    "name_full_en": "Hana-U Corporation",
+    "aliases_en": [
+      "Hana-U"
+    ],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "Murakami Industries",
+    "bonuses": [
+      "1шт: +15% Длительность навыков",
+      "2шт: +35% Навыки лечения",
+      "3шт: +18% Урон навыков"
+    ],
+    "name_full_en": "Murakami Industries",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "Richter & Kaiser",
+    "bonuses": [
+      "1шт: +15% Входящий ремонт",
+      "2шт: +25% Сопротивление взрывам",
+      "3шт: +40% Навыки лечения"
+    ],
+    "name_full_en": "Richter & Kaiser GmbH",
+    "aliases_en": [
+      "Richter & Kaiser"
+    ],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "5.11 Tactical",
+    "bonuses": [
+      "1шт: +30% Здоровье",
+      "2шт: +30% Входящий ремонт",
+      "3шт: +30% Защита от опасностей"
+    ],
+    "name_full_en": "5.11 Tactical",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Badger Tuff",
+    "bonuses": [
+      "1шт: +10% Урон дробовиков",
+      "2шт: +5% Общая броня",
+      "3шт: +15% Броня за убийство"
+    ],
+    "name_full_en": "Badger Tuff",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Golan Gear",
+    "bonuses": [
+      "1шт: +10% Эффекты статусов",
+      "2шт: +1.5% Регенерация брони",
+      "3шт: +10% Общая броня"
+    ],
+    "name_full_en": "Golan Gear Ltd",
+    "aliases_en": [
+      "Golan Gear"
+    ],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Habsburg Guard",
+    "bonuses": [
+      "1шт: +13% Урон в голову",
+      "2шт: +20% Урон снайперских винтовок",
+      "3шт: +25% Эффекты статусов"
+    ],
+    "name_full_en": "Habsburg Guard \"HG\"",
+    "aliases_en": [
+      "Habsburg Guard"
+    ],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Lengmo",
+    "bonuses": [
+      "1шт: +20% Сопротивление взрывам",
+      "2шт: +20% Здоровье навыка",
+      "3шт: +30% Урон пулемётов"
+    ],
+    "name_full_en": "Lengmo",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null
+  },
+  {
+    "name": "Ceska Vyroba",
+    "bonuses": [
+      "1шт: +8% Шанс крит. удара",
+      "2шт: +20% Защита от опасностей",
+      "3шт: +90% Здоровье"
+    ],
+    "name_full_en": "Česká Výroba s.r.o.",
+    "aliases_en": [
+      "Ceska Vyroba"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Douglas & Harding",
+    "bonuses": [
+      "1шт: +20% Урон пистолетов",
+      "2шт: +30% Устойчивость оружия",
+      "3шт: +50% Точность оружия"
+    ],
+    "name_full_en": "Douglas & Harding",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Grupo Sombra",
+    "bonuses": [
+      "1шт: +13% Урон крит. удара",
+      "2шт: +20% Урон взрывчаткой",
+      "3шт: +13% Урон в голову"
+    ],
+    "name_full_en": "Grupo Sombra S.A.",
+    "aliases_en": [
+      "Grupo Sombra"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Airaldi",
+    "bonuses": [
+      "1шт: +10% Урон снайперских винтовок",
+      "2шт: +13% Урон в голову",
+      "3шт: +5% Урон по броне"
+    ],
+    "name_full_en": "Airaldi Holdings",
+    "aliases_en": [
+      "Airaldi"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Sokolov",
+    "bonuses": [
+      "1шт: +10% Урон пистолетов-пулемётов",
+      "2шт: +13% Урон крит. удара",
+      "3шт: +8% Шанс крит. удара"
+    ],
+    "name_full_en": "Sokolov Concern",
+    "aliases_en": [
+      "Sokolov"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Zwiadowka",
+    "bonuses": [
+      "1шт: +15% Размер магазина",
+      "2шт: +20% Урон винтовок",
+      "3шт: +30% Управление оружием"
+    ],
+    "name_full_en": "Zwiadowka Sp. z o.o.",
+    "aliases_en": [
+      "Zwiadowka"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Legatus",
+    "bonuses": [
+      "1шт: +30% Скорость смены оружия",
+      "2шт: +70% Оптимальная дальность",
+      "3шт: +15% Урон оружием"
+    ],
+    "name_full_en": "Legatus S.p.A.",
+    "aliases_en": [
+      "Legatus"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Shiny Monkey Gear",
+    "bonuses": [
+      "1шт: +15% Длительность навыков",
+      "2шт: +5% Эффективность навыков",
+      "3шт: +52% Навыки лечения"
+    ],
+    "name_full_en": "Shiny Monkey Gear",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null
+  },
+  {
+    "name": "Imminence Armaments",
+    "bonuses": [
+      "1шт: +5% Урон оружием",
+      "2шт: +100% Повышение угрозы",
+      "3шт: +60% Урон пистолетов"
+    ],
+    "name_full_en": "Imminence Armaments",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Urban Lookout",
+    "bonuses": [
+      "1шт: +10% Точность",
+      "2шт: +30% Длительность навыков",
+      "3шт: +30% Урон снайперских винтовок"
+    ],
+    "name_full_en": "Urban Lookout",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Unit Alloys",
+    "bonuses": [
+      "1шт: +5% Скорострельность",
+      "2шт: +20% Урон штурмовых винтовок",
+      "3шт: +50% Размер магазина"
+    ],
+    "name_full_en": "Unit Alloys",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null
+  },
+  {
+    "name": "Royal Works",
+    "bonuses": [
+      "1шт: +5% Управление оружием",
+      "2шт: +32.5% Размер магазина",
+      "3шт: +15% Урон крит. удара"
+    ],
+    "name_full_en": "Royal Works",
+    "aliases_en": []
+  }
+]
