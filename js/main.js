@@ -500,11 +500,11 @@ function buildItemDb(){
     // named items for this slot
     N.filter(n=>matchGenre(n.g,genre)).forEach(n=>{
       const tb=talentBonus(n.tal);
-      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot});
+      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot,core:n.core,attr1:n.attr1,attr2:n.attr2});
     });
     // exotics
     E.filter(e=>matchGenre(e.g,genre)).forEach(e=>{
-      arr.push({kind:"exotic",name:e.name,en:e.en,talent:e.tal,talentDesc:e.d,slot});
+      arr.push({kind:"exotic",name:e.name,en:e.en,talent:e.tal,talentDesc:e.d,slot,core:e.core,attr1:e.attr1,attr2:e.attr2});
     });
     ITEMS_BY_SLOT[slot]=arr;
   }
@@ -650,6 +650,7 @@ function getBuildState(){
     cw:{dmg:v("cw-dmg"),rpm:v("cw-rpm"),mag:v("cw-mag"),rel:parseFloat(document.getElementById("cw-rel")?.value)||2,cat:document.getElementById("cw-cat")?.value||"AR"},
     slots,
     b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd")},
+    core:{mode:document.getElementById("b-core-mode")?.value||"red",mask:document.getElementById("b-core-mask")?.value||"red",chest:document.getElementById("b-core-chest")?.value||"red",bp:document.getElementById("b-core-bp")?.value||"red",gloves:document.getElementById("b-core-gloves")?.value||"red",holster:document.getElementById("b-core-holster")?.value||"red",knees:document.getElementById("b-core-knees")?.value||"red"},
     shd:{wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo")},
     rc:{hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")},
     ttk:{diff:ttkDiff,hp:v("ttk-hp-mult"),ar:v("ttk-ar-mult")},
@@ -685,6 +686,16 @@ function applyBuildState(s){
   }
   // Manual stats
   ["chc","chd","hsd","hsrate","ooc","dta","wd"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
+  if(s.core){
+    const modeSel=document.getElementById("b-core-mode");
+    if(modeSel&&s.core.mode)modeSel.value=s.core.mode;
+    ["mask","chest","bp","gloves","holster","knees"].forEach(slot=>{
+      const el=document.getElementById("b-core-"+slot);
+      if(el&&s.core[slot])el.value=s.core[slot];
+    });
+    const box=document.getElementById("b-core-custom");
+    if(box)box.style.display=(s.core.mode==="custom")?"block":"none";
+  }
   ["wd","hsd","chc","chd","ammo"].forEach(k=>{if(s.shd&&s.shd[k]!==undefined)setInput("shd-"+k,s.shd[k])});
   ["hsd","ammo","ergo","armor","elite","hazprot","status","skilldmg","util3"].forEach(k=>{if(s.rc&&s.rc[k]!==undefined)setInput("rc-"+k,s.rc[k])});
   if(s.ttk){
@@ -694,6 +705,13 @@ function applyBuildState(s){
   calcBuild();
 }
 function setInput(id,val){const el=document.getElementById(id);if(el&&val!==undefined&&val!==null)el.value=val}
+
+function onCoreModeChange(){
+  const mode=document.getElementById("b-core-mode")?.value||"red";
+  const box=document.getElementById("b-core-custom");
+  if(box)box.style.display=mode==="custom"?"block":"none";
+  calcBuild();
+}
 
 // ===== URL SHARING =====
 function buildToHash(){
@@ -1824,6 +1842,94 @@ function calcBuild(){
     }
   }
 
+  // ===== Guaranteed stats aggregation =====
+  // Собираем из core/attr1/attr2 каждого занятого слота. Для пустых слотов или слотов
+  // без явного core (green/brand) — применяем глобальный режим (red/blue/yellow/custom).
+  let gWD=0,gCHC=0,gCHD=0,gHSD=0,gDTA=0,gOOC=0,gROF=0,gMAG=0,gRELOAD=0,gARMOR=0,gSKILL=0;
+  const gOtherStats={}; // прочие атрибуты (hazard protection и т.п.) — для отображения
+  const coreMode=(document.getElementById("b-core-mode")?.value)||"red";
+  const SLOT_LIST=["mask","chest","bp","gloves","holster","knees"];
+  const CORE_KEY_TO_STAT={red:"weapon damage",blue:"armor",yellow:"skill tier"};
+  function applyCoreStat(coreVal){
+    const cv=Array.isArray(coreVal)?coreVal[0]:coreVal;
+    if(cv==="weapon damage")gWD+=15;
+    else if(cv==="armor")gARMOR+=16594;
+    else if(cv==="skill tier")gSKILL+=1;
+  }
+  function applyAttr(attrs){
+    if(!attrs||typeof attrs!=="object")return;
+    for(const[rawK,v] of Object.entries(attrs)){
+      if(typeof v!=="number")continue;
+      const key=rawK.toLowerCase();
+      if(key.includes("weapon damage"))gWD+=v;
+      else if(key.includes("critical hit chance")||key==="crit chance"||key.includes("crit chance"))gCHC+=v;
+      else if(key.includes("critical hit damage")||key==="crit damage"||key.includes("crit damage"))gCHD+=v;
+      else if(key.includes("headshot damage"))gHSD+=v;
+      else if(key.includes("damage to armor"))gDTA+=v;
+      else if(key.includes("damage out of cover")||key.includes("out of cover"))gOOC+=v;
+      else if(key.includes("rate of fire"))gROF+=v;
+      else if(key.includes("mag size")||key.includes("magazine"))gMAG+=v;
+      else if(key.includes("reload"))gRELOAD+=v;
+      else {
+        gOtherStats[key]=(gOtherStats[key]||0)+v;
+      }
+    }
+  }
+  for(const slot of SLOT_LIST){
+    const it=slotState[slot];
+    if(it&&it.core){
+      applyCoreStat(it.core);
+    }else{
+      let key=coreMode;
+      if(coreMode==="custom"){
+        key=(document.getElementById("b-core-"+slot)?.value)||"red";
+      }
+      applyCoreStat(CORE_KEY_TO_STAT[key]);
+    }
+    if(it){
+      applyAttr(it.attr1);
+      applyAttr(it.attr2);
+    }
+  }
+  // Итог: добавляем к общим totals (до DPS-расчёта)
+  tWD+=gWD; tCHC+=gCHC; tCHD+=gCHD; tHSD+=gHSD;
+  tROF+=gROF; tMAG+=gMAG; tRELOAD+=gRELOAD;
+  // OoC / DtA — ручные поля-модификаторы, зальём напрямую ниже через mOOC/mDTA.
+
+  // Рендер "Гарантированные статы"
+  const gSect=document.getElementById("b-guaranteed-sect");
+  const gGrid=document.getElementById("b-guaranteed-grid");
+  if(gSect&&gGrid){
+    const items=[];
+    if(gWD)items.push({icon:"⚔️",label:"Урон оружия",val:gWD,unit:"%",color:"#ef5350"});
+    if(gCHC)items.push({icon:"💥",label:"Шанс крита",val:gCHC,unit:"%",color:"#f5a623"});
+    if(gCHD)items.push({icon:"💢",label:"Урон крита",val:gCHD,unit:"%",color:"#f5a623"});
+    if(gHSD)items.push({icon:"🎯",label:"Урон в голову",val:gHSD,unit:"%",color:"#ff7043"});
+    if(gDTA)items.push({icon:"🛡",label:"Урон по броне",val:gDTA,unit:"%",color:"#42a5f5"});
+    if(gOOC)items.push({icon:"🚶",label:"Вне укрытия",val:gOOC,unit:"%",color:"#fdd835"});
+    if(gROF)items.push({icon:"🔥",label:"Скорострельность",val:gROF,unit:"%",color:"#ef5350"});
+    if(gMAG)items.push({icon:"📦",label:"Ёмкость магазина",val:gMAG,unit:"%",color:"#42a5f5"});
+    if(gRELOAD)items.push({icon:"♻️",label:"Перезарядка",val:gRELOAD,unit:"%",color:"#00c853"});
+    if(gARMOR)items.push({icon:"🛡",label:"Броня",val:gARMOR.toLocaleString("ru"),unit:"",color:"#42a5f5"});
+    if(gSKILL)items.push({icon:"🧪",label:"Skill Tier",val:"+"+gSKILL,unit:"",color:"#fdd835"});
+    for(const[k,v] of Object.entries(gOtherStats)){
+      const ru=(typeof translateStat==="function"?translateStat(k):k);
+      items.push({icon:"•",label:ru,val:v,unit:"%",color:"#888"});
+    }
+    if(items.length){
+      gSect.style.display="block";
+      gGrid.innerHTML=items.map(x=>
+        `<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(0,0,0,.15);border-radius:3px;font-size:11px">
+          <span style="font-size:14px">${x.icon}</span>
+          <span style="color:var(--muted);flex:1">${x.label}</span>
+          <span style="color:${x.color};font-weight:700">${typeof x.val==="number"?"+"+x.val:x.val}${x.unit}</span>
+        </div>`
+      ).join("");
+    }else{
+      gSect.style.display="none";
+    }
+  }
+
   // Named item talents (parsed, non-conditional applied as static base)
   let tPeakOnly={wd:0,chc:0,chd:0,hsd:0,rof:0,mag:0};
   for(const ni of namedItems){
@@ -1905,6 +2011,24 @@ function calcBuild(){
   const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
   tWD+=mWD; tCHC+=mCHC; tCHD+=mCHD; tHSD+=mHSD;
+  // Подписи итогов у ручных полей: Гарант +X + Ручной +Y = Z
+  const setSumTip=(id,g,m)=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const total=g+m;
+    if(g<=0&&m<=0){el.textContent="";return}
+    el.textContent=`(${g}+${m}=${total}%)`;
+    el.title=`Гарантированные: +${g}% · Ручные: +${m}% · Итого: ${total}%`;
+  };
+  setSumTip("b-chc-sum",gCHC,mCHC);
+  setSumTip("b-chd-sum",gCHD,mCHD);
+  setSumTip("b-hsd-sum",gHSD,mHSD);
+  setSumTip("b-wd-sum",gWD,mWD);
+  setSumTip("b-ooc-sum",gOOC,mOOC);
+  setSumTip("b-dta-sum",gDTA,mDTA);
+  // Гарантированные OoC/DtA — тоже прибавим к ручным (их в DPS вливают mOOC/mDTA)
+  const mOOCeff=mOOC+gOOC;
+  const mDTAeff=mDTA+gDTA;
   // SHD Watch (additive into respective buckets)
   const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
   tWD+=shd.wd; tHSD+=shd.hsd; tCHC+=shd.chc; tCHD+=shd.chd; tMAG+=shd.ammo; tRELOAD+=shd.reload;
@@ -2035,13 +2159,13 @@ function calcBuild(){
     const chcX=tCHC+(isPeak?tPeakOnly.chc:0);
     const chdX=tCHD+(isPeak?tPeakOnly.chd:0);
     const hsdX=tHSD+(isPeak?tPeakOnly.hsd:0);
-    return{...tp,...dpsAtTime(wpn,wdX,rofX,magX,chcX,chdX,hsdX,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,tp.t)};
+    return{...tp,...dpsAtTime(wpn,wdX,rofX,magX,chcX,chdX,hsdX,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tp.t)};
   });
   const peak=rows[rows.length-1];
   const baseDPS=rows[0].dps;
   const maxDPS=peak.dps;
   // Simpson-ish average over 10s window (sustained fight)
-  const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,tt).dps);
+  const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tt).dps);
   const avgDPS10=samplesAvg.reduce((a,b)=>a+b,0)/samplesAvg.length;
 
   document.getElementById("b-stacks").innerHTML=stkHtml;
@@ -2092,7 +2216,7 @@ function calcBuild(){
   // Build validation
   runBuildValidation({wpn,cnt,hasChest,hasBP,brandCnt,tCHC,tWD,tHSD,tROF,namedItems,slotState});
   // Stat weights — what to level up next
-  computeBuildWeights({wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC,mDTA,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS});
+  computeBuildWeights({wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC:mOOCeff,mDTA:mDTAeff,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS});
   // Autosave last state
   try{localStorage.setItem("d2calc_last",JSON.stringify(getBuildState()))}catch(e){}
 }
