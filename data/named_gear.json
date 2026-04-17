@@ -107,7 +107,8 @@
   "core": "armor",
   "source_ru": "Тёмная зона, контейнеры именные/мастерство ТЗ",
   "source_en": "DZ",
-  "flavor_en": "\"Is that oil, or blood?\" -BTSU Combat Medic"
+  "flavor_en": "\"Is that oil, or blood?\" -BTSU Combat Medic",
+  "bonus_short_en": "Killing an enemy adds and refreshes a stack of +12% bonus armor for 10s. Max stack is 10"
  },
  {
   "name": "Эрмано",
@@ -121,7 +122,8 @@
   "core": "armor",
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "-"
+  "flavor_en": "-",
+  "bonus_short_en": "You and allies within 15m of your deployed skills, gain +30% reload speed and reduces active cooldowns by 0.6 each second."
  },
  {
   "name": "Курьер",
@@ -137,7 +139,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ only",
-  "flavor_en": "\"May this carry your soul to paradise\" -The Priest"
+  "flavor_en": "\"May this carry your soul to paradise\" -The Priest",
+  "bonus_short_en": "When you apply a status effect, it is also applied to all enemies within 10m of your target. \n\nCooldown: 10s"
  },
  {
   "name": "Хребет",
@@ -152,7 +155,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "\nLZ",
-  "flavor_en": "\"Your first kill is hard. But it gets easier the more you do it.\" -The Stratagist"
+  "flavor_en": "\"Your first kill is hard. But it gets easier the more you do it.\" -The Stratagist",
+  "bonus_short_en": "Killing an enemy increases total weapon damage by 7% for 15s.\nStacks up to 5.\nGrenade kills add 2 stacks."
  },
  {
   "name": "Поваренная книга анархиста",
@@ -166,7 +170,8 @@
   "core": "armor",
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ, DZ\nWarlords Campaign\nVivian Conley (story)",
-  "flavor_en": "\"Conley, I think you'll find some great toys in here. Try not to blow everything up while you're looking through it.\" - Aaron Keener"
+  "flavor_en": "\"Conley, I think you'll find some great toys in here. Try not to blow everything up while you're looking through it.\" - Aaron Keener",
+  "bonus_short_en": "Applying a status effect increases total weapon damage by 18% for 27s"
  },
  {
   "name": "Стратегический вектор",
@@ -185,7 +190,8 @@
   "flavor_en": "\"I know this is going to look liike we're destroying everything. Don't worry about it. We don't make mistakes. Just happy accidents.\" - Bob Ross",
   "aliases_ru": [
    "Стратегическое Согласование"
-  ]
+  ],
+  "bonus_short_en": "Applying a status effect to an enemy increases total skill damage and repair by 20% for 27s"
  },
  {
   "name": "Лавуазье",
@@ -201,7 +207,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "\"A piece of perfection, if you understand what you can do with it.\"  Anonymous"
+  "flavor_en": "\"A piece of perfection, if you understand what you can do with it.\"  Anonymous",
+  "bonus_short_en": "Applying Blind, Ensnare, Confuse, or Shock to an enemy grants 50% of your armor as bonus armor to you and all allies within 30 meters of that enemy for 10 seconds."
  },
  {
   "name": "Матадор",
@@ -214,7 +221,8 @@
   "core": "weapon damage",
   "source_ru": "Тёмная зона, контейнеры именные/мастерство ТЗ",
   "source_en": "DZ\n",
-  "flavor_en": "\"I used to dance with death itself, but grew tired of the performance. I think I prefer having the odds stacked against me instead.\" - The Bull"
+  "flavor_en": "\"I used to dance with death itself, but grew tired of the performance. I think I prefer having the odds stacked against me instead.\" - The Bull",
+  "bonus_short_en": "When you are within 10m of an enemy, gain 23% bonus armor for 5s. Stacks up to 3 times.\n\nCooldown: 5s"
  },
  {
   "name": "Дар",
@@ -231,7 +239,8 @@
   "flavor_en": "\"Only after everything has been taken, can you learn to give. When the vessel is full, the soul is empty.\" - Unknown",
   "aliases_ru": [
    "Подарок"
-  ]
+  ],
+  "bonus_short_en": "Increases total weapon damage by 25%. \nTaking damage disables buff for 3s"
  },
  {
   "name": "Ударный метод",
@@ -250,7 +259,8 @@
   "flavor_en": "\"Have you tried turning it off and on again?\"\n(note: don't turn your devices on and off. Use the Restart function to solve problems instead. They have different functions.)",
   "aliases_ru": [
    "Ударное Обслуживание"
-  ]
+  ],
+  "bonus_short_en": "Skill kills increase total skill damage by 25% for 27s"
  },
  {
   "name": "Вигилия",
@@ -269,7 +279,8 @@
   "flavor_en": "\"Honor the fallen.\"  ",
   "aliases_ru": [
    "Бдительность"
-  ]
+  ],
+  "bonus_short_en": "Amplifies total weapon damage for 10s when swapping between your primary and secondary weapons if they are different.\n\n45% to enemies within 15m for Shotguns and SMG's.\n45% to enemies further than 25m for Rifles and MMR's.\n20% to enemies between 15-25m for LMG's and AR's\nAt most once per 5s per weapon type."
  },
  {
   "name": "Дьяволу дьяволово",
@@ -286,7 +297,8 @@
   "flavor_en": "When he comes calling\nIt's best not be stalling\nOr you might find yourself falling\nDown, down, down below\n- Inscription inside the pack",
   "aliases_ru": [
    "Долг дьявола"
-  ]
+  ],
+  "bonus_short_en": "When you are below 20% armor, critical hits repair 2.5% of missing armour. \nOn kill, critical hits repair 2.5% of missing armor for 4 seconds.\nLowest possible repair is 0% armour\n\nEach red core attribute adds 1 second to the time.\nMaximum is 10 seconds."
  },
  {
   "name": "Батарейный блок",
@@ -303,7 +315,8 @@
   "flavor_en": "-",
   "aliases_ru": [
    "Энергоблок"
-  ]
+  ],
+  "bonus_short_en": "Kills from cover reduce skill cooldowns by 15%."
  },
  {
   "name": "Подстава",
@@ -320,7 +333,8 @@
   "flavor_en": "-",
   "aliases_ru": [
    "Ловушка"
-  ]
+  ],
+  "bonus_short_en": " Enemies you hit with shotguns and marksman rifles amplifies the damage they take by 15% from all sources for 5s."
  },
  {
   "name": "Умножитель силы",
@@ -337,7 +351,8 @@
   "flavor_en": "\"You've got to think about force multipliers in this line of work. You don't always have backup, so make use of what's available.\" - SHD Training Guide",
   "aliases_ru": [
    "Усилитель силы"
-  ]
+  ],
+  "bonus_short_en": "Shooting an enemy increases total skill damage by 30% for 3s. "
  },
  {
   "name": "Прокси",
@@ -353,7 +368,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "\"Hostile detected. Hostile Eliminated.\" -Alexander Ortiz"
+  "flavor_en": "\"Hostile detected. Hostile Eliminated.\" -Alexander Ortiz",
+  "bonus_short_en": "Enemies that walk within 3 meters of your Hive, Turret, Remote Pulse or Decoy are shocked.\n\nArm time: 2 seconds. Cooldown per Skill: 8 seconds\n"
  },
  {
   "name": "Аксель",
@@ -369,7 +385,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "\"Don't fear your instincts, Society taught you how to fail.\""
+  "flavor_en": "\"Don't fear your instincts, Society taught you how to fail.\"",
+  "bonus_short_en": "Using an armor kit grants +1 Skill Tier for 15s. \nIf already at Skill Tier 6, grants Overcharge. \n\nCooldown 30s. "
  },
  {
   "name": "Кэп",
@@ -388,7 +405,8 @@
   "flavor_en": "\"Get behind me.\"",
   "aliases_ru": [
    "Капитан"
-  ]
+  ],
+  "bonus_short_en": "Performing a cover to cover grants 20% of your armor as bonus armor to you and all allies for 10s. \nThis is Tripled if you end within 10m of an enemy. \n\nCooldown: 10s."
  },
  {
   "name": "Новогодняя доставка",
@@ -402,7 +420,8 @@
   "flavor_en": "\"You get fireworks, and you get fireworks. Everybody gets fireworks!\"",
   "aliases_ru": [
    "Праздничная доставка"
-  ]
+  ],
+  "bonus_short_en": "Concussion grenades become Festive Grenades.\n\nHitting an enemy with a Festive Grenade will cause explosions to happen around two other enemies within 20m. 10m in pvp \n\n*Dealing 15% damage in PVP"
  },
  {
   "name": "Анри",
@@ -418,7 +437,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "\"We live together, we learn together, we die together. But, first we make each other stronger.\"  Anonymous"
+  "flavor_en": "\"We live together, we learn together, we die together. But, first we make each other stronger.\"  Anonymous",
+  "bonus_short_en": "While you are within 10m of an ally or skill, total weapon damage is increased by 20%"
  },
  {
   "name": "Охотник-Убийца",
@@ -431,7 +451,8 @@
    "armor"
   ],
   "source_en": "Off-White cache\nthen Cassie Mendoza",
-  "flavor_en": "\"These guys came out of nowhere. Dressed to kill and armed to the teeth. Turns out, we were the ones they were sent to kill.\" \n- Division Agent"
+  "flavor_en": "\"These guys came out of nowhere. Dressed to kill and armed to the teeth. Turns out, we were the ones they were sent to kill.\" \n- Division Agent",
+  "bonus_short_en": "While you have bonus armour, gain 3 stacks each second up to a max of 10. Each stack increases total weapon damage by 4% to enemies within 10m.\n\nAll stacks are lost when you have no bonus armour."
  },
  {
   "name": "Повседневный рюкзак",
@@ -448,7 +469,8 @@
   "flavor_en": "\"What's in my everyday carry? As many armour plates as I can fit\" \n\n- Agent Sanders",
   "aliases_ru": [
    "Ежедневный переносчик"
-  ]
+  ],
+  "bonus_short_en": "Using an armor kit has a 75% chance to not consume the armor kit. Specialization armor kit bonuses are increased by 100%.\n\nRequires 10 seconds to arm talent"
  },
  {
   "name": "Серийный убийца",
@@ -467,7 +489,8 @@
   "flavor_en": "\"Ninety-nine bottles of beer on the wall, ninety-nine bottles of beer. Shoot one down, watch it explode, ninety-eight bottles of beer on the wall...\"\n\n- Bored True Sons Marksman",
   "aliases_ru": [
    "Серийный Убийца"
-  ]
+  ],
+  "bonus_short_en": "After killing an enemy with a headshot, your next weapon hit within 30s deals 150% of that killing blow’s damage in addition to it.\n\nDamage is capped to 800% of your weapon damage. This is raised to 1250% if your headshot damage is greater than 150%."
  },
  {
   "name": "Ключевая фигура",
@@ -484,7 +507,8 @@
   "flavor_en": "\"Knuckles, Ron, you're with me.  Duchess, you're on point. Here, take this. Maybe it'll save yer ass.\" \n- James Dragov",
   "aliases_ru": [
    "Острие"
-  ]
+  ],
+  "bonus_short_en": "Deploying a shield makes it invulnerable for 5s and grants 50% of your armor as bonus armor to all other allies for 20s. \n\nCooldown: 25s"
  },
  {
   "name": "Жилет Vedmedytsya",
@@ -501,7 +525,8 @@
   "flavor_en": "Brace yourself. Stand firm against the tide of history.",
   "aliases_ru": [
    "Жилет ведмедицы"
-  ]
+  ],
+  "bonus_short_en": "While in cover weapon handling is increased by +50%"
  },
  {
   "name": "Жертва",
@@ -517,7 +542,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "\"Only after everything has been given, can you expect to receive. When the vessel is empty, the soul is complete.\""
+  "flavor_en": "\"Only after everything has been given, can you expect to receive. When the vessel is empty, the soul is complete.\"",
+  "bonus_short_en": "All damage you deal is amplified by 30%. \nAll damage you take is amplified by 60%."
  },
  {
   "name": "Без проблем",
@@ -534,7 +560,8 @@
   "flavor_en": "\"Behold! The field in which I grow my fucks. Lay thine eyes upon it and see that it is barren.\"",
   "aliases_ru": [
    "Zero F’s"
-  ]
+  ],
+  "bonus_short_en": "When your armor is depleted, repair 100% of your armor. \nCooldown: 55s"
  },
  {
   "name": "Свирепое спокойствие",
@@ -553,7 +580,8 @@
   "flavor_en": "\"The invention of the gun required a redefinition of courage from aggressive ferocity to calmness under fire\" - Robert L . O'Connell",
   "aliases_ru": [
    "Свирепое Спокойствие"
-  ]
+  ],
+  "bonus_short_en": "After staying in cover for 8 seconds, increase your and all allies’ total weapon and skill damage by 14% as long as you remain in cover or in a cover-to-cover move."
  },
  {
   "name": "Вынос двери",
@@ -570,7 +598,8 @@
   "flavor_en": "\"Just drop your seeker and let it go. Don't let the bang trip you up. You've got to prepare for the shock.\" - SHD Training Guide",
   "aliases_ru": [
    "Door-Kicker’s Knock"
-  ]
+  ],
+  "bonus_short_en": "Damaging an enemy with a skill increases total weapon damage by 18% for 20 seconds."
  },
  {
   "name": "Защита цезаря",
@@ -587,7 +616,8 @@
   "flavor_en": "-",
   "aliases_ru": [
    "Охрана цезаря"
-  ]
+  ],
+  "bonus_short_en": "Skill kills have a 30% chance to reset skill cooldowns"
  },
  {
   "name": "Финалист",
@@ -603,7 +633,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "-"
+  "flavor_en": "-",
+  "bonus_short_en": "Amplifies total weapon and skill damage by 20% to pulsed enemies."
  },
  {
   "name": "Заветный",
@@ -619,7 +650,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ only",
-  "flavor_en": "\"My gift to you, to protect your sacred heart.\" The Priest"
+  "flavor_en": "\"My gift to you, to protect your sacred heart.\" The Priest",
+  "bonus_short_en": "Applies blind to enemy hit in the head. Cooldown 20 seconds. Applies bleed to an enemy hit in the chest. Cooldown 20 seconds "
  },
  {
   "name": "Плотник",
@@ -635,7 +667,8 @@
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "\"The things i break stay broken.\" - The Stratagist"
+  "flavor_en": "\"The things i break stay broken.\" - The Stratagist",
+  "bonus_short_en": "Grenade Radius is increased by 75%\nGrenade that kill an enemy are refunded.\nGrenades can now be ''cooked'' by holding the fire button, making them explode earlier.\nGain 15% bonus armor while aiming grendes"
  },
  {
   "name": "Бобёр",
@@ -649,7 +682,8 @@
   "core": "weapon damage",
   "source_ru": "целевые трофеи, именные контейнеры",
   "source_en": "LZ",
-  "flavor_en": "\"No way they can get me in this.\" - Diesel"
+  "flavor_en": "\"No way they can get me in this.\" - Diesel",
+  "bonus_short_en": "If you are below 30% Armor, headshots from cover repair 30% of your armor. Cooldown 2 seconds."
  },
  {
   "name": "Эталонный образец",
@@ -668,7 +702,8 @@
   "flavor_en": "\"Only the first shot is clean. Everything after that is just messy.\"",
   "aliases_ru": [
    "Образцовый"
-  ]
+  ],
+  "bonus_short_en": "Increases total weapon damage by 6% every second you are aiming while scoped 8x or higher, up to 60%."
  },
  {
   "name": "Ловкий трюк",
@@ -687,7 +722,8 @@
   "flavor_en": "\"I'm feeling generous.\"",
   "aliases_ru": [
    "Ловкость"
-  ]
+  ],
+  "bonus_short_en": "Grants +40% bonus armor while reloading.\n\nGrants 0-30% of your armor as bonus armor to all other allies when they are reloading, based on your Blue core attribute."
  },
  {
   "name": "Камера сгорания",
@@ -704,7 +740,8 @@
   "flavor_en": "\"My operatives would never be left alone in the field\" - Natalya Sokolova",
   "aliases_ru": [
    "Зажигатель"
-  ]
+  ],
+  "bonus_short_en": "Whenever you throw a skill, 1.5 seconds after landing, it creates an explosion damaging enemies within 5m. \nAfterwards explosions will occur evey 5s.\n\nDamage scales with skill tier dealing 25-100% damage of a concussion grenade. \n\nOccurs once per skill. \n\nApplies to Remote Pulse, All Turrets, All Hives, Explosive Seeker, Cluster Seeker, Mender Seeker, Decoy, All Traps."
  },
  {
   "name": "Уравнитель",
@@ -719,7 +756,8 @@
    "weapon damage"
   ],
   "source_ru": "целевые трофеи, именные контейнеры",
-  "source_en": "LZ"
+  "source_en": "LZ",
+  "bonus_short_en": "Critical hits increase total weapon damage by 1% for 10s. Stacks up to 24 times."
  },
  {
   "name": "Хватка смерти",
@@ -1040,7 +1078,7 @@
   "core": "skill tier"
  },
  {
-  "name": "НиндзяВелосипед \nРюкзак-мессенджер (NinjaBike \nMessenger Backpack)",
+  "name": "НиндзяВелосипед Рюкзак-мессенджер (NinjaBike Messenger Backpack)",
   "en": "NinjaBike \nMessenger Backpack",
   "g": "Рюкзак",
   "t": "Рюкзак",
