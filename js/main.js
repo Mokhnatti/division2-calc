@@ -1761,8 +1761,8 @@ function getStackRate(stkDef, sps){
 
 function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRate,reloadBonus,ooc,dta,activeStacks,hasChest,hasBP,t){
   const sps0=wpn.rpm/60;
-  // Stack bonuses at time t
-  let sWD=0,sCHD=0,sROF=0,sCHC=0;
+  // Stack bonuses at time t — ВНЕ WD БАКЕТА как AMP (по замерам на манекене Y9)
+  let sAmpWD=0,sCHD=0,sROF=0,sCHC=0;
   const stkRows=[];
   for(const s of activeStacks){
     const maxS=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
@@ -1772,7 +1772,7 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     const stks=stacksAtTime(rate,maxS,dA,dR,t);
     if(s.def.wd_base!==undefined){
       const pp=(hasBP[s.name]&&s.def.wd_bp!==undefined)?s.def.wd_bp:s.def.wd_base;
-      sWD+=stks*pp;
+      sAmpWD+=stks*pp; // накопленный amp% от стаков (additive между разными сетами)
     }
     if(s.def.chd_base!==undefined){
       const pp=s.def.chd_base+(hasBP[s.name]?(s.def.chd_bp_extra||0):0);
@@ -1782,16 +1782,15 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     if(s.def.chc_base!==undefined) sCHC+=stks*s.def.chc_base;
     stkRows.push({name:s.name,stks:Math.round(stks),max:maxS,color:s.color});
   }
-  // Weapon talent WD (Alejandro shot_cover / Eagle Bearer kill) — в WD бакет
-  let talWD=0;
+  // Экзотик-таланты — как AMP множитель, не в WD бакет
   let talAmp=0;
   if(wpn.tal_type==="shot_cover"){
     const ts=t===Infinity?wpn.tal_max:Math.min(sps0*t,wpn.tal_max);
-    talWD=ts;
+    talAmp=ts;
   }
-  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus;
-  // WD bucket
-  const wdMult=1+(totalWD+sWD+talWD)/100;
+  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talAmp=wpn.tal_bonus;
+  // WD bucket — только ручной ввод пользователя
+  const wdMult=1+totalWD/100;
   // ROF
   const rpm_f=wpn.rpm*(1+(totalROF+sROF)/100);
   // Mag
@@ -1812,13 +1811,17 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   // External
   const oocM=1+ooc/100;
   const dtaM=1+dta/100;
-  const ampM=(1+(globalThis._buildAmp||0)/100)*(1+talAmp/100);
-  const expM=1+(globalThis._buildExpertise||0)/100;
-  // Sustained DPS (с циклом перезарядки)
+  // Amp множители (все внешние): ручной Amp + стаки сетов + экзотик-талант (Алехандро/Eagle Bearer)
+  const ampM=(1+(globalThis._buildAmp||0)/100)*(1+sAmpWD/100)*(1+talAmp/100);
+  // Expertise — отключена (по замерам на манекене не применяется к per-shot в Y9)
+  const expM=1;
+  // Общий wdMult_total для отображения (база + стаки + Алехандро "эквивалентно")
+  const wdMultDisplay=wdMult*ampM;
+  // Sustained DPS
   const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*effSPS;
-  // Burst DPS (как игра на манекене — без учёта reload)
+  // Burst DPS (без учёта reload)
   const burstDps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*sps_f;
-  return{dps,burstDps,wdMult,critAvg,hsM,rpm_f,mag_f,stkRows};
+  return{dps,burstDps,wdMult:wdMultDisplay,critAvg,hsM,rpm_f,mag_f,stkRows};
 }
 
 function calcBuild(){
