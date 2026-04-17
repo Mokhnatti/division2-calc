@@ -1782,15 +1782,14 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     if(s.def.chc_base!==undefined) sCHC+=stks*s.def.chc_base;
     stkRows.push({name:s.name,stks:Math.round(stks),max:maxS,color:s.color});
   }
-  // Weapon talent: Алехандро shot_cover и Eagle Bearer kill работают как AMP (внешний множитель)
-  // НЕ в WD бакет, а ×(1+bonus/100) после wdMult
+  // Weapon talent WD (Alejandro shot_cover / Eagle Bearer kill) — в WD бакет
   let talWD=0;
   let talAmp=0;
   if(wpn.tal_type==="shot_cover"){
     const ts=t===Infinity?wpn.tal_max:Math.min(sps0*t,wpn.tal_max);
-    talAmp=ts;
+    talWD=ts;
   }
-  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talAmp=wpn.tal_bonus;
+  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus;
   // WD bucket
   const wdMult=1+(totalWD+sWD+talWD)/100;
   // ROF
