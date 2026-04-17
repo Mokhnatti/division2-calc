@@ -2662,17 +2662,17 @@ function calcBuild(){
   renderTtk(baseDPS,avgDPS10,maxDPS);
 
   document.getElementById("b-peak").innerHTML=
-    `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
-      <div>
-        <div style="font-size:22px;font-weight:700;color:#888">${Math.round(baseDPS).toLocaleString("ru")}</div>
+    `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">
+      <div style="min-width:0;overflow:hidden">
+        <div style="font-size:clamp(13px,4.5vw,22px);font-weight:700;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${Math.round(baseDPS).toLocaleString("ru")}</div>
         <div style="font-size:10px;color:var(--muted);margin-top:2px">БАЗА (без стаков)</div>
       </div>
-      <div>
-        <div style="font-size:26px;font-weight:700;color:#f5a623">${Math.round(avgDPS10).toLocaleString("ru")}</div>
+      <div style="min-width:0;overflow:hidden">
+        <div style="font-size:clamp(15px,5.5vw,26px);font-weight:700;color:#f5a623;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${Math.round(avgDPS10).toLocaleString("ru")}</div>
         <div style="font-size:10px;color:var(--muted);margin-top:2px">СРЕДНИЙ (10с бой)</div>
       </div>
-      <div>
-        <div style="font-size:32px;font-weight:700;color:var(--orange)">${Math.round(maxDPS).toLocaleString("ru")}</div>
+      <div style="min-width:0;overflow:hidden">
+        <div style="font-size:clamp(17px,6.5vw,32px);font-weight:700;color:var(--orange);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${Math.round(maxDPS).toLocaleString("ru")}</div>
         <div style="font-size:10px;color:var(--muted);margin-top:2px">ПИК (фул стаки)</div>
       </div>
     </div>
