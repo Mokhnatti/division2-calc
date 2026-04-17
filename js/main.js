@@ -1782,15 +1782,16 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     if(s.def.chc_base!==undefined) sCHC+=stks*s.def.chc_base;
     stkRows.push({name:s.name,stks:Math.round(stks),max:maxS,color:s.color});
   }
-  // Экзотик-таланты — как AMP множитель, не в WD бакет
-  let talAmp=0;
+  // Экзотик-таланты (Алехандро, Eagle Bearer) — в WD бакет (по описанию игры)
+  let talWD=0;
   if(wpn.tal_type==="shot_cover"){
     const ts=t===Infinity?wpn.tal_max:Math.min(sps0*t,wpn.tal_max);
-    talAmp=ts;
+    talWD=ts;
   }
-  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talAmp=wpn.tal_bonus;
-  // WD bucket — только ручной ввод пользователя
-  const wdMult=1+totalWD/100;
+  if(wpn.tal_type==="kill"&&wpn.tal_bonus) talWD=wpn.tal_bonus;
+  const talAmp=0;
+  // WD bucket: ручной ввод + экзотик-талант (но НЕ стаки сетов — они amp)
+  const wdMult=1+(totalWD+talWD)/100;
   // ROF
   const rpm_f=wpn.rpm*(1+(totalROF+sROF)/100);
   // Mag
