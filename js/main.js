@@ -2125,6 +2125,31 @@ function calcBuild(){
     if(wpn.tal_type==="shot_cover"&&wpn.tal_max){
       pushG("wd",wpn.tal_max,exSrc+" (из укрытия, пик)",true);
     }
+    const exStats=EXOTIC_WPNS[wpn.name]||{};
+    if(exStats.static_bonus){
+      const sb=exStats.static_bonus;
+      ["wd","chc","chd","hsd","rof","mag","reload"].forEach(k=>{
+        if(sb[k]){
+          if(k==="wd")tWD+=sb[k];
+          else if(k==="chc")tCHC+=sb[k];
+          else if(k==="chd")tCHD+=sb[k];
+          else if(k==="hsd")tHSD+=sb[k];
+          else if(k==="rof")tROF+=sb[k];
+          else if(k==="mag")tMAG+=sb[k];
+          else if(k==="reload")tRELOAD+=sb[k];
+          pushG(k,sb[k],exSrc+" (статический)"+(sb.note?" · "+sb.note:""));
+        }
+      });
+    }
+    if(exStats.peak_bonus){
+      const pb=exStats.peak_bonus;
+      ["wd","chc","chd","hsd","rof","mag","reload"].forEach(k=>{
+        if(pb[k]){
+          tPeakOnly[k]=(tPeakOnly[k]||0)+pb[k];
+          pushG(k,pb[k],exSrc+" (пик)"+(pb.note?" · "+pb.note:""),true);
+        }
+      });
+    }
     bonuses.push({color:"#ab47bc",tier:"🧿",nm:"Экзотик: "+wpn.name,desc:(wpn.tal||"")+": "+(wpn.tal_desc||"").slice(0,140)});
   }
 
