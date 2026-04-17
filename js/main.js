@@ -2002,17 +2002,14 @@ function calcBuild(){
       }
     }
   }
+  // Сначала учитываем core именных/экзотиков
+  let slotsWithOwnCore=0;
   for(const slot of SLOT_LIST){
     const it=slotState[slot];
     const slotRu=SLOT_LABELS_RU[slot]||slot;
     if(it&&it.core){
       applyCoreStat(it.core,`Core (${slotRu})`);
-    }else{
-      let key=coreMode;
-      if(coreMode==="custom"){
-        key=(document.getElementById("b-core-"+slot)?.value)||"red";
-      }
-      applyCoreStat(CORE_KEY_TO_STAT[key],`Core ${slotRu} (${key})`);
+      slotsWithOwnCore++;
     }
     if(it){
       const itemName=it.name||it.setName||it.brand||slotRu;
@@ -2020,6 +2017,13 @@ function calcBuild(){
       applyAttr(it.attr2,`Attr2 ${slotRu} · ${itemName}`);
     }
   }
+  // Свободные слоты — распределяются по счётчикам Red/Blue/Yellow
+  const cntRed=parseInt(document.getElementById("core-red")?.value)||0;
+  const cntBlue=parseInt(document.getElementById("core-blue")?.value)||0;
+  const cntYellow=parseInt(document.getElementById("core-yellow")?.value)||0;
+  for(let i=0;i<cntRed;i++)applyCoreStat("weapon damage",`🔴 Core Red #${i+1}`);
+  for(let i=0;i<cntBlue;i++)applyCoreStat("armor",`🔵 Core Blue #${i+1}`);
+  for(let i=0;i<cntYellow;i++)applyCoreStat("skill tier",`🟡 Core Yellow #${i+1}`);
   // Итог: добавляем к общим totals (до DPS-расчёта)
   tWD+=gWD; tCHC+=gCHC; tCHD+=gCHD; tHSD+=gHSD;
   tROF+=gROF; tMAG+=gMAG; tRELOAD+=gRELOAD;

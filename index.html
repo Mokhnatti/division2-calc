@@ -415,6 +415,21 @@
         </div>
       </div>
     </div>
+    <div style="margin-top:10px;padding:10px;background:rgba(66,165,245,.04);border-radius:6px;border:1px solid rgba(66,165,245,.2)">
+      <div style="font-size:11px;color:var(--blue);margin-bottom:6px;font-weight:600">CORE-АТРИБУТЫ СВОБОДНЫХ СЛОТОВ (не именных/экзотик)</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px">🔴 Красных (WD +15% каждый):
+          <input type="number" id="core-red" value="6" min="0" max="6" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
+        </label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px">🔵 Синих (+16594 брони):
+          <input type="number" id="core-blue" value="0" min="0" max="6" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
+        </label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:12px">🟡 Жёлтых (+1 Skill Tier):
+          <input type="number" id="core-yellow" value="0" min="0" max="6" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
+        </label>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px">Сумма должна совпадать со свободными слотами. Именные/экзотик вещи используют свой core.</div>
+    </div>
     <input type="hidden" id="b-core-mode" value="red">
     <input type="hidden" id="b-core-mask" value="red">
     <input type="hidden" id="b-core-chest" value="red">
@@ -438,7 +453,7 @@
       <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span> доп.</label><input id="b-chc" value="20" oninput="calcBuild()"><span class="u">%</span><span id="b-chc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
       <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span> доп.</label><input id="b-chd" value="25" oninput="calcBuild()"><span class="u">%</span><span id="b-chd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
       <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span> доп.</label><input id="b-hsd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-hsd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
-      <div class="bstat"><label>% HS</label><input id="b-hsrate" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label title="Процент выстрелов которые попадают в голову. Нужен для правильного расчёта DPS с HSD. Типично 30-60% для снайперов, 10-20% для AR.">% попаданий в голову <span style="cursor:help;color:var(--blue)">ⓘ</span></label><input id="b-hsrate" value="0" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label><span class="stat-tip" data-stat="OoC">Вне укрытия</span> доп.</label><input id="b-ooc" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-ooc-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
       <div class="bstat"><label><span class="stat-tip" data-stat="DtA">Броня цели</span> доп.</label><input id="b-dta" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-dta-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
       <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span> доп.</label><input id="b-wd" value="0" oninput="calcBuild()"><span class="u">%</span><span id="b-wd-sum" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
