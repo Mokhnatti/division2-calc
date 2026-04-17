@@ -1324,6 +1324,32 @@ function isAdmin(){return !!localStorage.getItem("d2calc_admin_token")}
 function getMyBuilds(){
   try{return new Set(JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]"))}catch(e){return new Set()}
 }
+const SET_SHORT = {
+  "Боевое снаряжение Страйкера":"Страйкер",
+  "Инициатива Умбра":"Умбра",
+  "Ярость охотника":"Охотник",
+  "Дилемма переговорщика":"Переговорщик",
+  "Текущая директива":"Директива",
+  "Истинный патриот":"Патриот",
+  "Тузы и восьмёрки":"Тузы и 8ки",
+  "Остриё копья":"Остриё",
+  "Сосредоточенная компания":"Концентрация",
+  "Оплот оружейни":"Оплот",
+  "Системное повреждение":"Коррупция",
+  "Протокол Затмения":"Затмение",
+  "Будущая инициатива":"Будущее",
+  "Жёсткая проводка":"Hardwired",
+  "Ортис: Экзуро":"Экзуро",
+  "Переработка":"Рефактор",
+  "Взвешенная сборка":"Взвешенная",
+  "Стержневая сила":"Стержень"
+};
+function setShort(full){
+  if(!full)return full;
+  const clean=full.split(/\s*[—–\-]\s*/)[0].trim();
+  return SET_SHORT[clean]||clean;
+}
+
 function renderCardSlotTags(b){
   if(!b.build_hash)return"";
   const dec=b._decoded||(b._decoded=decodeBuildHash(b.build_hash));
@@ -1336,7 +1362,7 @@ function renderCardSlotTags(b){
     let key,short;
     const k=s.k;
     if(k==="green"){
-      short=s.n.split(/\s*[—–\-]\s*/)[0].replace(/^Боевое снаряжение\s+/,"").trim();
+      short=setShort(s.n);
       key="set:"+short;
     }else if(k==="brand"){
       short=s.n;
@@ -2613,7 +2639,7 @@ function calcBuild(){
     const keys=[];
     bonuses.forEach(b=>{
       if(b.tier==="🧿") keys.push(b.nm.replace(/^Экзотик:\s*/,""));
-      else if(typeof b.tier==="number"&&b.tier===4) keys.push(b.nm.split(/\s*—\s*/)[0].replace(/^Боевое снаряжение\s+/,"")+" 4шт");
+      else if(typeof b.tier==="number"&&b.tier===4) keys.push(setShort(b.nm)+" 4шт");
     });
     topKey.innerHTML=keys.length?`<span style="color:var(--muted)">💥 Главное:</span> <b style="color:var(--orange)">${keys.map(k=>escapeHtml(k)).join(" + ")}</b>`:"";
   }
@@ -2621,21 +2647,6 @@ function calcBuild(){
   // Top compact bonus tags
   const topB=document.getElementById("b-top-bonuses");
   if(topB){
-    const seen=new Set();
-    const tags=bonuses.map(b=>{
-      let kind="";
-      if(/Экзотик/i.test(b.nm)||b.tier==="🧿") kind="exotic";
-      else if(b.tier==="им") kind="named";
-      const short=b.nm.replace(/^(Экзотик: |Оружие: )/,"");
-      const isNum=typeof b.tier==="number";
-      const tierLbl=isNum?` ${b.tier}шт`:(b.tier&&b.tier!=="им"?` ${b.tier}`:"");
-      const setKey=(isNum?short:short+"|"+b.tier);
-      if(isNum){
-        if(seen.has(short+"-max")) return "";
-        seen.add(short+"-peak-"+b.tier);
-      }
-      return `<span class="rtb-tag ${kind}">${short}${tierLbl}</span>`;
-    }).filter(Boolean);
     const maxTierBySet={};
     bonuses.forEach(b=>{if(typeof b.tier==="number"){maxTierBySet[b.nm]=Math.max(maxTierBySet[b.nm]||0,b.tier);}});
     const finalTags=bonuses.filter(b=>{
@@ -2645,8 +2656,9 @@ function calcBuild(){
       let kind="";
       if(/Экзотик/i.test(b.nm)||b.tier==="🧿") kind="exotic";
       else if(b.tier==="им") kind="named";
-      const short=b.nm.replace(/^(Экзотик: |Оружие: )/,"");
+      let short=b.nm.replace(/^(Экзотик: |Оружие: )/,"");
       const isNum=typeof b.tier==="number";
+      if(isNum)short=setShort(short);
       const tierLbl=isNum?` ${b.tier}шт`:(b.tier==="им"?"":` ${b.tier||""}`);
       return `<span class="rtb-tag ${kind}">${short}${tierLbl}</span>`;
     });
@@ -2911,12 +2923,8 @@ function runBuildValidation(ctx){
     }
   }
 
-  // Brand piece count warnings (1-2 pcs = incomplete)
-  for(const[brand,count] of Object.entries(brandCnt)){
-    if(count===1){
-      warns.push({level:"info",text:`Бренд "${brand}" — только 1шт. Для 2шт/3шт бонусов добавь ещё предметов этого бренда.`});
-    }
-  }
+  // Brand: 1pc is fine (gives its single-piece bonus), no warning.
+  // Only note if 2pc skipped when there are 3 of the same brand — unlikely in practice.
 
   // Weapon cat mismatch with set type damage
   if(wpn&&wpn.cat){

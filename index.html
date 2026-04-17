@@ -103,19 +103,25 @@
     </div>
 </div>
 <div class="cat-bar">
+  <div class="cat-group" data-group="tools">
     <button class="cat-btn active" data-cat="community" style="background:rgba(171,71,188,.15);border-color:rgba(171,71,188,.4);color:var(--named)">🏆 Сообщество</button>
     <button class="cat-btn" data-cat="build" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">⚙ BUILD</button>
-    <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS Калькулятор</button>
-    <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">🏆 Топ билдов</button>
+    <button class="cat-btn" data-cat="dps" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS</button>
+    <button class="cat-btn" data-cat="meta" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">🏆 Топ</button>
+  </div>
+  <div class="cat-group" data-group="catalog">
     <button class="cat-btn" data-cat="all">Все</button>
-    <button class="cat-btn" data-cat="gear">Комплекты (26)</button>
-    <button class="cat-btn" data-cat="brand">Бренды (36)</button>
-    <button class="cat-btn" data-cat="exotic">Экзотики (~70)</button>
-    <button class="cat-btn" data-cat="named">Именные (~96)</button>
-    <button class="cat-btn" data-cat="wmods" style="background:rgba(66,165,245,.12);border-color:rgba(66,165,245,.35);color:var(--blue)">🔧 Моды оружия</button>
-    <button class="cat-btn" data-cat="smods" style="background:rgba(66,165,245,.12);border-color:rgba(66,165,245,.35);color:var(--blue)">🛠 Моды скиллов+гир</button>
+    <button class="cat-btn" data-cat="gear">Сеты 26</button>
+    <button class="cat-btn" data-cat="brand">Бренды 36</button>
+    <button class="cat-btn" data-cat="exotic">Экзотики ~70</button>
+    <button class="cat-btn" data-cat="named">Именные ~96</button>
+  </div>
+  <div class="cat-group" data-group="ref">
+    <button class="cat-btn" data-cat="wmods" style="background:rgba(66,165,245,.12);border-color:rgba(66,165,245,.35);color:var(--blue)">🔧 Моды</button>
+    <button class="cat-btn" data-cat="smods" style="background:rgba(66,165,245,.12);border-color:rgba(66,165,245,.35);color:var(--blue)">🛠 Скиллы/гир</button>
     <button class="cat-btn" data-cat="expertise" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.35);color:var(--orange)">⭐ Экспертиза</button>
     <button class="cat-btn" data-cat="help" style="background:rgba(66,165,245,.1);border-color:rgba(66,165,245,.35);color:var(--blue)">❓ Справка</button>
+  </div>
 </div>
 <div class="result-count" id="rc"></div>
 <div class="content" id="mc"></div>
@@ -489,14 +495,22 @@
 
   <!-- Validation warnings -->
   <div class="bsect" id="b-warnings-sect" style="display:none">
-    <h3>⚠ Проверка билда</h3>
-    <div id="b-warnings" style="display:flex;flex-direction:column;gap:6px"></div>
+    <details>
+    <summary><h3><span class="caret">▼</span> ⚠ Проверка билда</h3></summary>
+    <div class="bsect-body">
+      <div id="b-warnings" style="display:flex;flex-direction:column;gap:6px"></div>
+    </div>
+    </details>
   </div>
 
   <!-- Results -->
   <div class="bsect" id="b-bonuses-sect" style="display:none">
-    <h3>Активные сет-бонусы</h3>
-    <div id="b-bonuses"></div>
+    <details>
+    <summary><h3><span class="caret">▼</span> Активные сет-бонусы — подробности</h3></summary>
+    <div class="bsect-body">
+      <div id="b-bonuses"></div>
+    </div>
+    </details>
   </div>
 
   <div class="bsect" id="b-results-sect" style="display:none">
