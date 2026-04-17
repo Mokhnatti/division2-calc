@@ -2215,6 +2215,7 @@ function calcBuild(){
   const mOOC=parseFloat(document.getElementById("b-ooc").value)||0;
   const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
+  const mRELOAD=parseFloat(document.getElementById("b-reload")?.value)||0;
   // Снимок auto-значений ДО применения ручных (для отображения)
   const autoWD=tWD, autoCHC=tCHC, autoCHD=tCHD, autoHSD=tHSD;
   // Логика: если игрок ввёл поле — это ИТОГ из игры (включая часы, все бонусы).
@@ -2224,6 +2225,8 @@ function calcBuild(){
   tCHC=applyManual(autoCHC,gCHC,mCHC);
   tCHD=applyManual(autoCHD,gCHD,mCHD);
   tHSD=applyManual(autoHSD,gHSD,mHSD);
+  // Reload: если ввёл — используем его итог, иначе оставляем авто
+  if(mRELOAD>0)tRELOAD=mRELOAD;
   // Это значение ВД будет ИТОГ (база, без peak-стаков) — используется для отображения "Общий урон"
   // peak_bonus и Obliterate-стаки попадают в tPeakOnly и добавятся при Infinity в dpsAtTime
   // Подписи под полями: показываем "из брони X%" и если ввёл — "накатано Y% = итог - брони"
@@ -2248,6 +2251,7 @@ function calcBuild(){
   setSumTip("b-wd-sum",autoWD,gWD,mWD);
   setSumTip("b-ooc-sum",0,gOOC,mOOC);
   setSumTip("b-dta-sum",0,gDTA,mDTA);
+  setSumTip("b-reload-sum",0,gRELOAD,mRELOAD);
   const mOOCeff=mOOC>0?Math.max(mOOC,gOOC):gOOC;
   const mDTAeff=mDTA>0?Math.max(mDTA,gDTA):gDTA;
   // SHD Watch — статы часов ВХОДЯТ в итог из меню игры
