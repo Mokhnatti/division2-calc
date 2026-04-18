@@ -403,7 +403,9 @@
     "flavor_en": "\"You will suffer as we suffered\" \n-  Formerly Quarantined Outcast\n\n- Even though the Plague of the Outcasts acts like a status effect, it is actually a debuff and cannot be spread by the Eclipse Protocol gearset\n(unless the gearset kills an enemy which has the debuff, in which case it spreads on death as per normal).\n- The fact that this debuff doesn't work with Eclipse Protocol makes even less sense considering that both are inspired by viruses.",
     "tal_type": "none",
     "tal_bonus": 0,
-    "tal_note": "Plague DoT — не учитывается"
+    "tal_note": "Plague DoT — не учитывается",
+    "status_type": "any",
+    "status_wd": 0
   },
   "Горькая радость": {
     "en": "Bittersweet",
@@ -441,7 +443,9 @@
     "flavor_en": "\"I don't give a damn if it's not an actual Diamondback. I'll call it whatever I want, and I like the name.\" \n- Manning National Zoo Reptile Keeper\n\n- Manning National Zoo is based on the Smithsonian National Zoo, hence the faction logo is an inverted Smithsonian logo.\n- Kenly College is propsed to be an ingame substitute for Howard University",
     "tal_type": "conditional",
     "tal_bonus": 20,
-    "tal_note": "Status-affected +20% WD"
+    "tal_note": "Status-affected +20% WD",
+    "status_type": "any",
+    "status_wd": 20
   },
   "Домашний доктор": {
     "en": "Doctor Home",
@@ -719,7 +723,9 @@
     "flavor_en": "This weapon fires debilitating venomous rounds inspired by the scorpion (specifically Hottentotta). The weapon developed in conjunction with DARPA failed to get approval due to it being in contravention of the Hague Convention of 1899.",
     "tal_type": "conditional",
     "tal_bonus": 20,
-    "tal_note": "Jewellery 3 statuses → +20% WD"
+    "tal_note": "Jewellery 3 statuses → +20% WD",
+    "status_type": "any",
+    "status_wd": 20
   },
   "Сладкий сон": {
     "en": "Sweet Dreams",

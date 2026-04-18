@@ -152,7 +152,9 @@
     "talent_ru": "Ползучая смерть",
     "talent_en": "Perfect Creeping Death",
     "talent_desc_ru": "Негативный эффект, наложенный вами на цель, также передается всем противникам в радиусе 10м от нее. Восстановление: 10 сек.",
-    "source_brand_ru": "Habsburg Guard a.k.a. \"HG\" (целевые трофеи"
+    "source_brand_ru": "Habsburg Guard a.k.a. \"HG\" (целевые трофеи",
+    "status_type": "any",
+    "status_wd": 0
   },
   {
     "name": "Хребет",
@@ -215,7 +217,9 @@
     "talent_ru": "Шок и трепет",
     "talent_en": "Perfect Shock and Awe",
     "talent_desc_ru": "За каждый наложенный негативный эффект вы получаете +20% к общему урону от навыков и ремонту от навыков сроком на 27 сек.",
-    "source_brand_ru": "China Light Industries Corporation (целевые трофеи"
+    "source_brand_ru": "China Light Industries Corporation (целевые трофеи",
+    "status_type": "any",
+    "status_skill": 20
   },
   {
     "name": "Лавуазье",

@@ -2409,6 +2409,38 @@ function calcBuild(){
   // Named item talents (parsed, non-conditional applied as static base)
   let tPeakOnly={wd:0,chc:0,chd:0,hsd:0,rof:0,mag:0};
 
+  // Статусный бонус: суммируем по слотам и оружию (если включён чекбокс «цель со статусом»)
+  let statusWD=0, statusCHC=0, statusCHD=0;
+  const statusSources=[];
+  if(globalThis._statusActive){
+    const wantType=globalThis._statusType||'any';
+    const items=[wpn].filter(w=>w&&w.kind);
+    for(const ni of namedItems) items.push(ni.item);
+    for(const slot of Object.keys(slotState)){
+      const it=slotState[slot];
+      if(it&&it.kind==='exotic') items.push(it);
+    }
+    for(const it of items){
+      const itType=it.status_type;
+      if(!itType) continue;
+      const matches=(itType==='any'||wantType==='any'||itType===wantType);
+      if(!matches) continue;
+      if(it.status_wd){statusWD+=it.status_wd;statusSources.push(`${it.name}: +${it.status_wd}% WD по статусным`);}
+      if(it.status_chc){statusCHC+=it.status_chc;statusSources.push(`${it.name}: +${it.status_chc}% CHC по статусным`);}
+      if(it.status_chd){statusCHD+=it.status_chd;statusSources.push(`${it.name}: +${it.status_chd}% CHD по статусным`);}
+    }
+    // Применяем к pickWD: добавляем на пике (peak) — потому что только при cели со статусом
+    if(statusWD) tPeakOnly.wd+=statusWD;
+    if(statusCHC) tPeakOnly.chc=(tPeakOnly.chc||0)+statusCHC;
+    if(statusCHD) tPeakOnly.chd=(tPeakOnly.chd||0)+statusCHD;
+    if(statusSources.length){
+      bonuses.push({color:"#ef5350",tier:"🔥",nm:"Цель со статусом",desc:statusSources.join(" · ")});
+    }
+  }
+  globalThis._statusBonusWD=statusWD;
+  globalThis._statusBonusCHC=statusCHC;
+  globalThis._statusBonusCHD=statusCHD;
+
   // Экзотик-доспехи с DPS-релевантными бонусами
   for(const[slot,it] of Object.entries(slotState)){
     if(!it||it.kind!=="exotic"||!it.exotic_armor_dps)continue;
@@ -2622,8 +2654,13 @@ function calcBuild(){
   const mMAG=parseFloat(document.getElementById("b-mag")?.value)||0;
   const mAMP=parseFloat(document.getElementById("b-amp")?.value)||0;
   const mEXP=parseFloat(document.getElementById("b-expertise")?.value)||0;
+  // Status target: чекбокс "цель под негативным эффектом"
+  const statusActive=document.getElementById("b-status-target")?.checked||false;
+  const statusType=document.getElementById("b-status-type")?.value||"any";
   globalThis._buildAmp=mAMP;
   globalThis._buildExpertise=mEXP;
+  globalThis._statusActive=statusActive;
+  globalThis._statusType=statusType;
   const catBonusMap={
     AR:parseFloat(document.getElementById("b-wd-ar")?.value)||0,
     SMG:parseFloat(document.getElementById("b-wd-smg")?.value)||0,
@@ -2934,6 +2971,7 @@ function calcBuild(){
     <div style="font-size:11px;color:var(--muted);margin-top:12px;border-top:1px solid var(--border);padding-top:8px">
       Прирост база→пик: <b style="color:${rampPct>0?"#00c853":"#888"}">+${rampPct}%</b> · WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · HS ×${peak.hsM.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f}
     </div>
+    ${(globalThis._statusActive&&globalThis._statusBonusWD)?`<div style="margin-top:8px;padding:6px 10px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.3);border-radius:5px;font-size:11px;color:var(--red)">🔥 Цель со статусом: <b>+${globalThis._statusBonusWD}% WD</b>${globalThis._statusBonusCHC?`, +${globalThis._statusBonusCHC}% CHC`:''}${globalThis._statusBonusCHD?`, +${globalThis._statusBonusCHD}% CHD`:''} (учтено в Пик DPS)</div>`:""}
     <div style="margin-top:14px;border-top:1px solid var(--border);padding-top:10px">
       <h4 style="margin:0 0 6px;font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.5px">💥 Урон за выстрел (для сверки с манекеном в игре)</h4>
       ${(()=>{

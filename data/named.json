@@ -171,7 +171,9 @@
     "reload": 2.24,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
     "source_en": "LZ",
-    "flavor_en": "Sometimes the world doesn't burn fast enough."
+    "flavor_en": "Sometimes the world doesn't burn fast enough.",
+    "status_type": "burn",
+    "status_wd": 30
   },
   {
     "name": "Рывок",
@@ -549,7 +551,10 @@
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
     "source_en": "LZ\n\nWarlords Campaign\nAaron Keener (story)",
     "flavor_en": "\"It is all about power now. Power, and survival. They are done but I am not. And you won't be either. Not if you work with me.\" \n- Aaron \"Vanguard\" Keener",
-    "reload": 1.92
+    "reload": 1.92,
+    "status_type": "any",
+    "status_chc": 21,
+    "status_chd": 21
   },
   {
     "name": "Безопасная дистанция",
@@ -634,7 +639,9 @@
     "mag": 20.0,
     "range": 55.0,
     "reload": 4.99,
-    "hsd": 1.0
+    "hsd": 1.0,
+    "status_type": "blind",
+    "status_wd": 35
   },
   {
     "name": "Слейпнир",
@@ -857,7 +864,9 @@
     "range": 55.0,
     "reload": 2.45,
     "hsd": 1.6,
-    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ"
+    "source_ru": "Тёмная зона, именные контейнеры, контейнеры мастерства ТЗ",
+    "status_type": "any",
+    "status_wd": 0
   },
   {
     "name": "Шепот",
@@ -1043,7 +1052,9 @@
     "flavor_en": "\"Time to paint this town red.\"",
     "aliases_ru": [
       "Резня"
-    ]
+    ],
+    "status_type": "bleed",
+    "status_wd": 35
   },
   {
     "name": "D50 \"Выживальщик\"",
@@ -1067,7 +1078,9 @@
     "flavor_en": "A hard-hitting but precise pistol, the D50 features .44 Magnum rounds and an optic slot for added customization.",
     "aliases_ru": [
       "Выживальщик D50"
-    ]
+    ],
+    "status_type": "bleed",
+    "status_wd": 35
   },
   {
     "name": "Подопытный",
@@ -1415,7 +1428,9 @@
     "aliases_ru": [
       "Биг Шоу",
       "Большое шоу"
-    ]
+    ],
+    "status_type": "shock",
+    "status_wd": 35
   },
   {
     "name": "5 ST - Кабаре",
@@ -1436,7 +1451,9 @@
     "flavor_en": "\"When you're running out of options, it's time to shock and awe.\" BTSU Jack Bonney",
     "aliases_ru": [
       "Кабаре"
-    ]
+    ],
+    "status_type": "shock",
+    "status_wd": 35
   },
   {
     "name": "Чёртова дюжина",
@@ -1484,7 +1501,9 @@
     "flavor_en": "\"Two to the body, one to the head\"",
     "aliases_ru": [
       "Вратарь"
-    ]
+    ],
+    "status_type": "any",
+    "status_wd": 20
   },
   {
     "name": "Невидимая длань",
@@ -1588,7 +1607,9 @@
     "d": "Увеличение урона от оружия, наносимого противникам с негативными эффектами на 20%",
     "source_en": "LZ",
     "flavor_en": "\"Hold fire, hold fire!! He's already dead\"",
-    "name_legacy": "Расти"
+    "name_legacy": "Расти",
+    "status_type": "any",
+    "status_wd": 20
   },
   {
     "name": "Великий рост",
@@ -3151,7 +3172,9 @@
     "dps_mult": 682437.5,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
     "talent_ru": "Садист",
-    "tal_ru": "Садист"
+    "tal_ru": "Садист",
+    "status_type": "bleed",
+    "status_wd": 35
   },
   {
     "name": "Самодельный контрабандный РПК-74Э",
@@ -3203,7 +3226,9 @@
     "dps_mult": 715240,
     "source_ru": "Целевые трофеи, контейнеры опытного агента/клана/именные",
     "talent_ru": "Центр давления",
-    "tal_ru": "Центр давления"
+    "tal_ru": "Центр давления",
+    "status_type": "any",
+    "status_wd": 20
   },
   {
     "name": "Классический РПК-74",
@@ -3655,7 +3680,9 @@
     "dps_mult": 472815,
     "source_ru": "Прокачка специализации \"Эксперт по выживанию\"",
     "talent_ru": "Садист",
-    "tal_ru": "Садист"
+    "tal_ru": "Садист",
+    "status_type": "bleed",
+    "status_wd": 35
   },
   {
     "name": "Тюнингованный KARD",

@@ -357,6 +357,25 @@
       <div class="bstat"><label title="Amplified — отдельный внешний множитель DPS. Источники: Страйкер 4pc Hackstep Protocol (до +20%), некоторые экзотики/таланты. Не входит в WD бакет.">Amp (усилитель) ⓘ</label><input id="b-amp" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label title="Экспертные знания оружия — отдельный множитель поверх WD. При +15 ур. экспертизы получаешь +15% урона от оружия. Не входит в графу 'Доп. урон от всего оружия' в меню игры, но применяется в реальном уроне.">Экспертиза оружия ⓘ</label><input id="b-expertise" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
+
+    <div style="font-size:11px;color:#ef5350;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">🔥 Цель под негативным эффектом</div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(239,83,80,.05);border:1px solid rgba(239,83,80,.2);border-radius:6px">
+      <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;cursor:pointer">
+        <input type="checkbox" id="b-status-target" onchange="calcBuild()" style="margin:0"> Активировать «цель со статусом»
+      </label>
+      <select id="b-status-type" onchange="calcBuild()" class="bsel" style="min-width:140px;font-size:11px;padding:3px 6px">
+        <option value="any">Любой эффект</option>
+        <option value="burn">Горение 🔥</option>
+        <option value="bleed">Кровотечение 🩸</option>
+        <option value="shock">Шок ⚡</option>
+        <option value="blind">Ослепление 👁</option>
+        <option value="poison">Отравление ☠</option>
+        <option value="disrupt">Дезориентация 💫</option>
+      </select>
+      <span style="font-size:10px;color:var(--muted);flex:1;min-width:200px">
+        Включает бонусы талантов: Pyromaniac (горение), Sadist (кровь), Thunder Strike (шок), Eyeless (слепота), Pressure Point (любой), Diamondback, Scorpio и др.
+      </span>
+    </div>
     </div>
     </details>
   </div>
