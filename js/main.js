@@ -3150,6 +3150,27 @@ function calcBuild(){
     topSect.style.display="block";
   }
 
+  // Автосумма от шмоток — подсказка для пользователя что уже учтено из сетов/брендов/именных
+  const autoEl=document.getElementById("b-top-autosum");
+  if(autoEl){
+    const parts=[];
+    if(tWD) parts.push(`<span style="color:var(--orange)">WD +${Math.round(tWD)}%</span>`);
+    if(tCHC) parts.push(`<span style="color:var(--red)">CHC +${Math.round(tCHC)}%</span>`);
+    if(tCHD) parts.push(`<span style="color:var(--red)">CHD +${Math.round(tCHD)}%</span>`);
+    if(tHSD) parts.push(`<span style="color:var(--blue)">HSD +${Math.round(tHSD)}%</span>`);
+    if(tROF) parts.push(`<span style="color:var(--yellow)">RoF +${Math.round(tROF)}%</span>`);
+    if(tMAG) parts.push(`<span style="color:var(--yellow)">Маг +${Math.round(tMAG)}%</span>`);
+    if(tRELOAD) parts.push(`<span style="color:var(--yellow)">Reload +${Math.round(tRELOAD)}%</span>`);
+    if(parts.length){
+      autoEl.innerHTML=`<div style="margin-top:8px;padding:6px 10px;background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.2);border-radius:5px;font-size:11px">
+        <span style="color:var(--muted)">🤖 Авто-сумма из шмоток/сетов/брендов:</span> ${parts.join(' · ')}
+        <div style="font-size:10px;color:#666;margin-top:3px">Это всё уже учтено в Пик DPS. Поля ниже — ТВОИ итоги из меню игры (WD/CHC/... с учётом всего), не задваивай.</div>
+      </div>`;
+    }else{
+      autoEl.innerHTML='';
+    }
+  }
+
   // Store for publish flow
   window._lastBuildDPS={base:baseDPS,avg:avgDPS10,peak:maxDPS};
   // Build validation
