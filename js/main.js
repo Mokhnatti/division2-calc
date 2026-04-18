@@ -598,7 +598,24 @@ function renderSlotItems(){
       ${body}
     </div>`;
   }).join("");
-  document.getElementById("mod-list").innerHTML=html||'<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">Ничего не найдено</div>';
+  if(!html){
+    const filterLbl={all:'Все',green:'Сеты',brand:'Бренды',named:'Именные',exotic:'Экзотики'}[modFilter]||modFilter;
+    const totalForKind=items.filter(it=>modFilter==='all'||it.kind===modFilter).length;
+    const hasSearch=qs.length>0;
+    let msg;
+    if(totalForKind===0){
+      msg=`В слоте «${SLOT_META[curSlot]?.label||curSlot}» нет предметов категории «${filterLbl}».<br><span style="color:#666;font-size:11px">Попробуй другой фильтр.</span>`;
+    }else if(hasSearch){
+      msg=`Ничего не найдено по запросу «${qs.join(' ')}» в категории «${filterLbl}».<br><span style="color:#666;font-size:11px">Очисти поиск или поменяй фильтр.</span>`;
+    }else{
+      msg='Ничего не найдено';
+    }
+    document.getElementById("mod-list").innerHTML=`<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">${msg}</div>`;
+  }else{
+    const totalForKind=items.filter(it=>modFilter==='all'||it.kind===modFilter).length;
+    const counterHtml=`<div style="padding:6px 12px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">Найдено: <b style="color:var(--orange)">${filtered.length}</b>${filtered.length<totalForKind?` <span style="color:#666">из ${totalForKind}</span>`:''}${filtered.length>200?' <span style="color:#666">(показано первые 200)</span>':''}</div>`;
+    document.getElementById("mod-list").innerHTML=counterHtml+html;
+  }
 }
 function pickItem(idx){
   if(!curSlot)return;
@@ -1364,23 +1381,60 @@ function resolveSetName(n){ return SET_LEGACY_MAP[n]||n; }
 
 // Локализация таланта: возвращает имя на текущем языке
 function talentName(en){
-  if(!en)return '';
+  if(en==null||en==='')return '';
   if(currentLang==='en')return en;
   try{
-    const t = WEAPON_TALENTS_FULL&&Object.values(WEAPON_TALENTS_FULL).find(x=>x.name_en===en||x.perfect_name_en===en);
-    if(t){
-      if(t.perfect_name_en===en)return t.perfect_name_ru||en;
-      return t.name_ru||en;
+    if(typeof WEAPON_TALENTS_FULL!=='undefined'&&WEAPON_TALENTS_FULL){
+      const t = Object.values(WEAPON_TALENTS_FULL).find(x=>x&&(x.name_en===en||x.perfect_name_en===en));
+      if(t){
+        if(t.perfect_name_en===en)return t.perfect_name_ru||en;
+        return t.name_ru||en;
+      }
     }
-  }catch(e){}
+  }catch(e){console.warn('talentName WEAPON_TALENTS_FULL:',e);}
   try{
     if(typeof D2DATA!=='undefined'&&D2DATA.GEAR_TALENTS){
-      const g = D2DATA.GEAR_TALENTS.find(x=>x.name_en===en);
+      const g = D2DATA.GEAR_TALENTS.find(x=>x&&x.name_en===en);
       if(g&&g.name_ru)return g.name_ru;
     }
-  }catch(e){}
+  }catch(e){console.warn('talentName GEAR_TALENTS:',e);}
   return en;
 }
+
+// Глобальный обработчик ошибок: показываем в баре наверху + сохраняем в localStorage
+(function setupErrorLog(){
+  if(typeof window==='undefined')return;
+  const ERR_KEY='divcalc_errors';
+  function readErrs(){try{return JSON.parse(localStorage.getItem(ERR_KEY)||'[]')}catch(e){return []}}
+  function saveErrs(a){try{localStorage.setItem(ERR_KEY,JSON.stringify(a.slice(-20)))}catch(e){}}
+  function showBar(msg){
+    let bar=document.getElementById('err-bar');
+    if(!bar){
+      bar=document.createElement('div');
+      bar.id='err-bar';
+      bar.style.cssText='position:fixed;top:0;left:0;right:0;background:#ef5350;color:#fff;padding:8px 14px;font-size:11px;font-family:monospace;z-index:99999;display:flex;justify-content:space-between;align-items:center;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.4);max-height:40vh;overflow:auto';
+      document.body.appendChild(bar);
+    }
+    bar.innerHTML=`<span>⚠️ ${msg}</span><button onclick="this.parentElement.remove()" style="background:rgba(0,0,0,.3);border:none;color:#fff;cursor:pointer;padding:2px 8px;border-radius:4px">×</button>`;
+  }
+  window.addEventListener('error',function(ev){
+    const msg=`${ev.message} @ ${ev.filename}:${ev.lineno}`;
+    const errs=readErrs();
+    errs.push({t:Date.now(),msg,stack:(ev.error&&ev.error.stack||'').slice(0,500)});
+    saveErrs(errs);
+    showBar(msg);
+    console.error('[divcalc error]',ev.error||ev.message);
+  });
+  window.addEventListener('unhandledrejection',function(ev){
+    const msg='Promise: '+(ev.reason&&ev.reason.message||ev.reason);
+    const errs=readErrs();
+    errs.push({t:Date.now(),msg});
+    saveErrs(errs);
+    console.error('[divcalc unhandled]',ev.reason);
+  });
+  // Глобальный helper для просмотра логов через консоль
+  window._divcalcErrors=readErrs;
+})();
 function talentDesc(enDesc, ruDesc){
   if(currentLang==='en')return enDesc||'';
   return ruDesc||enDesc||'';
