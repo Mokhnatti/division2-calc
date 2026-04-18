@@ -441,7 +441,7 @@ function initWpnDb(){
     const ex=EXOTIC_WPNS[e.name];
     const stats=ex||{cat,dmg:cat==="MMR"?600000:cat==="LMG"?115000:cat==="SG"?250000:cat==="Rifle"?180000:cat==="Pistol"?80000:cat==="SMG"?34000:48000,rpm:cat==="MMR"?180:cat==="LMG"?600:cat==="SG"?100:cat==="Rifle"?240:cat==="Pistol"?300:cat==="SMG"?850:790,mag:cat==="MMR"?15:cat==="LMG"?100:cat==="SG"?8:cat==="Rifle"?20:cat==="Pistol"?10:cat==="SMG"?30:30,reload:cat==="MMR"?3.0:cat==="LMG"?5.0:cat==="SG"?3.5:cat==="Rifle"?2.5:cat==="Pistol"?2.3:cat==="SMG"?2.1:2.0};
     const id="exotic_"+e.en.toLowerCase().replace(/[^a-z0-9]+/g,"_");
-    const full={id,name:e.name,en:e.en,cat:stats.cat,dmg:stats.dmg,rpm:stats.rpm,mag:stats.mag,reload:stats.reload,kind:"exotic",tal:e.tal,tal_desc:e.d,tal_type:stats.tal_type||"none",tal_bonus:stats.tal_bonus,tal_max:stats.tal_max};
+    const full={id,name:e.name,en:e.en,cat:stats.cat,dmg:stats.dmg,rpm:stats.rpm,mag:stats.mag,reload:stats.reload,kind:"exotic",tal:e.tal,tal_desc:e.d,tal_type:stats.tal_type||"none",tal_bonus:stats.tal_bonus,tal_max:stats.tal_max,is_burst:stats.is_burst,burst_note:stats.burst_note};
     WPNS[id]=full;
     WPNS_LIST.push(full);
   });
@@ -3036,6 +3036,15 @@ function calcBuild(){
       Прирост база→пик: <b style="color:${rampPct>0?"#00c853":"#888"}">+${rampPct}%</b> · WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · HS ×${peak.hsM.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f}
     </div>
     ${(globalThis._statusActive&&globalThis._statusBonusWD)?`<div style="margin-top:8px;padding:6px 10px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.3);border-radius:5px;font-size:11px;color:var(--red)">🔥 Цель со статусом: <b>+${globalThis._statusBonusWD}% WD</b>${globalThis._statusBonusCHC?`, +${globalThis._statusBonusCHC}% CHC`:''}${globalThis._statusBonusCHD?`, +${globalThis._statusBonusCHD}% CHD`:''} (учтено в Пик DPS)</div>`:""}
+    ${(wpn.is_burst&&wpn.tal_bonus)?(()=>{
+      const baseShot=Math.round(wpn.dmg*peak.wdMult*(1+(mDTAeff||0)/100)*(1+(mOOCeff||0)/100));
+      const burstShot=Math.round(baseShot*(1+wpn.tal_bonus/100));
+      const burstCrit=Math.round(burstShot*(1+(mCHD||0)/100));
+      return `<div style="margin-top:8px;padding:8px 12px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.4);border-left:3px solid var(--orange);border-radius:5px;font-size:11px">
+        <div style="color:var(--orange);font-weight:700;margin-bottom:4px">💥 BURST одиночный выстрел: <b style="font-size:16px">${burstShot.toLocaleString('ru')}</b> урон <span style="color:var(--muted);font-weight:400">(в крит: ${burstCrit.toLocaleString('ru')})</span></div>
+        <div style="color:var(--muted);font-size:10px">${wpn.burst_note||''}</div>
+      </div>`;
+    })():""}
     <div style="margin-top:14px;border-top:1px solid var(--border);padding-top:10px">
       <h4 style="margin:0 0 6px;font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.5px">💥 Урон за выстрел (для сверки с манекеном в игре)</h4>
       ${(()=>{
@@ -4305,4 +4314,55 @@ function renderSkillCalc(){
   }).join('');
 
   host.innerHTML = cards || '<div style="padding:40px;text-align:center;color:var(--muted)">Нет навыков в этой категории</div>';
+}
+
+// ===== META BUILDS =====
+function openMetaBuilds(){
+  const m = document.getElementById('meta-modal');
+  if(!m) return;
+  const MB = (typeof D2DATA!=='undefined' && D2DATA.META_BUILDS) || [];
+  const tierColor = {S:'#ef5350', A:'#f5a623', B:'#42a5f5'};
+  const cards = MB.map(b => `
+    <div style="background:var(--card);border:1px solid var(--border);border-left:4px solid ${tierColor[b.tier]||'#888'};border-radius:8px;padding:14px;margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;gap:8px">
+        <div>
+          <div style="font-size:14px;font-weight:700;color:var(--orange)">${b.name}</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.5px">${b.tag}</div>
+        </div>
+        <span style="background:${tierColor[b.tier]||'#888'};color:#000;padding:2px 10px;border-radius:10px;font-weight:700;font-size:12px">${b.tier} TIER</span>
+      </div>
+      <div style="font-size:12px;color:var(--text);line-height:1.4;margin:8px 0">${b.desc}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:11px;margin:8px 0">
+        <span style="padding:3px 8px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);border-radius:10px;color:var(--orange)">🔫 ${b.wpn_en}</span>
+        <span style="padding:3px 8px;background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.3);border-radius:10px;color:var(--green)">📦 Сет: ${b.set_focus}</span>
+        <span style="padding:3px 8px;background:rgba(66,165,245,.1);border:1px solid rgba(66,165,245,.3);border-radius:10px;color:var(--blue)">${b.weapon_cat}</span>
+      </div>
+      <button class="mf-btn" onclick="loadMetaBuild('${b.id}')" style="background:var(--orange);color:#000;border:none;padding:6px 14px;font-weight:700;width:100%">Загрузить как пример</button>
+    </div>
+  `).join('');
+  document.getElementById('meta-list').innerHTML = cards || '<div style="padding:30px;text-align:center;color:var(--muted)">Мета-билды не загружены</div>';
+  m.classList.add('open');
+}
+function closeMetaBuilds(){
+  document.getElementById('meta-modal').classList.remove('open');
+}
+function loadMetaBuild(id){
+  const MB = (typeof D2DATA!=='undefined' && D2DATA.META_BUILDS) || [];
+  const b = MB.find(x => x.id === id);
+  if(!b) return;
+  // Find weapon by en
+  const wpnEntry = Object.entries(WPNS).find(([k, w]) => w.en === b.wpn_en);
+  if(wpnEntry){
+    selectedWpnId = wpnEntry[0];
+    updateWpnBtn();
+    calcBuild();
+  }
+  closeMetaBuilds();
+  // Show hint about set
+  const status = document.getElementById('b-share-status');
+  if(status){
+    status.style.color = 'var(--orange)';
+    status.innerHTML = `🎯 Загружен шаблон: <b>${b.name}</b>. Собери шмотки сета <b>${b.set_focus}</b> в слотах вручную.`;
+    setTimeout(()=>{status.innerHTML='';status.style.color='';}, 8000);
+  }
 }

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "striker_lmg",
+    "name": "Боевик LMG",
+    "tag": "ALL-ROUND PvE",
+    "desc": "Классический Боевик 4шт + LMG для непрерывной стрельбы. Стаки растут до +200 за магазин = +100% WD пик.",
+    "wpn_en": "The Bighorn",
+    "weapon_cat": "LMG",
+    "set_focus": "Striker's Battlegear",
+    "tier": "S"
+  },
+  {
+    "id": "striker_alejandro",
+    "name": "Boevik + Big Alejandro",
+    "tag": "S-TIER PvE",
+    "desc": "Боевик 4шт стаки + экзотик ЛМГ Большой Алехандро (+100% WD из укрытия). Сейчас лучший LMG-DPS.",
+    "wpn_en": "Big Alejandro",
+    "weapon_cat": "LMG",
+    "set_focus": "Striker's Battlegear",
+    "tier": "S"
+  },
+  {
+    "id": "tipping_hunter",
+    "name": "Tipping Scales × Headhunter",
+    "tag": "MMR / 1-shot",
+    "desc": "Tipping Scales 4шт + Headhunter (Серийный убийца) на нагруднике. Накапливаешь 200+ стаков до фул, разгружаешь one-shot.",
+    "wpn_en": "Eagle Bearer",
+    "weapon_cat": "MMR",
+    "set_focus": "Tipping Scales",
+    "tier": "S"
+  },
+  {
+    "id": "heartbreaker_smg",
+    "name": "Разбиватель Сердец SMG",
+    "tag": "Burst PvE",
+    "desc": "Разбиватель Сердец 4шт + SMG. Burst CHC 100% за каждую серию выстрелов = регулярные крит-серии.",
+    "wpn_en": "Backfire",
+    "weapon_cat": "SMG",
+    "set_focus": "Heartbreaker",
+    "tier": "A"
+  },
+  {
+    "id": "ongoing_directive_pyro",
+    "name": "Бессрочная Директива × Пироман",
+    "tag": "Status Burn",
+    "desc": "Бессрочная Директива (горение/кровотечение бакетами) + Pyromaniac (+30% WD по горящим).",
+    "wpn_en": "Pyromaniac",
+    "weapon_cat": "AR",
+    "set_focus": "Ongoing Directive",
+    "tier": "A"
+  },
+  {
+    "id": "hardwired_skill",
+    "name": "Спецпрограмма Skill DPS",
+    "tag": "Skill build",
+    "desc": "Hardwired/Спецпрограмма 4шт + skill builder. Бесконечные cooldown-ресеты турели/мины.",
+    "wpn_en": "Capacitor",
+    "weapon_cat": "AR",
+    "set_focus": "Hard Wired",
+    "tier": "A"
+  },
+  {
+    "id": "negotiator_rifle",
+    "name": "Дилемма Переговорщика Rifle",
+    "tag": "Mark + AoE",
+    "desc": "Negotiator's 4шт пометить + взрыв. Любая Rifle (AKM, Mk17 и т.п.) для маркировки.",
+    "wpn_en": "Eagle Bearer",
+    "weapon_cat": "Rifle",
+    "set_focus": "Negotiator's Dilemma",
+    "tier": "A"
+  },
+  {
+    "id": "future_initiative_skill",
+    "name": "Инициатива Будущего Skill+heal",
+    "tag": "Support skill",
+    "desc": "Future Initiative 4шт — синергия скиллов и хила, командный билд.",
+    "wpn_en": "Capacitor",
+    "weapon_cat": "AR",
+    "set_focus": "Future Initiative",
+    "tier": "B"
+  },
+  {
+    "id": "patriot_aoe",
+    "name": "Истинный Патриот AoE",
+    "tag": "Group buff/debuff",
+    "desc": "True Patriot 4шт — флаги (red/white/blue) дают bonus damage союзникам и debuff врагам.",
+    "wpn_en": "Lullaby",
+    "weapon_cat": "SG",
+    "set_focus": "True Patriot",
+    "tier": "B"
+  },
+  {
+    "id": "cluster_seeker",
+    "name": "Точка концентрации Skill",
+    "tag": "Skill burst",
+    "desc": "Concentrated Company 4шт + Cluster Seeker Mines / Firefly Demolisher. Burst по группе.",
+    "wpn_en": "Capacitor",
+    "weapon_cat": "AR",
+    "set_focus": "Concentrated Company",
+    "tier": "B"
+  },
+  {
+    "id": "umbra_pakhan",
+    "name": "Umbra Initiative × Pakhan",
+    "tag": "PvE LMG",
+    "desc": "Umbra Initiative + Pakhan (LMG +5% WD × 10 stacks). Стаки от Pakhan + статусы от Umbra.",
+    "wpn_en": "Pakhan",
+    "weapon_cat": "LMG",
+    "set_focus": "Umbra Initiative",
+    "tier": "B"
+  },
+  {
+    "id": "memento_solo",
+    "name": "Memento Solo Crit",
+    "tag": "Solo Heroic",
+    "desc": "Memento (рюкзак) + Coyote's Mask + любой crit-билд. Универсальный соло-сборщик трофеев.",
+    "wpn_en": "Eagle Bearer",
+    "weapon_cat": "AR",
+    "set_focus": "any",
+    "tier": "S"
+  }
+]

@@ -213,6 +213,7 @@
     <button class="mf-btn no-export" onclick="shareBuild()" title="Скопировать ссылку" style="background:rgba(66,165,245,.15);border-color:rgba(66,165,245,.4);color:var(--blue)">🔗 Поделиться</button>
     <button class="mf-btn no-export" onclick="exportBuildAsPng()" title="Сохранить билд как PNG" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.4);color:var(--orange)">📷 Сохранить как картинку</button>
     <button class="mf-btn" onclick="openPublishModal()" title="Опубликовать в сообществе" style="background:rgba(0,200,83,.15);border-color:rgba(0,200,83,.4);color:var(--green)">🚀 Опубликовать</button>
+    <button class="mf-btn" onclick="openMetaBuilds()" title="Готовые мета-билды для вдохновения" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.4);color:var(--orange)">🎯 Мета-билды</button>
     <div id="b-share-status" style="font-size:11px;color:var(--muted);flex-basis:100%;text-align:center;min-height:14px"></div>
   </div>
 
@@ -713,6 +714,20 @@
       <div class="bug-status" id="pub-status"></div>
       <button type="submit" class="bug-submit" id="pub-submit-btn" style="background:var(--green);color:#000">Опубликовать</button>
     </form>
+  </div>
+</div>
+
+<!-- META BUILDS MODAL -->
+<div class="modal-bg" id="meta-modal" onclick="if(event.target===this)closeMetaBuilds()">
+  <div class="modal-box" style="max-width:780px">
+    <div class="modal-head">
+      <h3>🎯 Мета-билды Y9 PvE</h3>
+      <button class="modal-close" onclick="closeMetaBuilds()">×</button>
+    </div>
+    <div style="padding:14px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--border)">
+      Готовые шаблоны популярных мета-билдов. Клик «Загрузить» — выберется оружие, в подсказке указан сет/бренд (шмотки выберешь сам в слотах).
+    </div>
+    <div id="meta-list" style="padding:14px;max-height:60vh;overflow-y:auto"></div>
   </div>
 </div>
 
