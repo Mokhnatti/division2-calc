@@ -108,6 +108,7 @@
     <button class="cat-btn" data-cat="build" data-ru="⚙ BUILD" data-en="⚙ BUILD" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">⚙ BUILD</button>
     <button class="cat-btn" data-cat="dps" data-ru="DPS" data-en="DPS" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS</button>
     <button class="cat-btn" data-cat="meta" data-ru="🏆 Топ" data-en="🏆 Top" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">🏆 Топ</button>
+    <button class="cat-btn" data-cat="skills" data-ru="⚡ Скиллы" data-en="⚡ Skills" style="background:rgba(66,165,245,.15);border-color:rgba(66,165,245,.4);color:var(--blue)">⚡ Скиллы</button>
   </div>
   <div class="cat-group" data-group="catalog">
     <button class="cat-btn" data-cat="all" data-ru="Все" data-en="All">Все</button>
@@ -888,6 +889,44 @@
     </div>
   </div>
   <div class="content" id="expertise-content"></div>
+</div>
+</div>
+
+<div id="skills-panel" style="display:none">
+<div class="bw" style="max-width:1100px;margin:0 auto;padding:14px">
+  <div class="bsect">
+    <h3>⚡ Калькулятор урона навыков</h3>
+    <p style="font-size:12px;color:var(--muted);margin-top:4px">Расчёт DPS навыков (Дрон, Турель, Улей, Мина, Светлячок, Хим. установка, Импульс) с учётом Skill Tier и Skill Damage %.</p>
+  </div>
+
+  <div class="bsect">
+    <h3>Параметры билда</h3>
+    <div class="bstat-row">
+      <div class="bstat"><label>Skill Tier (0-6)</label><input id="sk-tier" type="number" value="6" min="0" max="6" oninput="renderSkillCalc()"><span class="u">тир</span></div>
+      <div class="bstat"><label>Skill Damage (общий %)</label><input id="sk-dmg" type="number" value="0" oninput="renderSkillCalc()"><span class="u">%</span></div>
+      <div class="bstat"><label>Skill Haste (CD reduction)</label><input id="sk-haste" type="number" value="0" oninput="renderSkillCalc()"><span class="u">%</span></div>
+      <div class="bstat"><label>Status Effect %</label><input id="sk-status" type="number" value="0" oninput="renderSkillCalc()"><span class="u">%</span></div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px">
+      💡 Skill Damage берётся из ATK атрибутов брони, бренды (Murakami, Empress, Walker, Yaahl), сетов (Hard Wired/Спецпрограмма, Future Initiative). Skill Tier даётся жёлтыми ядрами и SHD Watch.
+    </div>
+  </div>
+
+  <div class="bsect">
+    <h3>Фильтр навыков</h3>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <button class="mf-btn on" onclick="setSkillFilter('all')" data-skf="all">Все</button>
+      <button class="mf-btn" onclick="setSkillFilter('drone')" data-skf="drone">🛸 Дрон</button>
+      <button class="mf-btn" onclick="setSkillFilter('turret')" data-skf="turret">🔫 Турель</button>
+      <button class="mf-btn" onclick="setSkillFilter('hive')" data-skf="hive">🐝 Улей</button>
+      <button class="mf-btn" onclick="setSkillFilter('seeker')" data-skf="seeker">💣 Мина</button>
+      <button class="mf-btn" onclick="setSkillFilter('firefly')" data-skf="firefly">✨ Светлячок</button>
+      <button class="mf-btn" onclick="setSkillFilter('chem')" data-skf="chem">🧪 Хим</button>
+      <button class="mf-btn" onclick="setSkillFilter('pulse')" data-skf="pulse">📡 Импульс</button>
+    </div>
+  </div>
+
+  <div id="sk-results"></div>
 </div>
 </div>
 

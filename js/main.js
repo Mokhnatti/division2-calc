@@ -254,7 +254,8 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         const isSmods = activeCat==="smods";
         const isExpertise = activeCat==="expertise";
         const isHelp = activeCat==="help";
-        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise||isHelp;
+        const isSkills = activeCat==="skills";
+        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise||isHelp||isSkills;
         document.getElementById("mc").style.display=hideMain?"none":"";
         document.getElementById("rc").style.display=hideMain?"none":"";
         document.querySelector(".search-panel").style.display=hideMain?"none":"";
@@ -271,6 +272,8 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         if(expPanel)expPanel.style.display=isExpertise?"block":"none";
         const helpPanel=document.getElementById("help-panel");
         if(helpPanel)helpPanel.style.display=isHelp?"block":"none";
+        const skillsPanel=document.getElementById("skills-panel");
+        if(skillsPanel)skillsPanel.style.display=isSkills?"block":"none";
         if(!hideMain) render();
         else if(isCalc) calcDPS();
         else if(isBuild) calcBuild();
@@ -279,6 +282,7 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         else if(isWmods) renderWeaponMods();
         else if(isSmods) renderSkillGearMods();
         else if(isExpertise) renderExpertise();
+        else if(isSkills) renderSkillCalc();
     });
 });
 render();
@@ -4195,4 +4199,110 @@ async function loadTopBuilds(){
   }catch(e){
     host.innerHTML=`<div style="padding:40px;text-align:center;color:var(--red)">Ошибка: ${escapeHtml(e.message)}</div>`;
   }
+}
+
+// ===== SKILL DPS CALCULATOR =====
+let _skillFilter = 'all';
+function setSkillFilter(f){
+  _skillFilter = f;
+  document.querySelectorAll('[data-skf]').forEach(b=>b.classList.toggle('on', b.dataset.skf===f));
+  renderSkillCalc();
+}
+function renderSkillCalc(){
+  const host = document.getElementById('sk-results');
+  if(!host) return;
+  const SD = (typeof D2DATA!=='undefined' && D2DATA.SKILLS_DATA) || null;
+  if(!SD || !SD.skills){
+    host.innerHTML = '<div style="padding:20px;color:var(--red)">Данные о навыках не загружены</div>';
+    return;
+  }
+  const tier = Math.max(0, Math.min(6, parseInt(document.getElementById('sk-tier')?.value)||0));
+  const sdmgPct = parseFloat(document.getElementById('sk-dmg')?.value)||0;
+  const status = parseFloat(document.getElementById('sk-status')?.value)||0;
+  const haste = parseFloat(document.getElementById('sk-haste')?.value)||0;
+
+  const skillDmgMult = 1 + sdmgPct/100;
+
+  let skills = SD.skills;
+  if(_skillFilter !== 'all') skills = skills.filter(s => s.type === _skillFilter);
+
+  const cards = skills.map(s=>{
+    const tierMult = (s.tier_dmg_mult && s.tier_dmg_mult[tier]) || 1.0;
+    const durMult = (s.tier_dur_mult && s.tier_dur_mult[tier]) || 1.0;
+    const cdMult = (s.tier_cd_mult && s.tier_cd_mult[tier]) || 1.0;
+    const cdFinal = ((s.cooldown_s || 0) * cdMult) / (1 + haste/100);
+
+    let dpsLine='', burstLine='', extraLine='';
+
+    if(s.category==='dps' && s.base_dmg_per_shot && s.rpm){
+      const dmgPerShot = s.base_dmg_per_shot * tierMult * skillDmgMult;
+      const sps = s.rpm/60;
+      const dpsActive = dmgPerShot * sps;
+      const dur = (s.duration_s||60) * durMult;
+      const totalDmg = dpsActive * dur;
+      const dpsAvg = totalDmg / (dur + cdFinal);
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(dpsActive).toLocaleString('ru')}</div><div class="rtn-lbl">DPS активный</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString('ru')}</div><div class="rtn-lbl">DPS средний (с КД)</div></div>`;
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/выстрел: <b>${Math.round(dmgPerShot).toLocaleString('ru')}</b> · RPM: ${s.rpm} · Длит: ${dur.toFixed(1)}с · КД: ${cdFinal.toFixed(1)}с · Полный цикл урона: <b>${Math.round(totalDmg).toLocaleString('ru')}</b></div>`;
+    }
+    else if(s.category==='dps' && s.base_dmg_per_drone){
+      // Hive Stinger
+      const dmgPerDrone = s.base_dmg_per_drone * tierMult * skillDmgMult;
+      const drones = (s.drones_total||1) * (s.tier_drones_mult?.[tier]||1);
+      const totalDmg = dmgPerDrone * drones;
+      const dpsAvg = totalDmg / ((s.duration_s||60) + cdFinal);
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString('ru')}</div><div class="rtn-lbl">Полный урон</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString('ru')}</div><div class="rtn-lbl">DPS средний (с КД)</div></div>`;
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/дрон: <b>${Math.round(dmgPerDrone).toLocaleString('ru')}</b> × ${Math.round(drones)} дронов · Длит: ${s.duration_s}с · КД: ${cdFinal.toFixed(1)}с</div>`;
+    }
+    else if(s.category==='burst' || s.category==='high_single'){
+      const dmgPer = (s.base_dmg_per_shot || s.base_dmg_per_bomb || s.base_dmg_per_mine || s.base_dmg_per_shell || s.base_dmg_per_target) * tierMult * skillDmgMult;
+      const count = s.bombs_per_run || s.shells_per_charge || s.mines_per_charge || s.charges || s.max_targets || 1;
+      const totalDmg = dmgPer * count;
+      const dpsAvg = totalDmg / cdFinal;
+      const isMulti = count > 1;
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString('ru')}</div><div class="rtn-lbl">Burst урон${isMulti?` (${count}×)`:''}</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString('ru')}</div><div class="rtn-lbl">DPS на КД</div></div>`;
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/выстрел: <b>${Math.round(dmgPer).toLocaleString('ru')}</b>${isMulti?` × ${count}`:''} · КД: ${cdFinal.toFixed(1)}с</div>`;
+    }
+    else if(s.category==='aoe_dot'){
+      const dmgPerTick = (s.base_dmg_per_tick || s.base_dmg_per_target) * tierMult * skillDmgMult * (s.applies_burn || s.applies_bleed ? 1+status/100 : 1);
+      const tps = s.ticks_per_sec || 1;
+      const dur = s.duration_s || 8;
+      const dpsActive = dmgPerTick * tps;
+      const totalDmg = dpsActive * dur;
+      const dpsAvg = totalDmg / (dur + cdFinal);
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(dpsActive).toLocaleString('ru')}</div><div class="rtn-lbl">DPS на цели</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString('ru')}</div><div class="rtn-lbl">DPS средний</div></div>`;
+      const targetsLine = s.max_targets?` × ${s.max_targets} целей`:'';
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/тик: <b>${Math.round(dmgPerTick).toLocaleString('ru')}</b> × ${tps}/с${targetsLine} · Длит: ${dur}с · КД: ${cdFinal.toFixed(1)}с${(s.applies_burn||s.applies_bleed)?` · 🔥 +${status}% статус`:''}</div>`;
+    }
+    else if(s.category==='burst_amp'){
+      const dmgPer = s.base_dmg_per_target * tierMult * skillDmgMult;
+      const totalDmg = dmgPer * s.max_targets;
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString('ru')}</div><div class="rtn-lbl">Burst урон</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">+${s.amp_to_marked}%</div><div class="rtn-lbl">Усиление меченым</div></div>`;
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/цель: <b>${Math.round(dmgPer).toLocaleString('ru')}</b> × ${s.max_targets} · КД: ${cdFinal.toFixed(1)}с</div>`;
+    }
+
+    const typeIcon = {drone:'🛸',turret:'🔫',hive:'🐝',seeker:'💣',firefly:'✨',chem:'🧪',pulse:'📡'}[s.type]||'⚡';
+
+    return `<div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:8px;padding:14px;margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+        <div>
+          <div style="font-size:14px;font-weight:600;color:var(--blue)">${typeIcon} ${s.name_ru}</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">${s.name_en}</div>
+        </div>
+        <div style="font-size:10px;color:var(--muted);background:rgba(66,165,245,.1);padding:3px 8px;border-radius:10px">Tier ${tier}</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center" class="rtn-grid">
+        ${dpsLine}
+        ${burstLine}
+      </div>
+      ${extraLine}
+      <div style="font-size:11px;color:#888;margin-top:8px;font-style:italic">${s.desc_ru||''}</div>
+    </div>`;
+  }).join('');
+
+  host.innerHTML = cards || '<div style="padding:40px;text-align:center;color:var(--muted)">Нет навыков в этой категории</div>';
 }
