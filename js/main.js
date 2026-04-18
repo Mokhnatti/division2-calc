@@ -2211,14 +2211,16 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   const dtaM=1+dta/100;
   // Amp множители (все внешние): ручной Amp + стаки сетов + экзотик-талант (Алехандро/Eagle Bearer)
   const ampM=(1+(globalThis._buildAmp||0)/100)*(1+sAmpWD/100)*(1+talAmp/100);
-  // Expertise — отключена (по замерам на манекене не применяется к per-shot в Y9)
-  const expM=1;
+  // Expertise — применяется к БАЗОВОМУ урону оружия (как описано в игре)
+  // adjBase = wpn.dmg × (1 + expertise/100), дальше стандартная формула
+  const expM=1+(globalThis._buildExpertise||0)/100;
+  const adjBase=wpn.dmg*expM;
   // Общий wdMult_total для отображения (база + стаки + Алехандро "эквивалентно")
   const wdMultDisplay=wdMult*ampM;
   // Sustained DPS
-  const dps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*effSPS;
+  const dps=adjBase*wdMult*critAvg*hsM*oocM*dtaM*ampM*effSPS;
   // Burst DPS (без учёта reload)
-  const burstDps=wpn.dmg*wdMult*critAvg*hsM*oocM*dtaM*ampM*expM*sps_f;
+  const burstDps=adjBase*wdMult*critAvg*hsM*oocM*dtaM*ampM*sps_f;
   return{dps,burstDps,wdMult:wdMultDisplay,critAvg,hsM,rpm_f,mag_f,stkRows};
 }
 
@@ -3025,7 +3027,8 @@ function calcBuild(){
   renderTtk(baseDPS,avgDPS10,maxDPS);
 
   // DPM: урон за полный магазин (без перезарядки)
-  const dpmPeak=Math.round(wpn.dmg*peak.wdMult*peak.critAvg*peak.hsM*peak.mag_f);
+  const expMultDPM=1+(mEXP||0)/100;
+  const dpmPeak=Math.round(wpn.dmg*expMultDPM*peak.wdMult*peak.critAvg*peak.hsM*peak.mag_f);
   // График DPS по моментам: SVG line chart
   const chartW=400, chartH=80, padL=30, padR=10, padT=8, padB=18;
   const chartRows=rows.filter(r=>isFinite(r.t));
@@ -3082,7 +3085,9 @@ function calcBuild(){
       </div>`;
     })()}
     ${(wpn.is_burst&&wpn.tal_bonus)?(()=>{
-      const baseShot=Math.round(wpn.dmg*peak.wdMult*(1+(mDTAeff||0)/100)*(1+(mOOCeff||0)/100));
+      const expB=1+(mEXP||0)/100;
+      const ampB=1+(mAMP||0)/100;
+      const baseShot=Math.round(wpn.dmg*expB*peak.wdMult*(1+(mDTAeff||0)/100)*(1+(mOOCeff||0)/100)*ampB);
       const burstShot=Math.round(baseShot*(1+wpn.tal_bonus/100));
       const burstCrit=Math.round(burstShot*(1+(mCHD||0)/100));
       return `<div style="margin-top:8px;padding:8px 12px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.4);border-left:3px solid var(--orange);border-radius:5px;font-size:11px">
