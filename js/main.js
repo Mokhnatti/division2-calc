@@ -2414,8 +2414,10 @@ function calcBuild(){
   // Статусный бонус: суммируем по слотам и оружию (если включён чекбокс «цель со статусом»)
   let statusWD=0, statusCHC=0, statusCHD=0;
   const statusSources=[];
-  if(globalThis._statusActive){
-    const wantType=globalThis._statusType||'any';
+  const _statusActiveLocal=document.getElementById("b-status-target")?.checked||false;
+  const _statusTypeLocal=document.getElementById("b-status-type")?.value||"any";
+  if(_statusActiveLocal){
+    const wantType=_statusTypeLocal;
     const items=[wpn].filter(w=>w&&w.kind);
     for(const ni of namedItems) items.push(ni.item);
     for(const slot of Object.keys(slotState)){
@@ -2439,6 +2441,8 @@ function calcBuild(){
       bonuses.push({color:"#ef5350",tier:"🔥",nm:"Цель со статусом",desc:statusSources.join(" · ")});
     }
   }
+  globalThis._statusActive=_statusActiveLocal;
+  globalThis._statusType=_statusTypeLocal;
   globalThis._statusBonusWD=statusWD;
   globalThis._statusBonusCHC=statusCHC;
   globalThis._statusBonusCHD=statusCHD;
