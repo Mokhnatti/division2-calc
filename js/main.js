@@ -2213,6 +2213,7 @@ function calcBuild(){
       if(slot==="bp"&&(it.en==="NinjaBike Bag"||/ВелоНиндз/.test(it.name||""))){
         ninjaBikeBag=true;
       }
+      // exotic_armor_dps обработаем ниже после объявления tPeakOnly/pushG
     }
   }
   if(ninjaBikeBag){
@@ -2407,6 +2408,31 @@ function calcBuild(){
 
   // Named item talents (parsed, non-conditional applied as static base)
   let tPeakOnly={wd:0,chc:0,chd:0,hsd:0,rof:0,mag:0};
+
+  // Экзотик-доспехи с DPS-релевантными бонусами
+  for(const[slot,it] of Object.entries(slotState)){
+    if(!it||it.kind!=="exotic"||!it.exotic_armor_dps)continue;
+    const exSrc=`🧿 Экзотик-доспех: ${it.name}`;
+    const isAmp=it.exotic_amp_type==="amp";
+    if(it.exotic_peak_wd){
+      if(isAmp){tWD+=it.exotic_peak_wd; pushG("wd",it.exotic_peak_wd,exSrc);}
+      else{tPeakOnly.wd+=it.exotic_peak_wd; pushG("wd",it.exotic_peak_wd,exSrc+" (пик)",true);}
+    }
+    if(it.exotic_peak_chd){
+      if(isAmp){tCHD+=it.exotic_peak_chd; pushG("chd",it.exotic_peak_chd,exSrc);}
+      else{tPeakOnly.chd+=it.exotic_peak_chd; pushG("chd",it.exotic_peak_chd,exSrc+" (пик)",true);}
+    }
+    if(it.exotic_peak_chc){
+      if(isAmp){tCHC+=it.exotic_peak_chc; pushG("chc",it.exotic_peak_chc,exSrc);}
+      else{tPeakOnly.chc+=it.exotic_peak_chc; pushG("chc",it.exotic_peak_chc,exSrc+" (пик)",true);}
+    }
+    if(it.exotic_peak_rof){
+      if(isAmp){tROF+=it.exotic_peak_rof; pushG("rof",it.exotic_peak_rof,exSrc);}
+      else{tPeakOnly.rof+=it.exotic_peak_rof; pushG("rof",it.exotic_peak_rof,exSrc+" (пик)",true);}
+    }
+    bonuses.push({color:"#ab47bc",tier:"🧿",nm:`Экзотик: ${it.name}`,desc:it.exotic_note||""});
+  }
+
   for(const ni of namedItems){
     const tb=ni.item.talentBonus;
     if(!tb){bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+" — "+(ni.item.talentDesc||"")});continue}
