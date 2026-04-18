@@ -2268,7 +2268,8 @@ function calcBuild(){
         if(b.wd)tWD+=b.wd;
         if(b.reload)tRELOAD+=b.reload;
         if(b.type_dmg){
-          const match=!b.type||b.type.split("+").some(t=>wpn.cat.includes(t));
+          const wpnCat=wpn.cat||"";
+          const match=!b.type||b.type.split("+").some(t=>wpnCat.includes(t));
           if(match)tWD+=b.type_dmg;
         }
         pushGObj(b,`${nm} (${tier}pc)`,wpn.cat);
@@ -2322,7 +2323,8 @@ function calcBuild(){
       if(b.wd)tWD+=b.wd;
       if(b.reload)tRELOAD+=b.reload;
       if(b.type_dmg){
-        const match=!b.type||b.type.split("+").some(t=>wpn.cat===catMap[t]||wpn.cat.includes(t));
+        const wpnCat=wpn.cat||"";
+        const match=!b.type||b.type.split("+").some(t=>wpnCat===catMap[t]||wpnCat.includes(t));
         if(match)tWD+=b.type_dmg;
       }
       pushGObj(b,`${brandName} ${i+1}pc`,wpn.cat);
@@ -3123,7 +3125,8 @@ function runBuildValidation(ctx){
       const def=SB[nm];if(!def)continue;
       [def.p2,def.p3].forEach(b=>{
         if(b&&typeof b==="object"&&b.type_dmg&&b.type){
-          const match=b.type.split("+").some(t=>wpn.cat===t||wpn.cat.includes(t));
+          const wpnCat=wpn.cat||"";
+          const match=b.type.split("+").some(t=>wpnCat===t||wpnCat.includes(t));
           if(!match&&count>=2){
             warns.push({level:"warn",text:`Бонус сета "${nm}" даёт +${b.type_dmg}% урона ${b.type}, но у тебя <b>${wpn.cat}</b> — бонус не работает.`});
           }
