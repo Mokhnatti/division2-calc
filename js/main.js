@@ -618,7 +618,7 @@ function updateSlotBtn(slot){
   const el=document.getElementById("bs-"+slot);
   const it=slotState[slot];
   el.className="slot-btn"+(it?" filled "+it.kind:"");
-  if(!it){el.innerHTML='<span class="ss">— пусто —</span>';return}
+  if(!it){el.innerHTML=`<span class="ss">${currentLang==='en'?'— empty —':'— пусто —'}</span>`;return}
   const talLocal=it.talent?talentName(it.talent):"";
   const sub=it.kind==="green"?it.setName:it.kind==="brand"?it.brand:it.kind==="named"?(it.brand||"")+" · "+talLocal:(talLocal||"Экзотик");
   el.innerHTML=`<span class="sn ${it.kind}">${it.name}</span><span class="ss">${sub}</span>`+
@@ -642,11 +642,11 @@ function initBuildSlots(){
   // Populate weapon talent select
   const talSel=document.getElementById("b-wpn-tal");
   if(talSel){
-    talSel.innerHTML='<option value="none">— нет —</option>'+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=currentLang==='en'?(v.name_en||v.name_ru):(v.name_ru||v.name_en);return`<option value="${k}">${label}</option>`}).join("");
+    talSel.innerHTML=`<option value="none">${currentLang==='en'?'— none —':'— нет —'}</option>`+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=currentLang==='en'?(v.name_en||v.name_ru):(v.name_ru||v.name_en);return`<option value="${k}">${label}</option>`}).join("");
     talSel.value=selectedWpnTalent;
   }
   // Populate Prototype Augment selects
-  const augOpts='<option value="">— нет —</option>'+Object.entries(PROTOTYPE_AUGMENTS).map(([k,v])=>`<option value="${k}">${v.name}</option>`).join("");
+  const augOpts=`<option value="">${currentLang==='en'?'— none —':'— нет —'}</option>`+Object.entries(PROTOTYPE_AUGMENTS).map(([k,v])=>`<option value="${k}">${v.name}</option>`).join("");
   for(let i=1;i<=3;i++){
     const el=document.getElementById(`proto-${i}-aug`);
     if(el)el.innerHTML=augOpts;
@@ -3285,10 +3285,21 @@ function updateLangBtn(){
   if(!btn)return;
   btn.textContent=currentLang==="ru"?"🇷🇺 RU":"🇬🇧 EN";
 }
+function applyLangToStaticElements(){
+  // Cat-bar buttons with data-ru/data-en
+  document.querySelectorAll('.cat-btn[data-ru][data-en]').forEach(b=>{
+    b.textContent = currentLang==='en' ? b.dataset.en : b.dataset.ru;
+  });
+  // Other static labels by id
+  const labels = {
+    'lang-btn': null, // already handled
+  };
+}
 async function toggleLang(){
   currentLang=currentLang==="ru"?"en":"ru";
   localStorage.setItem("d2calc_lang",currentLang);
   updateLangBtn();
+  applyLangToStaticElements();
   updateStatTooltips();
   if(currentLang==="en")await loadTranslations();
   // Re-init slot buttons + talent selects to re-render labels
@@ -3296,15 +3307,16 @@ async function toggleLang(){
   try{
     const chestSel=document.getElementById("b-chest-talent");
     const bpSel=document.getElementById("b-bp-talent");
-    if(chestSel)chestSel.innerHTML='<option value="">— не выбран —</option>';
-    if(bpSel)bpSel.innerHTML='<option value="">— не выбран —</option>';
+    const placeholder=currentLang==='en'?'— not selected —':'— не выбран —';
+    if(chestSel)chestSel.innerHTML=`<option value="">${placeholder}</option>`;
+    if(bpSel)bpSel.innerHTML=`<option value="">${placeholder}</option>`;
     initGearTalentSelects();
   }catch(e){}
   try{
     const talSel=document.getElementById("b-wpn-tal");
     if(talSel&&typeof WEAPON_TALENTS_FULL!=='undefined'){
       const prev=talSel.value;
-      talSel.innerHTML='<option value="none">— нет —</option>'+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=currentLang==='en'?(v.name_en||v.name_ru):(v.name_ru||v.name_en);return`<option value="${k}">${label}</option>`}).join("");
+      talSel.innerHTML=`<option value="none">${currentLang==='en'?'— none —':'— нет —'}</option>`+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=currentLang==='en'?(v.name_en||v.name_ru):(v.name_ru||v.name_en);return`<option value="${k}">${label}</option>`}).join("");
       talSel.value=prev;
     }
   }catch(e){}
@@ -3313,6 +3325,7 @@ async function toggleLang(){
   if(activeCat==="community")loadCommunityFeed();
 }
 updateLangBtn();
+applyLangToStaticElements();
 updateStatTooltips();
 
 // Init build slots from gear set data
@@ -3342,7 +3355,7 @@ async function initRecomSim(){
   for(const m of mods){if(cats[m.category])cats[m.category].push(m)}
   const catColors={Offense:"#ef5350",Defense:"#42a5f5",Utility:"#fdd835",Wildcard:"#ce93d8"};
   const catLabels={Offense:"⚔ Offense",Defense:"🛡 Defense",Utility:"🔧 Utility",Wildcard:"⭐ Wildcard"};
-  let optionsHtml='<option value="">— нет —</option>';
+  let optionsHtml=`<option value="">${currentLang==='en'?'— none —':'— нет —'}</option>`;
   for(const cat of["Offense","Defense","Utility","Wildcard"]){
     optionsHtml+=`<optgroup label="${catLabels[cat]}">`;
     for(const m of cats[cat]){
