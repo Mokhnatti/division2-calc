@@ -255,7 +255,8 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         const isExpertise = activeCat==="expertise";
         const isHelp = activeCat==="help";
         const isSkills = activeCat==="skills";
-        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise||isHelp||isSkills;
+        const isTank = activeCat==="tank";
+        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise||isHelp||isSkills||isTank;
         document.getElementById("mc").style.display=hideMain?"none":"";
         document.getElementById("rc").style.display=hideMain?"none":"";
         document.querySelector(".search-panel").style.display=hideMain?"none":"";
@@ -274,6 +275,8 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         if(helpPanel)helpPanel.style.display=isHelp?"block":"none";
         const skillsPanel=document.getElementById("skills-panel");
         if(skillsPanel)skillsPanel.style.display=isSkills?"block":"none";
+        const tankPanel=document.getElementById("tank-panel");
+        if(tankPanel)tankPanel.style.display=isTank?"block":"none";
         if(!hideMain) render();
         else if(isCalc) calcDPS();
         else if(isBuild) calcBuild();
@@ -283,6 +286,7 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         else if(isSmods) renderSkillGearMods();
         else if(isExpertise) renderExpertise();
         else if(isSkills) renderSkillCalc();
+        else if(isTank) renderTank();
     });
 });
 render();
@@ -2721,6 +2725,9 @@ function calcBuild(){
   // Status target: чекбокс "цель под негативным эффектом"
   const statusActive=document.getElementById("b-status-target")?.checked||false;
   const statusType=document.getElementById("b-status-type")?.value||"any";
+  // Group size 1-4
+  const groupSize=parseInt(document.getElementById("b-group-size")?.value)||1;
+  globalThis._groupSize=groupSize;
   globalThis._buildAmp=mAMP;
   globalThis._buildExpertise=mEXP;
   globalThis._statusActive=statusActive;
@@ -3017,6 +3024,29 @@ function calcBuild(){
   // TTK data
   renderTtk(baseDPS,avgDPS10,maxDPS);
 
+  // DPM: урон за полный магазин (без перезарядки)
+  const dpmPeak=Math.round(wpn.dmg*peak.wdMult*peak.critAvg*peak.hsM*peak.mag_f);
+  // График DPS по моментам: SVG line chart
+  const chartW=400, chartH=80, padL=30, padR=10, padT=8, padB=18;
+  const chartRows=rows.filter(r=>isFinite(r.t));
+  const chartMaxDps=Math.max(...chartRows.map(r=>r.dps),maxDPS);
+  const chartMinDps=Math.min(...chartRows.map(r=>r.dps),baseDPS);
+  const xScale=(t)=>padL+(chartW-padL-padR)*(Math.min(t,30)/30);
+  const yScale=(d)=>padT+(chartH-padT-padB)*(1-(d-chartMinDps)/(chartMaxDps-chartMinDps||1));
+  const chartPoints=chartRows.map(r=>`${xScale(r.t).toFixed(1)},${yScale(r.dps).toFixed(1)}`).join(' ');
+  const chartSvg=`<svg viewBox="0 0 ${chartW} ${chartH}" style="width:100%;height:90px;margin-top:8px">
+    <rect x="0" y="0" width="${chartW}" height="${chartH}" fill="rgba(0,0,0,.15)" rx="4"/>
+    <line x1="${padL}" y1="${chartH-padB}" x2="${chartW-padR}" y2="${chartH-padB}" stroke="#444" stroke-width="0.5"/>
+    <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${chartH-padB}" stroke="#444" stroke-width="0.5"/>
+    <polyline points="${chartPoints}" fill="none" stroke="var(--orange)" stroke-width="1.5"/>
+    ${chartRows.map(r=>`<circle cx="${xScale(r.t).toFixed(1)}" cy="${yScale(r.dps).toFixed(1)}" r="2.5" fill="var(--orange)"><title>t=${r.t}с DPS=${Math.round(r.dps).toLocaleString("ru")}</title></circle>`).join('')}
+    <text x="${padL}" y="${chartH-4}" font-size="8" fill="#666">0c</text>
+    <text x="${(padL+chartW-padR)/2}" y="${chartH-4}" font-size="8" fill="#666" text-anchor="middle">15c</text>
+    <text x="${chartW-padR}" y="${chartH-4}" font-size="8" fill="#666" text-anchor="end">30c</text>
+    <text x="2" y="${padT+5}" font-size="8" fill="#666">${(chartMaxDps/1e6).toFixed(1)}M</text>
+    <text x="2" y="${chartH-padB}" font-size="8" fill="#666">${(chartMinDps/1e6).toFixed(1)}M</text>
+  </svg>`;
+
   document.getElementById("b-peak").innerHTML=
     `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
       <div>
@@ -3033,9 +3063,24 @@ function calcBuild(){
       </div>
     </div>
     <div style="font-size:11px;color:var(--muted);margin-top:12px;border-top:1px solid var(--border);padding-top:8px">
-      Прирост база→пик: <b style="color:${rampPct>0?"#00c853":"#888"}">+${rampPct}%</b> · WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · HS ×${peak.hsM.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f}
+      Прирост база→пик: <b style="color:${rampPct>0?"#00c853":"#888"}">+${rampPct}%</b> · WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · HS ×${peak.hsM.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f} · <b style="color:var(--orange)">DPM ${Math.round(dpmPeak).toLocaleString("ru")}</b>
     </div>
+    <div style="margin-top:8px"><div style="font-size:10px;color:var(--muted);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px">📈 DPS во времени (0-30с)</div>${chartSvg}</div>
     ${(globalThis._statusActive&&globalThis._statusBonusWD)?`<div style="margin-top:8px;padding:6px 10px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.3);border-radius:5px;font-size:11px;color:var(--red)">🔥 Цель со статусом: <b>+${globalThis._statusBonusWD}% WD</b>${globalThis._statusBonusCHC?`, +${globalThis._statusBonusCHC}% CHC`:''}${globalThis._statusBonusCHD?`, +${globalThis._statusBonusCHD}% CHD`:''} (учтено в Пик DPS)</div>`:""}
+    ${(()=>{
+      const gs=globalThis._groupSize||1;
+      if(gs<2)return"";
+      const groupItems=[];
+      for(const slot of Object.keys(slotState)){
+        const it=slotState[slot];
+        if(it&&it.kind==='exotic'&&it.group_exotic) groupItems.push(it);
+      }
+      if(!groupItems.length)return`<div style="margin-top:8px;padding:6px 10px;background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.2);border-radius:5px;font-size:11px;color:var(--muted)">👥 В группе ${gs} игроков. У тебя нет групповых экзотиков.</div>`;
+      return`<div style="margin-top:8px;padding:8px 12px;background:rgba(66,165,245,.1);border:1px solid rgba(66,165,245,.3);border-left:3px solid var(--blue);border-radius:5px;font-size:11px">
+        <div style="color:var(--blue);font-weight:700;margin-bottom:4px">👥 В группе (${gs}): активны ${groupItems.length} групповых экзотиков</div>
+        ${groupItems.map(it=>`<div style="color:var(--muted);font-size:10px;margin-top:2px">• <b style="color:var(--text)">${it.name}</b>: ${it.group_note||''}</div>`).join('')}
+      </div>`;
+    })()}
     ${(wpn.is_burst&&wpn.tal_bonus)?(()=>{
       const baseShot=Math.round(wpn.dmg*peak.wdMult*(1+(mDTAeff||0)/100)*(1+(mOOCeff||0)/100));
       const burstShot=Math.round(baseShot*(1+wpn.tal_bonus/100));
@@ -4365,4 +4410,86 @@ function loadMetaBuild(id){
     status.innerHTML = `🎯 Загружен шаблон: <b>${b.name}</b>. Собери шмотки сета <b>${b.set_focus}</b> в слотах вручную.`;
     setTimeout(()=>{status.innerHTML='';status.style.color='';}, 8000);
   }
+}
+
+// ===== TANK CALCULATOR =====
+function renderTank(){
+  const host = document.getElementById('tank-results');
+  if(!host) return;
+  const armor = parseFloat(document.getElementById('t-armor')?.value)||0;
+  const hp = parseFloat(document.getElementById('t-hp')?.value)||0;
+  const bonusArmorPct = parseFloat(document.getElementById('t-bonus-armor')?.value)||0;
+  const explosivePct = parseFloat(document.getElementById('t-explosive')?.value)||0;
+  const armorRegen = parseFloat(document.getElementById('t-armor-regen')?.value)||0;
+  const armorOnKillPct = parseFloat(document.getElementById('t-armor-on-kill')?.value)||0;
+  const skillRepairPct = parseFloat(document.getElementById('t-skill-repair')?.value)||0;
+  const drPct = Math.min(parseFloat(document.getElementById('t-dr')?.value)||0, 60);
+  const hazardPct = parseFloat(document.getElementById('t-hazard')?.value)||0;
+
+  const totalArmor = armor * (1 + bonusArmorPct/100);
+  const ehpBase = totalArmor + hp;
+  const ehpDR = ehpBase / (1 - drPct/100);
+  const armorPerKill = armor * armorOnKillPct/100;
+
+  // TTD (time to die) при разных DPS противников
+  const enemyDPS_normal = 80000;
+  const enemyDPS_heroic = 250000;
+  const enemyDPS_legendary = 600000;
+  function ttd(dps){
+    const effectiveDps = dps * (1 - drPct/100);
+    if(effectiveDps <= armorRegen) return Infinity;
+    return ehpBase / (effectiveDps - armorRegen);
+  }
+
+  host.innerHTML = `
+    <div class="bsect" style="background:rgba(0,200,83,.05);border-left:3px solid var(--green)">
+      <h3>📊 Эффективное HP (EHP)</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center;margin-top:10px">
+        <div>
+          <div style="font-size:24px;font-weight:700;color:#888">${Math.round(totalArmor).toLocaleString('ru')}</div>
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase">БРОНЯ</div>
+        </div>
+        <div>
+          <div style="font-size:24px;font-weight:700;color:var(--red)">${Math.round(hp).toLocaleString('ru')}</div>
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase">HP</div>
+        </div>
+        <div>
+          <div style="font-size:32px;font-weight:700;color:var(--green)">${Math.round(ehpDR).toLocaleString('ru')}</div>
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase">EHP с учётом DR</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px;text-align:center;border-top:1px solid var(--border);padding-top:8px">
+        DR: <b>${drPct.toFixed(0)}%</b> · Бонус. броня: <b>+${bonusArmorPct}%</b> · Восст. брони: <b>${armorRegen.toLocaleString('ru')}/с</b> · На убийство: <b>+${Math.round(armorPerKill).toLocaleString('ru')}</b>
+      </div>
+    </div>
+
+    <div class="bsect">
+      <h3>⏱ Время до смерти (TTD)</h3>
+      <table style="width:100%;font-size:12px;border-collapse:collapse">
+        <thead><tr style="color:var(--muted);font-size:10px;text-transform:uppercase">
+          <th style="text-align:left;padding:6px">Противник</th>
+          <th style="text-align:right;padding:6px">DPS врага</th>
+          <th style="text-align:right;padding:6px">Время до смерти</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding:6px">Обычный (Heroic мобы)</td><td style="text-align:right;padding:6px;color:var(--muted)">${enemyDPS_normal.toLocaleString('ru')}</td><td style="text-align:right;padding:6px;font-weight:700;color:var(--green)">${ttd(enemyDPS_normal)===Infinity?'∞':ttd(enemyDPS_normal).toFixed(1)+' сек'}</td></tr>
+          <tr><td style="padding:6px">Тяжёлый (Heroic элита)</td><td style="text-align:right;padding:6px;color:var(--muted)">${enemyDPS_heroic.toLocaleString('ru')}</td><td style="text-align:right;padding:6px;font-weight:700;color:#f5a623">${ttd(enemyDPS_heroic)===Infinity?'∞':ttd(enemyDPS_heroic).toFixed(1)+' сек'}</td></tr>
+          <tr><td style="padding:6px">Босс (Legendary)</td><td style="text-align:right;padding:6px;color:var(--muted)">${enemyDPS_legendary.toLocaleString('ru')}</td><td style="text-align:right;padding:6px;font-weight:700;color:var(--red)">${ttd(enemyDPS_legendary)===Infinity?'∞':ttd(enemyDPS_legendary).toFixed(1)+' сек'}</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:10px;color:var(--muted);margin-top:8px">DPS врагов оценочный (Heroic ~80k, Legendary ~600k). Реальные цифры зависят от типа врага и расстояния.</div>
+    </div>
+
+    <div class="bsect" style="background:rgba(66,165,245,.05)">
+      <h3>💡 Полезные ориентиры</h3>
+      <ul style="font-size:12px;color:var(--text);padding-left:20px;line-height:1.6">
+        <li>Минимальный tank EHP для Heroic: <b>2.5M+</b></li>
+        <li>Для Legendary: <b>3.5M+</b> + DR 20%+</li>
+        <li>Топ танк-сеты: <b>Foundry Bulwark</b> (бонус. броня + 35% во время восст), <b>Aegis</b> (DR при низкой броне)</li>
+        <li>Топ-таланты: <b>Brace</b> (выстрел в укрытии = +20% бонус. броня), <b>Vigilance</b> (+30% брони при SHD кор)</li>
+        <li>Восст. брони (regen): полезно если &gt;0, обычно нужно <b>10-20k/сек</b></li>
+        <li>Skill Repair %: даёт лечение хайвом/группой</li>
+      </ul>
+    </div>
+  `;
 }

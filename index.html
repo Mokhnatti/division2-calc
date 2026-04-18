@@ -109,6 +109,7 @@
     <button class="cat-btn" data-cat="dps" data-ru="DPS" data-en="DPS" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.3);color:var(--orange)">DPS</button>
     <button class="cat-btn" data-cat="meta" data-ru="🏆 Топ" data-en="🏆 Top" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.3);color:var(--red)">🏆 Топ</button>
     <button class="cat-btn" data-cat="skills" data-ru="⚡ Скиллы" data-en="⚡ Skills" style="background:rgba(66,165,245,.15);border-color:rgba(66,165,245,.4);color:var(--blue)">⚡ Скиллы</button>
+    <button class="cat-btn" data-cat="tank" data-ru="🛡 Танк" data-en="🛡 Tank" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.3);color:var(--green)">🛡 Танк</button>
   </div>
   <div class="cat-group" data-group="catalog">
     <button class="cat-btn" data-cat="all" data-ru="Все" data-en="All">Все</button>
@@ -358,6 +359,39 @@
       <div class="bstat"><label>Магазин (mag %)</label><input id="b-mag" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label title="Amplified — отдельный внешний множитель DPS. Источники: Страйкер 4pc Hackstep Protocol (до +20%), некоторые экзотики/таланты. Не входит в WD бакет.">Amp (усилитель) ⓘ</label><input id="b-amp" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label title="Экспертные знания оружия — отдельный множитель поверх WD. При +15 ур. экспертизы получаешь +15% урона от оружия. Не входит в графу 'Доп. урон от всего оружия' в меню игры, но применяется в реальном уроне.">Экспертиза оружия ⓘ</label><input id="b-expertise" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+    </div>
+
+    <div style="font-size:11px;color:#fdd835;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">🎯 Тип цели (фракция)</div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(253,216,53,.05);border:1px solid rgba(253,216,53,.2);border-radius:6px;margin-bottom:8px">
+      <select id="b-target-faction" onchange="calcBuild()" class="bsel" style="font-size:11px;padding:3px 8px;min-width:170px">
+        <option value="any">Любая</option>
+        <option value="hunters">Hunters (охотники)</option>
+        <option value="black_tusk">Black Tusk (Чёрный клык)</option>
+        <option value="true_sons">True Sons (Истинные сыны)</option>
+        <option value="outcasts">Outcasts (Изгои)</option>
+        <option value="cleaners">Cleaners (Чистильщики)</option>
+        <option value="rikers">Rikers</option>
+        <option value="dz_npc">DZ NPC</option>
+      </select>
+      <span style="font-size:10px;color:var(--muted);flex:1;min-width:200px">
+        <b>Hunters/Black Tusk</b> — высокая броня, лучше DtA. <b>Cleaners/Outcasts</b> — горючие, бонус Pyromaniac. <b>True Sons</b> — обычная цель.
+      </span>
+    </div>
+
+    <div style="font-size:11px;color:#42a5f5;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">👥 Состав группы</div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.2);border-radius:6px">
+      <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;cursor:pointer">
+        <span>Игроков в группе:</span>
+      </label>
+      <select id="b-group-size" onchange="calcBuild()" class="bsel" style="font-size:11px;padding:3px 8px;min-width:120px">
+        <option value="1">1 — соло</option>
+        <option value="2">2 игрока</option>
+        <option value="3">3 игрока</option>
+        <option value="4">4 игрока</option>
+      </select>
+      <span style="font-size:10px;color:var(--muted);flex:1;min-width:200px">
+        Активирует групповые бонусы: Coyote's Mask (+25% CHD), Beacon, Bittersweet (heal), Future Initiative, True Patriot.
+      </span>
     </div>
 
     <div style="font-size:11px;color:#ef5350;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">🔥 Цель под негативным эффектом</div>
@@ -904,6 +938,40 @@
     </div>
   </div>
   <div class="content" id="expertise-content"></div>
+</div>
+</div>
+
+<div id="tank-panel" style="display:none">
+<div class="bw" style="max-width:900px;margin:0 auto;padding:14px">
+  <div class="bsect">
+    <h3>🛡 Калькулятор живучести (Tank EHP)</h3>
+    <p style="font-size:12px;color:var(--muted);margin-top:4px">Расчёт Effective HP с учётом брони, регенерации и защитных бонусов.</p>
+  </div>
+
+  <div class="bsect">
+    <h3>Базовые параметры</h3>
+    <div class="bstat-row">
+      <div class="bstat"><label>Броня (Armor)</label><input id="t-armor" type="number" value="1700000" oninput="renderTank()"><span class="u"></span></div>
+      <div class="bstat"><label>Здоровье (HP)</label><input id="t-hp" type="number" value="290000" oninput="renderTank()"><span class="u"></span></div>
+      <div class="bstat"><label>Бонус. броня %</label><input id="t-bonus-armor" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
+      <div class="bstat"><label>Защ. от взрывов %</label><input id="t-explosive" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
+    </div>
+
+    <div style="font-size:11px;color:#42a5f5;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">Регенерация</div>
+    <div class="bstat-row">
+      <div class="bstat"><label>Восст. брони (на сек)</label><input id="t-armor-regen" type="number" value="0" oninput="renderTank()"><span class="u"></span></div>
+      <div class="bstat"><label>Восст. при убийстве %</label><input id="t-armor-on-kill" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
+      <div class="bstat"><label>Восст. навыками %</label><input id="t-skill-repair" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
+    </div>
+
+    <div style="font-size:11px;color:#ef5350;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">Внешняя защита</div>
+    <div class="bstat-row">
+      <div class="bstat"><label>Уменьш. урона (DR) %</label><input id="t-dr" type="number" value="0" max="60" oninput="renderTank()"><span class="u">%</span></div>
+      <div class="bstat"><label>vs Hazard Protection %</label><input id="t-hazard" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
+    </div>
+  </div>
+
+  <div id="tank-results"></div>
 </div>
 </div>
 
