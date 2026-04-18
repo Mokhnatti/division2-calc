@@ -3150,6 +3150,52 @@ function calcBuild(){
     topSect.style.display="block";
   }
 
+  // Условия активации пика — что должно быть активно чтобы получить Пик DPS
+  const condEl=document.getElementById("b-top-conditions");
+  if(condEl){
+    const conds=[];
+    // Активные стаки сетов
+    for(const s of activeStacks){
+      const maxS=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
+      conds.push(`📦 <b>${s.name}</b>: набрать ${maxS} стаков (стрелять/попадать/убивать)`);
+    }
+    // Экзотик-оружие условия
+    if(wpn&&wpn.kind==="exotic"&&wpn.tal_type&&wpn.tal_type!=='none'&&wpn.tal_type!=='amp'){
+      const exCondMap={
+        kill: `убить ${wpn.tal_max||50} врагов (стаки сгорают на перезарядке)`,
+        stacks: `накопить ${wpn.tal_max||30} попаданий`,
+        shot_cover: `стрелять из укрытия до макс стаков`,
+        hs_kill: `убить в голову для активации`,
+        swap_in: `переключиться на это оружие (окно 10-20 сек)`,
+        no_reload: `убивать без перезарядки`,
+        conditional: `выполнить условие таланта (см. описание)`,
+      };
+      if(exCondMap[wpn.tal_type]) conds.push(`🧿 <b>${wpn.name}</b>: ${exCondMap[wpn.tal_type]}`);
+    }
+    // Conditional peak-only bonuses (gear talents + named items)
+    const peakOnly=tPeakOnly.wd+tPeakOnly.chc+tPeakOnly.chd+tPeakOnly.hsd;
+    if(peakOnly>0){
+      conds.push(`🎽 Таланты нагрудника/рюкзака: выполнить условие (стаки крита/попаданий/убийств)`);
+    }
+    // Status target
+    if(globalThis._statusActive){
+      const stMap={any:'любой',burn:'горение',bleed:'кровотечение',shock:'шок',blind:'ослепление',poison:'отравление',disrupt:'дезориентация'};
+      conds.push(`🔥 Цель под негативным эффектом: <b>${stMap[globalThis._statusType]||globalThis._statusType}</b>`);
+    }
+    // Group
+    if((globalThis._groupSize||1)>1){
+      conds.push(`👥 В группе ${globalThis._groupSize} игроков`);
+    }
+    if(conds.length){
+      condEl.innerHTML=`<div style="margin-top:8px;padding:8px 12px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);border-left:3px solid var(--orange);border-radius:5px;font-size:11px">
+        <div style="color:var(--orange);font-weight:600;margin-bottom:6px">📋 Условия Пик DPS (выполни все для макс. урона):</div>
+        ${conds.map(c=>`<div style="color:var(--muted);margin:2px 0;line-height:1.4">• ${c}</div>`).join('')}
+      </div>`;
+    }else{
+      condEl.innerHTML=`<div style="margin-top:8px;padding:6px 10px;background:rgba(0,200,83,.05);border:1px solid rgba(0,200,83,.2);border-radius:5px;font-size:11px;color:var(--muted)">✓ Билд без условных бонусов — DPS постоянный</div>`;
+    }
+  }
+
   // Автосумма от шмоток — подсказка для пользователя что уже учтено из сетов/брендов/именных
   const autoEl=document.getElementById("b-top-autosum");
   if(autoEl){
