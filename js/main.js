@@ -460,7 +460,7 @@ function initWpnDb(){
     const tb=talentBonus(n.tal);
     const idSrc=(n.en||n.name||"unknown").toString().toLowerCase();
     const id="named_"+idSrc.replace(/[^a-z0-9]+/g,"_");
-    const full={id,name:n.name,en:n.en||n.name,cat:baseStats.cat,dmg:baseStats.dmg,rpm:baseStats.rpm,mag:baseStats.mag,reload:baseStats.reload,base:baseName||baseStats.name,kind:"named",tal:n.tal,tal_desc:n.d,tal_type:"none",named_bonus:tb};
+    const full={id,name:n.name,en:n.en||n.name,cat:baseStats.cat,dmg:baseStats.dmg,rpm:baseStats.rpm,mag:baseStats.mag,reload:baseStats.reload,base:baseName||baseStats.name,kind:"named",tal:n.tal,tal_desc:n.d,tal_type:"none",named_bonus:tb,status_type:n.status_type,status_wd:n.status_wd,status_chc:n.status_chc,status_chd:n.status_chd};
     WPNS[id]=full;
     WPNS_LIST.push(full);
   });
