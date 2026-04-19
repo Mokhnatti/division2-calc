@@ -44,6 +44,7 @@ const FILES = {
   GEAR_TALENTS: "gear_talents.json",
   SKILLS_DATA: "skills_data.json",
   META_BUILDS: "meta_builds.json",
+  UI_TRANSLATIONS: "ui_translations.json",
 };
 
 const obj = {};

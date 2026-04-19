@@ -3575,10 +3575,52 @@ function applyLangToStaticElements(){
   document.querySelectorAll('.cat-btn[data-ru][data-en]').forEach(b=>{
     b.textContent = currentLang==='en' ? b.dataset.en : b.dataset.ru;
   });
-  // Other static labels by id
-  const labels = {
-    'lang-btn': null, // already handled
-  };
+  // Global dictionary-based translation of all static text nodes
+  applyUiTranslations();
+}
+
+// Global RU↔EN dictionary translation for UI text
+// Builds reverse map once; every time language changes, walks text/button/option nodes and swaps
+let _uiTrCache = null;
+function _getUiTrMaps(){
+  if(_uiTrCache) return _uiTrCache;
+  const dict = (typeof D2DATA!=='undefined' && D2DATA.UI_TRANSLATIONS && D2DATA.UI_TRANSLATIONS.ru_to_en) || {};
+  const ruToEn = {};
+  const enToRu = {};
+  for(const [ru,en] of Object.entries(dict)){
+    if(!ru||!en||ru.startsWith('_')) continue;
+    ruToEn[ru.trim()] = en.trim();
+    enToRu[en.trim()] = ru.trim();
+  }
+  _uiTrCache = {ruToEn, enToRu};
+  return _uiTrCache;
+}
+function applyUiTranslations(){
+  const {ruToEn, enToRu} = _getUiTrMaps();
+  const map = currentLang==='en' ? ruToEn : enToRu;
+  // Walk: buttons, headers, option text, labels, spans, divs that contain only text
+  const selectors = 'button, h1, h2, h3, h4, h5, label, option, legend, summary';
+  document.querySelectorAll(selectors).forEach(el=>{
+    // Only process leaf text (no complex child markup) OR elements flagged with data-tr
+    if(el.children && el.children.length>0 && !el.dataset.tr) return;
+    const raw = (el.textContent||'').trim();
+    if(!raw) return;
+    if(map[raw]){
+      el.textContent = map[raw];
+    }
+  });
+  // Also handle input placeholders
+  document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{
+    const raw = (el.placeholder||'').trim();
+    if(map[raw]){
+      el.placeholder = map[raw];
+    }
+  });
+  // Select options text (more robust)
+  document.querySelectorAll('select option').forEach(o=>{
+    const raw = (o.textContent||'').trim();
+    if(map[raw]){ o.textContent = map[raw]; }
+  });
 }
 async function toggleLang(){
   currentLang=currentLang==="ru"?"en":"ru";
