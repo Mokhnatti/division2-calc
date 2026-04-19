@@ -693,7 +693,7 @@
       <option value="liked">Лайкнутые</option>
     </select>
     <button class="mf-btn" onclick="loadCommunityFeed()" title="Обновить">🔄 Обновить</button>
-    <button class="mf-btn" onclick="promptAdminLogin()" title="Админ логин (только для Мохнатти)" style="opacity:.5">🔑</button>
+    <button class="mf-btn" id="admin-panel-btn" onclick="openAdminPanel()" title="Админ-панель" style="display:none;background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.4);color:var(--red)">🛡 Админ-панель</button>
   </div>
   <div id="comm-status" style="text-align:center;padding:10px;font-size:12px;color:var(--muted)"></div>
   <div id="compare-panel" style="display:none">
@@ -755,6 +755,23 @@
       <div class="bug-status" id="pub-status"></div>
       <button type="submit" class="bug-submit" id="pub-submit-btn" style="background:var(--green);color:#000">Опубликовать</button>
     </form>
+  </div>
+</div>
+
+<!-- ADMIN PANEL MODAL (only for Mokhnatti) -->
+<div class="modal-bg" id="admin-modal" onclick="if(event.target===this)closeAdminPanel()">
+  <div class="modal-box" style="max-width:700px">
+    <div class="modal-head">
+      <h3>🛡 Админ-панель · Управление пользователями</h3>
+      <button class="modal-close" onclick="closeAdminPanel()">×</button>
+    </div>
+    <div style="padding:14px">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:10px">
+        Роли: <b style="color:var(--green)">user</b> — обычный, <b style="color:var(--blue)">moderator</b> — может удалять/редактировать чужие билды, <b style="color:var(--red)">admin</b> — полный доступ.
+      </div>
+      <input type="text" id="admin-user-search" placeholder="Поиск пользователей по нику/email..." oninput="adminSearchUsers()" style="width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:13px;outline:none;margin-bottom:10px">
+      <div id="admin-user-list" style="max-height:55vh;overflow-y:auto"></div>
+    </div>
   </div>
 </div>
 

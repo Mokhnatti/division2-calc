@@ -1008,6 +1008,7 @@ function saveAuth(auth){
   localStorage.setItem(AUTH_KEY,JSON.stringify(auth));
   currentUser=auth;
   updateAuthUI();
+  try{updateAdminPanelVisibility();}catch(e){}
 }
 function loadAuth(){
   try{
@@ -1015,12 +1016,14 @@ function loadAuth(){
     if(a&&a.token)currentUser=a;
   }catch(e){}
   updateAuthUI();
+  try{updateAdminPanelVisibility();}catch(e){}
 }
 function logoutUser(){
   localStorage.removeItem(AUTH_KEY);
   currentUser=null;
   hideAuthDropdown();
   updateAuthUI();
+  try{updateAdminPanelVisibility();}catch(e){}
 }
 async function loginUser(email,password){
   const r=await fetch(`${PB_BASE}/api/collections/users/auth-with-password`,{
@@ -1391,7 +1394,13 @@ function showComparison(){
   panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-function isAdmin(){return !!localStorage.getItem("d2calc_admin_token")}
+function isAdmin(){
+  // Mokhnatti — встроенный админ. Права проверяются на бэке через
+  // _collections.builds.deleteRule = @request.auth.username = "Mokhnatti"
+  if(currentUser && currentUser.username === 'Mokhnatti') return true;
+  // Legacy: старый PB admin token — тоже считается админом
+  return !!localStorage.getItem("d2calc_admin_token");
+}
 function getMyBuilds(){
   try{return new Set(JSON.parse(localStorage.getItem("d2calc_mine_v1")||"[]"))}catch(e){return new Set()}
 }
@@ -1812,22 +1821,29 @@ function adminLogout(){
   loadCommunityFeed();
 }
 async function adminDeleteBuild(id){
-  if(!confirm("Удалить билд? Это безвозвратно."))return;
-  const token=localStorage.getItem("d2calc_admin_token");
+  const msg=currentLang==='en'?"Delete build? This is permanent.":"Удалить билд? Это безвозвратно.";
+  if(!confirm(msg))return;
+  // Prefer user token (Mokhnatti), fallback to legacy admin token
+  const userToken = currentUser && currentUser.token;
+  const adminToken = localStorage.getItem("d2calc_admin_token");
+  const token = userToken || adminToken;
+  if(!token){
+    alert(currentLang==='en'?"Please log in first":"Сначала залогинься");
+    return;
+  }
   try{
     const r=await fetch(`${PB_API}/builds/records/${id}`,{
       method:"DELETE",
       headers:{"Authorization":token}
     });
     if(r.ok){loadCommunityFeed()}
-    else if(r.status===401){
-      localStorage.removeItem("d2calc_admin_token");
-      alert("Токен устарел, залогинься заново");
+    else if(r.status===401||r.status===403){
+      alert(currentLang==='en'?"Not authorized to delete":"Нет прав на удаление");
     }else{
-      alert("Ошибка удаления: HTTP "+r.status);
+      alert("HTTP "+r.status);
     }
   }catch(e){
-    alert("Сбой: "+e.message);
+    alert("Error: "+e.message);
   }
 }
 // Console shortcut: `adminLogin("email","pass")` in browser devtools
@@ -4755,4 +4771,91 @@ function playYt(el){
   el.outerHTML = `<div class="yt-embed" style="position:relative;margin-top:8px;border-radius:8px;overflow:hidden;max-width:480px;aspect-ratio:16/9">
     <iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" style="width:100%;height:100%;border:none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>`;
+}
+
+// ===== ADMIN PANEL (Mokhnatti only) =====
+function openAdminPanel(){
+  if(!(currentUser&&currentUser.username==='Mokhnatti')){
+    alert('Только для Mokhnatti');
+    return;
+  }
+  document.getElementById('admin-modal').classList.add('open');
+  adminSearchUsers();
+}
+function closeAdminPanel(){
+  document.getElementById('admin-modal').classList.remove('open');
+}
+let _adminSearchTimer=null;
+function adminSearchUsers(){
+  clearTimeout(_adminSearchTimer);
+  _adminSearchTimer=setTimeout(doAdminSearch,300);
+}
+async function doAdminSearch(){
+  const q=(document.getElementById('admin-user-search')?.value||'').trim();
+  const host=document.getElementById('admin-user-list');
+  if(!host)return;
+  host.innerHTML='<div style="padding:20px;text-align:center;color:var(--muted)">Загрузка...</div>';
+  const token=currentUser&&currentUser.token;
+  if(!token){ host.innerHTML='<div style="padding:20px;color:var(--red)">Залогинься сначала</div>'; return; }
+  const safe=q.replace(/"/g,'\\"');
+  const filter=q?`&filter=${encodeURIComponent(`(username~"${safe}"||email~"${safe}"||name~"${safe}")`)}`:'';
+  try{
+    const r=await fetch(`${PB_API}/users/records?perPage=50&sort=-created${filter}`,{
+      headers:{Authorization:token}
+    });
+    if(!r.ok){
+      const t=await r.text();
+      host.innerHTML=`<div style="padding:20px;color:var(--red)">Ошибка: HTTP ${r.status}<br><small>${escapeHtml(t.slice(0,200))}</small></div>`;
+      return;
+    }
+    const j=await r.json();
+    const users=j.items||[];
+    if(!users.length){
+      host.innerHTML='<div style="padding:20px;text-align:center;color:var(--muted)">Ничего не найдено</div>';
+      return;
+    }
+    host.innerHTML=users.map(u=>{
+      const curRole=u.role||'user';
+      const roleColors={user:'#888',moderator:'var(--blue)',admin:'var(--red)'};
+      return`<div style="display:flex;gap:10px;align-items:center;padding:10px;border:1px solid var(--border);border-radius:7px;margin-bottom:6px;background:var(--card)">
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:600;color:var(--named)">${escapeHtml(u.username||'')} ${u.username==='Mokhnatti'?'<span style="font-size:10px;color:var(--orange)">👑 owner</span>':''}</div>
+          <div style="font-size:10px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(u.email||'')}</div>
+          <div style="font-size:10px;color:${roleColors[curRole]};margin-top:2px">role: <b>${curRole}</b></div>
+        </div>
+        <select class="bsel" data-uid="${u.id}" onchange="adminSetRole('${u.id}',this.value)" style="font-size:11px;padding:4px 8px;min-width:110px" ${u.username==='Mokhnatti'?'disabled':''}>
+          <option value="" ${!u.role?'selected':''}>user</option>
+          <option value="moderator" ${u.role==='moderator'?'selected':''}>moderator</option>
+          <option value="admin" ${u.role==='admin'?'selected':''}>admin</option>
+        </select>
+      </div>`;
+    }).join('');
+  }catch(e){
+    host.innerHTML=`<div style="padding:20px;color:var(--red)">Сбой: ${escapeHtml(e.message)}</div>`;
+  }
+}
+async function adminSetRole(userId,role){
+  const token=currentUser&&currentUser.token;
+  if(!token)return;
+  try{
+    const r=await fetch(`${PB_API}/users/records/${userId}`,{
+      method:'PATCH',
+      headers:{Authorization:token,'Content-Type':'application/json'},
+      body:JSON.stringify({role: role||null})
+    });
+    if(!r.ok){
+      alert('Ошибка: HTTP '+r.status);
+      return;
+    }
+    // Reload list
+    doAdminSearch();
+  }catch(e){
+    alert('Сбой: '+e.message);
+  }
+}
+// Show/hide admin-panel button depending on current user
+function updateAdminPanelVisibility(){
+  const btn=document.getElementById('admin-panel-btn');
+  if(!btn)return;
+  btn.style.display=(currentUser&&currentUser.username==='Mokhnatti')?'inline-flex':'none';
 }
