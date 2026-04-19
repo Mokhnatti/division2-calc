@@ -409,6 +409,10 @@
         <option value="blind">Ослепление 👁</option>
         <option value="poison">Отравление ☠</option>
         <option value="disrupt">Дезориентация 💫</option>
+        <option value="pulse">Импульс 📡 (Heartbreaker, Финалист, Proxy)</option>
+        <option value="ensnare">Прилипание 🕸 (Galvanize)</option>
+        <option value="confuse">Растерянность 🌀</option>
+        <option value="mark">Отмечен 🎯 (Negotiator, Shroud, Sacrum)</option>
       </select>
       <span style="font-size:10px;color:var(--muted);flex:1;min-width:200px">
         Включает бонусы талантов: Pyromaniac (горение), Sadist (кровь), Thunder Strike (шок), Eyeless (слепота), Pressure Point (любой), Diamondback, Scorpio и др.
@@ -1121,6 +1125,49 @@
         Теги показывают состав: <span class="cc-slot-tag set" style="font-size:10px">Страйкер ×4</span> — 4 предмета сета, <span class="cc-slot-tag brand" style="font-size:10px">Petrov</span> — 1 предмет бренда, <span class="cc-slot-tag named" style="font-size:10px">✦ Salvo</span> — именной, <span class="cc-slot-tag exotic" style="font-size:10px">🧿 Мантис</span> — экзотик.
       </div>
     </details>
+  </div>
+
+  <div class="bsect" style="background:rgba(239,83,80,.05);border-left:3px solid var(--red)">
+    <h3>⚠️ Что калькулятор НЕ считает (честно)</h3>
+    <div style="font-size:13px;line-height:1.6">
+      Эти механики игры мы либо упрощаем, либо вообще не моделируем. Если твой билд завязан на них — реальный DPS будет отличаться:
+      <ul style="margin:8px 0 0 18px;padding:0">
+        <li><b>Specialization signature weapons</b> (TAC-50, Crossbow, Sticky Bomb, Eagle Sentry и т.д.) — отдельные пушки с уникальной математикой, не учитываются.</li>
+        <li><b>Linked Laser Pointer + Pulse</b> (Technician spec) — пульсированные враги получают +20% урона от Kingbreaker AR; этой связки в калькуляторе нет.</li>
+        <li><b>Headhunter (Серийный убийца)</b> — талант передаёт base × N выстрелов следующим попаданиям. Сложная "passthrough" механика — упрощено как обычный талант.</li>
+        <li><b>Overdogs +30% по слабому классу</b> — врагов разных классов (охотник, ренегат, гранатометчик) не различаем; считаем как amp.</li>
+        <li><b>NPC faction resistance</b> — Hunters/Black Tusk имеют разную броню, бонусы Pyromaniac на Cleaners сильнее. Селект есть, логика — нет.</li>
+        <li><b>Specific group buffs</b> — Beacon делится бонусом с союзниками, Bittersweet хилит. Только сам игрок учитывается.</li>
+        <li><b>Burst-таланты (Merciless 800%/primer)</b> показаны отдельной плашкой как «BURST одиночный выстрел», но не интегрируются в sustained DPS.</li>
+        <li><b>Rolling crit / chain crit</b> — не моделируем сложные паттерны (5 в ряд → следующий бонус).</li>
+        <li><b>Skill-builds: linear tier scaling</b> — мы используем линейный множитель ×1.18/тир. Реальная формула может быть нелинейной для некоторых навыков.</li>
+        <li><b>Recombinator неполный</b> — учитываем только головной урон и патроны. Остальные модификаторы (защитные/утилит) — для справки.</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--orange)">💡 Если что-то из этого важно для твоего билда — пиши <b>🐛 Баг-репорт</b>, добавим механику.</p>
+    </div>
+  </div>
+
+  <div class="bsect" style="background:rgba(0,200,83,.05);border-left:3px solid var(--green)">
+    <h3>✅ Что калькулятор УЧИТЫВАЕТ (для уверенности)</h3>
+    <div style="font-size:13px;line-height:1.6">
+      <ul style="margin:8px 0 0 18px;padding:0">
+        <li>Все 7 бакетов (WD, Crit, HSD, DtA, OoC, Amp, Expertise)</li>
+        <li>26 сетов с правильными стаками и распадом (Striker max 200, Tipping Scales и т.д.)</li>
+        <li>43 экзотик-оружия с уникальной математикой талантов (kill/stacks/swap/cover/no-reload)</li>
+        <li>15 экзотик-доспехов с DPS-релевантными бонусами</li>
+        <li>304 талантa оружия (4-й ролл) + 150 талантов снаряжения (нагрудник/рюкзак)</li>
+        <li>SHD Watch (offensive) с +CHC/CHD/WD/HSD</li>
+        <li>Prototype Augments + Prototype Gear bonuses (Y8S1)</li>
+        <li>Recombinator HSD + ammo (Y8S1)</li>
+        <li>Цель под негативным эффектом (Pyromaniac, Sadist, Thunder Strike, Eyeless, Pressure Point, Diamondback, Scorpio)</li>
+        <li>Группа 1-4 (показывает активные кооп-экзотики)</li>
+        <li>TTK по 5 сложностям + Escalation Tier 0-10</li>
+        <li>Burst DPS + DPM (за магазин) + DPS-график 0-30 сек</li>
+        <li>Локализация RU↔EN (имена, таланты, описания)</li>
+        <li>Skill-калькулятор для 16 навыков</li>
+        <li>Tank-калькулятор (EHP, TTD по сложностям)</li>
+      </ul>
+    </div>
   </div>
 
   <div class="bsect" style="background:rgba(66,165,245,.05);border-left:3px solid var(--blue)">

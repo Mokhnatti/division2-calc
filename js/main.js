@@ -3095,6 +3095,29 @@ function calcBuild(){
         <div style="color:var(--muted);font-size:10px">${wpn.burst_note||''}</div>
       </div>`;
     })():""}
+    ${(()=>{
+      // Headhunter burst potential: Walker Harris chest talent 'Perfect Headhunter'
+      const chestTalId=document.getElementById("b-chest-talent")?.value||'';
+      const bpTalId=document.getElementById("b-bp-talent")?.value||'';
+      const isHH = /headhunter/i.test(chestTalId) || /headhunter/i.test(bpTalId);
+      if(!isHH) return '';
+      const isPerfect = chestTalId.startsWith('perfect:') || bpTalId.startsWith('perfect:');
+      const xferPct = isPerfect ? 150 : 125; // %
+      const capPct = (mHSD||0) > 150 ? 1250 : 800; // % от WD
+      const expB=1+(mEXP||0)/100;
+      const ampB=1+(mAMP||0)/100;
+      const peakShot=wpn.dmg*expB*peak.wdMult*(1+(mDTAeff||0)/100)*(1+(mOOCeff||0)/100)*ampB;
+      const peakShotCrit=peakShot*(1+(mCHD||0)/100);
+      const peakShotCritHS=peakShotCrit*(1+(mHSD||0)/100);
+      const transferred=peakShotCritHS*xferPct/100;
+      const cap=wpn.dmg*expB*capPct/100;
+      const extraDmg=Math.min(transferred, cap);
+      const totalNextShot=peakShot + extraDmg;
+      return `<div style="margin-top:8px;padding:8px 12px;background:rgba(171,71,188,.1);border:1px solid rgba(171,71,188,.4);border-left:3px solid var(--named);border-radius:5px;font-size:11px">
+        <div style="color:var(--named);font-weight:700;margin-bottom:4px">🎯 HEADHUNTER (следующий выстрел после HS-убийства): <b style="font-size:16px">${Math.round(totalNextShot).toLocaleString('ru')}</b> урон</div>
+        <div style="color:var(--muted);font-size:10px">Talent: ${isPerfect?'Perfect Headhunter (+150%)':'Headhunter (+125%)'} от killing blow. Cap: <b>${capPct}% WD</b>${(mHSD||0)>150?' (HSD>150% активировал 1250%)':' (HSD<150%, повысь до 150+ для cap 1250%)'}. Окно 30 сек.</div>
+      </div>`;
+    })()}
     <div style="margin-top:14px;border-top:1px solid var(--border);padding-top:10px">
       <h4 style="margin:0 0 6px;font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.5px">💥 Урон за выстрел (для сверки с манекеном в игре)</h4>
       ${(()=>{
