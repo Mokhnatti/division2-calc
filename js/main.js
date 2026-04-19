@@ -1271,7 +1271,7 @@ async function loadCommunityFeed(){
     }else if(scope==="liked"){
       extraStats=` · Ты лайкнул ${items.length} билдов`;
     }
-    status.innerHTML=`Найдено: <b>${items.length}</b>${scope==="all"?` (всего в базе: ${j.totalItems})`:""}${extraStats}`;
+    status.innerHTML=`${currentLang==='en'?'Found':'Найдено'}: <b>${items.length}</b>${scope==="all"?` (${currentLang==='en'?'total in DB':'всего в базе'}: ${j.totalItems})`:""}${extraStats}`;
     const liked=getLikedSet();
     currentBuilds=items;
     listEl.innerHTML=items.map(b=>renderBuildCard(b,liked.has(b.id),isTrending)).join("");
@@ -1570,20 +1570,39 @@ function renderCardSlotTags(b){
     const cls=g.kind==="exotic"?"exotic":(g.kind==="named"?"named":(g.kind==="brand"?"brand":"set"));
     const icon=g.kind==="exotic"?"🧿 ":(g.kind==="named"?"✦ ":"");
     const count=g.count>1?` ×${g.count}`:"";
-    return`<span class="cc-slot-tag ${cls}">${icon}${escapeHtml(g.short)}${count}</span>`;
+    // Localize tag text based on current language
+    let displayShort = g.short;
+    if(currentLang==='en'){
+      if(g.kind==='named' || g.kind==='exotic'){
+        displayShort = localizeItemName(g.short);
+      } else if(g.kind==='green'){
+        // Convert Russian short set name to EN full name via lookup
+        try{
+          const gearSets = (typeof D2DATA!=='undefined' && D2DATA.G) || [];
+          // SET_SHORT was produced from our RU long name. Reverse: find EN name
+          const match = gearSets.find(x => setShort(x.name) === g.short || x.name.startsWith(g.short));
+          if(match && match.en) displayShort = match.en.split(/\s+/).slice(0,2).join(' ');
+        }catch(e){}
+      }
+    }
+    return`<span class="cc-slot-tag ${cls}">${icon}${escapeHtml(displayShort)}${count}</span>`;
   }).join("");
   return`<div class="cc-slots">${tags}</div>`;
 }
 
 function renderBuildCard(b,isLiked,showTrend){
-  const weapon=b.weapon_name?`<div class="cc-weapon">🔫 <b>${escapeHtml(b.weapon_name)}</b></div>`:"";
-  const dps=b.peak_dps?`<div class="cc-dps">Пик DPS: <b>${Math.round(b.peak_dps/1000)}k</b></div>`:`<div class="cc-dps"></div>`;
-  const desc=b.description?`<div class="cc-desc">${renderDescWithEmbeds(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">${currentLang==='en'?'— no description —':'— без описания —'}</div>`;
+  const isEn = currentLang==='en';
+  const wpnDisplay = b.weapon_name ? (isEn ? localizeItemName(b.weapon_name) : b.weapon_name) : '';
+  const weapon=wpnDisplay?`<div class="cc-weapon">🔫 <b>${escapeHtml(wpnDisplay)}</b></div>`:"";
+  const peakLbl = isEn ? 'Peak DPS' : 'Пик DPS';
+  const dps=b.peak_dps?`<div class="cc-dps">${peakLbl}: <b>${Math.round(b.peak_dps/1000)}k</b></div>`:`<div class="cc-dps"></div>`;
+  const desc=b.description?`<div class="cc-desc">${renderDescWithEmbeds(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">${isEn?'— no description —':'— без описания —'}</div>`;
   const slotsTags=renderCardSlotTags(b);
-  const adminBtn=isAdmin()?`<button class="cc-like" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.4);color:var(--red)" onclick="adminDeleteBuild('${b.id}')" title="Удалить (админ)">🗑</button>`:"";
+  const adminBtn=isAdmin()?`<button class="cc-like" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.4);color:var(--red)" onclick="adminDeleteBuild('${b.id}')" title="${isEn?'Delete (admin)':'Удалить (админ)'}">🗑</button>`:"";
   const mine=getMyBuilds().has(b.id);
-  const myBadge=mine?`<span class="cc-cat" style="background:rgba(0,200,83,.12);color:var(--green);border-color:rgba(0,200,83,.3)">МОЙ</span>`:"";
-  const copyBtn=`<button class="cc-like" style="background:rgba(66,165,245,.08);border-color:rgba(66,165,245,.3);color:var(--blue);padding:4px 8px" onclick="copyBuildUrl('${b.build_hash||""}',this)" title="Скопировать ссылку на билд">🔗</button>`;
+  const myLbl = isEn ? 'MY' : 'МОЙ';
+  const myBadge=mine?`<span class="cc-cat" style="background:rgba(0,200,83,.12);color:var(--green);border-color:rgba(0,200,83,.3)">${myLbl}</span>`:"";
+  const copyBtn=`<button class="cc-like" style="background:rgba(66,165,245,.08);border-color:rgba(66,165,245,.3);color:var(--blue);padding:4px 8px" onclick="copyBuildUrl('${b.build_hash||""}',this)" title="${isEn?'Copy build link':'Скопировать ссылку на билд'}">🔗</button>`;
   return`<div class="comm-card" data-id="${b.id}" ${mine?'style="border-color:rgba(0,200,83,.4)"':''}>
     <div class="cc-h">
       <div class="cc-title">${escapeHtml(b.name)}</div>
@@ -1593,7 +1612,7 @@ function renderBuildCard(b,isLiked,showTrend){
       </div>
     </div>
     <div class="cc-meta">
-      <span class="cc-author" style="cursor:pointer;text-decoration:underline" onclick="showAuthorProfile('${escapeHtml(b.author||"Аноним").replace(/'/g,"\\'")}')">${escapeHtml(b.author||"Аноним")}</span>
+      <span class="cc-author" style="cursor:pointer;text-decoration:underline" onclick="showAuthorProfile('${escapeHtml(b.author||(isEn?'Anonymous':'Аноним')).replace(/'/g,"\\'")}')">${escapeHtml(b.author||(isEn?'Anonymous':'Аноним'))}</span>
       <span class="cc-time">· ${fmtAgo(b.created)}</span>
     </div>
     ${weapon}
@@ -1604,12 +1623,12 @@ function renderBuildCard(b,isLiked,showTrend){
       <div class="cc-actions">
         ${adminBtn}
         ${copyBtn}
-        <button class="cc-like${compareList.some(x=>x.id===b.id)?" compared":""}" onclick="toggleCompare('${b.id}',this)" title="Сравнить">⚖️</button>
-        <button class="cc-like" onclick="toggleComments('${b.id}',this)" title="Комменты">💬</button>
-        <button class="cc-like" onclick="forkBuild('${b.id}','${(b.name||'').replace(/'/g,"\\'")}','${b.build_hash||''}')" title="Сохранить себе как новый билд" style="background:rgba(0,200,83,.08);border-color:rgba(0,200,83,.3);color:var(--green)">📋</button>
+        <button class="cc-like${compareList.some(x=>x.id===b.id)?" compared":""}" onclick="toggleCompare('${b.id}',this)" title="${isEn?'Compare':'Сравнить'}">⚖️</button>
+        <button class="cc-like" onclick="toggleComments('${b.id}',this)" title="${isEn?'Comments':'Комменты'}">💬</button>
+        <button class="cc-like" onclick="forkBuild('${b.id}','${(b.name||'').replace(/'/g,"\\'")}','${b.build_hash||''}')" title="${isEn?'Save as your new build':'Сохранить себе как новый билд'}" style="background:rgba(0,200,83,.08);border-color:rgba(0,200,83,.3);color:var(--green)">📋</button>
         ${showTrend&&b._trendScore!=null?`<span class="cc-like" style="background:rgba(255,152,0,.1);border-color:rgba(255,152,0,.4);color:#ffa000;cursor:default" title="Trending score">📈 ${b._trendScore.toFixed(1)}</span>`:""}
-        <button class="cc-like ${isLiked?"liked":""}" onclick="toggleLike('${b.id}',this)" ${isLiked?'title="Убрать лайк"':'title="Лайк"'}>❤ <span>${b.likes||0}</span></button>
-        <button class="cc-open" onclick="openCommunityBuild('${b.id}','${b.build_hash||""}')">Открыть</button>
+        <button class="cc-like ${isLiked?"liked":""}" onclick="toggleLike('${b.id}',this)" ${isLiked?`title="${isEn?'Unlike':'Убрать лайк'}"`:`title="${isEn?'Like':'Лайк'}"`}>❤ <span>${b.likes||0}</span></button>
+        <button class="cc-open" onclick="openCommunityBuild('${b.id}','${b.build_hash||""}')">${isEn?'Open':'Открыть'}</button>
       </div>
     </div>
     <div class="cc-comments" id="cc-comments-${b.id}" style="display:none;border-top:1px solid var(--border);margin-top:8px;padding-top:8px"></div>
