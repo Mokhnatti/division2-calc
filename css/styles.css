@@ -348,3 +348,8 @@ mark{background:rgba(245,166,35,.3);color:var(--text);border-radius:2px;padding:
 #sk-results .rtn-peak .rtn-val{font-size:24px;font-weight:700;color:var(--blue)}
 #sk-results .rtn-avg .rtn-val{font-size:20px;font-weight:700;color:var(--orange)}
 #sk-results .rtn-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+
+/* YouTube embeds in community descriptions */
+.yt-embed{transition:transform .15s,border-color .15s}
+.yt-embed:hover{border-color:var(--red)!important;transform:scale(1.01)}
+.yt-embed:hover > div[style*="background:rgba(0,0,0,.75)"]{background:rgba(255,0,0,.9)!important}
