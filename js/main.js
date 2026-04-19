@@ -3598,28 +3598,36 @@ function _getUiTrMaps(){
 function applyUiTranslations(){
   const {ruToEn, enToRu} = _getUiTrMaps();
   const map = currentLang==='en' ? ruToEn : enToRu;
-  // Walk: buttons, headers, option text, labels, spans, divs that contain only text
+  // Strip leading caret arrows used in <details> summary
+  const stripCaret = s => s.replace(/^[▼▶►▸◆◇]\s*/,'').trim();
   const selectors = 'button, h1, h2, h3, h4, h5, label, option, legend, summary';
   document.querySelectorAll(selectors).forEach(el=>{
-    // Only process leaf text (no complex child markup) OR elements flagged with data-tr
-    if(el.children && el.children.length>0 && !el.dataset.tr) return;
-    const raw = (el.textContent||'').trim();
+    // Save caret span if present
+    const caret = el.querySelector('.caret');
+    // Get text without caret
+    const raw = stripCaret((el.textContent||'').trim());
     if(!raw) return;
-    if(map[raw]){
-      el.textContent = map[raw];
+    const t = map[raw];
+    if(!t) return;
+    if(caret){
+      // Rebuild: keep caret + translated text
+      el.innerHTML = caret.outerHTML + ' ' + t;
+    } else if(!el.children || el.children.length===0){
+      el.textContent = t;
+    } else {
+      // Element has children but no caret — try to replace just text nodes
+      [...el.childNodes].forEach(node=>{
+        if(node.nodeType===3){ // text node
+          const nr = stripCaret((node.textContent||'').trim());
+          if(nr && map[nr]) node.textContent = map[nr];
+        }
+      });
     }
   });
-  // Also handle input placeholders
+  // Input placeholders
   document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{
     const raw = (el.placeholder||'').trim();
-    if(map[raw]){
-      el.placeholder = map[raw];
-    }
-  });
-  // Select options text (more robust)
-  document.querySelectorAll('select option').forEach(o=>{
-    const raw = (o.textContent||'').trim();
-    if(map[raw]){ o.textContent = map[raw]; }
+    if(map[raw]) el.placeholder = map[raw];
   });
 }
 async function toggleLang(){
