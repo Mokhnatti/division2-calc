@@ -652,12 +652,14 @@ function autoBindTalent(slot, item){
     return;
   }
   if(item.kind!=='named' && item.kind!=='exotic') return;
-  // Find matching talent in GEAR_TALENTS by name_en
+  // Find matching talent in GEAR_TALENTS by name_en (case-insensitive)
+  const itemTal = (item.talent||'').toLowerCase().trim();
+  const itemTalBase = itemTal.replace(/^perfect\s+/i,'').replace(/^perfectly\s+/i,'').trim();
   const tal = (typeof GEAR_TALENTS!=='undefined') && GEAR_TALENTS.find(t => {
-    if(!t) return false;
-    return t.name_en === item.talent
-      || t.perfect_name_en === item.talent
-      || ('Perfect '+t.name_en) === item.talent;
+    if(!t || !t.name_en) return false;
+    const nameEn = t.name_en.toLowerCase();
+    const perfectEn = (t.perfect_name_en||'').toLowerCase();
+    return nameEn===itemTal || perfectEn===itemTal || nameEn===itemTalBase || perfectEn===itemTalBase;
   });
   if(!tal) return;
   const id = tal.id || tal.name_en;
