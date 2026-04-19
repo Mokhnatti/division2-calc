@@ -630,6 +630,7 @@ function pickItem(idx){
   const item=ITEMS_BY_SLOT[curSlot][idx];
   slotState[curSlot]=item;
   updateSlotBtn(curSlot);
+  autoBindTalent(curSlot, item);
   closeSlotModal();
   calcBuild();
 }
@@ -637,7 +638,37 @@ function clearSlot(ev,slot){
   ev.stopPropagation();
   slotState[slot]=null;
   updateSlotBtn(slot);
+  autoBindTalent(slot, null);
   calcBuild();
+}
+// Auto-bind perfect gear talent to chest/bp when named/exotic armor is equipped
+function autoBindTalent(slot, item){
+  if(slot!=='chest' && slot!=='bp') return;
+  const selId = slot==='chest' ? 'b-chest-talent' : 'b-bp-talent';
+  const sel = document.getElementById(selId);
+  if(!sel) return;
+  if(!item || !item.talent){
+    // Clear selection (but don't reset if user had manually picked)
+    return;
+  }
+  if(item.kind!=='named' && item.kind!=='exotic') return;
+  // Find matching talent in GEAR_TALENTS by name_en
+  const tal = (typeof GEAR_TALENTS!=='undefined') && GEAR_TALENTS.find(t => {
+    if(!t) return false;
+    return t.name_en === item.talent
+      || t.perfect_name_en === item.talent
+      || ('Perfect '+t.name_en) === item.talent;
+  });
+  if(!tal) return;
+  const id = tal.id || tal.name_en;
+  // Set perfect version (именные/экзотик всегда имеют перфект уровень)
+  const targetVal = 'perfect:' + id;
+  // Check if option exists
+  const exists = [...sel.options].some(o => o.value === targetVal);
+  sel.value = exists ? targetVal : id;
+  // Trigger change handler
+  const changeEvt = new Event('change');
+  sel.dispatchEvent(changeEvt);
 }
 function updateSlotBtn(slot){
   const el=document.getElementById("bs-"+slot);
