@@ -600,7 +600,7 @@ function renderSlotItems(){
     }
     return`<div class="mitem" onclick="pickItem(${globalIdx})">
       <div class="mi-h">
-        <div><span class="mi-n ${it.kind}">${it.name}</span>${wikiIcon(it.en||it.brand||it.setName)} ${it.en?`<span class="mi-en">${it.en}</span>`:""}</div>
+        <div><span class="mi-n ${it.kind}">${currentLang==='en'?(it.en||it.name):(it.name||it.en)}</span>${wikiIcon(it.en||it.brand||it.setName)} ${(it.en&&it.name&&it.en!==it.name)?`<span class="mi-en">${currentLang==='en'?(it.name||''):it.en}</span>`:""}</div>
         <span class="badge ${tagClass}">${tagLbl}</span>
       </div>
       ${body}
@@ -678,8 +678,11 @@ function updateSlotBtn(slot){
   el.className="slot-btn"+(it?" filled "+it.kind:"");
   if(!it){el.innerHTML=`<span class="ss">${currentLang==='en'?'— empty —':'— пусто —'}</span>`;return}
   const talLocal=it.talent?talentName(it.talent):"";
-  const sub=it.kind==="green"?it.setName:it.kind==="brand"?it.brand:it.kind==="named"?(it.brand||"")+" · "+talLocal:(talLocal||"Экзотик");
-  el.innerHTML=`<span class="sn ${it.kind}">${it.name}</span><span class="ss">${sub}</span>`+
+  // Локализованное отображение имени
+  const displayName = currentLang==='en' ? (it.en||it.name) : (it.name||it.en);
+  const exoticLbl = currentLang==='en' ? 'Exotic' : 'Экзотик';
+  const sub=it.kind==="green"?it.setName:it.kind==="brand"?it.brand:it.kind==="named"?(it.brand||"")+" · "+talLocal:(talLocal||exoticLbl);
+  el.innerHTML=`<span class="sn ${it.kind}">${displayName}</span><span class="ss">${sub}</span>`+
     `<span class="clr" onclick="clearSlot(event,'${slot}')">×</span>`;
 }
 // Modal filter clicks
@@ -1516,6 +1519,23 @@ function setShort(full){
   return SET_SHORT[clean]||clean;
 }
 
+// Return EN name for item if currentLang is EN. Lookups named, exotics, gear_sets, brands by RU name.
+function localizeItemName(name){
+  if(!name||currentLang!=='en') return name;
+  try{
+    const all = (typeof D2DATA!=='undefined') ? [
+      ...(D2DATA.N||[]),
+      ...(D2DATA.NAMED_GEAR||[]),
+      ...(D2DATA.E||[]),
+      ...(D2DATA.G||[]),
+    ] : [];
+    const found = all.find(x => x && (x.name===name || x.name_ru===name));
+    if(found && (found.en||found.name_en)) return found.en||found.name_en;
+    // Brands: names already in EN
+  }catch(e){}
+  return name;
+}
+
 function renderCardSlotTags(b){
   if(!b.build_hash)return"";
   const dec=b._decoded||(b._decoded=decodeBuildHash(b.build_hash));
@@ -1558,7 +1578,7 @@ function renderCardSlotTags(b){
 function renderBuildCard(b,isLiked,showTrend){
   const weapon=b.weapon_name?`<div class="cc-weapon">🔫 <b>${escapeHtml(b.weapon_name)}</b></div>`:"";
   const dps=b.peak_dps?`<div class="cc-dps">Пик DPS: <b>${Math.round(b.peak_dps/1000)}k</b></div>`:`<div class="cc-dps"></div>`;
-  const desc=b.description?`<div class="cc-desc">${escapeHtml(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">— без описания —</div>`;
+  const desc=b.description?`<div class="cc-desc">${renderDescWithEmbeds(b.description)}</div>`:`<div class="cc-desc" style="color:#555;font-style:italic">${currentLang==='en'?'— no description —':'— без описания —'}</div>`;
   const slotsTags=renderCardSlotTags(b);
   const adminBtn=isAdmin()?`<button class="cc-like" style="background:rgba(239,83,80,.15);border-color:rgba(239,83,80,.4);color:var(--red)" onclick="adminDeleteBuild('${b.id}')" title="Удалить (админ)">🗑</button>`:"";
   const mine=getMyBuilds().has(b.id);
@@ -2934,10 +2954,11 @@ function calcBuild(){
   if(topKey){
     const keys=[];
     bonuses.forEach(b=>{
-      if(b.tier==="🧿") keys.push(b.nm.replace(/^Экзотик:\s*/,""));
-      else if(typeof b.tier==="number"&&b.tier===4) keys.push(setShort(b.nm)+" 4шт");
+      if(b.tier==="🧿") keys.push(localizeItemName(b.nm.replace(/^Экзотик:\s*/,"")));
+      else if(typeof b.tier==="number"&&b.tier===4) keys.push(setShort(b.nm)+(currentLang==='en'?" 4pc":" 4шт"));
     });
-    topKey.innerHTML=keys.length?`<span style="color:var(--muted)">💥 Главное:</span> <b style="color:var(--orange)">${keys.map(k=>escapeHtml(k)).join(" + ")}</b>`:"";
+    const mainLbl = currentLang==='en' ? '💥 Core:' : '💥 Главное:';
+    topKey.innerHTML=keys.length?`<span style="color:var(--muted)">${mainLbl}</span> <b style="color:var(--orange)">${keys.map(k=>escapeHtml(k)).join(" + ")}</b>`:"";
   }
 
   // Top compact bonus tags
@@ -2952,13 +2973,22 @@ function calcBuild(){
       let kind="";
       if(/Экзотик/i.test(b.nm)||b.tier==="🧿") kind="exotic";
       else if(b.tier==="им") kind="named";
-      let short=b.nm.replace(/^(Экзотик: |Оружие: )/,"");
+      const prefixRe = currentLang==='en' ? /^(Exotic: |Weapon: |Экзотик: |Оружие: )/ : /^(Экзотик: |Оружие: )/;
+      let short=b.nm.replace(prefixRe,"");
       const isNum=typeof b.tier==="number";
       if(isNum)short=setShort(short);
-      const tierLbl=isNum?` ${b.tier}шт`:(b.tier==="им"?"":` ${b.tier||""}`);
+      // Localize named/exotic names: look up item by RU name, use EN if available
+      if(currentLang==='en'){
+        short = localizeItemName(short);
+      }
+      const pcSuffix = currentLang==='en' ? 'pc' : 'шт';
+      const namedLbl = currentLang==='en' ? 'n' : 'им';
+      const tierLbl=isNum?` ${b.tier}${pcSuffix}`:(b.tier==="им"||b.tier===namedLbl?"":` ${b.tier||""}`);
       return `<span class="rtb-tag ${kind}">${short}${tierLbl}</span>`;
     });
-    topB.innerHTML=finalTags.join("")||`<span class="rtb-hint">Нет активных сет-бонусов — набери 2/3/4 предмета одного сета/бренда.</span>`;
+    const hintEn = 'No active set bonuses — collect 2/3/4 items of one set/brand.';
+    const hintRu = 'Нет активных сет-бонусов — набери 2/3/4 предмета одного сета/бренда.';
+    topB.innerHTML=finalTags.join("")||`<span class="rtb-hint">${currentLang==='en'?hintEn:hintRu}</span>`;
   }
 
   // Stack info
@@ -4670,4 +4700,40 @@ function renderTank(){
       </ul>
     </div>
   `;
+}
+
+// ===== RENDER DESCRIPTION WITH YOUTUBE EMBEDS =====
+// Detects YouTube URLs and replaces them with thumbnail + click-to-play embed
+function renderDescWithEmbeds(text){
+  if(!text) return '';
+  // Normalize
+  const raw = text.replace(/\r\n/g,'\n');
+  // YouTube regex: matches youtube.com/watch?v=ID, youtu.be/ID, youtube.com/embed/ID, shorts/ID
+  const ytRe = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:[?&][^\s]*)?/g;
+  const videos = [];
+  const textNoYt = raw.replace(ytRe, (m, id) => {
+    videos.push(id);
+    return ''; // remove URL from description body
+  });
+  const escText = escapeHtml(textNoYt.trim()).replace(/\n/g,'<br>');
+  let embedsHtml = '';
+  for(const id of videos){
+    const thumb = `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+    embedsHtml += `
+      <div class="yt-embed" data-vid="${id}" onclick="playYt(this)" style="position:relative;margin-top:8px;cursor:pointer;border-radius:8px;overflow:hidden;border:1px solid var(--border);max-width:480px">
+        <img src="${thumb}" alt="YouTube video" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover" loading="lazy">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(0,0,0,.75);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none">
+          <span style="color:#fff;font-size:24px;margin-left:4px">▶</span>
+        </div>
+        <div style="position:absolute;bottom:6px;right:8px;background:rgba(0,0,0,.7);color:#fff;font-size:10px;padding:2px 6px;border-radius:3px;pointer-events:none">YouTube</div>
+      </div>`;
+  }
+  return escText + embedsHtml;
+}
+function playYt(el){
+  const id = el.dataset.vid;
+  if(!id) return;
+  el.outerHTML = `<div class="yt-embed" style="position:relative;margin-top:8px;border-radius:8px;overflow:hidden;max-width:480px;aspect-ratio:16/9">
+    <iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" style="width:100%;height:100%;border:none" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>`;
 }
