@@ -21,7 +21,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Tahoma,sans-s
 .bug-btn:hover{background:rgba(239,83,80,.2);border-color:var(--red)}
 .lang-btn{position:absolute;top:12px;left:12px;background:rgba(66,165,245,.12);border:1px solid rgba(66,165,245,.4);color:var(--blue);padding:7px 12px;border-radius:7px;font-size:11px;cursor:pointer;font-weight:700;transition:all .15s}
 .lang-btn:hover{background:rgba(66,165,245,.22);border-color:var(--blue)}
-@media(max-width:500px){.bug-btn{top:8px;right:8px;padding:5px 9px;font-size:10px} .lang-btn{top:8px;left:8px;padding:5px 9px;font-size:10px}}
+@media(max-width:500px){.bug-btn{top:8px;right:8px;padding:5px 9px;font-size:10px} .lang-btn{top:8px;left:8px;padding:5px 9px;font-size:10px} #auth-wrap{top:44px !important;right:8px !important} #auth-btn{padding:5px 9px !important;font-size:10px !important;min-width:auto !important} .header{padding-top:78px !important}}
 .bug-form{display:flex;flex-direction:column;gap:10px;padding:16px}
 .bug-form label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px}
 .bug-form input,.bug-form select,.bug-form textarea{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:13px;outline:none;font-family:inherit}
