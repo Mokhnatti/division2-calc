@@ -386,6 +386,52 @@
     <div id="b-guaranteed-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:6px"></div>
   </div>
 
+  <!-- Stat Input Mode Toggle -->
+  <div class="bsect">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
+      <span style="font-size:11px;color:var(--muted);text-transform:uppercase">Режим ввода статов:</span>
+      <button type="button" id="stat-mode-manual" class="mf-btn on" onclick="setStatMode('manual')">📝 Руками</button>
+      <button type="button" id="stat-mode-gear" class="mf-btn" onclick="setStatMode('gear')">🎯 Выбор на шмотках</button>
+    </div>
+  </div>
+
+  <!-- Gear Stat Picker (Mode B) -->
+  <div class="bsect" id="gear-stat-picker" style="display:none">
+    <h3>🎯 Выбор статов на шмотках</h3>
+    <p style="font-size:11px;color:var(--muted);margin-top:4px">На каждой из 6 шмоток выбери 1 core + 2 атрибута. SHD Watch + спец-пассивки + Expertise MAX добавляются автоматически.</p>
+
+    <!-- Presets -->
+    <div style="margin-top:10px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Пресеты</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button type="button" class="mf-btn" onclick="applyGearPreset('dps')">💥 DD (урон+крит)</button>
+        <button type="button" class="mf-btn" onclick="applyGearPreset('sniper')">🎯 Снайпер (HS+CHD)</button>
+        <button type="button" class="mf-btn" onclick="applyGearPreset('skill')">⚡ Инженер (Skill)</button>
+        <button type="button" class="mf-btn" onclick="applyGearPreset('status')">🔥 Негативщик (Status)</button>
+        <button type="button" class="mf-btn" onclick="applyGearPreset('tank')">🛡 Танк</button>
+        <button type="button" class="mf-btn" onclick="applyGearPreset('clear')" style="color:var(--red)">✕ Сбросить</button>
+      </div>
+    </div>
+
+    <!-- Specialization -->
+    <div style="margin-top:12px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Специализация</div>
+      <select id="gear-specialization" onchange="recomputeGearStats()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px;width:100%;max-width:280px">
+        <option value="">— без специализации —</option>
+      </select>
+      <div style="font-size:10px;color:var(--muted);margin-top:3px">Применяется passive-дерево (макс). SHD Watch тоже на максимум.</div>
+    </div>
+
+    <!-- Gear slots -->
+    <div id="gear-slot-picker-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:14px"></div>
+
+    <!-- Auto-computed summary -->
+    <div id="gear-stat-summary" style="margin-top:14px;padding:10px 12px;background:rgba(0,200,83,.06);border-left:3px solid var(--green);border-radius:5px;font-size:12px">
+      <div style="color:var(--green);font-weight:600;margin-bottom:4px">🤖 Авто-сумма → поля ниже заблокированы</div>
+      <div id="gear-stat-summary-body" style="font-size:11px;color:var(--muted)">Выбери статы выше — сумма покажется здесь</div>
+    </div>
+  </div>
+
   <!-- Manual stats -->
   <div class="bsect">
     <details>

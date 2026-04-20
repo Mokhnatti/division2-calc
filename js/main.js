@@ -816,6 +816,353 @@ document.addEventListener("click",function(e){
 });
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSlotModal()});
 
+// ===== GEAR STAT PICKER (Mode B) =====
+
+// Map Hunter attribute names → our calculator stat keys
+const GSP_ATTR_TO_STAT = {
+  // Pure DPS
+  "WeaponDamage": "wd",
+  "CritChance": "chc",
+  "CritDamage": "chd",
+  "HeadshotDamage": "hsd",
+  "DamageToTargetsOutOfCover": "ooc",
+  "DamageToHealth": "dth",
+  "DamageToArmor": "dta",
+  // Weapon type damage
+  "AssaultRifleDamage": "wd-ar",
+  "SMGDamage": "wd-smg",
+  "LightMachineGunDamage": "wd-lmg",
+  "MarksmanRifleDamage": "wd-mmr",
+  "RifleDamage": "wd-rifle",
+  "ShotgunDamage": "wd-sg",
+  "PistolDamage": "wd-pistol",
+  // Hunter spec passive naming (from specializations.json)
+  "LMGDamageModBonus": "wd-lmg",
+  "SMGDamageModBonus": "wd-smg",
+  "RifleDamageModBonus": "wd-rifle",
+  "ShotgunDamageModBonus": "wd-sg",
+  "PistolDamageModBonus": "wd-pistol",
+  "AssaultRifleDamageModBonus": "wd-ar",
+  "MarksmanRifleDamageModBonus": "wd-mmr",
+  // Utility-ish
+  "WeaponHandling": "handling",
+  "ReloadSpeed": "reload",
+  "MagazineSize": "mag",
+  "Explosive": "amp",
+  // Skills (not for DPS calc)
+  "SkillTier": "skillTier",
+};
+
+// Current mode + state
+let gearStatMode = "manual"; // "manual" | "gear"
+const gearStatState = {
+  chest:    {core: "", attr1: "", attr2: ""},
+  back:     {core: "", attr1: "", attr2: ""},
+  gloves:   {core: "", attr1: "", attr2: ""},
+  mask:     {core: "", attr1: "", attr2: ""},
+  holster:  {core: "", attr1: "", attr2: ""},
+  kneepads: {core: "", attr1: "", attr2: ""},
+};
+let gearSpecId = "";
+
+const GSP_SLOT_LABELS = {
+  chest:    {ru:"Нагрудник",   en:"Chest"},
+  back:     {ru:"Рюкзак",      en:"Backpack"},
+  gloves:   {ru:"Перчатки",    en:"Gloves"},
+  mask:     {ru:"Маска",       en:"Mask"},
+  holster:  {ru:"Кобура",      en:"Holster"},
+  kneepads: {ru:"Наколенники", en:"Kneepads"},
+};
+
+const MODE_B_INPUT_IDS = [
+  "b-chc","b-chd","b-hsd","b-wd","b-ooc","b-dta","b-dth","b-rof","b-reload","b-mag","b-amp",
+  "b-wd-ar","b-wd-smg","b-wd-lmg","b-wd-mmr","b-wd-rifle","b-wd-sg","b-wd-pistol"
+];
+
+function setStatMode(mode){
+  gearStatMode = mode;
+  document.getElementById("stat-mode-manual").classList.toggle("on", mode==="manual");
+  document.getElementById("stat-mode-gear").classList.toggle("on", mode==="gear");
+  const picker = document.getElementById("gear-stat-picker");
+  if(picker) picker.style.display = mode==="gear" ? "block" : "none";
+  if(mode==="gear"){
+    initGearSpecSelect();
+    renderGearSlotPickers();
+    recomputeGearStats();
+    lockManualInputs(true);
+  } else {
+    lockManualInputs(false);
+  }
+  try{localStorage.setItem("d2calc_stat_mode", mode);}catch(e){}
+  calcBuild();
+}
+
+function lockManualInputs(locked){
+  for(const id of MODE_B_INPUT_IDS){
+    const el = document.getElementById(id);
+    if(!el) continue;
+    el.readOnly = locked;
+    el.style.background = locked ? "rgba(0,200,83,.08)" : "";
+    el.style.borderColor = locked ? "rgba(0,200,83,.3)" : "";
+    el.title = locked ? "Авто-расчёт из выбранных статов на шмотках (переключи в режим 'Руками' чтобы править)" : "";
+  }
+}
+
+function initGearSpecSelect(){
+  const sel = document.getElementById("gear-specialization");
+  if(!sel || sel.options.length>1) return;
+  const SPECS = (typeof D2DATA!=='undefined' && D2DATA.SPECIALIZATIONS) || [];
+  const isEn = currentLang==="en";
+  // Map spec id → nice RU name
+  const NICE_NAME = {
+    "playerspecialization_sharpshooter": {ru:"🎯 Снайпер (Sharpshooter)", en:"🎯 Sharpshooter"},
+    "playerspecialization_demolitionist": {ru:"💥 Подрывник (Demolitionist)", en:"💥 Demolitionist"},
+    "playerspecialization_survivalist": {ru:"🏹 Спец. по выживанию (Survivalist)", en:"🏹 Survivalist"},
+    "playerspecialization_flamethrower": {ru:"🔥 Огнемётчик (Firewall)", en:"🔥 Firewall"},
+    "playerspecialization_gunner": {ru:"🔫 Пулемётчик (Gunner)", en:"🔫 Gunner"},
+    "playerspecialization_technician": {ru:"⚙ Техник (Technician)", en:"⚙ Technician"},
+  };
+  for(const s of SPECS){
+    const opt = document.createElement("option");
+    opt.value = s.id;
+    const nice = NICE_NAME[s.id];
+    opt.textContent = nice ? (isEn?nice.en:nice.ru) : (s.name_ru || s.id);
+    sel.appendChild(opt);
+  }
+  sel.value = gearSpecId;
+  sel.onchange = ()=>{
+    gearSpecId = sel.value;
+    recomputeGearStats();
+    calcBuild();
+  };
+}
+
+function renderGearSlotPickers(){
+  const host = document.getElementById("gear-slot-picker-grid");
+  if(!host) return;
+  const POOL = (typeof D2DATA!=='undefined' && D2DATA.GEAR_ATTRIBUTE_POOL) || {};
+  const isEn = currentLang==="en";
+  const slots = ["chest","back","gloves","mask","holster","kneepads"];
+  const ICONS = {chest:"🦺",back:"🎒",gloves:"🧤",mask:"😷",holster:"🔫",kneepads:"🦵"};
+  let html = "";
+  for(const slot of slots){
+    const pool = POOL[slot] || {};
+    const lbl = GSP_SLOT_LABELS[slot];
+    const coreOpts = (pool.core_options||[]).map(c=>{
+      const maxR = c.max_roll_values && c.max_roll_values[slot];
+      const maxLbl = typeof maxR==="number" ? ` (+${(maxR*100).toFixed(1)}%)` : "";
+      const ru = c.ru || c.attr;
+      return `<option value="${c.attr}">${ru}${maxLbl}</option>`;
+    }).join("");
+    const attr1Opts = (pool.attr1_options||[]).map(a=>{
+      const ru = a.ru || a.attr;
+      const maxLbl = a.max_roll ? ` (+${(a.max_roll*100).toFixed(1)}%)` : "";
+      return `<option value="${a.attr}">${ru}${maxLbl}</option>`;
+    }).join("");
+    const attr2Opts = (pool.attr2_options||[]).map(a=>{
+      const ru = a.ru || a.attr;
+      const maxLbl = a.max_roll ? ` (+${(a.max_roll*100).toFixed(1)}%)` : "";
+      return `<option value="${a.attr}">${ru}${maxLbl}</option>`;
+    }).join("");
+    const state = gearStatState[slot] || {core:"",attr1:"",attr2:""};
+    html += `<div style="padding:8px;border:1px solid var(--border);border-radius:6px;background:rgba(255,255,255,.02)">
+      <div style="font-size:11px;font-weight:600;color:var(--orange);margin-bottom:6px">${ICONS[slot]||"•"} ${isEn?lbl.en:lbl.ru}</div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <select onchange="onGearStatPick('${slot}','core',this.value)" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+          <option value="">${isEn?'— Core —':'— Core (основа) —'}</option>${coreOpts}
+        </select>
+        <select onchange="onGearStatPick('${slot}','attr1',this.value)" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+          <option value="">${isEn?'— Attribute 1 —':'— Атрибут 1 —'}</option>${attr1Opts}
+        </select>
+        <select onchange="onGearStatPick('${slot}','attr2',this.value)" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+          <option value="">${isEn?'— Attribute 2 —':'— Атрибут 2 —'}</option>${attr2Opts}
+        </select>
+      </div>
+    </div>`;
+  }
+  host.innerHTML = html;
+  // Restore current values
+  for(const slot of slots){
+    const state = gearStatState[slot];
+    const box = host.children[slots.indexOf(slot)];
+    if(!box) continue;
+    const selects = box.querySelectorAll("select");
+    if(state.core && selects[0]) selects[0].value = state.core;
+    if(state.attr1 && selects[1]) selects[1].value = state.attr1;
+    if(state.attr2 && selects[2]) selects[2].value = state.attr2;
+  }
+}
+
+function onGearStatPick(slot, pos, value){
+  if(!gearStatState[slot]) return;
+  gearStatState[slot][pos] = value;
+  recomputeGearStats();
+  calcBuild();
+  try{localStorage.setItem("d2calc_gear_stat_state", JSON.stringify(gearStatState));}catch(e){}
+}
+
+function _gspAddValue(totals, stat, value){
+  if(!stat || stat==="handling" || stat==="skillTier" || !value) return;
+  totals[stat] = (totals[stat]||0) + value;
+}
+
+// Compute totals from gear_stat_state + specialization + SHD Watch max + Expertise max
+function computeGearStatTotals(){
+  const totals = {}; // stat key → sum (fraction, e.g. 0.15)
+  const POOL = (typeof D2DATA!=='undefined' && D2DATA.GEAR_ATTRIBUTE_POOL) || {};
+  const slots = ["chest","back","gloves","mask","holster","kneepads"];
+  for(const slot of slots){
+    const st = gearStatState[slot];
+    if(!st) continue;
+    const pool = POOL[slot] || {};
+    // Core
+    if(st.core){
+      const opt = (pool.core_options||[]).find(o=>o.attr===st.core);
+      if(opt){
+        const maxR = opt.max_roll_values && opt.max_roll_values[slot];
+        const stat = GSP_ATTR_TO_STAT[opt.attr];
+        if(stat && maxR) _gspAddValue(totals, stat, maxR);
+      }
+    }
+    // Attr1 / Attr2
+    for(const pos of ["attr1","attr2"]){
+      if(!st[pos]) continue;
+      const optList = pool[pos==="attr1"?"attr1_options":"attr2_options"]||[];
+      const opt = optList.find(o=>o.attr===st[pos]);
+      if(!opt) continue;
+      const stat = GSP_ATTR_TO_STAT[opt.attr];
+      if(stat && opt.max_roll) _gspAddValue(totals, stat, opt.max_roll);
+    }
+  }
+  // Specialization passive (MAX full tree)
+  if(gearSpecId){
+    const SPECS = (typeof D2DATA!=='undefined' && D2DATA.SPECIALIZATIONS) || [];
+    const spec = SPECS.find(s=>s.id===gearSpecId);
+    if(spec && spec.total_passive_bonuses){
+      for(const [attr, val] of Object.entries(spec.total_passive_bonuses)){
+        const stat = GSP_ATTR_TO_STAT[attr];
+        if(!stat) continue;
+        if(stat==="reload" || stat==="mag") _gspAddValue(totals, stat, val);
+        else _gspAddValue(totals, stat, val);
+      }
+    }
+  }
+  // SHD Watch (offensive max)
+  const SHD = (typeof D2DATA!=='undefined' && D2DATA.SHD_WATCH) || {};
+  for(const s of (SHD.offensive_stats||[])){
+    const stat = GSP_ATTR_TO_STAT[s.attr];
+    if(!stat) continue;
+    _gspAddValue(totals, stat, s.max_total || 0);
+  }
+  // Expertise MAX (weapon level 21 → +21% WD)
+  const EXP = (typeof D2DATA!=='undefined' && D2DATA.EXPERTISE) || {};
+  // Applied as separate multiplier, store in "expertise"
+  totals.expertise = 21;
+  return totals;
+}
+
+function recomputeGearStats(){
+  if(gearStatMode!=="gear") return;
+  const totals = computeGearStatTotals();
+  // Apply to input fields (they're read-only in gear mode)
+  const map = {
+    "b-wd":"wd","b-chc":"chc","b-chd":"chd","b-hsd":"hsd",
+    "b-ooc":"ooc","b-dta":"dta","b-dth":"dth",
+    "b-rof":"rof","b-reload":"reload","b-mag":"mag","b-amp":"amp",
+    "b-wd-ar":"wd-ar","b-wd-smg":"wd-smg","b-wd-lmg":"wd-lmg",
+    "b-wd-mmr":"wd-mmr","b-wd-rifle":"wd-rifle","b-wd-sg":"wd-sg","b-wd-pistol":"wd-pistol",
+  };
+  for(const [id, key] of Object.entries(map)){
+    const el = document.getElementById(id);
+    if(!el) continue;
+    const val = totals[key] || 0;
+    el.value = Math.round(val*100);
+  }
+  // Set expertise (points, not %)
+  const expEl = document.getElementById("b-expertise");
+  if(expEl){
+    expEl.value = totals.expertise || 0;
+    expEl.readOnly = true;
+    expEl.style.background = "rgba(0,200,83,.08)";
+    expEl.style.borderColor = "rgba(0,200,83,.3)";
+    expEl.title = "Expertise max (21) — режим 'на шмотках'";
+  }
+  // Summary text
+  const sumEl = document.getElementById("gear-stat-summary-body");
+  if(sumEl){
+    const parts = [];
+    const lbls = {wd:"WD",chc:"CHC",chd:"CHD",hsd:"HSD",ooc:"OoC",dta:"DtA",dth:"DtH",rof:"RoF",reload:"Reload",mag:"Mag","wd-ar":"AR","wd-smg":"SMG","wd-lmg":"LMG","wd-mmr":"MMR","wd-rifle":"Rifle","wd-sg":"SG","wd-pistol":"Pistol"};
+    for(const [k,v] of Object.entries(totals)){
+      if(k==="expertise") continue;
+      if(Math.abs(v)<0.001) continue;
+      const lbl = lbls[k] || k;
+      parts.push(`<span style="color:var(--orange)">+${Math.round(v*100)}% ${lbl}</span>`);
+    }
+    parts.push(`<span style="color:var(--muted)">· Exp ×${totals.expertise||0}</span>`);
+    sumEl.innerHTML = parts.join(" · ") || "Выбери статы выше";
+  }
+}
+
+// Presets
+function applyGearPreset(name){
+  const P = {
+    dps: {core:"WeaponDamage", attr1:"CritChance", attr2:"CritDamage"},
+    sniper: {core:"WeaponDamage", attr1:"HeadshotDamage", attr2:"CritDamage"},
+    skill: {core:"SkillTier", attr1:"DamageToTargetsOutOfCover", attr2:"CritChance"},
+    status: {core:"WeaponDamage", attr1:"DamageToHealth", attr2:"CritChance"},
+    tank: {core:"Armor", attr1:"ExplosiveResist", attr2:"WeaponHandling"},
+  };
+  if(name==="clear"){
+    for(const slot of Object.keys(gearStatState)){
+      gearStatState[slot] = {core:"",attr1:"",attr2:""};
+    }
+    renderGearSlotPickers();
+    recomputeGearStats();
+    calcBuild();
+    return;
+  }
+  const p = P[name];
+  if(!p) return;
+  const POOL = (typeof D2DATA!=='undefined' && D2DATA.GEAR_ATTRIBUTE_POOL) || {};
+  for(const slot of Object.keys(gearStatState)){
+    const pool = POOL[slot] || {};
+    // Pick first match — try requested stat, fall back to another offensive if not available
+    const pickAvail = (list, wanted) => {
+      if((list||[]).some(o=>o.attr===wanted)) return wanted;
+      // Fallback: first offense-cat attr
+      const alt = (list||[]).find(o=>o.cat==="offense");
+      return alt ? alt.attr : "";
+    };
+    const pickCore = ()=>{
+      const c = (pool.core_options||[]).find(o=>o.attr===p.core);
+      if(c) return p.core;
+      return (pool.core_options||[])[0] ? (pool.core_options||[])[0].attr : "";
+    };
+    gearStatState[slot] = {
+      core: pickCore(),
+      attr1: pickAvail(pool.attr1_options, p.attr1),
+      attr2: pickAvail(pool.attr2_options, p.attr2),
+    };
+  }
+  renderGearSlotPickers();
+  recomputeGearStats();
+  calcBuild();
+  try{localStorage.setItem("d2calc_gear_stat_state", JSON.stringify(gearStatState));}catch(e){}
+}
+
+// Restore from localStorage on init
+try{
+  const sm = localStorage.getItem("d2calc_stat_mode");
+  if(sm==="gear") gearStatMode = "gear";
+  const raw = localStorage.getItem("d2calc_gear_stat_state");
+  if(raw){
+    const parsed = JSON.parse(raw);
+    for(const slot of Object.keys(gearStatState)){
+      if(parsed[slot]) Object.assign(gearStatState[slot], parsed[slot]);
+    }
+  }
+}catch(e){}
+
 function initBuildSlots(){
   initWpnDb();
   buildItemDb();
@@ -3916,6 +4263,13 @@ updateStatTooltips();
 // Init build slots from gear set data
 initBuildSlots();
 initGearTalentSelects();
+
+// Apply saved stat mode on load
+try{
+  if(gearStatMode==="gear"){
+    setTimeout(()=>{ setStatMode("gear"); }, 100);
+  }
+}catch(e){}
 
 // Lazy-load Recombinator modifiers reference (Y8S1 Rise Up)
 let __rcmCache=null;
