@@ -776,6 +776,13 @@
     "🧬 Рекомбинатор": "🧬 Recombinator",
     "🧬 Рекомбинатор · сезонные модификаторы Y8S1, вводишь сам что накачал": "🧬 Recombinator · Y8S1 seasonal modifiers (enter manually)",
     "🧬 Симулятор Рекомбинатора (выбери модификаторы по тирам)": "🧬 Recombinator Simulator (pick tier modifiers)",
-    "🧿 Мантис": "🧿 Mantis"
+    "🧿 Мантис": "🧿 Mantis",
+    "(TAC-50, Crossbow, Sticky Bomb, Eagle Sentry и т.д.) — отдельные пушки с уникальной математикой, не учитываются.": "(TAC-50, Crossbow, Sticky Bomb, Eagle Sentry, etc.) — separate weapons with unique math, not counted.",
+    "(Technician spec) — пульсированные враги получают +20% урона от Kingbreaker AR; этой связки в калькуляторе нет.": "(Technician spec) — pulsed enemies take +20% damage from Kingbreaker AR; this combo is not in the calculator.",
+    "+15 ур. → ×1.15": "+15 lvl → ×1.15",
+    ", добавим механику.": ", we will add the mechanic.",
+    "SHD Watch (offensive) с +CHC/CHD/WD/HSD": "SHD Watch (offensive) with +CHC/CHD/WD/HSD",
+    "Частые вопросы": "FAQ",
+    "Полезные ссылки": "Useful Links"
   }
 }

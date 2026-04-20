@@ -3665,8 +3665,10 @@ function applyUiTranslations(){
   const map = currentLang==='en' ? ruToEn : enToRu;
   // Strip leading caret arrows used in <details> summary
   const stripCaret = s => s.replace(/^[▼▶►▸◆◇]\s*/,'').trim();
-  const selectors = 'button, h1, h2, h3, h4, h5, label, option, legend, summary';
+  const selectors = 'button, h1, h2, h3, h4, h5, h6, label, option, legend, summary, p, li, td, th';
   document.querySelectorAll(selectors).forEach(el=>{
+    // Skip if explicitly marked no-translate
+    if(el.hasAttribute('data-no-translate')) return;
     // Save caret span if present
     const caret = el.querySelector('.caret');
     // Get text without caret
@@ -3680,11 +3682,11 @@ function applyUiTranslations(){
     } else if(!el.children || el.children.length===0){
       el.textContent = t;
     } else {
-      // Element has children but no caret — try to replace just text nodes
+      // Element has children — only touch direct text nodes, try exact match on each
       [...el.childNodes].forEach(node=>{
         if(node.nodeType===3){ // text node
           const nr = stripCaret((node.textContent||'').trim());
-          if(nr && map[nr]) node.textContent = map[nr];
+          if(nr && map[nr]) node.textContent = node.textContent.replace(nr, map[nr]);
         }
       });
     }
