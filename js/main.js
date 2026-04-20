@@ -576,6 +576,35 @@ function closeSlotModal(){
   curSlot=null;
 }
 function matchQ(txt,qs){return qs.every(q=>!q||txt.includes(q))}
+// Render "where to get" plaque for an item — uses D2DATA.SOURCES
+function renderSourceInfo(enName){
+  if(!enName) return '';
+  const SRC=(typeof D2DATA!=='undefined'&&D2DATA.SOURCES)||{};
+  const data=SRC[String(enName).toLowerCase().trim()];
+  if(!data||!data.sources||!data.sources.length)return '';
+  const isEn=currentLang==='en';
+  const iconMap={raid:'👥',mission:'🎯',darkzone:'⚠',bounty:'💀',named_drop:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',chest:'📦',world_drop:'🌍',incursion:'⚡',global_event:'🎉',descent:'🏗',other:'✨'};
+  const typeLbl={raid:isEn?'Raid':'Рейд',mission:isEn?'Mission':'Миссия',darkzone:isEn?'Dark Zone':'Тёмная зона',bounty:isEn?'Bounty':'Контракт',named_drop:isEn?'Named NPC':'Именной NPC',manhunt:isEn?'Manhunt':'Охота',dungeon:isEn?'Dungeon':'Подземелье',project:isEn?'Project':'Проект',vendor:isEn?'Vendor':'Торговец',chest:isEn?'Chest':'Контейнер',world_drop:isEn?'World Drop':'Мировой дроп',incursion:isEn?'Incursion':'Вторжение',global_event:isEn?'Global Event':'Глобальное событие',descent:isEn?'Descent':'Спуск',other:isEn?'Other':'Другое'};
+  // Group sources by type
+  const byType={};
+  for(const s of data.sources){
+    const t=s.type||'other';
+    (byType[t]=byType[t]||[]).push(s);
+  }
+  const rows=Object.entries(byType).map(([t,arr])=>{
+    const icon=iconMap[t]||'•';
+    const lbl=typeLbl[t]||t;
+    // Join unique names for this type
+    const names=[...new Set(arr.map(s=>isEn?(s.name_en||s.name_ru||''):(s.name_ru||s.name_en||'')))].filter(x=>x&&!x.startsWith('LT')&&!x.toLowerCase().startsWith('ltdrp')&&!x.toLowerCase().startsWith('ltref'));
+    const namesStr=names.length?names.slice(0,5).join(', '):lbl;
+    return `<div style="font-size:11px;line-height:1.5;margin:2px 0"><span style="color:var(--orange);font-weight:600">${icon} ${lbl}:</span> <span style="color:var(--muted)">${namesStr}</span></div>`;
+  }).join('');
+  return `<div style="margin-top:6px;padding:6px 8px;background:rgba(245,166,35,.06);border-left:2px solid var(--orange);border-radius:4px">
+    <div style="font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">${isEn?'Where to get':'Где добыть'}</div>
+    ${rows}
+  </div>`;
+}
+
 function renderSlotItems(){
   if(!curSlot)return;
   const items=ITEMS_BY_SLOT[curSlot]||[];
@@ -612,14 +641,16 @@ function renderSlotItems(){
             ${bonusStr}
             ${coreStr}
             ${attrsStr?`<div class="mi-desc" style="color:#4caf50">${attrsStr}</div>`:""}
-            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus&&it.talentBonus.conditional?" (условно)":""}</div>`:""}`;
+            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus&&it.talentBonus.conditional?" (условно)":""}</div>`:""}
+            ${renderSourceInfo(it.en)}`;
     }else if(it.kind==="exotic"){
       const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
       const coreStr=coreVal?`<div class="mi-desc" style="color:#ff9800">Core: ${translateStat(coreVal)}</div>`:"";
       const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
       body=`<div class="mi-tal">${talentName(it.talent)||""}</div>
             ${it.talentDesc?`<div class="mi-desc">${it.talentDesc}</div>`:""}
-            ${bonusStr}${coreStr}`;
+            ${bonusStr}${coreStr}
+            ${renderSourceInfo(it.en)}`;
     }else{
       body=`<div class="mi-tal">${talentName(it.talent)||""}</div><div class="mi-desc">${it.talentDesc||""}</div>`;
     }
@@ -2164,13 +2195,14 @@ function renderWpnList(){
     const tal=w.tal&&w.tal!=="—"?`<div class="mi-tal">${w.tal}</div>`:"";
     const tald=w.tal_desc?`<div class="mi-desc">${w.tal_desc}</div>`:"";
     const base=w.base?`<div class="mi-desc" style="color:#555">базовое: ${w.base}</div>`:"";
+    const srcInfo=(w.kind==="named"||w.kind==="exotic")?renderSourceInfo(w.en):"";
     return`<div class="mitem" onclick="pickWpn('${w.id}')">
       <div class="mi-h">
         <div><span class="mi-n ${kindClass}">${w.name}</span>${wikiIcon(w.en||w.name)} ${w.en?`<span class="mi-en">${w.en}</span>`:""}</div>
         <span class="badge ${tagClass}">${w.cat} · ${kindLbl}</span>
       </div>
       <div class="mi-desc">${stats}</div>
-      ${tal}${tald}${base}
+      ${tal}${tald}${base}${srcInfo}
     </div>`;
   }).join("");
   document.getElementById("mod-list").innerHTML=html||'<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">Ничего не найдено</div>';

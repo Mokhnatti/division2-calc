@@ -49,6 +49,7 @@ const FILES = {
   FORMULAS: "formulas.json",
   SPECIALIZATION_WEAPONS: "specialization_weapons.json",
   ATTRIBUTE_DICT: "attribute_dict.json",
+  SOURCES: "sources_compact.json",
 };
 
 const obj = {};

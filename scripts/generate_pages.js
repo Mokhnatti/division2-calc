@@ -83,6 +83,42 @@ function escape(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// Load sources_compact.json once for item source lookups
+let _SOURCES_CACHE = null;
+function loadSources() {
+  if (_SOURCES_CACHE) return _SOURCES_CACHE;
+  const p = path.join(ROOT, 'data/sources_compact.json');
+  try { _SOURCES_CACHE = JSON.parse(fs.readFileSync(p, 'utf8')); }
+  catch(e) { _SOURCES_CACHE = {}; }
+  return _SOURCES_CACHE;
+}
+
+// Render "Where to get" HTML block for item page (RU)
+function renderSourcesHtml(nameEn) {
+  if (!nameEn) return '';
+  const sources = loadSources();
+  const data = sources[String(nameEn).toLowerCase().trim()];
+  if (!data || !data.sources || !data.sources.length) return '';
+  const typeLbl = {raid:'Рейд',mission:'Миссия',darkzone:'Тёмная зона',bounty:'Контракт',named_drop:'Именной NPC',manhunt:'Охота',dungeon:'Подземелье',project:'Проект',vendor:'Торговец',chest:'Контейнер',world_drop:'Мировой дроп',incursion:'Вторжение',global_event:'Глобальное событие',descent:'Спуск',other:'Другое'};
+  const iconMap = {raid:'👥',mission:'🎯',darkzone:'⚠',bounty:'💀',named_drop:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',chest:'📦',world_drop:'🌍',incursion:'⚡',global_event:'🎉',descent:'🏗',other:'✨'};
+  const byType = {};
+  for (const s of data.sources) {
+    const t = s.type || 'other';
+    (byType[t] = byType[t] || []).push(s);
+  }
+  const rows = Object.entries(byType).map(([t, arr]) => {
+    const icon = iconMap[t] || '•';
+    const lbl = typeLbl[t] || t;
+    const names = [...new Set(arr.map(s => s.name_ru || s.name_en || ''))].filter(x => x && !x.toLowerCase().startsWith('lt'));
+    const namesStr = names.length ? names.slice(0, 5).map(escape).join(', ') : lbl;
+    return `<tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>${icon} ${lbl}</b></td><td style="padding:6px;border-bottom:1px solid var(--border)">${namesStr}</td></tr>`;
+  }).join('');
+  return `<section class="sources" style="margin-top:14px">
+    <h2>📍 Где добыть</h2>
+    <table class="stats-table"><tbody>${rows}</tbody></table>
+  </section>`;
+}
+
 // BreadcrumbList JSON-LD (Schema.org) — crumbs: [{name, url}, ...]
 function breadcrumbJsonLd(crumbs) {
   const items = crumbs.map((c, i) => ({
@@ -205,6 +241,8 @@ ${nav()}
 
   ${adSlot('ad-mid')}
 
+  ${renderSourcesHtml(nameEn)}
+
   <section class="synergy">
     <h2>Синергии</h2>
     <p>Подбери оптимальный билд для <strong>${escape(nameRu)}</strong> с помощью <a href="/">калькулятора DPS divcalc.xyz</a>. Проверь синергии с <a href="/set/">комплектами снаряжения</a> и <a href="/named/">именным оружием</a>.</p>
@@ -312,6 +350,8 @@ ${nav()}
   </section>
 
   ${adSlot('ad-mid')}
+
+  ${renderSourcesHtml(nameEn)}
 
   <section class="synergy">
     <h2>Синергии</h2>
@@ -436,6 +476,8 @@ ${nav()}
 
   ${adSlot('ad-mid')}
 
+  ${renderSourcesHtml(nameEn)}
+
   <section class="synergy">
     <h2>Синергии</h2>
     <p>Рассчитай DPS билда с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Проверь совместимость с <a href="/set/">комплектами</a> и <a href="/brand/">брендами</a>.</p>
@@ -540,6 +582,8 @@ ${nav()}
   </section>
 
   ${adSlot('ad-mid')}
+
+  ${renderSourcesHtml(nameEn)}
 
   <section class="synergy">
     <h2>Синергии</h2>
@@ -666,6 +710,8 @@ ${nav()}
 
   ${adSlot('ad-mid')}
 
+  ${renderSourcesHtml(nameEn)}
+
   <section class="synergy">
     <h2>Синергии и рекомендуемые билды</h2>
     <p>Рассчитай DPS и подбери снаряжение для комплекта <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Проверь совместимость с <a href="/exotic/">экзотическим оружием</a>.</p>
@@ -765,6 +811,8 @@ ${nav()}
   </section>
 
   ${adSlot('ad-mid')}
+
+  ${renderSourcesHtml(nameEn)}
 
   <section class="synergy">
     <h2>Синергии</h2>
