@@ -576,36 +576,59 @@ function closeSlotModal(){
   curSlot=null;
 }
 function matchQ(txt,qs){return qs.every(q=>!q||txt.includes(q))}
-// Render "where to get" plaque for an item — uses D2DATA.SOURCES (v3)
+// Render "where to get" plaque for an item — uses D2DATA.SOURCES (v4)
+function _sourceLabels(isEn){
+  return {
+    iconMap:{raid:'👥',mission:'🎯',darkzone:'⚠',dz_landmark:'⚠',bounty:'💀',named_drop:'🎖',named_npc:'🎖',named_boss:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',vendor_craft:'🛠',chest:'📦',exotic_cache:'🎁',world_drop:'🌍',incursion:'⚡',global_event:'🎉',event:'🎉',event_cache:'🎁',season_reward:'🏆',battlepass:'🎖',descent:'🏗',summit:'🏢',countdown:'⏱',odd:'✨',other:'✨'},
+    typeLbl:{raid:isEn?'Raid':'Рейд',mission:isEn?'Mission':'Миссия',darkzone:isEn?'Dark Zone':'Тёмная зона',dz_landmark:isEn?'DZ Landmark':'Точка DZ',bounty:isEn?'Bounty':'Контракт',named_drop:isEn?'Named NPC':'Именной NPC',named_npc:isEn?'Named NPC':'Именной NPC',named_boss:isEn?'Named Boss':'Именной босс',manhunt:isEn?'Manhunt':'Охота',dungeon:isEn?'Dungeon':'Подземелье',project:isEn?'Project':'Проект',vendor:isEn?'Vendor':'Торговец',vendor_craft:isEn?'Craft Vendor':'Крафт-торговец',chest:isEn?'Chest':'Контейнер',exotic_cache:isEn?'Exotic Cache':'Экзотик-тайник',world_drop:isEn?'World Drop':'Мировой дроп',incursion:isEn?'Incursion':'Вторжение',global_event:isEn?'Global Event':'Глоб. событие',event:isEn?'Event':'Ивент',event_cache:isEn?'Event Cache':'Ивентовый тайник',season_reward:isEn?'Season Reward':'Сезонная награда',battlepass:isEn?'Battle Pass':'Боевой пропуск',descent:isEn?'Descent':'Спуск',summit:isEn?'Summit':'Саммит',countdown:isEn?'Countdown':'Обратный отсчёт',odd:isEn?'Other':'Прочее',other:isEn?'Other':'Другое'}
+  };
+}
+
 function renderSourceInfo(enName){
   if(!enName) return '';
   const SRC=(typeof D2DATA!=='undefined'&&D2DATA.SOURCES)||{};
   const data=SRC[String(enName).toLowerCase().trim()];
   const isEn=currentLang==='en';
-  // Fallback: item not in sources → "general world drop"
   if(!data||!data.sources||!data.sources.length){
     return `<div style="margin-top:6px;padding:6px 8px;background:rgba(117,117,117,.08);border-left:2px solid var(--muted);border-radius:4px">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">${isEn?'Where to get':'Где добыть'}</div>
-      <div style="font-size:11px;color:var(--muted)">🌍 ${isEn?'General world drop (any loot container)':'Общий мировой дроп (любой лут)'}</div>
+      <div style="font-size:11px;color:var(--muted)">🌍 ${isEn?'General world drop (any weapon pool)':'Общий мировой дроп (пул оружия)'}</div>
     </div>`;
   }
-  const iconMap={raid:'👥',mission:'🎯',darkzone:'⚠',bounty:'💀',named_drop:'🎖',named_npc:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',chest:'📦',world_drop:'🌍',incursion:'⚡',global_event:'🎉',event:'🎉',event_cache:'🎁',season_reward:'🏆',descent:'🏗',other:'✨'};
-  const typeLbl={raid:isEn?'Raid':'Рейд',mission:isEn?'Mission':'Миссия',darkzone:isEn?'Dark Zone':'Тёмная зона',bounty:isEn?'Bounty':'Контракт',named_drop:isEn?'Named NPC':'Именной NPC',named_npc:isEn?'Named NPC':'Именной NPC',manhunt:isEn?'Manhunt':'Охота',dungeon:isEn?'Dungeon':'Подземелье',project:isEn?'Project':'Проект',vendor:isEn?'Vendor':'Торговец',chest:isEn?'Chest':'Контейнер',world_drop:isEn?'World Drop':'Мировой дроп',incursion:isEn?'Incursion':'Вторжение',global_event:isEn?'Global Event':'Глобальное событие',event:isEn?'Event':'Ивент',event_cache:isEn?'Event Cache':'Ивентовый тайник',season_reward:isEn?'Season Reward':'Награда сезона',descent:isEn?'Descent':'Спуск',other:isEn?'Other':'Другое'};
-  const byType={};
-  for(const s of data.sources){
-    const t=s.type||'other';
-    (byType[t]=byType[t]||[]).push(s);
+  const {iconMap,typeLbl}=_sourceLabels(isEn);
+  // Split: direct vs tag
+  const direct=data.sources.filter(s=>s.match==='direct');
+  const tag=data.sources.filter(s=>s.match!=='direct');
+
+  function groupRows(arr,isDirect){
+    const byType={};
+    for(const s of arr){
+      const t=s.type||'other';
+      (byType[t]=byType[t]||[]).push(s);
+    }
+    return Object.entries(byType).map(([t,xs])=>{
+      const icon=iconMap[t]||'•';
+      const lbl=typeLbl[t]||t;
+      const names=[...new Set(xs.map(s=>isEn?(s.name_en||s.name_ru||''):(s.name_ru||s.name_en||'')))].filter(x=>x&&!x.toLowerCase().startsWith('lt'));
+      const namesStr=names.length?names.slice(0,5).join(', '):lbl;
+      const nameColor=isDirect?'var(--green)':'var(--muted)';
+      const labelColor=isDirect?'var(--orange)':'#888';
+      return `<div style="font-size:11px;line-height:1.5;margin:2px 0"><span style="color:${labelColor};font-weight:600">${icon} ${lbl}:</span> <span style="color:${nameColor}">${namesStr}</span></div>`;
+    }).join('');
   }
-  const rows=Object.entries(byType).map(([t,arr])=>{
-    const icon=iconMap[t]||'•';
-    const lbl=typeLbl[t]||t;
-    const names=[...new Set(arr.map(s=>isEn?(s.name_en||s.name_ru||''):(s.name_ru||s.name_en||'')))].filter(x=>x&&!x.toLowerCase().startsWith('lt'));
-    const namesStr=names.length?names.slice(0,5).join(', '):lbl;
-    return `<div style="font-size:11px;line-height:1.5;margin:2px 0"><span style="color:var(--orange);font-weight:600">${icon} ${lbl}:</span> <span style="color:var(--muted)">${namesStr}</span></div>`;
-  }).join('');
+
+  let html='';
+  if(direct.length){
+    html+=`<div style="font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;font-weight:700">✓ ${isEn?'Confirmed sources':'Подтверждённые источники'}</div>`;
+    html+=groupRows(direct,true);
+  }
+  if(tag.length){
+    if(direct.length) html+=`<div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:5px;margin-bottom:2px">${isEn?'Possibly also':'Возможно также'}</div>`;
+    html+=groupRows(tag,false);
+  }
   return `<div style="margin-top:6px;padding:6px 8px;background:rgba(245,166,35,.06);border-left:2px solid var(--orange);border-radius:4px">
     <div style="font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">${isEn?'Where to get':'Где добыть'}</div>
-    ${rows}
+    ${html}
   </div>`;
 }
 

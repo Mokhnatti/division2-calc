@@ -81,17 +81,26 @@ for item_id, meta in sources.items():
         continue
     srcs = meta.get('sources') or []
     if not srcs: continue
-    # Dedupe
+    # Dedupe + preserve match (direct/tag)
     seen = set()
     dedup = []
     for s in srcs:
         t = s.get('type') or 'other'
         n = clean(s.get('name_en') or '')
         nr = clean(s.get('name_ru') or n)
-        k2 = (t, n.lower())
+        m = s.get('match', 'tag')
+        k2 = (t, n.lower(), m)
         if k2 in seen: continue
         seen.add(k2)
-        dedup.append({'type': t, 'name_en': n, 'name_ru': nr, 'mission_id': s.get('mission_id', '')})
+        dedup.append({
+            'type': t,
+            'name_en': n,
+            'name_ru': nr,
+            'mission_id': s.get('mission_id', ''),
+            'match': m,
+        })
+    # Sort: direct matches first
+    dedup.sort(key=lambda x: (0 if x['match'] == 'direct' else 1, x['type']))
     if dedup:
         if key in compact:
             for d in dedup:

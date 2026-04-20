@@ -93,7 +93,7 @@ function loadSources() {
   return _SOURCES_CACHE;
 }
 
-// Render "Where to get" HTML block for item page (RU) — v3 sources
+// Render "Where to get" HTML block for item page (RU) — v4 sources with direct/tag
 function renderSourcesHtml(nameEn) {
   if (!nameEn) return '';
   const sources = loadSources();
@@ -101,26 +101,36 @@ function renderSourcesHtml(nameEn) {
   if (!data || !data.sources || !data.sources.length) {
     return `<section class="sources" style="margin-top:14px">
       <h2>📍 Где добыть</h2>
-      <p style="color:var(--muted);font-size:13px">🌍 Общий мировой дроп (любой контейнер лута)</p>
+      <p style="color:var(--muted);font-size:13px">🌍 Общий мировой дроп (любой пул оружия / контейнер)</p>
     </section>`;
   }
-  const typeLbl = {raid:'Рейд',mission:'Миссия',darkzone:'Тёмная зона',bounty:'Контракт',named_drop:'Именной NPC',named_npc:'Именной NPC',manhunt:'Охота',dungeon:'Подземелье',project:'Проект',vendor:'Торговец',chest:'Контейнер',world_drop:'Мировой дроп',incursion:'Вторжение',global_event:'Глобальное событие',event:'Ивент',event_cache:'Ивентовый тайник',season_reward:'Награда сезона',descent:'Спуск',other:'Другое'};
-  const iconMap = {raid:'👥',mission:'🎯',darkzone:'⚠',bounty:'💀',named_drop:'🎖',named_npc:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',chest:'📦',world_drop:'🌍',incursion:'⚡',global_event:'🎉',event:'🎉',event_cache:'🎁',season_reward:'🏆',descent:'🏗',other:'✨'};
-  const byType = {};
-  for (const s of data.sources) {
-    const t = s.type || 'other';
-    (byType[t] = byType[t] || []).push(s);
+  const typeLbl = {raid:'Рейд',mission:'Миссия',darkzone:'Тёмная зона',dz_landmark:'Точка DZ',bounty:'Контракт',named_drop:'Именной NPC',named_npc:'Именной NPC',named_boss:'Именной босс',manhunt:'Охота',dungeon:'Подземелье',project:'Проект',vendor:'Торговец',vendor_craft:'Крафт-торговец',chest:'Контейнер',exotic_cache:'Экзотик-тайник',world_drop:'Мировой дроп',incursion:'Вторжение',global_event:'Глобальное событие',event:'Ивент',event_cache:'Ивентовый тайник',season_reward:'Награда сезона',battlepass:'Боевой пропуск',descent:'Спуск',summit:'Саммит',countdown:'Обратный отсчёт',odd:'Прочее',other:'Другое'};
+  const iconMap = {raid:'👥',mission:'🎯',darkzone:'⚠',dz_landmark:'⚠',bounty:'💀',named_drop:'🎖',named_npc:'🎖',named_boss:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',vendor_craft:'🛠',chest:'📦',exotic_cache:'🎁',world_drop:'🌍',incursion:'⚡',global_event:'🎉',event:'🎉',event_cache:'🎁',season_reward:'🏆',battlepass:'🎖',descent:'🏗',summit:'🏢',countdown:'⏱',odd:'✨',other:'✨'};
+
+  function makeSection(arr, title) {
+    if (!arr.length) return '';
+    const byType = {};
+    for (const s of arr) {
+      const t = s.type || 'other';
+      (byType[t] = byType[t] || []).push(s);
+    }
+    const rows = Object.entries(byType).map(([t, xs]) => {
+      const icon = iconMap[t] || '•';
+      const lbl = typeLbl[t] || t;
+      const names = [...new Set(xs.map(s => s.name_ru || s.name_en || ''))].filter(x => x && !x.toLowerCase().startsWith('lt'));
+      const namesStr = names.length ? names.slice(0, 5).map(escape).join(', ') : lbl;
+      return `<tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>${icon} ${lbl}</b></td><td style="padding:6px;border-bottom:1px solid var(--border)">${namesStr}</td></tr>`;
+    }).join('');
+    return `<h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">${title}</h3>
+      <table class="stats-table"><tbody>${rows}</tbody></table>`;
   }
-  const rows = Object.entries(byType).map(([t, arr]) => {
-    const icon = iconMap[t] || '•';
-    const lbl = typeLbl[t] || t;
-    const names = [...new Set(arr.map(s => s.name_ru || s.name_en || ''))].filter(x => x && !x.toLowerCase().startsWith('lt'));
-    const namesStr = names.length ? names.slice(0, 5).map(escape).join(', ') : lbl;
-    return `<tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>${icon} ${lbl}</b></td><td style="padding:6px;border-bottom:1px solid var(--border)">${namesStr}</td></tr>`;
-  }).join('');
+
+  const direct = data.sources.filter(s => s.match === 'direct');
+  const tag = data.sources.filter(s => s.match !== 'direct');
   return `<section class="sources" style="margin-top:14px">
     <h2>📍 Где добыть</h2>
-    <table class="stats-table"><tbody>${rows}</tbody></table>
+    ${makeSection(direct, '✓ Подтверждённые источники')}
+    ${makeSection(tag, direct.length ? 'Возможно также' : 'Источники')}
   </section>`;
 }
 
