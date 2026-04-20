@@ -100,7 +100,7 @@ function render(){
             const bonuses=isEn&&en&&en.bonuses?en.bonuses:g.bonuses;
             const chest=isEn&&en&&en.chest?en.chest:g.chest;
             const bp=isEn&&en&&en.bp?en.bp:g.bp;
-            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(isEn&&g.en?g.en:g.name)}${wikiIcon(g.en)}</div><div class="en">${H(isEn?g.name:g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
+            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(isEn&&g.en?g.en:g.name)}${wikiIcon(g.en)}${itemPageIcon('set',g.en)}</div><div class="en">${H(isEn?g.name:g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
             bonuses.forEach(b=>{const[t,...r]=b.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+=`<div class="tl"><div class="t-line"><span class="t-name">${L("Нагрудник","Chest")}:</span><span class="t-desc">${H(chest)}</span></div>`;
             h+=`<div class="t-line"><span class="t-name">${L("Рюкзак","Backpack")}:</span><span class="t-desc">${H(bp)}</span></div></div></div>`;
@@ -113,7 +113,7 @@ function render(){
         fB.forEach(b=>{
             const en=trBrand(b.name);
             const bonuses=isEn&&en&&en.bonuses?en.bonuses:b.bonuses;
-            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(b.name)}${wikiIcon(b.name)}</div><span class="badge b-brand">${L("Бренд","Brand")}</span></div>`;
+            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(b.name)}${wikiIcon(b.name)}${itemPageIcon('brand',b.name)}</div><span class="badge b-brand">${L("Бренд","Brand")}</span></div>`;
             bonuses.forEach(bn=>{const[t,...r]=bn.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+='</div>';
         });h+='</div>';
@@ -137,7 +137,7 @@ function render(){
                 }
                 const displayName=isEn&&e.en?e.en:e.name;
                 const displaySub=isEn?e.name:(e.en||"");
-                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(displayName)}${wikiIcon(e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
+                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(displayName)}${wikiIcon(e.en)}${itemPageIcon('exotic',e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
                 h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
                 h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
             });h+='</div>';
@@ -161,7 +161,7 @@ function render(){
                 }
                 const displayName=isEn&&n.en?n.en:n.name;
                 const displaySub=isEn?n.name:(n.en||"");
-                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
+                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}${itemPageIcon('named',n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
                 if(n.brand)h+=`<div class="info">${L("Бренд","Brand")}: ${H(n.brand)}</div>`;
                 const coreVal=Array.isArray(n.core)?n.core[0]:n.core;
                 if(coreVal)h+=`<div class="info" style="color:#ff9800">${L("Осн. реквизит","Core")}: ${H(translateStat(coreVal))}</div>`;
@@ -3752,6 +3752,20 @@ function wikiLink(enName){
 function wikiIcon(enName){
   if(!enName)return "";
   return `<a href="${wikiLink(enName)}" target="_blank" rel="noopener" title="Open on Fandom Wiki (EN) / Открыть в Фандом Вики (EN)" style="color:var(--blue);text-decoration:none;margin-left:6px;font-size:11px;opacity:.7" onclick="event.stopPropagation()">📖</a>`;
+}
+
+// Slugify for item page URLs (same logic as scripts/generate_pages.js)
+function _slugifyForPage(str){
+  if(!str)return '';
+  return String(str).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+}
+function itemPageIcon(kind, enName){
+  if(!enName)return "";
+  const slug=_slugifyForPage(enName);
+  if(!slug)return "";
+  const path=kind==='exotic'?'/exotic/':kind==='named'?'/named/':kind==='set'?'/set/':kind==='brand'?'/brand/':'/exotic/';
+  const isEn=currentLang==='en';
+  return `<a href="${path}${slug}" rel="noopener" title="${isEn?'Full info + where to get':'Подробнее + где добыть'}" style="color:var(--orange);text-decoration:none;margin-left:6px;font-size:11px;opacity:.7" onclick="event.stopPropagation()">🔗</a>`;
 }
 
 // ===== TRANSLATIONS (loaded lazily from translations_en.json) =====
