@@ -302,17 +302,19 @@ function calcDPS(){
     const chc=Math.min(v("c_chc"),60)/100, chd=v("c_chd")/100;
     const hsd=v("c_hsd")/100, hsRate=v("c_hsrate")/100;
     const dta=v("c_dta")/100, ooc=v("c_ooc")/100, amp=v("c_amp")/100;
+    const dth=(parseFloat(document.getElementById("c_dth")?.value)||0)/100;
 
     // Бакеты (множатся между собой)
     const bWD = 1 + (wd+wtd)/100;       // Weapon Damage bucket (аддитивный внутри)
     const bCrit = 1 + chc * chd;          // Средний крит множитель
     const bHS = 1 + hsRate * hsd;         // Средний хедшот множитель
-    const bDtA = 1 + dta;                 // Damage to Armor
+    const bDtA = 1 + dta;                 // Damage to Armor phase
+    const bDtH = 1 + dth;                 // Damage to Health phase (target without armor)
     const bOoC = 1 + ooc;                 // Out of Cover
     const bAmp = 1 + amp;                 // Amplified
 
-    // Урон за пулю (средний)
-    const bulletDmg = base * bWD * bCrit * bHS * bDtA * bOoC * bAmp;
+    // Урон за пулю (независимые множители, последовательно применяются)
+    const bulletDmg = base * bWD * bCrit * bHS * bDtA * bDtH * bOoC * bAmp;
 
     // Sustained DPS
     const rps = rpm / 60;
@@ -339,6 +341,7 @@ function calcDPS(){
         {name:"Крит (CHC×CHD)",val:bCrit,color:"#fdd835",pct:Math.round((bCrit-1)*100)},
         {name:"Хедшот (HSD×%)",val:bHS,color:"#42a5f5",pct:Math.round((bHS-1)*100)},
         {name:"Урон по броне (DtA)",val:bDtA,color:"#00c853",pct:Math.round(dta*100)},
+        {name:"Урон здоровью (DtH)",val:bDtH,color:"#66bb6a",pct:Math.round(dth*100)},
         {name:"Вне укрытия (OoC)",val:bOoC,color:"#ff7043",pct:Math.round(ooc*100)},
         {name:"Усиленный (Amp)",val:bAmp,color:"#ab47bc",pct:Math.round(amp*100)},
     ];
@@ -521,7 +524,10 @@ function buildItemDb(){
     // named items for this slot
     N.filter(n=>matchGenre(n.g,genre)).forEach(n=>{
       const tb=talentBonus(n.tal);
-      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:n.tal,talentDesc:n.d,talentBonus:tb,slot,core:n.core,attr1:n.attr1,attr2:n.attr2,bonus_ru:n.bonus_ru,bonus_short_en:n.bonus_short_en});
+      // For gear: named chest/back have bonus_short_en as "talent name"
+      const displayTalent = n.tal || n.bonus_short_en || "";
+      const displayDesc = n.d || n.bonus_ru || n.bonus_short_en || "";
+      arr.push({kind:"named",name:n.name,en:n.en,brand:n.brand,talent:displayTalent,talent_ru:n.tal_ru||n.bonus_ru||"",talentDesc:displayDesc,talentBonus:tb,slot,core:n.core,attr1:n.attr1,attr2:n.attr2,bonus_ru:n.bonus_ru,bonus_short_en:n.bonus_short_en});
     });
     // exotics
     E.filter(e=>matchGenre(e.g,genre)).forEach(e=>{
@@ -641,19 +647,32 @@ function clearSlot(ev,slot){
   autoBindTalent(slot, null);
   calcBuild();
 }
-// Auto-bind perfect gear talent to chest/bp when named/exotic armor is equipped
+// Auto-bind perfect gear talent to chest/bp when named/exotic/set armor is equipped
 function autoBindTalent(slot, item){
   if(slot!=='chest' && slot!=='bp') return;
   const selId = slot==='chest' ? 'b-chest-talent' : 'b-bp-talent';
   const sel = document.getElementById(selId);
   if(!sel) return;
-  if(!item || !item.talent){
-    // Clear selection (but don't reset if user had manually picked)
-    return;
+  if(!item) return;
+
+  // Source of talent name to match in GEAR_TALENTS
+  let talentName = '';
+  let isPerfect = true; // named/exotic/set always perfect by default
+  if(item.kind==='named' || item.kind==='exotic'){
+    talentName = item.talent || '';
+  } else if(item.kind==='green' && item.setName){
+    // Find set in gear_sets by name (RU or EN)
+    const set = (typeof GEAR_SETS!=='undefined') && GEAR_SETS.find(g =>
+      g.name===item.setName || g.en===item.setName || g.name_legacy===item.setName
+    );
+    if(set){
+      if(slot==='chest') talentName = set.perfect_chest_talent_en || set.chest_talent_en || set.chest || '';
+      else talentName = set.perfect_bp_talent_en || set.bp_talent_en || set.bp || '';
+    }
   }
-  if(item.kind!=='named' && item.kind!=='exotic') return;
-  // Find matching talent in GEAR_TALENTS by name_en (case-insensitive)
-  const itemTal = (item.talent||'').toLowerCase().trim();
+  if(!talentName) return;
+
+  const itemTal = talentName.toLowerCase().trim();
   const itemTalBase = itemTal.replace(/^perfect\s+/i,'').replace(/^perfectly\s+/i,'').trim();
   const tal = (typeof GEAR_TALENTS!=='undefined') && GEAR_TALENTS.find(t => {
     if(!t || !t.name_en) return false;
@@ -663,12 +682,9 @@ function autoBindTalent(slot, item){
   });
   if(!tal) return;
   const id = tal.id || tal.name_en;
-  // Set perfect version (именные/экзотик всегда имеют перфект уровень)
-  const targetVal = 'perfect:' + id;
-  // Check if option exists
+  const targetVal = isPerfect ? ('perfect:' + id) : id;
   const exists = [...sel.options].some(o => o.value === targetVal);
   sel.value = exists ? targetVal : id;
-  // Trigger change handler
   const changeEvt = new Event('change');
   sel.dispatchEvent(changeEvt);
 }
@@ -800,7 +816,7 @@ function getBuildState(){
     wpnTal:selectedWpnTalent,
     cw:{dmg:v("cw-dmg"),rpm:v("cw-rpm"),mag:v("cw-mag"),rel:parseFloat(document.getElementById("cw-rel")?.value)||2,cat:document.getElementById("cw-cat")?.value||"AR"},
     slots,
-    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),wd:v("b-wd"),reload:v("b-reload"),rof:v("b-rof"),mag:v("b-mag"),amp:v("b-amp"),expertise:v("b-expertise"),"wd-ar":v("b-wd-ar"),"wd-smg":v("b-wd-smg"),"wd-lmg":v("b-wd-lmg"),"wd-mmr":v("b-wd-mmr"),"wd-rifle":v("b-wd-rifle"),"wd-sg":v("b-wd-sg"),"wd-pistol":v("b-wd-pistol")},
+    b:{chc:v("b-chc"),chd:v("b-chd"),hsd:v("b-hsd"),hsrate:v("b-hsrate"),ooc:v("b-ooc"),dta:v("b-dta"),dth:v("b-dth"),wd:v("b-wd"),reload:v("b-reload"),rof:v("b-rof"),mag:v("b-mag"),amp:v("b-amp"),expertise:v("b-expertise"),"wd-ar":v("b-wd-ar"),"wd-smg":v("b-wd-smg"),"wd-lmg":v("b-wd-lmg"),"wd-mmr":v("b-wd-mmr"),"wd-rifle":v("b-wd-rifle"),"wd-sg":v("b-wd-sg"),"wd-pistol":v("b-wd-pistol")},
     core:{mode:document.getElementById("b-core-mode")?.value||"red",mask:document.getElementById("b-core-mask")?.value||"red",chest:document.getElementById("b-core-chest")?.value||"red",bp:document.getElementById("b-core-bp")?.value||"red",gloves:document.getElementById("b-core-gloves")?.value||"red",holster:document.getElementById("b-core-holster")?.value||"red",knees:document.getElementById("b-core-knees")?.value||"red"},
     shd:{wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo")},
     rc:{hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")},
@@ -838,7 +854,7 @@ function applyBuildState(s){
     updateSlotBtn(slot);
   }
   // Manual stats
-  ["chc","chd","hsd","hsrate","ooc","dta","wd","reload","rof","mag","amp","expertise","wd-ar","wd-smg","wd-lmg","wd-mmr","wd-rifle","wd-sg","wd-pistol"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
+  ["chc","chd","hsd","hsrate","ooc","dta","dth","wd","reload","rof","mag","amp","expertise","wd-ar","wd-smg","wd-lmg","wd-mmr","wd-rifle","wd-sg","wd-pistol"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
   if(s.core){
     const modeSel=document.getElementById("b-core-mode");
     if(modeSel&&s.core.mode)modeSel.value=s.core.mode;
@@ -983,7 +999,7 @@ function resetCurrentBuild(){
   if(talSel)talSel.value="none";
   // Reset manual stats to defaults
   setInput("b-chc",0);setInput("b-chd",0);setInput("b-hsd",0);
-  setInput("b-hsrate",0);setInput("b-ooc",0);setInput("b-dta",0);setInput("b-wd",0);
+  setInput("b-hsrate",0);setInput("b-ooc",0);setInput("b-dta",0);setInput("b-dth",0);setInput("b-wd",0);
   setInput("b-reload",0);setInput("b-rof",0);setInput("b-mag",0);
   ["b-wd-ar","b-wd-smg","b-wd-lmg","b-wd-mmr","b-wd-rifle","b-wd-sg","b-wd-pistol"].forEach(id=>setInput(id,0));
   // Keep SHD at maxed defaults (пользователь просил)
@@ -2223,7 +2239,7 @@ function getStackRate(stkDef, sps){
   return sps;
 }
 
-function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRate,reloadBonus,ooc,dta,activeStacks,hasChest,hasBP,t){
+function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRate,reloadBonus,ooc,dta,activeStacks,hasChest,hasBP,t,dth){
   const sps0=wpn.rpm/60;
   // Stack bonuses at time t — ВНЕ WD БАКЕТА как AMP (по замерам на манекене Y9)
   let sAmpWD=0,sCHD=0,sROF=0,sCHC=0;
@@ -2307,6 +2323,7 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   // External
   const oocM=1+ooc/100;
   const dtaM=1+dta/100;
+  const dthM=1+((dth||0))/100;
   // Amp множители (все внешние): ручной Amp + стаки сетов + экзотик-талант (Алехандро/Eagle Bearer)
   const ampM=(1+(globalThis._buildAmp||0)/100)*(1+sAmpWD/100)*(1+talAmp/100);
   // Expertise — применяется к БАЗОВОМУ урону оружия (как описано в игре)
@@ -2316,9 +2333,9 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   // Общий wdMult_total для отображения (база + стаки + Алехандро "эквивалентно")
   const wdMultDisplay=wdMult*ampM;
   // Sustained DPS
-  const dps=adjBase*wdMult*critAvg*hsM*oocM*dtaM*ampM*effSPS;
+  const dps=adjBase*wdMult*critAvg*hsM*oocM*dtaM*dthM*ampM*effSPS;
   // Burst DPS (без учёта reload)
-  const burstDps=adjBase*wdMult*critAvg*hsM*oocM*dtaM*ampM*sps_f;
+  const burstDps=adjBase*wdMult*critAvg*hsM*oocM*dtaM*dthM*ampM*sps_f;
   return{dps,burstDps,wdMult:wdMultDisplay,critAvg,hsM,rpm_f,mag_f,stkRows};
 }
 
@@ -2337,20 +2354,41 @@ function calcBuild(){
   // Lock 4th-roll talent for exotic (they have fixed unique talent), show exotic talent desc
   const wpnTalSel=document.getElementById("b-wpn-tal");
   const wpnTalDesc=document.getElementById("b-wpn-tal-desc");
+  const isEnLocal=currentLang==="en";
   if(wpn.kind==="exotic"){
     if(wpnTalSel){
       wpnTalSel.disabled=true;
       wpnTalSel.style.opacity="0.5";
-      wpnTalSel.title="Экзотик имеет фиксированный уникальный талант — 4-й ролл не применяется";
+      wpnTalSel.title=isEnLocal?"Exotic has a fixed unique talent — 4th roll does not apply":"Экзотик имеет фиксированный уникальный талант — 4-й ролл не применяется";
     }
     if(wpnTalDesc){
-      wpnTalDesc.innerHTML=`<div style="color:var(--orange);font-weight:600;font-size:12px;margin-top:4px">🧿 Экзотик-талант: ${talentName(wpn.tal)||""}</div><div style="font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px">${talentDesc(wpn.tal_desc, wpn.tal_ru_full||wpn.tal_desc_ru)||""}</div>`;
+      const lbl=isEnLocal?"Exotic talent":"Экзотик-талант";
+      wpnTalDesc.innerHTML=`<div style="color:var(--orange);font-weight:600;font-size:12px;margin-top:4px">🧿 ${lbl}: ${talentName(wpn.tal)||""}</div><div style="font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px">${talentDesc(wpn.tal_desc, wpn.tal_ru_full||wpn.tal_desc_ru)||""}</div>`;
+    }
+  }else if(wpn.kind==="named"){
+    if(wpnTalSel){
+      wpnTalSel.disabled=false;
+      wpnTalSel.style.opacity="";
+      wpnTalSel.title="";
+    }
+    if(wpnTalDesc){
+      const talName=isEnLocal?(wpn.tal||wpn.tal_ru||""):(wpn.tal_ru||wpn.tal||"");
+      const talDescTxt=isEnLocal?(wpn.d||wpn.tal_desc||""):(wpn.d||wpn.tal_desc_ru||"");
+      const lbl=isEnLocal?"Perfect named talent":"Перфект-талант именного";
+      if(talName){
+        wpnTalDesc.innerHTML=`<div style="color:var(--named);font-weight:600;font-size:12px;margin-top:4px">✦ ${lbl}: ${talName}</div>${talDescTxt?`<div style="font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px">${talDescTxt}</div>`:""}<div style="font-size:10px;color:#888;margin-top:2px;font-style:italic">${isEnLocal?"4th-roll talent is still available and added on top":"4-й ролл доп. талант доступен сверху"}</div>`;
+      } else {
+        wpnTalDesc.innerHTML="";
+      }
     }
   }else{
     if(wpnTalSel){
       wpnTalSel.disabled=false;
       wpnTalSel.style.opacity="";
       wpnTalSel.title="";
+    }
+    if(wpnTalDesc){
+      wpnTalDesc.innerHTML="";
     }
   }
 
@@ -2816,6 +2854,7 @@ function calcBuild(){
   const mHSR=parseFloat(document.getElementById("b-hsrate").value)||0;
   const mOOC=parseFloat(document.getElementById("b-ooc").value)||0;
   const mDTA=parseFloat(document.getElementById("b-dta").value)||0;
+  const mDTH=parseFloat(document.getElementById("b-dth")?.value)||0;
   const mWD=parseFloat(document.getElementById("b-wd").value)||0;
   const mRELOAD=parseFloat(document.getElementById("b-reload")?.value)||0;
   const mROF=parseFloat(document.getElementById("b-rof")?.value)||0;
@@ -2858,6 +2897,7 @@ function calcBuild(){
   tRELOAD=mRELOAD;
   const mOOCeff=mOOC;
   const mDTAeff=mDTA;
+  const mDTHeff=mDTH;
   // SHD / Prototype Gear / Recombinator — больше не суммируются в DPS (итог уже введён в игре).
   // Читаем только чтобы показать их в списке bonuses (информативно).
   const shd={wd:v("shd-wd"),hsd:v("shd-hsd"),chc:v("shd-chc"),chd:v("shd-chd"),ammo:v("shd-ammo"),reload:v("shd-reload")};
@@ -3088,7 +3128,7 @@ function calcBuild(){
     const chcX=tCHC+(isPeak?tPeakOnly.chc:0);
     const chdX=tCHD+(isPeak?tPeakOnly.chd:0);
     const hsdX=tHSD+(isPeak?tPeakOnly.hsd:0);
-    return{...tp,...dpsAtTime(wpn,wdX,rofX,magX,chcX,chdX,hsdX,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tp.t)};
+    return{...tp,...dpsAtTime(wpn,wdX,rofX,magX,chcX,chdX,hsdX,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tp.t,mDTHeff)};
   });
   const peak=rows[rows.length-1];
   const baseDPS=rows[0].dps;
@@ -3109,7 +3149,7 @@ function calcBuild(){
       (hasPeak?`<div style="font-size:11px;margin-top:2px">Пик со стаками: <b style="color:var(--orange)">${peakDmg.toLocaleString("ru")}</b> <span style="color:#f5a623;font-size:10px">(+${peakWD}% WD)</span></div>`:"");
   }
   // Simpson-ish average over 10s window (sustained fight)
-  const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tt).dps);
+  const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tt,mDTHeff).dps);
   const avgDPS10=samplesAvg.reduce((a,b)=>a+b,0)/samplesAvg.length;
 
   document.getElementById("b-stacks").innerHTML=stkHtml;
@@ -3364,7 +3404,7 @@ function computeBuildWeights(ctx){
   if(!wpn||!maxDPS)return;
   // Helper to call dpsAtTime at peak (Infinity) with modified totals
   const calcPeak=(wd,rof,mag,chc,chd,hsd)=>{
-    const r=dpsAtTime(wpn,wd+tPeakOnly.wd,rof+tPeakOnly.rof,mag+tPeakOnly.mag,chc+tPeakOnly.chc,chd+tPeakOnly.chd,hsd+tPeakOnly.hsd,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,Infinity);
+    const r=dpsAtTime(wpn,wd+tPeakOnly.wd,rof+tPeakOnly.rof,mag+tPeakOnly.mag,chc+tPeakOnly.chc,chd+tPeakOnly.chd,hsd+tPeakOnly.hsd,mHSR,tRELOAD,mOOC,mDTA,activeStacks,hasChest,hasBP,Infinity,mDTH);
     return r.dps;
   };
   const base=calcPeak(tWD,tROF,tMAG,tCHC,tCHD,tHSD);

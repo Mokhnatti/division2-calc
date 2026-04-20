@@ -216,6 +216,7 @@
             <div class="calc-row"><label>Урон в голову (<span class="stat-tip" data-stat="HSD">HSD</span>)</label><input type="number" id="c_hsd" value="0" step="1"><span class="unit">%</span></div>
             <div class="calc-row"><label>% попаданий в голову</label><input type="number" id="c_hsrate" value="0" step="1" max="100"><span class="unit">%</span></div>
             <div class="calc-row"><label>Урон по броне (<span class="stat-tip" data-stat="DtA">DtA</span>) <span style="color:#555">макс ~20%</span></label><input type="number" id="c_dta" value="15" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон здоровью (<span class="stat-tip" data-stat="DtH">DtH</span>) <span style="color:#555">цель без брони</span></label><input type="number" id="c_dth" value="0" step="1"><span class="unit">%</span></div>
             <div class="calc-row"><label>Урон вне укрытия (<span class="stat-tip" data-stat="OoC">OoC</span>) <span style="color:#555">макс ~30%</span></label><input type="number" id="c_ooc" value="10" step="1"><span class="unit">%</span></div>
             <div class="calc-row"><label>Усиленный урон (Amplified)</label><input type="number" id="c_amp" value="0" step="1"><span class="unit">%</span></div>
         </div>
@@ -418,6 +419,7 @@
     <div class="bstat-row">
       <div class="bstat"><label>Вне укрытия (OoC)</label><input id="b-ooc" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Урон по броне (DtA)</label><input id="b-dta" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label title="Damage to Health — бонус урона по целям без брони (голое HP). Источники: Hunter's Fury 4pc, некоторые бренды и названные предметы.">Урон здоровью (DtH) ⓘ</label><input id="b-dth" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Скорость перезарядки</label><input id="b-reload" value="0" type="number" oninput="calcBuild()"><span class="u">%</span><label style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);margin-left:6px;cursor:pointer"><input type="checkbox" id="b-no-reload" onchange="calcBuild()" style="margin:0"> без перезарядки</label></div>
       <div class="bstat"><label>Скорострельность (RoF)</label><input id="b-rof" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Магазин (mag %)</label><input id="b-mag" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
