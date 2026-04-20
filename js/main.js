@@ -1182,11 +1182,12 @@ function fmtAgo(iso){
   if(!iso)return "";
   const d=new Date(iso);
   const diff=(Date.now()-d.getTime())/1000;
-  if(diff<60)return "только что";
-  if(diff<3600)return Math.floor(diff/60)+"мин назад";
-  if(diff<86400)return Math.floor(diff/3600)+"ч назад";
-  if(diff<86400*7)return Math.floor(diff/86400)+"д назад";
-  return d.toLocaleDateString("ru");
+  const isEn=currentLang==="en";
+  if(diff<60)return isEn?"just now":"только что";
+  if(diff<3600)return Math.floor(diff/60)+(isEn?"m ago":"мин назад");
+  if(diff<86400)return Math.floor(diff/3600)+(isEn?"h ago":"ч назад");
+  if(diff<86400*7)return Math.floor(diff/86400)+(isEn?"d ago":"д назад");
+  return d.toLocaleDateString(isEn?"en":"ru");
 }
 function escapeHtml(s){
   return String(s||"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1380,7 +1381,7 @@ function showComparison(){
     }).join("");
     return`<div class="compare-col">
       <div class="compare-col-title">${escapeHtml(b.name)}</div>
-      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">${escapeHtml(b.author||"Аноним")} · ${escapeHtml(b.weapon_cat||"")}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">${escapeHtml(b.author||(currentLang==="en"?"Anonymous":"Аноним"))} · ${escapeHtml(b.weapon_cat||"")}</div>
       ${b.weapon_name?`<div style="font-size:11px;color:var(--orange);margin-bottom:6px">🔫 ${escapeHtml(b.weapon_name)}</div>`:""}
       <div class="compare-dps-lbl">Пик DPS</div>
       <div class="compare-dps">${dps}</div>
