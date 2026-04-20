@@ -935,7 +935,9 @@ function refreshSavedList(){
   const sel=document.getElementById("b-saved");if(!sel)return;
   const all=getSavedBuilds();
   const names=Object.keys(all).sort();
-  sel.innerHTML='<option value="">— '+(names.length?names.length+" сохранённых":"нет сохранённых")+' —</option>'+
+  const isEn=currentLang==="en";
+  const emptyLabel=isEn?(names.length?names.length+" saved":"no saved builds"):(names.length?names.length+" сохранённых":"нет сохранённых");
+  sel.innerHTML='<option value="">— '+emptyLabel+' —</option>'+
     names.map(n=>`<option value="${n.replace(/"/g,'&quot;')}">${n}</option>`).join("");
 }
 function saveCurrentBuild(){
@@ -1060,11 +1062,12 @@ async function registerUser(email,password,username){
 function updateAuthUI(){
   const btn=document.getElementById("auth-btn");
   if(!btn)return;
+  const isEn=currentLang==="en";
   if(currentUser){
     btn.innerHTML=`👤 ${escapeHtml(currentUser.username||"user")}`;
     btn.onclick=toggleAuthDropdown;
   }else{
-    btn.innerHTML="👤 Войти";
+    btn.innerHTML=isEn?"👤 Log In":"👤 Войти";
     btn.onclick=openAuthModal;
     hideAuthDropdown();
   }
@@ -1196,9 +1199,14 @@ function debouncedCommReload(){
 }
 function initCommTalentFilter(){
   const sel=document.getElementById("comm-talent-filter");
-  if(!sel||sel.options.length>1)return;
+  if(!sel)return;
+  const isEn=currentLang==="en";
+  const prev=sel.value;
+  const first=sel.querySelector('option[value=""]');
+  const firstHtml=first?first.outerHTML:`<option value="">${isEn?'All talents':'Все таланты'}</option>`;
+  sel.innerHTML=firstHtml;
   Object.entries(WEAPON_TALENTS_FULL)
-    .map(([k,v])=>({key:k,name:v.name_ru?`${v.name_ru} (${v.name_en})`:v.name_en}))
+    .map(([k,v])=>({key:k,name:isEn?(v.name_en||v.name_ru):(v.name_ru||v.name_en)}))
     .sort((a,b)=>a.name.localeCompare(b.name))
     .forEach(t=>{
       const opt=document.createElement("option");
@@ -1206,6 +1214,7 @@ function initCommTalentFilter(){
       opt.textContent=t.name;
       sel.appendChild(opt);
     });
+  if(prev)sel.value=prev;
 }
 
 async function loadCommunityFeed(){
