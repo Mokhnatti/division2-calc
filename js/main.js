@@ -312,19 +312,25 @@ function calcDPS(){
     const bWD = 1 + (wd+wtd)/100;       // Weapon Damage bucket (аддитивный внутри)
     const bCrit = 1 + chc * chd;          // Средний крит множитель
     const bHS = 1 + hsRate * hsd;         // Средний хедшот множитель
-    const bDtA = 1 + dta;                 // Damage to Armor phase
-    const bDtH = 1 + dth;                 // Damage to Health phase (target without armor)
+    const bDtA = 1 + dta;                 // Damage to Armor (target has armor)
+    const bDtH = 1 + dth;                 // Damage to Health (target has no armor)
     const bOoC = 1 + ooc;                 // Out of Cover
     const bAmp = 1 + amp;                 // Amplified
 
-    // Урон за пулю (независимые множители, последовательно применяются)
-    const bulletDmg = base * bWD * bCrit * bHS * bDtA * bDtH * bOoC * bAmp;
+    // DtA и DtH — ПАРАЛЛЕЛЬНЫЕ: цель либо в броне либо без брони
+    // Считаем 2 значения: урон по броне и урон по HP
+    const coreDmg = base * bWD * bCrit * bHS * bOoC * bAmp;
+    const bulletDmgArmor  = coreDmg * bDtA;
+    const bulletDmgHealth = coreDmg * bDtH;
+    const bulletDmg = bulletDmgArmor; // по умолчанию используем по броне для отображения
 
     // Sustained DPS
     const rps = rpm / 60;
     const magTime = mag / rps;
     const cycleTime = magTime + reload;
     const dps = (bulletDmg * mag) / cycleTime;
+    const dpsArmor  = (bulletDmgArmor  * mag) / cycleTime;
+    const dpsHealth = (bulletDmgHealth * mag) / cycleTime;
 
     // Burst DPS (без перезарядки)
     const burstDps = bulletDmg * rps;
@@ -333,9 +339,18 @@ function calcDPS(){
     document.getElementById("wd-mult").textContent = "x" + bWD.toFixed(2);
     document.getElementById("crit-mult").textContent = "x" + bCrit.toFixed(2);
 
-    document.getElementById("dps-val").textContent = Math.round(dps).toLocaleString("ru");
+    // Main value: show both armor/health DPS
+    const dpsValEl = document.getElementById("dps-val");
+    if(dpsValEl){
+      if(Math.abs(dpsArmor - dpsHealth) < 1){
+        dpsValEl.textContent = Math.round(dps).toLocaleString("ru");
+      } else {
+        dpsValEl.innerHTML = `<span style="color:var(--green);font-size:.85em">🛡 ${Math.round(dpsArmor).toLocaleString("ru")}</span> <span style="color:var(--muted);font-size:.5em">|</span> <span style="color:var(--red);font-size:.85em">❤ ${Math.round(dpsHealth).toLocaleString("ru")}</span>`;
+      }
+    }
     document.getElementById("dps-details").innerHTML =
-        `Урон/пулю: <b>${Math.round(bulletDmg).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
+        `Урон/пулю (броня): <b style="color:var(--green)">${Math.round(bulletDmgArmor).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
+        `Урон/пулю (HP): <b style="color:var(--red)">${Math.round(bulletDmgHealth).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
         `Burst DPS: <b>${Math.round(burstDps).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
         `Цикл: ${magTime.toFixed(1)}с стрельба + ${reload}с перезарядка = ${cycleTime.toFixed(1)}с`;
 
@@ -2331,16 +2346,18 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
   // Amp множители (все внешние): ручной Amp + стаки сетов + экзотик-талант (Алехандро/Eagle Bearer)
   const ampM=(1+(globalThis._buildAmp||0)/100)*(1+sAmpWD/100)*(1+talAmp/100);
   // Expertise — применяется к БАЗОВОМУ урону оружия (как описано в игре)
-  // adjBase = wpn.dmg × (1 + expertise/100), дальше стандартная формула
   const expM=1+(globalThis._buildExpertise||0)/100;
   const adjBase=wpn.dmg*expM;
-  // Общий wdMult_total для отображения (база + стаки + Алехандро "эквивалентно")
   const wdMultDisplay=wdMult*ampM;
-  // Sustained DPS
-  const dps=adjBase*wdMult*critAvg*hsM*oocM*dtaM*dthM*ampM*effSPS;
-  // Burst DPS (без учёта reload)
-  const burstDps=adjBase*wdMult*critAvg*hsM*oocM*dtaM*dthM*ampM*sps_f;
-  return{dps,burstDps,wdMult:wdMultDisplay,critAvg,hsM,rpm_f,mag_f,stkRows};
+  // DtA и DtH — ПАРАЛЛЕЛЬНЫЕ: считаем 2 DPS
+  const coreMult=adjBase*wdMult*critAvg*hsM*oocM*ampM;
+  const dpsArmor =coreMult*dtaM*effSPS;
+  const dpsHealth=coreMult*dthM*effSPS;
+  const dps=dpsArmor; // основной — по броне для legacy совместимости
+  const burstDpsArmor =coreMult*dtaM*sps_f;
+  const burstDpsHealth=coreMult*dthM*sps_f;
+  const burstDps=burstDpsArmor;
+  return{dps,dpsArmor,dpsHealth,burstDps,burstDpsArmor,burstDpsHealth,wdMult:wdMultDisplay,critAvg,hsM,rpm_f,mag_f,stkRows};
 }
 
 function calcBuild(){
@@ -3202,6 +3219,17 @@ function calcBuild(){
     <text x="2" y="${chartH-padB}" font-size="8" fill="#666">${(chartMinDps/1e6).toFixed(1)}M</text>
   </svg>`;
 
+  // Peak DPS split: по броне vs по HP (DtA и DtH параллельны)
+  const peakArmor = peak.dpsArmor||peak.dps;
+  const peakHealth = peak.dpsHealth||peak.dps;
+  const hasDthSplit = Math.abs(peakArmor-peakHealth) > 1;
+  const peakDisplay = hasDthSplit
+    ? `<div style="display:flex;flex-direction:column;gap:2px;align-items:center">
+         <div style="font-size:24px;font-weight:700;color:var(--green)">🛡 ${Math.round(peakArmor).toLocaleString("ru")}</div>
+         <div style="font-size:24px;font-weight:700;color:var(--red)">❤ ${Math.round(peakHealth).toLocaleString("ru")}</div>
+       </div>`
+    : `<div style="font-size:32px;font-weight:700;color:var(--orange)">${Math.round(maxDPS).toLocaleString("ru")}</div>`;
+  const peakLbl = hasDthSplit ? "ПИК (броня / HP)" : "ПИК (фул стаки)";
   document.getElementById("b-peak").innerHTML=
     `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
       <div>
@@ -3213,8 +3241,8 @@ function calcBuild(){
         <div style="font-size:10px;color:var(--muted);margin-top:2px">СРЕДНИЙ (10с бой)</div>
       </div>
       <div>
-        <div style="font-size:32px;font-weight:700;color:var(--orange)">${Math.round(maxDPS).toLocaleString("ru")}</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">ПИК (фул стаки)</div>
+        ${peakDisplay}
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">${peakLbl}</div>
       </div>
     </div>
     <div style="font-size:11px;color:var(--muted);margin-top:12px;border-top:1px solid var(--border);padding-top:8px">
