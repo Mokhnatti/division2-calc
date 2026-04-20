@@ -48,10 +48,14 @@ const FILES = {
   STATUS_EFFECTS: "status_effects.json",
   FORMULAS: "formulas.json",
   SPECIALIZATION_WEAPONS: "specialization_weapons.json",
+  SPECIALIZATIONS: "specializations.json",
   ATTRIBUTE_DICT: "attribute_dict.json",
   SOURCES: "sources_compact.json",
   KNOWN_SOURCES: "known_sources.json",
   DIFFICULTY_TABLE: "difficulty_table.json",
+  GEAR_ATTRIBUTE_POOL: "gear_attribute_pool.json",
+  SHD_WATCH: "shd_watch.json",
+  SKILL_MODS_V2: "skill_mods.json",
 };
 
 const obj = {};
