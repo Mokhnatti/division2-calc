@@ -1278,8 +1278,6 @@ async function loadCommunityFeed(){
     const liked=getLikedSet();
     currentBuilds=items;
     listEl.innerHTML=items.map(b=>renderBuildCard(b,liked.has(b.id),isTrending)).join("");
-    // Render Meta strip on top (only if scope=='all' and no search)
-    try{renderMetaStrip(scope, search);}catch(e){console.error('meta strip:',e);}
   }catch(e){
     status.textContent="Ошибка загрузки: "+e.message+". Бэкенд PocketBase может быть недоступен.";
     status.style.color="var(--red)";

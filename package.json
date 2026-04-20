@@ -8,5 +8,8 @@
     "wiki": "node scripts/scrape_wiki.js",
     "refresh": "npm run translate && npm run wiki"
   },
-  "homepage": "https://divcalc.xyz"
+  "homepage": "https://divcalc.xyz",
+  "devDependencies": {
+    "puppeteer": "^24.41.0"
+  }
 }
