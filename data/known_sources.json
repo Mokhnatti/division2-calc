@@ -1,0 +1,236 @@
+[
+  {
+    "name_en": "Eagle Bearer",
+    "name_ru": "Орлиное знамя",
+    "item_ids_hint": [
+      "player_weapon_assaultrifle_scar_exotic",
+      "player_weapon_marksmanrifle_scar_exotic"
+    ],
+    "source_type": "raid",
+    "source_name_en": "Operation Dark Hours (Final Boss Razorback)",
+    "source_name_ru": "Операция «Тёмные часы» (финальный босс Razorback)",
+    "details": "Дроп с финального босса рейда Operation Dark Hours. Требуется difficulty Heroic или выше. Низкий шанс дропа (~5%)."
+  },
+  {
+    "name_en": "Diamondback",
+    "name_ru": "Бриллиантовая змея",
+    "item_ids_hint": [
+      "winchester_exotic",
+      "lever_action_exotic"
+    ],
+    "source_type": "manhunt",
+    "source_name_en": "Year 2 Season 4 Manhunt (Coyote's killer final target)",
+    "source_name_ru": "Охота Y2S4 (финальная цель)",
+    "details": "Сейчас через Crafting Project после прохождения Y2S4 Season. Можно с world drop rare chance."
+  },
+  {
+    "name_en": "Ridgeway's Pride",
+    "name_ru": "Гордость Риджвея",
+    "item_ids_hint": [
+      "player_gear_chest_d_01_named",
+      "ridgeway_chest"
+    ],
+    "source_type": "mission",
+    "source_name_en": "Capitol Building Legendary (final boss Ridgeway)",
+    "source_name_ru": "Капитолий (легендарный, финальный босс)",
+    "details": "Дроп с финального босса Ridgeway в Capitol Building на Legendary. Выставлен как exotic chest reward."
+  },
+  {
+    "name_en": "Coyote's Mask",
+    "name_ru": "Маска Койота",
+    "item_ids_hint": [
+      "coyote_mask"
+    ],
+    "source_type": "manhunt",
+    "source_name_en": "Year 2 Season 1 Manhunt (Coyote final target)",
+    "source_name_ru": "Охота Y2S1 (финальная цель Coyote)",
+    "details": "Дроп с Coyote — финальной цели Keener's Legacy manhunt (Y2S1)."
+  },
+  {
+    "name_en": "Dodge City Gunslinger's Holster",
+    "name_ru": "Кобура стрелка из Додж-Сити",
+    "item_ids_hint": [
+      "dodge_city",
+      "gunslinger_holster"
+    ],
+    "source_type": "manhunt",
+    "source_name_en": "Year 3 Season 1 Manhunt",
+    "source_name_ru": "Охота Y3S1",
+    "details": "Финальная награда Y3S1 manhunt."
+  },
+  {
+    "name_en": "Acosta's Go-Bag",
+    "name_ru": "Сумка Акосты",
+    "item_ids_hint": [
+      "acosta"
+    ],
+    "source_type": "manhunt",
+    "source_name_en": "Year 2 Season 2 Manhunt (Acosta target)",
+    "source_name_ru": "Охота Y2S2 (Акоста)"
+  },
+  {
+    "name_en": "Tardigrade Armor System",
+    "name_ru": "Система брони «Тихоходка»",
+    "item_ids_hint": [
+      "tardigrade_chest"
+    ],
+    "source_type": "mission",
+    "source_name_en": "Pentagon: The Last Castle (Invaded INC02)",
+    "source_name_ru": "Пентагон: Последний бастион (Invaded)",
+    "details": "Дроп с финального босса."
+  },
+  {
+    "name_en": "BTSU Datagloves",
+    "name_ru": "Инфоперчатки «чёрных бивней»",
+    "item_ids_hint": [
+      "btsu_gloves",
+      "datagloves"
+    ],
+    "source_type": "mission",
+    "source_name_en": "Pentagon: The Last Castle (Invaded INC02)",
+    "source_name_ru": "Пентагон: Последний бастион (Invaded)",
+    "details": "Дроп с финального босса Black Tusk."
+  },
+  {
+    "name_en": "Memento",
+    "name_ru": "Воспоминание",
+    "item_ids_hint": [
+      "memento_backpack"
+    ],
+    "source_type": "project",
+    "source_name_en": "DC Projects collectibles (WONY)",
+    "source_name_ru": "Сбор коллекционных в WONY",
+    "details": "Крафтится через project после сбора 200+ collectibles по городу."
+  },
+  {
+    "name_en": "Ninjabike Messenger Backpack",
+    "name_ru": "Курьерский рюкзак «ВелоНиндзя»",
+    "item_ids_hint": [
+      "ninjabike"
+    ],
+    "source_type": "project",
+    "source_name_en": "Weekly Projects (Base game)",
+    "source_name_ru": "Еженедельные проекты (база)",
+    "details": "Blueprint за еженедельный project. Crafting только."
+  },
+  {
+    "name_en": "Bighorn",
+    "name_ru": "Толсторог",
+    "item_ids_hint": [
+      "aug_exotic"
+    ],
+    "source_type": "summit",
+    "source_name_en": "Summit Floor 100 (Hunter version)",
+    "source_name_ru": "Summit этаж 100 (Hunter-версия)",
+    "details": "Прохождение Summit до 100 этажа, с шансом дропа с Hunter-босса на финальном этаже."
+  },
+  {
+    "name_en": "Capacitor",
+    "name_ru": "Конденсатор",
+    "item_ids_hint": [
+      "magpul_pdr_exotic"
+    ],
+    "source_type": "manhunt",
+    "source_name_en": "Year 4 Season 2 Manhunt (Broadcaster/Neptune)",
+    "source_name_ru": "Охота Y4S2",
+    "details": "Финальная награда Y4S2 manhunt + crafting."
+  },
+  {
+    "name_en": "Lady Death",
+    "name_ru": "Леди Смерть",
+    "item_ids_hint": [
+      "lady_death"
+    ],
+    "source_type": "incursion",
+    "source_name_en": "Paradise Lost Incursion",
+    "source_name_ru": "Incursion Paradise Lost",
+    "details": "Дроп с финального босса Paradise Lost incursion (Y5S1)."
+  },
+  {
+    "name_en": "St. Elmo's Engine",
+    "name_ru": "Мотор святого Эльма",
+    "item_ids_hint": [
+      "m4_exotic_senate",
+      "st_elmo"
+    ],
+    "source_type": "season_reward",
+    "source_name_en": "Season 10 Reward (Iron Horse season)",
+    "source_name_ru": "Сезонная награда S10",
+    "details": "Дроп из sealed cache Iron Horse season + Summit targeted loot."
+  },
+  {
+    "name_en": "Perfidia",
+    "name_ru": "Вероломство",
+    "item_ids_hint": [
+      "perfidia"
+    ],
+    "source_type": "incursion",
+    "source_name_en": "Paradise Lost Incursion",
+    "source_name_ru": "Incursion Paradise Lost"
+  },
+  {
+    "name_en": "Grupo Sombra Gearset",
+    "name_ru": "Комплект Grupo Sombra",
+    "item_ids_hint": [
+      "grupo_sombra"
+    ],
+    "source_type": "brand",
+    "source_name_en": "Brand set (Open World)",
+    "source_name_ru": "Брендовый сет (открытый мир)"
+  },
+  {
+    "name_en": "Pestilence",
+    "name_ru": "Эпидемия",
+    "item_ids_hint": [
+      "kac_t1_exotic",
+      "pestilence"
+    ],
+    "source_type": "dz_landmark",
+    "source_name_en": "Dark Zone Landmark boss",
+    "source_name_ru": "Ландмарк-босс Тёмной зоны",
+    "details": "Дроп с любого landmark boss в Dark Zone East/South/West (все сложности). Увеличенный шанс Challenging+."
+  },
+  {
+    "name_en": "Sweet Dreams",
+    "name_ru": "Сладкие сны",
+    "item_ids_hint": [
+      "spas_12_exotic"
+    ],
+    "source_type": "world_drop",
+    "source_name_en": "World drop (Named NPC + chests)",
+    "source_name_ru": "Мировой дроп (named NPC + сундуки)",
+    "details": "Можно взять с любого Named NPC или exotic cache. Crafting: convert в Lullaby."
+  },
+  {
+    "name_en": "Merciless",
+    "name_ru": "Беспощадный",
+    "item_ids_hint": [
+      "cmmg_resolute_exotic"
+    ],
+    "source_type": "exotic_cache",
+    "source_name_en": "Exotic Cache (random)",
+    "source_name_ru": "Экзотический тайник",
+    "details": "World drop + Exotic cache. Crafting: convert в Ruthless."
+  },
+  {
+    "name_en": "Ruthless",
+    "name_ru": "Безжалостный",
+    "item_ids_hint": [
+      "cmmg_resolute_exotic_ruthless"
+    ],
+    "source_type": "crafting",
+    "source_name_en": "Crafting (from Merciless blueprint)",
+    "source_name_ru": "Крафт (из Merciless blueprint)"
+  },
+  {
+    "name_en": "Kingbreaker",
+    "name_ru": "Усмиритель",
+    "item_ids_hint": [
+      "player_weapon_assaultrifle_acr_t3_v1_named"
+    ],
+    "source_type": "raid",
+    "source_name_en": "Operation Dark Hours (raid drop)",
+    "source_name_ru": "Операция «Тёмные часы» (рейд)",
+    "details": "Named AR, эксклюзив из рейда Operation Dark Hours."
+  }
+]

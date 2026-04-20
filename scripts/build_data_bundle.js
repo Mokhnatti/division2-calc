@@ -50,6 +50,7 @@ const FILES = {
   SPECIALIZATION_WEAPONS: "specialization_weapons.json",
   ATTRIBUTE_DICT: "attribute_dict.json",
   SOURCES: "sources_compact.json",
+  KNOWN_SOURCES: "known_sources.json",
   DIFFICULTY_TABLE: "difficulty_table.json",
 };
 

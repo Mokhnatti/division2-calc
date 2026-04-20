@@ -83,8 +83,9 @@ function escape(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Load sources_compact.json once for item source lookups
+// Load sources_compact.json + known_sources.json once for item source lookups
 let _SOURCES_CACHE = null;
+let _KNOWN_CACHE = null;
 function loadSources() {
   if (_SOURCES_CACHE) return _SOURCES_CACHE;
   const p = path.join(ROOT, 'data/sources_compact.json');
@@ -92,18 +93,40 @@ function loadSources() {
   catch(e) { _SOURCES_CACHE = {}; }
   return _SOURCES_CACHE;
 }
+function loadKnownSources() {
+  if (_KNOWN_CACHE) return _KNOWN_CACHE;
+  const p = path.join(ROOT, 'data/known_sources.json');
+  try { _KNOWN_CACHE = JSON.parse(fs.readFileSync(p, 'utf8')); }
+  catch(e) { _KNOWN_CACHE = []; }
+  return _KNOWN_CACHE;
+}
 
 // Render "Where to get" HTML block for item page (RU) — v4 sources with direct/tag
 function renderSourcesHtml(nameEn) {
   if (!nameEn) return '';
+  const key = String(nameEn).toLowerCase().trim();
   const sources = loadSources();
-  const data = sources[String(nameEn).toLowerCase().trim()];
-  if (!data || !data.sources || !data.sources.length) {
+  const known = loadKnownSources();
+  const knownMatches = known.filter(k => (k.name_en||'').toLowerCase() === key);
+  const knownSources = knownMatches.map(k => ({
+    type: k.source_type || 'other',
+    name_en: k.source_name_en || '',
+    name_ru: k.source_name_ru || '',
+    match: 'direct',
+    is_curated: true,
+    details: k.details || ''
+  }));
+  const autoData = sources[key];
+  const autoSources = (autoData && autoData.sources) ? autoData.sources : [];
+  if (!knownSources.length && !autoSources.length) {
     return `<section class="sources" style="margin-top:14px">
       <h2>📍 Где добыть</h2>
       <p style="color:var(--muted);font-size:13px">🌍 Общий мировой дроп (любой пул оружия / контейнер)</p>
     </section>`;
   }
+  // Merge: known first (priority), then auto minus duplicates
+  const mergedSources = [...knownSources, ...autoSources.filter(a => !knownSources.some(k => k.type === a.type && (k.name_en||'').toLowerCase() === (a.name_en||'').toLowerCase()))];
+  const data = { sources: mergedSources };
   const typeLbl = {raid:'Рейд',mission:'Миссия',darkzone:'Тёмная зона',dz_landmark:'Точка DZ',bounty:'Контракт',named_drop:'Именной NPC',named_npc:'Именной NPC',named_boss:'Именной босс',manhunt:'Охота',dungeon:'Подземелье',project:'Проект',vendor:'Торговец',vendor_craft:'Крафт-торговец',chest:'Контейнер',exotic_cache:'Экзотик-тайник',world_drop:'Мировой дроп',incursion:'Вторжение',global_event:'Глобальное событие',event:'Ивент',event_cache:'Ивентовый тайник',season_reward:'Награда сезона',battlepass:'Боевой пропуск',descent:'Спуск',summit:'Саммит',countdown:'Обратный отсчёт',odd:'Прочее',other:'Другое'};
   const iconMap = {raid:'👥',mission:'🎯',darkzone:'⚠',dz_landmark:'⚠',bounty:'💀',named_drop:'🎖',named_npc:'🎖',named_boss:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',vendor_craft:'🛠',chest:'📦',exotic_cache:'🎁',world_drop:'🌍',incursion:'⚡',global_event:'🎉',event:'🎉',event_cache:'🎁',season_reward:'🏆',battlepass:'🎖',descent:'🏗',summit:'🏢',countdown:'⏱',odd:'✨',other:'✨'};
 
@@ -119,7 +142,9 @@ function renderSourcesHtml(nameEn) {
       const lbl = typeLbl[t] || t;
       const names = [...new Set(xs.map(s => s.name_ru || s.name_en || ''))].filter(x => x && !x.toLowerCase().startsWith('lt'));
       const namesStr = names.length ? names.slice(0, 5).map(escape).join(', ') : lbl;
-      return `<tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>${icon} ${lbl}</b></td><td style="padding:6px;border-bottom:1px solid var(--border)">${namesStr}</td></tr>`;
+      const details = [...new Set(xs.filter(s => s.is_curated && s.details).map(s => s.details))];
+      const detailsHtml = details.length ? `<div style="font-size:11px;color:var(--muted);font-style:italic;margin-top:3px">${details.map(escape).join(' · ')}</div>` : '';
+      return `<tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>${icon} ${lbl}</b></td><td style="padding:6px;border-bottom:1px solid var(--border)">${namesStr}${detailsHtml}</td></tr>`;
     }).join('');
     return `<h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">${title}</h3>
       <table class="stats-table"><tbody>${rows}</tbody></table>`;

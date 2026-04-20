@@ -584,17 +584,42 @@ function _sourceLabels(isEn){
   };
 }
 
+// Build merged source data: known (hand-curated, priority) + auto (tag-based)
+function _getItemSources(enName){
+  const key=String(enName).toLowerCase().trim();
+  const SRC=(typeof D2DATA!=='undefined'&&D2DATA.SOURCES)||{};
+  const KNOWN=(typeof D2DATA!=='undefined'&&D2DATA.KNOWN_SOURCES)||[];
+  // Find in known_sources (hand-curated)
+  const known=KNOWN.filter(k=>{
+    const ken=String(k.name_en||'').toLowerCase().trim();
+    const kru=String(k.name_ru||'').toLowerCase().trim();
+    return ken===key||kru===key;
+  });
+  const knownSources=known.map(k=>({
+    type:k.source_type||'other',
+    name_en:k.source_name_en||'',
+    name_ru:k.source_name_ru||'',
+    match:'direct',
+    is_curated:true,
+    details:k.details||''
+  }));
+  // Add auto-sources (tag-based) as secondary
+  const auto=SRC[key];
+  const autoSources=auto&&auto.sources?auto.sources:[];
+  return {known:knownSources, auto:autoSources};
+}
+
 function renderSourceInfo(enName){
   if(!enName) return '';
-  const SRC=(typeof D2DATA!=='undefined'&&D2DATA.SOURCES)||{};
-  const data=SRC[String(enName).toLowerCase().trim()];
   const isEn=currentLang==='en';
-  if(!data||!data.sources||!data.sources.length){
+  const {known,auto}=_getItemSources(enName);
+  if(!known.length&&!auto.length){
     return `<div style="margin-top:6px;padding:6px 8px;background:rgba(117,117,117,.08);border-left:2px solid var(--muted);border-radius:4px">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">${isEn?'Where to get':'Где добыть'}</div>
       <div style="font-size:11px;color:var(--muted)">🌍 ${isEn?'General world drop (any weapon pool)':'Общий мировой дроп (пул оружия)'}</div>
     </div>`;
   }
+  const data={sources:[...known,...auto.filter(a=>!known.some(k=>k.type===a.type&&(k.name_en||'').toLowerCase()===(a.name_en||'').toLowerCase()))]};
   const {iconMap,typeLbl}=_sourceLabels(isEn);
   // Split: direct vs tag
   const direct=data.sources.filter(s=>s.match==='direct');
@@ -613,7 +638,10 @@ function renderSourceInfo(enName){
       const namesStr=names.length?names.slice(0,5).join(', '):lbl;
       const nameColor=isDirect?'var(--green)':'var(--muted)';
       const labelColor=isDirect?'var(--orange)':'#888';
-      return `<div style="font-size:11px;line-height:1.5;margin:2px 0"><span style="color:${labelColor};font-weight:600">${icon} ${lbl}:</span> <span style="color:${nameColor}">${namesStr}</span></div>`;
+      // Collect details from curated entries
+      const details=[...new Set(xs.filter(s=>s.is_curated&&s.details).map(s=>s.details))];
+      const detailsHtml=details.length?`<div style="font-size:10px;color:var(--muted);padding-left:16px;margin-top:1px;font-style:italic">${details.join(' · ')}</div>`:'';
+      return `<div style="font-size:11px;line-height:1.5;margin:2px 0"><span style="color:${labelColor};font-weight:600">${icon} ${lbl}:</span> <span style="color:${nameColor}">${namesStr}</span></div>${detailsHtml}`;
     }).join('');
   }
 
