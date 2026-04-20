@@ -1,16 +1,44 @@
 {
-  "Home/Community": [],
-  "BUILD": [],
-  "DPS": [],
-  "Top": [],
-  "Skills": [],
-  "Tank": [],
-  "Help": [],
-  "Expertise": [],
-  "Mods": [],
-  "SkillMods": [],
-  "Sets": [],
-  "Brands": [],
-  "Exotics": [],
-  "Named": []
+  "Home/Community": [
+    "Боевик ×4"
+  ],
+  "BUILD": [
+    "Боевик ×4"
+  ],
+  "DPS": [
+    "Боевик ×4"
+  ],
+  "Top": [
+    "Боевик ×4"
+  ],
+  "Skills": [
+    "Боевик ×4"
+  ],
+  "Tank": [
+    "Боевик ×4"
+  ],
+  "Help": [
+    "Боевик ×4"
+  ],
+  "Expertise": [
+    "Боевик ×4"
+  ],
+  "Mods": [
+    "Боевик ×4"
+  ],
+  "SkillMods": [
+    "Боевик ×4"
+  ],
+  "Sets": [
+    "Боевик ×4"
+  ],
+  "Brands": [
+    "Боевик ×4"
+  ],
+  "Exotics": [
+    "Боевик ×4"
+  ],
+  "Named": [
+    "Боевик ×4"
+  ]
 }
