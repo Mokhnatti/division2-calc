@@ -1,122 +1,917 @@
 [
   {
-    "id": "striker_lmg",
-    "name": "Боевик LMG",
-    "tag": "ALL-ROUND PvE",
-    "desc": "Классический Боевик 4шт + LMG для непрерывной стрельбы. Стаки растут до +200 за магазин = +100% WD пик.",
-    "wpn_en": "The Bighorn",
-    "weapon_cat": "LMG",
-    "set_focus": "Striker's Battlegear",
-    "tier": "S"
+    "id": "agitator-striker-swap",
+    "name_ru": "Страйкер-Свап с Agitator",
+    "name_en": "Agitator Striker Swap",
+    "tier": "S",
+    "category": "pve_dps_solo",
+    "tag_ru": "Соло Heroic/Legendary",
+    "tag_en": "Solo Heroic/Legendary",
+    "weapon_en": "Agitator",
+    "weapon_class": "AR",
+    "gear_set": "Striker's Battlegear",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Obliterate",
+    "bp_talent": "Perfect Vigilance",
+    "specialization": "Gunner",
+    "exotic_pieces": [
+      "Agitator (AR)",
+      "Overdogs (Gloves)"
+    ],
+    "named_pieces": [
+      "Equalizer (Chest)"
+    ],
+    "brands": [
+      "Striker's Battlegear 4pc",
+      "Ceska Brand 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 60,
+        "min": 55,
+        "max": 60,
+        "note": "soft cap 60%"
+      },
+      "chd": {
+        "target": 200,
+        "min": 170,
+        "max": 240,
+        "note": "Obliterate stacks push ceiling"
+      },
+      "wd": {
+        "target": 130,
+        "min": 110,
+        "max": 160,
+        "note": "Perturb prime adds +30% WD burst window"
+      },
+      "hsd": {
+        "target": 180,
+        "min": 120,
+        "max": 220,
+        "note": "Recombinant: swap Offense default WH to HSD"
+      }
+    },
+    "expected_dps_peak_m": 3.8,
+    "description_ru": "Флагманская сборка Y8S1: Agitator в кобуре 10 сек праймится (+25% RoF, +30% WD, −50% угрозы) и достаётся как берст-оружие на 20 сек. Striker 4pc даёт до +100 стаков урона, Overdogs добивает низкоуровневых врагов, Equalizer Obliterate крутит стаки критурона.",
+    "description_en": "Y8S1 flagship AR: holster Agitator 10s to prime (+25% RoF, +30% WD, −50% threat), then draw for a 20s burst window. Striker 4pc ramps up to +100 stacks, Overdogs finishes low-tier enemies, Equalizer Obliterate spins crit damage stacks.",
+    "source_url": "https://www.youtube.com/watch?v=xTh1hHvKp-c",
+    "source_author": "Died Again Gaming",
+    "source_date": "2026-04-08",
+    "verification": "fresh-source",
+    "source_note": "Свежая сборка на новом Y8S1 экзотике; подтверждена также Sk Gaming и Games.gg",
+    "popularity_score": 78
   },
   {
-    "id": "striker_alejandro",
-    "name": "Boevik + Big Alejandro",
-    "tag": "S-TIER PvE",
-    "desc": "Боевик 4шт стаки + экзотик ЛМГ Большой Алехандро (+100% WD из укрытия). Сейчас лучший LMG-DPS.",
-    "wpn_en": "Big Alejandro",
-    "weapon_cat": "LMG",
-    "set_focus": "Striker's Battlegear",
-    "tier": "S"
+    "id": "big-alejandro-tipping-scales",
+    "name_ru": "Big Alejandro Tipping Scales",
+    "name_en": "Big Alejandro Tipping Scales LMG",
+    "tier": "S",
+    "category": "pve_dps_solo",
+    "tag_ru": "Соло Escalation T6",
+    "tag_en": "Solo Escalation T6",
+    "weapon_en": "Big Alejandro",
+    "weapon_class": "LMG",
+    "gear_set": "Tipping Scales",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Obliterate",
+    "bp_talent": "Perfect Adrenaline Rush",
+    "specialization": "Gunner",
+    "exotic_pieces": [
+      "Big Alejandro (LMG)",
+      "Coyote's Mask"
+    ],
+    "named_pieces": [
+      "Equalizer (Chest)"
+    ],
+    "brands": [
+      "Tipping Scales 4pc",
+      "Contractor's Gloves 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 55,
+        "min": 50,
+        "max": 60,
+        "note": "Coyote's добирает crit chance вблизи союзников"
+      },
+      "chd": {
+        "target": 350,
+        "min": 300,
+        "max": 400,
+        "note": "Tipping Scales 4pc даёт +350% CHD на ramp"
+      },
+      "wd": {
+        "target": 110,
+        "min": 100,
+        "max": 130,
+        "note": "+100% WD из укрытия от Big Alejandro"
+      },
+      "hsd": {
+        "target": 100,
+        "min": 80,
+        "max": 150
+      }
+    },
+    "expected_dps_peak_m": 1.5,
+    "description_ru": "Золотой стандарт LMG после возврата Big Alejandro на 10-летие. Tipping Scales 4pc выдаёт +350% CHD на максимальном ramp, компенсируя отсутствие нативного CHC у Алехандро, Coyote's Mask закрывает дыру по крит-шансу. Эталонная сборка для соло Escalation T6 и Hot Foot mutator.",
+    "description_en": "The golden LMG standard after Big Alejandro's 10-year-anniversary return. Tipping Scales 4pc delivers +350% CHD at max ramp compensating for Alejandro's zero native CHC, with Coyote's Mask filling the crit-chance gap. Benchmark build for solo Escalation T6 and Hot Foot mutator survival.",
+    "source_url": "https://www.sportskeeda.com/mmo/the-division-2-y8s1-rise-up-solo-escalation-tier-6-big-alejandro-dps-build",
+    "source_author": "Sk Gaming / Sportskeeda",
+    "source_date": "2026-04-10",
+    "verification": "fresh-source",
+    "source_note": "Y8S1-специфичный гайд под Escalation Tier 6",
+    "popularity_score": 74
   },
   {
-    "id": "tipping_hunter",
-    "name": "Tipping Scales × Headhunter",
-    "tag": "MMR / 1-shot",
-    "desc": "Tipping Scales 4шт + Headhunter (Серийный убийца) на нагруднике. Накапливаешь 200+ стаков до фул, разгружаешь one-shot.",
-    "wpn_en": "Eagle Bearer",
-    "weapon_cat": "MMR",
-    "set_focus": "Tipping Scales",
-    "tier": "S"
+    "id": "heartbreaker-kingbreaker-ar",
+    "name_ru": "Heartbreaker с Kingbreaker",
+    "name_en": "Heartbreaker Kingbreaker AR",
+    "tier": "A",
+    "category": "pve_dps_solo",
+    "tag_ru": "Соло Heroic",
+    "tag_en": "Solo Heroic",
+    "weapon_en": "Kingbreaker",
+    "weapon_class": "AR",
+    "gear_set": "Heartbreaker",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Glass Cannon",
+    "bp_talent": "Perfect Vigilance",
+    "specialization": "Technician",
+    "exotic_pieces": [],
+    "named_pieces": [
+      "The Closer (Chest)"
+    ],
+    "brands": [
+      "Heartbreaker 4pc",
+      "Providence Defense 2pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 60,
+        "min": 55,
+        "max": 60,
+        "note": "hard cap"
+      },
+      "chd": {
+        "target": 190,
+        "min": 170,
+        "max": 220
+      },
+      "wd": {
+        "target": 140,
+        "min": 120,
+        "max": 160,
+        "note": "Flatline proc на bonus armor"
+      },
+      "hsd": {
+        "target": 160,
+        "min": 120,
+        "max": 200
+      }
+    },
+    "expected_dps_peak_m": 2.6,
+    "description_ru": "Классика, пережившая Y8S1 без нерфов. Heartbreaker 4pc при получении bonus armor активирует Flatline, перегоняя получаемый урон в мультипликатор к оружию, Linked Laser Pointer от Technician маркирует цели для доп. усиления. Стабильный соло-DPS без зависимости от новых экзотиков.",
+    "description_en": "A classic that survived Y8S1 without nerfs. Heartbreaker 4pc triggers Flatline whenever you gain bonus armor, converting incoming damage into a weapon multiplier, while Technician's Linked Laser Pointer marks targets for extra amplification. Steady solo DPS that does not depend on new exotics.",
+    "source_url": "https://overgear.com/guides/division-2/best-builds-for-any-activities/",
+    "source_author": "Overgear",
+    "source_date": "2026-04-07",
+    "verification": "community-consensus",
+    "source_note": "Y8 vanilla meta, механика не изменена в 2.24, подтверждена Overgear в апрельской редакции",
+    "popularity_score": 68
   },
   {
-    "id": "heartbreaker_smg",
-    "name": "Разбиватель Сердец SMG",
-    "tag": "Burst PvE",
-    "desc": "Разбиватель Сердец 4шт + SMG. Burst CHC 100% за каждую серию выстрелов = регулярные крит-серии.",
-    "wpn_en": "Backfire",
-    "weapon_cat": "SMG",
-    "set_focus": "Heartbreaker",
-    "tier": "A"
+    "id": "future-initiative-buffer",
+    "name_ru": "Future Initiative Баффер",
+    "name_en": "Future Initiative Group Buffer",
+    "tier": "S",
+    "category": "pve_dps_group",
+    "tag_ru": "Рейд/Legendary саппорт",
+    "tag_en": "Raid/Legendary support",
+    "weapon_en": "Capacitor",
+    "weapon_class": "AR",
+    "gear_set": "Future Initiative",
+    "gear_set_pieces": 4,
+    "chest_talent": "Tactical Superiority",
+    "bp_talent": "Advanced Combat Tactics",
+    "specialization": "Survivalist",
+    "exotic_pieces": [
+      "Capacitor (AR)",
+      "BTSU Datagloves"
+    ],
+    "named_pieces": [
+      "Future Initiative Chest",
+      "Future Initiative Backpack"
+    ],
+    "brands": [
+      "Future Initiative 4pc",
+      "Alps Summit Armament 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 40,
+        "min": 30,
+        "max": 50
+      },
+      "chd": {
+        "target": 100,
+        "min": 80,
+        "max": 140,
+        "note": "optional, вторично для баффера"
+      },
+      "wd": {
+        "target": 60,
+        "min": 40,
+        "max": 80
+      },
+      "hsd": {
+        "target": 80,
+        "min": 40,
+        "max": 120,
+        "note": "optional"
+      }
+    },
+    "expected_dps_peak_m": 0.5,
+    "description_ru": "Обязательный саппорт для Legendary и рейдов Dark Hours/Iron Horse/Paradise Lost. Tactical Superiority апгрейдит Ground Control до +25% урона всей команде при полной броне, Advanced Combat Tactics удваивает proximity-репейр до 120%, а Capacitor конвертит утилити-кор в +7.5% WD на кор для личного DPS.",
+    "description_en": "Mandatory support for Legendary and Dark Hours/Iron Horse/Paradise Lost raids. Tactical Superiority upgrades Ground Control to +25% team damage at full armor, Advanced Combat Tactics doubles proximity repair to 120%, and Capacitor converts utility cores into +7.5% WD per core for personal contribution.",
+    "source_url": "https://www.sportskeeda.com/mmo/the-division-2-y8s1-rise-up-refactor-skill-build-guide",
+    "source_author": "Sk Gaming / Sportskeeda",
+    "source_date": "2026-04-11",
+    "verification": "community-consensus",
+    "source_note": "Y7-базовая сборка, подтверждена как актуальная в Y8S1 через апрельские статьи Sportskeeda и KBoosting",
+    "popularity_score": 84
   },
   {
-    "id": "ongoing_directive_pyro",
-    "name": "Бессрочная Директива × Пироман",
-    "tag": "Status Burn",
-    "desc": "Бессрочная Директива (горение/кровотечение бакетами) + Pyromaniac (+30% WD по горящим).",
-    "wpn_en": "Pyromaniac",
-    "weapon_cat": "AR",
-    "set_focus": "Ongoing Directive",
-    "tier": "A"
+    "id": "memento-perfume-stacker",
+    "name_ru": "Memento Perfume Стакер",
+    "name_en": "Memento Perfume Stacker",
+    "tier": "S",
+    "category": "pve_dps_group",
+    "tag_ru": "Групповой Legendary DPS",
+    "tag_en": "Group Legendary DPS",
+    "weapon_en": "St. Elmo's Engine",
+    "weapon_class": "AR",
+    "gear_set": "Striker's Battlegear",
+    "gear_set_pieces": 3,
+    "chest_talent": "Perfect Obliterate",
+    "bp_talent": "Kill Confirmed",
+    "specialization": "Gunner",
+    "exotic_pieces": [
+      "St. Elmo's Engine (AR)",
+      "Memento (Backpack)",
+      "Overdogs (Gloves)"
+    ],
+    "named_pieces": [
+      "Equalizer (Chest)"
+    ],
+    "brands": [
+      "Striker's Battlegear 3pc",
+      "Ceska 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 60,
+        "min": 55,
+        "max": 60,
+        "note": "hard cap"
+      },
+      "chd": {
+        "target": 220,
+        "min": 180,
+        "max": 260,
+        "note": "Obliterate + Perfume long-term стак"
+      },
+      "wd": {
+        "target": 150,
+        "min": 120,
+        "max": 180,
+        "note": "Memento long-term добавляет +1% WD за трофей до 5 мин"
+      },
+      "hsd": {
+        "target": 180,
+        "min": 140,
+        "max": 220
+      }
+    },
+    "expected_dps_peak_m": 3.2,
+    "description_ru": "Групповой DPS, построенный на \"парфюме\" Memento: трофеи с врагов дают короткий бафф (+15% WD на стак) и длительный (+1% WD / +1% skill / +0.1% armor regen на 5 мин), накапливающийся за всю сессию. В связке с Future Initiative баффером в скводе даёт слоистый множитель урона.",
+    "description_en": "Group DPS built on Memento's \"Perfume\": trophies give both short-term (+15% WD per stack) and long-term (+1% WD / +1% skill / +0.1% armor regen for 5 min) buffs that stack across the entire session. Paired with a Future Initiative buffer in a 4-stack it creates layered damage multipliers.",
+    "source_url": "https://kboosting.com/division-2/guides/builds",
+    "source_author": "KBoosting",
+    "source_date": "2026-04-08",
+    "verification": "fresh-source",
+    "source_note": "Вариант с Overdogs + Equalizer добавлен в гайд KBoosting 2026-04-05",
+    "popularity_score": 86
   },
   {
-    "id": "hardwired_skill",
-    "name": "Спецпрограмма Skill DPS",
-    "tag": "Skill build",
-    "desc": "Hardwired/Спецпрограмма 4шт + skill builder. Бесконечные cooldown-ресеты турели/мины.",
-    "wpn_en": "Capacitor",
-    "weapon_cat": "AR",
-    "set_focus": "Hard Wired",
-    "tier": "A"
+    "id": "hardwired-infinite-seekers",
+    "name_ru": "Hardwired Бесконечные Сикеры",
+    "name_en": "Hardwired Infinite Seekers",
+    "tier": "A",
+    "category": "skill",
+    "tag_ru": "Скилл-соло Legendary",
+    "tag_en": "Skill solo Legendary",
+    "weapon_en": "Scorpio",
+    "weapon_class": "Shotgun",
+    "gear_set": "Hard Wired",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Glass Cannon",
+    "bp_talent": "Short Circuit",
+    "specialization": "Technician",
+    "exotic_pieces": [
+      "Waveform (Holster)"
+    ],
+    "named_pieces": [
+      "Hana-U Chest"
+    ],
+    "brands": [
+      "Hard Wired 4pc",
+      "Wyvern Wear 1pc",
+      "China Light 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 40,
+        "min": 30,
+        "max": 50,
+        "note": "вторично"
+      },
+      "chd": {
+        "target": 100,
+        "min": 80,
+        "max": 140,
+        "note": "optional"
+      },
+      "wd": {
+        "target": 50,
+        "min": 30,
+        "max": 80
+      },
+      "hsd": {
+        "target": 60,
+        "min": 40,
+        "max": 100,
+        "note": "optional"
+      }
+    },
+    "expected_dps_peak_m": 10.0,
+    "description_ru": "Feedback Loop 4pc откатывает 30 сек кулдауна второго скилла на каждый каст, Short Circuit режет кулдаун бэкпака с 20 до 10 сек, а Recombinant Optimize/Overload L5 перезаряжает скилл в overcharge. На выходе — seeker-mine спам каждые 8–10 сек без выхода из укрытия.",
+    "description_en": "Feedback Loop 4pc refunds 30s of the other skill's cooldown per cast, Short Circuit shaves the backpack CD from 20s to 10s, and Recombinant Optimize/Overload L5 overcharges the skill. The result: seeker-mine spam every 8–10s without exposing yourself.",
+    "source_url": "https://kboosting.com/division-2/guides/builds",
+    "source_author": "KBoosting",
+    "source_date": "2026-04-08",
+    "verification": "community-consensus",
+    "source_note": "Механика Feedback Loop не изменена патчем 2.24; Recombinant Utility-модуль усиливает сборку относительно Y7",
+    "popularity_score": 72
   },
   {
-    "id": "negotiator_rifle",
-    "name": "Дилемма Переговорщика Rifle",
-    "tag": "Mark + AoE",
-    "desc": "Negotiator's 4шт пометить + взрыв. Любая Rifle (AKM, Mk17 и т.п.) для маркировки.",
-    "wpn_en": "Eagle Bearer",
-    "weapon_cat": "Rifle",
-    "set_focus": "Negotiator's Dilemma",
-    "tier": "A"
+    "id": "refactor-force-multiplier",
+    "name_ru": "Refactor Force Multiplier",
+    "name_en": "Refactor Force Multiplier",
+    "tier": "S",
+    "category": "skill",
+    "tag_ru": "Топ скилл-билд Y8S1",
+    "tag_en": "Top Y8S1 skill build",
+    "weapon_en": "Capacitor",
+    "weapon_class": "AR",
+    "gear_set": "Refactor",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Kinetic Momentum",
+    "bp_talent": "Perfect Combined Arms",
+    "specialization": "Technician",
+    "exotic_pieces": [
+      "Capacitor (AR)",
+      "Waveform (Holster)"
+    ],
+    "named_pieces": [
+      "Force Multiplier (Backpack)",
+      "Hana-U Chest"
+    ],
+    "brands": [
+      "Refactor 4pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 45,
+        "min": 30,
+        "max": 55,
+        "note": "для Capacitor WD-скейла"
+      },
+      "chd": {
+        "target": 120,
+        "min": 80,
+        "max": 160,
+        "note": "optional"
+      },
+      "wd": {
+        "target": 70,
+        "min": 50,
+        "max": 100,
+        "note": "через Capacitance: +7.5% WD на utility-кор"
+      },
+      "hsd": {
+        "target": 80,
+        "min": 60,
+        "max": 120,
+        "note": "optional"
+      }
+    },
+    "expected_dps_peak_m": 12.5,
+    "description_ru": "Новый апекс скилл-мета Y8S1: Refactor 4pc качает skill damage и armor-скейл, Combined Arms на Force Multiplier даёт +30% skill damage за выстрел по обоим скиллам, а Capacitor в руках конвертит utility-коры в WD. Optimize/Overload L5 Recombinant добавляет overcharge для перманентного пика урона.",
+    "description_en": "The new Y8S1 skill apex: Refactor 4pc ramps skill damage and armor scaling, Combined Arms on Force Multiplier backpack grants +30% skill damage per shot to both skills, and Capacitor converts utility cores into weapon damage. Recombinant Optimize/Overload L5 adds overcharge for sustained peak performance.",
+    "source_url": "https://www.sportskeeda.com/mmo/the-division-2-y8s1-rise-up-refactor-skill-build-guide",
+    "source_author": "Sk Gaming / Sportskeeda",
+    "source_date": "2026-04-11",
+    "verification": "fresh-source",
+    "source_note": "Свежий Y8S1-гайд, рекомендуется как S-tier на Overgear 2026-04-07",
+    "popularity_score": 92
   },
   {
-    "id": "future_initiative_skill",
-    "name": "Инициатива Будущего Skill+heal",
-    "tag": "Support skill",
-    "desc": "Future Initiative 4шт — синергия скиллов и хила, командный билд.",
-    "wpn_en": "Capacitor",
-    "weapon_cat": "AR",
-    "set_focus": "Future Initiative",
-    "tier": "B"
+    "id": "capacitor-core-strength-hybrid",
+    "name_ru": "Capacitor Ninja Core Strength",
+    "name_en": "Capacitor Ninja Core Strength",
+    "tier": "S",
+    "category": "skill",
+    "tag_ru": "Скилл-ган гибрид",
+    "tag_en": "Skill-gun hybrid",
+    "weapon_en": "Capacitor",
+    "weapon_class": "AR",
+    "gear_set": "Brand Set Build",
+    "gear_set_pieces": 0,
+    "chest_talent": "Perfect Glass Cannon",
+    "bp_talent": "NinjaBike Messenger Bag",
+    "specialization": "Technician",
+    "exotic_pieces": [
+      "Capacitor (AR)",
+      "NinjaBike Messenger (Backpack)",
+      "Waveform (Holster)"
+    ],
+    "named_pieces": [
+      "Hana-U Chest"
+    ],
+    "brands": [
+      "Wyvern Wear 2pc",
+      "Fenris Group 1pc",
+      "Contractor's 1pc",
+      "Grupo Sombra 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 55,
+        "min": 45,
+        "max": 60
+      },
+      "chd": {
+        "target": 150,
+        "min": 120,
+        "max": 180
+      },
+      "wd": {
+        "target": 90,
+        "min": 70,
+        "max": 120,
+        "note": "+7.5% WD на каждый yellow core через Capacitance"
+      },
+      "hsd": {
+        "target": 100,
+        "min": 80,
+        "max": 140
+      }
+    },
+    "expected_dps_peak_m": 3.0,
+    "description_ru": "Гибридный core-strength билд Y8S1: NinjaBike Messenger даёт бонус от 2 пар брендов одновременно, Capacitor стакает +1.5% skill damage за попадание (до +60%) и +7.5% WD за utility-кор, Hana-U мультиплицирует. Работает и в PvE соло, и в PvP mid-range.",
+    "description_en": "Y8S1 hybrid core-strength build: NinjaBike Messenger stacks two brand pairs simultaneously, Capacitor accumulates +1.5% skill damage per hit (up to +60%) and +7.5% WD per utility core, Hana-U multiplies the output. Works in PvE solo and in mid-range PvP.",
+    "source_url": "https://www.dtgre.com/2026/04/division-2-rise-up-core-strength-core-build-guide.html",
+    "source_author": "DTGRE",
+    "source_date": "2026-04-11",
+    "verification": "fresh-source",
+    "source_note": "Listed как \"Y8S1 TU26\" самый популярный билд на KBoosting",
+    "popularity_score": 87
   },
   {
-    "id": "patriot_aoe",
-    "name": "Истинный Патриот AoE",
-    "tag": "Group buff/debuff",
-    "desc": "True Patriot 4шт — флаги (red/white/blue) дают bonus damage союзникам и debuff врагам.",
-    "wpn_en": "Lullaby",
-    "weapon_cat": "SG",
-    "set_focus": "True Patriot",
-    "tier": "B"
+    "id": "foundry-bulwark-shield-tank",
+    "name_ru": "Foundry Bulwark Щит-Танк",
+    "name_en": "Foundry Bulwark Shield Tank",
+    "tier": "A",
+    "category": "tank",
+    "tag_ru": "Рейд-танк",
+    "tag_en": "Raid tank",
+    "weapon_en": "Liberty",
+    "weapon_class": "Pistol",
+    "gear_set": "Foundry Bulwark",
+    "gear_set_pieces": 4,
+    "chest_talent": "Process Refinery",
+    "bp_talent": "Improved Materials",
+    "specialization": "Demolitionist",
+    "exotic_pieces": [
+      "Liberty (Pistol)"
+    ],
+    "named_pieces": [
+      "Foundry Bulwark Chest",
+      "Foundry Bulwark Backpack"
+    ],
+    "brands": [
+      "Foundry Bulwark 4pc",
+      "Uzina Getica 1pc",
+      "Gila Guard 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 0,
+        "min": 0,
+        "max": 20,
+        "note": "танк — CHC не нужен"
+      },
+      "chd": {
+        "target": 0,
+        "min": 0,
+        "max": 40,
+        "note": "optional"
+      },
+      "wd": {
+        "target": 0,
+        "min": 0,
+        "max": 30,
+        "note": "приоритет на броню"
+      },
+      "hsd": {
+        "target": 0,
+        "min": 0,
+        "max": 60,
+        "note": "optional"
+      }
+    },
+    "expected_dps_peak_m": 0.15,
+    "description_ru": "Щит-танк для Dark Hours/Iron Horse/Paradise Lost. Process Refinery сжимает окно Makeshift Repairs с 10 до 5 сек, Improved Materials поднимает репейр с 25% до 35%, Braced for Impact от Demolitionist игнорит взрывы 60 сек. В сумме ~2.6M брони, ~13M HP щита и практически бесконечный аптайм.",
+    "description_en": "Shield tank for Dark Hours/Iron Horse/Paradise Lost. Process Refinery shortens the Makeshift Repairs window from 10s to 5s, Improved Materials raises repair from 25% to 35%, Braced for Impact from Demolitionist ignores explosions for 60s. Total: ~2.6M armor, ~13M shield HP, near-infinite uptime.",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3483877994",
+    "source_author": "Steam Community Raid Builds Guide 2026",
+    "source_date": "2026-04-05",
+    "verification": "community-consensus",
+    "source_note": "Механика Foundry не изменена в 2.24, подтверждено как актуальное в рейд-гайде 2026",
+    "popularity_score": 80
   },
   {
-    "id": "cluster_seeker",
-    "name": "Точка концентрации Skill",
-    "tag": "Skill burst",
-    "desc": "Concentrated Company 4шт + Cluster Seeker Mines / Firefly Demolisher. Burst по группе.",
-    "wpn_en": "Capacitor",
-    "weapon_cat": "AR",
-    "set_focus": "Concentrated Company",
-    "tier": "B"
+    "id": "aegis-ninjabike-raid-tank",
+    "name_ru": "Aegis NinjaBike Рейд-Танк",
+    "name_en": "Aegis NinjaBike Raid Tank",
+    "tier": "B",
+    "category": "tank",
+    "tag_ru": "Paradise Lost танк",
+    "tag_en": "Paradise Lost tank",
+    "weapon_en": "Regulus",
+    "weapon_class": "Pistol",
+    "gear_set": "Aegis",
+    "gear_set_pieces": 3,
+    "chest_talent": "Perfect Vanguard",
+    "bp_talent": "NinjaBike Messenger Bag",
+    "specialization": "Demolitionist",
+    "exotic_pieces": [
+      "Regulus (Pistol)",
+      "NinjaBike Messenger (Backpack)",
+      "Tardigrade Armor System (Chest, optional)"
+    ],
+    "named_pieces": [
+      "Pointman (Chest)"
+    ],
+    "brands": [
+      "Aegis 3pc",
+      "Foundry Bulwark 2pc",
+      "Gila Guard 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 0,
+        "min": 0,
+        "max": 20
+      },
+      "chd": {
+        "target": 0,
+        "min": 0,
+        "max": 40,
+        "note": "optional"
+      },
+      "wd": {
+        "target": 0,
+        "min": 0,
+        "max": 30
+      },
+      "hsd": {
+        "target": 0,
+        "min": 0,
+        "max": 60,
+        "note": "optional"
+      }
+    },
+    "expected_dps_peak_m": 0.1,
+    "description_ru": "Гибридный рейд-танк: NinjaBike объединяет 3pc Aegis и 2pc Foundry, Perfect Vanguard делится 50% брони с союзниками при активном щите, Stoic 4pc Aegis (2pc здоровье +70%) даёт 60–80% сопротивления урону при агро на нескольких врагов. Идеально для стаггер-фазы Colonel Morozova.",
+    "description_en": "Hybrid raid tank: NinjaBike bridges Aegis 3pc and Foundry 2pc, Perfect Vanguard shares 50% armor with allies while the shield is up, Stoic 4pc on Aegis (2pc +70% health) pushes damage resistance to 60–80% under multi-enemy aggro. Ideal for the Colonel Morozova stagger phase.",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3483877994",
+    "source_author": "Steam Community Raid Builds Guide 2026",
+    "source_date": "2026-04-05",
+    "verification": "community-consensus",
+    "source_note": "Aegis/Foundry механики не тронуты 2.24, нишевый билд для конкретных энкаунтеров",
+    "popularity_score": 62
   },
   {
-    "id": "umbra_pakhan",
-    "name": "Umbra Initiative × Pakhan",
-    "tag": "PvE LMG",
-    "desc": "Umbra Initiative + Pakhan (LMG +5% WD × 10 stacks). Стаки от Pakhan + статусы от Umbra.",
-    "wpn_en": "Pakhan",
-    "weapon_cat": "LMG",
-    "set_focus": "Umbra Initiative",
-    "tier": "B"
+    "id": "shroud-hotshot-headhunter",
+    "name_ru": "Shroud Hotshot Headhunter",
+    "name_en": "Shroud Hotshot Headhunter",
+    "tier": "S",
+    "category": "burst",
+    "tag_ru": "One-shot снайпер",
+    "tag_en": "One-shot sniper",
+    "weapon_en": "Shroud",
+    "weapon_class": "MMR",
+    "gear_set": "Hotshot",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Headhunter",
+    "bp_talent": "Blessed",
+    "specialization": "Sharpshooter",
+    "exotic_pieces": [
+      "Shroud (MMR)"
+    ],
+    "named_pieces": [
+      "Chainkiller (Chest)",
+      "Hotshot Blessed (Backpack)"
+    ],
+    "brands": [
+      "Hotshot 4pc",
+      "Airaldi Holdings 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 40,
+        "min": 20,
+        "max": 60,
+        "note": "вторично — снайперы живут на HSD"
+      },
+      "chd": {
+        "target": 160,
+        "min": 120,
+        "max": 200
+      },
+      "wd": {
+        "target": 140,
+        "min": 100,
+        "max": 180
+      },
+      "hsd": {
+        "target": 200,
+        "min": 160,
+        "max": 280,
+        "note": "ПОРОГ: >150% HSD открывает cap Headhunter 1250% вместо 800%"
+      }
+    },
+    "expected_dps_peak_m": 50.0,
+    "description_ru": "Эталонный one-shot снайпер Y8S1. Shroud даёт +125% WD по приоритетным целям, Perfect Headhunter после HS-килла делает следующий выстрел до 1250% WD (при HSD >150%), Hotshot 4pc Headache штрафует за промах, но наращивает bonus armor. Удаляет Hunters/Rogue Agents в один выстрел; Recombinant-свап Offense WH→HSD обязателен.",
+    "description_en": "The Y8S1 one-shot sniper benchmark. Shroud grants +125% WD vs priority targets, Perfect Headhunter amplifies the next shot after a HS kill up to 1250% WD (when HSD >150%), Hotshot 4pc Headache punishes misses but builds bonus armor. Deletes Hunters/Rogue Agents in a single shot; Recombinant Offense WH→HSD swap is mandatory.",
+    "source_url": "https://www.youtube.com/watch?v=YMzL8R3AOdk",
+    "source_author": "Died Again Gaming",
+    "source_date": "2026-03-28",
+    "verification": "community-consensus",
+    "source_note": "Y8 vanilla-билд, механика 1250% cap не тронута 2.24, Recombinant HSD-stacking делает его сильнее чем в Y7",
+    "popularity_score": 95
   },
   {
-    "id": "memento_solo",
-    "name": "Memento Solo Crit",
-    "tag": "Solo Heroic",
-    "desc": "Memento (рюкзак) + Coyote's Mask + любой crit-билд. Универсальный соло-сборщик трофеев.",
-    "wpn_en": "Eagle Bearer",
-    "weapon_cat": "AR",
-    "set_focus": "any",
-    "tier": "S"
+    "id": "mantis-decoy-burst",
+    "name_ru": "Mantis Decoy Берст",
+    "name_en": "Mantis Decoy Burst",
+    "tier": "A",
+    "category": "burst",
+    "tag_ru": "CQB снайпер",
+    "tag_en": "CQB sniper",
+    "weapon_en": "Mantis",
+    "weapon_class": "MMR",
+    "gear_set": "Hotshot",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Headhunter",
+    "bp_talent": "Perfect Concussion",
+    "specialization": "Sharpshooter",
+    "exotic_pieces": [
+      "Mantis (MMR)"
+    ],
+    "named_pieces": [
+      "Chainkiller (Chest)"
+    ],
+    "brands": [
+      "Hotshot 4pc",
+      "Airaldi Holdings 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 60,
+        "min": 55,
+        "max": 60
+      },
+      "chd": {
+        "target": 150,
+        "min": 130,
+        "max": 180
+      },
+      "wd": {
+        "target": 100,
+        "min": 80,
+        "max": 140
+      },
+      "hsd": {
+        "target": 280,
+        "min": 180,
+        "max": 320,
+        "note": ">150% HSD открывает Headhunter 1250%"
+      }
+    },
+    "expected_dps_peak_m": 40.0,
+    "description_ru": "In Plain Sight у Mantis даёт +50% HSD/weakpoint по врагам, которые не в тебя целятся, а HS-киллы сбрасывают CD Decoy — получается перманентный переброс агро. Отлично для farming SHD/Summit и засадного режима в открытом мире.",
+    "description_en": "Mantis's In Plain Sight gives +50% HSD/weakpoint against enemies not targeting you, and HS kills reset Decoy's cooldown for permanent aggro redirect. Great for SHD/Summit farming and ambush play in the open world.",
+    "source_url": "https://www.youtube.com/watch?v=sG-PMhva65A",
+    "source_author": "The Gaming Bear",
+    "source_date": "2026-03-22",
+    "verification": "community-consensus",
+    "source_note": "Механика Mantis и Perfect Headhunter не изменены 2.24",
+    "popularity_score": 70
+  },
+  {
+    "id": "st-elmos-double-companion",
+    "name_ru": "St. Elmo's Double Companion",
+    "name_en": "St. Elmo's Double Companion",
+    "tier": "A",
+    "category": "hybrid",
+    "tag_ru": "Weapon+Skill гибрид",
+    "tag_en": "Weapon+Skill hybrid",
+    "weapon_en": "St. Elmo's Engine",
+    "weapon_class": "AR",
+    "gear_set": "Striker's Battlegear",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Companion",
+    "bp_talent": "Kill Confirmed",
+    "specialization": "Technician",
+    "exotic_pieces": [
+      "St. Elmo's Engine (AR)",
+      "Memento (Backpack)",
+      "Liberty (Pistol, optional)"
+    ],
+    "named_pieces": [],
+    "brands": [
+      "Striker's Battlegear 4pc",
+      "Ceska 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 55,
+        "min": 50,
+        "max": 60
+      },
+      "chd": {
+        "target": 150,
+        "min": 100,
+        "max": 180
+      },
+      "wd": {
+        "target": 100,
+        "min": 85,
+        "max": 130
+      },
+      "hsd": {
+        "target": 120,
+        "min": 80,
+        "max": 160,
+        "note": "optional"
+      }
+    },
+    "expected_dps_peak_m": 1.8,
+    "description_ru": "Чистейший PvE-гибрид: Striker Drone держит Perfect Companion активным на 100% (+20% WD), Memento трофеи одновременно качают WD и skill efficiency, Artificer Hive продлевает И дрон, И charged-режим St. Elmo. Единственный эндгейм-сетап, где один трофей баффает оба слоя билда.",
+    "description_en": "The purest PvE hybrid: Striker Drone keeps Perfect Companion up 100% (+20% WD), Memento trophies stack both WD and skill efficiency, Artificer Hive extends both the drone and St. Elmo's charged state. The only endgame setup where a single trophy buffs both build axes simultaneously.",
+    "source_url": "https://kboosting.com/division-2/guides/builds",
+    "source_author": "KBoosting",
+    "source_date": "2026-04-08",
+    "verification": "community-consensus",
+    "source_note": "Y7-гибрид, подтверждён как актуальный в Y8S1-редакции KBoosting/Overgear",
+    "popularity_score": 83
+  },
+  {
+    "id": "whiplash-agitator-investor-swap",
+    "name_ru": "Whiplash-Agitator-Investor Свап",
+    "name_en": "Whiplash-Agitator-Investor Swap",
+    "tier": "A",
+    "category": "hybrid",
+    "tag_ru": "Тройной Y8S1 экзотик",
+    "tag_en": "Triple Y8S1 exotic",
+    "weapon_en": "Agitator",
+    "weapon_class": "AR",
+    "gear_set": "Striker's Battlegear",
+    "gear_set_pieces": 4,
+    "chest_talent": "Perfect Obliterate",
+    "bp_talent": "Kill Confirmed",
+    "specialization": "Gunner",
+    "exotic_pieces": [
+      "Agitator (AR)",
+      "Whiplash (Pistol)",
+      "Investor (Mask)",
+      "Memento (Backpack)"
+    ],
+    "named_pieces": [
+      "Equalizer (Chest)"
+    ],
+    "brands": [
+      "Striker's Battlegear 4pc",
+      "Royal Works 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 60,
+        "min": 55,
+        "max": 60,
+        "note": "hard cap"
+      },
+      "chd": {
+        "target": 180,
+        "min": 150,
+        "max": 220,
+        "note": "Investor с 3 red non-core бустит CHD"
+      },
+      "wd": {
+        "target": 130,
+        "min": 100,
+        "max": 170,
+        "note": "Whiplash primed draw +50% WD"
+      },
+      "hsd": {
+        "target": 160,
+        "min": 120,
+        "max": 200
+      }
+    },
+    "expected_dps_peak_m": 2.8,
+    "description_ru": "Сигнатурный Y8S1 weapon-swap: Agitator 10 сек в кобуре → праймится (+25% RoF, +30% WD), стреляешь, свап на Whiplash (уже 5 сек в кобуре) → авто-релоад обоих стволов + 50% WD финишер. Investor Mask с 3 red non-core атрибутами даёт CHD-бафф, Royal Works 1pc добавляет +15% CHD. Впервые в истории игры пистолетный слот — самое важное решение билда.",
+    "description_en": "The signature Y8S1 weapon-swap loop: Agitator 10s in holster → primed (+25% RoF, +30% WD), fire, swap to Whiplash (already holstered 5s) → auto-reloads both weapons + 50% WD finisher. Investor Mask with 3 red non-core attributes grants CHD boost, Royal Works 1pc adds +15% CHD. For the first time in the game, the pistol slot is the most important build decision.",
+    "source_url": "https://games.gg/tom-clancys-the-division-2/guides/division-2-every-new-exotic-weapon-and-gear-talent/",
+    "source_author": "Games.gg",
+    "source_date": "2026-04-04",
+    "verification": "fresh-source",
+    "source_note": "Новый Y8S1-архетип с тремя релизными экзотиками, комьюнити ещё итерирует по оптимальному Investor 3rd-атрибуту",
+    "popularity_score": 58
+  },
+  {
+    "id": "striker-hunters-fury-pvp-starter",
+    "name_ru": "Striker/Hunter's Fury PvP",
+    "name_en": "Striker Hunter's Fury PvP Starter",
+    "tier": "—",
+    "category": "pvp_general",
+    "tag_ru": "DZ + Conflict стартер",
+    "tag_en": "DZ + Conflict starter",
+    "weapon_en": "St. Elmo's Engine",
+    "weapon_class": "AR",
+    "gear_set": "Striker's Battlegear",
+    "gear_set_pieces": 3,
+    "chest_talent": "Perfect Unbreakable",
+    "bp_talent": "Perfect Adrenaline Rush",
+    "specialization": "Firewall",
+    "exotic_pieces": [
+      "St. Elmo's Engine (AR)",
+      "Chatterbox (SMG, secondary)"
+    ],
+    "named_pieces": [
+      "Fenris Hunter-Killer (Chest)",
+      "Ceska Backpack"
+    ],
+    "brands": [
+      "Striker's Battlegear 3pc",
+      "Hunter's Fury 1pc",
+      "Grupo Sombra 1pc",
+      "Ceska 1pc"
+    ],
+    "key_stats_target": {
+      "chc": {
+        "target": 50,
+        "min": 45,
+        "max": 55,
+        "note": "в PvP тяжело докачать до 60"
+      },
+      "chd": {
+        "target": 110,
+        "min": 85,
+        "max": 135
+      },
+      "wd": {
+        "target": 75,
+        "min": 60,
+        "max": 90
+      },
+      "hsd": {
+        "target": 80,
+        "min": 40,
+        "max": 120,
+        "note": "optional"
+      }
+    },
+    "expected_dps_peak_m": 0.4,
+    "description_ru": "Стартер-пример PvP для аудитории divcalc.xyz (в основном PvE). 3pc Striker + 1pc Hunter's Fury даёт слоистый бафф на AR и SMG, Perfect Unbreakable репейрит 95% брони при пробое (кулдаун 60 сек), Adrenaline Rush держит bonus armor. Firewall-спец безопаснее Gunner для новичков DZ/Conflict. НЕ мета-трайхард DZ (это Umbra/Ravenous/Capacitor Ninja) — универсальная база, а не топ-билд.",
+    "description_en": "Starter PvP example for a primarily PvE divcalc.xyz audience. 3pc Striker + 1pc Hunter's Fury layers buffs for AR and SMG, Perfect Unbreakable repairs 95% armor on break (60s CD), Adrenaline Rush maintains bonus armor. Firewall spec is safer than Gunner for DZ/Conflict newcomers. NOT the tryhard DZ meta (that is Umbra/Ravenous/Capacitor Ninja) — a universal baseline, not a peak build.",
+    "source_url": "https://overgear.com/guides/division-2/best-builds-for-any-activities/",
+    "source_author": "Overgear",
+    "source_date": "2026-04-07",
+    "verification": "community-consensus",
+    "source_note": "Это pvp_general стартер, не строгий мета-тир. Тир помечен как \"—\" по требованию задачи.",
+    "popularity_score": 75
   }
 ]

@@ -4609,26 +4609,50 @@ function openMetaBuilds(){
   const m = document.getElementById('meta-modal');
   if(!m) return;
   const MB = (typeof D2DATA!=='undefined' && D2DATA.META_BUILDS) || [];
-  const tierColor = {S:'#ef5350', A:'#f5a623', B:'#42a5f5'};
-  const cards = MB.map(b => `
+  const tierColor = {S:'#ef5350', A:'#f5a623', B:'#42a5f5', '—':'#888'};
+  const isEn = currentLang==='en';
+  const cards = MB.map(b => {
+    const name = isEn ? (b.name_en||b.name_ru||b.name) : (b.name_ru||b.name_en||b.name);
+    const tag = isEn ? (b.tag_en||b.tag) : (b.tag_ru||b.tag);
+    const desc = isEn ? (b.description_en||b.description_ru||b.desc) : (b.description_ru||b.description_en||b.desc);
+    const verifIcon = b.verification==='fresh-source' ? '✓' : (b.verification==='community-consensus' ? '~' : '');
+    const verifColor = b.verification==='fresh-source' ? 'var(--green)' : (b.verification==='community-consensus' ? 'var(--muted)' : 'var(--muted)');
+    const dps = b.expected_dps_peak_m ? `<span style="padding:3px 8px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.3);border-radius:10px;color:var(--red)">💥 ${b.expected_dps_peak_m}M ${isEn?'peak DPS':'пик DPS'}</span>` : '';
+    const spec = b.specialization ? `<span style="padding:3px 8px;background:rgba(171,71,188,.1);border:1px solid rgba(171,71,188,.3);border-radius:10px;color:var(--named)">${b.specialization}</span>` : '';
+    const stats = b.key_stats_target ? Object.entries(b.key_stats_target).map(([k,v])=>{
+      if(!v||typeof v!=='object') return '';
+      const t = v.target;
+      if(!t) return '';
+      return `<span style="font-size:10px;color:var(--muted)">${k.toUpperCase()} ${t}%${v.note?' <span style="color:#666" title="'+v.note+'">ⓘ</span>':''}</span>`;
+    }).filter(Boolean).join(' · ') : '';
+    const src = b.source_url ? `<a href="${b.source_url}" target="_blank" rel="noopener" style="color:var(--blue);font-size:10px;text-decoration:none">→ ${b.source_author||'source'} (${b.source_date||''})</a>` : '';
+    return `
     <div style="background:var(--card);border:1px solid var(--border);border-left:4px solid ${tierColor[b.tier]||'#888'};border-radius:8px;padding:14px;margin-bottom:10px">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;gap:8px">
-        <div>
-          <div style="font-size:14px;font-weight:700;color:var(--orange)">${b.name}</div>
-          <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.5px">${b.tag}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:14px;font-weight:700;color:var(--orange)">${escapeHtml(name||'?')}</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.5px">${escapeHtml(tag||'')}</div>
         </div>
-        <span style="background:${tierColor[b.tier]||'#888'};color:#000;padding:2px 10px;border-radius:10px;font-weight:700;font-size:12px">${b.tier} TIER</span>
+        <span style="background:${tierColor[b.tier]||'#888'};color:#000;padding:2px 10px;border-radius:10px;font-weight:700;font-size:12px">${b.tier||'—'}</span>
       </div>
-      <div style="font-size:12px;color:var(--text);line-height:1.4;margin:8px 0">${b.desc}</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:11px;margin:8px 0">
-        <span style="padding:3px 8px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);border-radius:10px;color:var(--orange)">🔫 ${b.wpn_en}</span>
-        <span style="padding:3px 8px;background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.3);border-radius:10px;color:var(--green)">📦 Сет: ${b.set_focus}</span>
-        <span style="padding:3px 8px;background:rgba(66,165,245,.1);border:1px solid rgba(66,165,245,.3);border-radius:10px;color:var(--blue)">${b.weapon_cat}</span>
+      <div style="font-size:12px;color:var(--text);line-height:1.4;margin:8px 0">${escapeHtml(desc||'')}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:11px;margin:8px 0">
+        <span style="padding:3px 8px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);border-radius:10px;color:var(--orange)">🔫 ${escapeHtml(b.weapon_en||'?')}</span>
+        <span style="padding:3px 8px;background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.3);border-radius:10px;color:var(--green)">📦 ${escapeHtml(b.gear_set||'?')}${b.gear_set_pieces?' '+b.gear_set_pieces+'pc':''}</span>
+        <span style="padding:3px 8px;background:rgba(66,165,245,.1);border:1px solid rgba(66,165,245,.3);border-radius:10px;color:var(--blue)">${escapeHtml(b.weapon_class||'?')}</span>
+        ${spec}
+        ${dps}
       </div>
-      <button class="mf-btn" onclick="loadMetaBuild('${b.id}')" style="background:var(--orange);color:#000;border:none;padding:6px 14px;font-weight:700;width:100%">Загрузить как пример</button>
-    </div>
-  `).join('');
-  document.getElementById('meta-list').innerHTML = cards || '<div style="padding:30px;text-align:center;color:var(--muted)">Мета-билды не загружены</div>';
+      ${stats?`<div style="padding:5px 8px;background:rgba(255,255,255,.02);border-radius:5px;font-size:10px;margin-bottom:6px;color:var(--muted)">🎯 ${stats}</div>`:''}
+      ${b.chest_talent||b.bp_talent?`<div style="font-size:10px;color:var(--muted);margin-bottom:6px">🎽 ${isEn?'Chest':'Нагрудник'}: <b>${escapeHtml(b.chest_talent||'—')}</b>${b.bp_talent?` · 🎒 ${isEn?'Backpack':'Рюкзак'}: <b>${escapeHtml(b.bp_talent)}</b>`:''}</div>`:''}
+      <div style="display:flex;gap:6px;align-items:center;justify-content:space-between">
+        <button class="mf-btn" onclick="loadMetaBuild('${b.id}')" style="background:var(--orange);color:#000;border:none;padding:6px 14px;font-weight:700;flex:1">${isEn?'Load as template':'Загрузить как пример'}</button>
+        ${src}
+      </div>
+      ${b.verification==='community-consensus'?`<div style="margin-top:6px;font-size:10px;color:${verifColor};font-style:italic">~ ${isEn?'Community consensus':'Консенсус сообщества'}${b.source_note?': '+escapeHtml(b.source_note):''}</div>`:''}
+    </div>`;
+  }).join('');
+  document.getElementById('meta-list').innerHTML = cards || `<div style="padding:30px;text-align:center;color:var(--muted)">${isEn?'No meta builds loaded':'Мета-билды не загружены'}</div>`;
   m.classList.add('open');
 }
 function closeMetaBuilds(){
@@ -4638,20 +4662,33 @@ function loadMetaBuild(id){
   const MB = (typeof D2DATA!=='undefined' && D2DATA.META_BUILDS) || [];
   const b = MB.find(x => x.id === id);
   if(!b) return;
-  // Find weapon by en
-  const wpnEntry = Object.entries(WPNS).find(([k, w]) => w.en === b.wpn_en);
+  const wpnEn = b.weapon_en || b.wpn_en;
+  const wpnEntry = Object.entries(WPNS).find(([k, w]) => w.en === wpnEn);
   if(wpnEntry){
     selectedWpnId = wpnEntry[0];
     updateWpnBtn();
-    calcBuild();
   }
+  // Pre-fill manual stats from targets
+  if(b.key_stats_target){
+    const setIn = (id,val) => { const el=document.getElementById(id); if(el&&val){ el.value=val; } };
+    const ks = b.key_stats_target;
+    if(ks.chc && ks.chc.target) setIn('b-chc', ks.chc.target);
+    if(ks.chd && ks.chd.target) setIn('b-chd', ks.chd.target);
+    if(ks.wd && ks.wd.target) setIn('b-wd', ks.wd.target);
+    if(ks.hsd && ks.hsd.target) setIn('b-hsd', ks.hsd.target);
+  }
+  calcBuild();
   closeMetaBuilds();
-  // Show hint about set
   const status = document.getElementById('b-share-status');
   if(status){
+    const isEn = currentLang==='en';
+    const nm = isEn ? (b.name_en||b.name_ru) : (b.name_ru||b.name_en);
+    const setName = b.gear_set || b.set_focus;
     status.style.color = 'var(--orange)';
-    status.innerHTML = `🎯 Загружен шаблон: <b>${b.name}</b>. Собери шмотки сета <b>${b.set_focus}</b> в слотах вручную.`;
-    setTimeout(()=>{status.innerHTML='';status.style.color='';}, 8000);
+    status.innerHTML = isEn
+      ? `🎯 Loaded template: <b>${escapeHtml(nm)}</b>. Gear up with <b>${escapeHtml(setName)}</b> set in slots manually.`
+      : `🎯 Загружен шаблон: <b>${escapeHtml(nm)}</b>. Собери шмотки сета <b>${escapeHtml(setName)}</b> в слотах вручную.`;
+    setTimeout(()=>{status.innerHTML='';status.style.color='';}, 10000);
   }
 }
 
