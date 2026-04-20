@@ -19,7 +19,11 @@ Disallow: /*.json$
 Disallow: /js_content.txt
 Disallow: /css_content.txt
 
-# Crawl rate friendly
+# Yandex / Bing поддерживают Crawl-delay (для Google игнорируется)
+User-agent: Yandex
+Crawl-delay: 1
+
+User-agent: Bingbot
 Crawl-delay: 1
 
 Sitemap: https://divcalc.xyz/sitemap.xml
