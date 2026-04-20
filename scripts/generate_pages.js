@@ -93,14 +93,19 @@ function loadSources() {
   return _SOURCES_CACHE;
 }
 
-// Render "Where to get" HTML block for item page (RU)
+// Render "Where to get" HTML block for item page (RU) — v3 sources
 function renderSourcesHtml(nameEn) {
   if (!nameEn) return '';
   const sources = loadSources();
   const data = sources[String(nameEn).toLowerCase().trim()];
-  if (!data || !data.sources || !data.sources.length) return '';
-  const typeLbl = {raid:'Рейд',mission:'Миссия',darkzone:'Тёмная зона',bounty:'Контракт',named_drop:'Именной NPC',manhunt:'Охота',dungeon:'Подземелье',project:'Проект',vendor:'Торговец',chest:'Контейнер',world_drop:'Мировой дроп',incursion:'Вторжение',global_event:'Глобальное событие',descent:'Спуск',other:'Другое'};
-  const iconMap = {raid:'👥',mission:'🎯',darkzone:'⚠',bounty:'💀',named_drop:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',chest:'📦',world_drop:'🌍',incursion:'⚡',global_event:'🎉',descent:'🏗',other:'✨'};
+  if (!data || !data.sources || !data.sources.length) {
+    return `<section class="sources" style="margin-top:14px">
+      <h2>📍 Где добыть</h2>
+      <p style="color:var(--muted);font-size:13px">🌍 Общий мировой дроп (любой контейнер лута)</p>
+    </section>`;
+  }
+  const typeLbl = {raid:'Рейд',mission:'Миссия',darkzone:'Тёмная зона',bounty:'Контракт',named_drop:'Именной NPC',named_npc:'Именной NPC',manhunt:'Охота',dungeon:'Подземелье',project:'Проект',vendor:'Торговец',chest:'Контейнер',world_drop:'Мировой дроп',incursion:'Вторжение',global_event:'Глобальное событие',event:'Ивент',event_cache:'Ивентовый тайник',season_reward:'Награда сезона',descent:'Спуск',other:'Другое'};
+  const iconMap = {raid:'👥',mission:'🎯',darkzone:'⚠',bounty:'💀',named_drop:'🎖',named_npc:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',chest:'📦',world_drop:'🌍',incursion:'⚡',global_event:'🎉',event:'🎉',event_cache:'🎁',season_reward:'🏆',descent:'🏗',other:'✨'};
   const byType = {};
   for (const s of data.sources) {
     const t = s.type || 'other';

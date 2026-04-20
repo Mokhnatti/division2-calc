@@ -576,16 +576,21 @@ function closeSlotModal(){
   curSlot=null;
 }
 function matchQ(txt,qs){return qs.every(q=>!q||txt.includes(q))}
-// Render "where to get" plaque for an item — uses D2DATA.SOURCES
+// Render "where to get" plaque for an item — uses D2DATA.SOURCES (v3)
 function renderSourceInfo(enName){
   if(!enName) return '';
   const SRC=(typeof D2DATA!=='undefined'&&D2DATA.SOURCES)||{};
   const data=SRC[String(enName).toLowerCase().trim()];
-  if(!data||!data.sources||!data.sources.length)return '';
   const isEn=currentLang==='en';
-  const iconMap={raid:'👥',mission:'🎯',darkzone:'⚠',bounty:'💀',named_drop:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',chest:'📦',world_drop:'🌍',incursion:'⚡',global_event:'🎉',descent:'🏗',other:'✨'};
-  const typeLbl={raid:isEn?'Raid':'Рейд',mission:isEn?'Mission':'Миссия',darkzone:isEn?'Dark Zone':'Тёмная зона',bounty:isEn?'Bounty':'Контракт',named_drop:isEn?'Named NPC':'Именной NPC',manhunt:isEn?'Manhunt':'Охота',dungeon:isEn?'Dungeon':'Подземелье',project:isEn?'Project':'Проект',vendor:isEn?'Vendor':'Торговец',chest:isEn?'Chest':'Контейнер',world_drop:isEn?'World Drop':'Мировой дроп',incursion:isEn?'Incursion':'Вторжение',global_event:isEn?'Global Event':'Глобальное событие',descent:isEn?'Descent':'Спуск',other:isEn?'Other':'Другое'};
-  // Group sources by type
+  // Fallback: item not in sources → "general world drop"
+  if(!data||!data.sources||!data.sources.length){
+    return `<div style="margin-top:6px;padding:6px 8px;background:rgba(117,117,117,.08);border-left:2px solid var(--muted);border-radius:4px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">${isEn?'Where to get':'Где добыть'}</div>
+      <div style="font-size:11px;color:var(--muted)">🌍 ${isEn?'General world drop (any loot container)':'Общий мировой дроп (любой лут)'}</div>
+    </div>`;
+  }
+  const iconMap={raid:'👥',mission:'🎯',darkzone:'⚠',bounty:'💀',named_drop:'🎖',named_npc:'🎖',manhunt:'🔫',dungeon:'🗡',project:'📋',vendor:'💰',chest:'📦',world_drop:'🌍',incursion:'⚡',global_event:'🎉',event:'🎉',event_cache:'🎁',season_reward:'🏆',descent:'🏗',other:'✨'};
+  const typeLbl={raid:isEn?'Raid':'Рейд',mission:isEn?'Mission':'Миссия',darkzone:isEn?'Dark Zone':'Тёмная зона',bounty:isEn?'Bounty':'Контракт',named_drop:isEn?'Named NPC':'Именной NPC',named_npc:isEn?'Named NPC':'Именной NPC',manhunt:isEn?'Manhunt':'Охота',dungeon:isEn?'Dungeon':'Подземелье',project:isEn?'Project':'Проект',vendor:isEn?'Vendor':'Торговец',chest:isEn?'Chest':'Контейнер',world_drop:isEn?'World Drop':'Мировой дроп',incursion:isEn?'Incursion':'Вторжение',global_event:isEn?'Global Event':'Глобальное событие',event:isEn?'Event':'Ивент',event_cache:isEn?'Event Cache':'Ивентовый тайник',season_reward:isEn?'Season Reward':'Награда сезона',descent:isEn?'Descent':'Спуск',other:isEn?'Other':'Другое'};
   const byType={};
   for(const s of data.sources){
     const t=s.type||'other';
@@ -594,8 +599,7 @@ function renderSourceInfo(enName){
   const rows=Object.entries(byType).map(([t,arr])=>{
     const icon=iconMap[t]||'•';
     const lbl=typeLbl[t]||t;
-    // Join unique names for this type
-    const names=[...new Set(arr.map(s=>isEn?(s.name_en||s.name_ru||''):(s.name_ru||s.name_en||'')))].filter(x=>x&&!x.startsWith('LT')&&!x.toLowerCase().startsWith('ltdrp')&&!x.toLowerCase().startsWith('ltref'));
+    const names=[...new Set(arr.map(s=>isEn?(s.name_en||s.name_ru||''):(s.name_ru||s.name_en||'')))].filter(x=>x&&!x.toLowerCase().startsWith('lt'));
     const namesStr=names.length?names.slice(0,5).join(', '):lbl;
     return `<div style="font-size:11px;line-height:1.5;margin:2px 0"><span style="color:var(--orange);font-weight:600">${icon} ${lbl}:</span> <span style="color:var(--muted)">${namesStr}</span></div>`;
   }).join('');
