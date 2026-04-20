@@ -1631,7 +1631,7 @@ function renderBuildCard(b,isLiked,showTrend){
       </div>
     </div>
     <div class="cc-meta">
-      <span class="cc-author" style="cursor:pointer;text-decoration:underline" onclick="showAuthorProfile('${escapeHtml(b.author||(isEn?'Anonymous':'Аноним')).replace(/'/g,"\\'")}')">${escapeHtml(b.author||(isEn?'Anonymous':'Аноним'))}</span>
+      <span class="cc-author" style="cursor:pointer;text-decoration:underline" onclick="showAuthorProfile('${escapeHtml(b.author||(isEn?'Anonymous':'Аноним')).replace(/'/g,"\\'")}')">${escapeHtml(isEn&&b.author==='Аноним'?'Anonymous':(b.author||(isEn?'Anonymous':'Аноним')))}</span>
       <span class="cc-time">· ${fmtAgo(b.created)}</span>
     </div>
     ${weapon}
