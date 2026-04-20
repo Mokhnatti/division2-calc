@@ -4589,12 +4589,57 @@ function renderFormulas(){
   // Damage mitigation by type
   html+=formulaBlock('damage_mitigation_type', T('🛡 Митигация по типам урона','🛡 Damage Mitigation per type'), '🛡');
 
+  // Specialization weapons
+  const SPEC=(typeof D2DATA!=='undefined'&&D2DATA.SPECIALIZATION_WEAPONS)||[];
+  if(SPEC.length){
+    const nameMap={
+      'player_weapon_sig_crossbow_v2': {ru:'Арбалет (Survivalist)', en:'Crossbow (Survivalist)'},
+      'player_weapon_sig_flamethrower': {ru:'Огнемёт (Firewall)', en:'Flamethrower (Firewall)'},
+      'Mounted_Weapon_Minigun': {ru:'Миниган (Gunner)', en:'Minigun (Gunner)'},
+    };
+    const specRows=SPEC.map(w=>{
+      const nm=nameMap[w.id]||{ru:w.id,en:w.id};
+      const s=w.stats||{};
+      if(!s.dmg_max&&!s.rpm&&!s.mag)return '';
+      const dmg=s.dmg_max?(s.dmg_max===s.dmg_min?s.dmg_max:`${s.dmg_min}-${s.dmg_max}`):'—';
+      const rpm=s.rpm||'—';
+      const mag=s.mag||'—';
+      const reload=s.reload_ms?(s.reload_ms/1000).toFixed(1)+'s':'—';
+      const range=s.range_optimal||'—';
+      const hsd=s.hsd?'×'+s.hsd:'—';
+      return `<tr>
+        <td style="padding:6px;font-weight:600;color:var(--named)">${isEn?nm.en:nm.ru}</td>
+        <td style="padding:6px">${dmg}</td><td style="padding:6px">${rpm}</td><td style="padding:6px">${mag}</td>
+        <td style="padding:6px">${reload}</td><td style="padding:6px">${range}m</td><td style="padding:6px">${hsd}</td>
+      </tr>`;
+    }).filter(Boolean).join('');
+    if(specRows){
+      html+=`<div class="bsect">
+        <h3>🎯 ${T('Специализация — signature weapons','Specialization — signature weapons')}</h3>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Уникальные пушки специализаций. Эти пушки ИМЕЮТ свою математику — калькулятор для обычных пушек их не учитывает.','Unique specialization weapons. These use their own math — the main calculator does not cover them.')}</div>
+        <div style="overflow-x:auto">
+        <table style="width:100%;font-size:12px;border-collapse:collapse">
+          <thead><tr style="border-bottom:1px solid var(--border);color:var(--muted)">
+            <th style="padding:6px;text-align:left">${T('Оружие','Weapon')}</th>
+            <th style="padding:6px;text-align:left">${T('Урон','Damage')}</th>
+            <th style="padding:6px;text-align:left">RPM</th>
+            <th style="padding:6px;text-align:left">${T('Маг','Mag')}</th>
+            <th style="padding:6px;text-align:left">${T('Перезар','Reload')}</th>
+            <th style="padding:6px;text-align:left">${T('Дист','Range')}</th>
+            <th style="padding:6px;text-align:left">HSD</th>
+          </tr></thead>
+          <tbody>${specRows}</tbody>
+        </table></div>
+      </div>`;
+    }
+  }
+
   // Source info
   html+=`<div class="bsect" style="background:rgba(66,165,245,.05);border-left:3px solid var(--blue)">
     <h3>📦 ${T('Источник данных','Data source')}</h3>
     <div style="font-size:12px;line-height:1.6">${T(
-      'Все формулы извлечены прямо из файлов игры Tom Clancy\'s The Division 2 (Year 8 Season 1 / TU22 «Rise Up», April 2026). Инструмент: Hunter v2.2.3. Обновляется после каждого патча.',
-      'All formulas extracted directly from Tom Clancy\'s The Division 2 game files (Year 8 Season 1 / TU22 "Rise Up", April 2026). Tool: Hunter v2.2.3. Updated each patch.'
+      'Все формулы извлечены прямо из файлов игры Tom Clancy\'s The Division 2 (Year 8 Season 1 / TU22 «Rise Up», April 2026). Инструмент: Hunter v2.2.3 enriched dump. Обновляется после каждого патча.',
+      'All formulas extracted directly from Tom Clancy\'s The Division 2 game files (Year 8 Season 1 / TU22 "Rise Up", April 2026). Tool: Hunter v2.2.3 enriched dump. Updated each patch.'
     )}</div>
   </div>`;
 

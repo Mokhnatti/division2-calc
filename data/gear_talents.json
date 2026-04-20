@@ -248,9 +248,12 @@
     "perfect_name_en": "Perfectly Tamper Proof",
     "perfect_name_ru": "Защита от взлома (идеальный)",
     "description": "Enemies that walk within 3m of your hive, turret, remote pulse, or decoy are shocked. \n\nArm time: 2 seconds\nCooldown per skill: 10 seconds (8 Seconds)",
-    "desc_ru": "На противников, оказавшихся в радиусе 3 м. от вашего улья, турели или дистанционного импульса, накладывается эффект шока. Время срабатывания: 2 сек. Восстановление на навык: 8 сек.",
+    "desc_ru": "Размещенные вами объекты навыков (ульи, турели, импульсные сенсоры) несут электрический заряд, вызывающий эффект шока у противников, подошедших слишком близко. Может срабатывать не чаще, чем раз в 10 сек.",
     "slot": "chest",
-    "set": null
+    "set": null,
+    "desc_en_filled": "Electrify your deployed skills (hive, turrets, pulse sensor) causing enemies wandering too close to be shocked. Can occur every 10 seconds.",
+    "desc_en": "Electrify your deployed skills (hive, turrets, pulse sensor) causing enemies wandering too close to be shocked. Can occur every 10 seconds.",
+    "desc_ru_filled": "Размещенные вами объекты навыков (ульи, турели, импульсные сенсоры) несут электрический заряд, вызывающий эффект шока у противников, подошедших слишком близко. Может срабатывать не чаще, чем раз в 10 сек."
   },
   {
     "id": "gt_reassigned",
@@ -602,7 +605,11 @@
     "description": "Ongoing Directive 4pc amplifier: Increases Hollow-Point Ammo damage from 20% to 50%. Does not apply to party members.",
     "slot": "chest",
     "set": null,
-    "name_ru": "Патроны для парабеллума"
+    "name_ru": "Патроны для парабеллума",
+    "desc_en_filled": "Increases Hollow-Point Ammo weapon damage amplification to 35%.",
+    "desc_en": "Increases Hollow-Point Ammo weapon damage amplification to 35%.",
+    "desc_ru_filled": "Дополнительный урон от оружия, даваемый экспансивными боеприпасами, увеличивается до 35%.",
+    "desc_ru": "Дополнительный урон от оружия, даваемый экспансивными боеприпасами, увеличивается до 35%."
   },
   {
     "id": "gt_ridgeway_bleeding",
@@ -778,7 +785,11 @@
     "description": "Eclipse Protocol: Status effects you apply spread to one additional enemy within 8m. Cooldown: 5s.",
     "slot": "chest",
     "set": "Eclipse Protocol",
-    "name_ru": "Пролиферация"
+    "name_ru": "Пролиферация",
+    "desc_en_filled": "Increases Indirect Transmission range from 5m to 7m and refresh percentage from 50% to 75%.",
+    "desc_en": "Increases Indirect Transmission range from 5m to 7m and refresh percentage from 50% to 75%.",
+    "desc_ru_filled": "Увеличение радиуса косвенной передачи с 5 м до 7 м, а процента продления эффекта - с 50% до75%.",
+    "desc_ru": "Увеличение радиуса косвенной передачи с 5 м до 7 м, а процента продления эффекта - с 50% до75%."
   },
   {
     "id": "gt_set_acesandeights_chest",
@@ -814,7 +825,11 @@
     "description": "Tipping Scales: Increase the Critical Hit Damage received per stack from 4% to 7%.",
     "slot": "chest",
     "set": "Tipping Scales",
-    "name_ru": "Снежный ком"
+    "name_ru": "Снежный ком",
+    "desc_en_filled": "Increase the Critical Hit Damage received per stack from 0.04 to 0.07.",
+    "desc_en": "Increase the Critical Hit Damage received per stack from 0.04 to 0.07.",
+    "desc_ru_filled": "Увеличение дополнительного урона от критических попаданий за каждый заряд с 0.04 до {2].",
+    "desc_ru": "Увеличение дополнительного урона от критических попаданий за каждый заряд с 0.04 до {2]."
   },
   {
     "id": "gt_set_ongoing_chest",
@@ -836,7 +851,11 @@
     "description": "Breaking Point: Increase On Point bonuses timer from 10s to 15s.",
     "slot": "chest",
     "set": "Breaking Point",
-    "name_ru": "Точка невозврата"
+    "name_ru": "Точка невозврата",
+    "desc_en_filled": "Increase On Point bonuses timer from 10s to 15s.",
+    "desc_en": "Increase On Point bonuses timer from 10s to 15s.",
+    "desc_ru_filled": "Увеличение длительности эффектов таланта В точку с 10 до 15 сек.",
+    "desc_ru": "Увеличение длительности эффектов таланта В точку с 10 до 15 сек."
   },
   {
     "id": "gt_set_cavalier_chest",
@@ -844,7 +863,11 @@
     "description": "Cavalier: Increases Charger max incoming damage protection to 70%.",
     "slot": "chest",
     "set": "Cavalier",
-    "name_ru": "Перезаряд"
+    "name_ru": "Перезаряд",
+    "desc_en_filled": "Increases Charging max incoming damage protection to 70%",
+    "desc_en": "Increases Charging max incoming damage protection to 70%",
+    "desc_ru_filled": "Повышение максимальной защиты от урона, даваемой талантом Зарядка, на 70%.",
+    "desc_ru": "Повышение максимальной защиты от урона, даваемой талантом Зарядка, на 70%."
   },
   {
     "id": "gt_set_concentrated_chest",
@@ -852,7 +875,11 @@
     "description": "Concentrated Company: Increase the amount of marks that can be placed from 4 to 8.",
     "slot": "chest",
     "set": "Concentrated Company",
-    "name_ru": "Все за одного"
+    "name_ru": "Все за одного",
+    "desc_en_filled": "Increase the amount of marks that can be placed from 0.04 to 0.08.",
+    "desc_en": "Increase the amount of marks that can be placed from 0.04 to 0.08.",
+    "desc_ru_filled": "Увеличение максимального количества одновременно наложенных меток с 0.04 до 0.08.",
+    "desc_ru": "Увеличение максимального количества одновременно наложенных меток с 0.04 до 0.08."
   },
   {
     "id": "gt_set_future_chest",
@@ -867,7 +894,11 @@
     "description": "Heartbreaker: Max stack is now 100.",
     "slot": "chest",
     "set": "Heartbreaker",
-    "name_ru": "Максимум ударов в минуту"
+    "name_ru": "Максимум ударов в минуту",
+    "desc_en_filled": "Increases max stacks for Heartstopper from 50 to 100.",
+    "desc_en": "Increases max stacks for Heartstopper from 50 to 100.",
+    "desc_ru_filled": "Увеличение максимального количества зарядов Сокрушителя сердец с 50 до 100.",
+    "desc_ru": "Увеличение максимального количества зарядов Сокрушителя сердец с 50 до 100."
   },
   {
     "id": "gt_set_hotshot_chest",
@@ -875,7 +906,11 @@
     "description": "Hotshot: Increases the duration of Apex Predator stacks from 10s to 30s.",
     "slot": "chest",
     "set": "Hotshot",
-    "name_ru": "Неутолимый голод"
+    "name_ru": "Неутолимый голод",
+    "desc_en_filled": "Increases the duration of Apex Predator stacks from 10s to 30s.",
+    "desc_en": "Increases the duration of Apex Predator stacks from 10s to 30s.",
+    "desc_ru_filled": "Увеличение длительности действия зарядов таланта Высший хищник с 10 сек. до 30 сек.",
+    "desc_ru": "Увеличение длительности действия зарядов таланта Высший хищник с 10 сек. до 30 сек."
   },
   {
     "id": "gt_set_huntersfury_chest",
@@ -883,7 +918,11 @@
     "description": "Hunter's Fury: Decrease the Overcharge cooldown from 40s to 25s.",
     "slot": "chest",
     "set": "Hunter's Fury",
-    "name_ru": "Коллективный разум"
+    "name_ru": "Коллективный разум",
+    "desc_en_filled": "Decrease the Overcharge cooldown from 40 to 25.",
+    "desc_en": "Decrease the Overcharge cooldown from 40 to 25.",
+    "desc_ru_filled": "Сокращает восстановление перезаряда с 40 до 25.",
+    "desc_ru": "Сокращает восстановление перезаряда с 40 до 25."
   },
   {
     "id": "gt_set_measured_chest",
@@ -898,7 +937,11 @@
     "description": "Ortiz: Exuro: Enemies set ablaze by the Ortiz Incinerator Turret Prototype ignite other enemies within 2m.",
     "slot": "chest",
     "set": "Ortiz: Exuro",
-    "name_ru": "Цепное горение"
+    "name_ru": "Цепное горение",
+    "desc_en_filled": "Enemies set on fire by the Ortiz Incinerator Turret Prototype ignite other enemies within 2m.",
+    "desc_en": "Enemies set on fire by the Ortiz Incinerator Turret Prototype ignite other enemies within 2m.",
+    "desc_ru_filled": "Враги, подожженные из прототипа огнеметной турели Ортис, поджигают соседних врагов в радиусе 2 м.",
+    "desc_ru": "Враги, подожженные из прототипа огнеметной турели Ортис, поджигают соседних врагов в радиусе 2 м."
   },
   {
     "id": "gt_set_refactor_chest",
@@ -906,7 +949,11 @@
     "description": "Refactor: Increase the damage buff from 25% to 50%.",
     "slot": "chest",
     "set": "Refactor",
-    "name_ru": "Лучшие друзья"
+    "name_ru": "Лучшие друзья",
+    "desc_en_filled": "Increase the damage buff from 25% to 50%",
+    "desc_en": "Increase the damage buff from 25% to 50%",
+    "desc_ru_filled": "Увеличение дополнительного урона с 25% до 50%.",
+    "desc_ru": "Увеличение дополнительного урона с 25% до 50%."
   },
   {
     "id": "gt_set_rigger_chest",
@@ -928,7 +975,11 @@
     "description": "Tip of the Spear: Increase the maximum number of stacks from 50 to 75.",
     "slot": "chest",
     "set": "Tip of the Spear",
-    "name_ru": "Автономность"
+    "name_ru": "Автономность",
+    "desc_en_filled": "Increase the maximum number of stacks from 50 to 75.",
+    "desc_en": "Increase the maximum number of stacks from 50 to 75.",
+    "desc_ru_filled": "Увеличение максимального количества зарядов с 50 до 75.",
+    "desc_ru": "Увеличение максимального количества зарядов с 50 до 75."
   },
   {
     "id": "gt_set_patriot_chest",
@@ -943,7 +994,11 @@
     "description": "Virtuoso: Double the weapon damage bonus from Symphony.",
     "slot": "chest",
     "set": "Virtuoso",
-    "name_ru": "Фортиссимо"
+    "name_ru": "Фортиссимо",
+    "desc_en_filled": "Double the Weapon Damage of Symphony.",
+    "desc_en": "Double the Weapon Damage of Symphony.",
+    "desc_ru_filled": "Удвоение урона от оружия, даваемого Симфонией.",
+    "desc_ru": "Удвоение урона от оружия, даваемого Симфонией."
   },
   {
     "id": "gt_hardened",
@@ -972,7 +1027,11 @@
     "description": "Killing an enemy with a grenade grants +30% weapon damage for 10s.",
     "slot": "backpack",
     "set": null,
-    "name_ru": "Салют фейерверков"
+    "name_ru": "Салют фейерверков",
+    "desc_en_filled": "Concussion Grenades become Festive Grenades.",
+    "desc_en": "Concussion Grenades become Festive Grenades.",
+    "desc_ru_filled": "Фугасные гранаты становятся новогодними.",
+    "desc_ru": "Фугасные гранаты становятся новогодними."
   },
   {
     "id": "gt_rebalance",
@@ -1162,7 +1221,11 @@
     "description": "Hard Wired: Skill kills reduce all skill cooldowns by 20%.",
     "slot": "backpack",
     "set": "Hard Wired",
-    "name_ru": "Обратная связь"
+    "name_ru": "Обратная связь",
+    "desc_en_filled": "Whenever you use or cancel a skill, your other skill’s cooldown is automatically reduced by 30s while increasing total skill damage and repair by 10% for 20s.",
+    "desc_en": "Whenever you use or cancel a skill, your other skill’s cooldown is automatically reduced by 30s while increasing total skill damage and repair by 10% for 20s.",
+    "desc_ru_filled": "Каждый раз, когда вы применяете или отменяете навык, время восстановления другого вашего навыка автоматически сокращается на 30 сек.; при этом вы получаете +10% к урону и ремонту от навыков сроком на 20 сек.",
+    "desc_ru": "Каждый раз, когда вы применяете или отменяете навык, время восстановления другого вашего навыка автоматически сокращается на 30 сек.; при этом вы получаете +10% к урону и ремонту от навыков сроком на 20 сек."
   },
   {
     "id": "gt_set_eclipse_bp",
@@ -1170,7 +1233,11 @@
     "description": "Eclipse Protocol: Enemies with 3 or more status effects take +20% weapon and skill damage.",
     "slot": "backpack",
     "set": "Eclipse Protocol",
-    "name_ru": "Обострение симптомов"
+    "name_ru": "Обострение симптомов",
+    "desc_en_filled": "Amplifies all damage you deal to status affected targets by 30%.",
+    "desc_en": "Amplifies all damage you deal to status affected targets by 30%.",
+    "desc_ru_filled": "Увеличение любого урона, наносимого вами противникам с негативными эффектами, на 30%.",
+    "desc_ru": "Увеличение любого урона, наносимого вами противникам с негативными эффектами, на 30%."
   },
   {
     "id": "gt_set_acesandeights_bp",
@@ -1178,7 +1245,11 @@
     "description": "Aces & Eights: Headshots deal +50% weapon damage when you have 8 stacks of Aces High.",
     "slot": "backpack",
     "set": "Aces & Eights",
-    "name_ru": "Рука мертвеца"
+    "name_ru": "Рука мертвеца",
+    "desc_en_filled": "Flip a card when landing shots with a Rifle or Marksman Rifle.",
+    "desc_en": "Flip a card when landing shots with a Rifle or Marksman Rifle.",
+    "desc_ru_filled": "Попадание из обычной или снайперской винтовки открывает карту.",
+    "desc_ru": "Попадание из обычной или снайперской винтовки открывает карту."
   },
   {
     "id": "gt_set_aegis_bp",
@@ -1214,7 +1285,11 @@
     "description": "Breaking Point: Increases On Point Weapon Damage bonus from 4% to 7.2%.",
     "slot": "backpack",
     "set": "Breaking Point",
-    "name_ru": "Точка в вопросе чести"
+    "name_ru": "Точка в вопросе чести",
+    "desc_en_filled": "Increase On Point Weapon Damage bonus from 4% to 7.2%.",
+    "desc_en": "Increase On Point Weapon Damage bonus from 4% to 7.2%.",
+    "desc_ru_filled": "Увеличение дополнительного урона от оружия, даваемого талантом В точку, с 4% до 7.2%.",
+    "desc_ru": "Увеличение дополнительного урона от оружия, даваемого талантом В точку, с 4% до 7.2%."
   },
   {
     "id": "gt_set_cavalier_bp",
@@ -1222,7 +1297,11 @@
     "description": "Cavalier: Charging gives 10% protection per second.",
     "slot": "backpack",
     "set": "Cavalier",
-    "name_ru": "Безопасная зарядка"
+    "name_ru": "Безопасная зарядка",
+    "desc_en_filled": "Charging gives 10% protection per second.",
+    "desc_en": "Charging gives 10% protection per second.",
+    "desc_ru_filled": "Зарядка дает 10% защиты в секунду.",
+    "desc_ru": "Зарядка дает 10% защиты в секунду."
   },
   {
     "id": "gt_set_concentrated_bp",
@@ -1230,7 +1309,11 @@
     "description": "Concentrated Company: Increase the Weapon Damage bonus per stack from 3% to 5%.",
     "slot": "backpack",
     "set": "Concentrated Company",
-    "name_ru": "Один за всех"
+    "name_ru": "Один за всех",
+    "desc_en_filled": "Increase the Weapon Damage bonus per stack from 3% to 5%.",
+    "desc_en": "Increase the Weapon Damage bonus per stack from 3% to 5%.",
+    "desc_ru_filled": "Увеличение дополнительного урона от оружия за каждый заряд с 3% до 5%.",
+    "desc_ru": "Увеличение дополнительного урона от оружия за каждый заряд с 3% до 5%."
   },
   {
     "id": "gt_set_future_bp",
@@ -1245,7 +1328,11 @@
     "description": "Heartbreaker: Stacks now supply +2% bonus armor.",
     "slot": "backpack",
     "set": "Heartbreaker",
-    "name_ru": "Хладнокровие"
+    "name_ru": "Хладнокровие",
+    "desc_en_filled": "Increases total bonus armor gained per stack of Heartstopper from 1% to 2%.",
+    "desc_en": "Increases total bonus armor gained per stack of Heartstopper from 1% to 2%.",
+    "desc_ru_filled": "Увеличение объема дополнительной брони, получаемой за каждый заряд Сокрушителя сердец, с 1% до 2%.",
+    "desc_ru": "Увеличение объема дополнительной брони, получаемой за каждый заряд Сокрушителя сердец, с 1% до 2%."
   },
   {
     "id": "gt_set_hotshot_bp",
@@ -1253,7 +1340,11 @@
     "description": "Hotshot: Increases the radius of disorient on Apex Predator kills from 5m to 10m.",
     "slot": "backpack",
     "set": "Hotshot",
-    "name_ru": "Всесокрущающая мощь"
+    "name_ru": "Всесокрущающая мощь",
+    "desc_en_filled": "Increases the radius of disorient on Apex Predator kills from 5m to 10m.",
+    "desc_en": "Increases the radius of disorient on Apex Predator kills from 5m to 10m.",
+    "desc_ru_filled": "Увеличение радиуса дезориентации противников, вызываемой талантом Высший хищник, с 5 м до 10 м.",
+    "desc_ru": "Увеличение радиуса дезориентации противников, вызываемой талантом Высший хищник, с 5 м до 10 м."
   },
   {
     "id": "gt_set_huntersfury_bp",
@@ -1261,7 +1352,11 @@
     "description": "Hunter's Fury: Decrease the cooldown for destroying Mortars and enemy skills from 10s to 1s.",
     "slot": "backpack",
     "set": "Hunter's Fury",
-    "name_ru": "Умная взаимосвязь"
+    "name_ru": "Умная взаимосвязь",
+    "desc_en_filled": "Decrease the cooldown for destroying Mortars and enemy Skills from 10 to 1.",
+    "desc_en": "Decrease the cooldown for destroying Mortars and enemy Skills from 10 to 1.",
+    "desc_ru_filled": "Сокращает восстановление за уничтожение минометов и объектов вражеских навыков с 10 до 1.",
+    "desc_ru": "Сокращает восстановление за уничтожение минометов и объектов вражеских навыков с 10 до 1."
   },
   {
     "id": "gt_set_measured_bp",
@@ -1276,7 +1371,11 @@
     "description": "Negotiator's Dilemma: Increases duration of bleed status effects by 50% and all bleed damage done by 100%.",
     "slot": "backpack",
     "set": "Negotiator's Dilemma",
-    "name_ru": "Травматолог"
+    "name_ru": "Травматолог",
+    "desc_en_filled": "Increases the duration of your bleed status effects by 50% and all bleed damage done by 1%.",
+    "desc_en": "Increases the duration of your bleed status effects by 50% and all bleed damage done by 1%.",
+    "desc_ru_filled": "Длительность вызываемого вами эффекта кровотечения увеличивается на 50%, а суммарный урон от него - на 1%.",
+    "desc_ru": "Длительность вызываемого вами эффекта кровотечения увеличивается на 50%, а суммарный урон от него - на 1%."
   },
   {
     "id": "gt_set_ortiz_bp",
@@ -1284,7 +1383,11 @@
     "description": "Ortiz: Exuro: +25% Weapon Damage to enemies set on fire by the Ortiz Incinerator Turret Prototype.",
     "slot": "backpack",
     "set": "Ortiz: Exuro",
-    "name_ru": "Тепловой удар"
+    "name_ru": "Тепловой удар",
+    "desc_en_filled": "+25% Weapon Damage to enemies set on fire by the Ortiz Incinerator Turret Prototype.",
+    "desc_en": "+25% Weapon Damage to enemies set on fire by the Ortiz Incinerator Turret Prototype.",
+    "desc_ru_filled": "Урон от оружия по врагам, которых поджег прототип огнеметной турели Ортис: +25%.",
+    "desc_ru": "Урон от оружия по врагам, которых поджег прототип огнеметной турели Ортис: +25%."
   },
   {
     "id": "gt_set_refactor_bp",
@@ -1292,7 +1395,11 @@
     "description": "Refactor: Cancelling your skills will reset their cooldown.",
     "slot": "backpack",
     "set": "Refactor",
-    "name_ru": "Безостановочная работа"
+    "name_ru": "Безостановочная работа",
+    "desc_en_filled": "Cancelling your skills will reset their cooldown",
+    "desc_en": "Cancelling your skills will reset their cooldown",
+    "desc_ru_filled": "При отмене навыка он восстанавливается мгновенно.",
+    "desc_ru": "При отмене навыка он восстанавливается мгновенно."
   },
   {
     "id": "gt_set_syscorrupt_bp",
@@ -1307,7 +1414,11 @@
     "description": "Virtuoso: Decreases the number of stacks needed to proc the Symphony double buffs from 4 to 3.",
     "slot": "backpack",
     "set": "Virtuoso",
-    "name_ru": "Акселерандо"
+    "name_ru": "Акселерандо",
+    "desc_en_filled": "Decrease the number of stacks needed to proc the Symphony double buffs from 4 to 3.",
+    "desc_en": "Decrease the number of stacks needed to proc the Symphony double buffs from 4 to 3.",
+    "desc_ru_filled": "Уменьшение количества зарядов, необходимого для удвоения эффектов Симфонии, с 4 до 3.",
+    "desc_ru": "Уменьшение количества зарядов, необходимого для удвоения эффектов Симфонии, с 4 до 3."
   },
   {
     "name_en": "Sheriffs Favor",
@@ -1318,7 +1429,9 @@
     "desc_ru": "Эффекты Руки мертвеца действуют на всех членов вашей команды или участников рейда",
     "desc_en": "Effects of Dead Man's Hand are applied to all of your Party/Raid members",
     "id": "talent_gearset_acesandeights_6piece",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Effects of Dead Man's Hand are applied to all of your Party/Raid members",
+    "desc_ru_filled": "Эффекты Руки мертвеца действуют на всех членов вашей команды или участников рейда"
   },
   {
     "name_en": "Over-engineered",
@@ -1326,10 +1439,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Over-engineered",
     "perfect_name_ru": "Идеальный Суперремонт",
-    "desc_ru": "При полном запасе брони Возврат отправителю дает вам дополнительную броню в размере до {0}% от максимума. Эффект не распространяется на союзников.",
-    "desc_en": "While at full Armor, repairs received from Return to Sender will provide Bonus Armor, up to {0}% of your Total Armor. Does not apply to allies.",
+    "desc_ru": "При полном запасе брони Возврат отправителю дает вам дополнительную броню в размере до 80% от максимума. Эффект не распространяется на союзников.",
+    "desc_en": "While at full Armor, repairs received from Return to Sender will provide Bonus Armor, up to 80% of your Total Armor. Does not apply to allies.",
     "id": "talent_gearset_backpack_over_engineered",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "While at full Armor, repairs received from Return to Sender will provide Bonus Armor, up to 80% of your Total Armor. Does not apply to allies.",
+    "desc_ru_filled": "При полном запасе брони Возврат отправителю дает вам дополнительную броню в размере до 80% от максимума. Эффект не распространяется на союзников."
   },
   {
     "name_en": "On Point",
@@ -1337,10 +1452,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect On Point",
     "perfect_name_ru": "Идеальный В точку",
-    "desc_ru": "Каждое попадание из обычной или полуавтоматической (снайперской) винтовки дает заряд эффектов. Максимальное число зарядов равно емкости магазина оружия. При перезарядке вы получаете +{0}% к эргономичности и +{1}% к урону от оружия за каждый заряд сроком на {2} сек.",
-    "desc_en": "Hitting a shot with a Rifle or MMR grants a stack. Max stack is equal to the weapon's Magazine Size. Reloading will grant +{0}% Weapon Handling and +{1}% Weapon Damage per stack, for {2}s.",
+    "desc_ru": "Каждое попадание из обычной или полуавтоматической (снайперской) винтовки дает заряд эффектов. Максимальное число зарядов равно емкости магазина оружия. При перезарядке вы получаете +2% к эргономичности и +4% к урону от оружия за каждый заряд сроком на 10 сек.",
+    "desc_en": "Hitting a shot with a Rifle or MMR grants a stack. Max stack is equal to the weapon's Magazine Size. Reloading will grant +2% Weapon Handling and +4% Weapon Damage per stack, for 10s.",
     "id": "talent_gearset_breaking_point_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Hitting a shot with a Rifle or MMR grants a stack. Max stack is equal to the weapon's Magazine Size. Reloading will grant +2% Weapon Handling and +4% Weapon Damage per stack, for 10s.",
+    "desc_ru_filled": "Каждое попадание из обычной или полуавтоматической (снайперской) винтовки дает заряд эффектов. Максимальное число зарядов равно емкости магазина оружия. При перезарядке вы получаете +2% к эргономичности и +4% к урону от оружия за каждый заряд сроком на 10 сек."
   },
   {
     "name_en": "Camaraderie",
@@ -1348,10 +1465,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Camaraderie",
     "perfect_name_ru": "Идеальный Товарищество",
-    "desc_ru": "Попадание в противника накладывает на него метку, действующую {0} сек.",
-    "desc_en": "Shooting an enemy marks them for {0}s.",
+    "desc_ru": "Попадание в противника накладывает на него метку, действующую 7 сек.",
+    "desc_en": "Shooting an enemy marks them for 7s.",
     "id": "talent_gearset_camaraderie_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Shooting an enemy marks them for 7s.",
+    "desc_ru_filled": "Попадание в противника накладывает на него метку, действующую 7 сек."
   },
   {
     "name_en": "Increased Interest",
@@ -1359,10 +1478,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Increased Interest",
     "perfect_name_ru": "Идеальный Повышенный интерес",
-    "desc_ru": "Увеличение ремонта, получаемого с помощью Возврата отправителю, с {2}% до {3}% и с {4}% до {5}%.",
-    "desc_en": "Increase the repairs received from Return to Sender from {2}% to {3}% and from {4}% to {5}%",
+    "desc_ru": "Увеличение ремонта, получаемого с помощью Возврата отправителю, с 5% до 15% и с 10% до 20%.",
+    "desc_en": "Increase the repairs received from Return to Sender from 5% to 15% and from 10% to 20%",
     "id": "talent_gearset_chest_increased_interest",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increase the repairs received from Return to Sender from 5% to 15% and from 10% to 20%",
+    "desc_ru_filled": "Увеличение ремонта, получаемого с помощью Возврата отправителю, с 5% до 15% и с 10% до 20%."
   },
   {
     "name_en": "Indirect Transmission",
@@ -1370,10 +1491,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Indirect Transmission",
     "perfect_name_ru": "Идеальный Косвенная передача",
-    "desc_ru": "Наложенные вами негативные эффекты при убийстве цели передаются всем противникам в радиусе {0} м. Действие эффектов при этом продлевается на {1}%.",
-    "desc_en": "Your status effects now spread on kill to all enemies within {0}m and refresh {1}% of the duration.",
+    "desc_ru": "Наложенные вами негативные эффекты при убийстве цели передаются всем противникам в радиусе 5 м. Действие эффектов при этом продлевается на 50%.",
+    "desc_en": "Your status effects now spread on kill to all enemies within 5m and refresh 50% of the duration.",
     "id": "talent_gearset_contagion_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Your status effects now spread on kill to all enemies within 5m and refresh 50% of the duration.",
+    "desc_ru_filled": "Наложенные вами негативные эффекты при убийстве цели передаются всем противникам в радиусе 5 м. Действие эффектов при этом продлевается на 50%."
   },
   {
     "name_en": "Core Exercise",
@@ -1381,10 +1504,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Core Exercise",
     "perfect_name_ru": "Идеальный Блок тренировки мышечного корсета",
-    "desc_ru": "Каждый блок вашего снаряжения повышает эффективность двух других блоков на {0}%.",
-    "desc_en": "For each Core on your Gear Pieces, receive {0}% of the other two Cores' bonuses.",
+    "desc_ru": "Каждый блок вашего снаряжения повышает эффективность двух других блоков на 40%.",
+    "desc_en": "For each Core on your Gear Pieces, receive 40% of the other two Cores' bonuses.",
     "id": "talent_gearset_courtesy_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "For each Core on your Gear Pieces, receive 40% of the other two Cores' bonuses.",
+    "desc_ru_filled": "Каждый блок вашего снаряжения повышает эффективность двух других блоков на 40%."
   },
   {
     "name_en": "Outer Core",
@@ -1395,7 +1520,9 @@
     "desc_ru": "Этот талант не оказывает прямого влияния на талант Блок тренировки мышечного корсета.",
     "desc_en": "This Talent does not provide a direct change to the Core Exercise Talent.",
     "id": "talent_gearset_courtesy_backpack",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "This Talent does not provide a direct change to the Core Exercise Talent.",
+    "desc_ru_filled": "Этот талант не оказывает прямого влияния на талант Блок тренировки мышечного корсета."
   },
   {
     "name_en": "Inner Core",
@@ -1403,10 +1530,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Inner Core",
     "perfect_name_ru": "Идеальный Внутренний блок",
-    "desc_ru": "Усиление преимуществ, получаемых от других блоков, с {0}% до {1}%.",
-    "desc_en": "Increase the percentage of the bonuses you receive from the other Cores from {0}% to {1}%.",
+    "desc_ru": "Усиление преимуществ, получаемых от других блоков, с 40% до 75%.",
+    "desc_en": "Increase the percentage of the bonuses you receive from the other Cores from 40% to 75%.",
     "id": "talent_gearset_courtesy_chest",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increase the percentage of the bonuses you receive from the other Cores from 40% to 75%.",
+    "desc_ru_filled": "Усиление преимуществ, получаемых от других блоков, с 40% до 75%."
   },
   {
     "name_en": "From the Shadows",
@@ -1414,10 +1543,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect From the Shadows",
     "perfect_name_ru": "Идеальный Из тени",
-    "desc_ru": "Находясь в укрытии, вы получаете заряды эффекта по {0} в секунду, суммарно до {1}. Каждый заряд увеличивает критический урон на {2}% и скорострельность на {3}%.",
-    "desc_en": "While in cover, gain {0} Stacks per second up to {1}. Each stack will give {2}% Critical damage increase and {3}% RPM.",
+    "desc_ru": "Увеличение максимального количества зарядов эффекта Из тени с 50 до 100 и повышение скорости их получения с 10 до 20.",
+    "desc_en": "Increases max stacks for From the Shadows from 50 to 100 and stack gain from 10 to 20.",
     "id": "talent_gearset_from_the_shadows_into_the_light",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increases max stacks for From the Shadows from 50 to 100 and stack gain from 10 to 20.",
+    "desc_ru_filled": "Увеличение максимального количества зарядов эффекта Из тени с 50 до 100 и повышение скорости их получения с 10 до 20."
   },
   {
     "name_en": "Into the Light",
@@ -1425,10 +1556,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Into the Light",
     "perfect_name_ru": "Идеальный В свет",
-    "desc_ru": "Увеличение максимального количества зарядов эффекта В свет с {0} до {1}, повышение скорости их получения с {2} до {3}, а также повышение скорости их расхода с {4} до {5}.",
-    "desc_en": "Increases max stacks for Into the Light from {0} to {1}, stack gain from {2} to {3} and stack consumption from {4} to {5}.",
+    "desc_ru": "Увеличение максимального количества зарядов эффекта В свет с 50 до 100, повышение скорости их получения с 10 до 20, а также повышение скорости их расхода с 10 до 20.",
+    "desc_en": "Increases max stacks for Into the Light from 50 to 100, stack gain from 10 to 20 and stack consumption from 10 to 20.",
     "id": "talent_gearset_from_the_shadows_into_the_light_backpack",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increases max stacks for Into the Light from 50 to 100, stack gain from 10 to 20 and stack consumption from 10 to 20.",
+    "desc_ru_filled": "Увеличение максимального количества зарядов эффекта В свет с 50 до 100, повышение скорости их получения с 10 до 20, а также повышение скорости их расхода с 10 до 20."
   },
   {
     "name_en": "Headache",
@@ -1439,7 +1572,9 @@
     "desc_ru": "Первое попадание в голову из снайперской винтовки увеличивает урон от следующего попадания в голову на 20%. Второе подряд попадание в голову из снайперской винтовки увеличивает броню на 10% (при полной броне дает дополнительную броню в размере до 50% от текущего значения). Третье подряд попадание в голову заполняет магазин оружия.",
     "desc_en": "First Headshot with a MR will increase next headshot by 20%, second consecutive headshot with a MR will give +10% armor (if at full armor it will give bonus armor max +50% of current armor value), third consecutive headshot will refill magazine.",
     "id": "talent_gearset_hotshot_headache",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "First Headshot with a MR will increase next headshot by 20%, second consecutive headshot with a MR will give +10% armor (if at full armor it will give bonus armor max +50% of current armor value), third consecutive headshot will refill magazine.",
+    "desc_ru_filled": "Первое попадание в голову из снайперской винтовки увеличивает урон от следующего попадания в голову на 20%. Второе подряд попадание в голову из снайперской винтовки увеличивает броню на 10% (при полной броне дает дополнительную броню в размере до 50% от текущего значения). Третье подряд попадание в голову заполняет магазин оружия."
   },
   {
     "name_en": "Blessed",
@@ -1450,7 +1585,9 @@
     "desc_ru": "Агент может промахнуться при выстреле в голову, и цикл не обнулится.",
     "desc_en": "Agents can miss a headshot before resetting the cycle.",
     "id": "talent_gearset_hotshot_headache_backpack",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Agents can miss a headshot before resetting the cycle.",
+    "desc_ru_filled": "Агент может промахнуться при выстреле в голову, и цикл не обнулится."
   },
   {
     "name_en": "Daring",
@@ -1461,7 +1598,9 @@
     "desc_ru": "Увеличение дополнительной брони с 50% до 100%",
     "desc_en": "Increase bonus armor from 50% to 100%",
     "id": "talent_gearset_hotshot_headache_chest",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increase bonus armor from 50% to 100%",
+    "desc_ru_filled": "Увеличение дополнительной брони с 50% до 100%"
   },
   {
     "name_en": "Chain Killer",
@@ -1469,10 +1608,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Chain Killer",
     "perfect_name_ru": "Идеальный Серийный убийца",
-    "desc_ru": "После нанесения урона противнику вы наносите на {0}% больше урона в течение {1} сек. Убийство противника возобновляет действие эффекта. Восстановление: {2} сек.",
-    "desc_en": "Damaging an enemy gives {0}% bonus damage for {1}s. Killing an enemy refreshes the duration of the bonus. Cooldown {2}s.",
+    "desc_ru": "После нанесения урона противнику вы наносите на 25% больше урона в течение 10 сек. Убийство противника возобновляет действие эффекта. Восстановление: 30 сек.",
+    "desc_en": "Damaging an enemy gives 25% bonus damage for 10s. Killing an enemy refreshes the duration of the bonus. Cooldown 30s.",
     "id": "talent_gearset_hunter_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Damaging an enemy gives 25% bonus damage for 10s. Killing an enemy refreshes the duration of the bonus. Cooldown 30s.",
+    "desc_ru_filled": "После нанесения урона противнику вы наносите на 25% больше урона в течение 10 сек. Убийство противника возобновляет действие эффекта. Восстановление: 30 сек."
   },
   {
     "name_en": "Chain Killer - Chest",
@@ -1480,10 +1621,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Chain Killer - Chest",
     "perfect_name_ru": "Идеальный Серийный убийца - нагрудник",
-    "desc_ru": "Длительность увеличивается с {0} сек. до {1} сек. Время восстановления сокращается с {2} сек. до {3} сек.",
-    "desc_en": "Duration increased from {0}s to {1}s. Cooldown reduced from {2}s to {3}s",
+    "desc_ru": "Дополнительный урон увеличивается с 25% до 40%.",
+    "desc_en": "Bonus damage increased from 25% to 40%.",
     "id": "talent_gearset_hunter_backpack",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Bonus damage increased from 25% to 40%.",
+    "desc_ru_filled": "Дополнительный урон увеличивается с 25% до 40%."
   },
   {
     "name_en": "Tend and Befriend",
@@ -1491,10 +1634,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Tend and Befriend",
     "perfect_name_ru": "Идеальный Забота и поддержка",
-    "desc_ru": "Взаимодействие с устройством, созданным вашим навыком, увеличивает урон от навыка на {0}% сроком на {1} сек. Действие этого усиления не может быть обновлено.",
-    "desc_en": "Interacting with your deployed skills grants the skill {0}% skill damage for {1}s. This buff cannot be refreshed.",
+    "desc_ru": "Взаимодействие с устройством, созданным вашим навыком, увеличивает урон от навыка на 25% сроком на 10 сек. Действие этого усиления не может быть обновлено.",
+    "desc_en": "Interacting with your deployed skills grants the skill 25% skill damage for 10s. This buff cannot be refreshed.",
     "id": "talent_gearset_minionmancer_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Interacting with your deployed skills grants the skill 25% skill damage for 10s. This buff cannot be refreshed.",
+    "desc_ru_filled": "Взаимодействие с устройством, созданным вашим навыком, увеличивает урон от навыка на 25% сроком на 10 сек. Действие этого усиления не может быть обновлено."
   },
   {
     "name_en": "Hostile Negotiations",
@@ -1502,10 +1647,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Hostile Negotiations",
     "perfect_name_ru": "Идеальный Агрессивные переговоры",
-    "desc_ru": "Критическое попадание отмечает цель сроком на {0} сек. Одновременно может быть отмечено до {1} целей.",
-    "desc_en": "Critical hits mark enemies for {0}s, up to {1} marks total.",
+    "desc_ru": "Критическое попадание отмечает цель сроком на 20 сек. Одновременно может быть отмечено до 3 целей.",
+    "desc_en": "Critical hits mark enemies for 20s, up to 3 marks total.",
     "id": "talent_gearset_negotiatorsdilemma_6piece",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Critical hits mark enemies for 20s, up to 3 marks total.",
+    "desc_ru_filled": "Критическое попадание отмечает цель сроком на 20 сек. Одновременно может быть отмечено до 3 целей."
   },
   {
     "name_en": "Rules of Engagement",
@@ -1516,7 +1663,9 @@
     "desc_ru": "При стрельбе по противникам, на которых действуют негативные эффекты, на них ставятся метки.",
     "desc_en": "Shooting a status affected enemy will apply a mark.",
     "id": "talent_gearset_ongoingdirective_6piece",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Shooting a status affected enemy will apply a mark.",
+    "desc_ru_filled": "При стрельбе по противникам, на которых действуют негативные эффекты, на них ставятся метки."
   },
   {
     "name_en": "Ortiz Incinerator Turret Prototype",
@@ -1527,7 +1676,9 @@
     "desc_ru": "Огнеметная турель поворачивается на 360 °.",
     "desc_en": "The Incinerator Turret spins 360°.",
     "id": "talent_gearset_ortizexuro_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "The Incinerator Turret spins 360°.",
+    "desc_ru_filled": "Огнеметная турель поворачивается на 360 °."
   },
   {
     "name_en": "Charging",
@@ -1538,7 +1689,9 @@
     "desc_ru": "Зарядка",
     "desc_en": "Charging",
     "id": "talent_gearset_paladin_charger",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Charging",
+    "desc_ru_filled": "Зарядка"
   },
   {
     "name_en": "Heartstopper",
@@ -1546,10 +1699,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Heartstopper",
     "perfect_name_ru": "Идеальный Сокрушитель сердец",
-    "desc_ru": "Попадания в голову отмечают противников импульсами на {0} сек.",
-    "desc_en": "Headshots apply pulse for {0}s.",
+    "desc_ru": "Попадания в голову отмечают противников импульсами на 5 сек.",
+    "desc_en": "Headshots apply pulse for 5s.",
     "id": "talent_gearset_season08_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Headshots apply pulse for 5s.",
+    "desc_ru_filled": "Попадания в голову отмечают противников импульсами на 5 сек."
   },
   {
     "name_en": "Apex Predator",
@@ -1557,10 +1712,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Apex Predator",
     "perfect_name_ru": "Идеальный Высший хищник",
-    "desc_ru": "На противников в радиусе {0} м накладывается ослабление, которое увеличивает наносимый им вами урон от оружия на {1}%.",
-    "desc_en": "Enemies within {0}m receive a debuff, amplifying your weapon damage against them by {1}%.",
+    "desc_ru": "На противников в радиусе 15 м накладывается ослабление, которое увеличивает наносимый им вами урон от оружия на 20%.",
+    "desc_en": "Enemies within 15m receive a debuff, amplifying your weapon damage against them by 20%.",
     "id": "talent_gearset_shocktrooper_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Enemies within 15m receive a debuff, amplifying your weapon damage against them by 20%.",
+    "desc_ru_filled": "На противников в радиусе 15 м накладывается ослабление, которое увеличивает наносимый им вами урон от оружия на 20%."
   },
   {
     "name_en": "Stoic",
@@ -1568,10 +1725,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Stoic",
     "perfect_name_ru": "Идеальный Стоик",
-    "desc_ru": "Ваше сопротивление урону повышается на {1}% за каждого врага, который целится в вас. Эффект суммируется до {3} раз.",
-    "desc_en": "Get +{1}% Damage Resistance for every enemy that is targeting you. Max stack is {3}.",
+    "desc_ru": "Ваше сопротивление урону повышается на 4% за каждого врага, который целится в вас. Эффект суммируется до 8 раз.",
+    "desc_en": "Get +4% Damage Resistance for every enemy that is targeting you. Max stack is 8.",
     "id": "talent_gearset_stoic_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Get +4% Damage Resistance for every enemy that is targeting you. Max stack is 8.",
+    "desc_ru_filled": "Ваше сопротивление урону повышается на 4% за каждого врага, который целится в вас. Эффект суммируется до 8 раз."
   },
   {
     "name_en": "Polyethylene Plating",
@@ -1579,10 +1738,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Polyethylene Plating",
     "perfect_name_ru": "Идеальный Полиэтиленовые пластины",
-    "desc_ru": "Дополнительное сопротивление урону, связанное с талантом Стоик, повышается с {0}% до {1}%.",
-    "desc_en": "Increase Stoic Damage Resistance bonus from {0}% to {1}%.",
+    "desc_ru": "Дополнительное сопротивление урону, связанное с талантом Стоик, повышается с 4% до 5%.",
+    "desc_en": "Increase Stoic Damage Resistance bonus from 4% to 5%.",
     "id": "talent_gearset_stoic_back",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increase Stoic Damage Resistance bonus from 4% to 5%.",
+    "desc_ru_filled": "Дополнительное сопротивление урону, связанное с талантом Стоик, повышается с 4% до 5%."
   },
   {
     "name_en": "Deceit",
@@ -1593,7 +1754,9 @@
     "desc_ru": "Враги, которые целятся в вашу обманку, также повышают дополнительную сопротивляемость урону, которую дает талант Стоик.",
     "desc_en": "Enemies targeting your Decoy also count towards the Stoic Damage Resistance bonus.",
     "id": "talent_gearset_stoic_chest",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Enemies targeting your Decoy also count towards the Stoic Damage Resistance bonus.",
+    "desc_ru_filled": "Враги, которые целятся в вашу обманку, также повышают дополнительную сопротивляемость урону, которую дает талант Стоик."
   },
   {
     "name_en": "Huddle",
@@ -1604,7 +1767,9 @@
     "desc_ru": "Вы получаете +1 уровень навыка за каждого дружественного агента, находящегося в радиусе действия вашего улья или умного укрытия.",
     "desc_en": "Receive +1 Skill Tier for each ally Agent that is within the range of you Hive or Smart Cover.",
     "id": "talent_gearset_team_fortress_4piece",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Receive +1 Skill Tier for each ally Agent that is within the range of you Hive or Smart Cover.",
+    "desc_ru_filled": "Вы получаете +1 уровень навыка за каждого дружественного агента, находящегося в радиусе действия вашего улья или умного укрытия."
   },
   {
     "name_en": "Throttle Control",
@@ -1612,10 +1777,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Throttle Control",
     "perfect_name_ru": "Идеальный Контроль тяги",
-    "desc_ru": "Выстрелы накладывают заряды эффекта, пока их число не достигнет {0}. Каждый заряд дает +{1}% к эргономичности оружия и +{2}% к урону от критических попаданий.",
-    "desc_en": "Shooting builds stacks to a max of {0}. Each stack provides +{1}% Weapon Handling and +{2}% Critical Hit Damage.",
+    "desc_ru": "Выстрелы накладывают заряды эффекта, пока их число не достигнет 50. Каждый заряд дает +0.5% к эргономичности оружия и +4% к урону от критических попаданий.",
+    "desc_en": "Shooting builds stacks to a max of 50. Each stack provides +0.5% Weapon Handling and +4% Critical Hit Damage.",
     "id": "talent_gearset_throttle_control_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Shooting builds stacks to a max of 50. Each stack provides +0.5% Weapon Handling and +4% Critical Hit Damage.",
+    "desc_ru_filled": "Выстрелы накладывают заряды эффекта, пока их число не достигнет 50. Каждый заряд дает +0.5% к эргономичности оружия и +4% к урону от критических попаданий."
   },
   {
     "name_en": "Electromagnetic Trigger",
@@ -1626,7 +1793,9 @@
     "desc_ru": "Арбалетные стрелы оснащены взрывчаткой с датчиками приближения.",
     "desc_en": "Crossbow bolts are equipped with proximity detonators.",
     "id": "talent_gearset_tipofthespear_5piece",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Crossbow bolts are equipped with proximity detonators.",
+    "desc_ru_filled": "Арбалетные стрелы оснащены взрывчаткой с датчиками приближения."
   },
   {
     "name_en": "Aggressive Recon",
@@ -1634,10 +1803,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Aggressive Recon",
     "perfect_name_ru": "Идеальный Разведка боем",
-    "desc_ru": "Убийство противника фирменным оружием дает +{0}% к урону от фирменного оружия сроком на {1} сек. и +{4}% к скорости перезарядки для следующей перезарядки оружия (эффекты не суммируются).",
-    "desc_en": "Getting a Signature Weapon kill gives +{0}% Signature Weapon Damage for {1}s and +{4}% Reload Speed for the next reload of the weapon (the bonuses do not stack).",
+    "desc_ru": "Убийство противника фирменным оружием дает +15% к урону от фирменного оружия сроком на 10 сек. и +25% к скорости перезарядки для следующей перезарядки оружия (эффекты не суммируются).",
+    "desc_en": "Getting a Signature Weapon kill gives +15% Signature Weapon Damage for 10s and +25% Reload Speed for the next reload of the weapon (the bonuses do not stack).",
     "id": "talent_gearset_tipofthespear_6piece",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Getting a Signature Weapon kill gives +15% Signature Weapon Damage for 10s and +25% Reload Speed for the next reload of the weapon (the bonuses do not stack).",
+    "desc_ru_filled": "Убийство противника фирменным оружием дает +15% к урону от фирменного оружия сроком на 10 сек. и +25% к скорости перезарядки для следующей перезарядки оружия (эффекты не суммируются)."
   },
   {
     "name_en": "Red, White and Blue",
@@ -1645,10 +1816,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Red, White and Blue",
     "perfect_name_ru": "Идеальный Красное, белое и синее",
-    "desc_ru": "Ваши выстрелы накладывают на цель ослабления, чередующиеся в следующем порядке: красное, белое, синее. Они сменяют друг друга каждые {0} сек.",
-    "desc_en": "Every {0}s, enemies you shoot receive a stacking debuff of Red, White and Blue.",
+    "desc_ru": "Ваши выстрелы накладывают на цель ослабления, чередующиеся в следующем порядке: красное, белое, синее. Они сменяют друг друга каждые 2 сек.",
+    "desc_en": "Every 2s, enemies you shoot receive a stacking debuff of Red, White and Blue.",
     "id": "talent_gearset_truepatriot_5piece",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Every 2s, enemies you shoot receive a stacking debuff of Red, White and Blue.",
+    "desc_ru_filled": "Ваши выстрелы накладывают на цель ослабления, чередующиеся в следующем порядке: красное, белое, синее. Они сменяют друг друга каждые 2 сек."
   },
   {
     "name_en": "Full Flag",
@@ -1656,10 +1829,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Full Flag",
     "perfect_name_ru": "Идеальный Целый флаг",
-    "desc_ru": "Любой, кто выстрелит в цель, на которую наложены все три ослабления, также нанесет {0}% урона другим соседним противникам, на которых действует хотя бы одно ослабление.",
-    "desc_en": "Anyone dealing damage to an enemy that has all three debuffs will deal {0}% damage to other nearby enemies that have at least one of the debuffs.",
+    "desc_ru": "Любой, кто выстрелит в цель, на которую наложены все три ослабления, также нанесет 50% урона другим соседним противникам, на которых действует хотя бы одно ослабление.",
+    "desc_en": "Anyone dealing damage to an enemy that has all three debuffs will deal 50% damage to other nearby enemies that have at least one of the debuffs.",
     "id": "talent_gearset_truepatriot_6piece",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Anyone dealing damage to an enemy that has all three debuffs will deal 50% damage to other nearby enemies that have at least one of the debuffs.",
+    "desc_ru_filled": "Любой, кто выстрелит в цель, на которую наложены все три ослабления, также нанесет 50% урона другим соседним противникам, на которых действует хотя бы одно ослабление."
   },
   {
     "name_en": "Urban Disruption",
@@ -1667,10 +1842,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Urban Disruption",
     "perfect_name_ru": "Идеальный Городской диверсант",
-    "desc_ru": "Сопротивление заморозке {0}%. {1}% дополнительного урона целям, на которые действует заморозка.",
-    "desc_en": "{0}% Disrupt Resistance. {1}% DMG bonus to Disrupted targets.",
+    "desc_ru": "Сопротивление заморозке 1%. 10% дополнительного урона целям, на которые действует заморозка.",
+    "desc_en": "1% Disrupt Resistance. 10% DMG bonus to Disrupted targets.",
     "id": "talent_gearset_urban_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "1% Disrupt Resistance. 10% DMG bonus to Disrupted targets.",
+    "desc_ru_filled": "Сопротивление заморозке 1%. 10% дополнительного урона целям, на которые действует заморозка."
   },
   {
     "name_en": "Urban Disruption - Backpack",
@@ -1678,10 +1855,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Urban Disruption - Backpack",
     "perfect_name_ru": "Идеальный Городской диверсант - рюкзак",
-    "desc_ru": "Увеличение дополнительного урона целям, на которые действует заморозка, с {0}% до {1}%.",
-    "desc_en": "Increase DMG to Disrupted targets from {0}% to {1}%",
+    "desc_ru": "Увеличение дополнительного урона целям, на которые действует заморозка, с 10% до 25%.",
+    "desc_en": "Increase DMG to Disrupted targets from 10% to 25%",
     "id": "talent_gearset_urban_backpack",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increase DMG to Disrupted targets from 10% to 25%",
+    "desc_ru_filled": "Увеличение дополнительного урона целям, на которые действует заморозка, с 10% до 25%."
   },
   {
     "name_en": "Urban Disruption - Chest",
@@ -1689,10 +1868,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Urban Disruption - Chest",
     "perfect_name_ru": "Идеальный Городской диверсант - нагрудник",
-    "desc_ru": "Увеличение радиуса электромагнитного импульса с {0} м до {1} м.",
-    "desc_en": "Increase EMP Radius from {0}m to {1}m",
+    "desc_ru": "Увеличение радиуса электромагнитного импульса с 20 м до 30 м.",
+    "desc_en": "Increase EMP Radius from 20m to 30m",
     "id": "talent_gearset_urban_chest",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increase EMP Radius from 20m to 30m",
+    "desc_ru_filled": "Увеличение радиуса электромагнитного импульса с 20 м до 30 м."
   },
   {
     "name_en": "Symphony",
@@ -1700,10 +1881,12 @@
     "slot": "chest",
     "perfect_name_en": "Perfect Symphony",
     "perfect_name_ru": "Идеальный Симфония",
-    "desc_ru": "Убийство противника с расстояния более {0} м дает +{1}% к урону от оружия для дробовиков, пистолетов-пулеметов и пистолетов, +{3}% к урону от оружия для штурмовых винтовок и ручных пулеметов, а также {4}% дополнительной брони сроком на {6} сек.",
-    "desc_en": "Killing an enemy further than {0}m will provide +{1}% Weapon Damage to Shotguns, SMG's and Pistols, +{3}% Weapon Damage to AR's and LMG's and {4}% Bonus Armor for {6}s.",
+    "desc_ru": "Убийство противника с расстояния более 25 м дает +40% к урону от оружия для дробовиков, пистолетов-пулеметов и пистолетов, +20% к урону от оружия для штурмовых винтовок и ручных пулеметов, а также 25% дополнительной брони сроком на 15 сек.",
+    "desc_en": "Killing an enemy further than 25m will provide +40% Weapon Damage to Shotguns, SMG's and Pistols, +20% Weapon Damage to AR's and LMG's and 25% Bonus Armor for 15s.",
     "id": "talent_gearset_virtuoso_4pc",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Killing an enemy further than 25m will provide +40% Weapon Damage to Shotguns, SMG's and Pistols, +20% Weapon Damage to AR's and LMG's and 25% Bonus Armor for 15s.",
+    "desc_ru_filled": "Убийство противника с расстояния более 25 м дает +40% к урону от оружия для дробовиков, пистолетов-пулеметов и пистолетов, +20% к урону от оружия для штурмовых винтовок и ручных пулеметов, а также 25% дополнительной брони сроком на 15 сек."
   },
   {
     "name_en": "Robust",
@@ -1714,7 +1897,9 @@
     "desc_ru": "В укрытии прочность брони повышается на {0}%",
     "desc_en": "You have {0}% more armor while in cover",
     "id": "gear_talent_cover_buffs_armour",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "You have {0}% more armor while in cover",
+    "desc_ru_filled": "В укрытии прочность брони повышается на {0}%"
   },
   {
     "name_en": "Steadfast",
@@ -1725,7 +1910,9 @@
     "desc_ru": "В укрытии восстановление здоровья ускоряется вдвое",
     "desc_en": "While in cover, health regeneration kicks in twice as fast",
     "id": "gear_talent_cover_faster_regen_start",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "While in cover, health regeneration kicks in twice as fast",
+    "desc_ru_filled": "В укрытии восстановление здоровья ускоряется вдвое"
   },
   {
     "name_en": "Carefree",
@@ -1736,7 +1923,9 @@
     "desc_ru": "Урон при стрельбе от бедра повышается на {0}%.",
     "desc_en": "Hipfire damage is increased by {0}%",
     "id": "gear_talent_damage_increased_hipfire",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Hipfire damage is increased by {0}%",
+    "desc_ru_filled": "Урон при стрельбе от бедра повышается на {0}%."
   },
   {
     "name_en": "Elevated",
@@ -1747,7 +1936,9 @@
     "desc_ru": "Если вы находитесь выше цели более чем на 1,2 м, то ваш урон по ней повышается на {0}%.",
     "desc_en": "Increase your damage by {0}% when elevated more than 1.2 meters above your target",
     "id": "gear_talent_damage_increased_lower_elevation",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Increase your damage by {0}% when elevated more than 1.2 meters above your target",
+    "desc_ru_filled": "Если вы находитесь выше цели более чем на 1,2 м, то ваш урон по ней повышается на {0}%."
   },
   {
     "name_en": "Providence Talent: Well Rounded",
@@ -1758,6 +1949,8 @@
     "desc_ru": "В течение 6 секунд после перебежки между укрытиями повышается шанс критического попадания.",
     "desc_en": "Critical Hit Chance bonus for 6 seconds when completing a Cover-to-Cover move.",
     "id": "talent_gear_brand_g_01",
-    "source": "hunter_v2.2.3"
+    "source": "hunter_v2.2.3",
+    "desc_en_filled": "Critical Hit Chance bonus for 6 seconds when completing a Cover-to-Cover move.",
+    "desc_ru_filled": "В течение 6 секунд после перебежки между укрытиями повышается шанс критического попадания."
   }
 ]

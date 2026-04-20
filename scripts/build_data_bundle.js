@@ -47,6 +47,8 @@ const FILES = {
   UI_TRANSLATIONS: "ui_translations.json",
   STATUS_EFFECTS: "status_effects.json",
   FORMULAS: "formulas.json",
+  SPECIALIZATION_WEAPONS: "specialization_weapons.json",
+  ATTRIBUTE_DICT: "attribute_dict.json",
 };
 
 const obj = {};
