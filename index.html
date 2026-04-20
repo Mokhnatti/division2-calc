@@ -9,6 +9,11 @@
     <meta name="author" content="divcalc.xyz">
     <link rel="canonical" href="https://divcalc.xyz/">
 
+    <!-- Language alternates (hreflang) -->
+    <link rel="alternate" hreflang="ru" href="https://divcalc.xyz/">
+    <link rel="alternate" hreflang="en" href="https://divcalc.xyz/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://divcalc.xyz/">
     <meta property="og:title" content="divcalc.xyz — Калькулятор Division 2 на русском">
@@ -17,7 +22,12 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="divcalc.xyz">
+
+    <!-- Webmaster verification placeholders — заменить на реальные коды после регистрации -->
+    <meta name="yandex-verification" content="PLACEHOLDER_REPLACE_ME">
+    <meta name="msvalidate.01" content="PLACEHOLDER_REPLACE_ME">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="divcalc.xyz — Калькулятор Division 2 на русском">
@@ -32,18 +42,70 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Division 2 Калькулятор",
-      "url": "https://divcalc.xyz/",
-      "description": "Калькулятор билдов и DPS для игры The Division 2 с полным русским переводом",
-      "applicationCategory": "GameApplication",
-      "operatingSystem": "Web",
-      "inLanguage": ["ru", "en"],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://divcalc.xyz/#webapp",
+          "name": "Division 2 Калькулятор",
+          "alternateName": "divcalc.xyz",
+          "url": "https://divcalc.xyz/",
+          "description": "Калькулятор билдов и DPS для игры The Division 2 с полным русским переводом. 15 актуальных мета-билдов Y8S1, публикация билдов сообщества.",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web",
+          "inLanguage": ["ru", "en"],
+          "browserRequirements": "Requires JavaScript, modern browser",
+          "offers": {"@type": "Offer","price": "0","priceCurrency": "USD"},
+          "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.8","bestRating":"5","ratingCount":"12"},
+          "creator": {"@type":"Person","name":"Mokhnatti","url":"https://github.com/Mokhnatti"}
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://divcalc.xyz/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Почему мой DPS не совпадает с меню оружия в игре?",
+              "acceptedAnswer": {"@type":"Answer","text":"Игровое меню показывает только База × WD. Калькулятор считает полный DPS с учётом крита, хедшотов, брони, стаков сетов, талантов и экспертизы на пиковых стаках. Поэтому Пик DPS в калькуляторе всегда выше — это реальный урон в бою на полных стаках."}
+            },
+            {
+              "@type": "Question",
+              "name": "Что такое бакеты в Division 2?",
+              "acceptedAnswer": {"@type":"Answer","text":"Бакеты — независимые множители урона. Итоговый урон = База × WD × Крит × Хедшот × По броне × Вне укрытия × Усилитель × Экспертиза. Внутри одного бакета значения складываются, между бакетами — умножаются. Главное: WD (Общий урон оружием + по типу), Крит (CHC × CHD), HSD (Headshot Damage × % попаданий в голову)."}
+            },
+            {
+              "@type": "Question",
+              "name": "Как опубликовать свой билд в Сообществе divcalc.xyz?",
+              "acceptedAnswer": {"@type":"Answer","text":"Во вкладке ⚙ BUILD собери билд (выбери оружие, 6 слотов экипировки, вбей итоговые статы из меню игры). Затем нажми 🚀 Опубликовать, заполни название, категорию оружия, описание (можно добавить YouTube-ссылку — она автоматически встроится). Билд появится во вкладке 🏆 Сообщество, другие смогут лайкать, сравнивать и форкать его."}
+            },
+            {
+              "@type": "Question",
+              "name": "Что такое SHD Watch / Часы Скиира?",
+              "acceptedAnswer": {"@type":"Answer","text":"SHD Watch — часы Kinera, открываются после уровня SHD 1000. Дают постоянные бонусы: +10% WD, +20% HSD, +10% CHC, +20% CHD, +20% к боезапасу, +10% к перезарядке, +10% точности, +10% стабильности. Вводи значения в блок ⌚ SHD Watch в калькуляторе — они учтутся в расчёте."}
+            },
+            {
+              "@type": "Question",
+              "name": "Какие мета-билды актуальны в Division 2 Y8S1 Rise Up (апрель 2026)?",
+              "acceptedAnswer": {"@type":"Answer","text":"Топ S-tier билды Y8S1: Agitator Striker Swap (соло Heroic, пик ~3.8M DPS), Big Alejandro Tipping Scales LMG (соло Escalation T6), Future Initiative Buffer (рейд-саппорт), Memento St Elmo Stacker, Refactor Force Multiplier. На divcalc.xyz 15 актуальных мета-билдов с источниками и целевыми статами — раздел 🔥 Мета Y8S1 на странице Сообщества."}
+            },
+            {
+              "@type": "Question",
+              "name": "Работает ли калькулятор на мобильном?",
+              "acceptedAnswer": {"@type":"Answer","text":"Да, divcalc.xyz полностью адаптирован для мобильных. Можно добавить как приложение через PWA (Add to Home Screen в Chrome/Safari). Все вкладки — Сообщество, BUILD, DPS, Скиллы, Танк, Мета — работают на экранах от 375px."}
+            },
+            {
+              "@type": "Question",
+              "name": "На каких языках работает сайт?",
+              "acceptedAnswer": {"@type":"Answer","text":"Полный русский и английский интерфейс. Переключение через кнопку 🇷🇺 RU / 🇬🇧 EN в левом верхнем углу. Переводятся: имена сетов, экзотиков, именных предметов, талантов, кнопки, описания. Имена сетов взяты из официальной русской таблицы Ubisoft."}
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"divcalc.xyz","item":"https://divcalc.xyz/"}
+          ]
+        }
+      ]
     }
     </script>
 

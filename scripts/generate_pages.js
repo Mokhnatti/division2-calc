@@ -83,6 +83,19 @@ function escape(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// BreadcrumbList JSON-LD (Schema.org) — crumbs: [{name, url}, ...]
+function breadcrumbJsonLd(crumbs) {
+  const items = crumbs.map((c, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": c.name,
+    "item": c.url
+  }));
+  return `<script type="application/ld+json">
+${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":items})}
+</script>`;
+}
+
 // ─── Exotic Weapons ────────────────────────────────────────────────────────
 
 function generateExoticWeapon(key, item, allExotics) {
@@ -140,6 +153,11 @@ ${YM_CODE}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Product","name":"${escape(nameRu)}","alternateName":"${escape(nameEn)}","description":"${desc}","url":"${canonical}"}
 </script>
+${breadcrumbJsonLd([
+  {name:'Главная',url:'https://divcalc.xyz/'},
+  {name:'Экзотики',url:'https://divcalc.xyz/exotic/'},
+  {name:nameRu,url:canonical}
+])}
 </head>
 <body>
 ${nav()}
@@ -248,6 +266,11 @@ ${YM_CODE}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Product","name":"${escape(nameRu)}","alternateName":"${escape(nameEn)}","description":"${desc}","url":"${canonical}"}
 </script>
+${breadcrumbJsonLd([
+  {name:'Главная',url:'https://divcalc.xyz/'},
+  {name:'Экзотики',url:'https://divcalc.xyz/exotic/'},
+  {name:nameRu,url:canonical}
+])}
 </head>
 <body>
 ${nav()}
@@ -367,6 +390,11 @@ ${YM_CODE}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Product","name":"${escape(nameRu)}","alternateName":"${escape(nameEn)}","description":"${desc}","url":"${canonical}"}
 </script>
+${breadcrumbJsonLd([
+  {name:'Главная',url:'https://divcalc.xyz/'},
+  {name:'Именные',url:'https://divcalc.xyz/named/'},
+  {name:nameRu,url:canonical}
+])}
 </head>
 <body>
 ${nav()}
@@ -475,6 +503,11 @@ ${YM_CODE}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Product","name":"${escape(nameRu)}","alternateName":"${escape(nameEn)}","description":"${desc}","url":"${canonical}"}
 </script>
+${breadcrumbJsonLd([
+  {name:'Главная',url:'https://divcalc.xyz/'},
+  {name:'Именные',url:'https://divcalc.xyz/named/'},
+  {name:nameRu,url:canonical}
+])}
 </head>
 <body>
 ${nav()}
@@ -590,6 +623,11 @@ ${YM_CODE}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Product","name":"${escape(nameRu)}","alternateName":"${escape(nameEn)}","description":"${desc}","url":"${canonical}"}
 </script>
+${breadcrumbJsonLd([
+  {name:'Главная',url:'https://divcalc.xyz/'},
+  {name:'Комплекты',url:'https://divcalc.xyz/set/'},
+  {name:nameRu,url:canonical}
+])}
 </head>
 <body>
 ${nav()}
@@ -690,6 +728,11 @@ ${YM_CODE}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Brand","name":"${escape(nameEn)}","description":"${desc}","url":"${canonical}"}
 </script>
+${breadcrumbJsonLd([
+  {name:'Главная',url:'https://divcalc.xyz/'},
+  {name:'Бренды',url:'https://divcalc.xyz/brand/'},
+  {name:nameEn,url:canonical}
+])}
 </head>
 <body>
 ${nav()}

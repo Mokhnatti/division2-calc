@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>404 — страница не найдена · divcalc.xyz</title>
+<meta name="description" content="Страница не найдена на divcalc.xyz. Возможно, ссылка устарела. Вернуться на главную или в каталог билдов.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://divcalc.xyz/">
+<link rel="icon" href="/favicon.ico">
+<style>
+:root{--bg:#0a0a0f;--card:#12121a;--border:#1e1e2e;--orange:#f5a623;--green:#00c853;--blue:#42a5f5;--text:#e0e0e0;--muted:#888;--named:#ab47bc;--red:#ef5350}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.box{max-width:560px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px;text-align:center}
+h1{color:var(--orange);font-size:64px;margin-bottom:8px;font-weight:800}
+h2{color:var(--text);font-size:20px;margin-bottom:16px;font-weight:600}
+p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px}
+.links{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.links a{padding:10px 16px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;transition:all .15s;border:1px solid;display:inline-block}
+.links a.primary{background:var(--orange);color:#000;border-color:var(--orange)}
+.links a.primary:hover{background:#ffb74d}
+.links a.secondary{color:var(--blue);border-color:rgba(66,165,245,.4);background:rgba(66,165,245,.08)}
+.links a.secondary:hover{background:rgba(66,165,245,.15);border-color:var(--blue)}
+.bug{margin-top:24px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:#666}
+.bug a{color:var(--red);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>404</h1>
+  <h2 id="t-ru">Страница не найдена</h2>
+  <h2 id="t-en" style="display:none">Page not found</h2>
+  <p id="p-ru">Ссылка могла устареть. Выбери одно из популярных мест:</p>
+  <p id="p-en" style="display:none">This link may have expired. Try one of these popular destinations:</p>
+  <div class="links">
+    <a class="primary" href="/">🏠 Главная / Home</a>
+    <a class="secondary" href="/build">⚙ BUILD</a>
+    <a class="secondary" href="/dps">DPS</a>
+    <a class="secondary" href="/exotics">Exotics</a>
+    <a class="secondary" href="/sets">Sets</a>
+    <a class="secondary" href="/named-items">Named</a>
+    <a class="secondary" href="/help">❓ Help</a>
+  </div>
+  <div class="bug">
+    Battle bug? <a href="https://github.com/Mokhnatti/division2-calc/issues" target="_blank">GitHub issues</a>
+  </div>
+</div>
+<script>
+// Auto-switch language based on localStorage
+if(localStorage.getItem('d2calc_lang')==='en'){
+  document.getElementById('t-ru').style.display='none';
+  document.getElementById('p-ru').style.display='none';
+  document.getElementById('t-en').style.display='';
+  document.getElementById('p-en').style.display='';
+  document.documentElement.lang='en';
+}
+</script>
+</body>
+</html>

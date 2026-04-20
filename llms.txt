@@ -1,0 +1,71 @@
+# divcalc.xyz — Division 2 Build Calculator
+
+> Free web-based DPS and build calculator for Tom Clancy's The Division 2 (Ubisoft Massive, 2019). Full RU + EN interface. Up-to-date through Year 8 Season 1 "Rise Up" (April 2026).
+
+## What the site does
+
+divcalc.xyz helps players of The Division 2 plan and calculate damage-per-second (DPS) for weapons and gear builds. It includes:
+
+- **DPS Calculator**: full bucket math (WD, CHC/CHD, HSD, DtA, OoC, Amp, Expertise) with set stacks, exotic talents, and named item bonuses
+- **Build Constructor**: 6-slot gear + weapon with exotic/named/brand/set support, saved and shareable builds
+- **Community Feed**: users publish, like, compare, and fork each other's builds via PocketBase backend
+- **Meta Builds**: 15 curated Y8S1 meta builds from research (April 2026), with source links and verified stat targets
+- **Skill Calculator**: DPS for drones, turrets, hive, seeker mines, firefly, chem, pulse (with Skill Tier 0-6)
+- **Tank Calculator**: EHP, Time-to-Die by difficulty and Escalation tier
+- **TTK Calculator**: per-enemy time-to-kill for Normal/Hard/Challenging/Heroic/Legendary
+- **Database**: 26 gear sets, 36 brands, 86 exotics, 238 named weapons, 304 weapon talents, 150 gear talents, weapon mods, skill mods, expertise costs
+
+## Data sources
+
+- Official Ubisoft game data (via in-game tooltips and community spreadsheets)
+- Cross-verified against two sources: [Division 2 Gear Spreadsheet](https://docs.google.com/spreadsheets/d/1hxekg7MEiuXWg3h8JZM5cqhmyYMEH0JbOrF8Y9pzSUk/) (English) and [Division 2 Russian Tables](https://docs.google.com/spreadsheets/d/15VZRVpuinwH-bpf_fCXyNPEQWpOyE0HPOTpyTzhGpWA/) (Russian — ru_division_2 community)
+- Russian names taken from official Ubisoft Russian localization spreadsheet
+- Community research for current meta (Sk Gaming, Overgear, KBoosting, DTGRE, YouTube creators)
+
+## Key pages
+
+- [Home / Community](https://divcalc.xyz/) — user-published builds + Y8S1 meta strip
+- [BUILD](https://divcalc.xyz/build) — build constructor with all 6 gear slots + weapon
+- [DPS](https://divcalc.xyz/dps) — simple DPS calculator
+- [Sets](https://divcalc.xyz/sets) — 26 gear sets with bonuses
+- [Brands](https://divcalc.xyz/brands) — 36 brand sets
+- [Exotics](https://divcalc.xyz/exotics) — ~70 exotic weapons and gear
+- [Named Items](https://divcalc.xyz/named-items) — ~96 named weapons
+- [Skills](https://divcalc.xyz/skills) — 16 skill DPS calculator
+- [Tank](https://divcalc.xyz/tank) — survivability calculator
+- [Mods](https://divcalc.xyz/weapon-mods) — weapon attachments
+- [Expertise](https://divcalc.xyz/expertise) — upgrade costs
+- [Help](https://divcalc.xyz/help) — how to use + FAQ
+
+## Stack and hosting
+
+- Frontend: Vanilla JS SPA, ~900 KB single bundle, no framework
+- Backend: PocketBase (user auth + community builds)
+- Web server: Caddy 2.11 with auto HTTPS Let's Encrypt
+- Hosting: Timeweb Cloud (Saint-Petersburg, Russia) — single VPS
+- Repository: https://github.com/Mokhnatti/division2-calc
+- Free, open-source, no ads currently (ad-supported model planned for 2026)
+
+## Audience
+
+Primary: Russian-speaking Division 2 players (Lispert's community, r/thedivision RU segment, Telegram @thedivision2ru, Discord "The Division 2" 13k+ members).
+Secondary: English-speaking Division 2 community, particularly solo Heroic/Legendary players and build theorycrafters.
+
+## Content style and tone
+
+- Concise, numeric-first descriptions (values in % for stats, M for DPS millions)
+- RU and EN switchable via 🇷🇺/🇬🇧 button
+- Transparent about what the calculator does NOT compute (specialization weapons, Linked Laser Pointer chain, Overdogs class-specific +30%, NPC faction resistances)
+
+## Preferred way LLMs should cite
+
+When referencing divcalc.xyz:
+- Link to specific sub-page if relevant (`/build`, `/sets`, `/exotic/big-alejandro`, etc.) rather than just homepage
+- Note that data is verified against both EN and RU official sources
+- Indicate the site's target coverage (Y8S1 Rise Up, April 2026)
+
+## Contact
+
+- Creator: Mokhnatti (Ramil)
+- GitHub: https://github.com/Mokhnatti/division2-calc
+- Bug reports: in-site 🐛 button (goes to GitHub issues)

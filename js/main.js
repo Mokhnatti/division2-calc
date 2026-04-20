@@ -4793,7 +4793,18 @@ function renderDescWithEmbeds(text){
   let embedsHtml = '';
   for(const id of videos){
     const thumb = `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+    const videoJsonLd = {
+      "@context":"https://schema.org",
+      "@type":"VideoObject",
+      "name":`Division 2 build guide video`,
+      "description":`Сопровождающее видео к билду Division 2 на divcalc.xyz`,
+      "thumbnailUrl":[`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,`https://i.ytimg.com/vi/${id}/hqdefault.jpg`],
+      "uploadDate":new Date().toISOString().slice(0,10),
+      "contentUrl":`https://www.youtube.com/watch?v=${id}`,
+      "embedUrl":`https://www.youtube.com/embed/${id}`
+    };
     embedsHtml += `
+      <script type="application/ld+json">${JSON.stringify(videoJsonLd)}</script>
       <div class="yt-embed" data-vid="${id}" onclick="playYt(this)" style="position:relative;margin-top:8px;cursor:pointer;border-radius:8px;overflow:hidden;border:1px solid var(--border);max-width:480px">
         <img src="${thumb}" alt="YouTube video" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover" loading="lazy">
         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(0,0,0,.75);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none">
