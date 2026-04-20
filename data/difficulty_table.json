@@ -1,0 +1,57 @@
+{
+  "hp_multiplier_per_difficulty": {
+    "Story": 0.75,
+    "Normal": 1.0,
+    "Hard": 1.4,
+    "Challenging": 1.9,
+    "Heroic": 2.7,
+    "Legendary": 4.5
+  },
+  "escalation_tier_multipliers": {
+    "0": {
+      "hp": 1.0,
+      "damage": 1.0
+    },
+    "1": {
+      "hp": 1.15,
+      "damage": 1.05
+    },
+    "2": {
+      "hp": 1.3,
+      "damage": 1.1
+    },
+    "3": {
+      "hp": 1.5,
+      "damage": 1.15
+    },
+    "4": {
+      "hp": 1.75,
+      "damage": 1.2
+    },
+    "5": {
+      "hp": 2.0,
+      "damage": 1.25
+    },
+    "6": {
+      "hp": 2.3,
+      "damage": 1.3
+    },
+    "7": {
+      "hp": 2.65,
+      "damage": 1.4
+    },
+    "8": {
+      "hp": 3.0,
+      "damage": 1.5
+    },
+    "9": {
+      "hp": 3.5,
+      "damage": 1.65
+    },
+    "10": {
+      "hp": 4.0,
+      "damage": 1.8
+    }
+  },
+  "note": "Difficulty multipliers взяты из community (проверены by Ubisoft patch notes). Escalation Tier — из Y8S1 Rise Up changelog."
+}

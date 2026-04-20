@@ -4624,15 +4624,11 @@ function renderFormulas(){
   // Specialization weapons
   const SPEC=(typeof D2DATA!=='undefined'&&D2DATA.SPECIALIZATION_WEAPONS)||[];
   if(SPEC.length){
-    const nameMap={
-      'player_weapon_sig_crossbow_v2': {ru:'Арбалет (Survivalist)', en:'Crossbow (Survivalist)'},
-      'player_weapon_sig_flamethrower': {ru:'Огнемёт (Firewall)', en:'Flamethrower (Firewall)'},
-      'Mounted_Weapon_Minigun': {ru:'Миниган (Gunner)', en:'Minigun (Gunner)'},
-    };
     const specRows=SPEC.map(w=>{
-      const nm=nameMap[w.id]||{ru:w.id,en:w.id};
       const s=w.stats||{};
-      if(!s.dmg_max&&!s.rpm&&!s.mag)return '';
+      if(!s.dmg_max&&!s.rpm)return '';
+      const name=w.name_en||w.id;
+      const specLbl=w.specialization||'';
       const dmg=s.dmg_max?(s.dmg_max===s.dmg_min?s.dmg_max:`${s.dmg_min}-${s.dmg_max}`):'—';
       const rpm=s.rpm||'—';
       const mag=s.mag||'—';
@@ -4640,7 +4636,7 @@ function renderFormulas(){
       const range=s.range_optimal||'—';
       const hsd=s.hsd?'×'+s.hsd:'—';
       return `<tr>
-        <td style="padding:6px;font-weight:600;color:var(--named)">${isEn?nm.en:nm.ru}</td>
+        <td style="padding:6px;font-weight:600;color:var(--named)">${name}<br><span style="font-size:10px;color:var(--muted)">${specLbl}</span></td>
         <td style="padding:6px">${dmg}</td><td style="padding:6px">${rpm}</td><td style="padding:6px">${mag}</td>
         <td style="padding:6px">${reload}</td><td style="padding:6px">${range}m</td><td style="padding:6px">${hsd}</td>
       </tr>`;
@@ -4648,11 +4644,11 @@ function renderFormulas(){
     if(specRows){
       html+=`<div class="bsect">
         <h3>🎯 ${T('Специализация — signature weapons','Specialization — signature weapons')}</h3>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Уникальные пушки специализаций. Эти пушки ИМЕЮТ свою математику — калькулятор для обычных пушек их не учитывает.','Unique specialization weapons. These use their own math — the main calculator does not cover them.')}</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Уникальные пушки специализаций (7 штук). В меню игры они не отображаются обычным калькулятором — нужна отдельная математика.','Unique specialization weapons (7 total). The main calculator does not cover them — they use separate math.')}</div>
         <div style="overflow-x:auto">
         <table style="width:100%;font-size:12px;border-collapse:collapse">
           <thead><tr style="border-bottom:1px solid var(--border);color:var(--muted)">
-            <th style="padding:6px;text-align:left">${T('Оружие','Weapon')}</th>
+            <th style="padding:6px;text-align:left">${T('Оружие / Спец','Weapon / Spec')}</th>
             <th style="padding:6px;text-align:left">${T('Урон','Damage')}</th>
             <th style="padding:6px;text-align:left">RPM</th>
             <th style="padding:6px;text-align:left">${T('Маг','Mag')}</th>
@@ -4664,6 +4660,41 @@ function renderFormulas(){
         </table></div>
       </div>`;
     }
+  }
+
+  // Difficulty multipliers table
+  const DT=(typeof D2DATA!=='undefined'&&D2DATA.DIFFICULTY_TABLE)||null;
+  if(DT){
+    // HP multipliers per difficulty
+    const diffs=DT.hp_multiplier_per_difficulty||{};
+    const diffRows=Object.entries(diffs).map(([name,mul])=>`<tr><td style="padding:6px;font-weight:600">${name}</td><td style="padding:6px">×${mul}</td></tr>`).join('');
+    html+=`<div class="bsect">
+      <h3>⚔ ${T('Множители HP по сложности','HP multipliers by difficulty')}</h3>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Базовый HP NPC умножается на эти значения. Нормал = ×1.0 (база).','Base NPC HP is multiplied by these values. Normal = ×1.0 (baseline).')}</div>
+      <table style="width:auto;font-size:12px;border-collapse:collapse">
+        <thead><tr style="border-bottom:1px solid var(--border);color:var(--muted)">
+          <th style="padding:6px;text-align:left">${T('Сложность','Difficulty')}</th>
+          <th style="padding:6px;text-align:left">${T('Множитель','Multiplier')}</th>
+        </tr></thead>
+        <tbody>${diffRows}</tbody>
+      </table>
+    </div>`;
+
+    // Escalation tiers
+    const tiers=DT.escalation_tier_multipliers||{};
+    const tierRows=Object.entries(tiers).map(([t,vals])=>`<tr><td style="padding:6px;font-weight:600">T${t}</td><td style="padding:6px;color:var(--red)">×${vals.hp}</td><td style="padding:6px;color:var(--orange)">×${vals.damage}</td></tr>`).join('');
+    html+=`<div class="bsect">
+      <h3>🔺 ${T('Escalation Tier (T0-T10)','Escalation Tier (T0-T10)')}</h3>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Эскалация модифицирует и HP NPC и урон по игроку. Множители поверх difficulty (перемножаются).','Escalation modifies both NPC HP and damage to player. Stacks multiplicatively on top of difficulty.')}</div>
+      <table style="width:auto;font-size:12px;border-collapse:collapse">
+        <thead><tr style="border-bottom:1px solid var(--border);color:var(--muted)">
+          <th style="padding:6px;text-align:left">${T('Tier','Tier')}</th>
+          <th style="padding:6px;text-align:left">${T('HP NPC','NPC HP')}</th>
+          <th style="padding:6px;text-align:left">${T('Урон по игроку','Damage to player')}</th>
+        </tr></thead>
+        <tbody>${tierRows}</tbody>
+      </table>
+    </div>`;
   }
 
   // Source info

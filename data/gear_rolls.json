@@ -1,610 +1,923 @@
 {
-  "Percent_1_To_8": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 4.9e-05,
-        "c": 0.01
+  "attribute_curves": {
+    "Armor": {
+      "attribute_uid": "5D4179F15996CD40000035F530115C29",
+      "quality_modifiers": {
+        "Grey": 0.8,
+        "Green": 1.0,
+        "Blue": 1.2,
+        "Purple": 1.3,
+        "Orange": 1.4,
+        "Exotic": 1.4
       },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.002,
-        "b": 0.0,
-        "c": 0.0649
+      "gentype_modifiers": {
+        "Chest": 0.24,
+        "Back": 0.1988,
+        "Hands": 0.122,
+        "Face": 0.122,
+        "Knees": 0.15,
+        "Thighs": 0.17
       },
-      {
-        "bracket": "41-50",
-        "b": 0.0,
-        "c": 0.8
-      }
-    ]
-  },
-  "Percent_1_To_5": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 3.5e-05,
-        "c": 0.01
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.0,
-        "b": 0.0,
-        "c": 0.05
-      },
-      {
-        "bracket": "41-50",
-        "b": 0.0,
-        "c": 0.05
-      }
-    ]
-  },
-  "Percent_1_To_10": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.00775,
-        "b": 0.0,
-        "c": 0.01
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.00282,
-        "b": 0.0,
-        "c": 0.07
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0,
-        "b": 0.0,
-        "c": 0.09
-      }
-    ]
-  },
-  "Percent_1_To_12": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MAX",
-        "maxpower": 930.0,
-        "b": 7.8e-05,
-        "c": 0.01
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.0027,
-        "b": 0.0,
-        "c": 0.0925
-      },
-      {
-        "bracket": "41-50",
-        "b": 3e-06,
-        "c": 0.12
-      }
-    ]
-  },
-  "Percent_1_To_15": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MAX",
-        "maxpower": 930.0,
-        "b": 7.8e-05,
-        "c": 0.01
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.0043,
-        "b": 0.0,
-        "c": 0.08
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0024,
-        "b": 0.0,
-        "c": 0.14
-      }
-    ]
-  },
-  "Percent_1_To_20": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 0.00012,
-        "c": 0.01
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.00425,
-        "b": 0.0,
-        "c": 0.1318
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.00235,
-        "b": 0.0,
-        "c": 0.19
-      }
-    ]
-  },
-  "Percent_5_To_35": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 0.000174,
-        "c": 0.048
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.0075,
-        "b": 0.0,
-        "c": 0.16
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0,
-        "b": 0.0,
-        "c": 0.35
-      }
-    ]
-  },
-  "ArmorRegenMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 0.5,
-        "c": 10.0
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3775.0,
-        "a": 0.0,
-        "b": 0.5,
-        "c": 10.0
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0,
-        "b": 0.5,
-        "c": 10.0
-      }
-    ]
-  },
-  "ArmorRegenMax": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 1.3,
-        "c": 15.0
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3775.0,
-        "a": 0.0,
-        "b": 1.3,
-        "c": 15.0
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0,
-        "b": 1.3,
-        "c": 15.0
-      }
-    ]
-  },
-  "CoreArmorMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 3.5,
-        "c": 100.0
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3775.0,
-        "a": 0.0,
-        "b": 3.5,
-        "c": 100.0
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0,
-        "b": 3.5,
-        "c": 100.0
-      }
-    ]
-  },
-  "CoreArmorMax": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 32.494286,
-        "c": 140.0
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3775.0,
-        "a": 0.0,
-        "b": 32.112499,
-        "c": 140.0
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0,
-        "b": 32.112499,
-        "c": 140.0
-      }
-    ]
-  },
-  "HealthMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "b": 2.5,
-        "c": 10.0
-      }
-    ]
-  },
-  "HealthMax": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "b": 5.0,
-        "c": 50.0
-      }
-    ]
-  },
-  "SkillPowerMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 1.0
-      }
-    ]
-  },
-  "SkillPowerMax": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 1.0
-      }
-    ]
-  },
-  "WeaponDamageMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 0.01
-      }
-    ]
-  },
-  "DamageToArmorMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 0.01
-      }
-    ]
-  },
-  "CritChanceMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 0.01
-      }
-    ]
-  },
-  "DamageToHealthMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 0.01
-      }
-    ]
-  },
-  "DamageToTargetsOutOfCoverMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 0.01
-      }
-    ]
-  },
-  "HeadshotDamageMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 0.01
-      }
-    ]
-  },
-  "CritDamageMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)",
-        "c": 0.01
-      }
-    ]
-  },
-  "DefaultMin": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "New ItemGenerationBracketedCurveFormula (0)"
-      }
-    ]
-  },
-  "Percent_1_to_5": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 3.5e-05,
-        "c": 0.01
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.0,
-        "b": 0.0,
-        "c": 0.05
-      },
-      {
-        "bracket": "41-50",
-        "b": 0.0,
-        "c": 0.05
-      }
-    ]
-  },
-  "Percent_1_to_10": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.00775,
-        "b": 0.0,
-        "c": 0.01
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.00282,
-        "b": 0.0,
-        "c": 0.07
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0,
-        "b": 0.0,
-        "c": 0.09
-      }
-    ]
-  },
-  "Pertcent_5_To_35": {
-    "type": "BracketedCurve",
-    "brackets": [
-      {
-        "bracket": "1-30 MIN",
-        "maxpower": 930.0,
-        "a": 0.0,
-        "b": 0.000174,
-        "c": 0.048
-      },
-      {
-        "bracket": "31-40",
-        "maxpower": 3777.0,
-        "a": 0.0075,
-        "b": 0.0,
-        "c": 0.16
-      },
-      {
-        "bracket": "41-50",
-        "a": 0.0,
-        "b": 0.0,
-        "c": 0.35
-      }
-    ]
-  },
-  "Armor": {
-    "type": "AttributeCurve",
-    "quality_modifiers": {
-      "Grey": 0.8,
-      "Green": 1.0,
-      "Blue": 1.2,
-      "Purple": 1.3,
-      "Orange": 1.4,
-      "Exotic": 1.4
+      "brackets": [
+        {
+          "bracket": "1-2",
+          "maxpower": 13.0,
+          "a": 8.0,
+          "b": 140.0
+        },
+        {
+          "bracket": "3-4",
+          "maxpower": 18.0,
+          "a": 7.0,
+          "b": 140.0
+        },
+        {
+          "bracket": "5-6",
+          "maxpower": 22.0,
+          "a": 6.0,
+          "b": 140.0
+        },
+        {
+          "bracket": "7-8",
+          "maxpower": 27.0,
+          "a": 4.0,
+          "b": 140.0
+        },
+        {
+          "bracket": "9-10",
+          "maxpower": 34.0,
+          "a": 2.0,
+          "b": 140.0
+        },
+        {
+          "bracket": "Main game",
+          "maxpower": 304.0,
+          "b": 140.0
+        },
+        {
+          "bracket": "30 End Game",
+          "maxpower": 10000.0,
+          "b": 140.0
+        }
+      ]
     },
-    "gentype_modifiers": {
+    "WeaponDamage": {
+      "attribute_uid": "4F5DDEA253F6F6E700000DE8E92DD09D",
+      "quality_modifiers": {
+        "Grey": 0.8,
+        "Green": 1.0,
+        "Blue": 1.2,
+        "Purple": 1.3,
+        "Orange": 1.4,
+        "Exotic": 1.4
+      },
+      "gentype_modifiers": {},
+      "brackets": [
+        {
+          "bracket": "Main Game",
+          "maxpower": 2675.0,
+          "b": 0.1,
+          "c": 0.0
+        },
+        {
+          "bracket": "End Game",
+          "maxpower": 6324.0,
+          "b": 0.1,
+          "c": 0.0
+        },
+        {
+          "bracket": "1-2",
+          "maxpower": 13.0,
+          "a": 0.2,
+          "b": 0.1
+        },
+        {
+          "bracket": "3-4",
+          "maxpower": 18.0,
+          "a": 0.16,
+          "b": 0.1
+        },
+        {
+          "bracket": "5-6",
+          "maxpower": 22.0,
+          "a": 0.12,
+          "b": 0.1
+        },
+        {
+          "bracket": "7-8",
+          "maxpower": 27.0,
+          "a": 0.08,
+          "b": 0.1
+        },
+        {
+          "bracket": "9-10",
+          "maxpower": 34.0,
+          "a": 0.04,
+          "b": 0.1
+        }
+      ]
+    },
+    "SkillpowerRequirement": {
+      "attribute_uid": "25B6B8D45BD18BC90003078C68027888",
+      "quality_modifiers": {
+        "Green": 1.0,
+        "Blue": 1.2,
+        "Purple": 1.4,
+        "Orange": 1.820395
+      },
+      "gentype_modifiers": {},
+      "brackets": [
+        {
+          "bracket": "Main game",
+          "maxpower": -1.0,
+          "a": 0.0,
+          "b": 1.0,
+          "c": 100.0
+        }
+      ]
+    },
+    "SkillPowerBatteriesBase": {
+      "attribute_uid": "00000000000000000000000000000000",
+      "quality_modifiers": {
+        "Green": 1.2,
+        "Blue": 1.4,
+        "Purple": 1.8,
+        "Orange": 2.3
+      },
+      "gentype_modifiers": {},
+      "brackets": [
+        {
+          "bracket": "Main game",
+          "maxpower": -1.0,
+          "a": 0.0,
+          "b": 0.1,
+          "c": 20.0
+        }
+      ]
+    }
+  },
+  "bracketed_curves": {
+    "Percent_1_To_8": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 4.9e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.002,
+          "b": 0.0,
+          "c": 0.0649
+        },
+        {
+          "bracket": "41-50",
+          "b": 0.0,
+          "c": 0.8
+        }
+      ]
+    },
+    "Percent_1_To_5": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 3.5e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.05
+        },
+        {
+          "bracket": "41-50",
+          "b": 0.0,
+          "c": 0.05
+        }
+      ]
+    },
+    "Percent_1_To_10": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.00775,
+          "b": 0.0,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.00282,
+          "b": 0.0,
+          "c": 0.07
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.09
+        }
+      ]
+    },
+    "Percent_1_To_12": {
+      "brackets": [
+        {
+          "bracket": "1-30 MAX",
+          "maxpower": 930.0,
+          "b": 7.8e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0027,
+          "b": 0.0,
+          "c": 0.0925
+        },
+        {
+          "bracket": "41-50",
+          "b": 3e-06,
+          "c": 0.12
+        }
+      ]
+    },
+    "Percent_1_To_15": {
+      "brackets": [
+        {
+          "bracket": "1-30 MAX",
+          "maxpower": 930.0,
+          "b": 7.8e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0043,
+          "b": 0.0,
+          "c": 0.08
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0024,
+          "b": 0.0,
+          "c": 0.14
+        }
+      ]
+    },
+    "Percent_1_To_20": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 0.00012,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.00425,
+          "b": 0.0,
+          "c": 0.1318
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.00235,
+          "b": 0.0,
+          "c": 0.19
+        }
+      ]
+    },
+    "Percent_5_To_35": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 0.000174,
+          "c": 0.048
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0075,
+          "b": 0.0,
+          "c": 0.16
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.35
+        }
+      ]
+    },
+    "ArmorRegenMin": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 0.5,
+          "c": 10.0
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3775.0,
+          "a": 0.0,
+          "b": 0.5,
+          "c": 10.0
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 0.5,
+          "c": 10.0
+        }
+      ]
+    },
+    "ArmorRegenMax": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 1.3,
+          "c": 15.0
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3775.0,
+          "a": 0.0,
+          "b": 1.3,
+          "c": 15.0
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 1.3,
+          "c": 15.0
+        }
+      ]
+    },
+    "CoreArmorMin": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 3.5,
+          "c": 100.0
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3775.0,
+          "a": 0.0,
+          "b": 3.5,
+          "c": 100.0
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 3.5,
+          "c": 100.0
+        }
+      ]
+    },
+    "CoreArmorMax": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 32.494286,
+          "c": 140.0
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3775.0,
+          "a": 0.0,
+          "b": 32.112499,
+          "c": 140.0
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 32.112499,
+          "c": 140.0
+        }
+      ]
+    },
+    "HealthMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "b": 2.5,
+          "c": 10.0
+        }
+      ]
+    },
+    "HealthMax": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "b": 5.0,
+          "c": 50.0
+        }
+      ]
+    },
+    "SkillPowerMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 1.0
+        }
+      ]
+    },
+    "SkillPowerMax": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 1.0
+        }
+      ]
+    },
+    "WeaponDamageMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 0.01
+        }
+      ]
+    },
+    "DamageToArmorMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 0.01
+        }
+      ]
+    },
+    "CritChanceMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 0.01
+        }
+      ]
+    },
+    "DamageToHealthMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 0.01
+        }
+      ]
+    },
+    "DamageToTargetsOutOfCoverMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 0.01
+        }
+      ]
+    },
+    "HeadshotDamageMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 0.01
+        }
+      ]
+    },
+    "CritDamageMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)",
+          "c": 0.01
+        }
+      ]
+    },
+    "DefaultMin": {
+      "brackets": [
+        {
+          "bracket": "New ItemGenerationBracketedCurveFormula (0)"
+        }
+      ]
+    },
+    "Percent_1_to_5": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 3.5e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.05
+        },
+        {
+          "bracket": "41-50",
+          "b": 0.0,
+          "c": 0.05
+        }
+      ]
+    },
+    "Percent_1_to_10": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.00775,
+          "b": 0.0,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.00282,
+          "b": 0.0,
+          "c": 0.07
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.09
+        }
+      ]
+    },
+    "Pertcent_5_To_35": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 0.000174,
+          "c": 0.048
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0075,
+          "b": 0.0,
+          "c": 0.16
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.35
+        }
+      ]
+    }
+  },
+  "attribute_to_curve": {
+    "WeaponDamageMin": {
+      "attribute": "WeaponDamage",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "WeaponDamage": {
+      "attribute": "WeaponDamage",
+      "kind": "full",
+      "curve_type": "AttributeCurve",
+      "quality_modifiers": {
+        "Grey": 0.8,
+        "Green": 1.0,
+        "Blue": 1.2,
+        "Purple": 1.3,
+        "Orange": 1.4,
+        "Exotic": 1.4
+      },
+      "gentype_modifiers": {}
+    },
+    "CritChanceMin": {
+      "attribute": "CritChance",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "CritDamageMin": {
+      "attribute": "CritDamage",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "HeadshotDamageMin": {
+      "attribute": "HeadshotDamage",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "DamageToArmorMin": {
+      "attribute": "DamageToArmor",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "DamageToHealthMin": {
+      "attribute": "DamageToHealth",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "DamageToTargetsOutOfCoverMin": {
+      "attribute": "DamageToTargetsOutOfCover",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "Armor": {
+      "attribute": "Armor",
+      "kind": "full",
+      "curve_type": "AttributeCurve",
+      "quality_modifiers": {
+        "Grey": 0.8,
+        "Green": 1.0,
+        "Blue": 1.2,
+        "Purple": 1.3,
+        "Orange": 1.4,
+        "Exotic": 1.4
+      },
+      "gentype_modifiers": {
+        "Chest": 0.24,
+        "Back": 0.1988,
+        "Hands": 0.122,
+        "Face": 0.122,
+        "Knees": 0.15,
+        "Thighs": 0.17
+      }
+    },
+    "CoreArmorMin": {
+      "attribute": "CoreArmor",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "CoreArmorMax": {
+      "attribute": "CoreArmor",
+      "kind": "max",
+      "curve_type": "BracketedCurve"
+    },
+    "HealthMin": {
+      "attribute": "Health",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "HealthMax": {
+      "attribute": "Health",
+      "kind": "max",
+      "curve_type": "BracketedCurve"
+    },
+    "ArmorRegenMin": {
+      "attribute": "ArmorRegen",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "ArmorRegenMax": {
+      "attribute": "ArmorRegen",
+      "kind": "max",
+      "curve_type": "BracketedCurve"
+    },
+    "SkillPowerMin": {
+      "attribute": "SkillPower",
+      "kind": "min",
+      "curve_type": "BracketedCurve"
+    },
+    "SkillPowerMax": {
+      "attribute": "SkillPower",
+      "kind": "max",
+      "curve_type": "BracketedCurve"
+    }
+  },
+  "percent_generic": {
+    "Percent_1_To_8": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 4.9e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.002,
+          "b": 0.0,
+          "c": 0.0649
+        },
+        {
+          "bracket": "41-50",
+          "b": 0.0,
+          "c": 0.8
+        }
+      ]
+    },
+    "Percent_1_To_5": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 3.5e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.05
+        },
+        {
+          "bracket": "41-50",
+          "b": 0.0,
+          "c": 0.05
+        }
+      ]
+    },
+    "Percent_1_To_10": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.00775,
+          "b": 0.0,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.00282,
+          "b": 0.0,
+          "c": 0.07
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.09
+        }
+      ]
+    },
+    "Percent_1_To_12": {
+      "brackets": [
+        {
+          "bracket": "1-30 MAX",
+          "maxpower": 930.0,
+          "b": 7.8e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0027,
+          "b": 0.0,
+          "c": 0.0925
+        },
+        {
+          "bracket": "41-50",
+          "b": 3e-06,
+          "c": 0.12
+        }
+      ]
+    },
+    "Percent_1_To_15": {
+      "brackets": [
+        {
+          "bracket": "1-30 MAX",
+          "maxpower": 930.0,
+          "b": 7.8e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0043,
+          "b": 0.0,
+          "c": 0.08
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0024,
+          "b": 0.0,
+          "c": 0.14
+        }
+      ]
+    },
+    "Percent_1_To_20": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 0.00012,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.00425,
+          "b": 0.0,
+          "c": 0.1318
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.00235,
+          "b": 0.0,
+          "c": 0.19
+        }
+      ]
+    },
+    "Percent_5_To_35": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 0.000174,
+          "c": 0.048
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0075,
+          "b": 0.0,
+          "c": 0.16
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.35
+        }
+      ]
+    },
+    "Percent_1_to_5": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.0,
+          "b": 3.5e-05,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.05
+        },
+        {
+          "bracket": "41-50",
+          "b": 0.0,
+          "c": 0.05
+        }
+      ]
+    },
+    "Percent_1_to_10": {
+      "brackets": [
+        {
+          "bracket": "1-30 MIN",
+          "maxpower": 930.0,
+          "a": 0.00775,
+          "b": 0.0,
+          "c": 0.01
+        },
+        {
+          "bracket": "31-40",
+          "maxpower": 3777.0,
+          "a": 0.00282,
+          "b": 0.0,
+          "c": 0.07
+        },
+        {
+          "bracket": "41-50",
+          "a": 0.0,
+          "b": 0.0,
+          "c": 0.09
+        }
+      ]
+    }
+  },
+  "slot_caps": {
+    "Armor": {
       "Chest": 0.24,
       "Back": 0.1988,
       "Hands": 0.122,
       "Face": 0.122,
       "Knees": 0.15,
       "Thighs": 0.17
-    },
-    "brackets": [
-      {
-        "bracket": "1-2",
-        "maxpower": 13.0,
-        "a": 8.0,
-        "b": 140.0
-      },
-      {
-        "bracket": "3-4",
-        "maxpower": 18.0,
-        "a": 7.0,
-        "b": 140.0
-      },
-      {
-        "bracket": "5-6",
-        "maxpower": 22.0,
-        "a": 6.0,
-        "b": 140.0
-      },
-      {
-        "bracket": "7-8",
-        "maxpower": 27.0,
-        "a": 4.0,
-        "b": 140.0
-      },
-      {
-        "bracket": "9-10",
-        "maxpower": 34.0,
-        "a": 2.0,
-        "b": 140.0
-      },
-      {
-        "bracket": "Main game",
-        "maxpower": 304.0,
-        "b": 140.0
-      },
-      {
-        "bracket": "30 End Game",
-        "maxpower": 10000.0,
-        "b": 140.0
-      }
-    ]
+    }
   },
-  "WeaponDamage": {
-    "type": "AttributeCurve",
-    "quality_modifiers": {
-      "Grey": 0.8,
-      "Green": 1.0,
-      "Blue": 1.2,
-      "Purple": 1.3,
-      "Orange": 1.4,
-      "Exotic": 1.4
-    },
-    "gentype_modifiers": {},
-    "brackets": [
-      {
-        "bracket": "Main Game",
-        "maxpower": 2675.0,
-        "b": 0.1,
-        "c": 0.0
-      },
-      {
-        "bracket": "End Game",
-        "maxpower": 6324.0,
-        "b": 0.1,
-        "c": 0.0
-      },
-      {
-        "bracket": "1-2",
-        "maxpower": 13.0,
-        "a": 0.2,
-        "b": 0.1
-      },
-      {
-        "bracket": "3-4",
-        "maxpower": 18.0,
-        "a": 0.16,
-        "b": 0.1
-      },
-      {
-        "bracket": "5-6",
-        "maxpower": 22.0,
-        "a": 0.12,
-        "b": 0.1
-      },
-      {
-        "bracket": "7-8",
-        "maxpower": 27.0,
-        "a": 0.08,
-        "b": 0.1
-      },
-      {
-        "bracket": "9-10",
-        "maxpower": 34.0,
-        "a": 0.04,
-        "b": 0.1
-      }
-    ]
-  },
-  "SkillpowerRequirement": {
-    "type": "AttributeCurve",
-    "quality_modifiers": {
-      "Green": 1.0,
-      "Blue": 1.2,
-      "Purple": 1.4,
-      "Orange": 1.820395
-    },
-    "gentype_modifiers": {},
-    "brackets": [
-      {
-        "bracket": "Main game",
-        "maxpower": -1.0,
-        "a": 0.0,
-        "b": 1.0,
-        "c": 100.0
-      }
-    ]
-  },
-  "SkillPowerBatteriesBase": {
-    "type": "AttributeCurve",
-    "quality_modifiers": {
-      "Green": 1.2,
-      "Blue": 1.4,
-      "Purple": 1.8,
-      "Orange": 2.3
-    },
-    "gentype_modifiers": {},
-    "brackets": [
-      {
-        "bracket": "Main game",
-        "maxpower": -1.0,
-        "a": 0.0,
-        "b": 0.1,
-        "c": 20.0
-      }
-    ]
-  }
+  "note": "attribute_to_curve — где имя curve совпадает с AttrName+Min/Max. slot_caps — gentype multipliers из AttributeCurve."
 }
