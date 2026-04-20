@@ -482,8 +482,7 @@
     "tal_bonus": 800,
     "tal_note": "Primer detonation burst",
     "burst_note": "Detonate Primer: 800% WD per primer (×7 primers = ~5600% общий)",
-    "is_burst": true,
-    "name_ru": "Безжалостный"
+    "is_burst": true
   },
   "Безжалостный": {
     "en": "Ruthless",
@@ -494,7 +493,7 @@
     "reload": 2.17,
     "tal": "Ruthless (Exotic)",
     "tal_desc": "Each shot applies a Primer. Shooting a Primed enemy with the secondary fire detonates all Primers, dealing 800% weapon damage per Primer.",
-    "name_ru": "Беспощадный",
+    "name_ru": "Безжалостный",
     "tal_name_ru": "Двойной спуск",
     "no_math": "разовые взрывы 500% на 7 зарядах, burst не в непрерывном DPS",
     "tal_desc_ru": "Это оружие устроено таким образом, что выстрел производится как при нажатии, так и при отпускании спускового крючка. Если оба выстрела поражают одну и ту же цель, вы получаете заряд. После накопления 7 зарядов попадание наносит +500% дополнительного урона цели и вызывает взрыв, наносящий 500% урона от оружия в радиусе 7 м. Заряды при этом обнуляются.",
@@ -545,8 +544,7 @@
     "tal_bonus": 300,
     "tal_note": "10 stacks → next 300% WD",
     "burst_note": "10 stacks: следующий выстрел 300% WD",
-    "is_burst": true,
-    "name_ru": "Мститель"
+    "is_burst": true
   },
   "Суровый приговор": {
     "en": "Dread Edict",
@@ -698,8 +696,7 @@
     },
     "tal_type": "kill",
     "tal_bonus": 20,
-    "tal_note": "Kill → +20% WD 10s",
-    "name_ru": "Колыбельная"
+    "tal_note": "Kill → +20% WD 10s"
   },
   "Владыка": {
     "en": "Overlord",
@@ -719,8 +716,7 @@
     "tal_type": "stacks",
     "tal_bonus": 25,
     "tal_max": 10,
-    "tal_note": "10 stacks → +25% WD 10s",
-    "name_ru": "Властелин"
+    "tal_note": "10 stacks → +25% WD 10s"
   },
   "Скорпион": {
     "en": "Scorpio",
@@ -907,8 +903,7 @@
     "tal_bonus": 300,
     "tal_note": "10 stacks → next 300% WD",
     "burst_note": "10 stacks: следующий выстрел 300% WD",
-    "is_burst": true,
-    "name_ru": "Хлыст"
+    "is_burst": true
   },
   "Шериф": {
     "en": "Шериф",

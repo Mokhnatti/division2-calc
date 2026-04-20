@@ -1,44 +1,16 @@
 {
-  "Home/Community": [
-    "Аноним"
-  ],
-  "BUILD": [
-    "Аноним"
-  ],
-  "DPS": [
-    "Аноним"
-  ],
-  "Top": [
-    "Аноним"
-  ],
-  "Skills": [
-    "Аноним"
-  ],
-  "Tank": [
-    "Аноним"
-  ],
-  "Help": [
-    "Аноним"
-  ],
-  "Expertise": [
-    "Аноним"
-  ],
-  "Mods": [
-    "Аноним"
-  ],
-  "SkillMods": [
-    "Аноним"
-  ],
-  "Sets": [
-    "Аноним"
-  ],
-  "Brands": [
-    "Аноним"
-  ],
-  "Exotics": [
-    "Аноним"
-  ],
-  "Named": [
-    "Аноним"
-  ]
+  "Home/Community": [],
+  "BUILD": [],
+  "DPS": [],
+  "Top": [],
+  "Skills": [],
+  "Tank": [],
+  "Help": [],
+  "Expertise": [],
+  "Mods": [],
+  "SkillMods": [],
+  "Sets": [],
+  "Brands": [],
+  "Exotics": [],
+  "Named": []
 }

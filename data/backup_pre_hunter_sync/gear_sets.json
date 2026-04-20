@@ -1,6 +1,6 @@
 [
   {
-    "name": "Снаряжение боевика",
+    "name": "Боевик",
     "en": "Striker's Battlegear",
     "type": "red",
     "bonuses": [
@@ -36,7 +36,7 @@
     "name_legacy": "Боевое снаряжение Страйкера"
   },
   {
-    "name": "Разбиватель сердец",
+    "name": "Разбиватель Сердец",
     "en": "Heartbreaker",
     "type": "red",
     "bonuses": [
@@ -108,7 +108,7 @@
     "name_legacy": "Инициатива Умбра"
   },
   {
-    "name": "Ярость охотника",
+    "name": "Ярость Охотника",
     "en": "Hunter's Fury",
     "type": "red",
     "bonuses": [
@@ -144,7 +144,7 @@
     "name_legacy": "Ярость охотника"
   },
   {
-    "name": "Дилемма переговорщика",
+    "name": "Дилемма Переговорщика",
     "en": "Negotiator's Dilemma",
     "type": "red",
     "bonuses": [
@@ -216,7 +216,7 @@
     "name_legacy": "Горячий выстрел"
   },
   {
-    "name": "Бессрочная директива",
+    "name": "Бессрочная Директива",
     "en": "Ongoing Directive",
     "type": "red",
     "bonuses": [
@@ -252,7 +252,7 @@
     "name_legacy": "Текущая директива"
   },
   {
-    "name": "Истинный патриот",
+    "name": "Истинный Патриот",
     "en": "True Patriot",
     "type": "red",
     "bonuses": [
@@ -288,7 +288,7 @@
     "name_legacy": "Истинный патриот"
   },
   {
-    "name": "Восьмерки и тузы",
+    "name": "Восьмёрки и Тузы",
     "en": "Aces & Eights",
     "type": "red",
     "bonuses": [
@@ -324,7 +324,7 @@
     "name_legacy": "Тузы и восьмёрки"
   },
   {
-    "name": "Острие копья",
+    "name": "Остриё Копья",
     "en": "Tip of the Spear",
     "type": "red",
     "bonuses": [
@@ -491,7 +491,7 @@
     "name_legacy": "Сосредоточенная компания"
   },
   {
-    "name": "Сталелитейный бастион",
+    "name": "Сталелитейный Бастион",
     "en": "Foundry Bulwark",
     "type": "blue",
     "bonuses": [
@@ -527,7 +527,7 @@
     "name_legacy": "Оплот оружейни"
   },
   {
-    "name": "Коррупция в системе",
+    "name": "Коррупция в Системе",
     "en": "System Corruption",
     "type": "blue",
     "bonuses": [
@@ -699,7 +699,7 @@
     "name_legacy": "Протокол Затмения"
   },
   {
-    "name": "Инициатива будущего",
+    "name": "Инициатива Будущего",
     "en": "Future Initiative",
     "type": "yellow",
     "bonuses": [
@@ -771,7 +771,7 @@
     "name_legacy": "Жёсткая проводка"
   },
   {
-    "name": "Ортис: Эксуро",
+    "name": "Экскуро",
     "en": "Ortiz: Exuro",
     "type": "yellow",
     "bonuses": [

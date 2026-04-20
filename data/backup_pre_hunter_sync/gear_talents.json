@@ -602,7 +602,7 @@
     "description": "Ongoing Directive 4pc amplifier: Increases Hollow-Point Ammo damage from 20% to 50%. Does not apply to party members.",
     "slot": "chest",
     "set": null,
-    "name_ru": "Патроны для парабеллума"
+    "name_ru": "Патроны для \"парабеллума"
   },
   {
     "id": "gt_ridgeway_bleeding",
@@ -832,7 +832,7 @@
   },
   {
     "id": "gt_set_breakingpoint_chest",
-    "name_en": "Point of No Return",
+    "name_en": "Point of no Return",
     "description": "Breaking Point: Increase On Point bonuses timer from 10s to 15s.",
     "slot": "chest",
     "set": "Breaking Point",
@@ -971,8 +971,7 @@
     "name_en": "Fireworks Show",
     "description": "Killing an enemy with a grenade grants +30% weapon damage for 10s.",
     "slot": "backpack",
-    "set": null,
-    "name_ru": "Салют фейерверков"
+    "set": null
   },
   {
     "id": "gt_rebalance",
@@ -1261,7 +1260,7 @@
     "description": "Hunter's Fury: Decrease the cooldown for destroying Mortars and enemy skills from 10s to 1s.",
     "slot": "backpack",
     "set": "Hunter's Fury",
-    "name_ru": "Умная взаимосвязь"
+    "name_ru": "Умная\" взаимосвязь"
   },
   {
     "id": "gt_set_measured_bp",

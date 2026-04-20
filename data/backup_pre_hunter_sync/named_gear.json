@@ -513,7 +513,7 @@
     "bonus_short_en": "While you are within 10m of an ally or skill, total weapon damage is increased by 20%"
   },
   {
-    "name": "Охотник-убийца",
+    "name": "Охотник-Убийца",
     "en": "Hunter-Killer",
     "g": "Бронежилет",
     "t": "Бронежилет",
@@ -706,7 +706,7 @@
     "source_brand_ru": "Grupo Sombra S.A. (Тёмная зона"
   },
   {
-    "name": "Защита Цезаря",
+    "name": "Защита цезаря",
     "en": "Caesar's Guard",
     "g": "Бронежилет",
     "t": "Бронежилет",
@@ -728,7 +728,7 @@
     "source_brand_ru": "Empress International (целевые трофеи"
   },
   {
-    "name": "Замыкатель",
+    "name": "Финалист",
     "en": "Closer",
     "g": "Бронежилет",
     "t": "Бронежилет",
@@ -787,7 +787,7 @@
     "source_brand_ru": "Lengmo"
   },
   {
-    "name": "Бобер",
+    "name": "Бобёр",
     "en": "Bober",
     "g": "Бронежилет",
     "t": "Бронежилет",
@@ -975,7 +975,7 @@
     ]
   },
   {
-    "name": "Крепкое рукопожатие",
+    "name": "Крепкое Рукопожатие",
     "en": "Firm Handshake",
     "g": "Перчатки",
     "t": "Перчатки",
@@ -1042,7 +1042,7 @@
   },
   {
     "name": "В яблочко",
-    "en": "Spot-on",
+    "en": "Spot-On",
     "g": "Кобура",
     "t": "Кобура",
     "brand": "Urban Lookout",
