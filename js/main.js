@@ -3484,14 +3484,14 @@ function calcBuild(){
   // Build validation
   runBuildValidation({wpn,cnt,hasChest,hasBP,brandCnt,tCHC,tWD,tHSD,tROF,namedItems,slotState});
   // Stat weights — what to level up next
-  computeBuildWeights({wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC:mOOCeff,mDTA:mDTAeff,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS});
+  computeBuildWeights({wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC:mOOCeff,mDTA:mDTAeff,mDTH:mDTHeff,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS});
   // Autosave last state
   try{localStorage.setItem("d2calc_last",JSON.stringify(getBuildState()))}catch(e){}
 }
 
 // Compute stat weights: +1% per stat → DPS delta at peak
 function computeBuildWeights(ctx){
-  const {wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC,mDTA,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS}=ctx;
+  const {wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,tRELOAD,mHSR,mOOC,mDTA,mDTH,activeStacks,hasChest,hasBP,tPeakOnly,maxDPS}=ctx;
   if(!wpn||!maxDPS)return;
   // Helper to call dpsAtTime at peak (Infinity) with modified totals
   const calcPeak=(wd,rof,mag,chc,chd,hsd)=>{
