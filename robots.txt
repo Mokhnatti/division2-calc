@@ -1,7 +1,25 @@
 User-agent: *
 Allow: /
+
+# Backend / служебные пути — не индексировать
+Disallow: /api/
+Disallow: /_/
+Disallow: /pb/
+
+# Build hash в URL (?b=base64) — дубли + 401
+Disallow: /*?b=*
+Disallow: /*#b=*
+
+# Внутренние/служебные
 Disallow: /data_sources/
 Disallow: /scripts/
+Disallow: /data/
 Disallow: /*.bak
+Disallow: /*.json$
+Disallow: /js_content.txt
+Disallow: /css_content.txt
+
+# Crawl rate friendly
+Crawl-delay: 1
 
 Sitemap: https://divcalc.xyz/sitemap.xml
