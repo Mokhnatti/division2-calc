@@ -45,6 +45,8 @@ const FILES = {
   SKILLS_DATA: "skills_data.json",
   META_BUILDS: "meta_builds.json",
   UI_TRANSLATIONS: "ui_translations.json",
+  STATUS_EFFECTS: "status_effects.json",
+  FORMULAS: "formulas.json",
 };
 
 const obj = {};

@@ -241,8 +241,8 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"));
         btn.classList.add("active");activeCat=btn.dataset.cat;
         // pushState routing
-        const _urlMap={community:'/',build:'/build',dps:'/dps',meta:'/top',all:'/all',gear:'/sets',brand:'/brands',exotic:'/exotics',named:'/named-items',wmods:'/weapon-mods',smods:'/skill-mods',expertise:'/expertise',help:'/help'};
-        const _titleMap={community:'Сообщество',build:'Билд-конструктор',dps:'DPS Калькулятор',meta:'Топ билдов',all:'База данных',gear:'Комплекты',brand:'Бренды',exotic:'Экзотики',named:'Именные предметы',wmods:'Моды оружия',smods:'Моды навыков',expertise:'Экспертиза',help:'Справка'};
+        const _urlMap={community:'/',build:'/build',dps:'/dps',meta:'/top',all:'/all',gear:'/sets',brand:'/brands',exotic:'/exotics',named:'/named-items',wmods:'/weapon-mods',smods:'/skill-mods',expertise:'/expertise',formulas:'/formulas',help:'/help'};
+        const _titleMap={community:'Сообщество',build:'Билд-конструктор',dps:'DPS Калькулятор',meta:'Топ билдов',all:'База данных',gear:'Комплекты',brand:'Бренды',exotic:'Экзотики',named:'Именные предметы',wmods:'Моды оружия',smods:'Моды навыков',expertise:'Экспертиза',formulas:'Справочник формул',help:'Справка'};
         history.pushState({cat:activeCat},'',_urlMap[activeCat]||'/');
         document.title=(_titleMap[activeCat]||'Division 2')+' · divcalc.xyz';
         // toggle panels
@@ -253,10 +253,11 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         const isWmods = activeCat==="wmods";
         const isSmods = activeCat==="smods";
         const isExpertise = activeCat==="expertise";
+        const isFormulas = activeCat==="formulas";
         const isHelp = activeCat==="help";
         const isSkills = activeCat==="skills";
         const isTank = activeCat==="tank";
-        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise||isHelp||isSkills||isTank;
+        const hideMain = isCalc||isMeta||isBuild||isCommunity||isWmods||isSmods||isExpertise||isFormulas||isHelp||isSkills||isTank;
         document.getElementById("mc").style.display=hideMain?"none":"";
         document.getElementById("rc").style.display=hideMain?"none":"";
         document.querySelector(".search-panel").style.display=hideMain?"none":"";
@@ -271,6 +272,8 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         if(smodsPanel)smodsPanel.style.display=isSmods?"block":"none";
         const expPanel=document.getElementById("expertise-panel");
         if(expPanel)expPanel.style.display=isExpertise?"block":"none";
+        const formulasPanel=document.getElementById("formulas-panel");
+        if(formulasPanel)formulasPanel.style.display=isFormulas?"block":"none";
         const helpPanel=document.getElementById("help-panel");
         if(helpPanel)helpPanel.style.display=isHelp?"block":"none";
         const skillsPanel=document.getElementById("skills-panel");
@@ -285,6 +288,7 @@ document.querySelectorAll(".cat-btn").forEach(btn=>{
         else if(isWmods) renderWeaponMods();
         else if(isSmods) renderSkillGearMods();
         else if(isExpertise) renderExpertise();
+        else if(isFormulas) renderFormulas();
         else if(isSkills) renderSkillCalc();
         else if(isTank) renderTank();
     });
@@ -4481,6 +4485,94 @@ function setExpertiseCat(c){
   }
   renderExpertise();
 }
+// ===== FORMULAS PANEL =====
+function renderFormulas(){
+  const host=document.getElementById("formulas-content");
+  if(!host)return;
+  const isEn=currentLang==="en";
+  const SE=(typeof D2DATA!=='undefined'&&D2DATA.STATUS_EFFECTS)||[];
+  const F=(typeof D2DATA!=='undefined'&&D2DATA.FORMULAS)||{};
+
+  const T=(ru,en)=>isEn&&en?en:ru;
+
+  // Group status effects by group (DOT vs CC)
+  const dot=SE.filter(s=>s.group==='DOT');
+  const cc=SE.filter(s=>s.group==='CC');
+
+  function effectCard(s){
+    const name=isEn?(s.names&&s.names.en)||s.name_en:(s.names&&s.names.ru)||s.name_en;
+    const en=(s.names&&s.names.en)||s.name_en;
+    return `<div class="talent-block" style="margin-bottom:8px;border-left-color:${s.group==='DOT'?'var(--red)':'var(--blue)'}">
+      <h3 style="font-size:14px;margin-bottom:4px">${name} <span style="color:var(--muted);font-weight:400">(${en})</span></h3>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:4px">${T('Тип','Type')}: ${s.group==='DOT'?'DOT (Damage over Time)':'CC (Crowd Control)'} · ${T('Урон','Damage')}: ${s.damage_type||'—'}</div>
+      <table style="width:100%;font-size:12px;border-collapse:collapse">
+        <tr><td style="padding:4px;color:var(--muted);width:140px">${T('Длит. игрок','Player duration')}</td><td style="padding:4px;font-family:monospace">${s.duration_formula||'—'}</td></tr>
+        <tr><td style="padding:4px;color:var(--muted)">${T('Длит. NPC','NPC duration')}</td><td style="padding:4px;font-family:monospace">${s.npc_duration_formula||'—'}</td></tr>
+        <tr><td style="padding:4px;color:var(--muted)">${T('Мин. длит.','Min duration')}</td><td style="padding:4px">${s.min_duration||0}с</td></tr>
+      </table>
+    </div>`;
+  }
+
+  function formulaBlock(key, title, icon){
+    const group=F[key];
+    if(!group||!Object.keys(group).length)return '';
+    const rows=Object.entries(group).map(([k,v])=>{
+      const f=(v&&v.formula)||v;
+      return `<tr><td style="padding:6px;font-family:monospace;color:var(--orange);white-space:nowrap;vertical-align:top">${k}</td><td style="padding:6px;font-family:monospace;font-size:11px;color:var(--text)">${typeof f==='string'?f:JSON.stringify(f)}</td></tr>`;
+    }).join('');
+    return `<div class="bsect">
+      <h3>${icon} ${title}</h3>
+      <div style="overflow-x:auto;max-height:400px;overflow-y:auto;border:1px solid var(--border);border-radius:6px">
+        <table style="width:100%;font-size:12px;border-collapse:collapse">${rows}</table>
+      </div>
+    </div>`;
+  }
+
+  let html='';
+
+  // DOT effects
+  html+=`<div class="bsect">
+    <h3>🔥 ${T('Эффекты урона (DOT)','Damage over Time (DOT)')}</h3>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px">${T('Длительность в секундах. Bonus = модификатор игрока (Hazard Protection / Status Effect duration). NPC получают эффект дольше.','Duration in seconds. Bonus = player modifier. NPCs get longer status durations.')}</div>
+    ${dot.map(effectCard).join('')}
+  </div>`;
+
+  // CC effects
+  html+=`<div class="bsect">
+    <h3>🧊 ${T('Эффекты контроля (CC)','Crowd Control (CC)')}</h3>
+    ${cc.map(effectCard).join('')}
+  </div>`;
+
+  // Armor mitigation
+  html+=formulaBlock('armor_mitigation', T('🛡 Митигация брони (кап 70%)','🛡 Armor Mitigation (cap 70%)'), '🛡');
+
+  // Ammo
+  html+=formulaBlock('ammo_by_weapon_type', T('🔫 Размер боезапаса по типам оружия','🔫 Ammo by weapon type'), '🔫');
+
+  // Skill
+  html+=formulaBlock('skill', T('⚡ Параметры навыков','⚡ Skill parameters'), '⚡');
+
+  // Crit
+  html+=formulaBlock('crit', T('💥 Критический урон','💥 Critical hit'), '💥');
+
+  // Health & Armor
+  html+=formulaBlock('health_armor', T('❤ Здоровье и броня','❤ Health & Armor'), '❤');
+
+  // Damage mitigation by type
+  html+=formulaBlock('damage_mitigation_type', T('🛡 Митигация по типам урона','🛡 Damage Mitigation per type'), '🛡');
+
+  // Source info
+  html+=`<div class="bsect" style="background:rgba(66,165,245,.05);border-left:3px solid var(--blue)">
+    <h3>📦 ${T('Источник данных','Data source')}</h3>
+    <div style="font-size:12px;line-height:1.6">${T(
+      'Все формулы извлечены прямо из файлов игры Tom Clancy\'s The Division 2 (Year 8 Season 1 / TU22 «Rise Up», April 2026). Инструмент: Hunter v2.2.3. Обновляется после каждого патча.',
+      'All formulas extracted directly from Tom Clancy\'s The Division 2 game files (Year 8 Season 1 / TU22 "Rise Up", April 2026). Tool: Hunter v2.2.3. Updated each patch.'
+    )}</div>
+  </div>`;
+
+  host.innerHTML=html;
+}
+
 function renderExpertise(){
   const host=document.getElementById("expertise-content");
   if(!host)return;
