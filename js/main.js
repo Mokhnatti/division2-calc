@@ -4724,6 +4724,30 @@ function renderFormulas(){
     </div>`;
   }
 
+  // ALL 230 formulas — full list with search
+  const allFormulas=F.all||{};
+  const allEntries=Object.entries(allFormulas);
+  if(allEntries.length){
+    const formulaRows=allEntries.map(([k,v])=>{
+      const f=(v&&v.formula)||v;
+      const fStr=typeof f==='string'?f:JSON.stringify(f);
+      const searchKey=(k+' '+fStr).toLowerCase();
+      return `<tr data-search="${searchKey.replace(/"/g,'&quot;')}"><td style="padding:4px 6px;font-family:monospace;color:var(--orange);white-space:nowrap;vertical-align:top;font-size:11px">${k}</td><td style="padding:4px 6px;font-family:monospace;font-size:10px;color:var(--text);word-break:break-all">${fStr}</td></tr>`;
+    }).join('');
+    html+=`<div class="bsect" id="all-formulas-sect">
+      <details>
+        <summary style="cursor:pointer;padding:8px 0"><h3 style="display:inline"><span class="caret">▼</span> 📚 ${T('Все формулы ('+allEntries.length+')','All formulas ('+allEntries.length+')')}</h3></summary>
+        <div style="margin-top:10px">
+          <input type="text" id="all-formulas-search" placeholder="${T('Фильтр по имени или формуле...','Filter by name or formula...')}" oninput="filterAllFormulas()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px;margin-bottom:10px;outline:none">
+          <div style="max-height:600px;overflow-y:auto;border:1px solid var(--border);border-radius:6px">
+            <table id="all-formulas-table" style="width:100%;border-collapse:collapse">${formulaRows}</table>
+          </div>
+          <div id="all-formulas-count" style="font-size:10px;color:var(--muted);margin-top:6px;text-align:right">${T(`Показано ${allEntries.length} из ${allEntries.length}`, `Showing ${allEntries.length} of ${allEntries.length}`)}</div>
+        </div>
+      </details>
+    </div>`;
+  }
+
   // Source info
   html+=`<div class="bsect" style="background:rgba(66,165,245,.05);border-left:3px solid var(--blue)">
     <h3>📦 ${T('Источник данных','Data source')}</h3>
@@ -4734,6 +4758,23 @@ function renderFormulas(){
   </div>`;
 
   host.innerHTML=html;
+}
+
+function filterAllFormulas(){
+  const q=(document.getElementById('all-formulas-search').value||'').toLowerCase().trim();
+  const rows=document.querySelectorAll('#all-formulas-table tr');
+  let visible=0;
+  rows.forEach(r=>{
+    const s=r.getAttribute('data-search')||'';
+    const match=!q||s.includes(q);
+    r.style.display=match?'':'none';
+    if(match)visible++;
+  });
+  const cnt=document.getElementById('all-formulas-count');
+  if(cnt){
+    const total=rows.length;
+    cnt.textContent=(currentLang==='en'?`Showing ${visible} of ${total}`:`Показано ${visible} из ${total}`);
+  }
 }
 
 function renderExpertise(){
