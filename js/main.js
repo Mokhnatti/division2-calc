@@ -1278,6 +1278,8 @@ async function loadCommunityFeed(){
     const liked=getLikedSet();
     currentBuilds=items;
     listEl.innerHTML=items.map(b=>renderBuildCard(b,liked.has(b.id),isTrending)).join("");
+    // Render Meta strip on top (only if scope=='all' and no search)
+    try{renderMetaStrip(scope, search);}catch(e){console.error('meta strip:',e);}
   }catch(e){
     status.textContent="Ошибка загрузки: "+e.message+". Бэкенд PocketBase может быть недоступен.";
     status.style.color="var(--red)";
@@ -4895,4 +4897,55 @@ function updateAdminPanelVisibility(){
   const btn=document.getElementById('admin-panel-btn');
   if(!btn)return;
   btn.style.display=(currentUser&&currentUser.username==='Mokhnatti')?'inline-flex':'none';
+}
+
+// ===== META BUILDS STRIP on Community page =====
+function renderMetaStrip(scope, search){
+  const host = document.getElementById('meta-strip');
+  if(!host) return;
+  // Show only if viewing "all" scope and no text search
+  if(scope !== 'all' || (search && search.trim())) { host.innerHTML = ''; return; }
+  const MB = (typeof D2DATA !== 'undefined' && D2DATA.META_BUILDS) || [];
+  if(!MB.length) { host.innerHTML = ''; return; }
+  const isEn = currentLang === 'en';
+  const tierColor = {S:'#ef5350', A:'#f5a623', B:'#42a5f5', '—':'#888'};
+  // Sort: S first, then A, then B, then —
+  const tierOrder = {S:0, A:1, B:2, '—':3};
+  const sorted = [...MB].sort((a,b) => (tierOrder[a.tier]||9) - (tierOrder[b.tier]||9));
+  const cards = sorted.map(b => {
+    const name = isEn ? (b.name_en||b.name_ru||b.id) : (b.name_ru||b.name_en||b.id);
+    const tag = isEn ? (b.tag_en||'') : (b.tag_ru||'');
+    const desc = isEn ? (b.description_en||b.description_ru||'') : (b.description_ru||b.description_en||'');
+    const descShort = desc.length > 140 ? desc.slice(0,140)+'…' : desc;
+    const dps = b.expected_dps_peak_m ? `<div style="font-size:11px;color:var(--muted)">${isEn?'Peak DPS':'Пик DPS'}: <b style="color:var(--orange)">${b.expected_dps_peak_m}M</b></div>` : '';
+    const srcLink = b.source_url ? `<a href="${b.source_url}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--blue);font-size:10px;text-decoration:none">↗ ${escapeHtml((b.source_author||'src').slice(0,20))}</a>` : '';
+    return `<div class="meta-card" onclick="loadMetaBuild('${b.id}');document.querySelector('button.cat-btn[data-cat=build]').click();" style="background:linear-gradient(135deg,rgba(245,166,35,.08),rgba(245,166,35,.02));border:1px solid rgba(245,166,35,.3);border-left:4px solid ${tierColor[b.tier]||'#888'};border-radius:8px;padding:12px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;color:var(--orange);line-height:1.2">${escapeHtml(name)}</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.3px">${escapeHtml(tag)}</div>
+        </div>
+        <span style="background:${tierColor[b.tier]||'#888'};color:#000;padding:2px 8px;border-radius:10px;font-weight:700;font-size:11px;flex-shrink:0">${b.tier||'—'}</span>
+      </div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap;font-size:10px">
+        <span style="padding:2px 6px;background:rgba(245,166,35,.12);border-radius:8px;color:var(--orange)">🔫 ${escapeHtml((b.weapon_en||'?').slice(0,20))}</span>
+        <span style="padding:2px 6px;background:rgba(0,200,83,.1);border-radius:8px;color:var(--green)">${escapeHtml((b.gear_set||'?').slice(0,22))}</span>
+      </div>
+      <div style="font-size:11px;color:var(--text);line-height:1.35;flex:1">${escapeHtml(descShort)}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(245,166,35,.15);padding-top:6px">
+        ${dps}
+        ${srcLink}
+      </div>
+    </div>`;
+  }).join('');
+  host.innerHTML = `
+    <div style="padding:10px 14px;background:linear-gradient(90deg,rgba(245,166,35,.1),rgba(245,166,35,.02));border:1px solid rgba(245,166,35,.3);border-radius:10px 10px 0 0;border-bottom:none">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <h3 style="margin:0;font-size:14px;color:var(--orange)">🔥 ${isEn?'Y8S1 Meta Builds':'Мета-билды Y8S1 Rise Up'}</h3>
+        <span style="font-size:11px;color:var(--muted)">${isEn?'April 2026 · 15 builds · click to open in calculator':'Апрель 2026 · 15 билдов · клик открывает в калькуляторе'}</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;padding:14px;background:rgba(245,166,35,.03);border:1px solid rgba(245,166,35,.3);border-top:none;border-radius:0 0 10px 10px">
+      ${cards}
+    </div>`;
 }

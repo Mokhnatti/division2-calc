@@ -353,3 +353,6 @@ mark{background:rgba(245,166,35,.3);color:var(--text);border-radius:2px;padding:
 .yt-embed{transition:transform .15s,border-color .15s}
 .yt-embed:hover{border-color:var(--red)!important;transform:scale(1.01)}
 .yt-embed:hover > div[style*="background:rgba(0,0,0,.75)"]{background:rgba(255,0,0,.9)!important}
+
+/* Meta-builds strip on Community page */
+.meta-card:hover{border-color:var(--orange)!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(245,166,35,.2)}
