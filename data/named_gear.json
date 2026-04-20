@@ -1314,5 +1314,95 @@
     "aliases_ru": [
       "Кобура Пикаро"
     ]
+  },
+  {
+    "name": "Без проблем",
+    "en": "Zero F's",
+    "g": "Бронежилет",
+    "t": "chest",
+    "brand": "",
+    "bonus_ru": "На этом поле растут мои проблемы. Пусть оно остается пустым.",
+    "bonus_short_en": "Here is the field where I grow my Fs, lo it lies fallow.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Движущая сила",
+    "en": "Impetus",
+    "g": "Бронежилет",
+    "t": "chest",
+    "brand": "",
+    "bonus_ru": "Остановиться? Не могу, не хочу и не буду.",
+    "bonus_short_en": "Don't stop, can't stop, won't stop.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Вынос двери",
+    "en": "Door-Kicker's Knock",
+    "g": "Бронежилет",
+    "t": "chest",
+    "brand": "",
+    "bonus_ru": "Все просто: пускаешь ищейку и ждешь. Главное, не попади под разряд. Шарахнет больно.",
+    "bonus_short_en": "Just drop your seeker and let it go. Don't let the bang trip you up. You've got to prepare for the shock.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Орлиная хватка",
+    "en": "Eagle's Grasp",
+    "g": "Перчатки",
+    "t": "gloves",
+    "brand": "",
+    "bonus_ru": "Погодите, я до них доберусь.",
+    "bonus_short_en": "Just wait until I get my hands on them.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Перчатки наемника",
+    "en": "Contractor's Gloves",
+    "g": "Перчатки",
+    "t": "gloves",
+    "brand": "",
+    "bonus_ru": "Ломаются все. Нужно лишь приложить достаточно большое усилие к достаточно малой площади.",
+    "bonus_short_en": "“Never met a man I couldn't break. Apply enough pressure on a small enough point, and anything cracks.”",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Кобура Пикаро",
+    "en": "Pícaro's Holster",
+    "g": "Кобура",
+    "t": "holster",
+    "brand": "",
+    "bonus_ru": "",
+    "bonus_short_en": "",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Окопная молитва",
+    "en": "Fox's Prayer",
+    "g": "Наколенники",
+    "t": "knees",
+    "brand": "",
+    "bonus_ru": "Под артобстрелом атеистов не бывает.",
+    "bonus_short_en": "“Ever heard of an atheist in a foxhole? Me neither.”",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Охрана императора",
+    "en": "Emperor's Guard",
+    "g": "Наколенники",
+    "t": "knees",
+    "brand": "",
+    "bonus_ru": "Упадешь семь раз - встань восемь",
+    "bonus_short_en": "Fall down seven times, get up eight.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Перчатки Hydden",
+    "en": "Hydden Gloves",
+    "g": "Перчатки",
+    "t": "gloves",
+    "brand": "",
+    "bonus_ru": "Привет!",
+    "bonus_short_en": "Hey",
+    "source": "hunter_v2.2.3"
   }
 ]

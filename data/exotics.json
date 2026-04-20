@@ -1233,5 +1233,125 @@
     "mods_ru": "Прицел: +10% Урон от крит. попадания\nМагазин: +10%  Шанс крит. попадания\nПодствольная планка: +50% Скорость смены оружия",
     "source_ru": "Прохождение кульминационной миссии облавы сезона \"Восстание\": ???\n- Гарантированная награда за прохождение миссии на сложности «Мастер».\n- Шанс выпадения на любой другой сложности. Шанс повышается с увеличением сложности.",
     "tal_ru_full": "\"Faster Than Reloading\" - Если это оружие убрано на 5 сек., оно перезаряжается и заряжается. \nВ заряженном состоянии при переключении на это оружие перезаряжаются ваше основное и дополнительное оружие, а также вы получаете +20% к скорострельности и +50% к урону от оружия до тех пор, пока магазин не опустеет.\nПерезарядка или переключение с этого оружия до опустошения магазина снимает бонусы характеристик."
+  },
+  {
+    "name": "Momento",
+    "en": "Momento",
+    "g": "bp",
+    "tal": "Momento (talent)",
+    "tal_ru": "Momento (talent)",
+    "d": "April Fools. Better luck next time.",
+    "d_ru": "С первым апреля! В другой раз повезет.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Аварийный набор Птички",
+    "en": "Birdie's Quick Fix Pack",
+    "g": "bp",
+    "tal": "Birdie's Quick Fix Pack (talent)",
+    "tal_ru": "Аварийный набор Птички (талант)",
+    "d": "Get up, we're out of body bags.",
+    "d_ru": "Вставай, у нас кончились мешки для трупов.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Курьерский рюкзак ВелоНиндзя",
+    "en": "NinjaBike Messenger Backpack",
+    "g": "bp",
+    "tal": "NinjaBike Messenger Backpack (talent)",
+    "tal_ru": "Курьерский рюкзак ВелоНиндзя (талант)",
+    "d": "From the depths of hell, this has been resurrected as if it cannot die. The Priest",
+    "d_ru": "Эта реликвия восстала из глубин Ада – так, словно она сильнее самой смерти. (Священник)",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Позор Риджвея",
+    "en": "Ridgeway's Shame",
+    "g": "chest",
+    "tal": "Ridgeway's Shame (talent)",
+    "tal_ru": "Позор Риджвея (талант)",
+    "d": "April Fools. Better luck next time.",
+    "d_ru": "С первым апреля! В другой раз повезет.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Перчатки Рэтбоуна",
+    "en": "Rathbone's Gloves",
+    "g": "gloves",
+    "tal": "Rathbone's Gloves (talent)",
+    "tal_ru": "Перчатки Рэтбоуна (талант)",
+    "d": "",
+    "d_ru": "",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Курвовый кастет",
+    "en": "Burly Knuckles",
+    "g": "gloves",
+    "tal": "Burly Knuckles (talent)",
+    "tal_ru": "Курвовый кастет (талант)",
+    "d": "April Fools. Better luck next time.",
+    "d_ru": "С первым апреля! В другой раз повезет.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Кобура куробоя из Додж-Сити",
+    "en": "Dodge City Mudslinger's Holster",
+    "g": "holster",
+    "tal": "Dodge City Mudslinger's Holster (talent)",
+    "tal_ru": "Кобура куробоя из Додж-Сити (талант)",
+    "d": "April Fools. Better luck next time.",
+    "d_ru": "С первым апреля! В другой раз повезет.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Ножны центуриона",
+    "en": "Centurion's Scabbard",
+    "g": "holster",
+    "tal": "Centurion's Scabbard (talent)",
+    "tal_ru": "Ножны центуриона (талант)",
+    "d": "It's better to have more than one gun in your holster.",
+    "d_ru": "Лучше иметь в кобуре несколько стволов.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Курьерские наколенники НиндзяВело",
+    "en": "BikeNinja Messenger Kneepads",
+    "g": "knees",
+    "tal": "BikeNinja Messenger Kneepads (talent)",
+    "tal_ru": "Курьерские наколенники НиндзяВело (талант)",
+    "d": "April Fools. Better luck next time.",
+    "d_ru": "С первым апреля! В другой раз повезет.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Маска Койота",
+    "en": "Coyote's Mask",
+    "g": "mask",
+    "tal": "Coyote's Mask (talent)",
+    "tal_ru": "Маска Койота (талант)",
+    "d": "Lived through this bullet. I'll live through yours.",
+    "d_ru": "Тебя эта пуля не убила. А меня не убьет твоя.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Морда собаки",
+    "en": "Dogface",
+    "g": "mask",
+    "tal": "Dogface (talent)",
+    "tal_ru": "Морда собаки (талант)",
+    "d": "April Fools. Better luck next time.",
+    "d_ru": "С первым апреля! В другой раз повезет.",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Наколенники Сойер",
+    "en": "Sawyer's Kneepads",
+    "g": "knees",
+    "tal": "Sawyer's Kneepads (talent)",
+    "tal_ru": "Наколенники Сойер (талант)",
+    "d": "When I lost my leg, I thought that was it for me. But I found new purpose. I rose, just like the phoenix on my patch. Now it's time for these to find new purpose.",
+    "d_ru": "Оставшись без ноги, я было решила, что мне конец. Но я нашла новую цель в жизни. Восстала из пепла, словно феникс с моей нашивки. Теперь пришла пора и им обрести новую цель.",
+    "source": "hunter_v2.2.3"
   }
 ]

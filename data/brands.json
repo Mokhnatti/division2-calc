@@ -671,5 +671,27 @@
       "2шт: +32.5% Размер магазина",
       "3шт: +15% Урон крит. удара"
     ]
+  },
+  {
+    "name": "Alps Summit Armament",
+    "name_full_en": "Alps Summit Armament",
+    "bonuses": [],
+    "bonuses_old": [],
+    "aliases_en": [],
+    "core_en": "",
+    "armor_type_en": "",
+    "dlc": "",
+    "source": "hunter_v2.2.3"
+  },
+  {
+    "name": "Habsburg Guard",
+    "name_full_en": "Habsburg Guard",
+    "bonuses": [],
+    "bonuses_old": [],
+    "aliases_en": [],
+    "core_en": "",
+    "armor_type_en": "",
+    "dlc": "",
+    "source": "hunter_v2.2.3"
   }
 ]

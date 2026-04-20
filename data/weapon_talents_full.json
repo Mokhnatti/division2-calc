@@ -486,5 +486,680 @@
     "perfect_name_ru": "Слабое место (идеальный)",
     "desc_en": "Destroying a Weakpoint grants 19% (24%) Weapon Damage for 15s.",
     "desc_ru": "Разрушение уязвимого места дает +27% к урону от оружия сроком на 15 сек."
+  },
+  "62": {
+    "name_en": "Perfect Near Sighted",
+    "name_ru": "Идеальная близорукость",
+    "perfect_name_en": "Perfect Perfect Near Sighted",
+    "perfect_name_ru": "Идеальный Идеальная близорукость",
+    "desc_ru": "Повышение стабильности оружия на {0}% ценой уменьшения оптимальной дальности на {1}%.",
+    "desc_en": "Receive +{0}% stability at the cost of {1}% optimal range.",
+    "source": "hunter_v2.2.3"
+  },
+  "63": {
+    "name_en": "Second Primary Weapon",
+    "name_ru": "Второе основное оружие",
+    "perfect_name_en": "Perfect Second Primary Weapon",
+    "perfect_name_ru": "Идеальный Второе основное оружие",
+    "desc_ru": "Теперь вы можете взять второе основное оружие.",
+    "desc_en": "You can now equip a second primary weapon.",
+    "source": "hunter_v2.2.3"
+  },
+  "64": {
+    "name_en": "On the Ropes",
+    "name_ru": "На грани",
+    "perfect_name_en": "Perfect On the Ropes",
+    "perfect_name_ru": "Идеальный На грани",
+    "desc_ru": "В период, когда все навыки восстанавливаются, урон от оружия увеличивается на {0}%.",
+    "desc_en": "Weapon damage is increased by +{0}% while all skills are on cooldown.",
+    "source": "hunter_v2.2.3"
+  },
+  "65": {
+    "name_en": "Perfectly On the Ropes",
+    "name_ru": "Идеальная грань",
+    "perfect_name_en": "Perfect Perfectly On the Ropes",
+    "perfect_name_ru": "Идеальный Идеальная грань",
+    "desc_ru": "В период, когда все навыки восстанавливаются, урон от оружия увеличивается на {0}%.",
+    "desc_en": "Weapon damage is increased by +{0}% while all skills are on cooldown.",
+    "source": "hunter_v2.2.3"
+  },
+  "66": {
+    "name_en": "Spark",
+    "name_ru": "Искра",
+    "perfect_name_en": "Perfect Spark",
+    "perfect_name_ru": "Идеальный Искра",
+    "desc_ru": "Нанося противникам урон с помощью навыков, вы получаете +{0}% к общему урону от оружия сроком на {1} сек.",
+    "desc_en": "Damaging enemies with a skill increases total weapon damage by {0}% for {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "67": {
+    "name_en": "Perfect Spark",
+    "name_ru": "Идеальная искра",
+    "perfect_name_en": "Perfect Perfect Spark",
+    "perfect_name_ru": "Идеальный Идеальная искра",
+    "desc_ru": "Нанося противникам урон с помощью навыков, вы получаете +{0}% к общему урону от оружия сроком на {1} сек.",
+    "desc_en": "Damaging enemies with a skill increases total weapon damage by {0}% for {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "68": {
+    "name_en": "Vigilance",
+    "name_ru": "Бдительность",
+    "perfect_name_en": "Perfect Vigilance",
+    "perfect_name_ru": "Идеальный Бдительность",
+    "desc_ru": "Увеличение общего урона от оружия на {0}%. Получив урон, вы лишаетесь этого усиления на {1} сек.",
+    "desc_en": "Increases total weapon damage by {0}%. Taking damage disables this buff for {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "69": {
+    "name_en": "Perfect Vigilance",
+    "name_ru": "Идеальная бдительность",
+    "perfect_name_en": "Perfect Perfect Vigilance",
+    "perfect_name_ru": "Идеальный Идеальная бдительность",
+    "desc_ru": "Увеличение общего урона от оружия на {0}%. Получив урон, вы лишаетесь этого усиления на {1} сек.",
+    "desc_en": "Increases total weapon damage by {0}%. Taking damage disables this buff for {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "70": {
+    "name_en": "Unstoppable Force",
+    "name_ru": "Непреодолимость",
+    "perfect_name_en": "Perfect Unstoppable Force",
+    "perfect_name_ru": "Идеальный Непреодолимость",
+    "desc_ru": "За каждое убийство противника вы получаете +{0}% к общему урону от оружия сроком на {1} сек. Эффект суммируется до {2} раз.",
+    "desc_en": "Killing an enemy increases total weapon damage by {0}% for {1}s. Stacks up to {2} times.",
+    "source": "hunter_v2.2.3"
+  },
+  "71": {
+    "name_en": "Perfectly Unstoppable Force",
+    "name_ru": "Идеальная непреодолимость",
+    "perfect_name_en": "Perfect Perfectly Unstoppable Force",
+    "perfect_name_ru": "Идеальный Идеальная непреодолимость",
+    "desc_ru": "За каждое убийство противника вы получаете +{0}% к общему урону от оружия сроком на {1} сек. Эффект суммируется до {2} раз.",
+    "desc_en": "Killing an enemy increases total weapon damage by {0}% for {1}s. Stacks up to {2} times.",
+    "source": "hunter_v2.2.3"
+  },
+  "72": {
+    "name_en": "Berserk",
+    "name_ru": "Берсерк",
+    "perfect_name_en": "Perfect Berserk",
+    "perfect_name_ru": "Идеальный Берсерк",
+    "desc_ru": "Увеличение урона от оружия на {1}% за потерю каждых {0}% от максимума брони агента.",
+    "desc_en": "+{1}% weapon damage for every {0}% of max armor depleted.",
+    "source": "hunter_v2.2.3"
+  },
+  "73": {
+    "name_en": "Perfect Berserk",
+    "name_ru": "Идеальный берсерк",
+    "perfect_name_en": "Perfect Perfect Berserk",
+    "perfect_name_ru": "Идеальный Идеальный берсерк",
+    "desc_ru": "+{1}% к урону от оружия за потерю каждых {0}% от максимума брони агента.",
+    "desc_en": "+{1}% weapon damage for every {0}% of max armor depleted.",
+    "source": "hunter_v2.2.3"
+  },
+  "74": {
+    "name_en": "Twinkling Lights",
+    "name_ru": "Новогодние огни",
+    "perfect_name_en": "Perfect Twinkling Lights",
+    "perfect_name_ru": "Идеальный Новогодние огни",
+    "desc_ru": "Только в ночь новогодних огней вы сможете поразить чей-то мозг всей силой праздника.",
+    "desc_en": "Only at night with twinkling lights can you fill their heads with festive might.",
+    "source": "hunter_v2.2.3"
+  },
+  "75": {
+    "name_en": "Concussion",
+    "name_ru": "Контузия",
+    "perfect_name_en": "Perfect Concussion",
+    "perfect_name_ru": "Идеальный Контузия",
+    "desc_ru": "Убийство противника повышает эргономичность, убийство выстрелом в голову усиливает эффект.",
+    "desc_en": "Killing a enemy increases weapon handling, Headshot kills increase this effect.",
+    "source": "hunter_v2.2.3"
+  },
+  "76": {
+    "name_en": "Compensated",
+    "name_ru": "Компенсация",
+    "perfect_name_en": "Perfect Compensated",
+    "perfect_name_ru": "Идеальный Компенсация",
+    "desc_ru": "Урон от оружия повышается на {0}%, если шанс критического попадания у агента составляет менее {1}%.",
+    "desc_en": "Weapon damage is increased by +{0}% when your critical hit chance is below {1}%.",
+    "source": "hunter_v2.2.3"
+  },
+  "77": {
+    "name_en": "Fill'er Up",
+    "name_ru": "Заполнение",
+    "perfect_name_en": "Perfect Fill'er Up",
+    "perfect_name_ru": "Идеальный Заполнение",
+    "desc_ru": "При перезарядке одного оружия с пустым магазином перезаряжается все имеющееся оружие.",
+    "desc_en": "Reloading from empty reloads all weapons.",
+    "source": "hunter_v2.2.3"
+  },
+  "78": {
+    "name_en": "Gunslinger",
+    "name_ru": "Пистолетчик",
+    "perfect_name_en": "Perfect Gunslinger",
+    "perfect_name_ru": "Идеальный Пистолетчик",
+    "desc_ru": "После каждой смены оружия вы получаете +{0}% к общему урону от оружия сроком на {1} сек. Если сменить оружие во время действия эффекта, он будет снят на {2} сек..",
+    "desc_en": "Weapon swapping increases total weapon damage by {0}% for {1}s. This buff is lost for {2}s if you weapon swap while it is active.",
+    "source": "hunter_v2.2.3"
+  },
+  "79": {
+    "name_en": "Perfect Gunslinger",
+    "name_ru": "Идеальный пистолетчик",
+    "perfect_name_en": "Perfect Perfect Gunslinger",
+    "perfect_name_ru": "Идеальный Идеальный пистолетчик",
+    "desc_ru": "После каждой смены оружия вы получаете +{0}% к общему урону от оружия сроком на {1} сек. Если сменить оружие во время действия эффекта, он будет снят на {2} сек..",
+    "desc_en": "Weapon swapping increases total weapon damage by {0}% for {1}s. This buff is lost for {2}s if you weapon swap while it is active.",
+    "source": "hunter_v2.2.3"
+  },
+  "80": {
+    "name_en": "Swift",
+    "name_ru": "Быстрота",
+    "perfect_name_en": "Perfect Swift",
+    "perfect_name_ru": "Идеальный Быстрота",
+    "desc_ru": "Урон от оружия повышается после рывков от укрытия к укрытию.",
+    "desc_en": "Weapon Damage is increased after completing a cover to cover swap.",
+    "source": "hunter_v2.2.3"
+  },
+  "81": {
+    "name_en": "Braced",
+    "name_ru": "Стойкость",
+    "perfect_name_en": "Perfect Braced",
+    "perfect_name_ru": "Идеальный Стойкость",
+    "desc_ru": "При нахождении в укрытии эргономичность оружия повышается на {0}%.",
+    "desc_en": "While in cover weapon handling is increased by +{0}%.",
+    "source": "hunter_v2.2.3"
+  },
+  "82": {
+    "name_en": "Perfect Braced",
+    "name_ru": "Идеальная стойкость",
+    "perfect_name_en": "Perfect Perfect Braced",
+    "perfect_name_ru": "Идеальный Идеальная стойкость",
+    "desc_ru": "При нахождении в укрытии эргономичность оружия повышается на {0}%.",
+    "desc_en": "While in cover weapon handling is increased by +{0}%.",
+    "source": "hunter_v2.2.3"
+  },
+  "83": {
+    "name_en": "Perfectly Unhinged",
+    "name_ru": "Идеальный дисбаланс",
+    "perfect_name_en": "Perfect Perfectly Unhinged",
+    "perfect_name_ru": "Идеальный Идеальный дисбаланс",
+    "desc_ru": "Урон от оружия увеличивается на {0}% ценой снижения стабильности на {1}% и точности на {2}%.",
+    "desc_en": "Grants +{0}% weapon damage at the cost of {1}% Stability and {2}% Accuracy.",
+    "source": "hunter_v2.2.3"
+  },
+  "84": {
+    "name_en": "Dialed In",
+    "name_ru": "Концентрация на цели",
+    "perfect_name_en": "Perfect Dialed In",
+    "perfect_name_ru": "Идеальный Концентрация на цели",
+    "desc_ru": "+{0}% к стабильности оружия во время прицеливания.",
+    "desc_en": "While aiming, gain +{0}% weapon stability.",
+    "source": "hunter_v2.2.3"
+  },
+  "85": {
+    "name_en": "Perfect Rifleman",
+    "name_ru": "Идеальный стрелок",
+    "perfect_name_en": "Perfect Perfect Rifleman",
+    "perfect_name_ru": "Идеальный Идеальный стрелок",
+    "desc_ru": "Каждое попадание в голову увеличивает урон от оружия на {0}% сроком на {1} сек. Эффект суммируется до {2} раз. Дополнительные попадания в голову возобновляют действие эффекта.",
+    "desc_en": "Landing headshots adds a stack of bonus +{0}% weapon damage for {1}s. Max stack is {2}. Additional headshots refresh the duration.",
+    "source": "hunter_v2.2.3"
+  },
+  "86": {
+    "name_en": "Extra Weapon Choice",
+    "name_ru": "Расширенный выбор оружия",
+    "perfect_name_en": "Perfect Extra Weapon Choice",
+    "perfect_name_ru": "Идеальный Расширенный выбор оружия",
+    "desc_ru": "Возможность выбирать оружие из четырех вариантов на консолях комбинаций в лобби.",
+    "desc_en": "Grants a 4th Weapon option inside Loadout Consoles within Lobbies.",
+    "source": "hunter_v2.2.3"
+  },
+  "87": {
+    "name_en": "Devastating",
+    "name_ru": "Сокрушительный",
+    "perfect_name_en": "Perfect Devastating",
+    "perfect_name_ru": "Идеальный Сокрушительный",
+    "desc_ru": "Увеличение урона от оружия на {0}%.",
+    "desc_en": "Weapon Damage increased by +{0}%",
+    "source": "hunter_v2.2.3"
+  },
+  "88": {
+    "name_en": "Greased",
+    "name_ru": "Смазка",
+    "perfect_name_en": "Perfect Greased",
+    "perfect_name_ru": "Идеальный Смазка",
+    "desc_ru": "При использовании вы получаете +{0}% к скорости смены оружия.",
+    "desc_en": "While equipped, grants +{0}% weapon swap speed.",
+    "source": "hunter_v2.2.3"
+  },
+  "89": {
+    "name_en": "Double Duty",
+    "name_ru": "Подстраховка",
+    "perfect_name_en": "Perfect Double Duty",
+    "perfect_name_ru": "Идеальный Подстраховка",
+    "desc_ru": "Если это оружие убрано, то при перезарядке с пустым магазином {0}% патронов возвращаются в ваш боезапас. Эффект действует раз в {1} сек.",
+    "desc_en": "While holstered, reloading from empty gives you a {0}% of your magazine back as free ammo. Can occur once every {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "90": {
+    "name_en": "Perfect Unwavering",
+    "name_ru": "Идеальная непоколебимость",
+    "perfect_name_en": "Perfect Perfect Unwavering",
+    "perfect_name_ru": "Идеальный Идеальная непоколебимость",
+    "desc_ru": "Переключившись на это оружие, вы получаете +{0}% к эргономичности оружия сроком на {1} сек. Эффект возобновляется после каждого убийства. В случае переключения на другое оружие он становится полностью недоступным на {2} сек.",
+    "desc_en": "Swapping to this weapon grants +{0}% weapon handling for {1}s. Kills refresh the buff. Swapping away disables this from all weapons for {2}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "91": {
+    "name_en": "Weapon Damage",
+    "name_ru": "Урон от оружия",
+    "perfect_name_en": "Perfect Weapon Damage",
+    "perfect_name_ru": "Идеальный Урон от оружия",
+    "desc_ru": "",
+    "desc_en": "",
+    "source": "hunter_v2.2.3"
+  },
+  "92": {
+    "name_en": "Back and Forth",
+    "name_ru": "Двухтактный цикл",
+    "perfect_name_en": "Perfect Back and Forth",
+    "perfect_name_ru": "Идеальный Двухтактный цикл",
+    "desc_ru": "Переключившись на это оружие, вы получаете +{1}% к скорострельности и +{0}% к урону от оружия сроком на {2} с.",
+    "desc_en": "Swapping to this weapon grants +{1}% Rate of Fire and +{0}% Weapon Damage for {2}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "93": {
+    "name_en": "Perfect Back and Forth",
+    "name_ru": "Идеальный двухтактный цикл",
+    "perfect_name_en": "Perfect Perfect Back and Forth",
+    "perfect_name_ru": "Идеальный Идеальный двухтактный цикл",
+    "desc_ru": "Переключившись на это оружие, вы получаете +{1}% к скорострельности и +{0}% к урону от оружия сроком на {2} с.",
+    "desc_en": "Swapping to this weapon grants +{1}% Rate of Fire and +{0}% Weapon Damage for {2}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "94": {
+    "name_en": "Perfectly Behind You",
+    "name_ru": "Идеальный прикрывающий",
+    "perfect_name_en": "Perfect Perfectly Behind You",
+    "perfect_name_ru": "Идеальный Идеальный прикрывающий",
+    "desc_ru": "Урон от оружия повышается на {0}%, если вы атакуете врага, который не целится в вас.",
+    "desc_en": "Amplifies weapon damage by +{0}% to enemies that are not targeting you.",
+    "source": "hunter_v2.2.3"
+  },
+  "95": {
+    "name_en": "Blossom Harvest",
+    "name_ru": "Blossom Harvest",
+    "perfect_name_en": "Perfect Blossom Harvest",
+    "perfect_name_ru": "Perfect Blossom Harvest",
+    "desc_ru": "",
+    "desc_en": "Amplifies Weapon Damage by {0}% for each {1}% combined Armor and Health the enemy has remaining.",
+    "source": "hunter_v2.2.3"
+  },
+  "96": {
+    "name_en": "Perfect Breadbasket",
+    "name_ru": "Идеальная стрельба двойками",
+    "perfect_name_en": "Perfect Perfect Breadbasket",
+    "perfect_name_ru": "Идеальный Идеальная стрельба двойками",
+    "desc_ru": "Каждое попадание в корпус увеличивает урон от следующего выстрела в голову, совершенного в течение {1} сек., на {0}%. Эффект суммируется до {2} раз.",
+    "desc_en": "Landing body shots adds a stack of bonus +{0}% headshot damage to the next headshot for {1}s. Max stack is {2}.",
+    "source": "hunter_v2.2.3"
+  },
+  "97": {
+    "name_en": "Perfect Pressure Point",
+    "name_ru": "Идеальный центр давления",
+    "perfect_name_en": "Perfect Perfect Pressure Point",
+    "perfect_name_ru": "Идеальный Идеальный центр давления",
+    "desc_ru": "Увеличение урона от оружия, наносимого противникам с негативными эффектами, на {0}%.",
+    "desc_en": "Amplifies weapon damage by {0}% to enemies under Status Effects.",
+    "source": "hunter_v2.2.3"
+  },
+  "98": {
+    "name_en": "Perfect Brazen",
+    "name_ru": "Идеальная дерзость",
+    "perfect_name_en": "Perfect Perfect Brazen",
+    "perfect_name_ru": "Идеальный Идеальная дерзость",
+    "desc_ru": "Нанесение +{0}% дополнительного урона при следующем выстреле из оружия за каждую дробину, попавшую в цель, если в нее попало не менее {1} дробин. Убийство противника дает +8% дополнительного урона при следующем выстреле.",
+    "desc_en": "Receive +{0}% Amplified Damage on the next shot with the weapon for each pellet that hits the target, if at least {1} pellets hit. Killing an enemy will provide +8% Amplified Damage on the next shot.",
+    "source": "hunter_v2.2.3"
+  },
+  "100": {
+    "name_en": "Perfect Fast Hands",
+    "name_ru": "Идеальная ловкость рук",
+    "perfect_name_en": "Perfect Perfect Fast Hands",
+    "perfect_name_ru": "Идеальный Идеальная ловкость рук",
+    "desc_ru": "Каждое критическое попадание повышает скорость перезарядки на {0}%. Эффект суммируется до {1} раз.",
+    "desc_en": "Critical hits add a stack of {0}% reload speed bonus. Max stack is {1}.",
+    "source": "hunter_v2.2.3"
+  },
+  "101": {
+    "name_en": "Perfect Killer",
+    "name_ru": "Идеальный убийца",
+    "perfect_name_en": "Perfect Perfect Killer",
+    "perfect_name_ru": "Идеальный Идеальный убийца",
+    "desc_ru": "После убийства противника критическим попаданием урон от таких попаданий увеличивается на {0}% сроком на {1} сек.",
+    "desc_en": "Killing an enemy with a critical hit grants +{0}% critical hit damage for {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "102": {
+    "name_en": "Perfect Ranger",
+    "name_ru": "Идеальный рейнджер",
+    "perfect_name_en": "Perfect Perfect Ranger",
+    "perfect_name_ru": "Идеальный Идеальный рейнджер",
+    "desc_ru": "Урон от оружия увеличивается на {0}% за каждые {1} м расстояния до цели.",
+    "desc_en": "Amplifies weapon damage by {0}% for every {1}m you are away from your target.",
+    "source": "hunter_v2.2.3"
+  },
+  "103": {
+    "name_en": "Perfect Soft Spot",
+    "name_ru": "Идеальное слабое место",
+    "perfect_name_en": "Perfect Perfect Soft Spot",
+    "perfect_name_ru": "Идеальный Идеальное слабое место",
+    "desc_ru": "Разрушение уязвимого места дает +{0}% к урону от оружия сроком на {1} сек.",
+    "desc_en": "Destroying a Weakpoint grants +{0}% Weapon Damage for {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "104": {
+    "name_en": "Perfect Flatline",
+    "name_ru": "Идеальная изолиния",
+    "perfect_name_en": "Perfect Perfect Flatline",
+    "perfect_name_ru": "Идеальный Идеальная изолиния",
+    "desc_ru": "Противники, отмеченные импульсом, получают на {0}% больший урон от оружия.",
+    "desc_en": "Amplifies weapon damage by {0}% to pulsed enemies.",
+    "source": "hunter_v2.2.3"
+  },
+  "105": {
+    "name_en": "Perfectly Measured",
+    "name_ru": "Идеальная взвешенность",
+    "perfect_name_en": "Perfect Perfectly Measured",
+    "perfect_name_ru": "Идеальный Идеальная взвешенность",
+    "desc_ru": "Для первой половины патронов в магазине:скорострельность {0}%, но урон от оружия {1}%. Для второй половины патронов в магазине: скорострельность {2}%, общий урон от оружия {3}%.",
+    "desc_en": "The top half of the magazine has {0}% rate of fire and {1}% weapon damage. The bottom half of the magazine has {2}% rate of fire and {3}% total weapon damage.",
+    "source": "hunter_v2.2.3"
+  },
+  "106": {
+    "name_en": "Eyeless 2.0",
+    "name_ru": "Незрячий 2.0",
+    "perfect_name_en": "Perfect Eyeless 2.0",
+    "perfect_name_ru": "Идеальный Незрячий 2.0",
+    "desc_ru": "Попадание в голову дает шанс ослепить цель. Каждое последующее попадание в голову увеличивает вероятность на {0}%. При промахе вероятность сбрасывается.",
+    "desc_en": "Headshots have a chance to Blind a target. Consecutive headshots increase the chance by {0}%. Missed shots resets the chance.",
+    "source": "hunter_v2.2.3"
+  },
+  "107": {
+    "name_en": "Jeopardy",
+    "name_ru": "Под ударом",
+    "perfect_name_en": "Perfect Jeopardy",
+    "perfect_name_ru": "Идеальный Под ударом",
+    "desc_ru": "Выстрелы в голову и по уязвимым местам накладывают на цель заряды эффекта, добавляющего цели +{0}% накладываемой оружием уязвимости. Раз в {1} сек. цель теряет по 1 заряду эффекта. Эффект суммируется до {2} раз.",
+    "desc_en": "Headshots and weak point hits build and refresh stacks which grant +{0}% vulnerability applied by weapons. 1 Stack is removed every {1}s. Max stack is {2}.",
+    "source": "hunter_v2.2.3"
+  },
+  "108": {
+    "name_en": "Perfect Jeopardy",
+    "name_ru": "Под идеальным ударом",
+    "perfect_name_en": "Perfect Perfect Jeopardy",
+    "perfect_name_ru": "Идеальный Под идеальным ударом",
+    "desc_ru": "Выстрелы в голову и по уязвимым местам накладывают на цель заряды эффекта, добавляющего цели +{0}% накладываемой оружием уязвимости. Раз в {1} сек. цель теряет по 1 заряду эффекта. Эффект суммируется до {2} раз.",
+    "desc_en": "Headshots and weak point hits build and refresh stacks which grant +{0}% vulnerability applied by weapons. 1 Stack is removed every {1}s. Max stack is {2}.",
+    "source": "hunter_v2.2.3"
+  },
+  "109": {
+    "name_en": "Hidden Rock",
+    "name_ru": "Снежок с камнем",
+    "perfect_name_en": "Perfect Hidden Rock",
+    "perfect_name_ru": "Идеальный Снежок с камнем",
+    "desc_ru": "Попадания в голову вызывают растерянность.",
+    "desc_en": "Headshots apply confuse.",
+    "source": "hunter_v2.2.3"
+  },
+  "110": {
+    "name_en": "Perfect Perpetuation",
+    "name_ru": "Идеальное постоянство",
+    "perfect_name_en": "Perfect Perfect Perpetuation",
+    "perfect_name_ru": "Идеальный Идеальное постоянство",
+    "desc_ru": "Попадания в голову дают +{0}% к урону от негативных эффектов и длительности следующего такого эффекта, наложенного вами.",
+    "desc_en": "Headshots grant +{0}% status effect damage and duration to the next status effect you apply.",
+    "source": "hunter_v2.2.3"
+  },
+  "111": {
+    "name_en": "Perfect Reformation",
+    "name_ru": "Идеальная реформация",
+    "perfect_name_en": "Perfect Perfect Reformation",
+    "perfect_name_ru": "Идеальный Идеальная реформация",
+    "desc_ru": "Попадания в голову дают +{0}% к ремонту от навыков сроком на {1} сек.",
+    "desc_en": "Headshots grant +{0}% skill repair for {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "112": {
+    "name_en": "Perfect Spike",
+    "name_ru": "Идеальный гвоздь",
+    "perfect_name_en": "Perfect Perfect Spike",
+    "perfect_name_ru": "Идеальный Идеальный гвоздь",
+    "desc_ru": "Попадания в голову дают +{0}% к урону от навыков сроком на {1} сек.",
+    "desc_en": "Headshots grant +{0}% skill damage for {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "113": {
+    "name_en": "Perfectly Steady Handed",
+    "name_ru": "Идеально твердая рука",
+    "perfect_name_en": "Perfect Perfectly Steady Handed",
+    "perfect_name_ru": "Идеальный Идеально твердая рука",
+    "desc_ru": "Каждое попадание дает +{0}% к точности и стабильности.",
+    "desc_en": "Hits grant a stack of +{0}% Accuracy and Stability.",
+    "source": "hunter_v2.2.3"
+  },
+  "114": {
+    "name_en": "Perfect Immobilize",
+    "name_ru": "Идеальное обездвиживание",
+    "perfect_name_en": "Perfect Perfect Immobilize",
+    "perfect_name_ru": "Идеальный Идеальное обездвиживание",
+    "desc_ru": "Увеличение урона от оружия, наносимого прилипшим противникам, на {0}%.",
+    "desc_en": "Amplifies weapon damage by {0}% to ensnared enemies.",
+    "source": "hunter_v2.2.3"
+  },
+  "115": {
+    "name_en": "Perfect Eyeless",
+    "name_ru": "Идеальный незрячий",
+    "perfect_name_en": "Perfect Perfect Eyeless",
+    "perfect_name_ru": "Идеальный Идеальный незрячий",
+    "desc_ru": "Увеличение урона от оружия, наносимого противникам с эффектом ослепления, на {0}%.",
+    "desc_en": "Amplifies weapon damage by {0}% to blinded enemies.",
+    "source": "hunter_v2.2.3"
+  },
+  "116": {
+    "name_en": "Perfectly Ignited",
+    "name_ru": "Идеальное воспламенение",
+    "perfect_name_en": "Perfect Perfectly Ignited",
+    "perfect_name_ru": "Идеальный Идеальное воспламенение",
+    "desc_ru": "Увеличение урона от оружия, наносимого противникам с эффектом горения, на {0}%.",
+    "desc_en": "Amplifies weapon damage by {0}% to burning enemies.",
+    "source": "hunter_v2.2.3"
+  },
+  "117": {
+    "name_en": "Perfect Sadist",
+    "name_ru": "Идеальный садист",
+    "perfect_name_en": "Perfect Perfect Sadist",
+    "perfect_name_ru": "Идеальный Идеальный садист",
+    "desc_ru": "Увеличение урона от оружия, наносимого противникам с эффектом кровотечения, на {0}%.",
+    "desc_en": "Amplifies weapon damage by {0}% to bleeding enemies.",
+    "source": "hunter_v2.2.3"
+  },
+  "118": {
+    "name_en": "Perfectly Close & Personal",
+    "name_ru": "Идеальный близкий контакт",
+    "perfect_name_en": "Perfect Perfectly Close & Personal",
+    "perfect_name_ru": "Идеальный Идеальный близкий контакт",
+    "desc_ru": "Убийство цели на дистанции до {0} м увеличивает урон от оружия на {1}%. Эффект длится {2} сек.",
+    "desc_en": "Killing a target within {0}m grants +{1}% weapon damage for {2}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "119": {
+    "name_en": "Perfect Preservation",
+    "name_ru": "Идеальная аккуратность",
+    "perfect_name_en": "Perfect Perfect Preservation",
+    "perfect_name_ru": "Идеальный Идеальная аккуратность",
+    "desc_ru": "Убийство противника восстанавливает {0}% брони в течение {1} сек. Убийства выстрелами в голову повышают эффективность ремонта на {2}%.",
+    "desc_en": "Killing an enemy repairs {0}% armor over {1}s. Headshot kills improve the repair by an additional {2}%.",
+    "source": "hunter_v2.2.3"
+  },
+  "120": {
+    "name_en": "Perfect Optimist",
+    "name_ru": "Идеальный оптимизм",
+    "perfect_name_en": "Perfect Perfect Optimist",
+    "perfect_name_ru": "Идеальный Идеальный оптимизм",
+    "desc_ru": "За каждые недостающие {0}% боеприпасов в магазине агента его урон от оружия увеличивается на {1}%.",
+    "desc_en": "Weapon damage is increased by +{1}% for every {0}% ammo missing from the magazine.",
+    "source": "hunter_v2.2.3"
+  },
+  "121": {
+    "name_en": "Perfect Lucky Shot",
+    "name_ru": "Идеальный удачный выстрел",
+    "perfect_name_en": "Perfect Perfect Lucky Shot",
+    "perfect_name_ru": "Идеальный Идеальный удачный выстрел",
+    "desc_ru": "Вместимость магазина увеличена на {0}%. Пули, не попавшие в цель при стрельбе из укрытия, с вероятностью {1}% возвращаются в магазин.",
+    "desc_en": "Magazine capacity is increased by {0}%. Missed shots from cover have a {1}% chance to return to the magazine.",
+    "source": "hunter_v2.2.3"
+  },
+  "122": {
+    "name_en": "Perfect Strained",
+    "name_ru": "Идеальное напряжение",
+    "perfect_name_en": "Perfect Perfect Strained",
+    "perfect_name_ru": "Идеальный Идеальное напряжение",
+    "desc_ru": "Повышение урона от критических попаданий на {0}% за каждые {1} сек. ведения огня. Эффект суммируется до {2} раз.",
+    "desc_en": "Gain +{0}% critical hit damage for every {1}s you are firing. Stacks up to {2} times.",
+    "source": "hunter_v2.2.3"
+  },
+  "123": {
+    "name_en": "Perfect Determined",
+    "name_ru": "Идеальная решимость",
+    "perfect_name_en": "Perfect Perfect Determined",
+    "perfect_name_ru": "Идеальный Идеальная решимость",
+    "desc_ru": "После убийства врага выстрелом в голову следующий выстрел по любой враждебной цели гарантированно станет критическим попаданием в голову. Пока этот талант активен, он не будет срабатывать повторно при других убийствах.",
+    "desc_en": "After killing an enemy with a headshot the next shot landed on any enemy will be a guaranteed critical headshot. While the talent is active killing an enemy will not retrigger the talent.",
+    "source": "hunter_v2.2.3"
+  },
+  "124": {
+    "name_en": "Perfect Precision Strike",
+    "name_ru": "Идеальный точный удар",
+    "perfect_name_en": "Perfect Perfect Precision Strike",
+    "perfect_name_ru": "Идеальный Идеальный точный удар",
+    "desc_ru": "Убивая противников на расстоянии более {1} м, вы накапливаете заряды. Их максимальное количество составляет {0}.",
+    "desc_en": "Killing enemies farther than {1}m builds up stacks. Max stack is {0}.",
+    "source": "hunter_v2.2.3"
+  },
+  "125": {
+    "name_en": "Perfect Overflowing",
+    "name_ru": "Идеальное переполнение",
+    "perfect_name_en": "Perfect Perfect Overflowing",
+    "perfect_name_ru": "Идеальный Идеальное переполнение",
+    "desc_ru": "При каждой {2}-й перезарядке с пустым магазином его базовая емкость увеличивается на {1}%.",
+    "desc_en": "Every {2} reloads from empty increases your base magazine capacity by {1}%.",
+    "source": "hunter_v2.2.3"
+  },
+  "126": {
+    "name_en": "Symbiosis",
+    "name_ru": "Симбиоз",
+    "perfect_name_en": "Perfect Symbiosis",
+    "perfect_name_ru": "Идеальный Симбиоз",
+    "desc_ru": "Прочность поставленного щита уменьшается со скоростью {0}% в секунду.",
+    "desc_en": "While having a Shield deployed, lose Shield Health at a rate of {0}% per second.",
+    "source": "hunter_v2.2.3"
+  },
+  "127": {
+    "name_en": "Perfect Sledgehammer",
+    "name_ru": "Идеальная кувалда",
+    "perfect_name_en": "Perfect Perfect Sledgehammer",
+    "perfect_name_ru": "Идеальный Идеальная кувалда",
+    "desc_ru": "",
+    "desc_en": "",
+    "source": "hunter_v2.2.3"
+  },
+  "128": {
+    "name_en": "Sport Mode",
+    "name_ru": "Режим скорости",
+    "perfect_name_en": "Perfect Sport Mode",
+    "perfect_name_ru": "Идеальный Режим скорости",
+    "desc_ru": "+20% скорость перемещения. Этот бонус не суммируется с другими бонусами к скорости перемещения.",
+    "desc_en": "+20% Movement Speed.",
+    "source": "hunter_v2.2.3"
+  },
+  "129": {
+    "name_en": "Perfect Stabilize",
+    "name_ru": "Идеальная стабилизация",
+    "perfect_name_en": "Perfect Perfect Stabilize",
+    "perfect_name_ru": "Идеальный Идеальная стабилизация",
+    "desc_ru": "При каждом выстреле из оружия его точность увеличивается на {0}%, а его стабильность - на {0}%, вплоть до {1}%.",
+    "desc_en": "Firing your weapon increases Weapon Accuracy by {0}% and Weapon Stability by {0}% per shot, up to {1}%.",
+    "source": "hunter_v2.2.3"
+  },
+  "130": {
+    "name_en": "Perfect Vindictive",
+    "name_ru": "Идеальная мстительность",
+    "perfect_name_en": "Perfect Perfect Vindictive",
+    "perfect_name_ru": "Идеальный Идеальная мстительность",
+    "desc_ru": "Убийство противника с негативным эффектом дает +{1}% к шансу критического попадания и +{2}% к урону от критических попаданий сроком на {3} сек. вам и всем союзникам в радиусе {0} м.",
+    "desc_en": "Killing an enemy with a status effect applied grants you and all allies within {0}m {1}% critical hit chance and {2}% critical hit damage for {3}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "131": {
+    "name_en": "Perfect Streamline",
+    "name_ru": "Идеальная рационализация",
+    "perfect_name_en": "Perfect Perfect Streamline",
+    "perfect_name_ru": "Идеальный Идеальная рационализация",
+    "desc_ru": "Увеличивает урон от оружия на {0}%, когда ни один из навыков не находится в процессе восстановления.",
+    "desc_en": "Increase Weapon Damage by {0}% when no Skills are on cooldown.",
+    "source": "hunter_v2.2.3"
+  },
+  "132": {
+    "name_en": "Perfect Overwhelm",
+    "name_ru": "Идеальное ошеломление",
+    "perfect_name_en": "Perfect Perfect Overwhelm",
+    "perfect_name_ru": "Идеальный Идеальное ошеломление",
+    "desc_ru": "При подавлении противника агент получает +{0}% к урону от оружия сроком на {1} сек. Эффект суммируется до {2} раз.",
+    "desc_en": "Suppressing an enemy grants +{0}% weapon damage for {1} seconds. Max stack is {2}.",
+    "source": "hunter_v2.2.3"
+  },
+  "133": {
+    "name_en": "Perfect Thunder-Strike",
+    "name_ru": "Идеальный удар грома",
+    "perfect_name_en": "Perfect Perfect Thunder-Strike",
+    "perfect_name_ru": "Идеальный Идеальный удар грома",
+    "desc_ru": "Увеличение урона от оружия, наносимого противникам с эффектом шока, на {0}%.",
+    "desc_en": "Amplifies weapon damage by {0}% to shocked enemies.",
+    "source": "hunter_v2.2.3"
+  },
+  "134": {
+    "name_en": "Refreshing",
+    "name_ru": "Приятная свежесть",
+    "perfect_name_en": "Perfect Refreshing",
+    "perfect_name_ru": "Идеальный Приятная свежесть",
+    "desc_ru": "Это оружие стреляет струей воды. Попадание в дружественного агента накладывает на него заряд. Максимальное число зарядов равно {0}. Заряды расходуются раз в {1} сек.",
+    "desc_en": "The weapon fires a stream of water. Hitting an ally agent builds stacks on them. Max stack is {0}. Stacks deplete every {1}s.",
+    "source": "hunter_v2.2.3"
+  },
+  "135": {
+    "name_en": "Second Weapon Slot",
+    "name_ru": "Вторая ячейка оружия",
+    "perfect_name_en": "Perfect Second Weapon Slot",
+    "perfect_name_ru": "Идеальный Вторая ячейка оружия",
+    "desc_ru": "Агент может использовать 2 единицы основного оружия.",
+    "desc_en": "Player can equip 2 primary weapons",
+    "source": "hunter_v2.2.3"
+  },
+  "137": {
+    "name_en": "Optimized",
+    "name_ru": "Оптимизация",
+    "perfect_name_en": "Perfect Optimized",
+    "perfect_name_ru": "Идеальный Оптимизация",
+    "desc_ru": "Эргономичность увеличена на {0}",
+    "desc_en": "Weapon Handling increased by {0}",
+    "source": "hunter_v2.2.3"
+  },
+  "138": {
+    "name_en": "Steady Nerves",
+    "name_ru": "Крепкие нервы",
+    "perfect_name_en": "Perfect Steady Nerves",
+    "perfect_name_ru": "Идеальный Крепкие нервы",
+    "desc_ru": "Убийства выстрелами в голову увеличивают эргономичность оружия на {0}%. Эффект длится {0} сек.",
+    "desc_en": "Headshot kills grants {0}% weapon handling for {0} seconds.",
+    "source": "hunter_v2.2.3"
   }
 }
