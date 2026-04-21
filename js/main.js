@@ -868,24 +868,98 @@ let weaponStat3Choice = "chc"; // player-rollable 3rd weapon stat (default: Crit
 let weaponModState = {optic:"none", muzzle:"none", underbarrel:"none", magazine:"none"};
 let gearExpertiseLevel = 30; // 0-30, applies to all (MAX by default)
 
-// Weapon mod bonus map (simplified hardcoded)
-const WEAPON_MOD_BONUSES = {
-  // Optic
-  "hsd+15": {hsd:0.15},
-  "chc+10": {chc:0.10},
-  "chd+15": {chd:0.15},
-  // Muzzle
-  "chc+5": {chc:0.05},
-  "chd+10": {chd:0.10},
-  "hsd-suppressor": {hsd:0.10},
-  // Underbarrel
-  "hsd+5": {hsd:0.05},
-  "handling+15": {}, // not DPS stat, skip
-  // Magazine
-  "mag+15": {mag:0.15},
-  "reload+15": {reload:0.15},
-  "damage+10": {wd:0.10},
-};
+// Parse bonus_ru string from game mods → stat bonuses object
+function _parseWeaponModBonus(bonusRu){
+  if(!bonusRu) return {};
+  const result = {};
+  const parts = bonusRu.split(/[,;]/).map(p=>p.trim());
+  for(const p of parts){
+    // "+15.0% Crit" / "+10% Crit" → chc
+    let m = p.match(/([+-])([\d.]+)%?\s*Crit(?!\.)/i);
+    if(m){ result.chc = (result.chc||0) + (m[1]==='-'?-1:1) * parseFloat(m[2])/100; continue; }
+    // "+10.0% Урон крит. удара" / "Crit Damage" → chd
+    m = p.match(/([+-])([\d.]+)%\s*(?:Урон крит|Crit\.?\s*Damage|Crit Damage)/i);
+    if(m){ result.chd = (result.chd||0) + (m[1]==='-'?-1:1) * parseFloat(m[2])/100; continue; }
+    // "+40.0% Headshot" → hsd
+    m = p.match(/([+-])([\d.]+)%\s*(?:Headshot|Урон в голову|HSD)/i);
+    if(m){ result.hsd = (result.hsd||0) + (m[1]==='-'?-1:1) * parseFloat(m[2])/100; continue; }
+    // "+20.0% Reload Speed"
+    m = p.match(/([+-])([\d.]+)%\s*(?:Reload\s*Speed|Скор\w*\s*перезар|Перезар)/i);
+    if(m){ result.reload = (result.reload||0) + (m[1]==='-'?-1:1) * parseFloat(m[2])/100; continue; }
+    // "+5.0% RPM" → rof
+    m = p.match(/([+-])([\d.]+)%\s*(?:RPM|Скорострел|Rate\s*of\s*Fire)/i);
+    if(m){ result.rof = (result.rof||0) + (m[1]==='-'?-1:1) * parseFloat(m[2])/100; continue; }
+    // "+20 Rounds" → mag (absolute, not %)
+    m = p.match(/([+-])(\d+)\s*(?:Rounds|патрон)/i);
+    if(m){ result.mag_abs = (result.mag_abs||0) + (m[1]==='-'?-1:1) * parseInt(m[2]); continue; }
+    // "+30.0% Weapon Damage" → wd
+    m = p.match(/([+-])([\d.]+)%\s*(?:Weapon\s*Damage|Урон оруж)/i);
+    if(m){ result.wd = (result.wd||0) + (m[1]==='-'?-1:1) * parseFloat(m[2])/100; continue; }
+    // Skip stability/handling/accuracy/optimal range (not DPS-relevant)
+  }
+  return result;
+}
+
+// Build weapon mod options per slot at init (filtered later by weapon class)
+let WEAPON_MOD_OPTIONS = null;
+function _buildWeaponModOptions(){
+  if(WEAPON_MOD_OPTIONS) return WEAPON_MOD_OPTIONS;
+  const mods = (typeof D2DATA!=='undefined' && D2DATA.MODS_WEAPON) || [];
+  const bySlot = {optic:[], muzzle:[], underbarrel:[], magazine:[]};
+  const dedup = {optic:new Set(), muzzle:new Set(), underbarrel:new Set(), magazine:new Set()};
+  for(const mod of mods){
+    const slot = mod.slot_type;
+    if(!bySlot[slot]) continue;
+    const br = (mod.bonus_ru || '').trim();
+    if(!br) continue;
+    const bonus = _parseWeaponModBonus(br);
+    // Skip mods with no DPS-relevant bonus
+    const hasDpsStat = Object.keys(bonus).some(k=>['chc','chd','hsd','wd','rof','reload','mag_abs'].includes(k));
+    if(!hasDpsStat) continue;
+    // Dedupe by bonus_ru string
+    if(dedup[slot].has(br)) continue;
+    dedup[slot].add(br);
+    bySlot[slot].push({
+      id: mod.id,
+      label: br,
+      bonus: bonus,
+      weapon_classes: mod.weapon_classes || []
+    });
+  }
+  // Sort each by label
+  for(const slot of Object.keys(bySlot)){
+    bySlot[slot].sort((a,b)=>a.label.localeCompare(b.label));
+  }
+  WEAPON_MOD_OPTIONS = bySlot;
+  return bySlot;
+}
+
+// Accessor for applying — takes selected value (mod id) and returns bonus object
+function _getWeaponModBonusById(slot, modId){
+  const opts = _buildWeaponModOptions();
+  const opt = (opts[slot]||[]).find(o=>o.id===modId);
+  return opt ? opt.bonus : null;
+}
+
+// Translate mod label RU→EN for English UI mode
+function _translateModLabel(label){
+  if(!label) return '';
+  const isEn = currentLang === 'en';
+  if(!isEn) return label;
+  // Mixed-language labels: translate Russian terms to English
+  return label
+    .replace(/Урон крит\.? удара/gi, 'Crit Damage')
+    .replace(/Урон в голову/gi, 'Headshot')
+    .replace(/Шанс крит\.? удара/gi, 'Crit Chance')
+    .replace(/Стабильность/gi, 'Stability')
+    .replace(/Точность/gi, 'Accuracy')
+    .replace(/Скор\w*\s*перезар\w*/gi, 'Reload Speed')
+    .replace(/Скорострельность/gi, 'RPM')
+    .replace(/Управление/gi, 'Handling')
+    .replace(/Урон оружием/gi, 'Weapon Damage')
+    .replace(/Урон от /gi, '')
+    .replace(/патрон\w*/gi, 'Rounds');
+}
 
 const GSP_SLOT_LABELS = {
   chest:    {ru:"Нагрудник",   en:"Chest"},
@@ -1117,10 +1191,12 @@ function updateWeaponModsForExotic(){
   // Determine available slots
   const available = (info && info.slots_available) || ["optic","muzzle","underbarrel","magazine"];
   const availSet = new Set(available);
-  const lblMap = {optic:"🎯 Optic", muzzle:"🔥 Muzzle", underbarrel:"🤝 Underbarrel", magazine:"📦 Magazine"};
   const lblMapRu = {optic:"прицел", muzzle:"дульный", underbarrel:"подствол", magazine:"магазин"};
   const wpnCls = (wpn && wpn.cat) ? wpn.cat.toUpperCase() : "?";
   note.innerHTML = `${wpnCls} (${available.length} слот${available.length===1?'':'а'}): ${available.map(s=>lblMapRu[s]||s).join(' + ')}`;
+
+  // Build filtered options per slot (filter by weapon class)
+  const allOptions = _buildWeaponModOptions();
 
   for(const slot of ["optic","muzzle","underbarrel","magazine"]){
     const wrap = grid.querySelector(`[data-slot-wrap="${slot}"]`);
@@ -1128,33 +1204,54 @@ function updateWeaponModsForExotic(){
     if(wrap){
       wrap.style.display = availSet.has(slot) ? "" : "none";
     }
-    if(sel){
-      if(availSet.has(slot)){
-        sel.disabled = false;
-        sel.style.opacity = "";
-        sel.value = weaponModState[slot] || "none";
-      } else {
-        sel.disabled = true;
-        sel.style.opacity = "0.5";
-        sel.value = "none";
-        weaponModState[slot] = "none";
-      }
+    if(!sel) continue;
+
+    if(!availSet.has(slot)){
+      sel.disabled = true;
+      sel.style.opacity = "0.5";
+      sel.value = "none";
+      weaponModState[slot] = "none";
+      continue;
     }
+
+    // Populate dropdown with mods matching weapon class
+    const slotOptions = allOptions[slot] || [];
+    const filtered = slotOptions.filter(o=>{
+      if(!o.weapon_classes || !o.weapon_classes.length) return true; // generic mod
+      return o.weapon_classes.includes(wpnCls);
+    });
+
+    const prevVal = sel.value || weaponModState[slot] || "none";
+    const isEn = currentLang==='en';
+    sel.innerHTML = `<option value="none">${isEn?'— none —':'— нет —'}</option>` +
+      filtered.map(o=>`<option value="${o.id}">${_translateModLabel(o.label)}</option>`).join('');
+    // Restore previous selection if still valid
+    const stillValid = filtered.some(o=>o.id===prevVal);
+    sel.value = stillValid ? prevVal : "none";
+    if(!stillValid) weaponModState[slot] = "none";
+    sel.disabled = false;
+    sel.style.opacity = "";
   }
 }
 
 function updateWeaponStatsInfo(){
   const info = document.getElementById("weapon-stats-info");
   if(!info) return;
+  const isEn = currentLang==='en';
   const wpn = (typeof getWeapon==='function') ? getWeapon() : null;
   if(!wpn){
-    info.innerHTML = '<span style="color:var(--muted)">Выбери оружие выше чтобы увидеть статы его класса</span>';
+    info.innerHTML = `<span style="color:var(--muted)">${isEn?'Pick a weapon above to see stats for its class':'Выбери оружие выше чтобы увидеть статы его класса'}</span>`;
     return;
   }
   const wCat = (wpn.cat || '').toUpperCase();
-  const classLabels = {AR:"Штурмовая винтовка",SMG:"ПП",LMG:"Пулемёт",MMR:"Снайперская",RIFLE:"Винтовка",SG:"Дробовик",PISTOL:"Пистолет"};
-  const lbl = classLabels[wCat] || wCat || 'оружие';
-  info.innerHTML = `<span style="color:var(--green)">Слот 1:</span> +15% урон <b>${lbl}</b> · <span style="color:var(--green)">Слот 2:</span> +21% урон здоровью (DtH)`;
+  const classLabelsRu = {AR:"Штурмовая винтовка",SMG:"ПП",LMG:"Пулемёт",MMR:"Снайперская",RIFLE:"Винтовка",SG:"Дробовик",PISTOL:"Пистолет"};
+  const classLabelsEn = {AR:"Assault Rifle",SMG:"SMG",LMG:"LMG",MMR:"Marksman Rifle",RIFLE:"Rifle",SG:"Shotgun",PISTOL:"Pistol"};
+  const lbl = (isEn?classLabelsEn:classLabelsRu)[wCat] || wCat || (isEn?'weapon':'оружие');
+  const slot1Lbl = isEn?'Slot 1':'Слот 1';
+  const slot2Lbl = isEn?'Slot 2':'Слот 2';
+  const dmg = isEn?'dmg':'урон';
+  const dth = isEn?'Damage to Health':'урон здоровью';
+  info.innerHTML = `<span style="color:var(--green)">${slot1Lbl}:</span> +15% ${dmg} <b>${lbl}</b> · <span style="color:var(--green)">${slot2Lbl}:</span> +21% ${dth} (DtH)`;
 }
 
 function _gspAddValue(totals, stat, value){
@@ -4441,6 +4538,15 @@ async function toggleLang(){
   if(typeof render==="function")render();
   if(activeCat==="build")calcBuild();
   if(activeCat==="community")loadCommunityFeed();
+  // Re-render Mode B UI when language changes
+  if(gearStatMode==="gear"){
+    try{
+      updateWeaponStatsInfo();
+      updateWeaponModsForExotic();
+      renderGearSlotPickers();
+      recomputeGearStats();
+    }catch(e){}
+  }
 }
 updateLangBtn();
 applyLangToStaticElements();

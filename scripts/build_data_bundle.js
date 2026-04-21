@@ -57,6 +57,7 @@ const FILES = {
   SHD_WATCH: "shd_watch.json",
   SKILL_MODS_V2: "skill_mods.json",
   WEAPON_MOD_SLOTS: "weapon_mod_slots.json",
+  MODS_WEAPON: "mods_weapon.json",
 };
 
 const obj = {};
