@@ -781,6 +781,11 @@ function autoBindTalent(slot, item){
   const selId = slot==='chest' ? 'b-chest-talent' : 'b-bp-talent';
   const sel = document.getElementById(selId);
   if(!sel) return;
+  // Always reset talent first — предыдущий талант от старой шмотки не должен оставаться
+  sel.value = '';
+  const descId = slot==='chest' ? 'b-chest-talent-desc' : 'b-bp-talent-desc';
+  const descEl = document.getElementById(descId);
+  if(descEl) descEl.textContent = '';
   if(!item) return;
 
   // Source of talent name to match in GEAR_TALENTS
@@ -3024,6 +3029,12 @@ function renderWpnList(){
 }
 function pickWpn(id){
   selectedWpnId=id;
+  // Сбрасываем талант оружия — от старой пушки не должен оставаться
+  selectedWpnTalent = '';
+  const wpnTalSel = document.getElementById('b-wpn-tal');
+  if(wpnTalSel) wpnTalSel.value = '';
+  const wpnTalDesc = document.getElementById('b-wpn-tal-desc');
+  if(wpnTalDesc) wpnTalDesc.innerHTML = '';
   updateWpnBtn();
   closeSlotModal();
   if(typeof updateWeaponStatsInfo==='function') updateWeaponStatsInfo();
