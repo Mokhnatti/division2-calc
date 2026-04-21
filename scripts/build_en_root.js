@@ -55,5 +55,281 @@ let out = src
   .replace(/src="js\//g, 'src="/js/')
   .replace(/src="data\//g, 'src="/data/');
 
+// Translate visible UI strings (nav, buttons, section headings, labels)
+// Comprehensive dict — pulled from static HTML by frequency/impact.
+const UI = [
+  // Top frequency
+  ['>— нет —<', '>— none —<'],
+  ['>— пусто —<', '>— empty —<'],
+  ['>— не выбран —<', '>— not selected —<'],
+  ['>— выбери оружие —<', '>— pick a weapon —<'],
+  ['>— пересечения<', '>— intersections<'],
+  ['>— любое<', '>— any<'],
+  ['>авто<', '>auto<'],
+  ['>ИЛИ<', '>OR<'],
+  ['>макс 10<', '>max 10<'],
+  ['>макс 20<', '>max 20<'],
+  ['>макс 30<', '>max 30<'],
+  ['>шт<', '>pcs<'],
+  ['>сек<', '>sec<'],
+  ['>Стат<', '>Stat<'],
+  ['>Вес<', '>Weight<'],
+  ['>Патроны<', '>Rounds<'],
+  // Nav/header
+  ['🐛 Баг-репорт', '🐛 Bug report'],
+  ['👤 Войти', '👤 Log in'],
+  ['📦 Мои билды', '📦 My builds'],
+  ['🚪 Выйти', '🚪 Log out'],
+  ['🏆 Сообщество', '🏆 Community'],
+  ['🏆 Топ', '🏆 Top'],
+  ['⚡ Скиллы', '⚡ Skills'],
+  ['🛡 Танк', '🛡 Tank'],
+  ['🔧 Моды', '🔧 Mods'],
+  ['🛠 Скиллы/гир', '🛠 Skill gear'],
+  ['⭐ Экспертиза', '⭐ Expertise'],
+  ['📐 Формулы', '📐 Formulas'],
+  ['❓ Справка', '❓ Help'],
+  ['⚡ Итог билда', '⚡ Build total'],
+  // Slot names
+  ['>Маска<', '>Mask<'],
+  ['>Нагрудник<', '>Chest<'],
+  ['>Рюкзак<', '>Backpack<'],
+  ['>Перчатки<', '>Gloves<'],
+  ['>Кобура<', '>Holster<'],
+  ['>Наколенники<', '>Kneepads<'],
+  ['>Оружие<', '>Weapon<'],
+  // Group size / player count
+  ['>1 — соло<', '>1 — solo<'],
+  ['>2 игрока<', '>2 players<'],
+  ['>3 игрока<', '>3 players<'],
+  ['>4 игрока<', '>4 players<'],
+  // Counter badges
+  ['>Сеты 26<', '>Sets 26<'],
+  ['>Бренды 36<', '>Brands 36<'],
+  ['>Экзотики ~70<', '>Exotics ~70<'],
+  ['>Именные ~96<', '>Named ~96<'],
+  // Weapon stats
+  ['>Базовый урон пули<', '>Base bullet damage<'],
+  ['>RPM (скорострельность)<', '>RPM (rate of fire)<'],
+  ['>Размер магазина<', '>Magazine size<'],
+  ['>Время перезарядки<', '>Reload time<'],
+  ['>Урон оружием (один бакет, складываются)<', '>Weapon damage (single bucket, additive)<'],
+  ['>Общий урон оружием (<', '>Total weapon damage (<'],
+  ['>Урон типа оружия (ШВ/ПП/LMG..)<', '>Weapon type damage (AR/SMG/LMG..)<'],
+  ['>= итого множитель<', '>= total multiplier<'],
+  ['>Критический удар<', '>Critical hit<'],
+  ['>Шанс крита (<', '>Crit chance (<'],
+  ['>Урон крита (<', '>Crit damage (<'],
+  ['>Средний множитель крита<', '>Average crit multiplier<'],
+  ['>Шанс крит. попадания<', '>Crit chance<'],
+  ['>Урон крит. попадания<', '>Crit damage<'],
+  ['>Урон в голову<', '>Headshot damage<'],
+  ['>Эргономика<', '>Ergonomics<'],
+  ['>Точность<', '>Accuracy<'],
+  ['>Управление оружием<', '>Weapon handling<'],
+  // Section headings
+  ['>ОРУЖИЕ — выбор из базы<', '>WEAPON — pick from database<'],
+  ['>ОРУЖИЕ<', '>WEAPON<'],
+  ['>Оружие<', '>Weapon<'],
+  ['>СНАРЯЖЕНИЕ — 6 СЛОТОВ<', '>GEAR — 6 SLOTS<'],
+  ['>БОНУСЫ СЕТОВ / БРЕНДОВ / ИМЕННЫХ<', '>SET / BRAND / NAMED BONUSES<'],
+  ['>СТАТЫ ГИРА (РУЧНОЙ ВВОД)<', '>GEAR STATS (MANUAL INPUT)<'],
+  ['>ТАНКОВАНИЕ / БРОНЯ<', '>TANK / ARMOR<'],
+  ['>СКИЛЛ-БИЛДЫ<', '>SKILL BUILDS<'],
+  ['>ЭКСПЕРТИЗА<', '>EXPERTISE<'],
+  ['>ФОРМУЛЫ<', '>FORMULAS<'],
+  ['>МОДЫ ОРУЖИЯ<', '>WEAPON MODS<'],
+  ['>МОДЫ НАВЫКОВ<', '>SKILL MODS<'],
+  ['>ТАЛАНТЫ НАГРУДНИКА И РЮКЗАКА<', '>CHEST AND BACKPACK TALENTS<'],
+  ['>Талант нагрудника<', '>Chest talent<'],
+  ['>Талант рюкзака<', '>Backpack talent<'],
+  ['>Талант оружия:<', '>Weapon talent:<'],
+  // Target / faction
+  ['>Любая<', '>Any<'],
+  ['>Охотники<', '>Hunters<'],
+  ['>Чистильщики<', '>Cleaners<'],
+  ['>Изгои<', '>Outcasts<'],
+  ['>Чёрный клык<', '>Black Tusk<'],
+  ['>Истинные сыны<', '>True Sons<'],
+  ['>Тип цели (фракция)<', '>Target type (faction)<'],
+  ['>Состав группы<', '>Group composition<'],
+  ['>Цель под негативным эффектом<', '>Target under negative status<'],
+  ['>Активировать «цель со статусом»<', '>Activate "target with status"<'],
+  ['>Игроков в группе:<', '>Players in group:<'],
+  // Status types
+  ['>Любой эффект<', '>Any effect<'],
+  ['>Горение<', '>Burn<'],
+  ['>Кровотечение<', '>Bleed<'],
+  ['>Шок<', '>Shock<'],
+  ['>Ослепление<', '>Blind<'],
+  ['>Отравление<', '>Poison<'],
+  ['>Дезориентация<', '>Disrupt<'],
+  ['>Растерянность<', '>Confuse<'],
+  ['>Отмечен<', '>Marked<'],
+  ['>Прилипание<', '>Ensnare<'],
+  ['>Импульс<', '>Pulse<'],
+  // Auto-sum area
+  ['>Автосумма →<', '>Auto-sum →<'],
+  ['>Ручной ввод →<', '>Manual input →<'],
+  ['>Автосумма<', '>Auto-sum<'],
+  ['>Ручной ввод<', '>Manual input<'],
+  // Buttons
+  ['>Сохранить билд<', '>Save build<'],
+  ['>Загрузить билд<', '>Load build<'],
+  ['>Поделиться<', '>Share<'],
+  ['>Опубликовать<', '>Publish<'],
+  ['>Сохранить<', '>Save<'],
+  ['>Применить<', '>Apply<'],
+  ['>Отмена<', '>Cancel<'],
+  ['>Закрыть<', '>Close<'],
+  ['>Очистить<', '>Clear<'],
+  ['>Сбросить<', '>Reset<'],
+  // Descriptions
+  ['>пустые поля игнорируются<', '>empty fields are ignored<'],
+  ['>Поиск по имени / авт<', '>Search by name / author<'],
+  // TTK / Difficulty
+  ['>Время до убийства (TTK)<', '>Time to kill (TTK)<'],
+  ['>Сложность:<', '>Difficulty:<'],
+  ['>Цель:<', '>Target:<'],
+  ['>Нормальный<', '>Normal<'],
+  ['>Сложный<', '>Hard<'],
+  ['>Экстремальный<', '>Challenging<'],
+  ['>Героический<', '>Heroic<'],
+  ['>Легендарный<', '>Legendary<'],
+  ['>Рядовой<', '>Soldier<'],
+  ['>Элитный<', '>Elite<'],
+  ['>Босс<', '>Boss<'],
+  ['>Именной<', '>Named<'],
+  // Weapon categories
+  ['>Все типы<', '>All types<'],
+  ['>Базовые<', '>Base<'],
+  ['>Именные<', '>Named<'],
+  ['>Экзотики<', '>Exotics<'],
+  ['>Штурмовые винтовки<', '>Assault Rifles<'],
+  ['>Пистолеты-пулемёты<', '>SMGs<'],
+  ['>Пулемёты<', '>LMGs<'],
+  ['>Ручные пулемёты<', '>LMGs<'],
+  ['>Снайперские винтовки<', '>Marksman Rifles<'],
+  ['>Винтовки<', '>Rifles<'],
+  ['>Дробовики<', '>Shotguns<'],
+  ['>Пистолеты<', '>Pistols<'],
+  // Tooltip titles (common RU attribute values)
+  ['title="Переключить на русский"', 'title="Switch to Russian"'],
+  ['title="Switch language / Переключить язык"', 'title="Switch language"'],
+  ['title="Сообщить об ошибке в данных или математике"', 'title="Report a bug in data or math"'],
+  ['title="Открыть полный список с описанием"', 'title="Open full list with description"'],
+  ['title="Поделиться билдом"', 'title="Share build"'],
+  ['title="Опубликовать билд в сообщество"', 'title="Publish build to community"'],
+  // Labels used in tooltip popovers (quick)
+  ['>Стаки<', '>Stacks<'],
+  ['>Момент<', '>Moment<'],
+  ['>Множитель<', '>Multiplier<'],
+  ['>Урон<', '>Damage<'],
+  ['>Броня<', '>Armor<'],
+  ['>Здоровье<', '>Health<'],
+  ['>Магазин<', '>Magazine<'],
+  ['>Перезарядка<', '>Reload<'],
+  ['>Навыки<', '>Skills<'],
+  ['>Поиск<', '>Search<'],
+  ['>Загрузить<', '>Load<'],
+  // Modal titles
+  ['>Выбор предмета<', '>Choose item<'],
+  ['>Выбор оружия<', '>Choose weapon<'],
+  ['>Выбор таланта<', '>Choose talent<'],
+  ['>Выбор таланта оружия<', '>Choose weapon talent<'],
+  ['>Сообщить о баге<', '>Report a bug<'],
+  ['>Вход<', '>Log in<'],
+  ['>Регистрация<', '>Sign up<'],
+  ['>Главная<', '>Home<'],
+  ['>Калькулятор<', '>Calculator<'],
+  ['>Сообщество<', '>Community<'],
+  ['>Скиллы<', '>Skills<'],
+  ['>Танк<', '>Tank<'],
+  ['>Экспертиза<', '>Expertise<'],
+  ['>Формулы<', '>Formulas<'],
+  ['>Моды<', '>Mods<'],
+  ['>Справка<', '>Help<'],
+  // Tabs
+  ['>Все<', '>All<'],
+  ['>Сеты<', '>Sets<'],
+  ['>Бренды<', '>Brands<'],
+  // Placeholders
+  ['placeholder="Поиск..."', 'placeholder="Search..."'],
+  ['placeholder="Поиск — имя, бренд, талант..."', 'placeholder="Search — name, brand, talent..."'],
+  ['placeholder="+ второе слово"', 'placeholder="+ second word"'],
+  ['placeholder="Поиск — имя, бонус..."', 'placeholder="Search — name, bonus..."'],
+  ['placeholder="авто"', 'placeholder="auto"'],
+  ['placeholder="Поиск по имени / авт"', 'placeholder="Search by name / author"'],
+  // Legacy keys kept at bottom in case we hit duplicates
+  ['>🐛 Баг-репорт<', '>🐛 Bug report<'],
+  ['>Войти<', '>Log in<'],
+  ['>Мои билды<', '>My builds<'],
+  ['>Выйти<', '>Log out<'],
+  ['>Скиллы/гир<', '>Skills/gear<'],
+  // Core stats
+  ['>Шанс крит. удара<', '>Crit Chance<'],
+  ['>Урон крит. удара<', '>Crit Damage<'],
+  ['>Урон оружия<', '>Weapon Damage<'],
+  ['>Скорострельность<', '>Rate of Fire<'],
+  ['>Урон вне укрытия<', '>Damage out of cover<'],
+  ['>Урон по броне<', '>Damage to Armor<'],
+  ['>Урон по здоровью<', '>Damage to Health<'],
+  // Bug report form labels
+  ['>Что сломано?<', '>What\'s broken?<'],
+  ['>URL страницы<', '>Page URL<'],
+  ['>Описание<', '>Description<'],
+  // Original — keep as fallback (these were in previous dict)
+  ['placeholder="авто"', 'placeholder="auto"'],
+];
+
+for (const [ru, en] of UI) {
+  out = out.split(ru).join(en);
+}
+
+// Apply full ui_translations.json dictionary used by SPA runtime — for visible text nodes + placeholders/titles
+try {
+  const tr = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/ui_translations.json'), 'utf8'));
+  const dict = tr.ru_to_en || tr;
+  // Sort by length desc so longer matches replace first (avoid partial overlaps)
+  const entries = Object.entries(dict).filter(([k, v]) => k && v && !k.startsWith('_')).sort((a, b) => b[0].length - a[0].length);
+
+  // 1) Replace text between tags: >RU<  →  >EN<
+  //    Handle potential whitespace: >\s*RU\s*<
+  for (const [ru, en] of entries) {
+    if (ru.length < 2 || ru.length > 200) continue;
+    // Escape regex special chars in RU
+    const esc = ru.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp('>\\s*' + esc + '\\s*<', 'g');
+    out = out.replace(re, '>' + en + '<');
+  }
+
+  // 2) Replace common attribute values (title, placeholder, aria-label, alt)
+  //    Use plain string replacement (split/join) — avoids regex escape pitfalls
+  for (const [ru, en] of entries) {
+    if (ru.length < 2 || ru.length > 300) continue;
+    const enEsc = en.replace(/"/g, '&quot;');
+    for (const attr of ['title', 'placeholder', 'aria-label', 'alt']) {
+      const needle = `${attr}="${ru}"`;
+      const replace = `${attr}="${enEsc}"`;
+      if (out.includes(needle)) out = out.split(needle).join(replace);
+    }
+  }
+} catch (e) {
+  console.warn('ui_translations apply skipped:', e.message);
+}
+
+// Strip FAQPage JSON-LD block (it's fully Russian — EN equivalent would need full rewrite)
+// Google can still use other schema blocks (WebApplication, Organization)
+out = out.replace(/<script type="application\/ld\+json">\s*\{\s*"@context":\s*"https:\/\/schema\.org",\s*"@type":\s*"FAQPage"[\s\S]*?<\/script>/g, '');
+
+// Clean up noscript/comment/data-ru leftover RU (safe because SPA re-renders)
+out = out
+  .replace(/<!-- Webmaster verification placeholders — заменить на реальные коды после регистрации -->/g,
+           '<!-- Webmaster verification placeholders — replace with real codes after registration -->')
+  .replace(/<!-- Множители наглядно -->/g, '<!-- Multipliers visualized -->')
+  .replace(/value="Division 2 Calc — баг-репорт"/g, 'value="Division 2 Calc — bug report"');
+
+// Язык-переключатель JS обновляет при загрузке
+
 fs.writeFileSync(path.join(ROOT, 'en', 'index.html'), out);
 console.log('✓ Wrote en/index.html');
