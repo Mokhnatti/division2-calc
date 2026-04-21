@@ -6,7 +6,7 @@ const STAT_RU = {
   "damage to armor":"Урон по броне","damage to health":"Урон по здоровью",
   "headshot damage":"Урон в голову","crit chance":"Шанс крит. попадания",
   "crit damage":"Урон крит. попадания","rate of fire":"Скорострельность",
-  "weapon handling":"Управление оружием","reload speed":"Скорость перезарядки",
+  "weapon handling":"Эргономика","reload speed":"Скорость перезарядки",
   "magazine size":"Ёмкость магазина","accuracy":"Точность","stability":"Стабильность",
   "optimal range":"Оптимальная дистанция","armor on kill":"Броня за убийство",
   "armor regeneration":"Восстан. брони","health on kill":"HP за убийство",
