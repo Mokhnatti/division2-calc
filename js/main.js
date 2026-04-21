@@ -1635,6 +1635,137 @@ function _checkTalentReq(talentName, isPerfect){
   return `<div style="font-size:11px;color:var(--red);margin-top:4px;padding:4px 6px;background:rgba(239,83,80,.08);border-left:2px solid var(--red);border-radius:3px"><b>${lbl}:</b> ${parts.join(' · ')}</div>`;
 }
 
+// ===== TALENT PICKER MODAL =====
+let _talPickerTarget = null; // 'weapon' | 'chest' | 'bp'
+
+function _bonusSummary(bonus){
+  if(!bonus||typeof bonus!=='object') return '';
+  const parts=[];
+  const lbl={wd:'WD',chc:'CHC',chd:'CHD',hsd:'HSD',rof:'RoF',mag:'Mag',reload:'Reload'};
+  for(const[k,v] of Object.entries(bonus)){
+    if(['note','conditional','static'].includes(k))continue;
+    if(typeof v!=='number')continue;
+    parts.push(`+${v}% ${lbl[k]||k}`);
+  }
+  const s=parts.join(' · ');
+  const cond=bonus.conditional?' · условно':'';
+  const note=bonus.note?` · ${bonus.note}`:'';
+  return s+cond+note;
+}
+
+function openWeaponTalentPicker(){
+  _talPickerTarget='weapon';
+  const isEn=currentLang==='en';
+  document.getElementById('tal-modal-title').textContent=isEn?'Choose weapon talent':'Выбор таланта оружия';
+  document.getElementById('tal-s1').value='';
+  document.getElementById('tal-filters').innerHTML='';
+  document.getElementById('tal-modal').classList.add('open');
+  renderTalentList();
+  setTimeout(()=>document.getElementById('tal-s1').focus(),50);
+}
+
+function openGearTalentPicker(slot){
+  _talPickerTarget=slot; // 'chest' or 'bp'
+  const isEn=currentLang==='en';
+  const lbl=slot==='chest'?(isEn?'chest':'нагрудника'):(isEn?'backpack':'рюкзака');
+  document.getElementById('tal-modal-title').textContent=isEn?`Choose ${lbl} talent`:`Выбор таланта ${lbl}`;
+  document.getElementById('tal-s1').value='';
+  document.getElementById('tal-filters').innerHTML=`
+    <button class="mf-btn on" data-tk="regular">${isEn?'Regular':'Обычные'}</button>
+    <button class="mf-btn" data-tk="perfect">${isEn?'Perfect':'Совершенные'}</button>`;
+  document.getElementById('tal-modal').classList.add('open');
+  renderTalentList();
+  setTimeout(()=>document.getElementById('tal-s1').focus(),50);
+}
+
+function closeTalentModal(){
+  document.getElementById('tal-modal').classList.remove('open');
+  _talPickerTarget=null;
+}
+
+let _talFilterPerfect='regular';
+document.addEventListener('click',function(e){
+  const b=e.target.closest('#tal-filters .mf-btn');
+  if(!b) return;
+  if(b.dataset.tk){
+    _talFilterPerfect=b.dataset.tk;
+    document.querySelectorAll('#tal-filters .mf-btn[data-tk]').forEach(x=>x.classList.toggle('on',x===b));
+    renderTalentList();
+  }
+});
+
+function renderTalentList(){
+  const q=(document.getElementById('tal-s1').value||'').toLowerCase().trim();
+  const isEn=currentLang==='en';
+  const list=document.getElementById('tal-list');
+  if(!list) return;
+  if(_talPickerTarget==='weapon'){
+    const wpn=getWeapon();
+    const wpnCat=wpn?wpn.cat:null;
+    const entries=Object.entries(WEAPON_TALENTS).filter(([k])=>k!=='none');
+    entries.sort((a,b)=>String(a[1].name||'').localeCompare(b[1].name||''));
+    const html=entries.filter(([,v])=>{
+      if(!q) return true;
+      const hay=[v.name,JSON.stringify(v.bonus||{})].join(' ').toLowerCase();
+      return hay.includes(q);
+    }).map(([k,v])=>{
+      const classes=v.classes&&v.classes.length?v.classes.join('/'):null;
+      const mismatch=classes&&wpnCat&&!v.classes.includes(wpnCat);
+      const classLbl=classes?`<span style="color:${mismatch?'var(--red)':'#555'};font-size:10px;margin-left:6px">[${classes}${mismatch?' ⚠':''}]</span>`:'';
+      const desc=_bonusSummary(v.bonus);
+      const opacity=mismatch?'.4':'1';
+      return `<div class="mitem" style="opacity:${opacity}" onclick="pickTalent('weapon','${k}')">
+        <div class="mi-h"><div><span class="mi-n">${v.name||k}</span>${classLbl}</div></div>
+        <div class="mi-desc" style="font-size:11px">${desc||'—'}</div>
+      </div>`;
+    }).join('');
+    list.innerHTML=html||`<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">${isEn?'Nothing found':'Ничего не найдено'}</div>`;
+  } else {
+    const slot=_talPickerTarget==='chest'?'chest':'backpack';
+    const wantPerfect=_talFilterPerfect==='perfect';
+    const entries=(typeof GEAR_TALENTS!=='undefined'?GEAR_TALENTS:[])
+      .filter(t=>t.slot===slot)
+      .sort((a,b)=>{
+        const an=(isEn?(a.name_en||a.name_ru):(a.name_ru||a.name_en))||'';
+        const bn=(isEn?(b.name_en||b.name_ru):(b.name_ru||b.name_en))||'';
+        return an.localeCompare(bn);
+      });
+    const html=entries.filter(t=>{
+      if(!q) return true;
+      const hay=[t.name_en,t.name_ru,t.desc_ru,t.desc_en].join(' ').toLowerCase();
+      return hay.includes(q);
+    }).map(t=>{
+      const baseKey=t.id||t.name_en;
+      const key=wantPerfect?('perfect:'+baseKey):baseKey;
+      const baseName=(isEn?(t.name_en||t.name_ru):(t.name_ru||t.name_en))||baseKey;
+      const displayName=wantPerfect?(isEn?(t.perfect_name_en||`Perfect ${baseName}`):(t.perfect_name_ru||`${baseName} (идеальный)`)):baseName;
+      const desc=(isEn?(t.desc_en||t.desc_ru):(t.desc_ru||t.desc_en))||'';
+      const setSuffix=t.set?` · ${t.set}`:'';
+      return `<div class="mitem" onclick="pickTalent('${_talPickerTarget}','${key}')">
+        <div class="mi-h"><div><span class="mi-n">${displayName}</span><span style="color:#555;font-size:10px;margin-left:6px">${setSuffix}</span></div></div>
+        <div class="mi-desc" style="font-size:11px">${desc.slice(0,160)}${desc.length>160?'…':''}</div>
+      </div>`;
+    }).join('');
+    list.innerHTML=html||`<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">${isEn?'Nothing found':'Ничего не найдено'}</div>`;
+  }
+}
+
+function pickTalent(target,key){
+  if(target==='weapon'){
+    const sel=document.getElementById('b-wpn-tal');
+    if(sel){sel.value=key;onWpnTalentChange();}
+  } else {
+    const selId=target==='chest'?'b-chest-talent':'b-bp-talent';
+    const sel=document.getElementById(selId);
+    if(sel){
+      if(sel.disabled){closeTalentModal();return;}
+      sel.value=key;
+      if(target==='chest')onChestTalentChange();else onBpTalentChange();
+    }
+  }
+  closeTalentModal();
+}
+
 // Status-dependent talents: name_en → status type to auto-enable
 const STATUS_TALENTS = {
   "Sadist":"bleed","Pyromaniac":"burn","Thunder Strike":"shock","Eyeless":"blind",
@@ -3761,7 +3892,14 @@ function calcBuild(){
   const wtOld=(wpn.kind==="exotic")?null:WEAPON_TALENTS[selectedWpnTalent];
   const wtBonus=(wtFull?.bonus&&Object.keys(wtFull.bonus).length>0)?wtFull.bonus:wtOld?.bonus??null;
   const wtName=wtFull?(wtFull.name_ru?`${wtFull.name_ru} (${wtFull.name_en})`:wtFull.name_en):wtOld?.name||"";
-  if(wtBonus){
+  // Class restriction check: если у таланта есть classes и оно не совпадает с пушкой — не применяем
+  const wtClasses=wtOld?.classes||wtFull?.applicable_weapon_classes?.filter(c=>c!=="universal")||null;
+  const wtClassMismatch=wtClasses&&wtClasses.length&&wpn.cat&&!wtClasses.includes(wpn.cat);
+  if(wtClassMismatch){
+    const isEnC=currentLang==="en";
+    bonuses.push({color:"#ef5350",tier:"⚠",nm:"Талант: "+wtName,desc:(isEnC?`Only applies to ${wtClasses.join('/')} — current weapon is ${wpn.cat}, bonus inactive`:`Только на ${wtClasses.join('/')} — у тебя ${wpn.cat}, бонус не работает`)});
+  }
+  if(wtBonus&&!wtClassMismatch){
     const tb=wtBonus;
     const isCond=tb.conditional;
     const wtSrc=`Талант оружия: ${wtName}`;

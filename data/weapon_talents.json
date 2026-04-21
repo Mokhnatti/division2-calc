@@ -25,7 +25,10 @@
       "wd": 60,
       "conditional": true,
       "note": "5×12% WD за хедшот, 5с"
-    }
+    },
+    "classes": [
+      "Rifle"
+    ]
   },
   "close_personal": {
     "name": "Close & Personal (Вплотную)",
@@ -96,7 +99,10 @@
     "bonus": {
       "wd": 25,
       "note": "+25% WD, −20% управление"
-    }
+    },
+    "classes": [
+      "LMG"
+    ]
   },
   "jazz_hands": {
     "name": "Jazz Hands (Виртуозные руки)",
@@ -612,7 +618,11 @@
     "name": "Perfectly Near Sighted",
     "bonus": {
       "note": "Receive 100% stability at the cost of 35% optimal range."
-    }
+    },
+    "classes": [
+      "AR",
+      "Rifle"
+    ]
   },
   "perfect_pressure_point": {
     "name": "Perfect Pressure Point",
@@ -748,7 +758,10 @@
     "name": "Perfect Unwavering",
     "bonus": {
       "note": "Swapping to this weapon grants 400% weapon handling for 5 seconds. Kills refresh the buff. Swapping away disables this from all weapons for 5 seconds."
-    }
+    },
+    "classes": [
+      "SMG"
+    ]
   },
   "perfectly_measured": {
     "name": "Perfectly Measured",
@@ -770,7 +783,10 @@
     "bonus": {
       "wd": 22,
       "note": "Receive 22% weapon damage at the cost of 25% stability and 25% accuracy."
-    }
+    },
+    "classes": [
+      "LMG"
+    ]
   },
   "perfect_sadist": {
     "name": "Perfect Sadist",
@@ -818,7 +834,10 @@
     "bonus": {
       "wd": 66,
       "note": "Landing headshots adds a stack of bonus 11% weapon damage for 5 seconds. Max stack is 6. Additional headshots refresh the duration."
-    }
+    },
+    "classes": [
+      "Rifle"
+    ]
   },
   "perfect_lucky_shot": {
     "name": "Perfect Lucky Shot",

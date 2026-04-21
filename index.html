@@ -301,7 +301,8 @@
     </details>
     <div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
       <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px">Талант оружия:</label>
-      <select id="b-wpn-tal" class="bsel" style="flex:1;min-width:200px;max-width:380px" onchange="onWpnTalentChange()"></select>
+      <select id="b-wpn-tal" class="bsel" style="flex:1;min-width:200px;max-width:320px" onchange="onWpnTalentChange()"></select>
+      <button type="button" onclick="openWeaponTalentPicker()" style="padding:5px 10px;border:1px solid var(--orange);background:rgba(245,166,35,.08);color:var(--orange);border-radius:4px;cursor:pointer;font-size:11px" title="Открыть полный список с описанием">🔍</button>
       <span id="b-wpn-tal-desc" style="font-size:10px;color:#555;flex-basis:100%"></span>
     </div>
   </div>
@@ -339,16 +340,22 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
         <div>
           <label style="font-size:10px;color:var(--muted);display:block;margin-bottom:2px">Талант нагрудника</label>
-          <select id="b-chest-talent" class="bsel" onchange="onChestTalentChange(); calcBuild()" style="width:100%;padding:5px">
-            <option value="">— не выбран —</option>
-          </select>
+          <div style="display:flex;gap:4px">
+            <select id="b-chest-talent" class="bsel" onchange="onChestTalentChange(); calcBuild()" style="flex:1;padding:5px">
+              <option value="">— не выбран —</option>
+            </select>
+            <button type="button" onclick="openGearTalentPicker('chest')" style="padding:5px 10px;border:1px solid var(--orange);background:rgba(245,166,35,.08);color:var(--orange);border-radius:4px;cursor:pointer;font-size:11px" title="Открыть полный список с описанием">🔍</button>
+          </div>
           <div id="b-chest-talent-desc" style="font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3;min-height:20px"></div>
         </div>
         <div>
           <label style="font-size:10px;color:var(--muted);display:block;margin-bottom:2px">Талант рюкзака</label>
-          <select id="b-bp-talent" class="bsel" onchange="onBpTalentChange(); calcBuild()" style="width:100%;padding:5px">
-            <option value="">— не выбран —</option>
-          </select>
+          <div style="display:flex;gap:4px">
+            <select id="b-bp-talent" class="bsel" onchange="onBpTalentChange(); calcBuild()" style="flex:1;padding:5px">
+              <option value="">— не выбран —</option>
+            </select>
+            <button type="button" onclick="openGearTalentPicker('bp')" style="padding:5px 10px;border:1px solid var(--orange);background:rgba(245,166,35,.08);color:var(--orange);border-radius:4px;cursor:pointer;font-size:11px" title="Открыть полный список с описанием">🔍</button>
+          </div>
           <div id="b-bp-talent-desc" style="font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3;min-height:20px"></div>
         </div>
       </div>
@@ -1110,6 +1117,21 @@
   </div>
 </div>
 
+<!-- TALENT PICKER MODAL -->
+<div class="modal-bg" id="tal-modal" onclick="if(event.target===this)closeTalentModal()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="tal-modal-title">Выбор таланта</h3>
+      <button class="modal-close" onclick="closeTalentModal()">×</button>
+    </div>
+    <div class="modal-search">
+      <input type="text" id="tal-s1" placeholder="Поиск — имя, бонус..." oninput="renderTalentList()">
+    </div>
+    <div class="modal-filters" id="tal-filters"></div>
+    <div class="modal-list" id="tal-list"></div>
+  </div>
+</div>
+
 <!-- INVENTORY MODAL -->
 <div class="modal-bg" id="slot-modal" onclick="if(event.target===this)closeSlotModal()">
   <div class="modal-box">
@@ -1419,6 +1441,6 @@
 
 <div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>
 
-<script src="js/main.js?v=cherry-20260421-13"></script>
+<script src="js/main.js?v=cherry-20260421-14"></script>
 </body>
 </html>
