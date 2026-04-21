@@ -1,0 +1,56 @@
+{
+  "raw_extracted_from_crafting_definitions": {
+    "Upgrade:Vindicator": {
+      "item_tag": "Crafting_Exotic_Upgrade_Vindicator",
+      "amount": 1.0
+    },
+    "Upgrade:Overlord": {
+      "item_tag": "Crafting_Exotic_Upgrade_Overlord",
+      "amount": 1.0
+    }
+  },
+  "hand_curated_exotic_recipes": {
+    "Chatterbox_Crafting": {
+      "exotic": "Chatterbox",
+      "components": [
+        "Chatterbox Receiver (Roaming Bounty)",
+        "Chatterbox Frame (Theater Settlement)",
+        "Chatterbox Internal Parts (Grand Washington Hotel)"
+      ],
+      "materials": {
+        "Electronics": 100,
+        "Polycarbonate": 50,
+        "Receiver_Components": 1
+      }
+    },
+    "Nemesis_Crafting": {
+      "exotic": "Nemesis",
+      "components": [
+        "Nemesis Blueprint (Puck kill)",
+        "All 5 Invaded Strongholds"
+      ],
+      "materials": {
+        "Electronics": 150,
+        "Polycarbonate": 100,
+        "Receiver_Components": 1
+      }
+    },
+    "Liberty_Crafting": {
+      "exotic": "Liberty",
+      "components": [
+        "Liberty Grip (District Union Arena Invaded)",
+        "Liberty Slide (Lincoln Invaded)",
+        "Liberty Chassis (Trade Center Invaded)",
+        "Liberty Blueprint"
+      ],
+      "materials": {
+        "Electronics": 100,
+        "Polycarbonate": 50
+      }
+    }
+  },
+  "_metadata": {
+    "source": "crafting_definitions.juice (auto-parse) + community hand-curated для ключевых экзотов",
+    "note": "Полные recipes — в mission scripts (project triggers). Здесь компоненты high-level."
+  }
+}

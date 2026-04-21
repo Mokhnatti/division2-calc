@@ -5412,6 +5412,150 @@ function renderFormulas(){
     </div>`;
   }
 
+  // ===== NEW: Stat caps =====
+  const STAT_CAPS = (typeof D2DATA!=='undefined' && D2DATA.STAT_CAPS) || null;
+  if(STAT_CAPS){
+    const capRows = Object.entries(STAT_CAPS).map(([k,v])=>{
+      const val = v.value;
+      const note = v.note || v.source || '';
+      let display;
+      if(val === null || val === undefined) display = (isEn?'no cap':'нет кепа');
+      else if(typeof val === 'number' && val <= 1) display = (val*100).toFixed(0)+'%';
+      else display = String(val);
+      return `<tr><td style="padding:6px;font-family:monospace;color:var(--orange)">${k}</td><td style="padding:6px"><b>${display}</b></td><td style="padding:6px;font-size:11px;color:var(--muted)">${note}</td></tr>`;
+    }).join('');
+    html+=`<div class="bsect">
+      <h3>🎯 ${T('Кэпы статов (stat caps)','Stat caps')}</h3>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Максимальные значения статов из игры. CHC 60%, броня-митигация 70%, магазин +250%. Остальное без cap\'а.','Max stat values from game. CHC 60%, armor mitigation 70%, mag +250%. Rest uncapped.')}</div>
+      <div style="overflow-x:auto;max-height:400px;overflow-y:auto">
+        <table style="width:100%;font-size:12px;border-collapse:collapse">${capRows}</table>
+      </div>
+    </div>`;
+  }
+
+  // ===== NEW: Skills data =====
+  const SKILLS = (typeof D2DATA!=='undefined' && D2DATA.SKILLS_V2) || null;
+  if(SKILLS){
+    const skillsByCategory = {};
+    for(const [id, s] of Object.entries(SKILLS)){
+      const cat = s.skill_category || s.category || 'other';
+      if(!skillsByCategory[cat]) skillsByCategory[cat] = [];
+      skillsByCategory[cat].push({id, ...s});
+    }
+    const catOrder = ['drone','turret','hive','seeker_mine','firefly','chem_launcher','shield','pulse','sticky_bomb','decoy','recon_pack','other'];
+    const catEmoji = {drone:'🛸',turret:'🔫',hive:'🐝',seeker_mine:'💣',firefly:'✨',chem_launcher:'🧪',shield:'🛡',pulse:'📡',sticky_bomb:'💥',decoy:'🎭',recon_pack:'🎯'};
+    const skillSections = catOrder.filter(c=>skillsByCategory[c]).map(cat=>{
+      const emoji = catEmoji[cat] || '⚡';
+      const rows = skillsByCategory[cat].map(s=>{
+        const name = isEn ? (s.name_en||s.id) : (s.name_ru||s.name_en||s.id);
+        const dmg = s.base_damage ? `<b style="color:var(--red)">${s.base_damage.toLocaleString('ru')}</b>` : '—';
+        const cd = s.base_cooldown_sec ? s.base_cooldown_sec+'s' : '—';
+        const hp = s.health ? s.health.toLocaleString('ru') : '—';
+        const dur = s.duration_sec ? s.duration_sec+'s' : '—';
+        return `<tr><td style="padding:4px 6px;font-weight:600">${name}</td><td style="padding:4px 6px">${dmg}</td><td style="padding:4px 6px">${cd}</td><td style="padding:4px 6px">${hp}</td><td style="padding:4px 6px">${dur}</td></tr>`;
+      }).join('');
+      return `<div style="margin-top:10px">
+        <div style="font-size:12px;color:var(--orange);font-weight:600;margin-bottom:4px">${emoji} ${cat.replace('_',' ')}</div>
+        <table style="width:100%;font-size:11px;border-collapse:collapse">
+          <thead><tr style="color:var(--muted)"><th style="padding:4px;text-align:left">${isEn?'Variant':'Вариант'}</th><th style="padding:4px;text-align:left">${isEn?'Base dmg':'База ур.'}</th><th style="padding:4px;text-align:left">CD</th><th style="padding:4px;text-align:left">HP</th><th style="padding:4px;text-align:left">${isEn?'Dur':'Длит'}</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+    }).join('');
+    html+=`<div class="bsect">
+      <h3>⚡ ${T('Навыки (skill variants)','Skills')}</h3>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Базовые характеристики при Skill Tier 0. Масштабируются +20% dmg / +15% HP / -15% cooldown на тир.','Base stats at Skill Tier 0. Scale +20% dmg / +15% HP / -15% cooldown per tier.')}</div>
+      ${skillSections}
+    </div>`;
+  }
+
+  // ===== NEW: Talent requirements =====
+  const TR = (typeof D2DATA!=='undefined' && D2DATA.TALENT_REQUIREMENTS) || null;
+  if(TR){
+    const rows = Object.entries(TR).map(([id, req])=>{
+      const name = isEn ? (req.name_en||id) : (req.name_ru||req.name_en||id);
+      let desc = '';
+      if(req.requires_attribute_threshold){
+        const r = req.requires_attribute_threshold;
+        if(r.attr_color) desc += `≥${r.min_count} ${r.attr_color}`;
+        else if(r.attr_type) desc += `≥${r.min_count} ${r.attr_type}`;
+      }
+      if(req.applicable_weapon_classes) desc += ` · ${req.applicable_weapon_classes.join('/')}`;
+      if(req.triggers_on) desc += ` · ${isEn?'trigger':'триггер'}: ${req.triggers_on}`;
+      return `<tr><td style="padding:5px;font-weight:600">${name}</td><td style="padding:5px;color:var(--muted);font-size:11px">${desc}</td></tr>`;
+    }).join('');
+    html+=`<div class="bsect">
+      <h3>🧿 ${T('Требования перфект-талантов','Perfect talent requirements')}</h3>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Пороги активации Perfect-вариантов. Если условия не выполнены — талант не работает.','Activation thresholds for Perfect talents. If conditions not met, talent is inactive.')}</div>
+      <table style="width:100%;font-size:12px;border-collapse:collapse">${rows}</table>
+    </div>`;
+  }
+
+  // ===== NEW: Status application chances =====
+  const SA = (typeof D2DATA!=='undefined' && D2DATA.STATUS_APPLICATION) || null;
+  if(SA){
+    const rows = Object.entries(SA).map(([id, s])=>{
+      const src = s.weapon || s.talent || id;
+      const status = s.status || '—';
+      let chance = '—';
+      if(s.chance_per_hit !== undefined) chance = `${(s.chance_per_hit*100).toFixed(0)}% ${isEn?'per hit':'за попадание'}`;
+      else if(s.chance_on_headshot !== undefined) chance = `${(s.chance_on_headshot*100).toFixed(0)}% ${isEn?'on HS':'на HS'}`;
+      else if(s.chance_per_second !== undefined) chance = `${(s.chance_per_second*100).toFixed(0)}% ${isEn?'/s':'/с'}`;
+      const extras = [];
+      if(s.stacks_on_hit) extras.push(`+${s.stacks_on_hit} ${isEn?'stack':'стак'}`);
+      if(s.max_stacks) extras.push(`max ${s.max_stacks}`);
+      if(s.duration_sec) extras.push(`${s.duration_sec}s`);
+      return `<tr><td style="padding:5px;font-weight:600">${src}</td><td style="padding:5px;color:var(--red)">${status}</td><td style="padding:5px;color:var(--orange)">${chance}</td><td style="padding:5px;font-size:11px;color:var(--muted)">${extras.join(' · ')}</td></tr>`;
+    }).join('');
+    html+=`<div class="bsect">
+      <h3>🔥 ${T('Шансы статусов','Status application chances')}</h3>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Вероятности применения DOT/CC эффектов на экзоты и таланты.','Chances of DOT/CC effects applied by exotics and talents.')}</div>
+      <table style="width:100%;font-size:12px;border-collapse:collapse">
+        <thead><tr style="color:var(--muted)"><th style="padding:5px;text-align:left">${isEn?'Source':'Источник'}</th><th style="padding:5px;text-align:left">${isEn?'Status':'Эффект'}</th><th style="padding:5px;text-align:left">${isEn?'Chance':'Шанс'}</th><th style="padding:5px;text-align:left">${isEn?'Extra':'Доп.'}</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+  }
+
+  // ===== NEW: Enemy TTK benchmarks =====
+  const EN = (typeof D2DATA!=='undefined' && D2DATA.ENEMIES_DETAILED) || null;
+  if(EN){
+    const enemyRows = Object.entries(EN).map(([id, e])=>{
+      const hp = (e.hp || 0).toLocaleString('ru');
+      const armor = (e.armor || 0).toLocaleString('ru');
+      const tier = e.tier || '—';
+      const level = e.level || 40;
+      const diff = e.difficulty || '—';
+      const archetype = e.archetype || '—';
+      return `<tr><td style="padding:5px">${archetype}</td><td style="padding:5px;color:var(--orange)">${tier}</td><td style="padding:5px">${diff}</td><td style="padding:5px;color:var(--red)">${hp}</td><td style="padding:5px;color:var(--blue)">${armor}</td></tr>`;
+    }).join('');
+    html+=`<div class="bsect">
+      <h3>👥 ${T('Враги — HP и броня (бенчмарк)','Enemy HP & armor benchmarks')}</h3>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${T('Типовые враги уровня 40 по сложностям. Используются как baseline для TTK-расчёта.','Typical L40 enemies per difficulty. Used as TTK baseline.')}</div>
+      <div style="overflow-x:auto;max-height:400px;overflow-y:auto">
+        <table style="width:100%;font-size:12px;border-collapse:collapse">
+          <thead><tr style="color:var(--muted)"><th style="padding:5px;text-align:left">${isEn?'Archetype':'Тип'}</th><th style="padding:5px;text-align:left">${isEn?'Tier':'Тир'}</th><th style="padding:5px;text-align:left">${isEn?'Diff':'Слож.'}</th><th style="padding:5px;text-align:left">HP</th><th style="padding:5px;text-align:left">${isEn?'Armor':'Броня'}</th></tr></thead>
+          <tbody>${enemyRows}</tbody>
+        </table>
+      </div>
+    </div>`;
+  }
+
+  // ===== NEW: Crafting recipes =====
+  const CR = (typeof D2DATA!=='undefined' && D2DATA.CRAFTING_RECIPES) || null;
+  if(CR){
+    const rows = Object.entries(CR).slice(0,20).map(([id, r])=>{
+      const name = isEn ? (r.name_en||id) : (r.name_ru||r.name_en||id);
+      const comps = (r.components||[]).map(c=>isEn?(c.name_en||c.name||'?'):(c.name_ru||c.name||'?')).join(', ');
+      const mats = r.material_cost ? Object.entries(r.material_cost).map(([k,v])=>`${k}: ${v}`).join(' · ') : '';
+      return `<tr><td style="padding:5px;font-weight:600">${name}</td><td style="padding:5px;font-size:11px;color:var(--muted)">${comps}</td><td style="padding:5px;font-size:11px;color:var(--orange)">${mats}</td></tr>`;
+    }).join('');
+    html+=`<div class="bsect">
+      <h3>🔨 ${T('Крафт-рецепты (экзоты)','Crafting recipes (exotics)')}</h3>
+      <table style="width:100%;font-size:12px;border-collapse:collapse">${rows}</table>
+    </div>`;
+  }
+
   // ALL 230 formulas — full list with search
   const allFormulas=F.all||{};
   const allEntries=Object.entries(allFormulas);

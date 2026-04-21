@@ -1,0 +1,137 @@
+{
+  "armor_mitigation_cap": {
+    "value": 0.7,
+    "formula": "ArmorMitigationPercentageCalc",
+    "source": "formulas.json → \"Min(0.70, ...)\""
+  },
+  "physical_damage_mitigation_cap": {
+    "value": 0.9,
+    "formula": "PhysicalDamageMitigationPercentageFinal",
+    "source": "formulas.json → MIN(0.9, ...)"
+  },
+  "method_damage_mitigation_cap": {
+    "value": 0.95,
+    "formula": "WeaponMethodDamageMitigationPercentageFinal",
+    "source": "formulas.json → Min(0.95, ...)"
+  },
+  "skill_power_cap": {
+    "value": 6,
+    "formula": "SkillPowerFinal",
+    "source": "formulas.json → Min(flat, 6)"
+  },
+  "skill_power_cap_with_overcharge": {
+    "value": 7,
+    "formula": "SkillPowerFinal",
+    "source": "formulas.json → Min(flat+overcharge, 7)"
+  },
+  "dot_mitigation_cap": {
+    "value": 0.9,
+    "formula": "BleedDamageMitigationPercentageFinal",
+    "source": "formulas.json → MIN(0.9, ...)"
+  },
+  "status_resistance_cap": {
+    "value": 1.0,
+    "formula": "BleedingStatusResistancePercentageFinal",
+    "source": "formulas.json → MIN(1, ...)"
+  },
+  "chc_cap": {
+    "value": 0.6,
+    "source": "community-verified (in-game UI)",
+    "note": "Critical Hit Chance cap 60%"
+  },
+  "chd_cap": {
+    "value": null,
+    "source": "community-verified",
+    "note": "Critical Hit Damage не имеет cap"
+  },
+  "headshot_damage_cap": {
+    "value": null,
+    "source": "community-verified",
+    "note": "Headshot Damage не имеет cap"
+  },
+  "rof_cap": {
+    "value": null,
+    "source": "community-verified",
+    "note": "Rate of Fire не имеет жёсткого cap, но diminishing returns"
+  },
+  "magazine_size_cap": {
+    "value": 2.5,
+    "source": "community-verified",
+    "note": "Magazine Size cap +250% (x3.5 total)"
+  },
+  "reload_speed_cap": {
+    "value": null,
+    "source": "community-verified",
+    "note": "Reload Speed не имеет cap"
+  },
+  "hazard_protection_cap": {
+    "value": 0.6,
+    "source": "community-verified",
+    "note": "Hazard Protection cap 60%"
+  },
+  "status_effect_cap": {
+    "value": null,
+    "source": "community-verified",
+    "note": "Status Effects rating (опасность статусов) без cap"
+  },
+  "explosive_damage_cap": {
+    "value": null,
+    "source": "community-verified"
+  },
+  "stack_caps_per_set": {
+    "striker": {
+      "max_stacks": 100,
+      "per_stack_dmg": 0.003
+    },
+    "negotiator": {
+      "max_targets_marked": 30,
+      "per_stack": "stacking_debuff"
+    },
+    "heartbreaker": {
+      "max_stacks": 50,
+      "per_stack_wd": 0.01
+    },
+    "habsburg": {
+      "max_stacks": 50,
+      "per_stack_wd": 0.015
+    },
+    "hardwired": {
+      "cooldown_reduction_per_kill_sec": 2
+    },
+    "ongoing_directive": {
+      "ammo_types": 3
+    },
+    "tip_of_the_spear": {
+      "max_stacks": 8,
+      "per_stack_sig_dmg": 0.1
+    },
+    "aces_eights": {
+      "cards_per_hit": 1,
+      "full_house_reward": "crit boost"
+    },
+    "foundry_bulwark": {
+      "armor_repair_per_shield": 0.25
+    },
+    "future_initiative": {
+      "bubble_radius_m": 12
+    },
+    "hunter_fury": {
+      "max_stacks": 10,
+      "per_stack_wd": 0.02
+    }
+  },
+  "armor_core_max_roll": {
+    "chest": 0.24,
+    "back": 0.1988,
+    "gloves": 0.122,
+    "mask": 0.122,
+    "holster": 0.122,
+    "kneepads": 0.15,
+    "source": "gear_rolls.json slot_caps"
+  },
+  "_metadata": {
+    "source": "Mix: formulas.json (automatic) + community-verified (hand-curated)",
+    "generated": "2026-04-21",
+    "notes": "Cap'ы которые None отсутствуют (stat не имеет hard cap, может быть diminishing returns)."
+  }
+}

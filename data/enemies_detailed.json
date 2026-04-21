@@ -1,0 +1,119 @@
+{
+  "common_t40_normal": {
+    "archetype": "Common",
+    "level": 40,
+    "difficulty": "Normal",
+    "hp": 60000,
+    "armor": 70000
+  },
+  "veteran_t40_normal": {
+    "archetype": "Veteran",
+    "level": 40,
+    "difficulty": "Normal",
+    "hp": 120000,
+    "armor": 140000
+  },
+  "elite_t40_normal": {
+    "archetype": "Elite",
+    "level": 40,
+    "difficulty": "Normal",
+    "hp": 200000,
+    "armor": 240000
+  },
+  "named_t40_normal": {
+    "archetype": "Named",
+    "level": 40,
+    "difficulty": "Normal",
+    "hp": 350000,
+    "armor": 420000
+  },
+  "boss_t40_normal": {
+    "archetype": "Boss",
+    "level": 40,
+    "difficulty": "Normal",
+    "hp": 700000,
+    "armor": 800000
+  },
+  "common_t40_heroic": {
+    "archetype": "Common",
+    "level": 40,
+    "difficulty": "Heroic",
+    "hp": 162000,
+    "armor": 189000
+  },
+  "veteran_t40_heroic": {
+    "archetype": "Veteran",
+    "level": 40,
+    "difficulty": "Heroic",
+    "hp": 324000,
+    "armor": 378000
+  },
+  "elite_t40_heroic": {
+    "archetype": "Elite",
+    "level": 40,
+    "difficulty": "Heroic",
+    "hp": 540000,
+    "armor": 648000
+  },
+  "named_t40_heroic": {
+    "archetype": "Named",
+    "level": 40,
+    "difficulty": "Heroic",
+    "hp": 945000,
+    "armor": 1134000
+  },
+  "boss_t40_heroic": {
+    "archetype": "Boss",
+    "level": 40,
+    "difficulty": "Heroic",
+    "hp": 1890000,
+    "armor": 2160000
+  },
+  "common_t40_legendary": {
+    "archetype": "Common",
+    "level": 40,
+    "difficulty": "Legendary",
+    "hp": 270000,
+    "armor": 315000
+  },
+  "veteran_t40_legendary": {
+    "archetype": "Veteran",
+    "level": 40,
+    "difficulty": "Legendary",
+    "hp": 540000,
+    "armor": 630000
+  },
+  "elite_t40_legendary": {
+    "archetype": "Elite",
+    "level": 40,
+    "difficulty": "Legendary",
+    "hp": 900000,
+    "armor": 1080000
+  },
+  "named_t40_legendary": {
+    "archetype": "Named",
+    "level": 40,
+    "difficulty": "Legendary",
+    "hp": 1575000,
+    "armor": 1890000
+  },
+  "boss_t40_legendary": {
+    "archetype": "Boss",
+    "level": 40,
+    "difficulty": "Legendary",
+    "hp": 3150000,
+    "armor": 3600000
+  },
+  "_metadata": {
+    "difficulty_multipliers": {
+      "Normal": 1.0,
+      "Hard": 1.4,
+      "Challenging": 1.9,
+      "Heroic": 2.7,
+      "Legendary": 4.5
+    },
+    "source": "community-verified Y8S1 TU22 (MarcoStyle spreadsheet / D2 Gearhead)",
+    "formula": "hp_final = hp_base × difficulty_multiplier × (1 + escalation_tier × 0.15)",
+    "note": "Факции (Black Tusk/Cleaners/...) имеют разные archetype distribution но одинаковые formula. Escalation Tier 0-10 multipliers в difficulty_table.json."
+  }
+}

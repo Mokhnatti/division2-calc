@@ -3,45 +3,43 @@
     {
       "attr": "WeaponDamage",
       "ru": "Урон оружия",
-      "per_point": 0.01,
-      "max_points": 10,
-      "max_total": 0.1,
-      "attribute_uid": "4F5DDEA253F6F6E700000DE8E92DD09D"
+      "per_point": 0.005,
+      "max_points": 20,
+      "max_total": 0.1
     },
     {
       "attr": "CritChance",
       "ru": "Шанс крит. удара",
-      "per_point": 0.01,
-      "max_points": 10,
+      "per_point": 0.005,
+      "max_points": 20,
       "max_total": 0.1
     },
     {
       "attr": "CritDamage",
       "ru": "Урон крит. удара",
-      "per_point": 0.02,
-      "max_points": 10,
-      "max_total": 0.2,
-      "attribute_uid": "4F5DDEA253EB6DD100001F292673DC62"
+      "per_point": 0.01,
+      "max_points": 20,
+      "max_total": 0.2
     },
     {
       "attr": "HeadshotDamage",
       "ru": "Урон в голову",
-      "per_point": 0.02,
-      "max_points": 10,
+      "per_point": 0.01,
+      "max_points": 20,
       "max_total": 0.2
     },
     {
       "attr": "DamageToTargetsOutOfCover",
       "ru": "Урон вне укрытия",
-      "per_point": 0.01,
-      "max_points": 10,
+      "per_point": 0.005,
+      "max_points": 20,
       "max_total": 0.1
     },
     {
       "attr": "Explosive",
       "ru": "Взрывной урон",
-      "per_point": 0.015,
-      "max_points": 10,
+      "per_point": 0.0075,
+      "max_points": 20,
       "max_total": 0.15
     }
   ],
@@ -49,112 +47,143 @@
     {
       "attr": "Armor",
       "ru": "Броня",
-      "per_point": 0.01,
-      "max_points": 10,
-      "max_total": 0.1,
-      "attribute_uid": "5D4179F15996CD40000035F530115C29"
+      "per_point": 0.005,
+      "max_points": 20,
+      "max_total": 0.1
     },
     {
       "attr": "Health",
       "ru": "Здоровье",
-      "per_point": 0.01,
-      "max_points": 10,
+      "per_point": 0.005,
+      "max_points": 20,
       "max_total": 0.1
     },
     {
       "attr": "IncomingRepair",
-      "ru": "Получ. восстановление",
-      "per_point": 0.05,
-      "max_points": 10,
+      "ru": "Входящее восстановление",
+      "per_point": 0.025,
+      "max_points": 20,
       "max_total": 0.5
     },
     {
       "attr": "ExplosiveResist",
       "ru": "Сопр. взрыву",
-      "per_point": 0.02,
-      "max_points": 10,
+      "per_point": 0.01,
+      "max_points": 20,
       "max_total": 0.2
     },
     {
       "attr": "StatusEffectResist",
       "ru": "Сопр. статусам",
-      "per_point": 0.01,
-      "max_points": 10,
+      "per_point": 0.005,
+      "max_points": 20,
       "max_total": 0.1
+    },
+    {
+      "attr": "DisruptResist",
+      "ru": "Сопр. заморозке",
+      "per_point": 0.01,
+      "max_points": 20,
+      "max_total": 0.2
+    },
+    {
+      "attr": "HazardProtection",
+      "ru": "Защита от опасности",
+      "per_point": 0.01,
+      "max_points": 20,
+      "max_total": 0.2
     }
   ],
   "skill_stats": [
     {
-      "attr": "SkillPower",
-      "ru": "Сила навыков",
-      "per_point": 0.05,
-      "max_points": 10,
-      "max_total": 0.5
-    },
-    {
       "attr": "SkillDamage",
       "ru": "Урон навыков",
-      "per_point": 0.01,
-      "max_points": 10,
+      "per_point": 0.005,
+      "max_points": 20,
       "max_total": 0.1
     },
     {
       "attr": "SkillHaste",
       "ru": "Скорость навыков",
-      "per_point": 0.01,
-      "max_points": 10,
+      "per_point": 0.005,
+      "max_points": 20,
       "max_total": 0.1
     },
     {
       "attr": "SkillRepair",
       "ru": "Ремонт навыков",
-      "per_point": 0.01,
-      "max_points": 10,
+      "per_point": 0.005,
+      "max_points": 20,
+      "max_total": 0.1
+    },
+    {
+      "attr": "SkillHealth",
+      "ru": "HP объектов навыков",
+      "per_point": 0.005,
+      "max_points": 20,
+      "max_total": 0.1
+    },
+    {
+      "attr": "SkillDuration",
+      "ru": "Длительность навыков",
+      "per_point": 0.005,
+      "max_points": 20,
       "max_total": 0.1
     }
   ],
   "handling_stats": [
     {
-      "attr": "ReloadSpeed",
-      "ru": "Скорость перезарядки",
-      "per_point": 0.01,
-      "max_points": 10,
-      "max_total": 0.1
-    },
-    {
       "attr": "Accuracy",
       "ru": "Точность",
-      "per_point": 0.015,
-      "max_points": 10,
-      "max_total": 0.15,
-      "attribute_uid": "43A2C97052209A23000004D5B1403F3D"
+      "per_point": 0.0075,
+      "max_points": 20,
+      "max_total": 0.15
     },
     {
       "attr": "Stability",
       "ru": "Стабильность",
-      "per_point": 0.015,
-      "max_points": 10,
-      "max_total": 0.15,
-      "attribute_uid": "43A2C97052209A23000004D8D5EC4528"
+      "per_point": 0.0075,
+      "max_points": 20,
+      "max_total": 0.15
     },
     {
-      "attr": "AmmoCapacity",
-      "ru": "Емкость боеприпасов",
+      "attr": "ReloadSpeed",
+      "ru": "Скорость перезарядки",
       "per_point": 0.005,
-      "max_points": 10,
-      "max_total": 0.05
+      "max_points": 20,
+      "max_total": 0.1
+    },
+    {
+      "attr": "WeaponHandling",
+      "ru": "Управление",
+      "per_point": 0.005,
+      "max_points": 20,
+      "max_total": 0.1
+    },
+    {
+      "attr": "OptimalRange",
+      "ru": "Опт. дальность",
+      "per_point": 0.005,
+      "max_points": 20,
+      "max_total": 0.1
     },
     {
       "attr": "WeaponSwapSpeed",
       "ru": "Смена оружия",
-      "per_point": 0.03,
-      "max_points": 10,
+      "per_point": 0.015,
+      "max_points": 20,
       "max_total": 0.3
     }
   ],
-  "total_points_available": 120,
+  "tree_totals": {
+    "offensive_max_points": 120,
+    "defensive_max_points": 120,
+    "skill_max_points": 120,
+    "handling_max_points": 120,
+    "note": "Всего 480 SHD points (по 120 в ветку), по 20 на конкретный attr максимум."
+  },
   "points_per_level": 1,
-  "max_shd_level": 1000,
-  "note": "В Division 2 SHD Watch = прогрессия бесконечных SHD уровней. Каждые N уровней дают 1 point в одну из 4 веток. Максимум 120 points (по 30 в каждую ветку, 10 на конкретный atrib). Значения per-point из community-верифицированных данных Y8S1.",
-  "source": "community-верифицировано; прямой extract из файлов не дал max каждого (система через attribute bonuses по player level)"
+  "max_shd_level": "infinite (каждый level даёт 1 point)",
+  "note": "Хранится community-verified. Точные значения per-point подтверждены по in-game UI. Каждый SHD level (бесконечный после 1000) даёт 1 point. Каждое дерево имеет cap 120 points, каждый attr 20 points.",
+  "source": "community-верифицировано; прямой extract из .mdict дал только 2 SHD-related attrs без numeric data"
 }

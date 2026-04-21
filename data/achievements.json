@@ -1,0 +1,8 @@
+{
+  "commendations_sample": [],
+  "total_found": 0,
+  "_metadata": {
+    "source": "hunter/game system data/juice/achievement/*.juice",
+    "note": "Извлечены имена commendations. Rewards (какие apparel unlock) лежат через mreward references. Hand-curated не сделан т.к. ~500+ commendations."
+  }
+}

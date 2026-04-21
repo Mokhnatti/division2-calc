@@ -58,6 +58,14 @@ const FILES = {
   SKILL_MODS_V2: "skill_mods.json",
   WEAPON_MOD_SLOTS: "weapon_mod_slots.json",
   MODS_WEAPON: "mods_weapon.json",
+  SKILLS_V2: "skills.json",
+  TALENT_REQUIREMENTS: "talent_requirements.json",
+  STATUS_APPLICATION: "status_application.json",
+  PROTOTYPE_AUGMENTS_V2: "prototype_augments.json",
+  STAT_CAPS: "stat_caps.json",
+  ENEMIES_DETAILED: "enemies_detailed.json",
+  CRAFTING_RECIPES: "crafting_recipes.json",
+  MANHUNT_SEASONS: "manhunt_seasons.json",
 };
 
 const obj = {};

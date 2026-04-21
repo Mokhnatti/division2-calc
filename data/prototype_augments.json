@@ -1,83 +1,242 @@
-{
-  "quantum": {
-    "name": "Quantum",
-    "desc": "Шанс стать неуязвимым на 2с от получения урона",
-    "init": 1,
-    "per": 0.2,
-    "max": 2.8,
-    "unit": "% шанс",
-    "dps_impact": "none"
+[
+  {
+    "id": "talent_augment_amalgam",
+    "uid": "C541AEEB69240AF50003C83F1FBE7F1A",
+    "name_en": "Amalgam",
+    "name_ru": "Амальгама",
+    "tooltip_en": "\"Every bullet hit has a <color name=\"\"orange\"\">{0}%</color> chance to apply a <color name=\"\"orange\"\">random Status Effect</color>. Cooldown: <color name=\"\"orange\"\">{1}</color> seconds.\"",
+    "tooltip_ru": "\"<color name=\"\"orange\"\">{0}%</color> шанс наложения <color name=\"\"orange\"\">случайно выбранного негативного эффекта</color> при каждом попадании пули в цель. Восстановление: <color name=\"\"orange\"\">{1}</color> с.\"",
+    "tooltip_en_filled": "\"Every bullet hit has a <color name=\"\"orange\"\">{0}%</color> chance to apply a <color name=\"\"orange\"\">random Status Effect</color>. Cooldown: <color name=\"\"orange\"\">0.005</color> seconds.\"",
+    "tooltip_ru_filled": "\"<color name=\"\"orange\"\">{0}%</color> шанс наложения <color name=\"\"orange\"\">случайно выбранного негативного эффекта</color> при каждом попадании пули в цель. Восстановление: <color name=\"\"orange\"\">0.005</color> с.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB692EE4870003C6DBB441FC6A",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_amalgam_activation_chance",
+        "attribute_uid": "C541AEEB692EE4870003C6DBB441FC6A",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.005
+      },
+      {
+        "ref": "talent_augment_amalgam_cooldown",
+        "attribute_uid": "C541AEEB69AFCA8000037CF1E1DAB34B",
+        "attribute_name": "talent_augment_amalgam_cooldown",
+        "value": 5.0
+      }
+    ]
   },
-  "echo": {
-    "name": "Echo",
-    "desc": "Шанс что выстрел наносит урон дважды",
-    "init": 1.2,
-    "per": 0.18,
-    "max": 3,
-    "unit": "% шанс дубля",
-    "dps_impact": "high"
+  {
+    "id": "talent_augment_anomaly",
+    "uid": "C541AEEB69240A800003C493A0907911",
+    "name_en": "Anomaly",
+    "name_ru": "Аномалия",
+    "tooltip_en": "\"Receive <color name=\"\"orange\"\">healing</color> of <color name=\"\"orange\"\">{0}%</color> of the damage dealt by your <color name=\"\"orange\"\">Skills</color>.\"",
+    "tooltip_ru": "\"<color name=\"\"orange\"\">Лечение</color> в объеме <color name=\"\"orange\"\">{0}%</color> урона, нанесенного вами с помощью <color name=\"\"orange\"\">навыков</color>.\"",
+    "tooltip_en_filled": "\"Receive <color name=\"\"orange\"\">healing</color> of <color name=\"\"orange\"\">{0}%</color> of the damage dealt by your <color name=\"\"orange\"\">Skills</color>.\"",
+    "tooltip_ru_filled": "\"<color name=\"\"orange\"\">Лечение</color> в объеме <color name=\"\"orange\"\">{0}%</color> урона, нанесенного вами с помощью <color name=\"\"orange\"\">навыков</color>.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB692EEE1E000A5992BA6F5F5B",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_anomaly_heal_from_skill_damage_value",
+        "attribute_uid": "C541AEEB692EEE1E000A5992BA6F5F5B",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.02
+      }
+    ]
   },
-  "atomize": {
-    "name": "Atomize",
-    "desc": "Увеличивает радиус и урон гранат",
-    "init": 12.5,
-    "per": 0.9,
-    "max": 21.5,
-    "unit": "%",
-    "dps_impact": "low"
+  {
+    "id": "talent_augment_atomize",
+    "uid": "C541AEEB69315CD10010BEFC98058590",
+    "name_en": "Atomize",
+    "name_ru": "Атомизация",
+    "tooltip_en": "\"Increases <color name=\"\"orange\"\">Grenade Radius and Damage</color> by <color name=\"\"orange\"\">{0}%</color>.\"",
+    "tooltip_ru": "\"Увеличение <color name=\"\"orange\"\">урона и радиуса взрыва для гранат</color> на <color name=\"\"orange\"\">{0}%</color>.\"",
+    "tooltip_en_filled": "\"Increases <color name=\"\"orange\"\">Grenade Radius and Damage</color> by <color name=\"\"orange\"\">{0}%</color>.\"",
+    "tooltip_ru_filled": "\"Увеличение <color name=\"\"orange\"\">урона и радиуса взрыва для гранат</color> на <color name=\"\"orange\"\">{0}%</color>.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB693197F40010DA980D3C211C",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_atomize_explosion_range_increase",
+        "attribute_uid": "C541AEEB693197F40010DA980D3C211C",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.125
+      }
+    ]
   },
-  "amalgam": {
-    "name": "Amalgam",
-    "desc": "Шанс наложить случайный статус-эффект (кд 5с)",
-    "init": 0.5,
-    "per": 0.18,
-    "max": 2.3,
-    "unit": "% шанс",
-    "dps_impact": "low"
+  {
+    "id": "talent_augment_echo",
+    "uid": "C541AEEB69315D340010C1CB1056BDD8",
+    "name_en": "Echo",
+    "name_ru": "Эхо",
+    "tooltip_en": "\"Every bullet fired has a <color name=\"\"orange>{0}% chance</color> to deal its damage <color name=\"\"orange\"\">twice</color>.\"",
+    "tooltip_ru": "\"<color name=\"\"orange>{0}%</color> шанс того, что каждая выпущенная пуля нанесет <color name=\"\"orange\"\">удвоенный</color> урон.\"",
+    "tooltip_en_filled": "\"Every bullet fired has a <color name=\"\"orange>{0}% chance</color> to deal its damage <color name=\"\"orange\"\">twice</color>.\"",
+    "tooltip_ru_filled": "\"<color name=\"\"orange>{0}%</color> шанс того, что каждая выпущенная пуля нанесет <color name=\"\"orange\"\">удвоенный</color> урон.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB693197F40010DA97F7867A1E",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_echo_activation_chance",
+        "attribute_uid": "C541AEEB693197F40010DA97F7867A1E",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.025
+      }
+    ]
   },
-  "trapper": {
-    "name": "Trapper",
-    "desc": "Увеличивает длительность статус-эффектов",
-    "init": 5,
-    "per": 1,
-    "max": 14,
-    "unit": "%",
-    "dps_impact": "low"
+  {
+    "id": "talent_augment_entropy",
+    "uid": "C541AEEB69240A990003C57EE3AC2922",
+    "name_en": "Entropy",
+    "name_ru": "Энтропия",
+    "tooltip_en": "\"<color name=\"\"orange\"\">Health</color> is increased by <color name=\"\"orange\"\">{0}%</color> of your <color name=\"\"orange\"\">base Total Armor</color>.\"",
+    "tooltip_ru": "\"Увеличение <color name=\"\"orange\"\">здоровья</color> на <color name=\"\"orange\"\">{0}%</color> общего количества <color name=\"\"orange\"\">базовой брони</color>.\"",
+    "tooltip_en_filled": "\"<color name=\"\"orange\"\">Health</color> is increased by <color name=\"\"orange\"\">{0}%</color> of your <color name=\"\"orange\"\">base Total Armor</color>.\"",
+    "tooltip_ru_filled": "\"Увеличение <color name=\"\"orange\"\">здоровья</color> на <color name=\"\"orange\"\">{0}%</color> общего количества <color name=\"\"orange\"\">базовой брони</color>.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB692EECA9000A56AB1CE515BA",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_entropy_armor_to_hp_conversion",
+        "attribute_uid": "C541AEEB692EECA9000A56AB1CE515BA",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.05
+      }
+    ]
   },
-  "entropy": {
-    "name": "Entropy",
-    "desc": "Здоровье увеличено на % от базовой общей брони",
-    "init": 5,
-    "per": 0.9,
-    "max": 14,
-    "unit": "%",
-    "dps_impact": "none"
+  {
+    "id": "talent_augment_paradox",
+    "uid": "C541AEEB691EC6F70003C4739B76B4AD",
+    "name_en": "Paradox",
+    "name_ru": "Парадокс",
+    "tooltip_en": "\"Provides a <color name=\"\"orange\"\">{0}%</color> chance of refilling your <color name=\"\"orange\"\">Magazine</color> by <color name=\"\"orange\"\">{1}</color> for each bullet fired.\"",
+    "tooltip_ru": "\"<color name=\"\"orange\"\">{0}%</color> шанс добавить <color name=\"\"orange\"\">{1} {1?патрон,патрона,патронов}</color> в <color name=\"\"orange\"\">магазин</color> за каждый потраченный патрон.\"",
+    "tooltip_en_filled": "\"Provides a <color name=\"\"orange\"\">{0}%</color> chance of refilling your <color name=\"\"orange\"\">Magazine</color> by <color name=\"\"orange\"\">0.015</color> for each bullet fired.\"",
+    "tooltip_ru_filled": "\"<color name=\"\"orange\"\">{0}%</color> шанс добавить <color name=\"\"orange\"\">0.015 {1?патрон,патрона,патронов}</color> в <color name=\"\"orange\"\">магазин</color> за каждый потраченный патрон.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB692EEE9D000A5A7FFBF7859E",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_paradox_activation_chance",
+        "attribute_uid": "C541AEEB692EEE9D000A5A7FFBF7859E",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.015
+      },
+      {
+        "ref": "talent_augment_paradox_ammo_refill",
+        "attribute_uid": "C541AEEB692EEE9D000A5A803BA2883C",
+        "attribute_name": "talent_augment_paradox_ammo_refill",
+        "value": 2.0
+      }
+    ]
   },
-  "anomaly": {
-    "name": "Anomaly",
-    "desc": "Лечение на % от урона нанесённого скиллами",
-    "init": 2,
-    "per": 0.27,
-    "max": 4.7,
-    "unit": "%",
-    "dps_impact": "none"
+  {
+    "id": "talent_augment_quantum",
+    "uid": "C541AEEB69315D830010C49A146612F7",
+    "name_en": "Quantum",
+    "name_ru": "Квант",
+    "tooltip_en": "\"Provides a <color name=\"\"orange\"\">{0}%</color> chance of becoming <color name=\"\"orange\"\">immune to damage</color> for <color name=\"\"orange\"\">{1}s</color>. The bonus cannot refresh while active.\"",
+    "tooltip_ru": "\"<color name=\"\"orange\"\">{0}%</color> шанс получения <color name=\"\"orange\"\">невосприимчивости к урону</color> сроком на <color name=\"\"orange\"\">{1} с</color>. Этот срок не может быть обновлен во время действия эффекта.\"",
+    "tooltip_en_filled": "\"Provides a <color name=\"\"orange\"\">{0}%</color> chance of becoming <color name=\"\"orange\"\">immune to damage</color> for <color name=\"\"orange\"\">0.01s</color>. The bonus cannot refresh while active.\"",
+    "tooltip_ru_filled": "\"<color name=\"\"orange\"\">{0}%</color> шанс получения <color name=\"\"orange\"\">невосприимчивости к урону</color> сроком на <color name=\"\"orange\"\">0.01 с</color>. Этот срок не может быть обновлен во время действия эффекта.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB693197F40010DA952ED02635",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_quantum_activation_chance",
+        "attribute_uid": "C541AEEB693197F40010DA952ED02635",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.01
+      },
+      {
+        "ref": "talent_augment_quantum_damage_immunity_duration",
+        "attribute_uid": "C541AEEB693197F40010DA9673332492",
+        "attribute_name": "talent_augment_quantum_damage_immunity_duration",
+        "value": 2.0
+      }
+    ]
   },
-  "paradox": {
-    "name": "Paradox",
-    "desc": "Шанс пополнить магазин на 2 за каждый выстрел",
-    "init": 1.5,
-    "per": 0.45,
-    "max": 6,
-    "unit": "% шанс",
-    "dps_impact": "medium"
+  {
+    "id": "talent_augment_synesthesia",
+    "uid": "C541AEEB69240ACE0003C7543CC5D162",
+    "name_en": "Synesthesia",
+    "name_ru": "Синестезия",
+    "tooltip_en": "\"Provides a <color name=\"\"orange\"\">{0}%</color> chance of reducing <color name=\"\"orange\"\">Skill Cooldowns</color> by <color name=\"\"orange\"\">{1}s</color> for each bullet hit.\"",
+    "tooltip_ru": "\"<color name=\"\"orange\"\">{0}%</color> шанс ускорения <color name=\"\"orange\"\">восстановления навыков</color> на <color name=\"\"orange\"\">{1} с</color> при каждом попадании пули в цель.\"",
+    "tooltip_en_filled": "\"Provides a <color name=\"\"orange\"\">{0}%</color> chance of reducing <color name=\"\"orange\"\">Skill Cooldowns</color> by <color name=\"\"orange\"\">0.025s</color> for each bullet hit.\"",
+    "tooltip_ru_filled": "\"<color name=\"\"orange\"\">{0}%</color> шанс ускорения <color name=\"\"orange\"\">восстановления навыков</color> на <color name=\"\"orange\"\">0.025 с</color> при каждом попадании пули в цель.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB692EE990000A51099EB6857D",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_synesthesia_activation_chance",
+        "attribute_uid": "C541AEEB692EE990000A51099EB6857D",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.025
+      },
+      {
+        "ref": "talent_augment_synesthesia_cooldown_reduction_time",
+        "attribute_uid": "C541AEEB692EE990000A510AC83E7A43",
+        "attribute_name": "talent_augment_synesthesia_cooldown_reduction_time",
+        "value": 0.2
+      }
+    ]
   },
-  "synesthesia": {
-    "name": "Synesthesia",
-    "desc": "Шанс сократить кд скилла на 0.2с за попадание",
-    "init": 2.5,
-    "per": 0.18,
-    "max": 4.3,
-    "unit": "% шанс",
-    "dps_impact": "none"
+  {
+    "id": "talent_augment_trapper",
+    "uid": "C541AEEB69240AB50003C6697CE2BB20",
+    "name_en": "Trapper",
+    "name_ru": "Ловушка",
+    "tooltip_en": "\"Increases <color name=\"\"orange>Status Effect Duration</color> by <color name=\"\"orange\"\">{0}%</color>.\"",
+    "tooltip_ru": "\"Увеличение <color name=\"\"orange>длительности негативных эффектов</color> на <color name=\"\"orange\"\">{0}%</color>.\"",
+    "tooltip_en_filled": "\"Increases <color name=\"\"orange>Status Effect Duration</color> by <color name=\"\"orange\"\">{0}%</color>.\"",
+    "tooltip_ru_filled": "\"Увеличение <color name=\"\"orange>длительности негативных эффектов</color> на <color name=\"\"orange\"\">{0}%</color>.\"",
+    "bonuses": [
+      {
+        "ref": "AugmentLevelUp",
+        "attribute_uid": "C541AEEB692EEB62000A53D8D1ECB33B",
+        "attribute_name": "AugmentLevelUp",
+        "value": null
+      },
+      {
+        "ref": "talent_augment_trapper_cc_effects_increased_duration",
+        "attribute_uid": "C541AEEB692EEB62000A53D8D1ECB33B",
+        "attribute_name": "AugmentLevelUp",
+        "value": 0.04
+      }
+    ]
   }
-}
+]
