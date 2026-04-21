@@ -1,0 +1,9 @@
+{
+  "status": "Headhunter в Division 2 — НЕ существующий gear set в Y8S1 TU22.1",
+  "what_exists": [
+    "player_mask_mtx_headhunter / headhunter apparel (vanity only)",
+    "player_patchitem_summit_serviceheadhunter (arm patch)"
+  ],
+  "close_match_gearset": "gear_set_l (Hunter's Fury / Ярость охотника) — единственный \"hunter\"-related gear set",
+  "note": "Если в community упоминается Headhunter с stacks — вероятно имеется в виду Hunter's Fury."
+}

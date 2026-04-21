@@ -1,0 +1,40 @@
+{
+  "id": "gear_set_l",
+  "name_en": "Hunter's Fury",
+  "name_ru": "Ярость охотника",
+  "raw_bonuses": [
+    {
+      "ref": "New BonusAttributeRef (0)",
+      "attribute_uid": "5D31260057DBA943000093FB118F3BD1",
+      "value": 0.15
+    },
+    {
+      "ref": "New BonusAttributeRef (1)",
+      "attribute_uid": "5D31260057DBA943000093FC69C82CC8",
+      "value": 0.15
+    },
+    {
+      "ref": "New BonusAttributeRef (0)",
+      "attribute_uid": "5D4179F15BF55A5200032C69B6DF1572",
+      "value": 0.2
+    },
+    {
+      "ref": "New BonusAttributeRef (1)",
+      "attribute_uid": "3797E3755B7340BA0002ADBB353FB446",
+      "value": 0.5
+    }
+  ],
+  "stacks_hand_curated": {
+    "max_stacks": 10,
+    "wd_per_stack": 0.02,
+    "trigger": "headshot_kill or breach_armor",
+    "decay_sec": 10,
+    "note_en": "Hunter's Fury stacks на headshot kills/armor breaks. Каждые 10 stacks → +20% WD."
+  },
+  "set_bonuses": {
+    "2pc": "+10% Weapon Handling, +10% Weapon Damage",
+    "3pc": "+15% Shotgun Damage, +15% SMG Damage",
+    "4pc": "Hunter's Fury — headshots/breaches grant stacks",
+    "note": "Точные 2pc/3pc/4pc bonuses нужно распарсить из raw_bonuses массив + сопоставить с attribute_dict."
+  }
+}
