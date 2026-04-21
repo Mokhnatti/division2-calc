@@ -865,6 +865,26 @@ const gearStatState = {
 };
 let gearSpecId = "";
 let weaponStat3Choice = "chc"; // player-rollable 3rd weapon stat (default: Crit Chance)
+let weaponModState = {optic:"none", muzzle:"none", underbarrel:"none", magazine:"none"};
+
+// Weapon mod bonus map (simplified hardcoded)
+const WEAPON_MOD_BONUSES = {
+  // Optic
+  "hsd+15": {hsd:0.15},
+  "chc+10": {chc:0.10},
+  "chd+15": {chd:0.15},
+  // Muzzle
+  "chc+5": {chc:0.05},
+  "chd+10": {chd:0.10},
+  "hsd-suppressor": {hsd:0.10},
+  // Underbarrel
+  "hsd+5": {hsd:0.05},
+  "handling+15": {}, // not DPS stat, skip
+  // Magazine
+  "mag+15": {mag:0.15},
+  "reload+15": {reload:0.15},
+  "damage+10": {wd:0.10},
+};
 
 const GSP_SLOT_LABELS = {
   chest:    {ru:"Нагрудник",   en:"Chest"},
@@ -889,9 +909,15 @@ function setStatMode(mode){
   if(mode==="gear"){
     renderGearSlotPickers();
     updateWeaponStatsInfo();
+    updateWeaponModsForExotic();
     // Restore weapon stat 3 selection
     const s3 = document.getElementById("weapon-stat3");
     if(s3) s3.value = weaponStat3Choice;
+    // Restore weapon mod selections
+    for(const slot of ["optic","muzzle","underbarrel","magazine"]){
+      const el = document.getElementById("wmod-"+slot);
+      if(el && weaponModState[slot]) el.value = weaponModState[slot];
+    }
     recomputeGearStats();
     lockManualInputs(true);
   } else {
@@ -1013,6 +1039,37 @@ function onWeaponStat3Change(){
   calcBuild();
 }
 
+function onWeaponModChange(){
+  for(const slot of ["optic","muzzle","underbarrel","magazine"]){
+    const el = document.getElementById("wmod-"+slot);
+    if(el) weaponModState[slot] = el.value;
+  }
+  try{localStorage.setItem("d2calc_weapon_mods", JSON.stringify(weaponModState));}catch(e){}
+  recomputeGearStats();
+  calcBuild();
+}
+
+function updateWeaponModsForExotic(){
+  const wpn = (typeof getWeapon==='function') ? getWeapon() : null;
+  const note = document.getElementById("weapon-mods-note");
+  const grid = document.getElementById("weapon-mods-grid");
+  if(!note || !grid) return;
+  const isExotic = wpn && wpn.kind === "exotic";
+  if(isExotic){
+    note.innerHTML = `🧿 <b style="color:var(--orange)">Экзотик-оружие: моды встроены</b> (обычно уникальные statы). 4 слота заблокированы. Общий вклад модов уже заложен в stat-бюджете экзотика.`;
+    grid.querySelectorAll("select").forEach(s=>{s.disabled=true; s.style.opacity="0.5"; s.value="none";});
+    for(const slot of Object.keys(weaponModState)) weaponModState[slot] = "none";
+  } else {
+    note.innerHTML = `У обычных/именных — 4 слота. У экзотик-оружия моды вшиты (будут показаны отдельно).`;
+    grid.querySelectorAll("select").forEach(s=>{s.disabled=false; s.style.opacity="";});
+    // Restore saved
+    for(const slot of ["optic","muzzle","underbarrel","magazine"]){
+      const el = document.getElementById("wmod-"+slot);
+      if(el) el.value = weaponModState[slot] || "none";
+    }
+  }
+}
+
 function updateWeaponStatsInfo(){
   const info = document.getElementById("weapon-stats-info");
   if(!info) return;
@@ -1077,6 +1134,18 @@ function computeGearStatTotals(){
     if(wStat && wStat !== "none"){
       const wStatMap = {"chc":0.15,"chd":0.25,"hsd":0.21,"ooc":0.21,"dta":0.21,"wd":0.15};
       if(wStatMap[wStat]) _gspAddValue(totals, wStat, wStatMap[wStat]);
+    }
+    // Weapon mods (4 attachment slots) — only for non-exotic weapons
+    if(_wpnObj.kind !== "exotic"){
+      for(const slot of ["optic","muzzle","underbarrel","magazine"]){
+        const modVal = weaponModState[slot];
+        if(!modVal || modVal==="none") continue;
+        const bonus = WEAPON_MOD_BONUSES[modVal];
+        if(!bonus) continue;
+        for(const [stat, val] of Object.entries(bonus)){
+          _gspAddValue(totals, stat, val);
+        }
+      }
     }
   }
   // SHD Watch (offensive max)
@@ -1195,6 +1264,13 @@ try{
   }
   const w3 = localStorage.getItem("d2calc_weapon_stat3");
   if(w3) weaponStat3Choice = w3;
+  const wm = localStorage.getItem("d2calc_weapon_mods");
+  if(wm){
+    const parsed = JSON.parse(wm);
+    for(const slot of Object.keys(weaponModState)){
+      if(parsed[slot]) weaponModState[slot] = parsed[slot];
+    }
+  }
 }catch(e){}
 
 function initBuildSlots(){
@@ -2648,6 +2724,7 @@ function pickWpn(id){
   updateWpnBtn();
   closeSlotModal();
   if(typeof updateWeaponStatsInfo==='function') updateWeaponStatsInfo();
+  if(typeof updateWeaponModsForExotic==='function') updateWeaponModsForExotic();
   if(gearStatMode==="gear" && typeof recomputeGearStats==='function') recomputeGearStats();
   calcBuild();
 }

@@ -432,6 +432,49 @@
       <div style="font-size:10px;color:var(--muted);margin-top:4px">1-й стат: +15% урон по классу оружия (auto). 2-й стат: +21% урон здоровью (DtH, auto).</div>
     </div>
 
+    <!-- Weapon mods (4 attachment slots) -->
+    <div style="margin-top:10px;padding:10px;border:1px solid var(--border);border-radius:6px;background:rgba(66,165,245,.05)">
+      <div style="font-size:10px;color:var(--blue);text-transform:uppercase;margin-bottom:4px">🔧 Моды оружия (4 слота)</div>
+      <div id="weapon-mods-note" style="font-size:11px;color:var(--muted);margin-bottom:6px">У экзотик-оружия моды встроены и не меняются. У обычных/именных — 4 слота.</div>
+      <div id="weapon-mods-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px">
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <label style="font-size:10px;color:var(--muted);text-transform:uppercase">🎯 Optic (Прицел)</label>
+          <select id="wmod-optic" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+            <option value="none">— нет —</option>
+            <option value="hsd+15">+15% урон в голову</option>
+            <option value="chc+10">+10% шанс крита</option>
+            <option value="chd+15">+15% урон крита</option>
+          </select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <label style="font-size:10px;color:var(--muted);text-transform:uppercase">🔥 Muzzle (Дульный)</label>
+          <select id="wmod-muzzle" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+            <option value="none">— нет —</option>
+            <option value="chc+5">+5% шанс крита</option>
+            <option value="chd+10">+10% урон крита</option>
+            <option value="hsd-suppressor">+10% HSD (глушитель)</option>
+          </select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <label style="font-size:10px;color:var(--muted);text-transform:uppercase">🤝 Underbarrel (Подствол)</label>
+          <select id="wmod-underbarrel" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+            <option value="none">— нет —</option>
+            <option value="hsd+5">+5% HSD (грип)</option>
+            <option value="handling+15">+15% Управление</option>
+          </select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <label style="font-size:10px;color:var(--muted);text-transform:uppercase">📦 Magazine (Магазин)</label>
+          <select id="wmod-magazine" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+            <option value="none">— нет —</option>
+            <option value="mag+15">+15% размер магазина</option>
+            <option value="reload+15">+15% скор. перезарядки</option>
+            <option value="damage+10">+10% урон (small mag)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
     <!-- Specialization (informational — no math) -->
     <div style="margin-top:12px;display:none" id="gear-specialization-wrap">
       <select id="gear-specialization" onchange="recomputeGearStats()" style="display:none">
