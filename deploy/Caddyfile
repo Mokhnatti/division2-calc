@@ -3,6 +3,17 @@
 }
 
 divcalc.xyz, www.divcalc.xyz {
+    # Global security headers (MDN Observatory: D- → B/A)
+    header {
+        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "interest-cohort=()"
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://mc.yandex.ru https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://mc.yandex.ru https://api.indexnow.org; frame-ancestors 'self'; base-uri 'self'"
+        -Server
+    }
+
     # SEO static files — до encode, с явным Content-Type и без Alt-Svc
     @seo_static {
         path /robots.txt
@@ -60,7 +71,8 @@ divcalc.xyz, www.divcalc.xyz {
     handle {
         encode gzip zstd
         root * /var/www/divcalc
-        try_files {path} {path}.html /index.html
+        # Добавлено {path}index.html — чтобы /en/brand/ отдавал /en/brand/index.html (было — падало в SPA)
+        try_files {path} {path}.html {path}/index.html {path}index.html /index.html
         file_server
     }
 
