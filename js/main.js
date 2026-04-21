@@ -3078,6 +3078,17 @@ function getStackRate(stkDef, sps){
 
 function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRate,reloadBonus,ooc,dta,activeStacks,hasChest,hasBP,t,dth){
   const sps0=wpn.rpm/60;
+  // Effective shots/sec for STACK accumulation: учитываем RoF-бонус из гира/брендов (без сток-сROF)
+  // и пересчитываем через цикл mag+reload чтобы в pause-на-перезарядке стаки не росли.
+  const _noReloadCBearly=typeof document!=="undefined"&&document.getElementById("b-no-reload")?.checked;
+  const _noReloadEx=wpn.tal_type==="no_reload";
+  const _noReload=_noReloadCBearly||_noReloadEx;
+  const _rpmStack=wpn.rpm*(1+(totalROF||0)/100);
+  const _magStack=Math.round(wpn.mag*(1+(totalMAG||0)/100));
+  const _reloadStack=_noReload?0:(wpn.reload/(1+(reloadBonus||0)/100));
+  const _spsCont=_rpmStack/60;
+  const _cycleStack=_magStack/_spsCont+_reloadStack;
+  const _effSPSstack=_reloadStack?(_magStack/_cycleStack):_spsCont;
   // Stack bonuses at time t — ВНЕ WD БАКЕТА как AMP (по замерам на манекене Y9)
   let sAmpWD=0,sCHD=0,sROF=0,sCHC=0;
   const stkRows=[];
@@ -3085,7 +3096,7 @@ function dpsAtTime(wpn,totalWD,totalROF,totalMAG,chcTotal,chdTotal,hsdTotal,hsRa
     const maxS=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
     const dA=(s.def.decay_above!=null)?s.def.decay_above:maxS;
     const dR=s.def.decay_sec||0;
-    const rate=getStackRate(s.def,sps0);
+    const rate=getStackRate(s.def,_effSPSstack);
     const stks=stacksAtTime(rate,maxS,dA,dR,t);
     if(s.def.wd_base!==undefined){
       const pp=(hasBP[s.name]&&s.def.wd_bp!==undefined)?s.def.wd_bp:s.def.wd_base;
@@ -3946,9 +3957,15 @@ function calcBuild(){
     topB.innerHTML=finalTags.join("")||`<span class="rtb-hint">${currentLang==='en'?hintEn:hintRu}</span>`;
   }
 
-  // Stack info
+  // Stack info — эффективная скорость стрельбы с учётом RoF-бонуса и паузы на reload
   let stkHtml="";
-  const sps=wpn.rpm/60;
+  const _noReload_disp=(document.getElementById("b-no-reload")?.checked)||wpn.tal_type==="no_reload";
+  const _rpmDisp=wpn.rpm*(1+tROF/100);
+  const _magDisp=Math.round(wpn.mag*(1+tMAG/100));
+  const _reloadDisp=_noReload_disp?0:(wpn.reload/(1+tRELOAD/100));
+  const _spsCont=_rpmDisp/60;
+  const _cycleDisp=_magDisp/_spsCont+_reloadDisp;
+  const sps=_reloadDisp?(_magDisp/_cycleDisp):_spsCont;
   for(const s of activeStacks){
     const max=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
     const dA=(s.def.decay_above!=null)?s.def.decay_above:max;
