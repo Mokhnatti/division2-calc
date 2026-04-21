@@ -5665,40 +5665,94 @@ function filterAllFormulas(){
 function renderExpertise(){
   const host=document.getElementById("expertise-content");
   if(!host)return;
-  const key=expertiseCat+"_ru";
-  const data=EXPERTISE[key];
-  if(!data || !data.rows){
-    host.innerHTML=`<div class="bsect" style="text-align:center;color:var(--muted)">Нет данных для «${escHtml(expertiseCat)}».</div>`;
+  const E = (typeof EXPERTISE !== 'undefined') ? EXPERTISE : ((typeof D2DATA!=='undefined' && D2DATA.EXPERTISE) || {});
+  const isEn = currentLang === 'en';
+
+  // New Hunter format: keys are weapon_ar / weapon_smg / gear_chest / skill etc.
+  // Category mapping: category → list of sub-keys in E
+  const CATS = {
+    weapon: {
+      subs: ['weapon_ar','weapon_smg','weapon_lmg','weapon_mmr','weapon_rifle','weapon_shotgun','weapon_pistol','weapon_exotic'],
+      titles_ru: {weapon_ar:'AR (штурмовые)',weapon_smg:'SMG (ПП)',weapon_lmg:'LMG (пулемёты)',weapon_mmr:'MMR (снайперские)',weapon_rifle:'Rifle (винтовки)',weapon_shotgun:'Shotgun (дробовики)',weapon_pistol:'Pistol (пистолеты)',weapon_exotic:'Exotic (экзотики)'},
+      titles_en: {weapon_ar:'AR',weapon_smg:'SMG',weapon_lmg:'LMG',weapon_mmr:'Marksman Rifle',weapon_rifle:'Rifle',weapon_shotgun:'Shotgun',weapon_pistol:'Pistol',weapon_exotic:'Exotic'},
+      header_ru: '🔫 Оружие — экспертиза level 0-30',
+      header_en: '🔫 Weapons — expertise level 0-30'
+    },
+    gear: {
+      subs: ['gear_chest','gear_back','gear_gloves','gear_mask','gear_holster','gear_kneepads'],
+      titles_ru: {gear_chest:'Нагрудник',gear_back:'Рюкзак',gear_gloves:'Перчатки',gear_mask:'Маска',gear_holster:'Кобура',gear_kneepads:'Наколенники'},
+      titles_en: {gear_chest:'Chest',gear_back:'Backpack',gear_gloves:'Gloves',gear_mask:'Mask',gear_holster:'Holster',gear_kneepads:'Kneepads'},
+      header_ru: '🎽 Снаряжение — экспертиза level 0-30',
+      header_en: '🎽 Gear — expertise level 0-30'
+    },
+    skill: {
+      subs: ['skill'],
+      titles_ru: {skill:'Навыки'},
+      titles_en: {skill:'Skills'},
+      header_ru: '📟 Навыки — экспертиза level 0-30',
+      header_en: '📟 Skills — expertise level 0-30'
+    }
+  };
+
+  const catInfo = CATS[expertiseCat];
+  if(!catInfo){
+    host.innerHTML = `<div class="bsect" style="text-align:center;color:var(--muted)">${isEn?'No data for':'Нет данных для'} «${escHtml(expertiseCat)}».</div>`;
     return;
   }
-  const headers=data.headers||[];
-  const rows=data.rows||[];
-  const dataKeys=headers.slice(1);
-  const headHtml=headers.map((h,i)=>
-    `<th style="${i===0?"text-align:left":""}">${escHtml(h)}</th>`
-  ).join("");
-  const bodyHtml=rows.map(r=>{
-    const isTotal=r.level==="ИТОГО";
-    const lvl=r.level;
-    const cells=[`<td style="text-align:left;color:${isTotal?"var(--orange)":"var(--text)"};font-weight:${isTotal?"700":"400"}">${escHtml(lvl==null?"—":String(lvl))}</td>`];
-    for(const h of dataKeys){
-      const v=r[h];
-      const disp=v==null?`<span style="color:#444">—</span>`:escHtml(String(v));
-      cells.push(`<td style="${isTotal?"color:var(--orange);font-weight:700":""}">${disp}</td>`);
+
+  // Get key levels to show (not all 31, just significant: 0/5/10/15/20/25/30)
+  const showLevels = [0, 5, 10, 15, 20, 25, 30];
+
+  const sections = catInfo.subs.map(sub => {
+    const data = E[sub];
+    if(!data || typeof data !== 'object') return '';
+    const title = (isEn ? catInfo.titles_en : catInfo.titles_ru)[sub] || sub;
+
+    // Collect all stat keys across levels
+    const statKeys = new Set();
+    for(const lvl of showLevels){
+      const key = 'level_' + lvl;
+      const lvlData = data[key];
+      if(lvlData && typeof lvlData === 'object'){
+        for(const k of Object.keys(lvlData)) statKeys.add(k);
+      }
     }
-    return `<tr${isTotal?' style="background:rgba(245,166,35,.08)"':""}>${cells.join("")}</tr>`;
-  }).join("");
-  const titleMap={weapon:"🔫 Оружие",gear:"🎽 Снаряжение",skill:"📟 Навыки"};
-  host.innerHTML=`
-    <div class="bsect">
-      <h3>${titleMap[expertiseCat]||expertiseCat}</h3>
+    const stats = [...statKeys];
+    if(!stats.length) return '';
+
+    // Build rows: Level | stat1 | stat2 ...
+    const rows = showLevels.map(lvl => {
+      const key = 'level_' + lvl;
+      const lvlData = data[key] || {};
+      const cells = stats.map(s => {
+        const v = lvlData[s];
+        if(v == null) return `<td style="text-align:center;color:#444">—</td>`;
+        const pct = typeof v === 'number' ? (v*100).toFixed(0)+'%' : String(v);
+        return `<td style="text-align:center;color:${lvl===30?'var(--orange)':'var(--text)'};font-weight:${lvl===30?'700':'400'}">${escHtml(pct)}</td>`;
+      }).join('');
+      const isBold = lvl === 30 || lvl === 20;
+      return `<tr${lvl===30?' style="background:rgba(245,166,35,.08)"':''}><td style="text-align:center;${isBold?'color:var(--orange);font-weight:700':''}">${lvl}</td>${cells}</tr>`;
+    }).join('');
+
+    const headerCells = stats.map(s => `<th style="text-align:center">${escHtml(s)}</th>`).join('');
+
+    return `<div class="bsect">
+      <h4 style="margin:0 0 8px 0;color:var(--orange)">${title}</h4>
       <div style="overflow-x:auto">
-        <table class="btl">
-          <thead><tr>${headHtml}</tr></thead>
-          <tbody>${bodyHtml}</tbody>
+        <table class="btl" style="width:auto;font-size:12px">
+          <thead><tr><th style="text-align:center">Level</th>${headerCells}</tr></thead>
+          <tbody>${rows}</tbody>
         </table>
       </div>
+    </div>`;
+  }).filter(x => x).join('');
+
+  host.innerHTML = `
+    <div class="bsect" style="background:rgba(245,166,35,.05);border-left:3px solid var(--orange)">
+      <h3>${isEn ? catInfo.header_en : catInfo.header_ru}</h3>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">${isEn ? 'Max level 30. Elevated unlocks at level 20 (+Talent/Mod reroll slot).' : 'Макс уровень 30. Elevated активируется на 20 уровне (+слот реролла таланта/мода).'}</div>
     </div>
+    ${sections || `<div class="bsect" style="text-align:center;color:var(--muted)">${isEn?'No data':'Нет данных'}</div>`}
   `;
 }
 
