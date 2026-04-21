@@ -5470,7 +5470,7 @@
     "source": "bonusref"
   },
   "5D31260057DBA943000093F962E3FFF9": {
-    "name": "New BonusAttributeRef (1)",
+    "name": "New BonusAttributeRef (0)",
     "all_ref_names": [
       "MarksmanRifleDamageModBonus",
       "New BonusAttributeRef (0)",
@@ -10297,7 +10297,7 @@
     "source": "bonusref"
   },
   "5D312600585001E10000A3345EA4FF51": {
-    "name": "New BonusAttributeRef (1)",
+    "name": "New BonusAttributeRef (0)",
     "all_ref_names": [
       "AllStatusResistancePercentageFlatBonus",
       "New BonusAttributeRef (0)",
@@ -11352,7 +11352,7 @@
     "source": "bonusref"
   },
   "F34855CA5BC83C550002F18385E855C9": {
-    "name": "New BonusAttributeRef (1)",
+    "name": "New BonusAttributeRef (0)",
     "all_ref_names": [
       "New BonusAttributeRef (0)",
       "New BonusAttributeRef (1)",
@@ -11390,7 +11390,7 @@
     "source": "bonusref"
   },
   "4F5DDEA25333E552000007BA1FEBF73F": {
-    "name": "New BonusAttributeRef (1)",
+    "name": "New BonusAttributeRef (0)",
     "all_ref_names": [
       "BlastDamageMitigationPercentageFlatBonus",
       "New BonusAttributeRef (0)",
@@ -11429,7 +11429,7 @@
     "source": "bonusref"
   },
   "F34855CA5BC757B600057D71F47C6DDA": {
-    "name": "New BonusAttributeRef (1)",
+    "name": "New BonusAttributeRef (0)",
     "all_ref_names": [
       "New BonusAttributeRef (0)",
       "New BonusAttributeRef (1)",
@@ -12018,6 +12018,14 @@
     "name": "talent_weapon_sledgehammer_is_perfect",
     "all_ref_names": [
       "talent_weapon_sledgehammer_is_perfect"
+    ],
+    "source": "bonusref"
+  },
+  "4F5DDEA252D943B90000077FA24C5A93": {
+    "name": "Movement Speed",
+    "all_ref_names": [
+      "Movement Speed",
+      "MovementSpeedModBonus"
     ],
     "source": "bonusref"
   },
@@ -13450,7 +13458,7 @@
     "source": "bonusref"
   },
   "F34855CA5BC757B600057D70CAB3DD2C": {
-    "name": "New BonusAttributeRef (1)",
+    "name": "New BonusAttributeRef (0)",
     "all_ref_names": [
       "New BonusAttributeRef (0)",
       "New BonusAttributeRef (1)"
@@ -13458,7 +13466,7 @@
     "source": "bonusref"
   },
   "BFAAA1FC5F217966000364C26142FCAA": {
-    "name": "New BonusAttributeRef (2)",
+    "name": "New BonusAttributeRef (0)",
     "all_ref_names": [
       "New BonusAttributeRef (0)",
       "New BonusAttributeRef (2)"
@@ -13518,13 +13526,6 @@
     "name": "New BonusAttributeRef (0)",
     "all_ref_names": [
       "New BonusAttributeRef (0)"
-    ],
-    "source": "bonusref"
-  },
-  "4F5DDEA252D943B90000077FA24C5A93": {
-    "name": "MovementSpeedModBonus",
-    "all_ref_names": [
-      "MovementSpeedModBonus"
     ],
     "source": "bonusref"
   },

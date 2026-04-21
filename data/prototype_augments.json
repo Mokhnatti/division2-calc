@@ -97,7 +97,7 @@
         "ref": "talent_augment_echo_activation_chance",
         "attribute_uid": "C541AEEB693197F40010DA97F7867A1E",
         "attribute_name": "AugmentLevelUp",
-        "value": 0.025
+        "value": 0.012
       }
     ]
   },
@@ -235,7 +235,7 @@
         "ref": "talent_augment_trapper_cc_effects_increased_duration",
         "attribute_uid": "C541AEEB692EEB62000A53D8D1ECB33B",
         "attribute_name": "AugmentLevelUp",
-        "value": 0.04
+        "value": 0.05
       }
     ]
   }

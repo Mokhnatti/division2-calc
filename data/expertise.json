@@ -1,11 +1,4 @@
 {
-  "_metadata": {
-    "source": "community-verified (Y8S1 Rise Up TU22, апрель 2026)",
-    "note": "Expertise в Division 2 — прогрессия per weapon type / per gear slot / per skill. Максимальный level = 30 (было 20 до TU21). На level 20 разблокируется Elevated status — флаг который добавляет +Talent/Mod reroll slot. Elevated — НЕ отдельный level, а boolean свойство.",
-    "max_level": 30,
-    "elevated_unlocks_at_level": 20,
-    "elevated_effect": "Unlocks Talent + Mod reroll slot + small bonus (~+5% per rerolled slot)"
-  },
   "weapon_ar": {
     "level_0": {
       "WeaponDamage": 0.0
@@ -99,6 +92,10 @@
     },
     "level_30": {
       "WeaponDamage": 0.3
+    },
+    "level_31_elevated": {
+      "WeaponDamage": 0.31,
+      "note": "Elevated unlocks talent+mod rerolls"
     }
   },
   "weapon_smg": {
@@ -194,6 +191,10 @@
     },
     "level_30": {
       "WeaponDamage": 0.3
+    },
+    "level_31_elevated": {
+      "WeaponDamage": 0.31,
+      "note": "Elevated unlocks talent+mod rerolls"
     }
   },
   "weapon_lmg": {
@@ -289,6 +290,10 @@
     },
     "level_30": {
       "WeaponDamage": 0.3
+    },
+    "level_31_elevated": {
+      "WeaponDamage": 0.31,
+      "note": "Elevated unlocks talent+mod rerolls"
     }
   },
   "weapon_mmr": {
@@ -384,6 +389,10 @@
     },
     "level_30": {
       "WeaponDamage": 0.3
+    },
+    "level_31_elevated": {
+      "WeaponDamage": 0.31,
+      "note": "Elevated unlocks talent+mod rerolls"
     }
   },
   "weapon_rifle": {
@@ -479,6 +488,10 @@
     },
     "level_30": {
       "WeaponDamage": 0.3
+    },
+    "level_31_elevated": {
+      "WeaponDamage": 0.31,
+      "note": "Elevated unlocks talent+mod rerolls"
     }
   },
   "weapon_shotgun": {
@@ -574,6 +587,10 @@
     },
     "level_30": {
       "WeaponDamage": 0.3
+    },
+    "level_31_elevated": {
+      "WeaponDamage": 0.31,
+      "note": "Elevated unlocks talent+mod rerolls"
     }
   },
   "weapon_pistol": {
@@ -669,6 +686,10 @@
     },
     "level_30": {
       "WeaponDamage": 0.3
+    },
+    "level_31_elevated": {
+      "WeaponDamage": 0.31,
+      "note": "Elevated unlocks talent+mod rerolls"
     }
   },
   "weapon_exotic": {
@@ -764,6 +785,10 @@
     },
     "level_30": {
       "WeaponDamage": 0.3
+    },
+    "level_31_elevated": {
+      "WeaponDamage": 0.31,
+      "note": "Elevated unlocks talent+mod rerolls"
     }
   },
   "gear_chest": {
@@ -772,124 +797,129 @@
       "AttributeRollBonus": 0.0
     },
     "level_1": {
-      "CoreRollBonus": 0.01,
-      "AttributeRollBonus": 0.005
+      "CoreRollBonus": 0.008,
+      "AttributeRollBonus": 0.003
     },
     "level_2": {
-      "CoreRollBonus": 0.02,
-      "AttributeRollBonus": 0.01
+      "CoreRollBonus": 0.016,
+      "AttributeRollBonus": 0.006
     },
     "level_3": {
-      "CoreRollBonus": 0.03,
-      "AttributeRollBonus": 0.015
+      "CoreRollBonus": 0.024,
+      "AttributeRollBonus": 0.009
     },
     "level_4": {
-      "CoreRollBonus": 0.04,
-      "AttributeRollBonus": 0.02
+      "CoreRollBonus": 0.032,
+      "AttributeRollBonus": 0.012
     },
     "level_5": {
-      "CoreRollBonus": 0.05,
-      "AttributeRollBonus": 0.025
+      "CoreRollBonus": 0.04,
+      "AttributeRollBonus": 0.015
     },
     "level_6": {
-      "CoreRollBonus": 0.06,
-      "AttributeRollBonus": 0.03
+      "CoreRollBonus": 0.048,
+      "AttributeRollBonus": 0.018
     },
     "level_7": {
-      "CoreRollBonus": 0.07,
-      "AttributeRollBonus": 0.035
+      "CoreRollBonus": 0.056,
+      "AttributeRollBonus": 0.021
     },
     "level_8": {
-      "CoreRollBonus": 0.08,
-      "AttributeRollBonus": 0.04
+      "CoreRollBonus": 0.064,
+      "AttributeRollBonus": 0.024
     },
     "level_9": {
-      "CoreRollBonus": 0.09,
-      "AttributeRollBonus": 0.045
+      "CoreRollBonus": 0.072,
+      "AttributeRollBonus": 0.027
     },
     "level_10": {
-      "CoreRollBonus": 0.1,
-      "AttributeRollBonus": 0.05
+      "CoreRollBonus": 0.08,
+      "AttributeRollBonus": 0.03
     },
     "level_11": {
-      "CoreRollBonus": 0.11,
-      "AttributeRollBonus": 0.055
+      "CoreRollBonus": 0.088,
+      "AttributeRollBonus": 0.033
     },
     "level_12": {
-      "CoreRollBonus": 0.12,
-      "AttributeRollBonus": 0.06
+      "CoreRollBonus": 0.096,
+      "AttributeRollBonus": 0.036
     },
     "level_13": {
-      "CoreRollBonus": 0.13,
-      "AttributeRollBonus": 0.065
+      "CoreRollBonus": 0.104,
+      "AttributeRollBonus": 0.039
     },
     "level_14": {
-      "CoreRollBonus": 0.14,
-      "AttributeRollBonus": 0.07
+      "CoreRollBonus": 0.112,
+      "AttributeRollBonus": 0.042
     },
     "level_15": {
-      "CoreRollBonus": 0.15,
-      "AttributeRollBonus": 0.075
+      "CoreRollBonus": 0.12,
+      "AttributeRollBonus": 0.045
     },
     "level_16": {
-      "CoreRollBonus": 0.16,
-      "AttributeRollBonus": 0.08
+      "CoreRollBonus": 0.128,
+      "AttributeRollBonus": 0.048
     },
     "level_17": {
-      "CoreRollBonus": 0.17,
-      "AttributeRollBonus": 0.085
+      "CoreRollBonus": 0.136,
+      "AttributeRollBonus": 0.051
     },
     "level_18": {
-      "CoreRollBonus": 0.18,
-      "AttributeRollBonus": 0.09
+      "CoreRollBonus": 0.144,
+      "AttributeRollBonus": 0.054
     },
     "level_19": {
-      "CoreRollBonus": 0.19,
-      "AttributeRollBonus": 0.095
+      "CoreRollBonus": 0.152,
+      "AttributeRollBonus": 0.057
     },
     "level_20": {
-      "CoreRollBonus": 0.2,
-      "AttributeRollBonus": 0.1
+      "CoreRollBonus": 0.16,
+      "AttributeRollBonus": 0.06
     },
     "level_21": {
-      "CoreRollBonus": 0.21,
-      "AttributeRollBonus": 0.105
+      "CoreRollBonus": 0.168,
+      "AttributeRollBonus": 0.063
     },
     "level_22": {
-      "CoreRollBonus": 0.22,
-      "AttributeRollBonus": 0.11
+      "CoreRollBonus": 0.176,
+      "AttributeRollBonus": 0.066
     },
     "level_23": {
-      "CoreRollBonus": 0.23,
-      "AttributeRollBonus": 0.115
+      "CoreRollBonus": 0.184,
+      "AttributeRollBonus": 0.069
     },
     "level_24": {
-      "CoreRollBonus": 0.24,
-      "AttributeRollBonus": 0.12
+      "CoreRollBonus": 0.192,
+      "AttributeRollBonus": 0.072
     },
     "level_25": {
-      "CoreRollBonus": 0.25,
-      "AttributeRollBonus": 0.125
+      "CoreRollBonus": 0.2,
+      "AttributeRollBonus": 0.075
     },
     "level_26": {
-      "CoreRollBonus": 0.26,
-      "AttributeRollBonus": 0.13
+      "CoreRollBonus": 0.208,
+      "AttributeRollBonus": 0.078
     },
     "level_27": {
-      "CoreRollBonus": 0.27,
-      "AttributeRollBonus": 0.135
+      "CoreRollBonus": 0.216,
+      "AttributeRollBonus": 0.081
     },
     "level_28": {
-      "CoreRollBonus": 0.28,
-      "AttributeRollBonus": 0.14
+      "CoreRollBonus": 0.224,
+      "AttributeRollBonus": 0.084
     },
     "level_29": {
-      "CoreRollBonus": 0.29,
-      "AttributeRollBonus": 0.145
+      "CoreRollBonus": 0.232,
+      "AttributeRollBonus": 0.087
     },
     "level_30": {
-      "CoreRollBonus": 0.3,
-      "AttributeRollBonus": 0.15
+      "CoreRollBonus": 0.24,
+      "AttributeRollBonus": 0.09
+    },
+    "level_31_elevated": {
+      "CoreRollBonus": 0.248,
+      "AttributeRollBonus": 0.093,
+      "note": "Elevated reroll slots"
     }
   },
   "gear_back": {
@@ -898,124 +928,129 @@
       "AttributeRollBonus": 0.0
     },
     "level_1": {
-      "CoreRollBonus": 0.01,
-      "AttributeRollBonus": 0.005
+      "CoreRollBonus": 0.008,
+      "AttributeRollBonus": 0.003
     },
     "level_2": {
-      "CoreRollBonus": 0.02,
-      "AttributeRollBonus": 0.01
+      "CoreRollBonus": 0.016,
+      "AttributeRollBonus": 0.006
     },
     "level_3": {
-      "CoreRollBonus": 0.03,
-      "AttributeRollBonus": 0.015
+      "CoreRollBonus": 0.024,
+      "AttributeRollBonus": 0.009
     },
     "level_4": {
-      "CoreRollBonus": 0.04,
-      "AttributeRollBonus": 0.02
+      "CoreRollBonus": 0.032,
+      "AttributeRollBonus": 0.012
     },
     "level_5": {
-      "CoreRollBonus": 0.05,
-      "AttributeRollBonus": 0.025
+      "CoreRollBonus": 0.04,
+      "AttributeRollBonus": 0.015
     },
     "level_6": {
-      "CoreRollBonus": 0.06,
-      "AttributeRollBonus": 0.03
+      "CoreRollBonus": 0.048,
+      "AttributeRollBonus": 0.018
     },
     "level_7": {
-      "CoreRollBonus": 0.07,
-      "AttributeRollBonus": 0.035
+      "CoreRollBonus": 0.056,
+      "AttributeRollBonus": 0.021
     },
     "level_8": {
-      "CoreRollBonus": 0.08,
-      "AttributeRollBonus": 0.04
+      "CoreRollBonus": 0.064,
+      "AttributeRollBonus": 0.024
     },
     "level_9": {
-      "CoreRollBonus": 0.09,
-      "AttributeRollBonus": 0.045
+      "CoreRollBonus": 0.072,
+      "AttributeRollBonus": 0.027
     },
     "level_10": {
-      "CoreRollBonus": 0.1,
-      "AttributeRollBonus": 0.05
+      "CoreRollBonus": 0.08,
+      "AttributeRollBonus": 0.03
     },
     "level_11": {
-      "CoreRollBonus": 0.11,
-      "AttributeRollBonus": 0.055
+      "CoreRollBonus": 0.088,
+      "AttributeRollBonus": 0.033
     },
     "level_12": {
-      "CoreRollBonus": 0.12,
-      "AttributeRollBonus": 0.06
+      "CoreRollBonus": 0.096,
+      "AttributeRollBonus": 0.036
     },
     "level_13": {
-      "CoreRollBonus": 0.13,
-      "AttributeRollBonus": 0.065
+      "CoreRollBonus": 0.104,
+      "AttributeRollBonus": 0.039
     },
     "level_14": {
-      "CoreRollBonus": 0.14,
-      "AttributeRollBonus": 0.07
+      "CoreRollBonus": 0.112,
+      "AttributeRollBonus": 0.042
     },
     "level_15": {
-      "CoreRollBonus": 0.15,
-      "AttributeRollBonus": 0.075
+      "CoreRollBonus": 0.12,
+      "AttributeRollBonus": 0.045
     },
     "level_16": {
-      "CoreRollBonus": 0.16,
-      "AttributeRollBonus": 0.08
+      "CoreRollBonus": 0.128,
+      "AttributeRollBonus": 0.048
     },
     "level_17": {
-      "CoreRollBonus": 0.17,
-      "AttributeRollBonus": 0.085
+      "CoreRollBonus": 0.136,
+      "AttributeRollBonus": 0.051
     },
     "level_18": {
-      "CoreRollBonus": 0.18,
-      "AttributeRollBonus": 0.09
+      "CoreRollBonus": 0.144,
+      "AttributeRollBonus": 0.054
     },
     "level_19": {
-      "CoreRollBonus": 0.19,
-      "AttributeRollBonus": 0.095
+      "CoreRollBonus": 0.152,
+      "AttributeRollBonus": 0.057
     },
     "level_20": {
-      "CoreRollBonus": 0.2,
-      "AttributeRollBonus": 0.1
+      "CoreRollBonus": 0.16,
+      "AttributeRollBonus": 0.06
     },
     "level_21": {
-      "CoreRollBonus": 0.21,
-      "AttributeRollBonus": 0.105
+      "CoreRollBonus": 0.168,
+      "AttributeRollBonus": 0.063
     },
     "level_22": {
-      "CoreRollBonus": 0.22,
-      "AttributeRollBonus": 0.11
+      "CoreRollBonus": 0.176,
+      "AttributeRollBonus": 0.066
     },
     "level_23": {
-      "CoreRollBonus": 0.23,
-      "AttributeRollBonus": 0.115
+      "CoreRollBonus": 0.184,
+      "AttributeRollBonus": 0.069
     },
     "level_24": {
-      "CoreRollBonus": 0.24,
-      "AttributeRollBonus": 0.12
+      "CoreRollBonus": 0.192,
+      "AttributeRollBonus": 0.072
     },
     "level_25": {
-      "CoreRollBonus": 0.25,
-      "AttributeRollBonus": 0.125
+      "CoreRollBonus": 0.2,
+      "AttributeRollBonus": 0.075
     },
     "level_26": {
-      "CoreRollBonus": 0.26,
-      "AttributeRollBonus": 0.13
+      "CoreRollBonus": 0.208,
+      "AttributeRollBonus": 0.078
     },
     "level_27": {
-      "CoreRollBonus": 0.27,
-      "AttributeRollBonus": 0.135
+      "CoreRollBonus": 0.216,
+      "AttributeRollBonus": 0.081
     },
     "level_28": {
-      "CoreRollBonus": 0.28,
-      "AttributeRollBonus": 0.14
+      "CoreRollBonus": 0.224,
+      "AttributeRollBonus": 0.084
     },
     "level_29": {
-      "CoreRollBonus": 0.29,
-      "AttributeRollBonus": 0.145
+      "CoreRollBonus": 0.232,
+      "AttributeRollBonus": 0.087
     },
     "level_30": {
-      "CoreRollBonus": 0.3,
-      "AttributeRollBonus": 0.15
+      "CoreRollBonus": 0.24,
+      "AttributeRollBonus": 0.09
+    },
+    "level_31_elevated": {
+      "CoreRollBonus": 0.248,
+      "AttributeRollBonus": 0.093,
+      "note": "Elevated reroll slots"
     }
   },
   "gear_gloves": {
@@ -1024,124 +1059,129 @@
       "AttributeRollBonus": 0.0
     },
     "level_1": {
-      "CoreRollBonus": 0.01,
-      "AttributeRollBonus": 0.005
+      "CoreRollBonus": 0.008,
+      "AttributeRollBonus": 0.003
     },
     "level_2": {
-      "CoreRollBonus": 0.02,
-      "AttributeRollBonus": 0.01
+      "CoreRollBonus": 0.016,
+      "AttributeRollBonus": 0.006
     },
     "level_3": {
-      "CoreRollBonus": 0.03,
-      "AttributeRollBonus": 0.015
+      "CoreRollBonus": 0.024,
+      "AttributeRollBonus": 0.009
     },
     "level_4": {
-      "CoreRollBonus": 0.04,
-      "AttributeRollBonus": 0.02
+      "CoreRollBonus": 0.032,
+      "AttributeRollBonus": 0.012
     },
     "level_5": {
-      "CoreRollBonus": 0.05,
-      "AttributeRollBonus": 0.025
+      "CoreRollBonus": 0.04,
+      "AttributeRollBonus": 0.015
     },
     "level_6": {
-      "CoreRollBonus": 0.06,
-      "AttributeRollBonus": 0.03
+      "CoreRollBonus": 0.048,
+      "AttributeRollBonus": 0.018
     },
     "level_7": {
-      "CoreRollBonus": 0.07,
-      "AttributeRollBonus": 0.035
+      "CoreRollBonus": 0.056,
+      "AttributeRollBonus": 0.021
     },
     "level_8": {
-      "CoreRollBonus": 0.08,
-      "AttributeRollBonus": 0.04
+      "CoreRollBonus": 0.064,
+      "AttributeRollBonus": 0.024
     },
     "level_9": {
-      "CoreRollBonus": 0.09,
-      "AttributeRollBonus": 0.045
+      "CoreRollBonus": 0.072,
+      "AttributeRollBonus": 0.027
     },
     "level_10": {
-      "CoreRollBonus": 0.1,
-      "AttributeRollBonus": 0.05
+      "CoreRollBonus": 0.08,
+      "AttributeRollBonus": 0.03
     },
     "level_11": {
-      "CoreRollBonus": 0.11,
-      "AttributeRollBonus": 0.055
+      "CoreRollBonus": 0.088,
+      "AttributeRollBonus": 0.033
     },
     "level_12": {
-      "CoreRollBonus": 0.12,
-      "AttributeRollBonus": 0.06
+      "CoreRollBonus": 0.096,
+      "AttributeRollBonus": 0.036
     },
     "level_13": {
-      "CoreRollBonus": 0.13,
-      "AttributeRollBonus": 0.065
+      "CoreRollBonus": 0.104,
+      "AttributeRollBonus": 0.039
     },
     "level_14": {
-      "CoreRollBonus": 0.14,
-      "AttributeRollBonus": 0.07
+      "CoreRollBonus": 0.112,
+      "AttributeRollBonus": 0.042
     },
     "level_15": {
-      "CoreRollBonus": 0.15,
-      "AttributeRollBonus": 0.075
+      "CoreRollBonus": 0.12,
+      "AttributeRollBonus": 0.045
     },
     "level_16": {
-      "CoreRollBonus": 0.16,
-      "AttributeRollBonus": 0.08
+      "CoreRollBonus": 0.128,
+      "AttributeRollBonus": 0.048
     },
     "level_17": {
-      "CoreRollBonus": 0.17,
-      "AttributeRollBonus": 0.085
+      "CoreRollBonus": 0.136,
+      "AttributeRollBonus": 0.051
     },
     "level_18": {
-      "CoreRollBonus": 0.18,
-      "AttributeRollBonus": 0.09
+      "CoreRollBonus": 0.144,
+      "AttributeRollBonus": 0.054
     },
     "level_19": {
-      "CoreRollBonus": 0.19,
-      "AttributeRollBonus": 0.095
+      "CoreRollBonus": 0.152,
+      "AttributeRollBonus": 0.057
     },
     "level_20": {
-      "CoreRollBonus": 0.2,
-      "AttributeRollBonus": 0.1
+      "CoreRollBonus": 0.16,
+      "AttributeRollBonus": 0.06
     },
     "level_21": {
-      "CoreRollBonus": 0.21,
-      "AttributeRollBonus": 0.105
+      "CoreRollBonus": 0.168,
+      "AttributeRollBonus": 0.063
     },
     "level_22": {
-      "CoreRollBonus": 0.22,
-      "AttributeRollBonus": 0.11
+      "CoreRollBonus": 0.176,
+      "AttributeRollBonus": 0.066
     },
     "level_23": {
-      "CoreRollBonus": 0.23,
-      "AttributeRollBonus": 0.115
+      "CoreRollBonus": 0.184,
+      "AttributeRollBonus": 0.069
     },
     "level_24": {
-      "CoreRollBonus": 0.24,
-      "AttributeRollBonus": 0.12
+      "CoreRollBonus": 0.192,
+      "AttributeRollBonus": 0.072
     },
     "level_25": {
-      "CoreRollBonus": 0.25,
-      "AttributeRollBonus": 0.125
+      "CoreRollBonus": 0.2,
+      "AttributeRollBonus": 0.075
     },
     "level_26": {
-      "CoreRollBonus": 0.26,
-      "AttributeRollBonus": 0.13
+      "CoreRollBonus": 0.208,
+      "AttributeRollBonus": 0.078
     },
     "level_27": {
-      "CoreRollBonus": 0.27,
-      "AttributeRollBonus": 0.135
+      "CoreRollBonus": 0.216,
+      "AttributeRollBonus": 0.081
     },
     "level_28": {
-      "CoreRollBonus": 0.28,
-      "AttributeRollBonus": 0.14
+      "CoreRollBonus": 0.224,
+      "AttributeRollBonus": 0.084
     },
     "level_29": {
-      "CoreRollBonus": 0.29,
-      "AttributeRollBonus": 0.145
+      "CoreRollBonus": 0.232,
+      "AttributeRollBonus": 0.087
     },
     "level_30": {
-      "CoreRollBonus": 0.3,
-      "AttributeRollBonus": 0.15
+      "CoreRollBonus": 0.24,
+      "AttributeRollBonus": 0.09
+    },
+    "level_31_elevated": {
+      "CoreRollBonus": 0.248,
+      "AttributeRollBonus": 0.093,
+      "note": "Elevated reroll slots"
     }
   },
   "gear_mask": {
@@ -1150,124 +1190,129 @@
       "AttributeRollBonus": 0.0
     },
     "level_1": {
-      "CoreRollBonus": 0.01,
-      "AttributeRollBonus": 0.005
+      "CoreRollBonus": 0.008,
+      "AttributeRollBonus": 0.003
     },
     "level_2": {
-      "CoreRollBonus": 0.02,
-      "AttributeRollBonus": 0.01
+      "CoreRollBonus": 0.016,
+      "AttributeRollBonus": 0.006
     },
     "level_3": {
-      "CoreRollBonus": 0.03,
-      "AttributeRollBonus": 0.015
+      "CoreRollBonus": 0.024,
+      "AttributeRollBonus": 0.009
     },
     "level_4": {
-      "CoreRollBonus": 0.04,
-      "AttributeRollBonus": 0.02
+      "CoreRollBonus": 0.032,
+      "AttributeRollBonus": 0.012
     },
     "level_5": {
-      "CoreRollBonus": 0.05,
-      "AttributeRollBonus": 0.025
+      "CoreRollBonus": 0.04,
+      "AttributeRollBonus": 0.015
     },
     "level_6": {
-      "CoreRollBonus": 0.06,
-      "AttributeRollBonus": 0.03
+      "CoreRollBonus": 0.048,
+      "AttributeRollBonus": 0.018
     },
     "level_7": {
-      "CoreRollBonus": 0.07,
-      "AttributeRollBonus": 0.035
+      "CoreRollBonus": 0.056,
+      "AttributeRollBonus": 0.021
     },
     "level_8": {
-      "CoreRollBonus": 0.08,
-      "AttributeRollBonus": 0.04
+      "CoreRollBonus": 0.064,
+      "AttributeRollBonus": 0.024
     },
     "level_9": {
-      "CoreRollBonus": 0.09,
-      "AttributeRollBonus": 0.045
+      "CoreRollBonus": 0.072,
+      "AttributeRollBonus": 0.027
     },
     "level_10": {
-      "CoreRollBonus": 0.1,
-      "AttributeRollBonus": 0.05
+      "CoreRollBonus": 0.08,
+      "AttributeRollBonus": 0.03
     },
     "level_11": {
-      "CoreRollBonus": 0.11,
-      "AttributeRollBonus": 0.055
+      "CoreRollBonus": 0.088,
+      "AttributeRollBonus": 0.033
     },
     "level_12": {
-      "CoreRollBonus": 0.12,
-      "AttributeRollBonus": 0.06
+      "CoreRollBonus": 0.096,
+      "AttributeRollBonus": 0.036
     },
     "level_13": {
-      "CoreRollBonus": 0.13,
-      "AttributeRollBonus": 0.065
+      "CoreRollBonus": 0.104,
+      "AttributeRollBonus": 0.039
     },
     "level_14": {
-      "CoreRollBonus": 0.14,
-      "AttributeRollBonus": 0.07
+      "CoreRollBonus": 0.112,
+      "AttributeRollBonus": 0.042
     },
     "level_15": {
-      "CoreRollBonus": 0.15,
-      "AttributeRollBonus": 0.075
+      "CoreRollBonus": 0.12,
+      "AttributeRollBonus": 0.045
     },
     "level_16": {
-      "CoreRollBonus": 0.16,
-      "AttributeRollBonus": 0.08
+      "CoreRollBonus": 0.128,
+      "AttributeRollBonus": 0.048
     },
     "level_17": {
-      "CoreRollBonus": 0.17,
-      "AttributeRollBonus": 0.085
+      "CoreRollBonus": 0.136,
+      "AttributeRollBonus": 0.051
     },
     "level_18": {
-      "CoreRollBonus": 0.18,
-      "AttributeRollBonus": 0.09
+      "CoreRollBonus": 0.144,
+      "AttributeRollBonus": 0.054
     },
     "level_19": {
-      "CoreRollBonus": 0.19,
-      "AttributeRollBonus": 0.095
+      "CoreRollBonus": 0.152,
+      "AttributeRollBonus": 0.057
     },
     "level_20": {
-      "CoreRollBonus": 0.2,
-      "AttributeRollBonus": 0.1
+      "CoreRollBonus": 0.16,
+      "AttributeRollBonus": 0.06
     },
     "level_21": {
-      "CoreRollBonus": 0.21,
-      "AttributeRollBonus": 0.105
+      "CoreRollBonus": 0.168,
+      "AttributeRollBonus": 0.063
     },
     "level_22": {
-      "CoreRollBonus": 0.22,
-      "AttributeRollBonus": 0.11
+      "CoreRollBonus": 0.176,
+      "AttributeRollBonus": 0.066
     },
     "level_23": {
-      "CoreRollBonus": 0.23,
-      "AttributeRollBonus": 0.115
+      "CoreRollBonus": 0.184,
+      "AttributeRollBonus": 0.069
     },
     "level_24": {
-      "CoreRollBonus": 0.24,
-      "AttributeRollBonus": 0.12
+      "CoreRollBonus": 0.192,
+      "AttributeRollBonus": 0.072
     },
     "level_25": {
-      "CoreRollBonus": 0.25,
-      "AttributeRollBonus": 0.125
+      "CoreRollBonus": 0.2,
+      "AttributeRollBonus": 0.075
     },
     "level_26": {
-      "CoreRollBonus": 0.26,
-      "AttributeRollBonus": 0.13
+      "CoreRollBonus": 0.208,
+      "AttributeRollBonus": 0.078
     },
     "level_27": {
-      "CoreRollBonus": 0.27,
-      "AttributeRollBonus": 0.135
+      "CoreRollBonus": 0.216,
+      "AttributeRollBonus": 0.081
     },
     "level_28": {
-      "CoreRollBonus": 0.28,
-      "AttributeRollBonus": 0.14
+      "CoreRollBonus": 0.224,
+      "AttributeRollBonus": 0.084
     },
     "level_29": {
-      "CoreRollBonus": 0.29,
-      "AttributeRollBonus": 0.145
+      "CoreRollBonus": 0.232,
+      "AttributeRollBonus": 0.087
     },
     "level_30": {
-      "CoreRollBonus": 0.3,
-      "AttributeRollBonus": 0.15
+      "CoreRollBonus": 0.24,
+      "AttributeRollBonus": 0.09
+    },
+    "level_31_elevated": {
+      "CoreRollBonus": 0.248,
+      "AttributeRollBonus": 0.093,
+      "note": "Elevated reroll slots"
     }
   },
   "gear_holster": {
@@ -1276,124 +1321,129 @@
       "AttributeRollBonus": 0.0
     },
     "level_1": {
-      "CoreRollBonus": 0.01,
-      "AttributeRollBonus": 0.005
+      "CoreRollBonus": 0.008,
+      "AttributeRollBonus": 0.003
     },
     "level_2": {
-      "CoreRollBonus": 0.02,
-      "AttributeRollBonus": 0.01
+      "CoreRollBonus": 0.016,
+      "AttributeRollBonus": 0.006
     },
     "level_3": {
-      "CoreRollBonus": 0.03,
-      "AttributeRollBonus": 0.015
+      "CoreRollBonus": 0.024,
+      "AttributeRollBonus": 0.009
     },
     "level_4": {
-      "CoreRollBonus": 0.04,
-      "AttributeRollBonus": 0.02
+      "CoreRollBonus": 0.032,
+      "AttributeRollBonus": 0.012
     },
     "level_5": {
-      "CoreRollBonus": 0.05,
-      "AttributeRollBonus": 0.025
+      "CoreRollBonus": 0.04,
+      "AttributeRollBonus": 0.015
     },
     "level_6": {
-      "CoreRollBonus": 0.06,
-      "AttributeRollBonus": 0.03
+      "CoreRollBonus": 0.048,
+      "AttributeRollBonus": 0.018
     },
     "level_7": {
-      "CoreRollBonus": 0.07,
-      "AttributeRollBonus": 0.035
+      "CoreRollBonus": 0.056,
+      "AttributeRollBonus": 0.021
     },
     "level_8": {
-      "CoreRollBonus": 0.08,
-      "AttributeRollBonus": 0.04
+      "CoreRollBonus": 0.064,
+      "AttributeRollBonus": 0.024
     },
     "level_9": {
-      "CoreRollBonus": 0.09,
-      "AttributeRollBonus": 0.045
+      "CoreRollBonus": 0.072,
+      "AttributeRollBonus": 0.027
     },
     "level_10": {
-      "CoreRollBonus": 0.1,
-      "AttributeRollBonus": 0.05
+      "CoreRollBonus": 0.08,
+      "AttributeRollBonus": 0.03
     },
     "level_11": {
-      "CoreRollBonus": 0.11,
-      "AttributeRollBonus": 0.055
+      "CoreRollBonus": 0.088,
+      "AttributeRollBonus": 0.033
     },
     "level_12": {
-      "CoreRollBonus": 0.12,
-      "AttributeRollBonus": 0.06
+      "CoreRollBonus": 0.096,
+      "AttributeRollBonus": 0.036
     },
     "level_13": {
-      "CoreRollBonus": 0.13,
-      "AttributeRollBonus": 0.065
+      "CoreRollBonus": 0.104,
+      "AttributeRollBonus": 0.039
     },
     "level_14": {
-      "CoreRollBonus": 0.14,
-      "AttributeRollBonus": 0.07
+      "CoreRollBonus": 0.112,
+      "AttributeRollBonus": 0.042
     },
     "level_15": {
-      "CoreRollBonus": 0.15,
-      "AttributeRollBonus": 0.075
+      "CoreRollBonus": 0.12,
+      "AttributeRollBonus": 0.045
     },
     "level_16": {
-      "CoreRollBonus": 0.16,
-      "AttributeRollBonus": 0.08
+      "CoreRollBonus": 0.128,
+      "AttributeRollBonus": 0.048
     },
     "level_17": {
-      "CoreRollBonus": 0.17,
-      "AttributeRollBonus": 0.085
+      "CoreRollBonus": 0.136,
+      "AttributeRollBonus": 0.051
     },
     "level_18": {
-      "CoreRollBonus": 0.18,
-      "AttributeRollBonus": 0.09
+      "CoreRollBonus": 0.144,
+      "AttributeRollBonus": 0.054
     },
     "level_19": {
-      "CoreRollBonus": 0.19,
-      "AttributeRollBonus": 0.095
+      "CoreRollBonus": 0.152,
+      "AttributeRollBonus": 0.057
     },
     "level_20": {
-      "CoreRollBonus": 0.2,
-      "AttributeRollBonus": 0.1
+      "CoreRollBonus": 0.16,
+      "AttributeRollBonus": 0.06
     },
     "level_21": {
-      "CoreRollBonus": 0.21,
-      "AttributeRollBonus": 0.105
+      "CoreRollBonus": 0.168,
+      "AttributeRollBonus": 0.063
     },
     "level_22": {
-      "CoreRollBonus": 0.22,
-      "AttributeRollBonus": 0.11
+      "CoreRollBonus": 0.176,
+      "AttributeRollBonus": 0.066
     },
     "level_23": {
-      "CoreRollBonus": 0.23,
-      "AttributeRollBonus": 0.115
+      "CoreRollBonus": 0.184,
+      "AttributeRollBonus": 0.069
     },
     "level_24": {
-      "CoreRollBonus": 0.24,
-      "AttributeRollBonus": 0.12
+      "CoreRollBonus": 0.192,
+      "AttributeRollBonus": 0.072
     },
     "level_25": {
-      "CoreRollBonus": 0.25,
-      "AttributeRollBonus": 0.125
+      "CoreRollBonus": 0.2,
+      "AttributeRollBonus": 0.075
     },
     "level_26": {
-      "CoreRollBonus": 0.26,
-      "AttributeRollBonus": 0.13
+      "CoreRollBonus": 0.208,
+      "AttributeRollBonus": 0.078
     },
     "level_27": {
-      "CoreRollBonus": 0.27,
-      "AttributeRollBonus": 0.135
+      "CoreRollBonus": 0.216,
+      "AttributeRollBonus": 0.081
     },
     "level_28": {
-      "CoreRollBonus": 0.28,
-      "AttributeRollBonus": 0.14
+      "CoreRollBonus": 0.224,
+      "AttributeRollBonus": 0.084
     },
     "level_29": {
-      "CoreRollBonus": 0.29,
-      "AttributeRollBonus": 0.145
+      "CoreRollBonus": 0.232,
+      "AttributeRollBonus": 0.087
     },
     "level_30": {
-      "CoreRollBonus": 0.3,
-      "AttributeRollBonus": 0.15
+      "CoreRollBonus": 0.24,
+      "AttributeRollBonus": 0.09
+    },
+    "level_31_elevated": {
+      "CoreRollBonus": 0.248,
+      "AttributeRollBonus": 0.093,
+      "note": "Elevated reroll slots"
     }
   },
   "gear_kneepads": {
@@ -1402,124 +1452,129 @@
       "AttributeRollBonus": 0.0
     },
     "level_1": {
-      "CoreRollBonus": 0.01,
-      "AttributeRollBonus": 0.005
+      "CoreRollBonus": 0.008,
+      "AttributeRollBonus": 0.003
     },
     "level_2": {
-      "CoreRollBonus": 0.02,
-      "AttributeRollBonus": 0.01
+      "CoreRollBonus": 0.016,
+      "AttributeRollBonus": 0.006
     },
     "level_3": {
-      "CoreRollBonus": 0.03,
-      "AttributeRollBonus": 0.015
+      "CoreRollBonus": 0.024,
+      "AttributeRollBonus": 0.009
     },
     "level_4": {
-      "CoreRollBonus": 0.04,
-      "AttributeRollBonus": 0.02
+      "CoreRollBonus": 0.032,
+      "AttributeRollBonus": 0.012
     },
     "level_5": {
-      "CoreRollBonus": 0.05,
-      "AttributeRollBonus": 0.025
+      "CoreRollBonus": 0.04,
+      "AttributeRollBonus": 0.015
     },
     "level_6": {
-      "CoreRollBonus": 0.06,
-      "AttributeRollBonus": 0.03
+      "CoreRollBonus": 0.048,
+      "AttributeRollBonus": 0.018
     },
     "level_7": {
-      "CoreRollBonus": 0.07,
-      "AttributeRollBonus": 0.035
+      "CoreRollBonus": 0.056,
+      "AttributeRollBonus": 0.021
     },
     "level_8": {
-      "CoreRollBonus": 0.08,
-      "AttributeRollBonus": 0.04
+      "CoreRollBonus": 0.064,
+      "AttributeRollBonus": 0.024
     },
     "level_9": {
-      "CoreRollBonus": 0.09,
-      "AttributeRollBonus": 0.045
+      "CoreRollBonus": 0.072,
+      "AttributeRollBonus": 0.027
     },
     "level_10": {
-      "CoreRollBonus": 0.1,
-      "AttributeRollBonus": 0.05
+      "CoreRollBonus": 0.08,
+      "AttributeRollBonus": 0.03
     },
     "level_11": {
-      "CoreRollBonus": 0.11,
-      "AttributeRollBonus": 0.055
+      "CoreRollBonus": 0.088,
+      "AttributeRollBonus": 0.033
     },
     "level_12": {
-      "CoreRollBonus": 0.12,
-      "AttributeRollBonus": 0.06
+      "CoreRollBonus": 0.096,
+      "AttributeRollBonus": 0.036
     },
     "level_13": {
-      "CoreRollBonus": 0.13,
-      "AttributeRollBonus": 0.065
+      "CoreRollBonus": 0.104,
+      "AttributeRollBonus": 0.039
     },
     "level_14": {
-      "CoreRollBonus": 0.14,
-      "AttributeRollBonus": 0.07
+      "CoreRollBonus": 0.112,
+      "AttributeRollBonus": 0.042
     },
     "level_15": {
-      "CoreRollBonus": 0.15,
-      "AttributeRollBonus": 0.075
+      "CoreRollBonus": 0.12,
+      "AttributeRollBonus": 0.045
     },
     "level_16": {
-      "CoreRollBonus": 0.16,
-      "AttributeRollBonus": 0.08
+      "CoreRollBonus": 0.128,
+      "AttributeRollBonus": 0.048
     },
     "level_17": {
-      "CoreRollBonus": 0.17,
-      "AttributeRollBonus": 0.085
+      "CoreRollBonus": 0.136,
+      "AttributeRollBonus": 0.051
     },
     "level_18": {
-      "CoreRollBonus": 0.18,
-      "AttributeRollBonus": 0.09
+      "CoreRollBonus": 0.144,
+      "AttributeRollBonus": 0.054
     },
     "level_19": {
-      "CoreRollBonus": 0.19,
-      "AttributeRollBonus": 0.095
+      "CoreRollBonus": 0.152,
+      "AttributeRollBonus": 0.057
     },
     "level_20": {
-      "CoreRollBonus": 0.2,
-      "AttributeRollBonus": 0.1
+      "CoreRollBonus": 0.16,
+      "AttributeRollBonus": 0.06
     },
     "level_21": {
-      "CoreRollBonus": 0.21,
-      "AttributeRollBonus": 0.105
+      "CoreRollBonus": 0.168,
+      "AttributeRollBonus": 0.063
     },
     "level_22": {
-      "CoreRollBonus": 0.22,
-      "AttributeRollBonus": 0.11
+      "CoreRollBonus": 0.176,
+      "AttributeRollBonus": 0.066
     },
     "level_23": {
-      "CoreRollBonus": 0.23,
-      "AttributeRollBonus": 0.115
+      "CoreRollBonus": 0.184,
+      "AttributeRollBonus": 0.069
     },
     "level_24": {
-      "CoreRollBonus": 0.24,
-      "AttributeRollBonus": 0.12
+      "CoreRollBonus": 0.192,
+      "AttributeRollBonus": 0.072
     },
     "level_25": {
-      "CoreRollBonus": 0.25,
-      "AttributeRollBonus": 0.125
+      "CoreRollBonus": 0.2,
+      "AttributeRollBonus": 0.075
     },
     "level_26": {
-      "CoreRollBonus": 0.26,
-      "AttributeRollBonus": 0.13
+      "CoreRollBonus": 0.208,
+      "AttributeRollBonus": 0.078
     },
     "level_27": {
-      "CoreRollBonus": 0.27,
-      "AttributeRollBonus": 0.135
+      "CoreRollBonus": 0.216,
+      "AttributeRollBonus": 0.081
     },
     "level_28": {
-      "CoreRollBonus": 0.28,
-      "AttributeRollBonus": 0.14
+      "CoreRollBonus": 0.224,
+      "AttributeRollBonus": 0.084
     },
     "level_29": {
-      "CoreRollBonus": 0.29,
-      "AttributeRollBonus": 0.145
+      "CoreRollBonus": 0.232,
+      "AttributeRollBonus": 0.087
     },
     "level_30": {
-      "CoreRollBonus": 0.3,
-      "AttributeRollBonus": 0.15
+      "CoreRollBonus": 0.24,
+      "AttributeRollBonus": 0.09
+    },
+    "level_31_elevated": {
+      "CoreRollBonus": 0.248,
+      "AttributeRollBonus": 0.093,
+      "note": "Elevated reroll slots"
     }
   },
   "skill": {
@@ -1616,5 +1671,11 @@
     "level_30": {
       "SkillPowerBonus": 0.3
     }
+  },
+  "_metadata": {
+    "source": "community-verified (Y8S1 Rise Up)",
+    "note": "Expertise growth в Division 2. До TU22 max уровень = 30. В TU22 появился уровень 31 Elevated — даёт bonus + разблокирует rerolls. Точные значения per-level из UI.",
+    "max_level": 31,
+    "elevated_available": true
   }
 }
