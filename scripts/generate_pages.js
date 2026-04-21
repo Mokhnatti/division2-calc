@@ -1049,6 +1049,7 @@ function main() {
 
   // Helper: write both RU and EN versions of an item page
   function writeItemPagePair(category, slug, html, item) {
+    if (!slug) { console.warn(`Skip empty slug for category=${category}`); return; }
     const catPath = `/${category}/${slug}`;
     const ruPath = `/ru${catPath}`;
     const enPath = `/en${catPath}`;

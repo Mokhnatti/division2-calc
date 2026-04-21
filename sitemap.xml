@@ -7112,24 +7112,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/named/acosta-kneepads"/>
   </url>
   <url>
-    <loc>https://divcalc.xyz/ru/named/</loc>
-    <lastmod>2026-04-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/named/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/named/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/named/"/>
-  </url>
-  <url>
-    <loc>https://divcalc.xyz/en/named/</loc>
-    <lastmod>2026-04-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/named/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/named/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/named/"/>
-  </url>
-  <url>
     <loc>https://divcalc.xyz/ru/named/robin</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
