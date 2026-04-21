@@ -35,7 +35,10 @@ function slugify(str) {
 
 function slugifyEn(str) {
   if (!str) return '';
+  // Normalize diacritics (č → c, á → a) via NFD + strip combining marks
   return str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
@@ -472,7 +475,7 @@ function generateNamed(idx, item, allItems) {
     mag ? `<tr><td>Магазин</td><td>${mag} патронов</td></tr>` : '',
     reload ? `<tr><td>Перезарядка</td><td>${reload} сек</td></tr>` : '',
     gType ? `<tr><td>Тип</td><td>${escape(tType || gType)}</td></tr>` : '',
-    brand ? `<tr><td>Бренд</td><td><a href="/ru/brand/${slugifyEn(brand)}">${escape(brand)}</a></td></tr>` : '',
+    brand ? `<tr><td>Бренд</td><td><a href="/ru/brand/${global.resolveBrandSlug?global.resolveBrandSlug(brand):slugifyEn((brand||'').trim())}">${escape((brand||'').trim())}</a></td></tr>` : '',
     item.source_ru ? `<tr><td>Источник</td><td>${escape(item.source_ru)}</td></tr>` : '',
   ].filter(Boolean).join('\n      ');
 
@@ -586,7 +589,7 @@ function generateNamedGear(idx, item, allItems) {
 
   const statsRows = [
     gType ? `<tr><td>Тип снаряжения</td><td>${escape(gType)}</td></tr>` : '',
-    brand ? `<tr><td>Бренд</td><td><a href="/ru/brand/${slugifyEn(brand)}">${escape(brand)}</a></td></tr>` : '',
+    brand ? `<tr><td>Бренд</td><td><a href="/ru/brand/${global.resolveBrandSlug?global.resolveBrandSlug(brand):slugifyEn((brand||'').trim())}">${escape((brand||'').trim())}</a></td></tr>` : '',
     item.bonus_ru ? `<tr><td>Бонус</td><td>${escape(item.bonus_ru)}</td></tr>` : '',
     item.source_ru ? `<tr><td>Источник</td><td>${escape(item.source_ru)}</td></tr>` : '',
   ].filter(Boolean).join('\n      ');
@@ -665,7 +668,7 @@ ${nav()}
 
   <section class="synergy">
     <h2>Синергии</h2>
-    <p>Рассчитай DPS билда с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Смотри также <a href="/ru/brand/${slugifyEn(brand || '')}">другие предметы бренда ${escape(brand)}</a>.</p>
+    <p>Рассчитай DPS билда с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Смотри также <a href="/ru/brand/${global.resolveBrandSlug?global.resolveBrandSlug(brand):slugifyEn(brand || '')}">другие предметы бренда ${escape(brand)}</a>.</p>
   </section>
 
   <section class="related">
@@ -812,7 +815,8 @@ ${footer()}
 // ─── Brand ─────────────────────────────────────────────────────────────────
 
 function generateBrand(idx, key, item, allBrands) {
-  const slug = slugifyEn(key);
+  // Prefer name-based slug for SEO; falls back to numeric key
+  const slug = slugifyEn(item.name_full_en || item.name || key) || slugifyEn(key);
   const nameEn = item.name_full_en || key;
   const bonuses = item.bonuses || [];
 
@@ -821,7 +825,7 @@ function generateBrand(idx, key, item, allBrands) {
   const otherKeys = Object.keys(allBrands).filter(k => k !== key).slice(0, 4);
   const relatedCards = otherKeys.map(k => {
     const o = allBrands[k];
-    const s = slugifyEn(k);
+    const s = slugifyEn(o.name_full_en || o.name || k) || slugifyEn(k);
     return `<a class="related-card" href="/ru/brand/${s}">
         <div class="rc-name">${escape(o.name_full_en || k)}</div>
         <div class="rc-meta">${escape(o.bonuses ? o.bonuses[0] : '')}</div>
@@ -1038,6 +1042,33 @@ function main() {
     }
   }
   const exoticGear = exoticGearRaw;
+
+  // Build brand slug lookup: normalized_name → slug (helps when named items reference brand name that partially matches)
+  const brandsRaw = require(path.join(ROOT, 'data/brands.json'));
+  const brandSlugByName = {};
+  for (const [key, b] of Object.entries(brandsRaw)) {
+    const s = slugifyEn(b.name_full_en || b.name || key) || slugifyEn(key);
+    if (!s) continue;
+    // Index by multiple forms
+    for (const n of [b.name_full_en, b.name, key].filter(Boolean)) {
+      const norm = String(n).trim().toLowerCase();
+      brandSlugByName[norm] = s;
+      // also strip common suffixes
+      const trimmed = norm.replace(/\s+(ltd|inc|gmbh|sarl|s\.p\.a|corp|llc|sp\. z o\.o\.?)\.?$/i, '').trim();
+      if (trimmed !== norm) brandSlugByName[trimmed] = s;
+    }
+  }
+  // Resolve brand name to slug, with fuzzy matching
+  global.resolveBrandSlug = function(name) {
+    if (!name) return '';
+    const norm = String(name).trim().toLowerCase();
+    if (brandSlugByName[norm]) return brandSlugByName[norm];
+    // Partial match: try each brand name as prefix/contains
+    for (const [k, s] of Object.entries(brandSlugByName)) {
+      if (k.startsWith(norm) || norm.startsWith(k) || k.includes(norm) || norm.includes(k)) return s;
+    }
+    return slugifyEn(name);
+  };
   const namedWeapons = require(path.join(ROOT, 'data/named.json'));
   const namedGear = require(path.join(ROOT, 'data/named_gear.json'));
   const gearSets = require(path.join(ROOT, 'data/gear_sets.json'));
