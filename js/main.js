@@ -4082,6 +4082,28 @@ function calcBuild(){
   const avgDPS10=samplesAvg.reduce((a,b)=>a+b,0)/samplesAvg.length;
 
   document.getElementById("b-stacks").innerHTML=stkHtml;
+  // Авто-компактная таблица: показываем только те колонки, значения которых действительно меняются между моментами
+  const _eps=0.005;
+  const _varies=(key)=>{
+    const vals=rows.map(r=>r[key]);
+    return Math.max(...vals)-Math.min(...vals)>_eps;
+  };
+  const showStk=rows.some(r=>r.stkRows&&r.stkRows.length);
+  const showWD=_varies("wdMult");
+  const showCrit=_varies("critAvg");
+  const showHS=_varies("hsM");
+  const showRPM=rows.map(r=>r.rpm_f).some((v,_,a)=>Math.abs(v-a[0])>0.5);
+  const isEnT=currentLang==="en";
+  const thead=document.querySelector("#b-results-sect thead tr");
+  if(thead){
+    thead.innerHTML=`<th>${isEnT?'Moment':'Момент'}</th>`+
+      (showStk?`<th>${isEnT?'Stacks':'Стаки'}</th>`:"")+
+      (showWD?`<th>WD ×</th>`:"")+
+      (showCrit?`<th>${isEnT?'Crit':'Крит'} ×</th>`:"")+
+      (showHS?`<th>HS ×</th>`:"")+
+      (showRPM?`<th>RPM</th>`:"")+
+      `<th>DPS</th>`;
+  }
   document.getElementById("b-tbl").innerHTML=rows.map((r,i)=>{
     const isPeak=i===rows.length-1;
     const isBase=i===0;
@@ -4090,11 +4112,11 @@ function calcBuild(){
     const bar=`<div style="height:4px;background:var(--border);border-radius:2px;margin-top:3px;overflow:hidden"><div style="height:100%;width:${pctOfPeak}%;background:${isPeak?"var(--orange)":isBase?"#888":"#f5a623"};border-radius:2px"></div></div>`;
     return`<tr class="${isPeak?"peak":""}">
       <td>${r.label}</td>
-      <td style="font-size:11px">${r.stkRows.map(s=>`${s.stks}/${s.max}`).join(" · ")||"—"}</td>
-      <td>×${r.wdMult.toFixed(2)}</td>
-      <td>×${r.critAvg.toFixed(2)}</td>
-      <td>×${r.hsM.toFixed(2)}</td>
-      <td>${Math.round(r.rpm_f)}</td>
+      ${showStk?`<td style="font-size:11px">${r.stkRows.map(s=>`${s.stks}/${s.max}`).join(" · ")||"—"}</td>`:""}
+      ${showWD?`<td>×${r.wdMult.toFixed(2)}</td>`:""}
+      ${showCrit?`<td>×${r.critAvg.toFixed(2)}</td>`:""}
+      ${showHS?`<td>×${r.hsM.toFixed(2)}</td>`:""}
+      ${showRPM?`<td>${Math.round(r.rpm_f)}</td>`:""}
       <td><b>${Math.round(r.dps).toLocaleString("ru")}</b>${growth}${bar}</td>
     </tr>`;
   }).join("");
