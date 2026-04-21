@@ -3238,6 +3238,15 @@ function calcBuild(){
   }
 
   // Count set pieces + brand pieces from slotState
+  // Map current set name → SB key (set_bonuses.json uses legacy names; gear_sets.json has new RU names + name_legacy field)
+  const _GEAR_SETS = (typeof D2DATA!=='undefined' && D2DATA.G) || [];
+  const _SB_KEY = {};
+  for (const _g of _GEAR_SETS) {
+    if (_g.name && SB[_g.name]) _SB_KEY[_g.name] = _g.name;
+    else if (_g.name_legacy && SB[_g.name_legacy]) _SB_KEY[_g.name] = _g.name_legacy;
+    else if (_g.en && SB[_g.en]) _SB_KEY[_g.name] = _g.en;
+  }
+  const toSBKey = (n) => _SB_KEY[n] || n;
   const cnt={};const hasChest={};const hasBP={};
   const brandCnt={};
   const namedItems=[];
@@ -3245,9 +3254,10 @@ function calcBuild(){
   for(const[slot,it] of Object.entries(slotState)){
     if(!it)continue;
     if(it.kind==="green"){
-      cnt[it.setName]=(cnt[it.setName]||0)+1;
-      if(slot==="chest")hasChest[it.setName]=true;
-      if(slot==="bp")hasBP[it.setName]=true;
+      const sbKey = toSBKey(it.setName);
+      cnt[sbKey]=(cnt[sbKey]||0)+1;
+      if(slot==="chest")hasChest[sbKey]=true;
+      if(slot==="bp")hasBP[sbKey]=true;
     }else if(it.kind==="brand"){
       if(it.brand)brandCnt[it.brand]=(brandCnt[it.brand]||0)+1;
     }else if(it.kind==="named"){
@@ -3373,7 +3383,22 @@ function calcBuild(){
         if(match)tWD+=b.type_dmg;
       }
       pushGObj(b,`${brandName} ${i+1}pc`,wpn.cat);
-      bonuses.push({color:"#42a5f5",tier:i+1,nm:brandName,desc:"бренд "+(i+1)+"шт: "+(Object.entries(b).filter(([k])=>k!=="type").map(([k,v])=>`+${v}% ${k}`).join(" · ")||"—")});
+      const isEnB=currentLang==="en";
+      const BRAND_STAT_LBL=isEnB?{rof:"Rate of Fire",mag:"Magazine",chc:"Crit Chance",chd:"Crit Damage",hsd:"Headshot Damage",wd:"Weapon Damage",reload:"Reload Speed",handling:"Handling",ergo:"Handling",armor:"Armor",skill_haste:"Skill Haste",skill_dmg:"Skill Damage",health:"Health",hazard_prot:"Hazard Protection",elite:"Damage to Elites",ooc:"Damage out of cover",dta:"Damage to Armor",dth:"Damage to Health"}:{rof:"Скорострельность",mag:"Размер магазина",chc:"Шанс крит. удара",chd:"Урон крит. удара",hsd:"Урон в голову",wd:"Урон оружия",reload:"Скорость перезарядки",handling:"Управление",ergo:"Управление",armor:"Броня",skill_haste:"Ускорение навыков",skill_dmg:"Урон навыков",health:"Здоровье",hazard_prot:"Защита от опасности",elite:"Урон по элитам",ooc:"Урон вне укрытия",dta:"Урон по броне",dth:"Урон по здоровью"};
+      const TYPE_LBL=isEnB?{AR:"Assault Rifle",SMG:"SMG",LMG:"LMG",MMR:"Marksman Rifle",Rifle:"Rifle",SG:"Shotgun",Pistol:"Pistol"}:{AR:"штурмовой винтовки",SMG:"ПП",LMG:"ручного пулемёта",MMR:"снайперской винтовки",Rifle:"винтовки",SG:"дробовика",Pistol:"пистолета"};
+      const descParts=[];
+      for(const[k,v] of Object.entries(b)){
+        if(k==="type")continue;
+        if(k==="type_dmg"){
+          const types=(b.type||"").split("+").map(t=>TYPE_LBL[t]||t).filter(Boolean).join(" / ");
+          descParts.push(isEnB?`+${v}% ${types||"type"} damage`:`+${v}% к урону ${types||"типа"}`);
+        } else {
+          const lbl=BRAND_STAT_LBL[k]||k;
+          descParts.push(`+${v}% ${lbl}`);
+        }
+      }
+      const brandLbl=isEnB?`brand ${i+1}pc`:`бренд ${i+1}шт`;
+      bonuses.push({color:"#42a5f5",tier:i+1,nm:brandName,desc:`${brandLbl}: ${descParts.join(" · ")||"—"}`});
     }
   }
 
