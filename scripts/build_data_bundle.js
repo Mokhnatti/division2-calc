@@ -56,6 +56,7 @@ const FILES = {
   GEAR_ATTRIBUTE_POOL: "gear_attribute_pool.json",
   SHD_WATCH: "shd_watch.json",
   SKILL_MODS_V2: "skill_mods.json",
+  WEAPON_MOD_SLOTS: "weapon_mod_slots.json",
 };
 
 const obj = {};

@@ -866,6 +866,7 @@ const gearStatState = {
 let gearSpecId = "";
 let weaponStat3Choice = "chc"; // player-rollable 3rd weapon stat (default: Crit Chance)
 let weaponModState = {optic:"none", muzzle:"none", underbarrel:"none", magazine:"none"};
+let gearExpertiseLevel = 30; // 0-30, applies to all (MAX by default)
 
 // Weapon mod bonus map (simplified hardcoded)
 const WEAPON_MOD_BONUSES = {
@@ -918,6 +919,9 @@ function setStatMode(mode){
       const el = document.getElementById("wmod-"+slot);
       if(el && weaponModState[slot]) el.value = weaponModState[slot];
     }
+    // Restore expertise level
+    const expEl = document.getElementById("gear-expertise-level");
+    if(expEl) expEl.value = gearExpertiseLevel;
     recomputeGearStats();
     lockManualInputs(true);
   } else {
@@ -1049,23 +1053,92 @@ function onWeaponModChange(){
   calcBuild();
 }
 
+function onExpertiseLevelChange(){
+  const el = document.getElementById("gear-expertise-level");
+  if(!el) return;
+  let v = parseInt(el.value) || 0;
+  if(v < 0) v = 0;
+  if(v > 30) v = 30;
+  gearExpertiseLevel = v;
+  el.value = v;
+  try{localStorage.setItem("d2calc_expertise_level", String(v));}catch(e){}
+  recomputeGearStats();
+  calcBuild();
+}
+
+// Lookup weapon mod slots from game data by EN name (or fallback by class)
+function _lookupWeaponSlots(wpn){
+  if(!wpn) return null;
+  const WMS = (typeof D2DATA!=='undefined' && D2DATA.WEAPON_MOD_SLOTS) || {};
+  const en = (wpn.en || wpn.name || '').toLowerCase().trim();
+  // Try exact match by name_en
+  for(const [id, info] of Object.entries(WMS)){
+    if(((info.name_en||'').toLowerCase().trim())===en) return info;
+  }
+  // Try by weapon_identifier
+  const wid = (wpn.weapon_identifier || '').toLowerCase();
+  if(wid){
+    for(const [id, info] of Object.entries(WMS)){
+      if(((info.weapon_identifier||'').toLowerCase())===wid) return info;
+    }
+  }
+  // Fallback: by weapon class default slots
+  const cat = (wpn.cat || '').toUpperCase();
+  const DEFAULTS = {
+    "AR": {slots_available:["optic","muzzle","underbarrel","magazine"], slot_count:4, is_exotic:false},
+    "SMG": {slots_available:["optic","muzzle","underbarrel","magazine"], slot_count:4, is_exotic:false},
+    "LMG": {slots_available:["optic","muzzle","underbarrel","magazine"], slot_count:4, is_exotic:false},
+    "MMR": {slots_available:["optic","muzzle","underbarrel","magazine"], slot_count:4, is_exotic:false},
+    "RIFLE": {slots_available:["optic","muzzle","underbarrel","magazine"], slot_count:4, is_exotic:false},
+    "SG": {slots_available:["optic","underbarrel","magazine"], slot_count:3, is_exotic:false},
+    "PISTOL": {slots_available:["muzzle","magazine"], slot_count:2, is_exotic:false},
+  };
+  if(DEFAULTS[cat]) return {...DEFAULTS[cat], is_exotic: wpn.kind==="exotic"};
+  return null;
+}
+
 function updateWeaponModsForExotic(){
   const wpn = (typeof getWeapon==='function') ? getWeapon() : null;
   const note = document.getElementById("weapon-mods-note");
   const grid = document.getElementById("weapon-mods-grid");
   if(!note || !grid) return;
-  const isExotic = wpn && wpn.kind === "exotic";
+
+  const info = _lookupWeaponSlots(wpn);
+  const isExotic = (wpn && wpn.kind === "exotic") || (info && info.is_exotic);
+
   if(isExotic){
-    note.innerHTML = `🧿 <b style="color:var(--orange)">Экзотик-оружие: моды встроены</b> (обычно уникальные statы). 4 слота заблокированы. Общий вклад модов уже заложен в stat-бюджете экзотика.`;
+    note.innerHTML = `🧿 <b style="color:var(--orange)">Экзотик-оружие: моды встроены</b> (уникальные). Слоты заблокированы — общий вклад модов уже заложен в stat-бюджете экзотика.`;
     grid.querySelectorAll("select").forEach(s=>{s.disabled=true; s.style.opacity="0.5"; s.value="none";});
+    grid.querySelectorAll("[data-slot-wrap]").forEach(w=>{w.style.display="";});
     for(const slot of Object.keys(weaponModState)) weaponModState[slot] = "none";
-  } else {
-    note.innerHTML = `У обычных/именных — 4 слота. У экзотик-оружия моды вшиты (будут показаны отдельно).`;
-    grid.querySelectorAll("select").forEach(s=>{s.disabled=false; s.style.opacity="";});
-    // Restore saved
-    for(const slot of ["optic","muzzle","underbarrel","magazine"]){
-      const el = document.getElementById("wmod-"+slot);
-      if(el) el.value = weaponModState[slot] || "none";
+    return;
+  }
+
+  // Determine available slots
+  const available = (info && info.slots_available) || ["optic","muzzle","underbarrel","magazine"];
+  const availSet = new Set(available);
+  const lblMap = {optic:"🎯 Optic", muzzle:"🔥 Muzzle", underbarrel:"🤝 Underbarrel", magazine:"📦 Magazine"};
+  const lblMapRu = {optic:"прицел", muzzle:"дульный", underbarrel:"подствол", magazine:"магазин"};
+  const wpnCls = (wpn && wpn.cat) ? wpn.cat.toUpperCase() : "?";
+  note.innerHTML = `${wpnCls} (${available.length} слот${available.length===1?'':'а'}): ${available.map(s=>lblMapRu[s]||s).join(' + ')}`;
+
+  for(const slot of ["optic","muzzle","underbarrel","magazine"]){
+    const wrap = grid.querySelector(`[data-slot-wrap="${slot}"]`);
+    const sel = document.getElementById("wmod-"+slot);
+    if(wrap){
+      wrap.style.display = availSet.has(slot) ? "" : "none";
+    }
+    if(sel){
+      if(availSet.has(slot)){
+        sel.disabled = false;
+        sel.style.opacity = "";
+        sel.value = weaponModState[slot] || "none";
+      } else {
+        sel.disabled = true;
+        sel.style.opacity = "0.5";
+        sel.value = "none";
+        weaponModState[slot] = "none";
+      }
     }
   }
 }
@@ -1155,10 +1228,8 @@ function computeGearStatTotals(){
     if(!stat) continue;
     _gspAddValue(totals, stat, s.max_total || 0);
   }
-  // Expertise MAX (weapon level 21 → +21% WD)
-  const EXP = (typeof D2DATA!=='undefined' && D2DATA.EXPERTISE) || {};
-  // Applied as separate multiplier, store in "expertise"
-  totals.expertise = 21;
+  // Expertise: use gearExpertiseLevel (0-30), applied globally
+  totals.expertise = gearExpertiseLevel;
   return totals;
 }
 
@@ -1271,6 +1342,8 @@ try{
       if(parsed[slot]) weaponModState[slot] = parsed[slot];
     }
   }
+  const el = localStorage.getItem("d2calc_expertise_level");
+  if(el!==null && !isNaN(parseInt(el))) gearExpertiseLevel = parseInt(el);
 }catch(e){}
 
 function initBuildSlots(){
