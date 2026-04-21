@@ -34,11 +34,13 @@ divcalc.xyz, www.divcalc.xyz {
     redir /set/* /ru{uri} 301
     redir /brand/* /ru{uri} 301
 
-    # PocketBase backend
+    # PocketBase backend — не для индексации, добавляем X-Robots-Tag: noindex
     handle /api/* {
+        header X-Robots-Tag "noindex, nofollow"
         reverse_proxy 127.0.0.1:8090
     }
     handle /_/* {
+        header X-Robots-Tag "noindex, nofollow"
         reverse_proxy 127.0.0.1:8090
     }
 
