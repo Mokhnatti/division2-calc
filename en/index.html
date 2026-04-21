@@ -126,7 +126,7 @@
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
+    <script>
         (function(m,e,t,r,i,k,a){
             m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
@@ -135,10 +135,10 @@
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108598463', 'ym');
         ym(108598463, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/108598463" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 </head>
 <body>
+<noscript><img src="https://mc.yandex.ru/watch/108598463" style="position:absolute; left:-9999px;" alt="" /></noscript>
 <div class="header">
     <button class="lang-btn" onclick="toggleLang()" title="Switch language / Переключить язык" id="lang-btn">🇷🇺 RU</button>
     <button class="bug-btn" onclick="openBugModal()" title="Сообщить об ошибке в данных или математике">🐛 Баг-репорт</button>
@@ -154,9 +154,9 @@
 </div>
 <div class="search-panel">
     <div class="search-row">
-        <div class="s-wrap"><input type="text" id="s1" placeholder="Поиск 1 — урон в голову" autocomplete="off"><div class="search-hints" id="s1-hints" style="display:none"></div></div>
-        <div class="s-wrap"><input type="text" id="s2" placeholder="Поиск 2 — снайперские" autocomplete="off"><div class="search-hints" id="s2-hints" style="display:none"></div></div>
-        <div class="s-wrap"><input type="text" id="s3" placeholder="Поиск 3 — крит" autocomplete="off"><div class="search-hints" id="s3-hints" style="display:none"></div></div>
+        <div class="s-wrap"><input type="text" id="s1" placeholder="Поиск 1 — урон в голову" autocomplete="off" aria-label="s1"><div class="search-hints" id="s1-hints" style="display:none"></div></div>
+        <div class="s-wrap"><input type="text" id="s2" placeholder="Поиск 2 — снайперские" autocomplete="off" aria-label="s2"><div class="search-hints" id="s2-hints" style="display:none"></div></div>
+        <div class="s-wrap"><input type="text" id="s3" placeholder="Поиск 3 — крит" autocomplete="off" aria-label="s3"><div class="search-hints" id="s3-hints" style="display:none"></div></div>
     </div>
     <div class="controls">
         <label><input type="radio" name="mode" value="and" checked> <b>И</b> — пересечения</label>
@@ -195,31 +195,31 @@
     <div class="calc-grid">
         <div class="calc-group">
             <h3>Оружие</h3>
-            <div class="calc-row"><label>Базовый урон пули</label><input type="number" id="c_base" value="48000"><span class="unit"></span></div>
-            <div class="calc-row"><label>RPM (скорострельность)</label><input type="number" id="c_rpm" value="750"><span class="unit"></span></div>
-            <div class="calc-row"><label>Размер магазина</label><input type="number" id="c_mag" value="30"><span class="unit">шт</span></div>
-            <div class="calc-row"><label>Время перезарядки</label><input type="number" id="c_reload" value="2.0" step="0.1"><span class="unit">сек</span></div>
+            <div class="calc-row"><label>Базовый урон пули</label><input type="number" id="c_base" value="48000" aria-label="c_base"><span class="unit"></span></div>
+            <div class="calc-row"><label>RPM (скорострельность)</label><input type="number" id="c_rpm" value="750" aria-label="c_rpm"><span class="unit"></span></div>
+            <div class="calc-row"><label>Размер магазина</label><input type="number" id="c_mag" value="30" aria-label="c_mag"><span class="unit">шт</span></div>
+            <div class="calc-row"><label>Время перезарядки</label><input type="number" id="c_reload" value="2.0" step="0.1" aria-label="c_reload"><span class="unit">сек</span></div>
         </div>
         <div class="calc-group">
             <h3>Урон оружием (один бакет, складываются)</h3>
-            <div class="calc-row"><label>Общий урон оружием (<span class="stat-tip" data-stat="WD">WD</span>)</label><input type="number" id="c_wd" value="90" step="1"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Урон типа оружия (ШВ/ПП/LMG..)</label><input type="number" id="c_wtd" value="30" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Общий урон оружием (<span class="stat-tip" data-stat="WD">WD</span>)</label><input type="number" id="c_wd" value="90" step="1" aria-label="c_wd"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон типа оружия (ШВ/ПП/LMG..)</label><input type="number" id="c_wtd" value="30" step="1" aria-label="c_wtd"><span class="unit">%</span></div>
             <div class="calc-row" style="margin-top:4px"><label style="font-size:10px;color:#555">= итого множитель</label><span id="wd-mult" style="font-size:12px;color:var(--orange);font-weight:700">x2.20</span></div>
         </div>
         <div class="calc-group">
             <h3>Критический удар</h3>
-            <div class="calc-row"><label>Шанс крита (<span class="stat-tip" data-stat="CHC">CHC</span>) <span style="color:#555">макс 60%</span></label><input type="number" id="c_chc" value="55" step="1" max="60"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Урон крита (<span class="stat-tip" data-stat="CHD">CHD</span>)</label><input type="number" id="c_chd" value="150" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Шанс крита (<span class="stat-tip" data-stat="CHC">CHC</span>) <span style="color:#555">макс 60%</span></label><input type="number" id="c_chc" value="55" step="1" max="60" aria-label="c_chc"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон крита (<span class="stat-tip" data-stat="CHD">CHD</span>)</label><input type="number" id="c_chd" value="150" step="1" aria-label="c_chd"><span class="unit">%</span></div>
             <div class="calc-row" style="margin-top:4px"><label style="font-size:10px;color:#555">= средний множитель крита</label><span id="crit-mult" style="font-size:12px;color:var(--orange);font-weight:700">x1.83</span></div>
         </div>
         <div class="calc-group">
             <h3>Внешние множители (каждый отдельный!)</h3>
-            <div class="calc-row"><label>Урон в голову (<span class="stat-tip" data-stat="HSD">HSD</span>)</label><input type="number" id="c_hsd" value="0" step="1"><span class="unit">%</span></div>
-            <div class="calc-row"><label>% попаданий в голову</label><input type="number" id="c_hsrate" value="0" step="1" max="100"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Урон по броне (<span class="stat-tip" data-stat="DtA">DtA</span>) <span style="color:#555">макс ~20%</span></label><input type="number" id="c_dta" value="15" step="1"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Урон здоровью (<span class="stat-tip" data-stat="DtH">DtH</span>) <span style="color:#555">цель без брони</span></label><input type="number" id="c_dth" value="0" step="1"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Урон вне укрытия (<span class="stat-tip" data-stat="OoC">OoC</span>) <span style="color:#555">макс ~30%</span></label><input type="number" id="c_ooc" value="10" step="1"><span class="unit">%</span></div>
-            <div class="calc-row"><label>Усиленный урон (Amplified)</label><input type="number" id="c_amp" value="0" step="1"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон в голову (<span class="stat-tip" data-stat="HSD">HSD</span>)</label><input type="number" id="c_hsd" value="0" step="1" aria-label="c_hsd"><span class="unit">%</span></div>
+            <div class="calc-row"><label>% попаданий в голову</label><input type="number" id="c_hsrate" value="0" step="1" max="100" aria-label="c_hsrate"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон по броне (<span class="stat-tip" data-stat="DtA">DtA</span>) <span style="color:#555">макс ~20%</span></label><input type="number" id="c_dta" value="15" step="1" aria-label="c_dta"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон здоровью (<span class="stat-tip" data-stat="DtH">DtH</span>) <span style="color:#555">цель без брони</span></label><input type="number" id="c_dth" value="0" step="1" aria-label="c_dth"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Урон вне укрытия (<span class="stat-tip" data-stat="OoC">OoC</span>) <span style="color:#555">макс ~30%</span></label><input type="number" id="c_ooc" value="10" step="1" aria-label="c_ooc"><span class="unit">%</span></div>
+            <div class="calc-row"><label>Усиленный урон (Amplified)</label><input type="number" id="c_amp" value="0" step="1" aria-label="c_amp"><span class="unit">%</span></div>
         </div>
     </div>
 
@@ -270,7 +270,7 @@
   <!-- Saved builds + share -->
   <div class="bsect" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
     <h3 style="margin:0 auto 0 0">💾 Билды</h3>
-    <select id="b-saved" class="bsel" style="flex:1;min-width:140px;max-width:260px" onchange="onSavedSelect()"><option value="">— выбери сохранённый —</option></select>
+    <select id="b-saved" class="bsel" style="flex:1;min-width:140px;max-width:260px" onchange="onSavedSelect()" aria-label="saved"><option value="">— выбери сохранённый —</option></select>
     <button class="mf-btn" onclick="loadSelectedBuild()" title="Загрузить выбранный">Загрузить</button>
     <button class="mf-btn" onclick="saveCurrentBuild()" title="Сохранить текущий">Сохранить</button>
     <button class="mf-btn" onclick="deleteSelectedBuild()" title="Удалить выбранный" style="color:#ef5350">Удалить</button>
@@ -293,15 +293,15 @@
       <summary style="font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;cursor:pointer;user-select:none">🔧 Уточнение оружия (из карточки в игре)</summary>
       <div style="font-size:10px;color:var(--muted);margin:6px 0 8px">Необязательно. Если пусто — берутся статы выбранного оружия. Заполняй, когда данные с карточки отличаются (экзотики, прототип, индивидуальный ролл).</div>
       <div class="bstat-row">
-        <div class="bstat"><label>Базовый урон</label><input id="wpn-ovr-dmg" type="number" placeholder="авто" oninput="calcBuild()"><span class="u"></span></div>
-        <div class="bstat"><label>RPM</label><input id="wpn-ovr-rpm" type="number" placeholder="авто" oninput="calcBuild()"><span class="u"></span></div>
-        <div class="bstat"><label>Магазин</label><input id="wpn-ovr-mag" type="number" placeholder="авто" oninput="calcBuild()"><span class="u"></span></div>
-        <div class="bstat"><label>Перезарядка</label><input id="wpn-ovr-reload" type="number" step="0.01" placeholder="авто" oninput="calcBuild()"><span class="u">сек</span></div>
+        <div class="bstat"><label>Базовый урон</label><input id="wpn-ovr-dmg" type="number" placeholder="авто" oninput="calcBuild()" aria-label="wpn ovr dmg"><span class="u"></span></div>
+        <div class="bstat"><label>RPM</label><input id="wpn-ovr-rpm" type="number" placeholder="авто" oninput="calcBuild()" aria-label="wpn ovr rpm"><span class="u"></span></div>
+        <div class="bstat"><label>Магазин</label><input id="wpn-ovr-mag" type="number" placeholder="авто" oninput="calcBuild()" aria-label="wpn ovr mag"><span class="u"></span></div>
+        <div class="bstat"><label>Перезарядка</label><input id="wpn-ovr-reload" type="number" step="0.01" placeholder="авто" oninput="calcBuild()" aria-label="wpn ovr reload"><span class="u">сек</span></div>
       </div>
     </details>
     <div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
       <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px">Талант оружия:</label>
-      <select id="b-wpn-tal" class="bsel" style="flex:1;min-width:200px;max-width:320px" onchange="onWpnTalentChange()"></select>
+      <select id="b-wpn-tal" class="bsel" style="flex:1;min-width:200px;max-width:320px" onchange="onWpnTalentChange()" aria-label="wpn tal"></select>
       <button type="button" onclick="openWeaponTalentPicker()" style="padding:5px 10px;border:1px solid var(--orange);background:rgba(245,166,35,.08);color:var(--orange);border-radius:4px;cursor:pointer;font-size:11px" title="Открыть полный список с описанием">🔍</button>
       <span id="b-wpn-tal-desc" style="font-size:10px;color:#555;flex-basis:100%"></span>
     </div>
@@ -311,12 +311,12 @@
   <div class="bsect" id="b-custom-sect" style="display:none">
     <h3>Параметры своего оружия</h3>
     <div class="bstat-row">
-      <div class="bstat"><label>Урон</label><input id="cw-dmg" value="60000" oninput="calcBuild()"><span class="u"></span></div>
-      <div class="bstat"><label>RPM</label><input id="cw-rpm" value="750" oninput="calcBuild()"><span class="u"></span></div>
-      <div class="bstat"><label>Магазин</label><input id="cw-mag" value="30" oninput="calcBuild()"><span class="u">шт</span></div>
-      <div class="bstat"><label>Перезарядка</label><input id="cw-rel" value="2.0" oninput="calcBuild()"><span class="u">с</span></div>
+      <div class="bstat"><label>Урон</label><input id="cw-dmg" value="60000" oninput="calcBuild()" aria-label="weapon dmg"><span class="u"></span></div>
+      <div class="bstat"><label>RPM</label><input id="cw-rpm" value="750" oninput="calcBuild()" aria-label="weapon rpm"><span class="u"></span></div>
+      <div class="bstat"><label>Магазин</label><input id="cw-mag" value="30" oninput="calcBuild()" aria-label="weapon mag"><span class="u">шт</span></div>
+      <div class="bstat"><label>Перезарядка</label><input id="cw-rel" value="2.0" oninput="calcBuild()" aria-label="weapon rel"><span class="u">с</span></div>
       <div class="bstat"><label>Тип</label>
-        <select id="cw-cat" style="width:80px;background:transparent;border:none;color:var(--orange);font-size:13px;font-weight:700;outline:none" onchange="calcBuild()">
+        <select id="cw-cat" style="width:80px;background:transparent;border:none;color:var(--orange);font-size:13px;font-weight:700;outline:none" onchange="calcBuild()" aria-label="cw cat">
           <option value="AR">AR</option><option value="LMG">LMG</option><option value="MMR">MMR</option>
           <option value="SMG">SMG</option><option value="SG">SG</option><option value="Rifle">Rifle</option><option value="Pistol">Pistol</option>
         </select>
@@ -341,7 +341,7 @@
         <div>
           <label style="font-size:10px;color:var(--muted);display:block;margin-bottom:2px">Талант нагрудника</label>
           <div style="display:flex;gap:4px">
-            <select id="b-chest-talent" class="bsel" onchange="onChestTalentChange(); calcBuild()" style="flex:1;padding:5px">
+            <select id="b-chest-talent" class="bsel" onchange="onChestTalentChange(); calcBuild()" style="flex:1;padding:5px" aria-label="chest talent">
               <option value="">— не выбран —</option>
             </select>
             <button type="button" onclick="openGearTalentPicker('chest')" style="padding:5px 10px;border:1px solid var(--orange);background:rgba(245,166,35,.08);color:var(--orange);border-radius:4px;cursor:pointer;font-size:11px" title="Открыть полный список с описанием">🔍</button>
@@ -351,7 +351,7 @@
         <div>
           <label style="font-size:10px;color:var(--muted);display:block;margin-bottom:2px">Талант рюкзака</label>
           <div style="display:flex;gap:4px">
-            <select id="b-bp-talent" class="bsel" onchange="onBpTalentChange(); calcBuild()" style="flex:1;padding:5px">
+            <select id="b-bp-talent" class="bsel" onchange="onBpTalentChange(); calcBuild()" style="flex:1;padding:5px" aria-label="bp talent">
               <option value="">— не выбран —</option>
             </select>
             <button type="button" onclick="openGearTalentPicker('bp')" style="padding:5px 10px;border:1px solid var(--orange);background:rgba(245,166,35,.08);color:var(--orange);border-radius:4px;cursor:pointer;font-size:11px" title="Открыть полный список с описанием">🔍</button>
@@ -364,24 +364,24 @@
       <div style="font-size:11px;color:var(--blue);margin-bottom:6px;font-weight:600">CORE-АТРИБУТЫ СВОБОДНЫХ СЛОТОВ (не именных/экзотик)</div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
         <label style="display:flex;align-items:center;gap:5px;font-size:12px">🔴 Красных (WD +15% каждый):
-          <input type="number" id="core-red" value="0" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
+          <input type="number" id="core-red" value="0" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px" aria-label="core red">
         </label>
         <label style="display:flex;align-items:center;gap:5px;font-size:12px">🔵 Синих (+16594 брони):
-          <input type="number" id="core-blue" value="0" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
+          <input type="number" id="core-blue" value="0" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px" aria-label="core blue">
         </label>
         <label style="display:flex;align-items:center;gap:5px;font-size:12px">🟡 Жёлтых (+1 Skill Tier):
-          <input type="number" id="core-yellow" value="0" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px">
+          <input type="number" id="core-yellow" value="0" min="0" max="7" oninput="calcBuild()" style="width:50px;padding:3px 5px;background:var(--bg);border:1px solid var(--border);color:var(--txt);border-radius:3px" aria-label="core yellow">
         </label>
       </div>
       <div style="font-size:10px;color:var(--muted);margin-top:4px">6 слотов брони + 1 от оружия = до 7 красных core. SHD-часы автоматически дают +10% WD (часть итога из меню игры).</div>
     </div>
-    <input type="hidden" id="b-core-mode" value="red">
-    <input type="hidden" id="b-core-mask" value="red">
-    <input type="hidden" id="b-core-chest" value="red">
-    <input type="hidden" id="b-core-bp" value="red">
-    <input type="hidden" id="b-core-gloves" value="red">
-    <input type="hidden" id="b-core-holster" value="red">
-    <input type="hidden" id="b-core-knees" value="red">
+    <input type="hidden" id="b-core-mode" value="red" aria-label="core mode">
+    <input type="hidden" id="b-core-mask" value="red" aria-label="core mask">
+    <input type="hidden" id="b-core-chest" value="red" aria-label="core chest">
+    <input type="hidden" id="b-core-bp" value="red" aria-label="core bp">
+    <input type="hidden" id="b-core-gloves" value="red" aria-label="core gloves">
+    <input type="hidden" id="b-core-holster" value="red" aria-label="core holster">
+    <input type="hidden" id="b-core-knees" value="red" aria-label="core knees">
   </div>
 
   <!-- Compact result (overview) -->
@@ -436,7 +436,7 @@
       <div id="weapon-stats-info" style="font-size:11px;color:var(--muted);margin-bottom:6px">Выбери оружие выше чтобы увидеть статы его класса</div>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
         <label style="font-size:11px;color:var(--muted)">3-й стат (выбор):</label>
-        <select id="weapon-stat3" onchange="onWeaponStat3Change()" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+        <select id="weapon-stat3" onchange="onWeaponStat3Change()" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px" aria-label="weapon stat3">
           <option value="chc">Шанс крит. удара (+15%)</option>
           <option value="chd">Урон крит. удара (+25%)</option>
           <option value="hsd">Урон в голову (+21%)</option>
@@ -456,7 +456,7 @@
       <div id="weapon-mods-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px">
         <div data-slot-wrap="optic" style="display:flex;flex-direction:column;gap:3px">
           <label style="font-size:10px;color:var(--muted);text-transform:uppercase">🎯 Optic (Прицел)</label>
-          <select id="wmod-optic" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+          <select id="wmod-optic" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px" aria-label="wmod optic">
             <option value="none">— нет —</option>
             <option value="hsd+15">+15% урон в голову</option>
             <option value="chc+10">+10% шанс крита</option>
@@ -465,7 +465,7 @@
         </div>
         <div data-slot-wrap="muzzle" style="display:flex;flex-direction:column;gap:3px">
           <label style="font-size:10px;color:var(--muted);text-transform:uppercase">🔥 Muzzle (Дульный)</label>
-          <select id="wmod-muzzle" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+          <select id="wmod-muzzle" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px" aria-label="wmod muzzle">
             <option value="none">— нет —</option>
             <option value="chc+5">+5% шанс крита</option>
             <option value="chd+10">+10% урон крита</option>
@@ -474,7 +474,7 @@
         </div>
         <div data-slot-wrap="underbarrel" style="display:flex;flex-direction:column;gap:3px">
           <label style="font-size:10px;color:var(--muted);text-transform:uppercase">🤝 Underbarrel (Подствол)</label>
-          <select id="wmod-underbarrel" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+          <select id="wmod-underbarrel" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px" aria-label="wmod underbarrel">
             <option value="none">— нет —</option>
             <option value="hsd+5">+5% HSD (грип)</option>
             <option value="handling+15">+15% Управление</option>
@@ -482,7 +482,7 @@
         </div>
         <div data-slot-wrap="magazine" style="display:flex;flex-direction:column;gap:3px">
           <label style="font-size:10px;color:var(--muted);text-transform:uppercase">📦 Magazine (Магазин)</label>
-          <select id="wmod-magazine" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+          <select id="wmod-magazine" onchange="onWeaponModChange()" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px" aria-label="wmod magazine">
             <option value="none">— нет —</option>
             <option value="mag+15">+15% размер магазина</option>
             <option value="reload+15">+15% скор. перезарядки</option>
@@ -496,7 +496,7 @@
     <div style="margin-top:10px;padding:10px;border:1px solid var(--border);border-radius:6px;background:rgba(245,166,35,.05)">
       <div style="font-size:10px;color:var(--orange);text-transform:uppercase;margin-bottom:4px">⭐ Экспертиза (level 0-30, применяется ко всему)</div>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <input type="number" id="gear-expertise-level" min="0" max="30" value="30" oninput="onExpertiseLevelChange()" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:12px;width:80px">
+        <input type="number" id="gear-expertise-level" min="0" max="30" value="30" oninput="onExpertiseLevelChange()" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:12px;width:80px" aria-label="gear expertise level">
         <span style="font-size:11px;color:var(--muted)">уровень (max 30, Elevated с 20)</span>
         <button type="button" class="mf-btn" onclick="document.getElementById('gear-expertise-level').value=30;onExpertiseLevelChange()">MAX</button>
         <button type="button" class="mf-btn" onclick="document.getElementById('gear-expertise-level').value=20;onExpertiseLevelChange()">20</button>
@@ -507,7 +507,7 @@
 
     <!-- Specialization (informational — no math) -->
     <div style="margin-top:12px;display:none" id="gear-specialization-wrap">
-      <select id="gear-specialization" onchange="recomputeGearStats()" style="display:none">
+      <select id="gear-specialization" onchange="recomputeGearStats()" style="display:none" aria-label="gear specialization">
         <option value="">—</option>
       </select>
     </div>
@@ -533,35 +533,35 @@
 
     <div style="font-size:11px;color:#ef5350;margin:6px 0;text-transform:uppercase">Критический</div>
     <div class="bstat-row">
-      <div class="bstat"><label>CHC (шанс крита, макс 60%)</label><input id="b-chc" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>CHD (урон крита, 25 базовый)</label><input id="b-chd" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>HSD (урон в голову)</label><input id="b-hsd" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label title="% выстрелов в голову. Нужен для расчёта DPS с HSD.">% попаданий в голову ⓘ</label><input id="b-hsrate" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>CHC (шанс крита, макс 60%)</label><input id="b-chc" value="0" type="number" oninput="calcBuild()" aria-label="chc"><span class="u">%</span></div>
+      <div class="bstat"><label>CHD (урон крита, 25 базовый)</label><input id="b-chd" value="0" type="number" oninput="calcBuild()" aria-label="chd"><span class="u">%</span></div>
+      <div class="bstat"><label>HSD (урон в голову)</label><input id="b-hsd" value="0" type="number" oninput="calcBuild()" aria-label="hsd"><span class="u">%</span></div>
+      <div class="bstat"><label title="% выстрелов в голову. Нужен для расчёта DPS с HSD.">% попаданий в голову ⓘ</label><input id="b-hsrate" value="0" type="number" oninput="calcBuild()" aria-label="hsrate"><span class="u">%</span></div>
     </div>
 
     <div style="font-size:11px;color:#f5a623;margin:6px 0;text-transform:uppercase">Доп. урон (категория "Наступление")</div>
     <div id="b-wpn-cat-hint" style="font-size:11px;color:var(--green);margin-bottom:4px"></div>
     <div class="bstat-row">
-      <div class="bstat"><label>Доп. урон от всего оружия</label><input id="b-wd" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>От AR (штурмовых)</label><input id="b-wd-ar" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>От SMG (ПП)</label><input id="b-wd-smg" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>От LMG (пулемёты)</label><input id="b-wd-lmg" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>От MMR (снайперки)</label><input id="b-wd-mmr" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>От Rifle (винтовки)</label><input id="b-wd-rifle" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>От SG (дробовики)</label><input id="b-wd-sg" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>От Pistol (пистолеты)</label><input id="b-wd-pistol" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Доп. урон от всего оружия</label><input id="b-wd" value="0" type="number" oninput="calcBuild()" aria-label="wd"><span class="u">%</span></div>
+      <div class="bstat"><label>От AR (штурмовых)</label><input id="b-wd-ar" value="0" type="number" oninput="calcBuild()" aria-label="wd ar"><span class="u">%</span></div>
+      <div class="bstat"><label>От SMG (ПП)</label><input id="b-wd-smg" value="0" type="number" oninput="calcBuild()" aria-label="wd smg"><span class="u">%</span></div>
+      <div class="bstat"><label>От LMG (пулемёты)</label><input id="b-wd-lmg" value="0" type="number" oninput="calcBuild()" aria-label="wd lmg"><span class="u">%</span></div>
+      <div class="bstat"><label>От MMR (снайперки)</label><input id="b-wd-mmr" value="0" type="number" oninput="calcBuild()" aria-label="wd mmr"><span class="u">%</span></div>
+      <div class="bstat"><label>От Rifle (винтовки)</label><input id="b-wd-rifle" value="0" type="number" oninput="calcBuild()" aria-label="wd rifle"><span class="u">%</span></div>
+      <div class="bstat"><label>От SG (дробовики)</label><input id="b-wd-sg" value="0" type="number" oninput="calcBuild()" aria-label="wd sg"><span class="u">%</span></div>
+      <div class="bstat"><label>От Pistol (пистолеты)</label><input id="b-wd-pistol" value="0" type="number" oninput="calcBuild()" aria-label="wd pistol"><span class="u">%</span></div>
     </div>
 
     <div style="font-size:11px;color:#42a5f5;margin:6px 0;text-transform:uppercase">Прочее</div>
     <div class="bstat-row">
-      <div class="bstat" style="display:none"><label>Вне укрытия (OoC)</label><input id="b-ooc" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Урон по броне (DtA)</label><input id="b-dta" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label title="Damage to Health — бонус урона по целям без брони (голое HP). Источники: Hunter's Fury 4pc, некоторые бренды и названные предметы.">Урон здоровью (DtH) ⓘ</label><input id="b-dth" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Скорость перезарядки</label><input id="b-reload" value="0" type="number" oninput="calcBuild()"><span class="u">%</span><label style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);margin-left:6px;cursor:pointer"><input type="checkbox" id="b-no-reload" onchange="calcBuild()" style="margin:0"> без перезарядки</label></div>
-      <div class="bstat" style="display:none"><label>Скорострельность (RoF)</label><input id="b-rof" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Магазин (mag %)</label><input id="b-mag" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label title="Amplified — отдельный внешний множитель DPS. Источники: Страйкер 4pc Hackstep Protocol (до +20%), некоторые экзотики/таланты. Не входит в WD бакет.">Amp (усилитель) ⓘ</label><input id="b-amp" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label title="Экспертные знания оружия — отдельный множитель поверх WD. При +15 ур. экспертизы получаешь +15% урона от оружия. Не входит в графу 'Доп. урон от всего оружия' в меню игры, но применяется в реальном уроне.">Экспертиза оружия ⓘ</label><input id="b-expertise" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat" style="display:none"><label>Вне укрытия (OoC)</label><input id="b-ooc" value="0" type="number" oninput="calcBuild()" aria-label="ooc"><span class="u">%</span></div>
+      <div class="bstat"><label>Урон по броне (DtA)</label><input id="b-dta" value="0" type="number" oninput="calcBuild()" aria-label="dta"><span class="u">%</span></div>
+      <div class="bstat"><label title="Damage to Health — бонус урона по целям без брони (голое HP). Источники: Hunter's Fury 4pc, некоторые бренды и названные предметы.">Урон здоровью (DtH) ⓘ</label><input id="b-dth" value="0" type="number" oninput="calcBuild()" aria-label="dth"><span class="u">%</span></div>
+      <div class="bstat"><label>Скорость перезарядки</label><input id="b-reload" value="0" type="number" oninput="calcBuild()" aria-label="reload"><span class="u">%</span><label style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);margin-left:6px;cursor:pointer"><input type="checkbox" id="b-no-reload" onchange="calcBuild()" style="margin:0" aria-label="no reload"> без перезарядки</label></div>
+      <div class="bstat" style="display:none"><label>Скорострельность (RoF)</label><input id="b-rof" value="0" type="number" oninput="calcBuild()" aria-label="rof"><span class="u">%</span></div>
+      <div class="bstat"><label>Магазин (mag %)</label><input id="b-mag" value="0" type="number" oninput="calcBuild()" aria-label="mag"><span class="u">%</span></div>
+      <div class="bstat"><label title="Amplified — отдельный внешний множитель DPS. Источники: Страйкер 4pc Hackstep Protocol (до +20%), некоторые экзотики/таланты. Не входит в WD бакет.">Amp (усилитель) ⓘ</label><input id="b-amp" value="0" type="number" oninput="calcBuild()" aria-label="amp"><span class="u">%</span></div>
+      <div class="bstat"><label title="Экспертные знания оружия — отдельный множитель поверх WD. При +15 ур. экспертизы получаешь +15% урона от оружия. Не входит в графу 'Доп. урон от всего оружия' в меню игры, но применяется в реальном уроне.">Экспертиза оружия ⓘ</label><input id="b-expertise" value="0" type="number" oninput="calcBuild()" aria-label="expertise"><span class="u">%</span></div>
     </div>
 
     <div style="font-size:11px;color:#42a5f5;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">👥 Состав группы</div>
@@ -569,7 +569,7 @@
       <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;cursor:pointer">
         <span>Игроков в группе:</span>
       </label>
-      <select id="b-group-size" onchange="calcBuild()" class="bsel" style="font-size:11px;padding:3px 8px;min-width:120px">
+      <select id="b-group-size" onchange="calcBuild()" class="bsel" style="font-size:11px;padding:3px 8px;min-width:120px" aria-label="group size">
         <option value="1">1 — соло</option>
         <option value="2">2 игрока</option>
         <option value="3">3 игрока</option>
@@ -593,7 +593,7 @@
       Влияет на баланс DtA/DtH и бонусы типа Pyromaniac против Cleaners.
     </div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(253,216,53,.05);border:1px solid rgba(253,216,53,.2);border-radius:6px">
-      <select id="b-target-faction" onchange="calcBuild()" class="bsel" style="font-size:11px;padding:3px 8px;min-width:170px">
+      <select id="b-target-faction" onchange="calcBuild()" class="bsel" style="font-size:11px;padding:3px 8px;min-width:170px" aria-label="target faction">
         <option value="any">Любая</option>
         <option value="hunters">Hunters (охотники)</option>
         <option value="black_tusk">Black Tusk (Чёрный клык)</option>
@@ -621,9 +621,9 @@
     </div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(239,83,80,.05);border:1px solid rgba(239,83,80,.2);border-radius:6px">
       <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;cursor:pointer">
-        <input type="checkbox" id="b-status-target" onchange="calcBuild()" style="margin:0"> Активировать «цель со статусом»
+        <input type="checkbox" id="b-status-target" onchange="calcBuild()" style="margin:0" aria-label="status target"> Активировать «цель со статусом»
       </label>
-      <select id="b-status-type" onchange="calcBuild()" class="bsel" style="min-width:140px;font-size:11px;padding:3px 6px">
+      <select id="b-status-type" onchange="calcBuild()" class="bsel" style="min-width:140px;font-size:11px;padding:3px 6px" aria-label="status type">
         <option value="any">Любой эффект</option>
         <option value="burn">Горение 🔥</option>
         <option value="bleed">Кровотечение 🩸</option>
@@ -653,34 +653,34 @@
     <div class="bstat-row" id="proto-slots">
       <div class="bstat" style="flex-direction:column;align-items:stretch;min-width:200px">
         <label style="font-size:9px">Augment 1</label>
-        <select id="proto-1-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()">
+        <select id="proto-1-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()" aria-label="proto 1 aug">
           <option value="">— нет —</option>
         </select>
         <div style="display:flex;gap:4px;margin-top:4px;align-items:center">
           <span style="font-size:9px;color:var(--muted)">Lvl</span>
-          <input id="proto-1-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()">
+          <input id="proto-1-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()" aria-label="proto 1 lvl">
           <span id="proto-1-val" style="font-size:10px;color:var(--orange);margin-left:4px"></span>
         </div>
       </div>
       <div class="bstat" style="flex-direction:column;align-items:stretch;min-width:200px">
         <label style="font-size:9px">Augment 2</label>
-        <select id="proto-2-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()">
+        <select id="proto-2-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()" aria-label="proto 2 aug">
           <option value="">— нет —</option>
         </select>
         <div style="display:flex;gap:4px;margin-top:4px;align-items:center">
           <span style="font-size:9px;color:var(--muted)">Lvl</span>
-          <input id="proto-2-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()">
+          <input id="proto-2-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()" aria-label="proto 2 lvl">
           <span id="proto-2-val" style="font-size:10px;color:var(--orange);margin-left:4px"></span>
         </div>
       </div>
       <div class="bstat" style="flex-direction:column;align-items:stretch;min-width:200px">
         <label style="font-size:9px">Augment 3</label>
-        <select id="proto-3-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()">
+        <select id="proto-3-aug" class="bsel" style="width:auto;padding:4px" onchange="calcBuild()" aria-label="proto 3 aug">
           <option value="">— нет —</option>
         </select>
         <div style="display:flex;gap:4px;margin-top:4px;align-items:center">
           <span style="font-size:9px;color:var(--muted)">Lvl</span>
-          <input id="proto-3-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()">
+          <input id="proto-3-lvl" type="number" value="0" min="0" max="10" style="width:40px;font-size:11px" oninput="calcBuild()" aria-label="proto 3 lvl">
           <span id="proto-3-val" style="font-size:10px;color:var(--orange);margin-left:4px"></span>
         </div>
       </div>
@@ -697,17 +697,17 @@
     <div class="bsect-body">
     <div style="font-size:11px;color:#ef5350;margin:4px 0 6px;text-transform:uppercase;letter-spacing:.5px">Атакующие (Offensive)</div>
     <div class="bstat-row">
-      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span> <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-wd" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span> <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-hsd" value="20" max="20" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span> <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-chc" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span> <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-chd" value="20" max="20" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span> <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-wd" value="10" max="10" oninput="calcBuild()" aria-label="shd wd"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span> <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-hsd" value="20" max="20" oninput="calcBuild()" aria-label="shd hsd"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span> <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-chc" value="10" max="10" oninput="calcBuild()" aria-label="shd chc"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span> <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-chd" value="20" max="20" oninput="calcBuild()" aria-label="shd chd"><span class="u">%</span></div>
     </div>
     <div style="font-size:11px;color:#fdd835;margin:6px 0;text-transform:uppercase;letter-spacing:.5px">Управление (Handling)</div>
     <div class="bstat-row">
-      <div class="bstat"><label>Боезапас <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-ammo" value="20" max="20" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Перезарядка <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-reload" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Точность <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-accuracy" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Стабильность <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-stability" value="10" max="10" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Боезапас <span style="color:#555;font-size:10px">макс 20</span></label><input id="shd-ammo" value="20" max="20" oninput="calcBuild()" aria-label="shd ammo"><span class="u">%</span></div>
+      <div class="bstat"><label>Перезарядка <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-reload" value="10" max="10" oninput="calcBuild()" aria-label="shd reload"><span class="u">%</span></div>
+      <div class="bstat"><label>Точность <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-accuracy" value="10" max="10" oninput="calcBuild()" aria-label="shd accuracy"><span class="u">%</span></div>
+      <div class="bstat"><label>Стабильность <span style="color:#555;font-size:10px">макс 10</span></label><input id="shd-stability" value="10" max="10" oninput="calcBuild()" aria-label="shd stability"><span class="u">%</span></div>
     </div>
     <div style="font-size:10px;color:#555">SHD 1000+ → +10% CHC/CHD/WD навсегда. CHC итоговый софт-кап 60%. Точность/стабильность не входят в DPS математику.</div>
     </div>
@@ -720,13 +720,13 @@
     <summary><h3><span class="caret">▼</span> 🧪 Prototype Gear Attributes <span style="font-size:10px;color:#555;text-transform:none;letter-spacing:0;font-weight:400">· бонусы от Prototype брони (Y8S1, max ×1.5 от обычных)</span></h3></summary>
     <div class="bsect-body">
     <div class="bstat-row">
-      <div class="bstat"><label>Slots</label><input id="proto-slots-count" type="number" value="0" min="0" max="6" oninput="calcBuild()"><span class="u">из 6</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span></label><input id="proto-wd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span></label><input id="proto-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span></label><input id="proto-chc" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span></label><input id="proto-chd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>vs Elite</label><input id="proto-elite" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>vs Health</label><input id="proto-health" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Slots</label><input id="proto-slots-count" type="number" value="0" min="0" max="6" oninput="calcBuild()" aria-label="proto slots count"><span class="u">из 6</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="WD">WD</span></label><input id="proto-wd" value="0" oninput="calcBuild()" aria-label="proto wd"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="HSD">HSD</span></label><input id="proto-hsd" value="0" oninput="calcBuild()" aria-label="proto hsd"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHC">CHC</span></label><input id="proto-chc" value="0" oninput="calcBuild()" aria-label="proto chc"><span class="u">%</span></div>
+      <div class="bstat"><label><span class="stat-tip" data-stat="CHD">CHD</span></label><input id="proto-chd" value="0" oninput="calcBuild()" aria-label="proto chd"><span class="u">%</span></div>
+      <div class="bstat"><label>vs Elite</label><input id="proto-elite" value="0" oninput="calcBuild()" aria-label="proto elite"><span class="u">%</span></div>
+      <div class="bstat"><label>vs Health</label><input id="proto-health" value="0" oninput="calcBuild()" aria-label="proto health"><span class="u">%</span></div>
     </div>
     <div style="font-size:10px;color:#555;margin-top:4px">Prototype max per slot: WD 22.5%, HSD 15%, CHC 9%, CHD 18%, vs Elite 18%, vs Health 18%. Заполни вручную сколько у тебя на каждом prototype предмете в сумме.</div>
     </div>
@@ -740,21 +740,21 @@
     <div class="bsect-body">
     <div style="font-size:11px;color:#ef5350;margin:4px 0 6px;text-transform:uppercase;letter-spacing:.5px">Атакующие (Offense)</div>
     <div class="bstat-row">
-      <div class="bstat"><label>Урон в голову</label><input id="rc-hsd" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Патроны</label><input id="rc-ammo" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Эргономика</label><input id="rc-ergo" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Урон в голову</label><input id="rc-hsd" value="0" oninput="calcBuild()" aria-label="recal hsd"><span class="u">%</span></div>
+      <div class="bstat"><label>Патроны</label><input id="rc-ammo" value="0" oninput="calcBuild()" aria-label="recal ammo"><span class="u">%</span></div>
+      <div class="bstat"><label>Эргономика</label><input id="rc-ergo" value="0" oninput="calcBuild()" aria-label="recal ergo"><span class="u">%</span></div>
     </div>
     <div style="font-size:11px;color:#42a5f5;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">Защитные (Defense)</div>
     <div class="bstat-row">
-      <div class="bstat"><label>Броня</label><input id="rc-armor" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Против элит</label><input id="rc-elite" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Защ. от статусов</label><input id="rc-hazprot" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Броня</label><input id="rc-armor" value="0" oninput="calcBuild()" aria-label="recal armor"><span class="u">%</span></div>
+      <div class="bstat"><label>Против элит</label><input id="rc-elite" value="0" oninput="calcBuild()" aria-label="recal elite"><span class="u">%</span></div>
+      <div class="bstat"><label>Защ. от статусов</label><input id="rc-hazprot" value="0" oninput="calcBuild()" aria-label="recal hazprot"><span class="u">%</span></div>
     </div>
     <div style="font-size:11px;color:#fdd835;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">Вспомогательные (Utility)</div>
     <div class="bstat-row">
-      <div class="bstat"><label>Статусы</label><input id="rc-status" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Урон навыка</label><input id="rc-skilldmg" value="0" oninput="calcBuild()"><span class="u">%</span></div>
-      <div class="bstat"><label>Свободный</label><input id="rc-util3" value="0" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat"><label>Статусы</label><input id="rc-status" value="0" oninput="calcBuild()" aria-label="recal status"><span class="u">%</span></div>
+      <div class="bstat"><label>Урон навыка</label><input id="rc-skilldmg" value="0" oninput="calcBuild()" aria-label="recal skilldmg"><span class="u">%</span></div>
+      <div class="bstat"><label>Свободный</label><input id="rc-util3" value="0" oninput="calcBuild()" aria-label="recal util3"><span class="u">%</span></div>
     </div>
     <div style="font-size:10px;color:#555;margin-top:6px">В DPS оружия идёт только <b style="color:var(--orange)">Урон в голову</b> и <b style="color:var(--orange)">Патроны</b> (на магазин). Защитные и утилитарные показаны для справки.</div>
     <details style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px" id="recom-sim-details">
@@ -826,7 +826,7 @@
     <div class="bsect-body">
     <div style="display:flex;gap:8px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
       <span style="font-size:11px;color:var(--muted)">Сложность:</span>
-      <select id="ttk-diff" class="bsel" style="max-width:180px" onchange="setTtkDiff(this.value)">
+      <select id="ttk-diff" class="bsel" style="max-width:180px" onchange="setTtkDiff(this.value)" aria-label="ttk diff">
         <option value="normal">Средняя</option>
         <option value="high">Высокая</option>
         <option value="challenging">Испытание</option>
@@ -834,7 +834,7 @@
         <option value="legendary">Легендарная</option>
       </select>
       <span style="font-size:11px;color:var(--muted)">Состав группы:</span>
-      <select id="ttk-players" class="bsel" style="max-width:140px" onchange="setTtkPlayers(this.value)">
+      <select id="ttk-players" class="bsel" style="max-width:140px" onchange="setTtkPlayers(this.value)" aria-label="ttk players">
         <option value="1" selected>1 игрок</option>
         <option value="2">2 игрока</option>
         <option value="3">3 игрока</option>
@@ -843,7 +843,7 @@
     </div>
     <div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;flex-wrap:wrap">
       <span style="font-size:11px;color:var(--muted)">Escalation Tier:</span>
-      <select id="ttk-escalation" class="bsel" style="max-width:260px" onchange="setEscalationTier(this.value)">
+      <select id="ttk-escalation" class="bsel" style="max-width:260px" onchange="setEscalationTier(this.value)" aria-label="ttk escalation">
         <option value="0">Tier 0 — базовый (100% HP/броня)</option>
         <option value="1">Tier 1 — 160% HP/броня</option>
         <option value="2">Tier 2 — 200% HP/броня</option>
@@ -859,8 +859,8 @@
       <span id="ttk-escalation-hint" style="font-size:10px;color:#555">Escalation — новый режим Y8S1 с нарастающей сложностью</span>
     </div>
     <div class="bstat-row" style="margin-bottom:10px">
-      <div class="bstat"><label>HP мобов +%</label><input id="ttk-hp-mult" type="number" value="0" min="0" max="800" step="25" oninput="onTtkMultChange()"><span class="u">%</span></div>
-      <div class="bstat"><label>Броня мобов +%</label><input id="ttk-ar-mult" type="number" value="0" min="0" max="800" step="25" oninput="onTtkMultChange()"><span class="u">%</span></div>
+      <div class="bstat"><label>HP мобов +%</label><input id="ttk-hp-mult" type="number" value="0" min="0" max="800" step="25" oninput="onTtkMultChange()" aria-label="ttk hp mult"><span class="u">%</span></div>
+      <div class="bstat"><label>Броня мобов +%</label><input id="ttk-ar-mult" type="number" value="0" min="0" max="800" step="25" oninput="onTtkMultChange()" aria-label="ttk ar mult"><span class="u">%</span></div>
       <div style="font-size:10px;color:#555;align-self:center;flex:1;min-width:160px">Escalation Tier автоматически выставляет оба поля. Можно править вручную для кастомных модификаторов.</div>
     </div>
     <table class="btl" id="ttk-table">
@@ -881,8 +881,8 @@
 <div class="bw" style="max-width:1100px">
   <div class="bsect" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
     <h3 style="margin:0 auto 0 0">🏆 Билды сообщества</h3>
-    <input type="text" id="comm-search" placeholder="Поиск по имени / автору..." class="bsel" style="flex:1;min-width:160px;max-width:260px" oninput="debouncedCommReload()">
-    <select id="comm-cat-filter" class="bsel" style="min-width:140px;max-width:180px" onchange="loadCommunityFeed()">
+    <input type="text" id="comm-search" placeholder="Поиск по имени / автору..." class="bsel" style="flex:1;min-width:160px;max-width:260px" oninput="debouncedCommReload()" aria-label="comm search">
+    <select id="comm-cat-filter" class="bsel" style="min-width:140px;max-width:180px" onchange="loadCommunityFeed()" aria-label="comm cat filter">
       <option value="">Все категории</option>
       <option value="AR">AR</option>
       <option value="SMG">SMG</option>
@@ -893,16 +893,16 @@
       <option value="Pistol">Pistol</option>
       <option value="Mixed">Mixed</option>
     </select>
-    <select id="comm-talent-filter" class="bsel" style="min-width:140px;max-width:200px" onchange="loadCommunityFeed()">
+    <select id="comm-talent-filter" class="bsel" style="min-width:140px;max-width:200px" onchange="loadCommunityFeed()" aria-label="comm talent filter">
       <option value="">Все таланты</option>
     </select>
-    <select id="comm-sort" class="bsel" style="min-width:140px;max-width:180px" onchange="loadCommunityFeed()">
+    <select id="comm-sort" class="bsel" style="min-width:140px;max-width:180px" onchange="loadCommunityFeed()" aria-label="comm sort">
       <option value="trending">📈 Trending</option>
       <option value="-likes,-created">🔥 Популярные</option>
       <option value="-created">🕐 Новые</option>
       <option value="-peak_dps">💪 По DPS</option>
     </select>
-    <select id="comm-scope" class="bsel" style="min-width:120px;max-width:160px" onchange="loadCommunityFeed()">
+    <select id="comm-scope" class="bsel" style="min-width:120px;max-width:160px" onchange="loadCommunityFeed()" aria-label="comm scope">
       <option value="all">Все билды</option>
       <option value="mine">Только мои</option>
       <option value="liked">Лайкнутые</option>
@@ -984,7 +984,7 @@
       <div style="font-size:11px;color:var(--muted);margin-bottom:10px">
         Роли: <b style="color:var(--green)">user</b> — обычный, <b style="color:var(--blue)">moderator</b> — может удалять/редактировать чужие билды, <b style="color:var(--red)">admin</b> — полный доступ.
       </div>
-      <input type="text" id="admin-user-search" placeholder="Поиск пользователей по нику/email..." oninput="adminSearchUsers()" style="width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:13px;outline:none;margin-bottom:10px">
+      <input type="text" id="admin-user-search" placeholder="Поиск пользователей по нику/email..." oninput="adminSearchUsers()" style="width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text);font-size:13px;outline:none;margin-bottom:10px" aria-label="admin user search">
       <div id="admin-user-list" style="max-height:55vh;overflow-y:auto"></div>
     </div>
   </div>
@@ -1046,16 +1046,16 @@
       </div>
       <div>
         <label>Скриншот (Ctrl+V / перетащи / выбери)</label>
-        <input type="file" id="bug-file" accept="image/*" onchange="handleBugFile(this.files[0])">
+        <input type="file" id="bug-file" accept="image/*" onchange="handleBugFile(this.files[0])" aria-label="bug file">
         <div id="bug-preview" style="margin-top:8px;display:none"><img id="bug-preview-img" style="max-width:100%;max-height:160px;border-radius:6px;border:1px solid var(--border)"><div id="bug-upload-status" style="font-size:10px;color:var(--muted);margin-top:4px"></div></div>
       </div>
       <div>
         <label>Контакт (ник / email / telegram, опционально)</label>
         <input name="contact" type="text" placeholder="@nick или email">
       </div>
-      <input type="hidden" name="page_url" id="bug-page-url">
-      <input type="hidden" name="user_agent" id="bug-ua">
-      <input type="hidden" name="screenshot_url" id="bug-shot-url">
+      <input type="hidden" name="page_url" id="bug-page-url" aria-label="bug page url">
+      <input type="hidden" name="user_agent" id="bug-ua" aria-label="bug ua">
+      <input type="hidden" name="screenshot_url" id="bug-shot-url" aria-label="bug shot url">
       <input type="hidden" name="_subject" value="Division 2 Calc — баг-репорт">
       <div id="bug-limit-warn" style="display:none;padding:10px 12px;border-radius:7px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.35);font-size:11px;color:var(--red);line-height:1.5"></div>
       <div class="bug-status" id="bug-status"></div>
@@ -1125,7 +1125,7 @@
       <button class="modal-close" onclick="closeTalentModal()">×</button>
     </div>
     <div class="modal-search">
-      <input type="text" id="tal-s1" placeholder="Поиск — имя, бонус..." oninput="renderTalentList()">
+      <input type="text" id="tal-s1" placeholder="Поиск — имя, бонус..." oninput="renderTalentList()" aria-label="tal s1">
     </div>
     <div class="modal-filters" id="tal-filters"></div>
     <div class="modal-list" id="tal-list"></div>
@@ -1140,8 +1140,8 @@
       <button class="modal-close" onclick="closeSlotModal()">×</button>
     </div>
     <div class="modal-search">
-      <input type="text" id="mod-s1" placeholder="Поиск — имя, бренд, талант..." oninput="renderSlotItems()">
-      <input type="text" id="mod-s2" placeholder="+ второе слово" oninput="renderSlotItems()">
+      <input type="text" id="mod-s1" placeholder="Поиск — имя, бренд, талант..." oninput="renderSlotItems()" aria-label="mod s1">
+      <input type="text" id="mod-s2" placeholder="+ второе слово" oninput="renderSlotItems()" aria-label="mod s2">
     </div>
     <div class="modal-filters" id="mod-filters">
       <button class="mf-btn on" data-k="all">Все</button>
@@ -1160,8 +1160,8 @@
     <h3>🔧 Моды оружия — Weapon Mods</h3>
     <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Группировка по типу слота. Бонусы и штрафы указаны. Названия на английском — игра англоязычная.</div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
-      <input type="text" id="wmods-search" placeholder="Поиск — название, стат..." class="bsel" style="flex:1;min-width:180px;max-width:320px" oninput="renderWeaponMods()">
-      <select id="wmods-type" class="bsel" style="min-width:160px;max-width:220px" onchange="renderWeaponMods()">
+      <input type="text" id="wmods-search" placeholder="Поиск — название, стат..." class="bsel" style="flex:1;min-width:180px;max-width:320px" oninput="renderWeaponMods()" aria-label="wmods search">
+      <select id="wmods-type" class="bsel" style="min-width:160px;max-width:220px" onchange="renderWeaponMods()" aria-label="wmods type">
         <option value="">Все типы</option>
       </select>
     </div>
@@ -1205,23 +1205,23 @@
   <div class="bsect">
     <h3>Базовые параметры</h3>
     <div class="bstat-row">
-      <div class="bstat"><label>Броня (Armor)</label><input id="t-armor" type="number" value="1700000" oninput="renderTank()"><span class="u"></span></div>
-      <div class="bstat"><label>Здоровье (HP)</label><input id="t-hp" type="number" value="290000" oninput="renderTank()"><span class="u"></span></div>
-      <div class="bstat"><label>Бонус. броня %</label><input id="t-bonus-armor" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
-      <div class="bstat"><label>Защ. от взрывов %</label><input id="t-explosive" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
+      <div class="bstat"><label>Броня (Armor)</label><input id="t-armor" type="number" value="1700000" oninput="renderTank()" aria-label="t armor"><span class="u"></span></div>
+      <div class="bstat"><label>Здоровье (HP)</label><input id="t-hp" type="number" value="290000" oninput="renderTank()" aria-label="t hp"><span class="u"></span></div>
+      <div class="bstat"><label>Бонус. броня %</label><input id="t-bonus-armor" type="number" value="0" oninput="renderTank()" aria-label="t bonus armor"><span class="u">%</span></div>
+      <div class="bstat"><label>Защ. от взрывов %</label><input id="t-explosive" type="number" value="0" oninput="renderTank()" aria-label="t explosive"><span class="u">%</span></div>
     </div>
 
     <div style="font-size:11px;color:#42a5f5;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">Регенерация</div>
     <div class="bstat-row">
-      <div class="bstat"><label>Восст. брони (на сек)</label><input id="t-armor-regen" type="number" value="0" oninput="renderTank()"><span class="u"></span></div>
-      <div class="bstat"><label>Восст. при убийстве %</label><input id="t-armor-on-kill" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
-      <div class="bstat"><label>Восст. навыками %</label><input id="t-skill-repair" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
+      <div class="bstat"><label>Восст. брони (на сек)</label><input id="t-armor-regen" type="number" value="0" oninput="renderTank()" aria-label="t armor regen"><span class="u"></span></div>
+      <div class="bstat"><label>Восст. при убийстве %</label><input id="t-armor-on-kill" type="number" value="0" oninput="renderTank()" aria-label="t armor on kill"><span class="u">%</span></div>
+      <div class="bstat"><label>Восст. навыками %</label><input id="t-skill-repair" type="number" value="0" oninput="renderTank()" aria-label="t skill repair"><span class="u">%</span></div>
     </div>
 
     <div style="font-size:11px;color:#ef5350;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">Внешняя защита</div>
     <div class="bstat-row">
-      <div class="bstat"><label>Уменьш. урона (DR) %</label><input id="t-dr" type="number" value="0" max="60" oninput="renderTank()"><span class="u">%</span></div>
-      <div class="bstat"><label>vs Hazard Protection %</label><input id="t-hazard" type="number" value="0" oninput="renderTank()"><span class="u">%</span></div>
+      <div class="bstat"><label>Уменьш. урона (DR) %</label><input id="t-dr" type="number" value="0" max="60" oninput="renderTank()" aria-label="t dr"><span class="u">%</span></div>
+      <div class="bstat"><label>vs Hazard Protection %</label><input id="t-hazard" type="number" value="0" oninput="renderTank()" aria-label="t hazard"><span class="u">%</span></div>
     </div>
   </div>
 
@@ -1239,10 +1239,10 @@
   <div class="bsect">
     <h3>Параметры билда</h3>
     <div class="bstat-row">
-      <div class="bstat"><label>Skill Tier (0-6)</label><input id="sk-tier" type="number" value="6" min="0" max="6" oninput="renderSkillCalc()"><span class="u">тир</span></div>
-      <div class="bstat"><label>Skill Damage (общий %)</label><input id="sk-dmg" type="number" value="0" oninput="renderSkillCalc()"><span class="u">%</span></div>
-      <div class="bstat"><label>Skill Haste (CD reduction)</label><input id="sk-haste" type="number" value="0" oninput="renderSkillCalc()"><span class="u">%</span></div>
-      <div class="bstat"><label>Status Effect %</label><input id="sk-status" type="number" value="0" oninput="renderSkillCalc()"><span class="u">%</span></div>
+      <div class="bstat"><label>Skill Tier (0-6)</label><input id="sk-tier" type="number" value="6" min="0" max="6" oninput="renderSkillCalc()" aria-label="sk tier"><span class="u">тир</span></div>
+      <div class="bstat"><label>Skill Damage (общий %)</label><input id="sk-dmg" type="number" value="0" oninput="renderSkillCalc()" aria-label="sk dmg"><span class="u">%</span></div>
+      <div class="bstat"><label>Skill Haste (CD reduction)</label><input id="sk-haste" type="number" value="0" oninput="renderSkillCalc()" aria-label="sk haste"><span class="u">%</span></div>
+      <div class="bstat"><label>Status Effect %</label><input id="sk-status" type="number" value="0" oninput="renderSkillCalc()" aria-label="sk status"><span class="u">%</span></div>
     </div>
     <div style="font-size:11px;color:var(--muted);margin-top:8px">
       💡 Skill Damage берётся из ATK атрибутов брони, бренды (Murakami, Empress, Walker, Yaahl), сетов (Hard Wired/Спецпрограмма, Future Initiative). Skill Tier даётся жёлтыми ядрами и SHD Watch.

@@ -59,7 +59,7 @@ const STATIC_REPLACEMENTS = [
   ['<h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">Возможно также</h3>',
     '<h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">Possibly also</h3>'],
   ['<h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">Источники</h3>',
-    '<h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">Sources<h3>'],
+    '<h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">Sources</h3>'],
   ['🌍 Общий мировой дроп (любой пул оружия / контейнер)', '🌍 General world drop (any weapon pool / container)'],
   // Stats table rows
   ['<tr><td>Урон (базовый)</td>', '<tr><td>Base damage</td>'],
@@ -292,6 +292,10 @@ function translateHtmlToEn(ruHtml, item, ruPath, itemType) {
     // Replace ALL occurrences of the RU name (escaped) with EN name
     // This covers: <title>, meta content, og, JSON-LD, h1, breadcrumb, synergy strong tags, etc.
     html = html.split(escape(ruName)).join(escape(enName));
+    // Collapse "Name (Name)" → "Name" — появляется в <title>Name (Name) — ...</title>
+    const esc = escape(enName);
+    const re = new RegExp('\\b' + esc.replace(/[.*+?^${}()|[\\\\]/g, '\\\\$&') + '\\s*\\(\\s*' + esc.replace(/[.*+?^${}()|[\\\\]/g, '\\\\$&') + '\\s*\\)', 'g');
+    html = html.replace(re, esc);
   }
 
   // Swap talent RU name → EN name (prefer explicit tal_name_en, then tal for weapons, then keep tal_ru)

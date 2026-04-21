@@ -935,6 +935,11 @@ function generateCategoryIndex(dir, titleRu, badge, items) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
 <meta name="description" content="${desc}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${canonical}">
+<meta property="og:title" content="${escape(titleRu)} — Division 2">
+<meta property="og:description" content="${desc}">
+<meta property="og:site_name" content="divcalc.xyz">
 <link rel="canonical" href="${canonical}">
 <link rel="stylesheet" href="/css/page.css">
 ${GA_CODE}

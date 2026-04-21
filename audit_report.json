@@ -1,17 +1,17 @@
 {
   "summary": {
-    "totalPages": 940,
-    "pagesWithIssues": 266,
-    "totalIssues": 268,
+    "totalPages": 941,
+    "pagesWithIssues": 261,
+    "totalIssues": 261,
     "issueCount": {
-      "missing og": 8,
-      "EN page has 4 cyrillic phrases": 14,
-      "RU page has 4 long Latin phrases": 4,
       "EN page has 1 cyrillic phrases": 151,
       "EN page has 2 cyrillic phrases": 53,
       "EN page has 3 cyrillic phrases": 30,
+      "EN page has 4 cyrillic phrases": 14,
       "EN page has 5 cyrillic phrases": 6,
+      "EN page has 540 cyrillic phrases": 1,
       "EN page has 6 cyrillic phrases": 1,
+      "RU page has 4 long Latin phrases": 4,
       "RU page has 5 long Latin phrases": 1
     }
   },
@@ -185,9 +185,7 @@
     {
       "file": "en/brand/index.html",
       "lang": "en",
-      "issues": [
-        "missing og:title"
-      ],
+      "issues": [],
       "title": "Brands — Division 2 | divcalc.xyz",
       "h1": "Brands",
       "canonical": "https://divcalc.xyz/en/brand/"
@@ -344,7 +342,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Акоста)\", \"комплекты снаряжения\""
       ],
-      "title": "Acosta's Go-Bag (Acosta's Go-Bag) — Division 2 exotic | divcalc.xyz",
+      "title": "Acosta's Go-Bag — Division 2 exotic | divcalc.xyz",
       "h1": "Acosta's Go-Bag",
       "canonical": "https://divcalc.xyz/en/exotic/acosta-s-go-bag"
     },
@@ -354,7 +352,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Acosta's Kneepads (Acosta's Kneepads) — Division 2 exotic | divcalc.xyz",
+      "title": "Acosta's Kneepads — Division 2 exotic | divcalc.xyz",
       "h1": "Acosta's Kneepads",
       "canonical": "https://divcalc.xyz/en/exotic/acosta-s-kneepads"
     },
@@ -362,7 +360,7 @@
       "file": "en/exotic/agitator.html",
       "lang": "en",
       "issues": [],
-      "title": "Agitator (Agitator) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Agitator — Division 2 exotic AR | divcalc.xyz",
       "h1": "Agitator",
       "canonical": "https://divcalc.xyz/en/exotic/agitator"
     },
@@ -370,7 +368,7 @@
       "file": "en/exotic/backfire.html",
       "lang": "en",
       "issues": [],
-      "title": "Backfire (Backfire) — Division 2 exotic SMG | divcalc.xyz",
+      "title": "Backfire — Division 2 exotic SMG | divcalc.xyz",
       "h1": "Backfire",
       "canonical": "https://divcalc.xyz/en/exotic/backfire"
     },
@@ -380,7 +378,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Beacon (Beacon) — Division 2 exotic | divcalc.xyz",
+      "title": "Beacon — Division 2 exotic | divcalc.xyz",
       "h1": "Beacon",
       "canonical": "https://divcalc.xyz/en/exotic/beacon"
     },
@@ -388,7 +386,7 @@
       "file": "en/exotic/beagle-bearer.html",
       "lang": "en",
       "issues": [],
-      "title": "Beagle Bearer (Beagle Bearer) — Division 2 exotic Rifle | divcalc.xyz",
+      "title": "Beagle Bearer — Division 2 exotic Rifle | divcalc.xyz",
       "h1": "Beagle Bearer",
       "canonical": "https://divcalc.xyz/en/exotic/beagle-bearer"
     },
@@ -396,7 +394,7 @@
       "file": "en/exotic/big-alejandro.html",
       "lang": "en",
       "issues": [],
-      "title": "Big Alejandro (Big Alejandro) — Division 2 exotic LMG | divcalc.xyz",
+      "title": "Big Alejandro — Division 2 exotic LMG | divcalc.xyz",
       "h1": "Big Alejandro",
       "canonical": "https://divcalc.xyz/en/exotic/big-alejandro"
     },
@@ -416,7 +414,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"талант)\", \"комплекты снаряжения\""
       ],
-      "title": "BikeNinja Messenger Kneepads (BikeNinja Messenger Kneepads) — Division 2 exotic | divcalc.xyz",
+      "title": "BikeNinja Messenger Kneepads — Division 2 exotic | divcalc.xyz",
       "h1": "BikeNinja Messenger Kneepads",
       "canonical": "https://divcalc.xyz/en/exotic/bikeninja-messenger-kneepads"
     },
@@ -426,7 +424,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"талант)\", \"Летний ивент\", \"Другое\""
       ],
-      "title": "Birdie's Quick Fix Pack (Birdie's Quick Fix Pack) — Division 2 exotic | divcalc.xyz",
+      "title": "Birdie's Quick Fix Pack — Division 2 exotic | divcalc.xyz",
       "h1": "Birdie's Quick Fix Pack",
       "canonical": "https://divcalc.xyz/en/exotic/birdie-s-quick-fix-pack"
     },
@@ -436,7 +434,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Birdie’s Quick Fix (Birdie’s Quick Fix) — Division 2 exotic | divcalc.xyz",
+      "title": "Birdie’s Quick Fix — Division 2 exotic | divcalc.xyz",
       "h1": "Birdie’s Quick Fix",
       "canonical": "https://divcalc.xyz/en/exotic/birdie-s-quick-fix"
     },
@@ -444,7 +442,7 @@
       "file": "en/exotic/bittersweet.html",
       "lang": "en",
       "issues": [],
-      "title": "Bittersweet (Bittersweet) — Division 2 exotic MMR | divcalc.xyz",
+      "title": "Bittersweet — Division 2 exotic MMR | divcalc.xyz",
       "h1": "Bittersweet",
       "canonical": "https://divcalc.xyz/en/exotic/bittersweet"
     },
@@ -454,7 +452,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"комплекты снаряжения\""
       ],
-      "title": "Blacklisters (Blacklisters) — Division 2 exotic | divcalc.xyz",
+      "title": "Blacklisters — Division 2 exotic | divcalc.xyz",
       "h1": "Blacklisters",
       "canonical": "https://divcalc.xyz/en/exotic/blacklisters"
     },
@@ -464,7 +462,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Bloody Knuckles (Bloody Knuckles) — Division 2 exotic | divcalc.xyz",
+      "title": "Bloody Knuckles — Division 2 exotic | divcalc.xyz",
       "h1": "Bloody Knuckles",
       "canonical": "https://divcalc.xyz/en/exotic/bloody-knuckles"
     },
@@ -474,7 +472,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Сезонная охота\""
       ],
-      "title": "Bluescreen (Bluescreen) — Division 2 exotic LMG | divcalc.xyz",
+      "title": "Bluescreen — Division 2 exotic LMG | divcalc.xyz",
       "h1": "Bluescreen",
       "canonical": "https://divcalc.xyz/en/exotic/bluescreen"
     },
@@ -484,7 +482,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Пентагон\", \"Последний бастион (\", \"Дроп с финального босса \""
       ],
-      "title": "BTSU Datagloves (BTSU Datagloves) — Division 2 exotic | divcalc.xyz",
+      "title": "BTSU Datagloves — Division 2 exotic | divcalc.xyz",
       "h1": "BTSU Datagloves",
       "canonical": "https://divcalc.xyz/en/exotic/btsu-datagloves"
     },
@@ -492,7 +490,7 @@
       "file": "en/exotic/bullet-king.html",
       "lang": "en",
       "issues": [],
-      "title": "Bullet King (Bullet King) — Division 2 exotic LMG | divcalc.xyz",
+      "title": "Bullet King — Division 2 exotic LMG | divcalc.xyz",
       "h1": "Bullet King",
       "canonical": "https://divcalc.xyz/en/exotic/bullet-king"
     },
@@ -502,7 +500,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"талант)\", \"комплекты снаряжения\""
       ],
-      "title": "Burly Knuckles (Burly Knuckles) — Division 2 exotic | divcalc.xyz",
+      "title": "Burly Knuckles — Division 2 exotic | divcalc.xyz",
       "h1": "Burly Knuckles",
       "canonical": "https://divcalc.xyz/en/exotic/burly-knuckles"
     },
@@ -510,7 +508,7 @@
       "file": "en/exotic/busy-little-bee.html",
       "lang": "en",
       "issues": [],
-      "title": "Busy Little Bee (Busy Little Bee) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Busy Little Bee — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Busy Little Bee",
       "canonical": "https://divcalc.xyz/en/exotic/busy-little-bee"
     },
@@ -518,7 +516,7 @@
       "file": "en/exotic/caduceus.html",
       "lang": "en",
       "issues": [],
-      "title": "Caduceus (Caduceus) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Caduceus — Division 2 exotic AR | divcalc.xyz",
       "h1": "Caduceus",
       "canonical": "https://divcalc.xyz/en/exotic/caduceus"
     },
@@ -528,7 +526,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Финальная награда \""
       ],
-      "title": "Capacitor (Capacitor) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Capacitor — Division 2 exotic AR | divcalc.xyz",
       "h1": "Capacitor",
       "canonical": "https://divcalc.xyz/en/exotic/capacitor"
     },
@@ -536,7 +534,7 @@
       "file": "en/exotic/cassidy.html",
       "lang": "en",
       "issues": [],
-      "title": "Cassidy (Cassidy) — Division 2 exotic SG | divcalc.xyz",
+      "title": "Cassidy — Division 2 exotic SG | divcalc.xyz",
       "h1": "Cassidy",
       "canonical": "https://divcalc.xyz/en/exotic/cassidy"
     },
@@ -546,7 +544,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Катализ\", \"комплекты снаряжения\""
       ],
-      "title": "Catalyst (Catalyst) — Division 2 exotic | divcalc.xyz",
+      "title": "Catalyst — Division 2 exotic | divcalc.xyz",
       "h1": "Catalyst",
       "canonical": "https://divcalc.xyz/en/exotic/catalyst"
     },
@@ -556,7 +554,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Catharsis (Catharsis) — Division 2 exotic | divcalc.xyz",
+      "title": "Catharsis — Division 2 exotic | divcalc.xyz",
       "h1": "Catharsis",
       "canonical": "https://divcalc.xyz/en/exotic/catharsis"
     },
@@ -566,7 +564,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Centurion’s Scabbard (Centurion’s Scabbard) — Division 2 exotic | divcalc.xyz",
+      "title": "Centurion’s Scabbard — Division 2 exotic | divcalc.xyz",
       "h1": "Centurion’s Scabbard",
       "canonical": "https://divcalc.xyz/en/exotic/centurion-s-scabbard"
     },
@@ -574,7 +572,7 @@
       "file": "en/exotic/centurion.html",
       "lang": "en",
       "issues": [],
-      "title": "Centurion (Centurion) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Centurion — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Centurion",
       "canonical": "https://divcalc.xyz/en/exotic/centurion"
     },
@@ -582,7 +580,7 @@
       "file": "en/exotic/chameleon.html",
       "lang": "en",
       "issues": [],
-      "title": "Chameleon (Chameleon) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Chameleon — Division 2 exotic AR | divcalc.xyz",
       "h1": "Chameleon",
       "canonical": "https://divcalc.xyz/en/exotic/chameleon"
     },
@@ -592,7 +590,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Collector (Collector) — Division 2 exotic | divcalc.xyz",
+      "title": "Collector — Division 2 exotic | divcalc.xyz",
       "h1": "Collector",
       "canonical": "https://divcalc.xyz/en/exotic/collector"
     },
@@ -602,7 +600,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Coyote’s Mask (Coyote’s Mask) — Division 2 exotic | divcalc.xyz",
+      "title": "Coyote’s Mask — Division 2 exotic | divcalc.xyz",
       "h1": "Coyote’s Mask",
       "canonical": "https://divcalc.xyz/en/exotic/coyote-s-mask"
     },
@@ -610,7 +608,7 @@
       "file": "en/exotic/damascus.html",
       "lang": "en",
       "issues": [],
-      "title": "Damascus (Damascus) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Damascus — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Damascus",
       "canonical": "https://divcalc.xyz/en/exotic/damascus"
     },
@@ -620,7 +618,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"финальная цель)\", \"Сейчас через \", \"после прохождения \""
       ],
-      "title": "Diamondback (Diamondback) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Diamondback — Division 2 exotic AR | divcalc.xyz",
       "h1": "Diamondback",
       "canonical": "https://divcalc.xyz/en/exotic/diamondback"
     },
@@ -628,7 +626,7 @@
       "file": "en/exotic/doctor-home.html",
       "lang": "en",
       "issues": [],
-      "title": "Doctor Home (Doctor Home) — Division 2 exotic Rifle | divcalc.xyz",
+      "title": "Doctor Home — Division 2 exotic Rifle | divcalc.xyz",
       "h1": "Doctor Home",
       "canonical": "https://divcalc.xyz/en/exotic/doctor-home"
     },
@@ -638,7 +636,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Финальная награда \", \"Другое\", \"комплекты снаряжения\""
       ],
-      "title": "Dodge City Gunslinger's Holster (Dodge City Gunslinger's Holster) — Division 2 exotic | divcalc.xyz",
+      "title": "Dodge City Gunslinger's Holster — Division 2 exotic | divcalc.xyz",
       "h1": "Dodge City Gunslinger's Holster",
       "canonical": "https://divcalc.xyz/en/exotic/dodge-city-gunslinger-s-holster"
     },
@@ -648,7 +646,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Dodge City Gunslinger (Dodge City Gunslinger) — Division 2 exotic | divcalc.xyz",
+      "title": "Dodge City Gunslinger — Division 2 exotic | divcalc.xyz",
       "h1": "Dodge City Gunslinger",
       "canonical": "https://divcalc.xyz/en/exotic/dodge-city-gunslinger"
     },
@@ -658,7 +656,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"талант)\", \"комплекты снаряжения\""
       ],
-      "title": "Dodge City Mudslinger's Holster (Dodge City Mudslinger's Holster) — Division 2 exotic | divcalc.xyz",
+      "title": "Dodge City Mudslinger's Holster — Division 2 exotic | divcalc.xyz",
       "h1": "Dodge City Mudslinger's Holster",
       "canonical": "https://divcalc.xyz/en/exotic/dodge-city-mudslinger-s-holster"
     },
@@ -668,7 +666,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"талант)\", \"комплекты снаряжения\""
       ],
-      "title": "Dogface (Dogface) — Division 2 exotic | divcalc.xyz",
+      "title": "Dogface — Division 2 exotic | divcalc.xyz",
       "h1": "Dogface",
       "canonical": "https://divcalc.xyz/en/exotic/dogface"
     },
@@ -676,7 +674,7 @@
       "file": "en/exotic/dread-edict.html",
       "lang": "en",
       "issues": [],
-      "title": "Dread Edict (Dread Edict) — Division 2 exotic MMR | divcalc.xyz",
+      "title": "Dread Edict — Division 2 exotic MMR | divcalc.xyz",
       "h1": "Dread Edict",
       "canonical": "https://divcalc.xyz/en/exotic/dread-edict"
     },
@@ -686,7 +684,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Операция «Тёмные часы» (финальный босс \", \"Дроп с финального босса рейда \", \"Требуется \""
       ],
-      "title": "Eagle Bearer (Eagle Bearer) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Eagle Bearer — Division 2 exotic AR | divcalc.xyz",
       "h1": "Eagle Bearer",
       "canonical": "https://divcalc.xyz/en/exotic/eagle-bearer"
     },
@@ -694,7 +692,7 @@
       "file": "en/exotic/eir.html",
       "lang": "en",
       "issues": [],
-      "title": "Eir (Eir) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Eir — Division 2 exotic AR | divcalc.xyz",
       "h1": "Eir",
       "canonical": "https://divcalc.xyz/en/exotic/eir"
     },
@@ -702,7 +700,7 @@
       "file": "en/exotic/engraved-double-barrel-sawed-off.html",
       "lang": "en",
       "issues": [],
-      "title": "Engraved Double Barrel Sawed Off (Engraved Double Barrel Sawed Off) — Division 2 exotic SG | divcalc.xyz",
+      "title": "Engraved Double Barrel Sawed Off — Division 2 exotic SG | divcalc.xyz",
       "h1": "Engraved Double Barrel Sawed Off",
       "canonical": "https://divcalc.xyz/en/exotic/engraved-double-barrel-sawed-off"
     },
@@ -712,7 +710,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Exodus Gloves (Exodus Gloves) — Division 2 exotic | divcalc.xyz",
+      "title": "Exodus Gloves — Division 2 exotic | divcalc.xyz",
       "h1": "Exodus Gloves",
       "canonical": "https://divcalc.xyz/en/exotic/exodus-gloves"
     },
@@ -722,7 +720,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Дымовая завеса\", \"комплекты снаряжения\""
       ],
-      "title": "Exodus (Exodus) — Division 2 exotic | divcalc.xyz",
+      "title": "Exodus — Division 2 exotic | divcalc.xyz",
       "h1": "Exodus",
       "canonical": "https://divcalc.xyz/en/exotic/exodus"
     },
@@ -730,7 +728,7 @@
       "file": "en/exotic/golden-rhino.html",
       "lang": "en",
       "issues": [],
-      "title": "Golden Rhino (Golden Rhino) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Golden Rhino — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Golden Rhino",
       "canonical": "https://divcalc.xyz/en/exotic/golden-rhino"
     },
@@ -740,7 +738,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Harrier Pride (Harrier Pride) — Division 2 exotic | divcalc.xyz",
+      "title": "Harrier Pride — Division 2 exotic | divcalc.xyz",
       "h1": "Harrier Pride",
       "canonical": "https://divcalc.xyz/en/exotic/harrier-pride"
     },
@@ -748,7 +746,7 @@
       "file": "en/exotic/hildr.html",
       "lang": "en",
       "issues": [],
-      "title": "Hildr (Hildr) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Hildr — Division 2 exotic AR | divcalc.xyz",
       "h1": "Hildr",
       "canonical": "https://divcalc.xyz/en/exotic/hildr"
     },
@@ -756,7 +754,7 @@
       "file": "en/exotic/historian.html",
       "lang": "en",
       "issues": [],
-      "title": "Historian (Historian) — Division 2 exotic MMR | divcalc.xyz",
+      "title": "Historian — Division 2 exotic MMR | divcalc.xyz",
       "h1": "Historian",
       "canonical": "https://divcalc.xyz/en/exotic/historian"
     },
@@ -764,7 +762,7 @@
       "file": "en/exotic/hungry-hog.html",
       "lang": "en",
       "issues": [],
-      "title": "Hungry Hog (Hungry Hog) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Hungry Hog — Division 2 exotic AR | divcalc.xyz",
       "h1": "Hungry Hog",
       "canonical": "https://divcalc.xyz/en/exotic/hungry-hog"
     },
@@ -774,16 +772,14 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Imperial Dynasty (Imperial Dynasty) — Division 2 exotic | divcalc.xyz",
+      "title": "Imperial Dynasty — Division 2 exotic | divcalc.xyz",
       "h1": "Imperial Dynasty",
       "canonical": "https://divcalc.xyz/en/exotic/imperial-dynasty"
     },
     {
       "file": "en/exotic/index.html",
       "lang": "en",
-      "issues": [
-        "missing og:title"
-      ],
+      "issues": [],
       "title": "Exotics — Division 2 | divcalc.xyz",
       "h1": "Exotics",
       "canonical": "https://divcalc.xyz/en/exotic/"
@@ -794,7 +790,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Investor (Investor) — Division 2 exotic | divcalc.xyz",
+      "title": "Investor — Division 2 exotic | divcalc.xyz",
       "h1": "Investor",
       "canonical": "https://divcalc.xyz/en/exotic/investor"
     },
@@ -802,7 +798,7 @@
       "file": "en/exotic/iron-lung.html",
       "lang": "en",
       "issues": [],
-      "title": "Iron Lung (Iron Lung) — Division 2 exotic LMG | divcalc.xyz",
+      "title": "Iron Lung — Division 2 exotic LMG | divcalc.xyz",
       "h1": "Iron Lung",
       "canonical": "https://divcalc.xyz/en/exotic/iron-lung"
     },
@@ -812,7 +808,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"или смерть\", \"комплекты снаряжения\""
       ],
-      "title": "Kendra's Liberty (Kendra's Liberty) — Division 2 exotic | divcalc.xyz",
+      "title": "Kendra's Liberty — Division 2 exotic | divcalc.xyz",
       "h1": "Kendra's Liberty",
       "canonical": "https://divcalc.xyz/en/exotic/kendra-s-liberty"
     },
@@ -822,7 +818,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Вторжение\", \"Дроп с финального босса \""
       ],
-      "title": "Lady Death (Lady Death) — Division 2 exotic SMG | divcalc.xyz",
+      "title": "Lady Death — Division 2 exotic SMG | divcalc.xyz",
       "h1": "Lady Death",
       "canonical": "https://divcalc.xyz/en/exotic/lady-death"
     },
@@ -830,7 +826,7 @@
       "file": "en/exotic/liberator.html",
       "lang": "en",
       "issues": [],
-      "title": "Liberator (Liberator) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Liberator — Division 2 exotic AR | divcalc.xyz",
       "h1": "Liberator",
       "canonical": "https://divcalc.xyz/en/exotic/liberator"
     },
@@ -840,7 +836,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"или смерть\", \"или смерть (\", \"Другое\""
       ],
-      "title": "Liberty (Liberty) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Liberty — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Liberty",
       "canonical": "https://divcalc.xyz/en/exotic/liberty"
     },
@@ -848,7 +844,7 @@
       "file": "en/exotic/lullaby.html",
       "lang": "en",
       "issues": [],
-      "title": "Lullaby (Lullaby) — Division 2 exotic SG | divcalc.xyz",
+      "title": "Lullaby — Division 2 exotic SG | divcalc.xyz",
       "h1": "Lullaby",
       "canonical": "https://divcalc.xyz/en/exotic/lullaby"
     },
@@ -856,7 +852,7 @@
       "file": "en/exotic/mantis.html",
       "lang": "en",
       "issues": [],
-      "title": "Mantis (Mantis) — Division 2 exotic MMR | divcalc.xyz",
+      "title": "Mantis — Division 2 exotic MMR | divcalc.xyz",
       "h1": "Mantis",
       "canonical": "https://divcalc.xyz/en/exotic/mantis"
     },
@@ -864,7 +860,7 @@
       "file": "en/exotic/medved.html",
       "lang": "en",
       "issues": [],
-      "title": "Medved (Medved) — Division 2 exotic SG | divcalc.xyz",
+      "title": "Medved — Division 2 exotic SG | divcalc.xyz",
       "h1": "Medved",
       "canonical": "https://divcalc.xyz/en/exotic/medved"
     },
@@ -884,7 +880,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Merciless / Ruthless (Merciless / Ruthless) — Division 2 exotic | divcalc.xyz",
+      "title": "Merciless / Ruthless — Division 2 exotic | divcalc.xyz",
       "h1": "Merciless / Ruthless",
       "canonical": "https://divcalc.xyz/en/exotic/merciless-ruthless"
     },
@@ -894,7 +890,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Экзотический тайник\""
       ],
-      "title": "Merciless (Merciless) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Merciless — Division 2 exotic AR | divcalc.xyz",
       "h1": "Merciless",
       "canonical": "https://divcalc.xyz/en/exotic/merciless"
     },
@@ -902,7 +898,7 @@
       "file": "en/exotic/midas.html",
       "lang": "en",
       "issues": [],
-      "title": "Midas (Midas) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Midas — Division 2 exotic AR | divcalc.xyz",
       "h1": "Midas",
       "canonical": "https://divcalc.xyz/en/exotic/midas"
     },
@@ -922,7 +918,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Комариная песня\", \"комплекты снаряжения\""
       ],
-      "title": "Mosquito Song (Mosquito Song) — Division 2 exotic | divcalc.xyz",
+      "title": "Mosquito Song — Division 2 exotic | divcalc.xyz",
       "h1": "Mosquito Song",
       "canonical": "https://divcalc.xyz/en/exotic/mosquito-song"
     },
@@ -930,7 +926,7 @@
       "file": "en/exotic/mosquito.html",
       "lang": "en",
       "issues": [],
-      "title": "Mosquito (Mosquito) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Mosquito — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Mosquito",
       "canonical": "https://divcalc.xyz/en/exotic/mosquito"
     },
@@ -938,7 +934,7 @@
       "file": "en/exotic/nemesis.html",
       "lang": "en",
       "issues": [],
-      "title": "Nemesis (Nemesis) — Division 2 exotic MMR | divcalc.xyz",
+      "title": "Nemesis — Division 2 exotic MMR | divcalc.xyz",
       "h1": "Nemesis",
       "canonical": "https://divcalc.xyz/en/exotic/nemesis"
     },
@@ -948,7 +944,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Nimble Holster (Nimble Holster) — Division 2 exotic | divcalc.xyz",
+      "title": "Nimble Holster — Division 2 exotic | divcalc.xyz",
       "h1": "Nimble Holster",
       "canonical": "https://divcalc.xyz/en/exotic/nimble-holster"
     },
@@ -958,7 +954,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "NinjaBike Bag (NinjaBike Bag) — Division 2 exotic | divcalc.xyz",
+      "title": "NinjaBike Bag — Division 2 exotic | divcalc.xyz",
       "h1": "NinjaBike Bag",
       "canonical": "https://divcalc.xyz/en/exotic/ninjabike-bag"
     },
@@ -968,7 +964,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "NinjaBike Kneepads (NinjaBike Kneepads) — Division 2 exotic | divcalc.xyz",
+      "title": "NinjaBike Kneepads — Division 2 exotic | divcalc.xyz",
       "h1": "NinjaBike Kneepads",
       "canonical": "https://divcalc.xyz/en/exotic/ninjabike-kneepads"
     },
@@ -978,7 +974,7 @@
       "issues": [
         "EN page has 5 cyrillic phrases: \"талант)\", \"Еженедельные проекты (база)\", \"за еженедельный \""
       ],
-      "title": "NinjaBike Messenger Backpack (NinjaBike Messenger Backpack) — Division 2 exotic | divcalc.xyz",
+      "title": "NinjaBike Messenger Backpack — Division 2 exotic | divcalc.xyz",
       "h1": "NinjaBike Messenger Backpack",
       "canonical": "https://divcalc.xyz/en/exotic/ninjabike-messenger-backpack"
     },
@@ -988,7 +984,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "NinjaBike Messenger Kneepads (NinjaBike Messenger Kneepads) — Division 2 exotic | divcalc.xyz",
+      "title": "NinjaBike Messenger Kneepads — Division 2 exotic | divcalc.xyz",
       "h1": "NinjaBike Messenger Kneepads",
       "canonical": "https://divcalc.xyz/en/exotic/ninjabike-messenger-kneepads"
     },
@@ -998,7 +994,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "NinjaBike Messenger (NinjaBike Messenger) — Division 2 exotic | divcalc.xyz",
+      "title": "NinjaBike Messenger — Division 2 exotic | divcalc.xyz",
       "h1": "NinjaBike Messenger",
       "canonical": "https://divcalc.xyz/en/exotic/ninjabike-messenger"
     },
@@ -1006,7 +1002,7 @@
       "file": "en/exotic/ouroboros.html",
       "lang": "en",
       "issues": [],
-      "title": "Ouroboros (Ouroboros) — Division 2 exotic SMG | divcalc.xyz",
+      "title": "Ouroboros — Division 2 exotic SMG | divcalc.xyz",
       "h1": "Ouroboros",
       "canonical": "https://divcalc.xyz/en/exotic/ouroboros"
     },
@@ -1016,7 +1012,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Overdogs (Overdogs) — Division 2 exotic | divcalc.xyz",
+      "title": "Overdogs — Division 2 exotic | divcalc.xyz",
       "h1": "Overdogs",
       "canonical": "https://divcalc.xyz/en/exotic/overdogs"
     },
@@ -1024,7 +1020,7 @@
       "file": "en/exotic/overlord.html",
       "lang": "en",
       "issues": [],
-      "title": "Overlord (Overlord) — Division 2 exotic SG | divcalc.xyz",
+      "title": "Overlord — Division 2 exotic SG | divcalc.xyz",
       "h1": "Overlord",
       "canonical": "https://divcalc.xyz/en/exotic/overlord"
     },
@@ -1032,7 +1028,7 @@
       "file": "en/exotic/oxpecker.html",
       "lang": "en",
       "issues": [],
-      "title": "Oxpecker (Oxpecker) — Division 2 exotic SMG | divcalc.xyz",
+      "title": "Oxpecker — Division 2 exotic SMG | divcalc.xyz",
       "h1": "Oxpecker",
       "canonical": "https://divcalc.xyz/en/exotic/oxpecker"
     },
@@ -1040,7 +1036,7 @@
       "file": "en/exotic/pakhan.html",
       "lang": "en",
       "issues": [],
-      "title": "Pakhan (Pakhan) — Division 2 exotic LMG | divcalc.xyz",
+      "title": "Pakhan — Division 2 exotic LMG | divcalc.xyz",
       "h1": "Pakhan",
       "canonical": "https://divcalc.xyz/en/exotic/pakhan"
     },
@@ -1050,7 +1046,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Ландмарк-босс Тёмной зоны\", \"Дроп с любого \", \"все сложности). Увеличенный шанс \""
       ],
-      "title": "Pestilence (Pestilence) — Division 2 exotic LMG | divcalc.xyz",
+      "title": "Pestilence — Division 2 exotic LMG | divcalc.xyz",
       "h1": "Pestilence",
       "canonical": "https://divcalc.xyz/en/exotic/pestilence"
     },
@@ -1060,7 +1056,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Летний ивент\", \"Другое\", \"комплекты снаряжения\""
       ],
-      "title": "Provocator (Provocator) — Division 2 exotic | divcalc.xyz",
+      "title": "Provocator — Division 2 exotic | divcalc.xyz",
       "h1": "Provocator",
       "canonical": "https://divcalc.xyz/en/exotic/provocator"
     },
@@ -1070,7 +1066,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"талант)\", \"комплекты снаряжения\""
       ],
-      "title": "Rathbone's Gloves (Rathbone's Gloves) — Division 2 exotic | divcalc.xyz",
+      "title": "Rathbone's Gloves — Division 2 exotic | divcalc.xyz",
       "h1": "Rathbone's Gloves",
       "canonical": "https://divcalc.xyz/en/exotic/rathbone-s-gloves"
     },
@@ -1078,7 +1074,7 @@
       "file": "en/exotic/regulus.html",
       "lang": "en",
       "issues": [],
-      "title": "Regulus (Regulus) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Regulus — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Regulus",
       "canonical": "https://divcalc.xyz/en/exotic/regulus"
     },
@@ -1088,7 +1084,7 @@
       "issues": [
         "EN page has 5 cyrillic phrases: \"Капитолий (легендарный, финальный босс)\", \"Дроп с финального босса \", \"Выставлен как \""
       ],
-      "title": "Ridgeway's Pride (Ridgeway's Pride) — Division 2 exotic | divcalc.xyz",
+      "title": "Ridgeway's Pride — Division 2 exotic | divcalc.xyz",
       "h1": "Ridgeway's Pride",
       "canonical": "https://divcalc.xyz/en/exotic/ridgeway-s-pride"
     },
@@ -1098,7 +1094,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"талант)\", \"комплекты снаряжения\""
       ],
-      "title": "Ridgeway's Shame (Ridgeway's Shame) — Division 2 exotic | divcalc.xyz",
+      "title": "Ridgeway's Shame — Division 2 exotic | divcalc.xyz",
       "h1": "Ridgeway's Shame",
       "canonical": "https://divcalc.xyz/en/exotic/ridgeway-s-shame"
     },
@@ -1108,7 +1104,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Rugged Gauntlets (Rugged Gauntlets) — Division 2 exotic | divcalc.xyz",
+      "title": "Rugged Gauntlets — Division 2 exotic | divcalc.xyz",
       "h1": "Rugged Gauntlets",
       "canonical": "https://divcalc.xyz/en/exotic/rugged-gauntlets"
     },
@@ -1118,7 +1114,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Крафт (из \""
       ],
-      "title": "Ruthless (Ruthless) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Ruthless — Division 2 exotic AR | divcalc.xyz",
       "h1": "Ruthless",
       "canonical": "https://divcalc.xyz/en/exotic/ruthless"
     },
@@ -1138,7 +1134,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Sawyer’s Kneepads (Sawyer’s Kneepads) — Division 2 exotic | divcalc.xyz",
+      "title": "Sawyer’s Kneepads — Division 2 exotic | divcalc.xyz",
       "h1": "Sawyer’s Kneepads",
       "canonical": "https://divcalc.xyz/en/exotic/sawyer-s-kneepads"
     },
@@ -1146,7 +1142,7 @@
       "file": "en/exotic/scorpio.html",
       "lang": "en",
       "issues": [],
-      "title": "Scorpio (Scorpio) — Division 2 exotic SG | divcalc.xyz",
+      "title": "Scorpio — Division 2 exotic SG | divcalc.xyz",
       "h1": "Scorpio",
       "canonical": "https://divcalc.xyz/en/exotic/scorpio"
     },
@@ -1156,7 +1152,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Sheriff (Sheriff) — Division 2 exotic SG | divcalc.xyz",
+      "title": "Sheriff — Division 2 exotic SG | divcalc.xyz",
       "h1": "Sheriff",
       "canonical": "https://divcalc.xyz/en/exotic/sheriff"
     },
@@ -1166,7 +1162,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Shocker Punch (Shocker Punch) — Division 2 exotic | divcalc.xyz",
+      "title": "Shocker Punch — Division 2 exotic | divcalc.xyz",
       "h1": "Shocker Punch",
       "canonical": "https://divcalc.xyz/en/exotic/shocker-punch"
     },
@@ -1174,7 +1170,7 @@
       "file": "en/exotic/shroud.html",
       "lang": "en",
       "issues": [],
-      "title": "Shroud (Shroud) — Division 2 exotic MMR | divcalc.xyz",
+      "title": "Shroud — Division 2 exotic MMR | divcalc.xyz",
       "h1": "Shroud",
       "canonical": "https://divcalc.xyz/en/exotic/shroud"
     },
@@ -1192,7 +1188,7 @@
       "file": "en/exotic/strega.html",
       "lang": "en",
       "issues": [],
-      "title": "Strega (Strega) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Strega — Division 2 exotic AR | divcalc.xyz",
       "h1": "Strega",
       "canonical": "https://divcalc.xyz/en/exotic/strega"
     },
@@ -1202,7 +1198,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Sweet Dreams / Lullaby (Sweet Dreams / Lullaby) — Division 2 exotic | divcalc.xyz",
+      "title": "Sweet Dreams / Lullaby — Division 2 exotic | divcalc.xyz",
       "h1": "Sweet Dreams / Lullaby",
       "canonical": "https://divcalc.xyz/en/exotic/sweet-dreams-lullaby"
     },
@@ -1212,7 +1208,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"сундуки)\", \"Можно взять с любого \""
       ],
-      "title": "Sweet Dreams (Sweet Dreams) — Division 2 exotic SG | divcalc.xyz",
+      "title": "Sweet Dreams — Division 2 exotic SG | divcalc.xyz",
       "h1": "Sweet Dreams",
       "canonical": "https://divcalc.xyz/en/exotic/sweet-dreams"
     },
@@ -1222,7 +1218,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Пентагон\", \"Последний бастион (\", \"Дроп с финального босса.\""
       ],
-      "title": "Tardigrade Armor System (Tardigrade Armor System) — Division 2 exotic | divcalc.xyz",
+      "title": "Tardigrade Armor System — Division 2 exotic | divcalc.xyz",
       "h1": "Tardigrade Armor System",
       "canonical": "https://divcalc.xyz/en/exotic/tardigrade-armor-system"
     },
@@ -1232,7 +1228,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Небоскрёб)\""
       ],
-      "title": "Tempest (Tempest) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Tempest — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Tempest",
       "canonical": "https://divcalc.xyz/en/exotic/tempest"
     },
@@ -1240,7 +1236,7 @@
       "file": "en/exotic/tenebrae.html",
       "lang": "en",
       "issues": [],
-      "title": "Tenebrae (Tenebrae) — Division 2 exotic MMR | divcalc.xyz",
+      "title": "Tenebrae — Division 2 exotic MMR | divcalc.xyz",
       "h1": "Tenebrae",
       "canonical": "https://divcalc.xyz/en/exotic/tenebrae"
     },
@@ -1258,7 +1254,7 @@
       "file": "en/exotic/the-bighorn-semi-auto-mode.html",
       "lang": "en",
       "issues": [],
-      "title": "The Bighorn - Semi-Auto Mode (The Bighorn - Semi-Auto Mode) — Division 2 exotic AR | divcalc.xyz",
+      "title": "The Bighorn - Semi-Auto Mode — Division 2 exotic AR | divcalc.xyz",
       "h1": "The Bighorn - Semi-Auto Mode",
       "canonical": "https://divcalc.xyz/en/exotic/the-bighorn-semi-auto-mode"
     },
@@ -1268,7 +1264,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Летний ивент\""
       ],
-      "title": "The Bighorn (The Bighorn) — Division 2 exotic AR | divcalc.xyz",
+      "title": "The Bighorn — Division 2 exotic AR | divcalc.xyz",
       "h1": "The Bighorn",
       "canonical": "https://divcalc.xyz/en/exotic/the-bighorn"
     },
@@ -1278,7 +1274,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "The Catalyst (The Catalyst) — Division 2 exotic | divcalc.xyz",
+      "title": "The Catalyst — Division 2 exotic | divcalc.xyz",
       "h1": "The Catalyst",
       "canonical": "https://divcalc.xyz/en/exotic/the-catalyst"
     },
@@ -1288,7 +1284,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Контейнер\""
       ],
-      "title": "The Chatterbox (The Chatterbox) — Division 2 exotic SMG | divcalc.xyz",
+      "title": "The Chatterbox — Division 2 exotic SMG | divcalc.xyz",
       "h1": "The Chatterbox",
       "canonical": "https://divcalc.xyz/en/exotic/the-chatterbox"
     },
@@ -1296,7 +1292,7 @@
       "file": "en/exotic/the-littlehorn.html",
       "lang": "en",
       "issues": [],
-      "title": "The Littlehorn (The Littlehorn) — Division 2 exotic Rifle | divcalc.xyz",
+      "title": "The Littlehorn — Division 2 exotic Rifle | divcalc.xyz",
       "h1": "The Littlehorn",
       "canonical": "https://divcalc.xyz/en/exotic/the-littlehorn"
     },
@@ -1306,7 +1302,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Летний ивент\""
       ],
-      "title": "The Ravenous (The Ravenous) — Division 2 exotic Rifle | divcalc.xyz",
+      "title": "The Ravenous — Division 2 exotic Rifle | divcalc.xyz",
       "h1": "The Ravenous",
       "canonical": "https://divcalc.xyz/en/exotic/the-ravenous"
     },
@@ -1314,7 +1310,7 @@
       "file": "en/exotic/the-satiated.html",
       "lang": "en",
       "issues": [],
-      "title": "The Satiated (The Satiated) — Division 2 exotic Rifle | divcalc.xyz",
+      "title": "The Satiated — Division 2 exotic Rifle | divcalc.xyz",
       "h1": "The Satiated",
       "canonical": "https://divcalc.xyz/en/exotic/the-satiated"
     },
@@ -1324,7 +1320,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"комплекты снаряжения\""
       ],
-      "title": "Tinkerer (Tinkerer) — Division 2 exotic | divcalc.xyz",
+      "title": "Tinkerer — Division 2 exotic | divcalc.xyz",
       "h1": "Tinkerer",
       "canonical": "https://divcalc.xyz/en/exotic/tinkerer"
     },
@@ -1334,7 +1330,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Vile (Vile) — Division 2 exotic | divcalc.xyz",
+      "title": "Vile — Division 2 exotic | divcalc.xyz",
       "h1": "Vile",
       "canonical": "https://divcalc.xyz/en/exotic/vile"
     },
@@ -1344,7 +1340,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Vindicator (Vindicator) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Vindicator — Division 2 exotic AR | divcalc.xyz",
       "h1": "Vindicator",
       "canonical": "https://divcalc.xyz/en/exotic/vindicator"
     },
@@ -1352,7 +1348,7 @@
       "file": "en/exotic/warlord.html",
       "lang": "en",
       "issues": [],
-      "title": "Warlord (Warlord) — Division 2 exotic AR | divcalc.xyz",
+      "title": "Warlord — Division 2 exotic AR | divcalc.xyz",
       "h1": "Warlord",
       "canonical": "https://divcalc.xyz/en/exotic/warlord"
     },
@@ -1362,7 +1358,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"комплекты снаряжения\""
       ],
-      "title": "Waveform (Waveform) — Division 2 exotic | divcalc.xyz",
+      "title": "Waveform — Division 2 exotic | divcalc.xyz",
       "h1": "Waveform",
       "canonical": "https://divcalc.xyz/en/exotic/waveform"
     },
@@ -1370,9 +1366,19 @@
       "file": "en/exotic/whiplash.html",
       "lang": "en",
       "issues": [],
-      "title": "Whiplash (Whiplash) — Division 2 exotic Pistol | divcalc.xyz",
+      "title": "Whiplash — Division 2 exotic Pistol | divcalc.xyz",
       "h1": "Whiplash",
       "canonical": "https://divcalc.xyz/en/exotic/whiplash"
+    },
+    {
+      "file": "en/index.html",
+      "lang": "en",
+      "issues": [
+        "EN page has 540 cyrillic phrases: \"Баг-репорт\", \"Мои билды\", \"пересечения\""
+      ],
+      "title": "Division 2 Calculator — Builds, Weapons, Talents | divcalc.xyz",
+      "h1": "The Division 2",
+      "canonical": "https://divcalc.xyz/en/"
     },
     {
       "file": "en/named/achilles.html",
@@ -1380,7 +1386,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Achilles (Achilles) — Division 2 named weapon | divcalc.xyz",
+      "title": "Achilles — Division 2 named weapon | divcalc.xyz",
       "h1": "Achilles",
       "canonical": "https://divcalc.xyz/en/named/achilles"
     },
@@ -1398,7 +1404,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "ACR-E (ACR-E) — Division 2 named weapon | divcalc.xyz",
+      "title": "ACR-E — Division 2 named weapon | divcalc.xyz",
       "h1": "ACR-E",
       "canonical": "https://divcalc.xyz/en/named/acr-e"
     },
@@ -1406,7 +1412,7 @@
       "file": "en/named/adrestia.html",
       "lang": "en",
       "issues": [],
-      "title": "Adrestia (Adrestia) — Division 2 named weapon | divcalc.xyz",
+      "title": "Adrestia — Division 2 named weapon | divcalc.xyz",
       "h1": "Adrestia",
       "canonical": "https://divcalc.xyz/en/named/adrestia"
     },
@@ -1414,7 +1420,7 @@
       "file": "en/named/ammo-dump.html",
       "lang": "en",
       "issues": [],
-      "title": "Ammo Dump (Ammo Dump) — Division 2 named gear | divcalc.xyz",
+      "title": "Ammo Dump — Division 2 named gear | divcalc.xyz",
       "h1": "Ammo Dump",
       "canonical": "https://divcalc.xyz/en/named/ammo-dump"
     },
@@ -1424,7 +1430,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Anarchist's Cookbook (Anarchist's Cookbook) — Division 2 named gear | divcalc.xyz",
+      "title": "Anarchist's Cookbook — Division 2 named gear | divcalc.xyz",
       "h1": "Anarchist's Cookbook",
       "canonical": "https://divcalc.xyz/en/named/anarchist-s-cookbook"
     },
@@ -1432,7 +1438,7 @@
       "file": "en/named/archivist.html",
       "lang": "en",
       "issues": [],
-      "title": "Archivist (Archivist) — Division 2 named weapon | divcalc.xyz",
+      "title": "Archivist — Division 2 named weapon | divcalc.xyz",
       "h1": "Archivist",
       "canonical": "https://divcalc.xyz/en/named/archivist"
     },
@@ -1440,7 +1446,7 @@
       "file": "en/named/army-akm.html",
       "lang": "en",
       "issues": [],
-      "title": "Army AKM (Army AKM) — Division 2 named weapon | divcalc.xyz",
+      "title": "Army AKM — Division 2 named weapon | divcalc.xyz",
       "h1": "Army AKM",
       "canonical": "https://divcalc.xyz/en/named/army-akm"
     },
@@ -1448,7 +1454,7 @@
       "file": "en/named/army-g36.html",
       "lang": "en",
       "issues": [],
-      "title": "Army G36 (Army G36) — Division 2 named weapon | divcalc.xyz",
+      "title": "Army G36 — Division 2 named weapon | divcalc.xyz",
       "h1": "Army G36",
       "canonical": "https://divcalc.xyz/en/named/army-g36"
     },
@@ -1456,7 +1462,7 @@
       "file": "en/named/army-l86-lsw.html",
       "lang": "en",
       "issues": [],
-      "title": "Army L86 LSW (Army L86 LSW) — Division 2 named weapon | divcalc.xyz",
+      "title": "Army L86 LSW — Division 2 named weapon | divcalc.xyz",
       "h1": "Army L86 LSW",
       "canonical": "https://divcalc.xyz/en/named/army-l86-lsw"
     },
@@ -1464,7 +1470,7 @@
       "file": "en/named/army-m60-e4.html",
       "lang": "en",
       "issues": [],
-      "title": "Army M60 E4 (Army M60 E4) — Division 2 named weapon | divcalc.xyz",
+      "title": "Army M60 E4 — Division 2 named weapon | divcalc.xyz",
       "h1": "Army M60 E4",
       "canonical": "https://divcalc.xyz/en/named/army-m60-e4"
     },
@@ -1472,7 +1478,7 @@
       "file": "en/named/army-m870.html",
       "lang": "en",
       "issues": [],
-      "title": "Army M870 (Army M870) — Division 2 named weapon | divcalc.xyz",
+      "title": "Army M870 — Division 2 named weapon | divcalc.xyz",
       "h1": "Army M870",
       "canonical": "https://divcalc.xyz/en/named/army-m870"
     },
@@ -1480,7 +1486,7 @@
       "file": "en/named/army-mk46.html",
       "lang": "en",
       "issues": [],
-      "title": "Army MK46 (Army MK46) — Division 2 named weapon | divcalc.xyz",
+      "title": "Army MK46 — Division 2 named weapon | divcalc.xyz",
       "h1": "Army MK46",
       "canonical": "https://divcalc.xyz/en/named/army-mk46"
     },
@@ -1488,7 +1494,7 @@
       "file": "en/named/army-p416-g3.html",
       "lang": "en",
       "issues": [],
-      "title": "Army P416 G3 (Army P416 G3) — Division 2 named weapon | divcalc.xyz",
+      "title": "Army P416 G3 — Division 2 named weapon | divcalc.xyz",
       "h1": "Army P416 G3",
       "canonical": "https://divcalc.xyz/en/named/army-p416-g3"
     },
@@ -1498,7 +1504,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"РПК-74\""
       ],
-      "title": "Army RPK-74 M (Army RPK-74 M) — Division 2 named weapon | divcalc.xyz",
+      "title": "Army RPK-74 M — Division 2 named weapon | divcalc.xyz",
       "h1": "Army RPK-74 M",
       "canonical": "https://divcalc.xyz/en/named/army-rpk-74-m"
     },
@@ -1508,7 +1514,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Artist's Tool (Artist's Tool) — Division 2 named weapon | divcalc.xyz",
+      "title": "Artist's Tool — Division 2 named weapon | divcalc.xyz",
       "h1": "Artist's Tool",
       "canonical": "https://divcalc.xyz/en/named/artist-s-tool"
     },
@@ -1518,7 +1524,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Axel (Axel) — Division 2 named gear | divcalc.xyz",
+      "title": "Axel — Division 2 named gear | divcalc.xyz",
       "h1": "Axel",
       "canonical": "https://divcalc.xyz/en/named/axel"
     },
@@ -1528,7 +1534,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Backbone (Backbone) — Division 2 named gear | divcalc.xyz",
+      "title": "Backbone — Division 2 named gear | divcalc.xyz",
       "h1": "Backbone",
       "canonical": "https://divcalc.xyz/en/named/backbone"
     },
@@ -1538,7 +1544,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Backup Boomstick (Backup Boomstick) — Division 2 named weapon | divcalc.xyz",
+      "title": "Backup Boomstick — Division 2 named weapon | divcalc.xyz",
       "h1": "Backup Boomstick",
       "canonical": "https://divcalc.xyz/en/named/backup-boomstick"
     },
@@ -1548,7 +1554,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Baker's Dozen (Baker's Dozen) — Division 2 named weapon | divcalc.xyz",
+      "title": "Baker's Dozen — Division 2 named weapon | divcalc.xyz",
       "h1": "Baker's Dozen",
       "canonical": "https://divcalc.xyz/en/named/baker-s-dozen"
     },
@@ -1558,7 +1564,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Battery Pack (Battery Pack) — Division 2 named gear | divcalc.xyz",
+      "title": "Battery Pack — Division 2 named gear | divcalc.xyz",
       "h1": "Battery Pack",
       "canonical": "https://divcalc.xyz/en/named/battery-pack"
     },
@@ -1566,7 +1572,7 @@
       "file": "en/named/bell-ringer.html",
       "lang": "en",
       "issues": [],
-      "title": "Bell Ringer (Bell Ringer) — Division 2 named weapon | divcalc.xyz",
+      "title": "Bell Ringer — Division 2 named weapon | divcalc.xyz",
       "h1": "Bell Ringer",
       "canonical": "https://divcalc.xyz/en/named/bell-ringer"
     },
@@ -1576,7 +1582,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Big Show (Big Show) — Division 2 named weapon | divcalc.xyz",
+      "title": "Big Show — Division 2 named weapon | divcalc.xyz",
       "h1": "Big Show",
       "canonical": "https://divcalc.xyz/en/named/big-show"
     },
@@ -1602,7 +1608,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Летний ивент\", \"Другое\""
       ],
-      "title": "Birdie's Quick Fix Pack (Birdie's Quick Fix Pack) — Division 2 named gear | divcalc.xyz",
+      "title": "Birdie's Quick Fix Pack — Division 2 named gear | divcalc.xyz",
       "h1": "Birdie's Quick Fix Pack",
       "canonical": "https://divcalc.xyz/en/named/birdie-s-quick-fix-pack"
     },
@@ -1612,7 +1618,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Black Friday (Black Friday) — Division 2 named weapon | divcalc.xyz",
+      "title": "Black Friday — Division 2 named weapon | divcalc.xyz",
       "h1": "Black Friday",
       "canonical": "https://divcalc.xyz/en/named/black-friday"
     },
@@ -1620,7 +1626,7 @@
       "file": "en/named/blaze-of-glory.html",
       "lang": "en",
       "issues": [],
-      "title": "Blaze of Glory (Blaze of Glory) — Division 2 named weapon | divcalc.xyz",
+      "title": "Blaze of Glory — Division 2 named weapon | divcalc.xyz",
       "h1": "Blaze of Glory",
       "canonical": "https://divcalc.xyz/en/named/blaze-of-glory"
     },
@@ -1630,7 +1636,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Bober (Bober) — Division 2 named gear | divcalc.xyz",
+      "title": "Bober — Division 2 named gear | divcalc.xyz",
       "h1": "Bober",
       "canonical": "https://divcalc.xyz/en/named/bober"
     },
@@ -1640,7 +1646,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Boomstick (Boomstick) — Division 2 named weapon | divcalc.xyz",
+      "title": "Boomstick — Division 2 named weapon | divcalc.xyz",
       "h1": "Boomstick",
       "canonical": "https://divcalc.xyz/en/named/boomstick"
     },
@@ -1650,7 +1656,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Born Great (Born Great) — Division 2 named weapon | divcalc.xyz",
+      "title": "Born Great — Division 2 named weapon | divcalc.xyz",
       "h1": "Born Great",
       "canonical": "https://divcalc.xyz/en/named/born-great"
     },
@@ -1660,7 +1666,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Brutus (Brutus) — Division 2 named weapon | divcalc.xyz",
+      "title": "Brutus — Division 2 named weapon | divcalc.xyz",
       "h1": "Brutus",
       "canonical": "https://divcalc.xyz/en/named/brutus"
     },
@@ -1670,7 +1676,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Bulldog (Bulldog) — Division 2 named gear | divcalc.xyz",
+      "title": "Bulldog — Division 2 named gear | divcalc.xyz",
       "h1": "Bulldog",
       "canonical": "https://divcalc.xyz/en/named/bulldog"
     },
@@ -1680,7 +1686,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Burn Out (Burn Out) — Division 2 named weapon | divcalc.xyz",
+      "title": "Burn Out — Division 2 named weapon | divcalc.xyz",
       "h1": "Burn Out",
       "canonical": "https://divcalc.xyz/en/named/burn-out"
     },
@@ -1688,7 +1694,7 @@
       "file": "en/named/burnout.html",
       "lang": "en",
       "issues": [],
-      "title": "Burnout (Burnout) — Division 2 named weapon | divcalc.xyz",
+      "title": "Burnout — Division 2 named weapon | divcalc.xyz",
       "h1": "Burnout",
       "canonical": "https://divcalc.xyz/en/named/burnout"
     },
@@ -1696,7 +1702,7 @@
       "file": "en/named/cabaret.html",
       "lang": "en",
       "issues": [],
-      "title": "Cabaret (Cabaret) — Division 2 named weapon | divcalc.xyz",
+      "title": "Cabaret — Division 2 named weapon | divcalc.xyz",
       "h1": "Cabaret",
       "canonical": "https://divcalc.xyz/en/named/cabaret"
     },
@@ -1706,7 +1712,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Caesar's Guard (Caesar's Guard) — Division 2 named gear | divcalc.xyz",
+      "title": "Caesar's Guard — Division 2 named gear | divcalc.xyz",
       "h1": "Caesar's Guard",
       "canonical": "https://divcalc.xyz/en/named/caesar-s-guard"
     },
@@ -1716,7 +1722,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Cap'n (Cap'n) — Division 2 named gear | divcalc.xyz",
+      "title": "Cap'n — Division 2 named gear | divcalc.xyz",
       "h1": "Cap'n",
       "canonical": "https://divcalc.xyz/en/named/cap-n"
     },
@@ -1724,7 +1730,7 @@
       "file": "en/named/caretaker.html",
       "lang": "en",
       "issues": [],
-      "title": "Caretaker (Caretaker) — Division 2 named weapon | divcalc.xyz",
+      "title": "Caretaker — Division 2 named weapon | divcalc.xyz",
       "h1": "Caretaker",
       "canonical": "https://divcalc.xyz/en/named/caretaker"
     },
@@ -1734,7 +1740,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Carnage (Carnage) — Division 2 named weapon | divcalc.xyz",
+      "title": "Carnage — Division 2 named weapon | divcalc.xyz",
       "h1": "Carnage",
       "canonical": "https://divcalc.xyz/en/named/carnage"
     },
@@ -1744,7 +1750,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Carpenter (Carpenter) — Division 2 named gear | divcalc.xyz",
+      "title": "Carpenter — Division 2 named gear | divcalc.xyz",
       "h1": "Carpenter",
       "canonical": "https://divcalc.xyz/en/named/carpenter"
     },
@@ -1752,7 +1758,7 @@
       "file": "en/named/centurion-scabbard.html",
       "lang": "en",
       "issues": [],
-      "title": "Centurion Scabbard (Centurion Scabbard) — Division 2 named gear | divcalc.xyz",
+      "title": "Centurion Scabbard — Division 2 named gear | divcalc.xyz",
       "h1": "Centurion Scabbard",
       "canonical": "https://divcalc.xyz/en/named/centurion-scabbard"
     },
@@ -1762,7 +1768,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Chainkiller (Chainkiller) — Division 2 named gear | divcalc.xyz",
+      "title": "Chainkiller — Division 2 named gear | divcalc.xyz",
       "h1": "Chainkiller",
       "canonical": "https://divcalc.xyz/en/named/chainkiller"
     },
@@ -1772,7 +1778,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Cherished (Cherished) — Division 2 named gear | divcalc.xyz",
+      "title": "Cherished — Division 2 named gear | divcalc.xyz",
       "h1": "Cherished",
       "canonical": "https://divcalc.xyz/en/named/cherished"
     },
@@ -1780,7 +1786,7 @@
       "file": "en/named/chill-out.html",
       "lang": "en",
       "issues": [],
-      "title": "Chill Out (Chill Out) — Division 2 named gear | divcalc.xyz",
+      "title": "Chill Out — Division 2 named gear | divcalc.xyz",
       "h1": "Chill Out",
       "canonical": "https://divcalc.xyz/en/named/chill-out"
     },
@@ -1788,7 +1794,7 @@
       "file": "en/named/christmas-carol.html",
       "lang": "en",
       "issues": [],
-      "title": "Christmas carol (Christmas carol) — Division 2 named weapon | divcalc.xyz",
+      "title": "Christmas carol — Division 2 named weapon | divcalc.xyz",
       "h1": "Christmas carol",
       "canonical": "https://divcalc.xyz/en/named/christmas-carol"
     },
@@ -1798,7 +1804,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Classic M60 (Classic M60) — Division 2 named weapon | divcalc.xyz",
+      "title": "Classic M60 — Division 2 named weapon | divcalc.xyz",
       "h1": "Classic M60",
       "canonical": "https://divcalc.xyz/en/named/classic-m60"
     },
@@ -1808,7 +1814,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"РПК-74\", \"Другое\", \"Торговец\""
       ],
-      "title": "Classic RPK-74 (Classic RPK-74) — Division 2 named weapon | divcalc.xyz",
+      "title": "Classic RPK-74 — Division 2 named weapon | divcalc.xyz",
       "h1": "Classic RPK-74",
       "canonical": "https://divcalc.xyz/en/named/classic-rpk-74"
     },
@@ -1818,7 +1824,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Claws Out (Claws Out) — Division 2 named gear | divcalc.xyz",
+      "title": "Claws Out — Division 2 named gear | divcalc.xyz",
       "h1": "Claws Out",
       "canonical": "https://divcalc.xyz/en/named/claws-out"
     },
@@ -1828,7 +1834,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Cloak (Cloak) — Division 2 named gear | divcalc.xyz",
+      "title": "Cloak — Division 2 named gear | divcalc.xyz",
       "h1": "Cloak",
       "canonical": "https://divcalc.xyz/en/named/cloak"
     },
@@ -1838,7 +1844,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Closer (Closer) — Division 2 named gear | divcalc.xyz",
+      "title": "Closer — Division 2 named gear | divcalc.xyz",
       "h1": "Closer",
       "canonical": "https://divcalc.xyz/en/named/closer"
     },
@@ -1848,7 +1854,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Cold Relations (Cold Relations) — Division 2 named weapon | divcalc.xyz",
+      "title": "Cold Relations — Division 2 named weapon | divcalc.xyz",
       "h1": "Cold Relations",
       "canonical": "https://divcalc.xyz/en/named/cold-relations"
     },
@@ -1858,7 +1864,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Combustor (Combustor) — Division 2 named gear | divcalc.xyz",
+      "title": "Combustor — Division 2 named gear | divcalc.xyz",
       "h1": "Combustor",
       "canonical": "https://divcalc.xyz/en/named/combustor"
     },
@@ -1868,7 +1874,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Commando (Commando) — Division 2 named weapon | divcalc.xyz",
+      "title": "Commando — Division 2 named weapon | divcalc.xyz",
       "h1": "Commando",
       "canonical": "https://divcalc.xyz/en/named/commando"
     },
@@ -1876,7 +1882,7 @@
       "file": "en/named/contractor-s-gloves.html",
       "lang": "en",
       "issues": [],
-      "title": "Contractor’s Gloves (Contractor’s Gloves) — Division 2 named gear | divcalc.xyz",
+      "title": "Contractor’s Gloves — Division 2 named gear | divcalc.xyz",
       "h1": "Contractor’s Gloves",
       "canonical": "https://divcalc.xyz/en/named/contractor-s-gloves"
     },
@@ -1884,7 +1890,7 @@
       "file": "en/named/cooler.html",
       "lang": "en",
       "issues": [],
-      "title": "Cooler (Cooler) — Division 2 named weapon | divcalc.xyz",
+      "title": "Cooler — Division 2 named weapon | divcalc.xyz",
       "h1": "Cooler",
       "canonical": "https://divcalc.xyz/en/named/cooler"
     },
@@ -1892,7 +1898,7 @@
       "file": "en/named/courage.html",
       "lang": "en",
       "issues": [],
-      "title": "Courage (Courage) — Division 2 named weapon | divcalc.xyz",
+      "title": "Courage — Division 2 named weapon | divcalc.xyz",
       "h1": "Courage",
       "canonical": "https://divcalc.xyz/en/named/courage"
     },
@@ -1902,7 +1908,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Cricket (Cricket) — Division 2 named weapon | divcalc.xyz",
+      "title": "Cricket — Division 2 named weapon | divcalc.xyz",
       "h1": "Cricket",
       "canonical": "https://divcalc.xyz/en/named/cricket"
     },
@@ -1922,7 +1928,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Cuélebre (Cuélebre) — Division 2 named weapon | divcalc.xyz",
+      "title": "Cuélebre — Division 2 named weapon | divcalc.xyz",
       "h1": "Cuélebre",
       "canonical": "https://divcalc.xyz/en/named/cuelebre"
     },
@@ -1930,7 +1936,7 @@
       "file": "en/named/d50-survivalist.html",
       "lang": "en",
       "issues": [],
-      "title": "D50 &quot;Survivalist&quot; (D50 &quot;Survivalist&quot;) — Division 2 named weapon | divcalc.xyz",
+      "title": "D50 &quot;Survivalist&quot; — Division 2 named weapon | divcalc.xyz",
       "h1": "D50 &quot;Survivalist&quot;",
       "canonical": "https://divcalc.xyz/en/named/d50-survivalist"
     },
@@ -1940,7 +1946,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Dare (Dare) — Division 2 named weapon | divcalc.xyz",
+      "title": "Dare — Division 2 named weapon | divcalc.xyz",
       "h1": "Dare",
       "canonical": "https://divcalc.xyz/en/named/dare"
     },
@@ -1950,7 +1956,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Dark Winter (Dark Winter) — Division 2 named weapon | divcalc.xyz",
+      "title": "Dark Winter — Division 2 named weapon | divcalc.xyz",
       "h1": "Dark Winter",
       "canonical": "https://divcalc.xyz/en/named/dark-winter"
     },
@@ -1960,7 +1966,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Deathgrips (Deathgrips) — Division 2 named gear | divcalc.xyz",
+      "title": "Deathgrips — Division 2 named gear | divcalc.xyz",
       "h1": "Deathgrips",
       "canonical": "https://divcalc.xyz/en/named/deathgrips"
     },
@@ -1970,7 +1976,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Designated Hitter (Designated Hitter) — Division 2 named weapon | divcalc.xyz",
+      "title": "Designated Hitter — Division 2 named weapon | divcalc.xyz",
       "h1": "Designated Hitter",
       "canonical": "https://divcalc.xyz/en/named/designated-hitter"
     },
@@ -1980,7 +1986,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Devil's Due (Devil's Due) — Division 2 named gear | divcalc.xyz",
+      "title": "Devil's Due — Division 2 named gear | divcalc.xyz",
       "h1": "Devil's Due",
       "canonical": "https://divcalc.xyz/en/named/devil-s-due"
     },
@@ -1988,7 +1994,7 @@
       "file": "en/named/diceros-special.html",
       "lang": "en",
       "issues": [],
-      "title": "Diceros Special (Diceros Special) — Division 2 named weapon | divcalc.xyz",
+      "title": "Diceros Special — Division 2 named weapon | divcalc.xyz",
       "h1": "Diceros Special",
       "canonical": "https://divcalc.xyz/en/named/diceros-special"
     },
@@ -1996,7 +2002,7 @@
       "file": "en/named/door-kicker-s-knock.html",
       "lang": "en",
       "issues": [],
-      "title": "Door-Kicker’s Knock (Door-Kicker’s Knock) — Division 2 named gear | divcalc.xyz",
+      "title": "Door-Kicker’s Knock — Division 2 named gear | divcalc.xyz",
       "h1": "Door-Kicker’s Knock",
       "canonical": "https://divcalc.xyz/en/named/door-kicker-s-knock"
     },
@@ -2006,7 +2012,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Двуствольные\""
       ],
-      "title": "Double-barreled shotgun (Double-barreled shotgun) — Division 2 named weapon | divcalc.xyz",
+      "title": "Double-barreled shotgun — Division 2 named weapon | divcalc.xyz",
       "h1": "Double-barreled shotgun",
       "canonical": "https://divcalc.xyz/en/named/double-barreled-shotgun"
     },
@@ -2014,7 +2020,7 @@
       "file": "en/named/drill.html",
       "lang": "en",
       "issues": [],
-      "title": "Drill (Drill) — Division 2 named weapon | divcalc.xyz",
+      "title": "Drill — Division 2 named weapon | divcalc.xyz",
       "h1": "Drill",
       "canonical": "https://divcalc.xyz/en/named/drill"
     },
@@ -2024,7 +2030,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Eagle's Grasp (Eagle's Grasp) — Division 2 named gear | divcalc.xyz",
+      "title": "Eagle's Grasp — Division 2 named gear | divcalc.xyz",
       "h1": "Eagle's Grasp",
       "canonical": "https://divcalc.xyz/en/named/eagle-s-grasp"
     },
@@ -2032,7 +2038,7 @@
       "file": "en/named/eagles-grasp.html",
       "lang": "en",
       "issues": [],
-      "title": "Eagles Grasp (Eagles Grasp) — Division 2 named gear | divcalc.xyz",
+      "title": "Eagles Grasp — Division 2 named gear | divcalc.xyz",
       "h1": "Eagles Grasp",
       "canonical": "https://divcalc.xyz/en/named/eagles-grasp"
     },
@@ -2042,7 +2048,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Ekim's Long stick (Ekim's Long stick) — Division 2 named weapon | divcalc.xyz",
+      "title": "Ekim's Long stick — Division 2 named weapon | divcalc.xyz",
       "h1": "Ekim's Long stick",
       "canonical": "https://divcalc.xyz/en/named/ekim-s-long-stick"
     },
@@ -2052,7 +2058,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Emeline's Guard (Emeline's Guard) — Division 2 named weapon | divcalc.xyz",
+      "title": "Emeline's Guard — Division 2 named weapon | divcalc.xyz",
       "h1": "Emeline's Guard",
       "canonical": "https://divcalc.xyz/en/named/emeline-s-guard"
     },
@@ -2060,7 +2066,7 @@
       "file": "en/named/emperor-s-guard.html",
       "lang": "en",
       "issues": [],
-      "title": "Emperor’s Guard (Emperor’s Guard) — Division 2 named gear | divcalc.xyz",
+      "title": "Emperor’s Guard — Division 2 named gear | divcalc.xyz",
       "h1": "Emperor’s Guard",
       "canonical": "https://divcalc.xyz/en/named/emperor-s-guard"
     },
@@ -2068,7 +2074,7 @@
       "file": "en/named/enemy-layer.html",
       "lang": "en",
       "issues": [],
-      "title": "Enemy Layer (Enemy Layer) — Division 2 named weapon | divcalc.xyz",
+      "title": "Enemy Layer — Division 2 named weapon | divcalc.xyz",
       "h1": "Enemy Layer",
       "canonical": "https://divcalc.xyz/en/named/enemy-layer"
     },
@@ -2076,7 +2082,7 @@
       "file": "en/named/enforcer.html",
       "lang": "en",
       "issues": [],
-      "title": "Enforcer (Enforcer) — Division 2 named weapon | divcalc.xyz",
+      "title": "Enforcer — Division 2 named weapon | divcalc.xyz",
       "h1": "Enforcer",
       "canonical": "https://divcalc.xyz/en/named/enforcer"
     },
@@ -2086,7 +2092,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Equalizer (Equalizer) — Division 2 named gear | divcalc.xyz",
+      "title": "Equalizer — Division 2 named gear | divcalc.xyz",
       "h1": "Equalizer",
       "canonical": "https://divcalc.xyz/en/named/equalizer"
     },
@@ -2096,7 +2102,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Everlasting Gaze (Everlasting Gaze) — Division 2 named weapon | divcalc.xyz",
+      "title": "Everlasting Gaze — Division 2 named weapon | divcalc.xyz",
       "h1": "Everlasting Gaze",
       "canonical": "https://divcalc.xyz/en/named/everlasting-gaze"
     },
@@ -2106,7 +2112,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Everyday Carrier (Everyday Carrier) — Division 2 named gear | divcalc.xyz",
+      "title": "Everyday Carrier — Division 2 named gear | divcalc.xyz",
       "h1": "Everyday Carrier",
       "canonical": "https://divcalc.xyz/en/named/everyday-carrier"
     },
@@ -2114,7 +2120,7 @@
       "file": "en/named/fal-sa-58-para.html",
       "lang": "en",
       "issues": [],
-      "title": "FAL SA-58 Para (FAL SA-58 Para) — Division 2 named weapon | divcalc.xyz",
+      "title": "FAL SA-58 Para — Division 2 named weapon | divcalc.xyz",
       "h1": "FAL SA-58 Para",
       "canonical": "https://divcalc.xyz/en/named/fal-sa-58-para"
     },
@@ -2122,7 +2128,7 @@
       "file": "en/named/fal-sa-58.html",
       "lang": "en",
       "issues": [],
-      "title": "FAL SA-58 (FAL SA-58) — Division 2 named weapon | divcalc.xyz",
+      "title": "FAL SA-58 — Division 2 named weapon | divcalc.xyz",
       "h1": "FAL SA-58",
       "canonical": "https://divcalc.xyz/en/named/fal-sa-58"
     },
@@ -2132,7 +2138,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Ferocious Calm (Ferocious Calm) — Division 2 named gear | divcalc.xyz",
+      "title": "Ferocious Calm — Division 2 named gear | divcalc.xyz",
       "h1": "Ferocious Calm",
       "canonical": "https://divcalc.xyz/en/named/ferocious-calm"
     },
@@ -2142,7 +2148,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Festive Delivery (Festive Delivery) — Division 2 named gear | divcalc.xyz",
+      "title": "Festive Delivery — Division 2 named gear | divcalc.xyz",
       "h1": "Festive Delivery",
       "canonical": "https://divcalc.xyz/en/named/festive-delivery"
     },
@@ -2150,7 +2156,7 @@
       "file": "en/named/firestarter.html",
       "lang": "en",
       "issues": [],
-      "title": "Firestarter (Firestarter) — Division 2 named weapon | divcalc.xyz",
+      "title": "Firestarter — Division 2 named weapon | divcalc.xyz",
       "h1": "Firestarter",
       "canonical": "https://divcalc.xyz/en/named/firestarter"
     },
@@ -2160,7 +2166,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Firm Handshake (Firm Handshake) — Division 2 named gear | divcalc.xyz",
+      "title": "Firm Handshake — Division 2 named gear | divcalc.xyz",
       "h1": "Firm Handshake",
       "canonical": "https://divcalc.xyz/en/named/firm-handshake"
     },
@@ -2168,7 +2174,7 @@
       "file": "en/named/first-bloom.html",
       "lang": "en",
       "issues": [],
-      "title": "First Bloom (First Bloom) — Division 2 named weapon | divcalc.xyz",
+      "title": "First Bloom — Division 2 named weapon | divcalc.xyz",
       "h1": "First Bloom",
       "canonical": "https://divcalc.xyz/en/named/first-bloom"
     },
@@ -2178,7 +2184,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "First Sight (First Sight) — Division 2 named weapon | divcalc.xyz",
+      "title": "First Sight — Division 2 named weapon | divcalc.xyz",
       "h1": "First Sight",
       "canonical": "https://divcalc.xyz/en/named/first-sight"
     },
@@ -2188,7 +2194,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Force Multiplier (Force Multiplier) — Division 2 named gear | divcalc.xyz",
+      "title": "Force Multiplier — Division 2 named gear | divcalc.xyz",
       "h1": "Force Multiplier",
       "canonical": "https://divcalc.xyz/en/named/force-multiplier"
     },
@@ -2198,7 +2204,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Forge (Forge) — Division 2 named gear | divcalc.xyz",
+      "title": "Forge — Division 2 named gear | divcalc.xyz",
       "h1": "Forge",
       "canonical": "https://divcalc.xyz/en/named/forge"
     },
@@ -2206,7 +2212,7 @@
       "file": "en/named/fox-s-prayer.html",
       "lang": "en",
       "issues": [],
-      "title": "Fox’s Prayer (Fox’s Prayer) — Division 2 named gear | divcalc.xyz",
+      "title": "Fox’s Prayer — Division 2 named gear | divcalc.xyz",
       "h1": "Fox’s Prayer",
       "canonical": "https://divcalc.xyz/en/named/fox-s-prayer"
     },
@@ -2214,7 +2220,7 @@
       "file": "en/named/froth.html",
       "lang": "en",
       "issues": [],
-      "title": "Froth (Froth) — Division 2 named weapon | divcalc.xyz",
+      "title": "Froth — Division 2 named weapon | divcalc.xyz",
       "h1": "Froth",
       "canonical": "https://divcalc.xyz/en/named/froth"
     },
@@ -2222,7 +2228,7 @@
       "file": "en/named/fun-times.html",
       "lang": "en",
       "issues": [],
-      "title": "Fun times (Fun times) — Division 2 named weapon | divcalc.xyz",
+      "title": "Fun times — Division 2 named weapon | divcalc.xyz",
       "h1": "Fun times",
       "canonical": "https://divcalc.xyz/en/named/fun-times"
     },
@@ -2242,7 +2248,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Gear Shift (Gear Shift) — Division 2 named weapon | divcalc.xyz",
+      "title": "Gear Shift — Division 2 named weapon | divcalc.xyz",
       "h1": "Gear Shift",
       "canonical": "https://divcalc.xyz/en/named/gear-shift"
     },
@@ -2252,7 +2258,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Glory Daze (Glory Daze) — Division 2 named weapon | divcalc.xyz",
+      "title": "Glory Daze — Division 2 named weapon | divcalc.xyz",
       "h1": "Glory Daze",
       "canonical": "https://divcalc.xyz/en/named/glory-daze"
     },
@@ -2262,7 +2268,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Goalie (Goalie) — Division 2 named weapon | divcalc.xyz",
+      "title": "Goalie — Division 2 named weapon | divcalc.xyz",
       "h1": "Goalie",
       "canonical": "https://divcalc.xyz/en/named/goalie"
     },
@@ -2272,7 +2278,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Good Times (Good Times) — Division 2 named weapon | divcalc.xyz",
+      "title": "Good Times — Division 2 named weapon | divcalc.xyz",
       "h1": "Good Times",
       "canonical": "https://divcalc.xyz/en/named/good-times"
     },
@@ -2282,7 +2288,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Grease (Grease) — Division 2 named gear | divcalc.xyz",
+      "title": "Grease — Division 2 named gear | divcalc.xyz",
       "h1": "Grease",
       "canonical": "https://divcalc.xyz/en/named/grease"
     },
@@ -2292,7 +2298,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Grown Great (Grown Great) — Division 2 named weapon | divcalc.xyz",
+      "title": "Grown Great — Division 2 named weapon | divcalc.xyz",
       "h1": "Grown Great",
       "canonical": "https://divcalc.xyz/en/named/grown-great"
     },
@@ -2300,7 +2306,7 @@
       "file": "en/named/hairpin.html",
       "lang": "en",
       "issues": [],
-      "title": "Hairpin (Hairpin) — Division 2 named weapon | divcalc.xyz",
+      "title": "Hairpin — Division 2 named weapon | divcalc.xyz",
       "h1": "Hairpin",
       "canonical": "https://divcalc.xyz/en/named/hairpin"
     },
@@ -2308,7 +2314,7 @@
       "file": "en/named/handbasket.html",
       "lang": "en",
       "issues": [],
-      "title": "Handbasket (Handbasket) — Division 2 named weapon | divcalc.xyz",
+      "title": "Handbasket — Division 2 named weapon | divcalc.xyz",
       "h1": "Handbasket",
       "canonical": "https://divcalc.xyz/en/named/handbasket"
     },
@@ -2316,7 +2322,7 @@
       "file": "en/named/hard-working-bee.html",
       "lang": "en",
       "issues": [],
-      "title": "Hard working bee (Hard working bee) — Division 2 named weapon | divcalc.xyz",
+      "title": "Hard working bee — Division 2 named weapon | divcalc.xyz",
       "h1": "Hard working bee",
       "canonical": "https://divcalc.xyz/en/named/hard-working-bee"
     },
@@ -2326,7 +2332,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Harmony (Harmony) — Division 2 named weapon | divcalc.xyz",
+      "title": "Harmony — Division 2 named weapon | divcalc.xyz",
       "h1": "Harmony",
       "canonical": "https://divcalc.xyz/en/named/harmony"
     },
@@ -2336,7 +2342,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Henri (Henri) — Division 2 named gear | divcalc.xyz",
+      "title": "Henri — Division 2 named gear | divcalc.xyz",
       "h1": "Henri",
       "canonical": "https://divcalc.xyz/en/named/henri"
     },
@@ -2346,7 +2352,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Hermano (Hermano) — Division 2 named gear | divcalc.xyz",
+      "title": "Hermano — Division 2 named gear | divcalc.xyz",
       "h1": "Hermano",
       "canonical": "https://divcalc.xyz/en/named/hermano"
     },
@@ -2354,7 +2360,7 @@
       "file": "en/named/homemade-army-m9.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade army M9 (Homemade army M9) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade army M9 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade army M9",
       "canonical": "https://divcalc.xyz/en/named/homemade-army-m9"
     },
@@ -2362,7 +2368,7 @@
       "file": "en/named/homemade-army-mk46.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade army MK46 (Homemade army MK46) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade army MK46 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade army MK46",
       "canonical": "https://divcalc.xyz/en/named/homemade-army-mk46"
     },
@@ -2370,7 +2376,7 @@
       "file": "en/named/homemade-carbon-fiber-m700.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade carbon fiber M700 (Homemade carbon fiber M700) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade carbon fiber M700 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade carbon fiber M700",
       "canonical": "https://divcalc.xyz/en/named/homemade-carbon-fiber-m700"
     },
@@ -2378,7 +2384,7 @@
       "file": "en/named/homemade-classic-m44-carbine.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade classic M44 carbine (Homemade classic M44 carbine) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade classic M44 carbine — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade classic M44 carbine",
       "canonical": "https://divcalc.xyz/en/named/homemade-classic-m44-carbine"
     },
@@ -2386,7 +2392,7 @@
       "file": "en/named/homemade-classic-m60.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade classic M60 (Homemade classic M60) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade classic M60 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade classic M60",
       "canonical": "https://divcalc.xyz/en/named/homemade-classic-m60"
     },
@@ -2396,7 +2402,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"РПК-74\""
       ],
-      "title": "Homemade contraband RPK-74E (Homemade contraband RPK-74E) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade contraband RPK-74E — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade contraband RPK-74E",
       "canonical": "https://divcalc.xyz/en/named/homemade-contraband-rpk-74e"
     },
@@ -2404,7 +2410,7 @@
       "file": "en/named/homemade-contraband-sasg-12-s.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade contraband SASG-12 S (Homemade contraband SASG-12 S) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade contraband SASG-12 S — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade contraband SASG-12 S",
       "canonical": "https://divcalc.xyz/en/named/homemade-contraband-sasg-12-s"
     },
@@ -2412,7 +2418,7 @@
       "file": "en/named/homemade-diseros.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade diseros (Homemade diseros) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade diseros — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade diseros",
       "canonical": "https://divcalc.xyz/en/named/homemade-diseros"
     },
@@ -2422,7 +2428,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Двуствольные\""
       ],
-      "title": "Homemade double-barreled shotgun (Homemade double-barreled shotgun) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade double-barreled shotgun — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade double-barreled shotgun",
       "canonical": "https://divcalc.xyz/en/named/homemade-double-barreled-shotgun"
     },
@@ -2430,7 +2436,7 @@
       "file": "en/named/homemade-f2000.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade F2000 (Homemade F2000) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade F2000 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade F2000",
       "canonical": "https://divcalc.xyz/en/named/homemade-f2000"
     },
@@ -2438,7 +2444,7 @@
       "file": "en/named/homemade-fal-sa-58-para.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade FAL SA-58 Para (Homemade FAL SA-58 Para) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade FAL SA-58 Para — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade FAL SA-58 Para",
       "canonical": "https://divcalc.xyz/en/named/homemade-fal-sa-58-para"
     },
@@ -2446,7 +2452,7 @@
       "file": "en/named/homemade-famas-2010.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade FAMAS 2010 (Homemade FAMAS 2010) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade FAMAS 2010 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade FAMAS 2010",
       "canonical": "https://divcalc.xyz/en/named/homemade-famas-2010"
     },
@@ -2454,7 +2460,7 @@
       "file": "en/named/homemade-improved-g36-c.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade improved G36 C (Homemade improved G36 C) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade improved G36 C — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade improved G36 C",
       "canonical": "https://divcalc.xyz/en/named/homemade-improved-g36-c"
     },
@@ -2462,7 +2468,7 @@
       "file": "en/named/homemade-infantry-mg5.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade infantry MG5 (Homemade infantry MG5) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade infantry MG5 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade infantry MG5",
       "canonical": "https://divcalc.xyz/en/named/homemade-infantry-mg5"
     },
@@ -2470,7 +2476,7 @@
       "file": "en/named/homemade-m870-express.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade M870 &quot;Express&quot; (Homemade M870 &quot;Express&quot;) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade M870 &quot;Express&quot; — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade M870 &quot;Express&quot;",
       "canonical": "https://divcalc.xyz/en/named/homemade-m870-express"
     },
@@ -2478,7 +2484,7 @@
       "file": "en/named/homemade-mk20-ssr-us-special-forces.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade Mk20 SSR US Special Forces (Homemade Mk20 SSR US Special Forces) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade Mk20 SSR US Special Forces — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade Mk20 SSR US Special Forces",
       "canonical": "https://divcalc.xyz/en/named/homemade-mk20-ssr-us-special-forces"
     },
@@ -2486,7 +2492,7 @@
       "file": "en/named/homemade-model-700.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade Model 700 (Homemade Model 700) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade Model 700 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade Model 700",
       "canonical": "https://divcalc.xyz/en/named/homemade-model-700"
     },
@@ -2494,7 +2500,7 @@
       "file": "en/named/homemade-modified-l86-a2.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade modified L86 A2 (Homemade modified L86 A2) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade modified L86 A2 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade modified L86 A2",
       "canonical": "https://divcalc.xyz/en/named/homemade-modified-l86-a2"
     },
@@ -2502,7 +2508,7 @@
       "file": "en/named/homemade-modified-m44.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade modified M44 (Homemade modified M44) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade modified M44 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade modified M44",
       "canonical": "https://divcalc.xyz/en/named/homemade-modified-m44"
     },
@@ -2510,7 +2516,7 @@
       "file": "en/named/homemade-modified-m870-mcs.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade modified M870 MCS (Homemade modified M870 MCS) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade modified M870 MCS — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade modified M870 MCS",
       "canonical": "https://divcalc.xyz/en/named/homemade-modified-m870-mcs"
     },
@@ -2518,7 +2524,7 @@
       "file": "en/named/homemade-police-686-magnum.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade police 686 Magnum (Homemade police 686 Magnum) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade police 686 Magnum — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade police 686 Magnum",
       "canonical": "https://divcalc.xyz/en/named/homemade-police-686-magnum"
     },
@@ -2526,7 +2532,7 @@
       "file": "en/named/homemade-police-m4.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade police M4 (Homemade police M4) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade police M4 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade police M4",
       "canonical": "https://divcalc.xyz/en/named/homemade-police-m4"
     },
@@ -2542,7 +2548,7 @@
       "file": "en/named/homemade-smuggled-akm.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade smuggled AKM (Homemade smuggled AKM) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade smuggled AKM — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade smuggled AKM",
       "canonical": "https://divcalc.xyz/en/named/homemade-smuggled-akm"
     },
@@ -2550,7 +2556,7 @@
       "file": "en/named/homemade-smuggled-m60-e6.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade smuggled M60 E6 (Homemade smuggled M60 E6) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade smuggled M60 E6 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade smuggled M60 E6",
       "canonical": "https://divcalc.xyz/en/named/homemade-smuggled-m60-e6"
     },
@@ -2558,7 +2564,7 @@
       "file": "en/named/homemade-spas-12.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade SPAS-12 (Homemade SPAS-12) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade SPAS-12 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade SPAS-12",
       "canonical": "https://divcalc.xyz/en/named/homemade-spas-12"
     },
@@ -2566,7 +2572,7 @@
       "file": "en/named/homemade-sr-1.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade SR-1 (Homemade SR-1) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade SR-1 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade SR-1",
       "canonical": "https://divcalc.xyz/en/named/homemade-sr-1"
     },
@@ -2574,7 +2580,7 @@
       "file": "en/named/homemade-srs-a1.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade SRS A1 (Homemade SRS A1) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade SRS A1 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade SRS A1",
       "canonical": "https://divcalc.xyz/en/named/homemade-srs-a1"
     },
@@ -2582,7 +2588,7 @@
       "file": "en/named/homemade-super-90.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade Super 90 (Homemade Super 90) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade Super 90 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade Super 90",
       "canonical": "https://divcalc.xyz/en/named/homemade-super-90"
     },
@@ -2590,7 +2596,7 @@
       "file": "en/named/homemade-tactical-m1911.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade tactical M1911 (Homemade tactical M1911) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade tactical M1911 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade tactical M1911",
       "canonical": "https://divcalc.xyz/en/named/homemade-tactical-m1911"
     },
@@ -2598,7 +2604,7 @@
       "file": "en/named/homemade-tactical-mk16.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade tactical Mk16 (Homemade tactical Mk16) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade tactical Mk16 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade tactical Mk16",
       "canonical": "https://divcalc.xyz/en/named/homemade-tactical-mk16"
     },
@@ -2606,7 +2612,7 @@
       "file": "en/named/homemade-tactical-super-90-sbs.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade tactical Super 90 SBS (Homemade tactical Super 90 SBS) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade tactical Super 90 SBS — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade tactical Super 90 SBS",
       "canonical": "https://divcalc.xyz/en/named/homemade-tactical-super-90-sbs"
     },
@@ -2614,7 +2620,7 @@
       "file": "en/named/homemade-tactical-x-45.html",
       "lang": "en",
       "issues": [],
-      "title": "Homemade tactical X-45 (Homemade tactical X-45) — Division 2 named weapon | divcalc.xyz",
+      "title": "Homemade tactical X-45 — Division 2 named weapon | divcalc.xyz",
       "h1": "Homemade tactical X-45",
       "canonical": "https://divcalc.xyz/en/named/homemade-tactical-x-45"
     },
@@ -2624,7 +2630,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Hunter-Killer (Hunter-Killer) — Division 2 named gear | divcalc.xyz",
+      "title": "Hunter-Killer — Division 2 named gear | divcalc.xyz",
       "h1": "Hunter-Killer",
       "canonical": "https://divcalc.xyz/en/named/hunter-killer"
     },
@@ -2634,7 +2640,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Hunting M44 (Hunting M44) — Division 2 named weapon | divcalc.xyz",
+      "title": "Hunting M44 — Division 2 named weapon | divcalc.xyz",
       "h1": "Hunting M44",
       "canonical": "https://divcalc.xyz/en/named/hunting-m44"
     },
@@ -2644,7 +2650,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Huntsman (Huntsman) — Division 2 named weapon | divcalc.xyz",
+      "title": "Huntsman — Division 2 named weapon | divcalc.xyz",
       "h1": "Huntsman",
       "canonical": "https://divcalc.xyz/en/named/huntsman"
     },
@@ -2652,7 +2658,7 @@
       "file": "en/named/hydden-gloves.html",
       "lang": "en",
       "issues": [],
-      "title": "Hydden Gloves (Hydden Gloves) — Division 2 named gear | divcalc.xyz",
+      "title": "Hydden Gloves — Division 2 named gear | divcalc.xyz",
       "h1": "Hydden Gloves",
       "canonical": "https://divcalc.xyz/en/named/hydden-gloves"
     },
@@ -2662,7 +2668,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Impetus (Impetus) — Division 2 named gear | divcalc.xyz",
+      "title": "Impetus — Division 2 named gear | divcalc.xyz",
       "h1": "Impetus",
       "canonical": "https://divcalc.xyz/en/named/impetus"
     },
@@ -2670,7 +2676,7 @@
       "file": "en/named/improved-g36-c.html",
       "lang": "en",
       "issues": [],
-      "title": "Improved G36 C (Improved G36 C) — Division 2 named weapon | divcalc.xyz",
+      "title": "Improved G36 C — Division 2 named weapon | divcalc.xyz",
       "h1": "Improved G36 C",
       "canonical": "https://divcalc.xyz/en/named/improved-g36-c"
     },
@@ -2678,7 +2684,6 @@
       "file": "en/named/index.html",
       "lang": "en",
       "issues": [
-        "missing og:title",
         "EN page has 4 cyrillic phrases: \"Взаимообмен\", \"Движущая сила\", \"Движущая сила \""
       ],
       "title": "Named — Division 2 | divcalc.xyz",
@@ -2691,7 +2696,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Instigator (Instigator) — Division 2 named weapon | divcalc.xyz",
+      "title": "Instigator — Division 2 named weapon | divcalc.xyz",
       "h1": "Instigator",
       "canonical": "https://divcalc.xyz/en/named/instigator"
     },
@@ -2699,7 +2704,7 @@
       "file": "en/named/insulation.html",
       "lang": "en",
       "issues": [],
-      "title": "Insulation (Insulation) — Division 2 named weapon | divcalc.xyz",
+      "title": "Insulation — Division 2 named weapon | divcalc.xyz",
       "h1": "Insulation",
       "canonical": "https://divcalc.xyz/en/named/insulation"
     },
@@ -2709,7 +2714,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Interchange (Interchange) — Division 2 named weapon | divcalc.xyz",
+      "title": "Interchange — Division 2 named weapon | divcalc.xyz",
       "h1": "Interchange",
       "canonical": "https://divcalc.xyz/en/named/interchange"
     },
@@ -2719,7 +2724,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Invisible Hand (Invisible Hand) — Division 2 named weapon | divcalc.xyz",
+      "title": "Invisible Hand — Division 2 named weapon | divcalc.xyz",
       "h1": "Invisible Hand",
       "canonical": "https://divcalc.xyz/en/named/invisible-hand"
     },
@@ -2729,7 +2734,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Операция «Тёмные часы» (рейд)\", \"эксклюзив из рейда \", \"Другое\""
       ],
-      "title": "Kingbreaker (Kingbreaker) — Division 2 named weapon | divcalc.xyz",
+      "title": "Kingbreaker — Division 2 named weapon | divcalc.xyz",
       "h1": "Kingbreaker",
       "canonical": "https://divcalc.xyz/en/named/kingbreaker"
     },
@@ -2739,7 +2744,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Lavoisier (Lavoisier) — Division 2 named gear | divcalc.xyz",
+      "title": "Lavoisier — Division 2 named gear | divcalc.xyz",
       "h1": "Lavoisier",
       "canonical": "https://divcalc.xyz/en/named/lavoisier"
     },
@@ -2749,7 +2754,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Верфи Бруклина\", \"Другое\", \"Торговец\""
       ],
-      "title": "Lefty (Lefty) — Division 2 named weapon | divcalc.xyz",
+      "title": "Lefty — Division 2 named weapon | divcalc.xyz",
       "h1": "Lefty",
       "canonical": "https://divcalc.xyz/en/named/lefty"
     },
@@ -2765,7 +2770,7 @@
       "file": "en/named/lexington.html",
       "lang": "en",
       "issues": [],
-      "title": "Lexington (Lexington) — Division 2 named weapon | divcalc.xyz",
+      "title": "Lexington — Division 2 named weapon | divcalc.xyz",
       "h1": "Lexington",
       "canonical": "https://divcalc.xyz/en/named/lexington"
     },
@@ -2773,7 +2778,7 @@
       "file": "en/named/lightning-rod.html",
       "lang": "en",
       "issues": [],
-      "title": "Lightning Rod (Lightning Rod) — Division 2 named weapon | divcalc.xyz",
+      "title": "Lightning Rod — Division 2 named weapon | divcalc.xyz",
       "h1": "Lightning Rod",
       "canonical": "https://divcalc.xyz/en/named/lightning-rod"
     },
@@ -2783,7 +2788,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Like Glue (Like Glue) — Division 2 named weapon | divcalc.xyz",
+      "title": "Like Glue — Division 2 named weapon | divcalc.xyz",
       "h1": "Like Glue",
       "canonical": "https://divcalc.xyz/en/named/like-glue"
     },
@@ -2793,7 +2798,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Liquid Engineer (Liquid Engineer) — Division 2 named gear | divcalc.xyz",
+      "title": "Liquid Engineer — Division 2 named gear | divcalc.xyz",
       "h1": "Liquid Engineer",
       "canonical": "https://divcalc.xyz/en/named/liquid-engineer"
     },
@@ -2803,7 +2808,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Lockdown (Lockdown) — Division 2 named weapon | divcalc.xyz",
+      "title": "Lockdown — Division 2 named weapon | divcalc.xyz",
       "h1": "Lockdown",
       "canonical": "https://divcalc.xyz/en/named/lockdown"
     },
@@ -2813,7 +2818,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Lud (Lud) — Division 2 named weapon | divcalc.xyz",
+      "title": "Lud — Division 2 named weapon | divcalc.xyz",
       "h1": "Lud",
       "canonical": "https://divcalc.xyz/en/named/lud"
     },
@@ -2831,7 +2836,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "M45A1 (M45A1) — Division 2 named weapon | divcalc.xyz",
+      "title": "M45A1 — Division 2 named weapon | divcalc.xyz",
       "h1": "M45A1",
       "canonical": "https://divcalc.xyz/en/named/m45a1"
     },
@@ -2839,7 +2844,7 @@
       "file": "en/named/m870-express.html",
       "lang": "en",
       "issues": [],
-      "title": "M870 &quot;Express&quot; (M870 &quot;Express&quot;) — Division 2 named weapon | divcalc.xyz",
+      "title": "M870 &quot;Express&quot; — Division 2 named weapon | divcalc.xyz",
       "h1": "M870 &quot;Express&quot;",
       "canonical": "https://divcalc.xyz/en/named/m870-express"
     },
@@ -2847,7 +2852,7 @@
       "file": "en/named/mania.html",
       "lang": "en",
       "issues": [],
-      "title": "Mania (Mania) — Division 2 named weapon | divcalc.xyz",
+      "title": "Mania — Division 2 named weapon | divcalc.xyz",
       "h1": "Mania",
       "canonical": "https://divcalc.xyz/en/named/mania"
     },
@@ -2857,7 +2862,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Manic (Manic) — Division 2 named weapon | divcalc.xyz",
+      "title": "Manic — Division 2 named weapon | divcalc.xyz",
       "h1": "Manic",
       "canonical": "https://divcalc.xyz/en/named/manic"
     },
@@ -2867,7 +2872,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Matador (Matador) — Division 2 named gear | divcalc.xyz",
+      "title": "Matador — Division 2 named gear | divcalc.xyz",
       "h1": "Matador",
       "canonical": "https://divcalc.xyz/en/named/matador"
     },
@@ -2885,7 +2890,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Mechanical Animal (Mechanical Animal) — Division 2 named weapon | divcalc.xyz",
+      "title": "Mechanical Animal — Division 2 named weapon | divcalc.xyz",
       "h1": "Mechanical Animal",
       "canonical": "https://divcalc.xyz/en/named/mechanical-animal"
     },
@@ -2893,7 +2898,7 @@
       "file": "en/named/mechanical-beast.html",
       "lang": "en",
       "issues": [],
-      "title": "Mechanical beast (Mechanical beast) — Division 2 named weapon | divcalc.xyz",
+      "title": "Mechanical beast — Division 2 named weapon | divcalc.xyz",
       "h1": "Mechanical beast",
       "canonical": "https://divcalc.xyz/en/named/mechanical-beast"
     },
@@ -2913,7 +2918,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "MG5 (MG5) — Division 2 named weapon | divcalc.xyz",
+      "title": "MG5 — Division 2 named weapon | divcalc.xyz",
       "h1": "MG5",
       "canonical": "https://divcalc.xyz/en/named/mg5"
     },
@@ -2923,7 +2928,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Model 700 (Model 700) — Division 2 named weapon | divcalc.xyz",
+      "title": "Model 700 — Division 2 named weapon | divcalc.xyz",
       "h1": "Model 700",
       "canonical": "https://divcalc.xyz/en/named/model-700"
     },
@@ -2931,7 +2936,7 @@
       "file": "en/named/modified-m44.html",
       "lang": "en",
       "issues": [],
-      "title": "Modified M44 (Modified M44) — Division 2 named weapon | divcalc.xyz",
+      "title": "Modified M44 — Division 2 named weapon | divcalc.xyz",
       "h1": "Modified M44",
       "canonical": "https://divcalc.xyz/en/named/modified-m44"
     },
@@ -2939,7 +2944,7 @@
       "file": "en/named/motherly-love.html",
       "lang": "en",
       "issues": [],
-      "title": "Motherly Love (Motherly Love) — Division 2 named gear | divcalc.xyz",
+      "title": "Motherly Love — Division 2 named gear | divcalc.xyz",
       "h1": "Motherly Love",
       "canonical": "https://divcalc.xyz/en/named/motherly-love"
     },
@@ -2947,7 +2952,7 @@
       "file": "en/named/mozambican-souvenir.html",
       "lang": "en",
       "issues": [],
-      "title": "Mozambican souvenir (Mozambican souvenir) — Division 2 named weapon | divcalc.xyz",
+      "title": "Mozambican souvenir — Division 2 named weapon | divcalc.xyz",
       "h1": "Mozambican souvenir",
       "canonical": "https://divcalc.xyz/en/named/mozambican-souvenir"
     },
@@ -2957,7 +2962,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Mozambique Special (Mozambique Special) — Division 2 named weapon | divcalc.xyz",
+      "title": "Mozambique Special — Division 2 named weapon | divcalc.xyz",
       "h1": "Mozambique Special",
       "canonical": "https://divcalc.xyz/en/named/mozambique-special"
     },
@@ -2965,7 +2970,7 @@
       "file": "en/named/natural-greatness.html",
       "lang": "en",
       "issues": [],
-      "title": "Natural Greatness (Natural Greatness) — Division 2 named weapon | divcalc.xyz",
+      "title": "Natural Greatness — Division 2 named weapon | divcalc.xyz",
       "h1": "Natural Greatness",
       "canonical": "https://divcalc.xyz/en/named/natural-greatness"
     },
@@ -2975,7 +2980,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Замок, \", \"Другое\""
       ],
-      "title": "New Reliable (New Reliable) — Division 2 named weapon | divcalc.xyz",
+      "title": "New Reliable — Division 2 named weapon | divcalc.xyz",
       "h1": "New Reliable",
       "canonical": "https://divcalc.xyz/en/named/new-reliable"
     },
@@ -2985,7 +2990,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Nightwatcher (Nightwatcher) — Division 2 named gear | divcalc.xyz",
+      "title": "Nightwatcher — Division 2 named gear | divcalc.xyz",
       "h1": "Nightwatcher",
       "canonical": "https://divcalc.xyz/en/named/nightwatcher"
     },
@@ -2993,7 +2998,7 @@
       "file": "en/named/ninjabike-messenger-backpack.html",
       "lang": "en",
       "issues": [],
-      "title": "NinjaBike \nMessenger Backpack (NinjaBike \nMessenger Backpack) — Division 2 named gear | divcalc.xyz",
+      "title": "NinjaBike \nMessenger Backpack — Division 2 named gear | divcalc.xyz",
       "h1": "NinjaBike \nMessenger Backpack",
       "canonical": "https://divcalc.xyz/en/named/ninjabike-messenger-backpack"
     },
@@ -3001,7 +3006,7 @@
       "file": "en/named/officer-m9-a1.html",
       "lang": "en",
       "issues": [],
-      "title": "Officer M9 A1 (Officer M9 A1) — Division 2 named weapon | divcalc.xyz",
+      "title": "Officer M9 A1 — Division 2 named weapon | divcalc.xyz",
       "h1": "Officer M9 A1",
       "canonical": "https://divcalc.xyz/en/named/officer-m9-a1"
     },
@@ -3009,7 +3014,7 @@
       "file": "en/named/oh-carol.html",
       "lang": "en",
       "issues": [],
-      "title": "Oh Carol (Oh Carol) — Division 2 named weapon | divcalc.xyz",
+      "title": "Oh Carol — Division 2 named weapon | divcalc.xyz",
       "h1": "Oh Carol",
       "canonical": "https://divcalc.xyz/en/named/oh-carol"
     },
@@ -3017,7 +3022,7 @@
       "file": "en/named/orbit.html",
       "lang": "en",
       "issues": [],
-      "title": "Orbit (Orbit) — Division 2 named weapon | divcalc.xyz",
+      "title": "Orbit — Division 2 named weapon | divcalc.xyz",
       "h1": "Orbit",
       "canonical": "https://divcalc.xyz/en/named/orbit"
     },
@@ -3035,7 +3040,7 @@
       "file": "en/named/p320-xcompact.html",
       "lang": "en",
       "issues": [],
-      "title": "P320 XCompact (P320 XCompact) — Division 2 named weapon | divcalc.xyz",
+      "title": "P320 XCompact — Division 2 named weapon | divcalc.xyz",
       "h1": "P320 XCompact",
       "canonical": "https://divcalc.xyz/en/named/p320-xcompact"
     },
@@ -3043,7 +3048,7 @@
       "file": "en/named/parting.html",
       "lang": "en",
       "issues": [],
-      "title": "Parting (Parting) — Division 2 named weapon | divcalc.xyz",
+      "title": "Parting — Division 2 named weapon | divcalc.xyz",
       "h1": "Parting",
       "canonical": "https://divcalc.xyz/en/named/parting"
     },
@@ -3053,7 +3058,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Percussive Maintenance (Percussive Maintenance) — Division 2 named gear | divcalc.xyz",
+      "title": "Percussive Maintenance — Division 2 named gear | divcalc.xyz",
       "h1": "Percussive Maintenance",
       "canonical": "https://divcalc.xyz/en/named/percussive-maintenance"
     },
@@ -3061,7 +3066,7 @@
       "file": "en/named/pf45-first-wave.html",
       "lang": "en",
       "issues": [],
-      "title": "PF45 First Wave (PF45 First Wave) — Division 2 named weapon | divcalc.xyz",
+      "title": "PF45 First Wave — Division 2 named weapon | divcalc.xyz",
       "h1": "PF45 First Wave",
       "canonical": "https://divcalc.xyz/en/named/pf45-first-wave"
     },
@@ -3071,7 +3076,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Кобуры\""
       ],
-      "title": "Picaro's Holster (Picaro's Holster) — Division 2 named gear | divcalc.xyz",
+      "title": "Picaro's Holster — Division 2 named gear | divcalc.xyz",
       "h1": "Picaro's Holster",
       "canonical": "https://divcalc.xyz/en/named/picaro-s-holster"
     },
@@ -3089,7 +3094,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Pinprick (Pinprick) — Division 2 named weapon | divcalc.xyz",
+      "title": "Pinprick — Division 2 named weapon | divcalc.xyz",
       "h1": "Pinprick",
       "canonical": "https://divcalc.xyz/en/named/pinprick"
     },
@@ -3099,7 +3104,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Pointman (Pointman) — Division 2 named gear | divcalc.xyz",
+      "title": "Pointman — Division 2 named gear | divcalc.xyz",
       "h1": "Pointman",
       "canonical": "https://divcalc.xyz/en/named/pointman"
     },
@@ -3109,7 +3114,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Police M4 (Police M4) — Division 2 named weapon | divcalc.xyz",
+      "title": "Police M4 — Division 2 named weapon | divcalc.xyz",
       "h1": "Police M4",
       "canonical": "https://divcalc.xyz/en/named/police-m4"
     },
@@ -3117,7 +3122,7 @@
       "file": "en/named/policeman-686-magnum.html",
       "lang": "en",
       "issues": [],
-      "title": "Policeman 686 Magnum (Policeman 686 Magnum) — Division 2 named weapon | divcalc.xyz",
+      "title": "Policeman 686 Magnum — Division 2 named weapon | divcalc.xyz",
       "h1": "Policeman 686 Magnum",
       "canonical": "https://divcalc.xyz/en/named/policeman-686-magnum"
     },
@@ -3127,7 +3132,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Pristine Example (Pristine Example) — Division 2 named gear | divcalc.xyz",
+      "title": "Pristine Example — Division 2 named gear | divcalc.xyz",
       "h1": "Pristine Example",
       "canonical": "https://divcalc.xyz/en/named/pristine-example"
     },
@@ -3137,7 +3142,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Prophet (Prophet) — Division 2 named weapon | divcalc.xyz",
+      "title": "Prophet — Division 2 named weapon | divcalc.xyz",
       "h1": "Prophet",
       "canonical": "https://divcalc.xyz/en/named/prophet"
     },
@@ -3147,7 +3152,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Proxy (Proxy) — Division 2 named gear | divcalc.xyz",
+      "title": "Proxy — Division 2 named gear | divcalc.xyz",
       "h1": "Proxy",
       "canonical": "https://divcalc.xyz/en/named/proxy"
     },
@@ -3157,7 +3162,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Punch Drunk (Punch Drunk) — Division 2 named gear | divcalc.xyz",
+      "title": "Punch Drunk — Division 2 named gear | divcalc.xyz",
       "h1": "Punch Drunk",
       "canonical": "https://divcalc.xyz/en/named/punch-drunk"
     },
@@ -3167,7 +3172,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Purist (Purist) — Division 2 named weapon | divcalc.xyz",
+      "title": "Purist — Division 2 named weapon | divcalc.xyz",
       "h1": "Purist",
       "canonical": "https://divcalc.xyz/en/named/purist"
     },
@@ -3185,7 +3190,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Pyromaniac (Pyromaniac) — Division 2 named weapon | divcalc.xyz",
+      "title": "Pyromaniac — Division 2 named weapon | divcalc.xyz",
       "h1": "Pyromaniac",
       "canonical": "https://divcalc.xyz/en/named/pyromaniac"
     },
@@ -3193,7 +3198,7 @@
       "file": "en/named/quickstep.html",
       "lang": "en",
       "issues": [],
-      "title": "Quickstep (Quickstep) — Division 2 named weapon | divcalc.xyz",
+      "title": "Quickstep — Division 2 named weapon | divcalc.xyz",
       "h1": "Quickstep",
       "canonical": "https://divcalc.xyz/en/named/quickstep"
     },
@@ -3201,7 +3206,7 @@
       "file": "en/named/quiet-growl.html",
       "lang": "en",
       "issues": [],
-      "title": "Quiet growl (Quiet growl) — Division 2 named weapon | divcalc.xyz",
+      "title": "Quiet growl — Division 2 named weapon | divcalc.xyz",
       "h1": "Quiet growl",
       "canonical": "https://divcalc.xyz/en/named/quiet-growl"
     },
@@ -3211,7 +3216,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Quiet Roar (Quiet Roar) — Division 2 named weapon | divcalc.xyz",
+      "title": "Quiet Roar — Division 2 named weapon | divcalc.xyz",
       "h1": "Quiet Roar",
       "canonical": "https://divcalc.xyz/en/named/quiet-roar"
     },
@@ -3219,7 +3224,7 @@
       "file": "en/named/railbreaker.html",
       "lang": "en",
       "issues": [],
-      "title": "Railbreaker (Railbreaker) — Division 2 named weapon | divcalc.xyz",
+      "title": "Railbreaker — Division 2 named weapon | divcalc.xyz",
       "h1": "Railbreaker",
       "canonical": "https://divcalc.xyz/en/named/railbreaker"
     },
@@ -3229,7 +3234,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"РПК-74\""
       ],
-      "title": "Reliable new product (Reliable new product) — Division 2 named weapon | divcalc.xyz",
+      "title": "Reliable new product — Division 2 named weapon | divcalc.xyz",
       "h1": "Reliable new product",
       "canonical": "https://divcalc.xyz/en/named/reliable-new-product"
     },
@@ -3239,7 +3244,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Relic (Relic) — Division 2 named weapon | divcalc.xyz",
+      "title": "Relic — Division 2 named weapon | divcalc.xyz",
       "h1": "Relic",
       "canonical": "https://divcalc.xyz/en/named/relic"
     },
@@ -3249,7 +3254,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Robin (Robin) — Division 2 named gear | divcalc.xyz",
+      "title": "Robin — Division 2 named gear | divcalc.xyz",
       "h1": "Robin",
       "canonical": "https://divcalc.xyz/en/named/robin"
     },
@@ -3259,7 +3264,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Rock n' Roll (Rock n' Roll) — Division 2 named weapon | divcalc.xyz",
+      "title": "Rock n' Roll — Division 2 named weapon | divcalc.xyz",
       "h1": "Rock n' Roll",
       "canonical": "https://divcalc.xyz/en/named/rock-n-roll"
     },
@@ -3269,7 +3274,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"РПК-74\""
       ],
-      "title": "Rust (Rust) — Division 2 named weapon | divcalc.xyz",
+      "title": "Rust — Division 2 named weapon | divcalc.xyz",
       "h1": "Rust",
       "canonical": "https://divcalc.xyz/en/named/rust"
     },
@@ -3279,7 +3284,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Rusty (Rusty) — Division 2 named weapon | divcalc.xyz",
+      "title": "Rusty — Division 2 named weapon | divcalc.xyz",
       "h1": "Rusty",
       "canonical": "https://divcalc.xyz/en/named/rusty"
     },
@@ -3299,7 +3304,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Safety Distance (Safety Distance) — Division 2 named weapon | divcalc.xyz",
+      "title": "Safety Distance — Division 2 named weapon | divcalc.xyz",
       "h1": "Safety Distance",
       "canonical": "https://divcalc.xyz/en/named/safety-distance"
     },
@@ -3309,7 +3314,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Salvo (Salvo) — Division 2 named gear | divcalc.xyz",
+      "title": "Salvo — Division 2 named gear | divcalc.xyz",
       "h1": "Salvo",
       "canonical": "https://divcalc.xyz/en/named/salvo"
     },
@@ -3319,7 +3324,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "SASG-12 (SASG-12) — Division 2 named weapon | divcalc.xyz",
+      "title": "SASG-12 — Division 2 named weapon | divcalc.xyz",
       "h1": "SASG-12",
       "canonical": "https://divcalc.xyz/en/named/sasg-12"
     },
@@ -3327,7 +3332,7 @@
       "file": "en/named/savage-wolverine.html",
       "lang": "en",
       "issues": [],
-      "title": "Savage Wolverine (Savage Wolverine) — Division 2 named weapon | divcalc.xyz",
+      "title": "Savage Wolverine — Division 2 named weapon | divcalc.xyz",
       "h1": "Savage Wolverine",
       "canonical": "https://divcalc.xyz/en/named/savage-wolverine"
     },
@@ -3337,7 +3342,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Двуствольные\""
       ],
-      "title": "Sawed-off shotgun (Sawed-off shotgun) — Division 2 named weapon | divcalc.xyz",
+      "title": "Sawed-off shotgun — Division 2 named weapon | divcalc.xyz",
       "h1": "Sawed-off shotgun",
       "canonical": "https://divcalc.xyz/en/named/sawed-off-shotgun"
     },
@@ -3347,7 +3352,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "Scalpel (Scalpel) — Division 2 named weapon | divcalc.xyz",
+      "title": "Scalpel — Division 2 named weapon | divcalc.xyz",
       "h1": "Scalpel",
       "canonical": "https://divcalc.xyz/en/named/scalpel"
     },
@@ -3355,7 +3360,7 @@
       "file": "en/named/sensation.html",
       "lang": "en",
       "issues": [],
-      "title": "Sensation (Sensation) — Division 2 named weapon | divcalc.xyz",
+      "title": "Sensation — Division 2 named weapon | divcalc.xyz",
       "h1": "Sensation",
       "canonical": "https://divcalc.xyz/en/named/sensation"
     },
@@ -3363,7 +3368,7 @@
       "file": "en/named/sharpshooter-s-93r.html",
       "lang": "en",
       "issues": [],
-      "title": "Sharpshooter's 93R (Sharpshooter's 93R) — Division 2 named weapon | divcalc.xyz",
+      "title": "Sharpshooter's 93R — Division 2 named weapon | divcalc.xyz",
       "h1": "Sharpshooter's 93R",
       "canonical": "https://divcalc.xyz/en/named/sharpshooter-s-93r"
     },
@@ -3373,7 +3378,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Shield Splinterer (Shield Splinterer) — Division 2 named weapon | divcalc.xyz",
+      "title": "Shield Splinterer — Division 2 named weapon | divcalc.xyz",
       "h1": "Shield Splinterer",
       "canonical": "https://divcalc.xyz/en/named/shield-splinterer"
     },
@@ -3381,7 +3386,7 @@
       "file": "en/named/short-barreled-diseros.html",
       "lang": "en",
       "issues": [],
-      "title": "Short-barreled diseros (Short-barreled diseros) — Division 2 named weapon | divcalc.xyz",
+      "title": "Short-barreled diseros — Division 2 named weapon | divcalc.xyz",
       "h1": "Short-barreled diseros",
       "canonical": "https://divcalc.xyz/en/named/short-barreled-diseros"
     },
@@ -3389,7 +3394,7 @@
       "file": "en/named/slaughterhouse.html",
       "lang": "en",
       "issues": [],
-      "title": "Slaughterhouse (Slaughterhouse) — Division 2 named weapon | divcalc.xyz",
+      "title": "Slaughterhouse — Division 2 named weapon | divcalc.xyz",
       "h1": "Slaughterhouse",
       "canonical": "https://divcalc.xyz/en/named/slaughterhouse"
     },
@@ -3399,7 +3404,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Sleight (Sleight) — Division 2 named gear | divcalc.xyz",
+      "title": "Sleight — Division 2 named gear | divcalc.xyz",
       "h1": "Sleight",
       "canonical": "https://divcalc.xyz/en/named/sleight"
     },
@@ -3407,7 +3412,7 @@
       "file": "en/named/sleipner.html",
       "lang": "en",
       "issues": [],
-      "title": "Sleipner (Sleipner) — Division 2 named weapon | divcalc.xyz",
+      "title": "Sleipner — Division 2 named weapon | divcalc.xyz",
       "h1": "Sleipner",
       "canonical": "https://divcalc.xyz/en/named/sleipner"
     },
@@ -3415,7 +3420,7 @@
       "file": "en/named/sleipnir.html",
       "lang": "en",
       "issues": [],
-      "title": "Sleipnir (Sleipnir) — Division 2 named weapon | divcalc.xyz",
+      "title": "Sleipnir — Division 2 named weapon | divcalc.xyz",
       "h1": "Sleipnir",
       "canonical": "https://divcalc.xyz/en/named/sleipnir"
     },
@@ -3423,7 +3428,7 @@
       "file": "en/named/slingshot.html",
       "lang": "en",
       "issues": [],
-      "title": "Slingshot (Slingshot) — Division 2 named weapon | divcalc.xyz",
+      "title": "Slingshot — Division 2 named weapon | divcalc.xyz",
       "h1": "Slingshot",
       "canonical": "https://divcalc.xyz/en/named/slingshot"
     },
@@ -3431,7 +3436,7 @@
       "file": "en/named/smuggled-akm.html",
       "lang": "en",
       "issues": [],
-      "title": "Smuggled AKM (Smuggled AKM) — Division 2 named weapon | divcalc.xyz",
+      "title": "Smuggled AKM — Division 2 named weapon | divcalc.xyz",
       "h1": "Smuggled AKM",
       "canonical": "https://divcalc.xyz/en/named/smuggled-akm"
     },
@@ -3439,7 +3444,7 @@
       "file": "en/named/sniper-93r.html",
       "lang": "en",
       "issues": [],
-      "title": "Sniper 93R (Sniper 93R) — Division 2 named weapon | divcalc.xyz",
+      "title": "Sniper 93R — Division 2 named weapon | divcalc.xyz",
       "h1": "Sniper 93R",
       "canonical": "https://divcalc.xyz/en/named/sniper-93r"
     },
@@ -3447,7 +3452,7 @@
       "file": "en/named/sniper-strike.html",
       "lang": "en",
       "issues": [],
-      "title": "Sniper Strike (Sniper Strike) — Division 2 named weapon | divcalc.xyz",
+      "title": "Sniper Strike — Division 2 named weapon | divcalc.xyz",
       "h1": "Sniper Strike",
       "canonical": "https://divcalc.xyz/en/named/sniper-strike"
     },
@@ -3457,7 +3462,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Snow Machine (Snow Machine) — Division 2 named gear | divcalc.xyz",
+      "title": "Snow Machine — Division 2 named gear | divcalc.xyz",
       "h1": "Snow Machine",
       "canonical": "https://divcalc.xyz/en/named/snow-machine"
     },
@@ -3467,7 +3472,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Двуствольные\""
       ],
-      "title": "Spare sawn-off shotgun (Spare sawn-off shotgun) — Division 2 named weapon | divcalc.xyz",
+      "title": "Spare sawn-off shotgun — Division 2 named weapon | divcalc.xyz",
       "h1": "Spare sawn-off shotgun",
       "canonical": "https://divcalc.xyz/en/named/spare-sawn-off-shotgun"
     },
@@ -3477,7 +3482,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "SPAS-12 (SPAS-12) — Division 2 named weapon | divcalc.xyz",
+      "title": "SPAS-12 — Division 2 named weapon | divcalc.xyz",
       "h1": "SPAS-12",
       "canonical": "https://divcalc.xyz/en/named/spas-12"
     },
@@ -3485,7 +3490,7 @@
       "file": "en/named/special-diseros.html",
       "lang": "en",
       "issues": [],
-      "title": "Special Diseros (Special Diseros) — Division 2 named weapon | divcalc.xyz",
+      "title": "Special Diseros — Division 2 named weapon | divcalc.xyz",
       "h1": "Special Diseros",
       "canonical": "https://divcalc.xyz/en/named/special-diseros"
     },
@@ -3495,7 +3500,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Spot-on (Spot-on) — Division 2 named gear | divcalc.xyz",
+      "title": "Spot-on — Division 2 named gear | divcalc.xyz",
       "h1": "Spot-on",
       "canonical": "https://divcalc.xyz/en/named/spot-on"
     },
@@ -3505,7 +3510,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "SR-1 (SR-1) — Division 2 named weapon | divcalc.xyz",
+      "title": "SR-1 — Division 2 named weapon | divcalc.xyz",
       "h1": "SR-1",
       "canonical": "https://divcalc.xyz/en/named/sr-1"
     },
@@ -3515,7 +3520,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "SRS A1 (SRS A1) — Division 2 named weapon | divcalc.xyz",
+      "title": "SRS A1 — Division 2 named weapon | divcalc.xyz",
       "h1": "SRS A1",
       "canonical": "https://divcalc.xyz/en/named/srs-a1"
     },
@@ -3525,7 +3530,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Stage Left (Stage Left) — Division 2 named weapon | divcalc.xyz",
+      "title": "Stage Left — Division 2 named weapon | divcalc.xyz",
       "h1": "Stage Left",
       "canonical": "https://divcalc.xyz/en/named/stage-left"
     },
@@ -3533,7 +3538,7 @@
       "file": "en/named/stoner-machine-gun.html",
       "lang": "en",
       "issues": [],
-      "title": "Stoner machine gun (Stoner machine gun) — Division 2 named weapon | divcalc.xyz",
+      "title": "Stoner machine gun — Division 2 named weapon | divcalc.xyz",
       "h1": "Stoner machine gun",
       "canonical": "https://divcalc.xyz/en/named/stoner-machine-gun"
     },
@@ -3543,7 +3548,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Strategic Alignment (Strategic Alignment) — Division 2 named gear | divcalc.xyz",
+      "title": "Strategic Alignment — Division 2 named gear | divcalc.xyz",
       "h1": "Strategic Alignment",
       "canonical": "https://divcalc.xyz/en/named/strategic-alignment"
     },
@@ -3553,7 +3558,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Super 90 (Super 90) — Division 2 named weapon | divcalc.xyz",
+      "title": "Super 90 — Division 2 named weapon | divcalc.xyz",
       "h1": "Super 90",
       "canonical": "https://divcalc.xyz/en/named/super-90"
     },
@@ -3563,7 +3568,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Surge (Surge) — Division 2 named weapon | divcalc.xyz",
+      "title": "Surge — Division 2 named weapon | divcalc.xyz",
       "h1": "Surge",
       "canonical": "https://divcalc.xyz/en/named/surge"
     },
@@ -3571,7 +3576,7 @@
       "file": "en/named/survivalist-d50.html",
       "lang": "en",
       "issues": [],
-      "title": "Survivalist D50 (Survivalist D50) — Division 2 named weapon | divcalc.xyz",
+      "title": "Survivalist D50 — Division 2 named weapon | divcalc.xyz",
       "h1": "Survivalist D50",
       "canonical": "https://divcalc.xyz/en/named/survivalist-d50"
     },
@@ -3579,7 +3584,7 @@
       "file": "en/named/svd-from-reserve.html",
       "lang": "en",
       "issues": [],
-      "title": "SVD from reserve (SVD from reserve) — Division 2 named weapon | divcalc.xyz",
+      "title": "SVD from reserve — Division 2 named weapon | divcalc.xyz",
       "h1": "SVD from reserve",
       "canonical": "https://divcalc.xyz/en/named/svd-from-reserve"
     },
@@ -3589,7 +3594,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Swap Chain (Swap Chain) — Division 2 named weapon | divcalc.xyz",
+      "title": "Swap Chain — Division 2 named weapon | divcalc.xyz",
       "h1": "Swap Chain",
       "canonical": "https://divcalc.xyz/en/named/swap-chain"
     },
@@ -3599,7 +3604,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"сундуки)\", \"Можно взять с любого \""
       ],
-      "title": "Sweet Dreams (Sweet Dreams) — Division 2 named weapon | divcalc.xyz",
+      "title": "Sweet Dreams — Division 2 named weapon | divcalc.xyz",
       "h1": "Sweet Dreams",
       "canonical": "https://divcalc.xyz/en/named/sweet-dreams"
     },
@@ -3609,7 +3614,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Tabula Rasa (Tabula Rasa) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tabula Rasa — Division 2 named weapon | divcalc.xyz",
       "h1": "Tabula Rasa",
       "canonical": "https://divcalc.xyz/en/named/tabula-rasa"
     },
@@ -3619,7 +3624,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Tactical M1911 (Tactical M1911) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tactical M1911 — Division 2 named weapon | divcalc.xyz",
       "h1": "Tactical M1911",
       "canonical": "https://divcalc.xyz/en/named/tactical-m1911"
     },
@@ -3629,7 +3634,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Tactical M249 Para (Tactical M249 Para) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tactical M249 Para — Division 2 named weapon | divcalc.xyz",
       "h1": "Tactical M249 Para",
       "canonical": "https://divcalc.xyz/en/named/tactical-m249-para"
     },
@@ -3637,7 +3642,7 @@
       "file": "en/named/tactical-m700.html",
       "lang": "en",
       "issues": [],
-      "title": "Tactical M700 (Tactical M700) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tactical M700 — Division 2 named weapon | divcalc.xyz",
       "h1": "Tactical M700",
       "canonical": "https://divcalc.xyz/en/named/tactical-m700"
     },
@@ -3645,7 +3650,7 @@
       "file": "en/named/tactical-mk16.html",
       "lang": "en",
       "issues": [],
-      "title": "Tactical Mk16 (Tactical Mk16) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tactical Mk16 — Division 2 named weapon | divcalc.xyz",
       "h1": "Tactical Mk16",
       "canonical": "https://divcalc.xyz/en/named/tactical-mk16"
     },
@@ -3655,7 +3660,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Tactical SASG-12 K (Tactical SASG-12 K) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tactical SASG-12 K — Division 2 named weapon | divcalc.xyz",
       "h1": "Tactical SASG-12 K",
       "canonical": "https://divcalc.xyz/en/named/tactical-sasg-12-k"
     },
@@ -3665,7 +3670,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Tactical Super 90 SBS (Tactical Super 90 SBS) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tactical Super 90 SBS — Division 2 named weapon | divcalc.xyz",
       "h1": "Tactical Super 90 SBS",
       "canonical": "https://divcalc.xyz/en/named/tactical-super-90-sbs"
     },
@@ -3673,7 +3678,7 @@
       "file": "en/named/tactical-x-45.html",
       "lang": "en",
       "issues": [],
-      "title": "Tactical X-45 (Tactical X-45) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tactical X-45 — Division 2 named weapon | divcalc.xyz",
       "h1": "Tactical X-45",
       "canonical": "https://divcalc.xyz/en/named/tactical-x-45"
     },
@@ -3681,7 +3686,7 @@
       "file": "en/named/tdi-kard-custom.html",
       "lang": "en",
       "issues": [],
-      "title": "TDI &quot;Kard&quot; Custom (TDI &quot;Kard&quot; Custom) — Division 2 named weapon | divcalc.xyz",
+      "title": "TDI &quot;Kard&quot; Custom — Division 2 named weapon | divcalc.xyz",
       "h1": "TDI &quot;Kard&quot; Custom",
       "canonical": "https://divcalc.xyz/en/named/tdi-kard-custom"
     },
@@ -3691,7 +3696,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Test Subject (Test Subject) — Division 2 named weapon | divcalc.xyz",
+      "title": "Test Subject — Division 2 named weapon | divcalc.xyz",
       "h1": "Test Subject",
       "canonical": "https://divcalc.xyz/en/named/test-subject"
     },
@@ -3701,7 +3706,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "The Apartment (The Apartment) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Apartment — Division 2 named weapon | divcalc.xyz",
       "h1": "The Apartment",
       "canonical": "https://divcalc.xyz/en/named/the-apartment"
     },
@@ -3709,7 +3714,7 @@
       "file": "en/named/the-archivist.html",
       "lang": "en",
       "issues": [],
-      "title": "The Archivist (The Archivist) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Archivist — Division 2 named weapon | divcalc.xyz",
       "h1": "The Archivist",
       "canonical": "https://divcalc.xyz/en/named/the-archivist"
     },
@@ -3719,7 +3724,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "The Courier (The Courier) — Division 2 named gear | divcalc.xyz",
+      "title": "The Courier — Division 2 named gear | divcalc.xyz",
       "h1": "The Courier",
       "canonical": "https://divcalc.xyz/en/named/the-courier"
     },
@@ -3729,7 +3734,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "The Darkness (The Darkness) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Darkness — Division 2 named weapon | divcalc.xyz",
       "h1": "The Darkness",
       "canonical": "https://divcalc.xyz/en/named/the-darkness"
     },
@@ -3739,7 +3744,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "The Drill (The Drill) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Drill — Division 2 named weapon | divcalc.xyz",
       "h1": "The Drill",
       "canonical": "https://divcalc.xyz/en/named/the-drill"
     },
@@ -3749,7 +3754,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "The Gift (The Gift) — Division 2 named gear | divcalc.xyz",
+      "title": "The Gift — Division 2 named gear | divcalc.xyz",
       "h1": "The Gift",
       "canonical": "https://divcalc.xyz/en/named/the-gift"
     },
@@ -3759,7 +3764,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "The Grudge (The Grudge) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Grudge — Division 2 named weapon | divcalc.xyz",
       "h1": "The Grudge",
       "canonical": "https://divcalc.xyz/en/named/the-grudge"
     },
@@ -3767,7 +3772,7 @@
       "file": "en/named/the-harvest.html",
       "lang": "en",
       "issues": [],
-      "title": "The Harvest (The Harvest) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Harvest — Division 2 named weapon | divcalc.xyz",
       "h1": "The Harvest",
       "canonical": "https://divcalc.xyz/en/named/the-harvest"
     },
@@ -3775,7 +3780,7 @@
       "file": "en/named/the-headline-grabber.html",
       "lang": "en",
       "issues": [],
-      "title": "The Headline-grabber (The Headline-grabber) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Headline-grabber — Division 2 named weapon | divcalc.xyz",
       "h1": "The Headline-grabber",
       "canonical": "https://divcalc.xyz/en/named/the-headline-grabber"
     },
@@ -3785,7 +3790,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "The Hollow Man (The Hollow Man) — Division 2 named gear | divcalc.xyz",
+      "title": "The Hollow Man — Division 2 named gear | divcalc.xyz",
       "h1": "The Hollow Man",
       "canonical": "https://divcalc.xyz/en/named/the-hollow-man"
     },
@@ -3795,7 +3800,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "The Mop (The Mop) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Mop — Division 2 named weapon | divcalc.xyz",
       "h1": "The Mop",
       "canonical": "https://divcalc.xyz/en/named/the-mop"
     },
@@ -3805,7 +3810,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "The Railsplitter (The Railsplitter) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Railsplitter — Division 2 named weapon | divcalc.xyz",
       "h1": "The Railsplitter",
       "canonical": "https://divcalc.xyz/en/named/the-railsplitter"
     },
@@ -3815,7 +3820,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "The Sacrifice (The Sacrifice) — Division 2 named gear | divcalc.xyz",
+      "title": "The Sacrifice — Division 2 named gear | divcalc.xyz",
       "h1": "The Sacrifice",
       "canonical": "https://divcalc.xyz/en/named/the-sacrifice"
     },
@@ -3823,7 +3828,7 @@
       "file": "en/named/the-send-off.html",
       "lang": "en",
       "issues": [],
-      "title": "The Send-Off (The Send-Off) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Send-Off — Division 2 named weapon | divcalc.xyz",
       "h1": "The Send-Off",
       "canonical": "https://divcalc.xyz/en/named/the-send-off"
     },
@@ -3833,7 +3838,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "The Setup (The Setup) — Division 2 named gear | divcalc.xyz",
+      "title": "The Setup — Division 2 named gear | divcalc.xyz",
       "h1": "The Setup",
       "canonical": "https://divcalc.xyz/en/named/the-setup"
     },
@@ -3841,7 +3846,7 @@
       "file": "en/named/the-sheriff.html",
       "lang": "en",
       "issues": [],
-      "title": "The Sheriff (The Sheriff) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Sheriff — Division 2 named weapon | divcalc.xyz",
       "h1": "The Sheriff",
       "canonical": "https://divcalc.xyz/en/named/the-sheriff"
     },
@@ -3849,7 +3854,7 @@
       "file": "en/named/the-sleigher.html",
       "lang": "en",
       "issues": [],
-      "title": "The Sleigher (The Sleigher) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Sleigher — Division 2 named weapon | divcalc.xyz",
       "h1": "The Sleigher",
       "canonical": "https://divcalc.xyz/en/named/the-sleigher"
     },
@@ -3857,7 +3862,7 @@
       "file": "en/named/the-stinger.html",
       "lang": "en",
       "issues": [],
-      "title": "The Stinger (The Stinger) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Stinger — Division 2 named weapon | divcalc.xyz",
       "h1": "The Stinger",
       "canonical": "https://divcalc.xyz/en/named/the-stinger"
     },
@@ -3867,7 +3872,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "The Virginian (The Virginian) — Division 2 named weapon | divcalc.xyz",
+      "title": "The Virginian — Division 2 named weapon | divcalc.xyz",
       "h1": "The Virginian",
       "canonical": "https://divcalc.xyz/en/named/the-virginian"
     },
@@ -3877,7 +3882,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Космическое управление, \", \"Другое\", \"Торговец\""
       ],
-      "title": "The White Death (The White Death) — Division 2 named weapon | divcalc.xyz",
+      "title": "The White Death — Division 2 named weapon | divcalc.xyz",
       "h1": "The White Death",
       "canonical": "https://divcalc.xyz/en/named/the-white-death"
     },
@@ -3887,7 +3892,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Торговец\""
       ],
-      "title": "Thorn (Thorn) — Division 2 named weapon | divcalc.xyz",
+      "title": "Thorn — Division 2 named weapon | divcalc.xyz",
       "h1": "Thorn",
       "canonical": "https://divcalc.xyz/en/named/thorn"
     },
@@ -3897,7 +3902,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Trader (Trader) — Division 2 named weapon | divcalc.xyz",
+      "title": "Trader — Division 2 named weapon | divcalc.xyz",
       "h1": "Trader",
       "canonical": "https://divcalc.xyz/en/named/trader"
     },
@@ -3907,7 +3912,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Другое\", \"Торговец\""
       ],
-      "title": "Tsunami (Tsunami) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tsunami — Division 2 named weapon | divcalc.xyz",
       "h1": "Tsunami",
       "canonical": "https://divcalc.xyz/en/named/tsunami"
     },
@@ -3915,7 +3920,7 @@
       "file": "en/named/tuned-kard.html",
       "lang": "en",
       "issues": [],
-      "title": "Tuned KARD (Tuned KARD) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tuned KARD — Division 2 named weapon | divcalc.xyz",
       "h1": "Tuned KARD",
       "canonical": "https://divcalc.xyz/en/named/tuned-kard"
     },
@@ -3923,7 +3928,7 @@
       "file": "en/named/turmoil.html",
       "lang": "en",
       "issues": [],
-      "title": "Turmoil (Turmoil) — Division 2 named gear | divcalc.xyz",
+      "title": "Turmoil — Division 2 named gear | divcalc.xyz",
       "h1": "Turmoil",
       "canonical": "https://divcalc.xyz/en/named/turmoil"
     },
@@ -3931,7 +3936,7 @@
       "file": "en/named/tyrannicide.html",
       "lang": "en",
       "issues": [],
-      "title": "Tyrannicide (Tyrannicide) — Division 2 named weapon | divcalc.xyz",
+      "title": "Tyrannicide — Division 2 named weapon | divcalc.xyz",
       "h1": "Tyrannicide",
       "canonical": "https://divcalc.xyz/en/named/tyrannicide"
     },
@@ -3939,7 +3944,7 @@
       "file": "en/named/upshift.html",
       "lang": "en",
       "issues": [],
-      "title": "Upshift (Upshift) — Division 2 named weapon | divcalc.xyz",
+      "title": "Upshift — Division 2 named weapon | divcalc.xyz",
       "h1": "Upshift",
       "canonical": "https://divcalc.xyz/en/named/upshift"
     },
@@ -3947,7 +3952,7 @@
       "file": "en/named/us-special-forces-mk16.html",
       "lang": "en",
       "issues": [],
-      "title": "US Special Forces Mk16 (US Special Forces Mk16) — Division 2 named weapon | divcalc.xyz",
+      "title": "US Special Forces Mk16 — Division 2 named weapon | divcalc.xyz",
       "h1": "US Special Forces Mk16",
       "canonical": "https://divcalc.xyz/en/named/us-special-forces-mk16"
     },
@@ -3955,7 +3960,7 @@
       "file": "en/named/vedmedytsya-vest.html",
       "lang": "en",
       "issues": [],
-      "title": "Vedmedytsya Vest (Vedmedytsya Vest) — Division 2 named gear | divcalc.xyz",
+      "title": "Vedmedytsya Vest — Division 2 named gear | divcalc.xyz",
       "h1": "Vedmedytsya Vest",
       "canonical": "https://divcalc.xyz/en/named/vedmedytsya-vest"
     },
@@ -3963,7 +3968,7 @@
       "file": "en/named/velcro.html",
       "lang": "en",
       "issues": [],
-      "title": "Velcro (Velcro) — Division 2 named weapon | divcalc.xyz",
+      "title": "Velcro — Division 2 named weapon | divcalc.xyz",
       "h1": "Velcro",
       "canonical": "https://divcalc.xyz/en/named/velcro"
     },
@@ -3973,7 +3978,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Vigil (Vigil) — Division 2 named gear | divcalc.xyz",
+      "title": "Vigil — Division 2 named gear | divcalc.xyz",
       "h1": "Vigil",
       "canonical": "https://divcalc.xyz/en/named/vigil"
     },
@@ -3983,7 +3988,7 @@
       "issues": [
         "EN page has 1 cyrillic phrases: \"Другое\""
       ],
-      "title": "Visionario (Visionario) — Division 2 named gear | divcalc.xyz",
+      "title": "Visionario — Division 2 named gear | divcalc.xyz",
       "h1": "Visionario",
       "canonical": "https://divcalc.xyz/en/named/visionario"
     },
@@ -4003,7 +4008,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"М16А2)\", \"Другое\""
       ],
-      "title": "Whisper (Whisper) — Division 2 named weapon | divcalc.xyz",
+      "title": "Whisper — Division 2 named weapon | divcalc.xyz",
       "h1": "Whisper",
       "canonical": "https://divcalc.xyz/en/named/whisper"
     },
@@ -4011,7 +4016,7 @@
       "file": "en/named/wild-wolverine.html",
       "lang": "en",
       "issues": [],
-      "title": "Wild wolverine (Wild wolverine) — Division 2 named weapon | divcalc.xyz",
+      "title": "Wild wolverine — Division 2 named weapon | divcalc.xyz",
       "h1": "Wild wolverine",
       "canonical": "https://divcalc.xyz/en/named/wild-wolverine"
     },
@@ -4019,7 +4024,7 @@
       "file": "en/named/zero-f-s.html",
       "lang": "en",
       "issues": [],
-      "title": "Zero F’s (Zero F’s) — Division 2 named gear | divcalc.xyz",
+      "title": "Zero F’s — Division 2 named gear | divcalc.xyz",
       "h1": "Zero F’s",
       "canonical": "https://divcalc.xyz/en/named/zero-f-s"
     },
@@ -4029,7 +4034,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Восьмерки и Тузы\", \"Без ограничений \", \"Туз в рукаве \""
       ],
-      "title": "Aces &amp; Eights (Aces &amp; Eights) — Division 2 gear set | divcalc.xyz",
+      "title": "Aces &amp; Eights — Division 2 gear set | divcalc.xyz",
       "h1": "Aces &amp; Eights",
       "canonical": "https://divcalc.xyz/en/set/aces-eights"
     },
@@ -4039,7 +4044,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Здоровье\", \"двойник считается\", \"Полиэтилен \""
       ],
-      "title": "Aegis (Aegis) — Division 2 gear set | divcalc.xyz",
+      "title": "Aegis — Division 2 gear set | divcalc.xyz",
       "h1": "Aegis",
       "canonical": "https://divcalc.xyz/en/set/aegis"
     },
@@ -4049,7 +4054,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Точка невозврата \", \"Точка чести \""
       ],
-      "title": "Breaking Point (Breaking Point) — Division 2 gear set | divcalc.xyz",
+      "title": "Breaking Point — Division 2 gear set | divcalc.xyz",
       "h1": "Breaking Point",
       "canonical": "https://divcalc.xyz/en/set/breaking-point"
     },
@@ -4059,7 +4064,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Сверхзарядка \", \"Безопасная \""
       ],
-      "title": "Cavalier (Cavalier) — Division 2 gear set | divcalc.xyz",
+      "title": "Cavalier — Division 2 gear set | divcalc.xyz",
       "h1": "Cavalier",
       "canonical": "https://divcalc.xyz/en/set/cavalier"
     },
@@ -4069,7 +4074,7 @@
       "issues": [
         "EN page has 2 cyrillic phrases: \"Все за одного \", \"Один за всех \""
       ],
-      "title": "Concentrated Company (Concentrated Company) — Division 2 gear set | divcalc.xyz",
+      "title": "Concentrated Company — Division 2 gear set | divcalc.xyz",
       "h1": "Concentrated Company",
       "canonical": "https://divcalc.xyz/en/set/concentrated-company"
     },
@@ -4079,7 +4084,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Внутреннее ядро \", \"Внешнее ядро \", \"атрибута\""
       ],
-      "title": "Core Strength (Core Strength) — Division 2 gear set | divcalc.xyz",
+      "title": "Core Strength — Division 2 gear set | divcalc.xyz",
       "h1": "Core Strength",
       "canonical": "https://divcalc.xyz/en/set/core-strength"
     },
@@ -4089,7 +4094,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Распространение \", \"Усилитель \", \"урон по статусу\""
       ],
-      "title": "Eclipse Protocol (Eclipse Protocol) — Division 2 gear set | divcalc.xyz",
+      "title": "Eclipse Protocol — Division 2 gear set | divcalc.xyz",
       "h1": "Eclipse Protocol",
       "canonical": "https://divcalc.xyz/en/set/eclipse-protocol"
     },
@@ -4099,7 +4104,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Сталелитейный Бастион\", \"Улучшенные материалы \", \"Тех. процесс \""
       ],
-      "title": "Foundry Bulwark (Foundry Bulwark) — Division 2 gear set | divcalc.xyz",
+      "title": "Foundry Bulwark — Division 2 gear set | divcalc.xyz",
       "h1": "Foundry Bulwark",
       "canonical": "https://divcalc.xyz/en/set/foundry-bulwark"
     },
@@ -4109,7 +4114,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Инициатива Будущего\", \"Тактическое превосходство \", \"Стратегическая поддержка \""
       ],
-      "title": "Future Initiative (Future Initiative) — Division 2 gear set | divcalc.xyz",
+      "title": "Future Initiative — Division 2 gear set | divcalc.xyz",
       "h1": "Future Initiative",
       "canonical": "https://divcalc.xyz/en/set/future-initiative"
     },
@@ -4119,7 +4124,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Положительное подкрепление \", \"Короткое замыкание \", \"кд 10с\""
       ],
-      "title": "Hard Wired (Hard Wired) — Division 2 gear set | divcalc.xyz",
+      "title": "Hard Wired — Division 2 gear set | divcalc.xyz",
       "h1": "Hard Wired",
       "canonical": "https://divcalc.xyz/en/set/hard-wired"
     },
@@ -4129,7 +4134,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Разбиватель Сердец\", \"макс. стаков 100\", \"Хладнокровный \""
       ],
-      "title": "Heartbreaker (Heartbreaker) — Division 2 gear set | divcalc.xyz",
+      "title": "Heartbreaker — Division 2 gear set | divcalc.xyz",
       "h1": "Heartbreaker",
       "canonical": "https://divcalc.xyz/en/set/heartbreaker"
     },
@@ -4139,7 +4144,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Дерзкий \", \"бонусная броня 100\", \"Благословлённый \""
       ],
-      "title": "Hotshot (Hotshot) — Division 2 gear set | divcalc.xyz",
+      "title": "Hotshot — Division 2 gear set | divcalc.xyz",
       "h1": "Hotshot",
       "canonical": "https://divcalc.xyz/en/set/hotshot"
     },
@@ -4149,16 +4154,14 @@
       "issues": [
         "EN page has 5 cyrillic phrases: \"Ярость Охотника\", \"Бесконечный голод \", \"длительность 30с\""
       ],
-      "title": "Hunter's Fury (Hunter's Fury) — Division 2 gear set | divcalc.xyz",
+      "title": "Hunter's Fury — Division 2 gear set | divcalc.xyz",
       "h1": "Hunter's Fury",
       "canonical": "https://divcalc.xyz/en/set/hunter-s-fury"
     },
     {
       "file": "en/set/index.html",
       "lang": "en",
-      "issues": [
-        "missing og:title"
-      ],
+      "issues": [],
       "title": "Sets — Division 2 | divcalc.xyz",
       "h1": "Sets",
       "canonical": "https://divcalc.xyz/en/set/"
@@ -4169,7 +4172,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Разум улья \", \"кд 25с\", \"Умное сотрудничество \""
       ],
-      "title": "Measured Assembly (Measured Assembly) — Division 2 gear set | divcalc.xyz",
+      "title": "Measured Assembly — Division 2 gear set | divcalc.xyz",
       "h1": "Measured Assembly",
       "canonical": "https://divcalc.xyz/en/set/measured-assembly"
     },
@@ -4179,7 +4182,7 @@
       "issues": [
         "EN page has 5 cyrillic phrases: \"Дилемма Переговорщика\", \"Богатство целей \", \"меток 5\""
       ],
-      "title": "Negotiator's Dilemma (Negotiator's Dilemma) — Division 2 gear set | divcalc.xyz",
+      "title": "Negotiator's Dilemma — Division 2 gear set | divcalc.xyz",
       "h1": "Negotiator's Dilemma",
       "canonical": "https://divcalc.xyz/en/set/negotiator-s-dilemma"
     },
@@ -4189,7 +4192,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Бессрочная Директива\", \"Патроны Парабеллум \", \"Специалист по травмам \""
       ],
-      "title": "Ongoing Directive (Ongoing Directive) — Division 2 gear set | divcalc.xyz",
+      "title": "Ongoing Directive — Division 2 gear set | divcalc.xyz",
       "h1": "Ongoing Directive",
       "canonical": "https://divcalc.xyz/en/set/ongoing-directive"
     },
@@ -4199,7 +4202,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Экскуро\", \"Цепное возгорание \", \"Тепловой удар \""
       ],
-      "title": "Ortiz: Exuro (Ortiz: Exuro) — Division 2 gear set | divcalc.xyz",
+      "title": "Ortiz: Exuro — Division 2 gear set | divcalc.xyz",
       "h1": "Ortiz: Exuro",
       "canonical": "https://divcalc.xyz/en/set/ortiz-exuro"
     },
@@ -4209,7 +4212,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Повышенный интерес \", \"Сверхтехнологичный \", \"лечение \""
       ],
-      "title": "Refactor (Refactor) — Division 2 gear set | divcalc.xyz",
+      "title": "Refactor — Division 2 gear set | divcalc.xyz",
       "h1": "Refactor",
       "canonical": "https://divcalc.xyz/en/set/refactor"
     },
@@ -4219,7 +4222,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Лучшие друзья \", \"Полное время \", \"отмена сбрасывает кд\""
       ],
-      "title": "Rigger (Rigger) — Division 2 gear set | divcalc.xyz",
+      "title": "Rigger — Division 2 gear set | divcalc.xyz",
       "h1": "Rigger",
       "canonical": "https://divcalc.xyz/en/set/rigger"
     },
@@ -4229,7 +4232,7 @@
       "issues": [
         "EN page has 5 cyrillic phrases: \"Боевик\", \"Давление преимуществ \", \"макс. 200 стаков\""
       ],
-      "title": "Striker's Battlegear (Striker's Battlegear) — Division 2 gear set | divcalc.xyz",
+      "title": "Striker's Battlegear — Division 2 gear set | divcalc.xyz",
       "h1": "Striker's Battlegear",
       "canonical": "https://divcalc.xyz/en/set/striker-s-battlegear"
     },
@@ -4239,7 +4242,7 @@
       "issues": [
         "EN page has 4 cyrillic phrases: \"Коррупция в Системе\", \"Оптимизация \", \"кд 15с\""
       ],
-      "title": "System Corruption (System Corruption) — Division 2 gear set | divcalc.xyz",
+      "title": "System Corruption — Division 2 gear set | divcalc.xyz",
       "h1": "System Corruption",
       "canonical": "https://divcalc.xyz/en/set/system-corruption"
     },
@@ -4249,7 +4252,7 @@
       "issues": [
         "EN page has 6 cyrillic phrases: \"Острие Копья\", \"Спец. разрушение \", \"е убийство\""
       ],
-      "title": "Tip of the Spear (Tip of the Spear) — Division 2 gear set | divcalc.xyz",
+      "title": "Tip of the Spear — Division 2 gear set | divcalc.xyz",
       "h1": "Tip of the Spear",
       "canonical": "https://divcalc.xyz/en/set/tip-of-the-spear"
     },
@@ -4269,7 +4272,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Истинный Патриот\", \"Развевая флаг \", \"Патриотический буст \""
       ],
-      "title": "True Patriot (True Patriot) — Division 2 gear set | divcalc.xyz",
+      "title": "True Patriot — Division 2 gear set | divcalc.xyz",
       "h1": "True Patriot",
       "canonical": "https://divcalc.xyz/en/set/true-patriot"
     },
@@ -4289,7 +4292,7 @@
       "issues": [
         "EN page has 3 cyrillic phrases: \"Фортиссимо \", \"бонусы\", \"Ускоряясь \""
       ],
-      "title": "Virtuoso (Virtuoso) — Division 2 gear set | divcalc.xyz",
+      "title": "Virtuoso — Division 2 gear set | divcalc.xyz",
       "h1": "Virtuoso",
       "canonical": "https://divcalc.xyz/en/set/virtuoso"
     },
@@ -4456,9 +4459,7 @@
     {
       "file": "ru/brand/index.html",
       "lang": "ru",
-      "issues": [
-        "missing og:title"
-      ],
+      "issues": [],
       "title": "Бренды снаряжения — Division 2 | divcalc.xyz",
       "h1": "Бренды снаряжения",
       "canonical": "https://divcalc.xyz/ru/brand/"
@@ -4999,7 +5000,6 @@
       "file": "ru/exotic/index.html",
       "lang": "ru",
       "issues": [
-        "missing og:title",
         "RU page has 4 long Latin phrases"
       ],
       "title": "Экзотики — Division 2 | divcalc.xyz",
@@ -6677,9 +6677,7 @@
     {
       "file": "ru/named/index.html",
       "lang": "ru",
-      "issues": [
-        "missing og:title"
-      ],
+      "issues": [],
       "title": "Именное снаряжение — Division 2 | divcalc.xyz",
       "h1": "Именное снаряжение",
       "canonical": "https://divcalc.xyz/ru/named/"
@@ -7959,9 +7957,7 @@
     {
       "file": "ru/set/index.html",
       "lang": "ru",
-      "issues": [
-        "missing og:title"
-      ],
+      "issues": [],
       "title": "Комплекты снаряжения — Division 2 | divcalc.xyz",
       "h1": "Комплекты снаряжения",
       "canonical": "https://divcalc.xyz/ru/set/"

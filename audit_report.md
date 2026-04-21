@@ -1,8 +1,8 @@
 # Audit Report — 2026-04-21
 
-**Total pages:** 940
-**Pages with issues:** 266
-**Total issues:** 268
+**Total pages:** 941
+**Pages with issues:** 261
+**Total issues:** 261
 
 ## Issue types
 
@@ -10,21 +10,13 @@
 - **53×** EN page has 2 cyrillic phrases
 - **30×** EN page has 3 cyrillic phrases
 - **14×** EN page has 4 cyrillic phrases
-- **8×** missing og
 - **6×** EN page has 5 cyrillic phrases
 - **4×** RU page has 4 long Latin phrases
+- **1×** EN page has 540 cyrillic phrases
 - **1×** EN page has 6 cyrillic phrases
 - **1×** RU page has 5 long Latin phrases
 
 ## Top problematic pages
-
-### en/named/index.html (2 issues)
-- missing og:title
-- EN page has 4 cyrillic phrases: "Взаимообмен", "Движущая сила", "Движущая сила "
-
-### ru/exotic/index.html (2 issues)
-- missing og:title
-- RU page has 4 long Latin phrases
 
 ### en/brand/5-11-tactical.html (1 issues)
 - EN page has 1 cyrillic phrases: "Здоровье"
@@ -34,9 +26,6 @@
 
 ### en/brand/gila-guard.html (1 issues)
 - EN page has 1 cyrillic phrases: "Здоровье"
-
-### en/brand/index.html (1 issues)
-- missing og:title
 
 ### en/brand/palisade-steelworks.html (1 issues)
 - EN page has 1 cyrillic phrases: "Здоровье"
@@ -109,3 +98,12 @@
 
 ### en/exotic/dogface.html (1 issues)
 - EN page has 2 cyrillic phrases: "талант)", "комплекты снаряжения"
+
+### en/exotic/eagle-bearer.html (1 issues)
+- EN page has 4 cyrillic phrases: "Операция «Тёмные часы» (финальный босс ", "Дроп с финального босса рейда ", "Требуется "
+
+### en/exotic/exodus-gloves.html (1 issues)
+- EN page has 1 cyrillic phrases: "комплекты снаряжения"
+
+### en/exotic/exodus.html (1 issues)
+- EN page has 2 cyrillic phrases: "Дымовая завеса", "комплекты снаряжения"
