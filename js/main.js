@@ -1,5 +1,16 @@
 // Language state — must be declared before render() runs (TDZ fix)
-var currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem("d2calc_lang")) || "ru";
+var currentLang = (function(){
+  try {
+    var stored = typeof localStorage !== 'undefined' && localStorage.getItem("d2calc_lang");
+    if (stored === 'ru' || stored === 'en') return stored;
+    var path = (typeof location !== 'undefined' ? location.pathname : '') || '';
+    if (/^\/ru(\/|$)/.test(path)) return 'ru';
+    if (/^\/en(\/|$)/.test(path)) return 'en';
+    var nav = typeof navigator !== 'undefined' ? ((navigator.languages||[])[0]||navigator.language||'') : '';
+    if (typeof nav === 'string' && nav.toLowerCase().indexOf('ru') === 0) return 'ru';
+    return 'en';
+  } catch(e) { return 'en'; }
+})();
 
 const STAT_RU = {
   "weapon damage":"Урон оружия","armor":"Броня","skill tier":"Уровень скиллов",

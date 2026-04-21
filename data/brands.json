@@ -1,483 +1,697 @@
 [
   {
-    "id": "GearBrand_511",
-    "uid": "4CDCE5B25C4057F200032204474DAA22",
-    "class": "GearBrand",
-    "name_en": "5.11 Tactical",
-    "name_ru": "5.11 Tactical"
+    "name": "Предусмотрительность: защита",
+    "bonuses": [
+      "1шт: +13% Урон от выстрелов в голову",
+      "2шт: +8% Шанс крит. попадания",
+      "3шт: +13% Урон от крит. попадания"
+    ],
+    "name_full_en": "Providence Defense",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +13% Урон в голову",
+      "2шт: +8% Шанс крит. удара",
+      "3шт: +13% Урон крит. удара"
+    ]
   },
   {
-    "id": "GearBrand_a",
-    "uid": "5D4179F159C39902000037469FB15338",
-    "class": "GearBrand",
-    "name_en": "Golan Gear Ltd",
-    "name_ru": "Golan Gear Ltd."
+    "name": "Uzina Getica",
+    "bonuses": [
+      "1шт: +5% Брони",
+      "2шт: +10% Брони за убийство",
+      "3шт: +30% Защита от факторов риска"
+    ],
+    "name_full_en": "Uzina Getica",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +5% Общая броня",
+      "2шт: +10% Броня за убийство",
+      "3шт: +30% Защита от опасностей"
+    ]
   },
   {
-    "id": "gearbrand_a1",
-    "uid": "B005013564917300000384F1ED6FD625",
-    "class": "GearBrand",
-    "name_en": "Lengmo",
-    "name_ru": "Lengmo",
-    "attrs": {
-      "myLore": ""
-    }
+    "name": "Empress International",
+    "bonuses": [
+      "1шт: +10% Прочность объектов навыков",
+      "2шт: +10% Урон от навыков",
+      "3шт: +8% Эффективность навыков"
+    ],
+    "name_full_en": "Empress International",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Здоровье навыка",
+      "2шт: +10% Урон навыков",
+      "3шт: +8% Эффективность навыков"
+    ]
   },
   {
-    "id": "gearbrand_b",
-    "uid": "5D4179F159C3996000003766A8D2AC27",
-    "class": "GearBrand",
-    "name_en": "Gila Guard",
-    "name_ru": "Gila Guard"
+    "name": "Wyvern Wear",
+    "bonuses": [
+      "1шт: +8% Урон от навыков",
+      "2шт: +18% Негативные эффекты",
+      "3шт: +45% Длительность действия навыков"
+    ],
+    "name_full_en": "Wyvern Wear",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +8% Урон навыков",
+      "2шт: +18% Эффекты статусов",
+      "3шт: +45% Длительность навыков"
+    ]
   },
   {
-    "id": "gearbrand_b1",
-    "uid": "E03CE5EA6544F1DB0003695002241309",
-    "class": "GearBrand",
-    "name_en": "Palisade Steelworks",
-    "name_ru": "Palisade Steelworks",
-    "attrs": {
-      "myLore": ""
-    }
+    "name": "Belstone Armory",
+    "bonuses": [
+      "1шт: +1% Восстановление брони",
+      "2шт: +10% Брони за убийство",
+      "3шт: +45% Получаемый ремонт"
+    ],
+    "name_full_en": "Belstone Armory",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +1% Регенерация брони",
+      "2шт: +10% Броня за убийство",
+      "3шт: +45% Входящий ремонт"
+    ]
   },
   {
-    "id": "gearbrand_c",
-    "uid": "5D4179F159C399880000377BD1058771",
-    "class": "GearBrand",
-    "name_en": "Richter & Kaiser GmbH",
-    "name_ru": "Richter & Kaiser GmbH"
+    "name": "Alps Summit",
+    "bonuses": [
+      "1шт: +18% Навыки ремонта",
+      "2шт: +30% Длительность действия навыков",
+      "3шт: +30% Убыстрение"
+    ],
+    "name_full_en": "Alps Summit Armaments",
+    "aliases_en": [
+      "Alps Summit"
+    ],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +18% Навыки лечения",
+      "2шт: +30% Длительность навыков",
+      "3шт: +30% Ускорение навыков"
+    ]
   },
   {
-    "id": "gearbrand_c1",
-    "uid": "B005013565D5F82D000371BE49B173EA",
-    "class": "GearBrand",
-    "name_en": "Zwiadowka Sp. z o.o.",
-    "name_ru": "Zwiadowka Sp. z o.o."
+    "name": "China Light Industries Corp.",
+    "bonuses": [
+      "1шт: +15% Урон от взрыва",
+      "2шт: +30% Убыстрение",
+      "3шт: +25% Негативные эффекты"
+    ],
+    "name_full_en": "China Light Industries Corporation",
+    "aliases_en": [
+      "China Light"
+    ],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +15% Урон взрывчаткой",
+      "2шт: +20% Ускорение навыков",
+      "3шт: +25% Эффекты статусов"
+    ]
   },
   {
-    "id": "gearbrand_d",
-    "uid": "5D4179F159C399B400003790529752CA",
-    "class": "GearBrand",
-    "name_en": "Petrov Defense Group",
-    "name_ru": "Petrov Defense Group"
+    "name": "Palisade Steelworks",
+    "bonuses": [
+      "1шт: +10% Брони за убийство",
+      "2шт: +60% Здоровье",
+      "3шт: +1 Уровень навыка"
+    ],
+    "name_full_en": "Palisade Steelworks",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Броня за убийство",
+      "2шт: +60% Здоровье",
+      "3шт: +1 Уровень навыка"
+    ]
   },
   {
-    "id": "gearbrand_d1",
-    "uid": "B0050135668CE4F80005606246BA3B0B",
-    "class": "GearBrand",
-    "name_en": "Legatus S.p.A.",
-    "name_ru": "Legatus S.p.A."
+    "name": "Brazos de Arcabuz",
+    "bonuses": [
+      "1шт: +10% Убыстрение",
+      "2шт: +100% Уровень навыка",
+      "3шт: +50% Ёмкость магазина"
+    ],
+    "name_full_en": "Brazos de Arcabuz",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Ускорение навыков",
+      "2шт: +1 Уровень навыка",
+      "3шт: +50% Размер магазина"
+    ]
   },
   {
-    "id": "GearBrand_dz",
-    "uid": "4CDCE5B25BAA31240002AF08E83A3F55",
-    "class": "GearBrand",
-    "name_en": "Yaahl Gear",
-    "name_ru": "Yaahl Gear"
+    "name": "Gila Guard",
+    "bonuses": [
+      "1шт: +5% Брони",
+      "2шт: +60% Здоровье",
+      "3шт: +2% Восстановление брони"
+    ],
+    "name_full_en": "Gila Guard",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +5% Общая броня",
+      "2шт: +60% Здоровье",
+      "3шт: +2% Регенерация брони"
+    ]
   },
   {
-    "id": "gearbrand_e",
-    "uid": "5D4179F159C399D4000037A587D705FC",
-    "class": "GearBrand",
-    "name_en": "China Light Industries Corporation",
-    "name_ru": "China Light Industries Corp."
+    "name": "Fenris Group AB",
+    "bonuses": [
+      "1шт: +10% Урон от штурмовых винтовок",
+      "2шт: +30% Скорость перезарядки",
+      "3шт: +50% Стабильность"
+    ],
+    "name_full_en": "Fenris Group AB",
+    "aliases_en": [
+      "Fenris Group"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Урон штурмовых винтовок",
+      "2шт: +30% Скорость перезарядки",
+      "3шт: +50% Устойчивость оружия"
+    ]
   },
   {
-    "id": "gearbrand_e1",
-    "uid": "B005013567853165000383852B690E94",
-    "class": "GearBrand",
-    "name_en": "Shiny Monkey Gear",
-    "name_ru": "Shiny Monkey Gear"
+    "name": "Petrov Defense Group",
+    "bonuses": [
+      "1шт: +10% Урон от ручного пулемета",
+      "2шт: +15% Эргономичность",
+      "3шт: +50% Боезапас"
+    ],
+    "name_full_en": "Petrov Defense Group",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Урон пулемётов",
+      "2шт: +15% Управление оружием",
+      "3шт: +50% Ёмкость боезапаса"
+    ]
   },
   {
-    "id": "gearbrand_f",
-    "uid": "5D4179F159C399F5000037BAC1FDC79E",
-    "class": "GearBrand",
-    "name_en": "Overlord Armaments",
-    "name_ru": "Overlord Armaments"
+    "name": "Overlord Armaments",
+    "bonuses": [
+      "1шт: +10% Урон от винтовок",
+      "2шт: +30% Точность",
+      "3шт: +30% Эргономичность"
+    ],
+    "name_full_en": "Overlord Armaments",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Урон винтовок",
+      "2шт: +30% Точность оружия",
+      "3шт: +30% Управление оружием"
+    ]
   },
   {
-    "id": "gearbrand_f1",
-    "uid": "E03CE5EA67F3F6A60003BBC14B8FDFDF",
-    "class": "GearBrand",
-    "name_en": "Imminence Armaments",
-    "name_ru": "Imminence Armaments"
+    "name": "Walker, Harris & Co.",
+    "bonuses": [
+      "1шт: +5% Урон от оружия",
+      "2шт: +5% Урон броне",
+      "3шт: +10% Урон здоровью"
+    ],
+    "name_full_en": "Walker, Harris & Co.",
+    "aliases_en": [
+      "Walker, Harris & Co"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +5% Урон оружием",
+      "2шт: +5% Урон по броне",
+      "3шт: +10% Урон по здоровью"
+    ]
   },
   {
-    "id": "gearbrand_g",
-    "uid": "5D4179F159C39A15000037CF55C4A5A9",
-    "class": "GearBrand",
-    "name_en": "Providence Defense",
-    "name_ru": "Providence Defense"
+    "name": "Yaahl Gear",
+    "bonuses": [
+      "1шт: +10% Защита от факторов риска",
+      "2шт: +10% Урон от оружия",
+      "3шт: +40% Сопротивления импульсу"
+    ],
+    "name_full_en": "Yaahl Gear",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Защита от опасностей",
+      "2шт: +10% Урон оружием",
+      "3шт: +40% Сопротивление пульсу"
+    ]
   },
   {
-    "id": "gearbrand_g1",
-    "uid": "B00501356852C85B00068AD778D3205A",
-    "class": "GearBrand",
-    "name_en": "Urban Lookout",
-    "name_ru": "Urban Lookout"
+    "name": "Electrique",
+    "bonuses": [
+      "1шт: +10% Негативные эффекты",
+      "2шт: +20% Сопротивление шоку",
+      "3шт: +30% Урон от пистолетов-пулеметов"
+    ],
+    "name_full_en": "Electrique",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Эффекты статусов",
+      "2шт: +20% Сопротивление шоку",
+      "3шт: +30% Урон пистолетов-пулемётов"
+    ]
   },
   {
-    "id": "gearbrand_h",
-    "uid": "5D4179F159C39A34000037E4EC4871E4",
-    "class": "GearBrand",
-    "name_en": "Badger Tuff",
-    "name_ru": "Badger Tuff"
+    "name": "Hana-U Corporation",
+    "bonuses": [
+      "1шт: +10% Убыстрение",
+      "2шт: +10% Урон от навыков",
+      "3шт: +15% Урон от оружия"
+    ],
+    "name_full_en": "Hana-U Corporation",
+    "aliases_en": [
+      "Hana-U"
+    ],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Ускорение навыков",
+      "2шт: +10% Урон навыков",
+      "3шт: +15% Урон оружием"
+    ]
   },
   {
-    "id": "gearbrand_h1",
-    "uid": "E03CE5EA68FA04A9000371EC1806502F",
-    "class": "GearBrand",
-    "name_en": "Unit Alloys",
-    "name_ru": "Unit Alloys"
+    "name": "Murakami Industries",
+    "bonuses": [
+      "1шт: +15% Длительность действия навыков",
+      "2шт: +35% Навыки ремонта",
+      "3шт: +18% Урон навыков"
+    ],
+    "name_full_en": "Murakami Industries",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +15% Длительность навыков",
+      "2шт: +35% Навыки лечения",
+      "3шт: +18% Урон навыков"
+    ]
   },
   {
-    "id": "gearbrand_i",
-    "uid": "5D4179F159C39A51000037F93B6623DC",
-    "class": "GearBrand",
-    "name_en": "Douglas & Harding",
-    "name_ru": "Douglas & Harding"
+    "name": "Richter & Kaiser GmbH",
+    "bonuses": [
+      "1шт: +15% Получаемый ремонт",
+      "2шт: +25% Защита от взрыва",
+      "3шт: +40% Навыки ремонта"
+    ],
+    "name_full_en": "Richter & Kaiser GmbH",
+    "aliases_en": [
+      "Richter & Kaiser"
+    ],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +15% Входящий ремонт",
+      "2шт: +25% Сопротивление взрывам",
+      "3шт: +40% Навыки лечения"
+    ]
   },
   {
-    "id": "gearbrand_i1",
-    "uid": "E03CE5EA69979DCB0003C658BB930B85",
-    "class": "GearBrand",
-    "name_en": "Royal Works",
-    "name_ru": "Royal Works"
+    "name": "5.11 Tactical",
+    "bonuses": [
+      "1шт: +30% Здоровье",
+      "2шт: +30% Получаемый ремонт",
+      "3шт: +30% Защита от факторов риска"
+    ],
+    "name_full_en": "5.11 Tactical",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +30% Здоровье",
+      "2шт: +30% Входящий ремонт",
+      "3шт: +30% Защита от опасностей"
+    ]
   },
   {
-    "id": "gearbrand_j",
-    "uid": "5D4179F159C39A6D0000380EA4BABCCF",
-    "class": "GearBrand",
-    "name_en": "Fenris Group AB",
-    "name_ru": "Fenris Group AB"
+    "name": "Badger Tuff",
+    "bonuses": [
+      "1шт: +10% Урон от дробовиков",
+      "2шт: +5% Брони",
+      "3шт: +15% Брони за убийство"
+    ],
+    "name_full_en": "Badger Tuff",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Урон дробовиков",
+      "2шт: +5% Общая броня",
+      "3шт: +15% Броня за убийство"
+    ]
   },
   {
-    "id": "gearbrand_k",
-    "uid": "5D4179F159C39A8C000038236D0F7E9C",
-    "class": "GearBrand",
-    "name_en": "Alps Summit Armament",
-    "name_ru": "Alps Summit Armament"
+    "name": "Golan Gear Ltd.",
+    "bonuses": [
+      "1шт: +10% Негативные эффекты",
+      "2шт: +1.5% Восстановление брони",
+      "3шт: +10% Брони"
+    ],
+    "name_full_en": "Golan Gear Ltd",
+    "aliases_en": [
+      "Golan Gear"
+    ],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Эффекты статусов",
+      "2шт: +1.5% Регенерация брони",
+      "3шт: +10% Общая броня"
+    ]
   },
   {
-    "id": "gearbrand_l",
-    "uid": "5D4179F159C39AAB000038383D3486D8",
-    "class": "GearBrand",
-    "name_en": "Česká Výroba s.r.o.",
-    "name_ru": "Česká Výroba s.r.o."
+    "name": "Habsburg Guard",
+    "bonuses": [
+      "1шт: +13% Урон от выстрелов в голову",
+      "2шт: +20% Урон от снайперской винтовки",
+      "3шт: +25% Негативные эффекты"
+    ],
+    "name_full_en": "Habsburg Guard \"HG\"",
+    "aliases_en": [
+      "Habsburg Guard"
+    ],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +13% Урон в голову",
+      "2шт: +20% Урон снайперских винтовок",
+      "3шт: +25% Эффекты статусов"
+    ]
   },
   {
-    "id": "gearbrand_m",
-    "uid": "5D4179F159C39ACE0000384D75CA5B7E",
-    "class": "GearBrand",
-    "name_en": "Wyvern Wear",
-    "name_ru": "Wyvern Wear"
+    "name": "Lengmo",
+    "bonuses": [
+      "1шт: +20% Сопротивление взрывам",
+      "2шт: +20% Прочность объектов навыков",
+      "3шт: +30% Урон от ручных пулеметов"
+    ],
+    "name_full_en": "Lengmo",
+    "aliases_en": [],
+    "core_en": "Armor",
+    "armor_type_en": "Armor",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +20% Сопротивление взрывам",
+      "2шт: +20% Здоровье навыка",
+      "3шт: +30% Урон пулемётов"
+    ]
   },
   {
-    "id": "gearbrand_n",
-    "uid": "5D4179F159C39AEE000038625157F8A3",
-    "class": "GearBrand",
-    "name_en": "Grupo Sombra S.A.",
-    "name_ru": "Grupo Sombra S.A."
+    "name": "Česká Výroba s.r.o.",
+    "bonuses": [
+      "1шт: +8% Шанс крит. попадания",
+      "2шт: +20% Защита от факторов риска",
+      "3шт: +90% Здоровье"
+    ],
+    "name_full_en": "Česká Výroba s.r.o.",
+    "aliases_en": [
+      "Ceska Vyroba"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +8% Шанс крит. удара",
+      "2шт: +20% Защита от опасностей",
+      "3шт: +90% Здоровье"
+    ]
   },
   {
-    "id": "gearbrand_o",
-    "uid": "5D4179F159C39B0E000038770EF4E94B",
-    "class": "GearBrand",
-    "name_en": "Précision Défense",
-    "name_ru": "Précision Défense"
+    "name": "Douglas & Harding",
+    "bonuses": [
+      "1шт: +20% Урон от пистолета",
+      "2шт: +30% Стабильность",
+      "3шт: +50% Точность"
+    ],
+    "name_full_en": "Douglas & Harding",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +20% Урон пистолетов",
+      "2шт: +30% Устойчивость оружия",
+      "3шт: +50% Точность оружия"
+    ]
   },
   {
-    "id": "gearbrand_p",
-    "uid": "5D4179F159C39B310000388C1E53B2E7",
-    "class": "GearBrand",
-    "name_en": "Sokolov Concern",
-    "name_ru": "Sokolov Concern"
+    "name": "Grupo Sombra S.A.",
+    "bonuses": [
+      "1шт: +13% Урон от крит. попадания",
+      "2шт: +20% Урон от взрыва",
+      "3шт: +13% Урон от выстрелов в голову"
+    ],
+    "name_full_en": "Grupo Sombra S.A.",
+    "aliases_en": [
+      "Grupo Sombra"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +13% Урон крит. удара",
+      "2шт: +20% Урон взрывчаткой",
+      "3шт: +13% Урон в голову"
+    ]
   },
   {
-    "id": "gearbrand_q",
-    "uid": "5D4179F159C39B4C000038A1DB6A6AD6",
-    "class": "GearBrand",
-    "name_en": "Hana-U Corporation",
-    "name_ru": "Hana-U Corporation"
+    "name": "Airaldi Holdings",
+    "bonuses": [
+      "1шт: +10% Урон от снайперской винтовки",
+      "2шт: +13% Урон от выстрелов в голову",
+      "3шт: +5% Урон броне"
+    ],
+    "name_full_en": "Airaldi Holdings",
+    "aliases_en": [
+      "Airaldi"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Урон снайперских винтовок",
+      "2шт: +13% Урон в голову",
+      "3шт: +5% Урон по броне"
+    ]
   },
   {
-    "id": "gearbrand_r",
-    "uid": "5D4179F159C39B67000038B687F2BD54",
-    "class": "GearBrand",
-    "name_en": "Airaldi Holdings",
-    "name_ru": "Airaldi Holdings",
-    "attrs": {
-      "myLore": ""
-    }
+    "name": "Sokolov Concern",
+    "bonuses": [
+      "1шт: +10% Урон от пистолетов-пулемётов",
+      "2шт: +13% Урон от крит. попадания",
+      "3шт: +8% Шанс крит. попадания"
+    ],
+    "name_full_en": "Sokolov Concern",
+    "aliases_en": [
+      "Sokolov"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Урон пистолетов-пулемётов",
+      "2шт: +13% Урон крит. удара",
+      "3шт: +8% Шанс крит. удара"
+    ]
   },
   {
-    "id": "gearbrand_s",
-    "uid": "5D4179F159C39B86000038CB7D66B6FF",
-    "class": "GearBrand",
-    "name_en": "Murakami Industries",
-    "name_ru": "Murakami Industries",
-    "attrs": {
-      "myLore": ""
-    }
+    "name": "Zwiadowka Sp. z o.o.",
+    "bonuses": [
+      "1шт: +15% Емкость магазина",
+      "2шт: +20% Урон от винтовок",
+      "3шт: +30% Эргономичность"
+    ],
+    "name_full_en": "Zwiadowka Sp. z o.o.",
+    "aliases_en": [
+      "Zwiadowka"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +15% Размер магазина",
+      "2шт: +20% Урон винтовок",
+      "3шт: +30% Управление оружием"
+    ]
   },
   {
-    "id": "gearbrand_set_o",
-    "uid": "F58BDD5662D1544E00036A0AE1926AE5",
-    "class": "GearBrand",
-    "name_en": "Umbra Initiative",
-    "name_ru": "Umbra Initiative"
+    "name": "Legatus S.p.A.",
+    "bonuses": [
+      "1шт: +30% Скорость смены оружия",
+      "2шт: +70% Оптимальная дальность",
+      "3шт: +15% Урон от оружия"
+    ],
+    "name_full_en": "Legatus S.p.A.",
+    "aliases_en": [
+      "Legatus"
+    ],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +30% Скорость смены оружия",
+      "2шт: +70% Оптимальная дальность",
+      "3шт: +15% Урон оружием"
+    ]
   },
   {
-    "id": "gearbrand_set_a",
-    "uid": "4CDCE5B25BC1F3480002EFF4676F67E0",
-    "class": "GearBrand",
-    "name_en": "Ongoing Directive",
-    "name_ru": "Бессрочная директива"
+    "name": "Shiny Monkey Gear",
+    "bonuses": [
+      "1шт: +15% Длительность действия навыков",
+      "2шт: +5% Эффективность навыков",
+      "3шт: +52% Навыки ремонта"
+    ],
+    "name_full_en": "Shiny Monkey Gear",
+    "aliases_en": [],
+    "core_en": "Skill Tier",
+    "armor_type_en": "Skill",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +15% Длительность навыков",
+      "2шт: +5% Эффективность навыков",
+      "3шт: +52% Навыки лечения"
+    ]
   },
   {
-    "id": "gearbrand_set_b",
-    "uid": "4CDCE5B25BC1F3530002EFF81BDC9125",
-    "class": "GearBrand",
-    "name_en": "True Patriot",
-    "name_ru": "Истинный патриот"
+    "name": "Imminence Armaments",
+    "bonuses": [
+      "1шт: +5% Урон от оружия",
+      "2шт: +100% Повышенный уровень\nугрозы",
+      "3шт: +60% Урон от пистолета"
+    ],
+    "name_full_en": "Imminence Armaments",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +5% Урон оружием",
+      "2шт: +100% Повышение угрозы",
+      "3шт: +60% Урон пистолетов"
+    ]
   },
   {
-    "id": "gearbrand_set_c",
-    "uid": "4CDCE5B25BC1F35E0002EFFCD69528EA",
-    "class": "GearBrand",
-    "name_en": "Hard Wired",
-    "name_ru": "Спецпрограмма"
+    "name": "Urban Lookout",
+    "bonuses": [
+      "1шт: +10% Точность",
+      "2шт: +30% Длительность действия\n навыков",
+      "3шт: +30% Урон от снайперской \nвинтовки"
+    ],
+    "name_full_en": "Urban Lookout",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +10% Точность",
+      "2шт: +30% Длительность навыков",
+      "3шт: +30% Урон снайперских винтовок"
+    ]
   },
   {
-    "id": "gearbrand_set_d",
-    "uid": "4CDCE5B25C99F4A0000328FB77617EC5",
-    "class": "GearBrand",
-    "name_en": "Negotiator's Dilemma",
-    "name_ru": "Дилемма переговорщика"
+    "name": "Unit Alloys",
+    "bonuses": [
+      "1шт: +5% Скорострельность",
+      "2шт: +20% Урон от штурмовых\nвинтовок",
+      "3шт: +50% Ёмкость магазина"
+    ],
+    "name_full_en": "Unit Alloys",
+    "aliases_en": [],
+    "core_en": "Weapon Damage",
+    "armor_type_en": "Weapon Damage",
+    "dlc": null,
+    "bonuses_old": [
+      "1шт: +5% Скорострельность",
+      "2шт: +20% Урон штурмовых винтовок",
+      "3шт: +50% Размер магазина"
+    ]
   },
   {
-    "id": "gearbrand_set_e",
-    "uid": "4CDCE5B25C99FBDC0003290316753287",
-    "class": "GearBrand",
-    "name_en": "Tip Of The Spear",
-    "name_ru": "Острие копья"
+    "name": "Royal Works",
+    "bonuses": [
+      "1шт: +5% Эргономичность",
+      "2шт: +32.5% Емкость магазина",
+      "3шт: +15% Урон от крит. попадания"
+    ],
+    "name_full_en": "Royal Works",
+    "aliases_en": [],
+    "bonuses_old": [
+      "1шт: +5% Управление оружием",
+      "2шт: +32.5% Размер магазина",
+      "3шт: +15% Урон крит. удара"
+    ]
   },
   {
-    "id": "gearbrand_set_f",
-    "uid": "4CDCE5B25C99FC720003290B5E3539DD",
-    "class": "GearBrand",
-    "name_en": "Aces & Eights",
-    "name_ru": "Восьмерки и тузы"
+    "name": "Alps Summit Armament",
+    "name_full_en": "Alps Summit Armament",
+    "bonuses": [],
+    "bonuses_old": [],
+    "aliases_en": [],
+    "core_en": "",
+    "armor_type_en": "",
+    "dlc": "",
+    "source": "hunter_v2.2.3"
   },
   {
-    "id": "gearbrand_set_g",
-    "uid": "346395BC5DE10642000BF3E91FA1FF83",
-    "class": "GearBrand",
-    "name_en": "System Corruption",
-    "name_ru": "Коррупция в системе"
-  },
-  {
-    "id": "gearbrand_set_h",
-    "uid": "346395BC5DE1285F000E46715A29BF7D",
-    "class": "GearBrand",
-    "name_en": "Foundry Bulwark",
-    "name_ru": "Сталелитейный бастион"
-  },
-  {
-    "id": "gearbrand_set_i",
-    "uid": "346395BC5DE12884000E487009988AA4",
-    "class": "GearBrand",
-    "name_en": "Future Initiative",
-    "name_ru": "Инициатива будущего"
-  },
-  {
-    "id": "gearbrand_set_j",
-    "uid": "346395BC5DE128AC000E4B663460CDEB",
-    "class": "GearBrand",
-    "name_en": "Striker's Battlegear",
-    "name_ru": "Снаряжение боевика"
-  },
-  {
-    "id": "gearbrand_set_k",
-    "uid": "346395BC5E8196600003A68E5D01ACA4",
-    "class": "GearBrand",
-    "name_en": "Eclipse Protocol",
-    "name_ru": "Протокол \"Затмение"
-  },
-  {
-    "id": "gearbrand_set_l",
-    "uid": "346395BC5E980F7D0003ABF51C18637A",
-    "class": "GearBrand",
-    "name_en": "Hunter's Fury",
-    "name_ru": "Ярость охотника"
-  },
-  {
-    "id": "gearbrand_set_m",
-    "uid": "346395BC5E9813DA0003B7E2DB770932",
-    "class": "GearBrand",
-    "name_en": "Rigger",
-    "name_ru": "Такелажник"
-  },
-  {
-    "id": "gearbrand_set_n",
-    "uid": "B3CF2E9261530F7C00036363CE1EC8CB",
-    "class": "GearBrand",
-    "name_en": "Heartbreaker",
-    "name_ru": "Разбиватель сердец"
-  },
-  {
-    "id": "gearbrand_set_P",
-    "uid": "F58BDD56638DAB0F000381EA06C06607",
-    "class": "GearBrand",
-    "name_en": "Hotshot",
-    "name_ru": "Горячая штучка"
-  },
-  {
-    "id": "gearbrand_set_q",
-    "uid": "B005013564A6B0F20003681D9EE79DDC",
-    "class": "GearBrand",
-    "name_en": "Ortiz: Exuro",
-    "name_ru": "Ортис: \"Эксуро"
-  },
-  {
-    "id": "gearbrand_set_R",
-    "uid": "F58BDD566419C46400036DA2A6378CB7",
-    "class": "GearBrand",
-    "name_en": "Cavalier",
-    "name_ru": "Кавалер"
-  },
-  {
-    "id": "gearbrand_set_S",
-    "uid": "E03CE5EA655CD9D20003698AB7F30C00",
-    "class": "GearBrand",
-    "name_en": "Aegis",
-    "name_ru": "Эгида"
-  },
-  {
-    "id": "gearbrand_set_t",
-    "uid": "B005013565E0957000052522DD1760BA",
-    "class": "GearBrand",
-    "name_en": "Breaking Point",
-    "name_ru": "Переломная точка"
-  },
-  {
-    "id": "gearbrand_set_u",
-    "uid": "B0050135668D2EB100052EA6EA9C0B78",
-    "class": "GearBrand",
-    "name_en": "Virtuoso",
-    "name_ru": "Виртуоз"
-  },
-  {
-    "id": "gearbrand_set_v",
-    "uid": "E03CE5EA675C09EF00036D3F8DE98E71",
-    "class": "GearBrand",
-    "name_en": "Refactor",
-    "name_ru": "Рефакторинг"
-  },
-  {
-    "id": "gearbrand_set_w",
-    "uid": "E03CE5EA67F42E1B0003BC8916E53225",
-    "class": "GearBrand",
-    "name_en": "Measured Assembly",
-    "name_ru": "Аккуратная сборка"
-  },
-  {
-    "id": "gearbrand_set_x",
-    "uid": "B005013568537CA5000370D56FB662AF",
-    "class": "GearBrand",
-    "name_en": "Tipping Scales",
-    "name_ru": "Tipping Scales"
-  },
-  {
-    "id": "gearbrand_set_y",
-    "uid": "E03CE5EA68FA84D900037317890CA3CF",
-    "class": "GearBrand",
-    "name_en": "Concentrated Company",
-    "name_ru": "Точка концентрации"
-  },
-  {
-    "id": "gearbrand_set_z",
-    "uid": "E03CE5EA6997860C00037487CF2FDA8C",
-    "class": "GearBrand",
-    "name_en": "Core Strength",
-    "name_ru": "Сила мышечного корсета"
-  },
-  {
-    "id": "GearBrand_start",
-    "uid": "4CDCE5B25AA94383000106E2D1F6648B",
-    "class": "GearBrand",
-    "name_en": "Exhausted Equipment",
-    "name_ru": "Изношенное снаряжение",
-    "attrs": {
-      "myIconSprite": ""
-    }
-  },
-  {
-    "id": "gearbrand_t",
-    "uid": "346395BC5E9EA5970006A0480808723A",
-    "class": "GearBrand",
-    "name_en": "Walker, Harris & Co.",
-    "name_ru": "Walker, Harris & Co.",
-    "attrs": {
-      "myLore": ""
-    }
-  },
-  {
-    "id": "gearbrand_u",
-    "uid": "346395BC5F168A4C0003AC0824928B6A",
-    "class": "GearBrand",
-    "name_en": "Belstone Armory",
-    "name_ru": "Belstone Armory",
-    "attrs": {
-      "myLore": ""
-    }
-  },
-  {
-    "id": "gearbrand_v",
-    "uid": "346395BC5F44FF18000A87416F1B2682",
-    "class": "GearBrand",
-    "name_en": "Empress International",
-    "name_ru": "Empress International",
-    "attrs": {
-      "myLore": ""
-    }
-  },
-  {
-    "id": "gearbrand_w",
-    "uid": "B3CF2E9261530AA40003635DFE5736C0",
-    "class": "GearBrand",
-    "name_en": "Uzina Getica",
-    "name_ru": "Uzina Getica",
-    "attrs": {
-      "myLore": ""
-    }
-  },
-  {
-    "id": "gearbrand_x",
-    "uid": "F58BDD5662CE728C000380897BE6FF0F",
-    "class": "GearBrand",
-    "name_en": "Brazos de Arcabuz",
-    "name_ru": "Brazos de Arcabuz"
-  },
-  {
-    "id": "gearbrand_Z",
-    "uid": "F58BDD56641C52AC00036E92BD2C2B57",
-    "class": "GearBrand",
-    "name_en": "Electrique",
-    "name_ru": "Electrique",
-    "attrs": {
-      "myLore": ""
-    }
-  },
-  {
-    "id": "gearbrand_Y",
-    "uid": "F58BDD56638F12E200052B3585524B9B",
-    "class": "GearBrand",
-    "name_en": "Habsburg Guard",
-    "name_ru": "Habsburg Guard",
-    "attrs": {
-      "myLore": ""
-    }
+    "name": "Habsburg Guard",
+    "name_full_en": "Habsburg Guard",
+    "bonuses": [],
+    "bonuses_old": [],
+    "aliases_en": [],
+    "core_en": "",
+    "armor_type_en": "",
+    "dlc": "",
+    "source": "hunter_v2.2.3"
   }
 ]
