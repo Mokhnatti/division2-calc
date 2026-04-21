@@ -467,7 +467,13 @@ function initWpnDb(){
     const ex=EXOTIC_WPNS[e.name];
     const stats=ex||{cat,dmg:cat==="MMR"?600000:cat==="LMG"?115000:cat==="SG"?250000:cat==="Rifle"?180000:cat==="Pistol"?80000:cat==="SMG"?34000:48000,rpm:cat==="MMR"?180:cat==="LMG"?600:cat==="SG"?100:cat==="Rifle"?240:cat==="Pistol"?300:cat==="SMG"?850:790,mag:cat==="MMR"?15:cat==="LMG"?100:cat==="SG"?8:cat==="Rifle"?20:cat==="Pistol"?10:cat==="SMG"?30:30,reload:cat==="MMR"?3.0:cat==="LMG"?5.0:cat==="SG"?3.5:cat==="Rifle"?2.5:cat==="Pistol"?2.3:cat==="SMG"?2.1:2.0};
     const id="exotic_"+e.en.toLowerCase().replace(/[^a-z0-9]+/g,"_");
-    const full={id,name:e.name,en:e.en,cat:stats.cat,dmg:stats.dmg,rpm:stats.rpm,mag:stats.mag,reload:stats.reload,kind:"exotic",tal:e.tal,tal_desc:e.d,tal_type:stats.tal_type||"none",tal_bonus:stats.tal_bonus,tal_max:stats.tal_max,is_burst:stats.is_burst,burst_note:stats.burst_note};
+    // Prefer clean EN tal_desc from exotic_weapons.json (Hunter pipeline) over exotics.json's 'd'
+    // (which may contain RU text in the EN slot for legacy entries)
+    let talDescEn = e.d;
+    let talDescRu = e.tal_desc_ru || e.tal_ru_full || e.d;
+    if (ex && ex.tal_desc) talDescEn = ex.tal_desc;
+    if (ex && ex.tal_desc_ru) talDescRu = ex.tal_desc_ru;
+    const full={id,name:e.name,en:e.en,cat:stats.cat,dmg:stats.dmg,rpm:stats.rpm,mag:stats.mag,reload:stats.reload,kind:"exotic",tal:e.tal,tal_desc:talDescEn,tal_desc_ru:talDescRu,tal_ru_full:talDescRu,tal_type:stats.tal_type||"none",tal_bonus:stats.tal_bonus,tal_max:stats.tal_max,is_burst:stats.is_burst,burst_note:stats.burst_note};
     WPNS[id]=full;
     WPNS_LIST.push(full);
   });
