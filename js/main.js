@@ -864,6 +864,7 @@ const gearStatState = {
   kneepads: {core: "", attr1: "", attr2: ""},
 };
 let gearSpecId = "";
+let weaponStat3Choice = "chc"; // player-rollable 3rd weapon stat (default: Crit Chance)
 
 const GSP_SLOT_LABELS = {
   chest:    {ru:"Нагрудник",   en:"Chest"},
@@ -886,8 +887,11 @@ function setStatMode(mode){
   const picker = document.getElementById("gear-stat-picker");
   if(picker) picker.style.display = mode==="gear" ? "block" : "none";
   if(mode==="gear"){
-    initGearSpecSelect();
     renderGearSlotPickers();
+    updateWeaponStatsInfo();
+    // Restore weapon stat 3 selection
+    const s3 = document.getElementById("weapon-stat3");
+    if(s3) s3.value = weaponStat3Choice;
     recomputeGearStats();
     lockManualInputs(true);
   } else {
@@ -1001,6 +1005,28 @@ function onGearStatPick(slot, pos, value){
   try{localStorage.setItem("d2calc_gear_stat_state", JSON.stringify(gearStatState));}catch(e){}
 }
 
+function onWeaponStat3Change(){
+  const sel = document.getElementById("weapon-stat3");
+  if(sel) weaponStat3Choice = sel.value;
+  try{localStorage.setItem("d2calc_weapon_stat3", weaponStat3Choice);}catch(e){}
+  recomputeGearStats();
+  calcBuild();
+}
+
+function updateWeaponStatsInfo(){
+  const info = document.getElementById("weapon-stats-info");
+  if(!info) return;
+  const wpn = (typeof getWeapon==='function') ? getWeapon() : null;
+  if(!wpn){
+    info.innerHTML = '<span style="color:var(--muted)">Выбери оружие выше чтобы увидеть статы его класса</span>';
+    return;
+  }
+  const wCat = (wpn.cat || '').toUpperCase();
+  const classLabels = {AR:"Штурмовая винтовка",SMG:"ПП",LMG:"Пулемёт",MMR:"Снайперская",RIFLE:"Винтовка",SG:"Дробовик",PISTOL:"Пистолет"};
+  const lbl = classLabels[wCat] || wCat || 'оружие';
+  info.innerHTML = `<span style="color:var(--green)">Слот 1:</span> +15% урон <b>${lbl}</b> · <span style="color:var(--green)">Слот 2:</span> +21% урон здоровью (DtH)`;
+}
+
 function _gspAddValue(totals, stat, value){
   if(!stat || stat==="handling" || stat==="skillTier" || !value) return;
   totals[stat] = (totals[stat]||0) + value;
@@ -1034,20 +1060,23 @@ function computeGearStatTotals(){
       if(stat && opt.max_roll) _gspAddValue(totals, stat, opt.max_roll);
     }
   }
-  // Specialization passive — hand-tuned realistic averages (full tree MAX as played in-game)
-  // Raw total_passive_bonuses from game files is cumulative sum of ALL nodes — unrealistic (+44% rifle is wrong).
-  // In actual gameplay player gets ~10-20% per active node, not cumulative everything.
-  const SPEC_REALISTIC = {
-    "playerspecialization_sharpshooter": {"wd-mmr":0.10, "hsd":0.10, "chd":0.10, "handling":0.10},
-    "playerspecialization_demolitionist": {"wd-lmg":0.10, "amp":0.10, "mag":0.10},
-    "playerspecialization_survivalist":  {"wd":0.05, "hsd":0.05, "reload":0.10, "handling":0.10},
-    "playerspecialization_flamethrower": {"wd-sg":0.10, "amp":0.05, "dth":0.10},
-    "playerspecialization_gunner":       {"wd-lmg":0.10, "mag":0.10, "handling":0.10},
-    "playerspecialization_technician":   {"wd":0.05, "chc":0.05, "chd":0.05},
-  };
-  if(gearSpecId && SPEC_REALISTIC[gearSpecId]){
-    for(const [k,v] of Object.entries(SPEC_REALISTIC[gearSpecId])){
-      _gspAddValue(totals, k, v);
+  // Default baseline: +15% weapon damage (typical spec passive contribution)
+  _gspAddValue(totals, "wd", 0.15);
+
+  // Weapon stats: 2 static by weapon class + 1 dynamic (player choice)
+  const _wpnObj = (typeof getWeapon==='function') ? getWeapon() : null;
+  if(_wpnObj){
+    const wCat = (_wpnObj.cat || '').toUpperCase();
+    // Static slot 1: weapon-type damage (+15% for its class)
+    const classKey = {AR:"wd-ar",SMG:"wd-smg",LMG:"wd-lmg",MMR:"wd-mmr",RIFLE:"wd-rifle",SG:"wd-sg",PISTOL:"wd-pistol"}[wCat];
+    if(classKey) _gspAddValue(totals, classKey, 0.15);
+    // Static slot 2: common secondary attribute (e.g. +21% Damage to Health for most offensive weapons)
+    _gspAddValue(totals, "dth", 0.21);
+    // Dynamic slot 3: player choice (from dropdown)
+    const wStat = weaponStat3Choice;
+    if(wStat && wStat !== "none"){
+      const wStatMap = {"chc":0.15,"chd":0.25,"hsd":0.21,"ooc":0.21,"dta":0.21,"wd":0.15};
+      if(wStatMap[wStat]) _gspAddValue(totals, wStat, wStatMap[wStat]);
     }
   }
   // SHD Watch (offensive max)
@@ -1164,6 +1193,8 @@ try{
       if(parsed[slot]) Object.assign(gearStatState[slot], parsed[slot]);
     }
   }
+  const w3 = localStorage.getItem("d2calc_weapon_stat3");
+  if(w3) weaponStat3Choice = w3;
 }catch(e){}
 
 function initBuildSlots(){
@@ -2616,6 +2647,8 @@ function pickWpn(id){
   selectedWpnId=id;
   updateWpnBtn();
   closeSlotModal();
+  if(typeof updateWeaponStatsInfo==='function') updateWeaponStatsInfo();
+  if(gearStatMode==="gear" && typeof recomputeGearStats==='function') recomputeGearStats();
   calcBuild();
 }
 function updateWpnBtn(){

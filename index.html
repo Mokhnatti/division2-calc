@@ -413,13 +413,30 @@
       </div>
     </div>
 
-    <!-- Specialization -->
-    <div style="margin-top:12px">
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Специализация</div>
-      <select id="gear-specialization" onchange="recomputeGearStats()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px;width:100%;max-width:280px">
-        <option value="">— без специализации —</option>
+    <!-- Weapon stats (2 static by class + 1 dynamic) -->
+    <div style="margin-top:12px;padding:10px;border:1px solid var(--border);border-radius:6px;background:rgba(171,71,188,.05)">
+      <div style="font-size:10px;color:var(--named);text-transform:uppercase;margin-bottom:4px">🔫 Статы оружия (3 слота)</div>
+      <div id="weapon-stats-info" style="font-size:11px;color:var(--muted);margin-bottom:6px">Выбери оружие выше чтобы увидеть статы его класса</div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <label style="font-size:11px;color:var(--muted)">3-й стат (выбор):</label>
+        <select id="weapon-stat3" onchange="onWeaponStat3Change()" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);font-size:11px">
+          <option value="chc">Шанс крит. удара (+15%)</option>
+          <option value="chd">Урон крит. удара (+25%)</option>
+          <option value="hsd">Урон в голову (+21%)</option>
+          <option value="ooc">Урон вне укрытия (+21%)</option>
+          <option value="dta">Урон по броне (+21%)</option>
+          <option value="wd">Урон оружием (+15%)</option>
+          <option value="none">— без 3-го стата —</option>
+        </select>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px">1-й стат: +15% урон по классу оружия (auto). 2-й стат: +21% урон здоровью (DtH, auto).</div>
+    </div>
+
+    <!-- Specialization (informational — no math) -->
+    <div style="margin-top:12px;display:none" id="gear-specialization-wrap">
+      <select id="gear-specialization" onchange="recomputeGearStats()" style="display:none">
+        <option value="">—</option>
       </select>
-      <div style="font-size:10px;color:var(--muted);margin-top:3px">Средние значения пассивки (реалистично, не cumulative-дамп из файлов). SHD Watch offensive на максимум.</div>
     </div>
 
     <!-- Gear slots -->
