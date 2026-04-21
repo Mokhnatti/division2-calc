@@ -4617,9 +4617,10 @@ function itemPageIcon(kind, enName){
   if(!enName)return "";
   const slug=_slugifyForPage(enName);
   if(!slug)return "";
-  const path=kind==='exotic'?'/exotic/':kind==='named'?'/named/':kind==='set'?'/set/':kind==='brand'?'/brand/':'/exotic/';
+  const cat=kind==='exotic'?'exotic':kind==='named'?'named':kind==='set'?'set':kind==='brand'?'brand':'exotic';
   const isEn=currentLang==='en';
-  return `<a href="${path}${slug}" rel="noopener" title="${isEn?'Full info + where to get':'Подробнее + где добыть'}" style="color:var(--orange);text-decoration:none;margin-left:6px;font-size:11px;opacity:.7" onclick="event.stopPropagation()">🔗</a>`;
+  const langPrefix=isEn?'/en':'/ru';
+  return `<a href="${langPrefix}/${cat}/${slug}" rel="noopener" title="${isEn?'Full info + where to get':'Подробнее + где добыть'}" style="color:var(--orange);text-decoration:none;margin-left:6px;font-size:11px;opacity:.7" onclick="event.stopPropagation()">🔗</a>`;
 }
 
 // ===== TRANSLATIONS (loaded lazily from translations_en.json) =====
