@@ -590,7 +590,18 @@
       </span>
     </div>
 
-    <div style="font-size:11px;color:#ef5350;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">🔥 Цель под негативным эффектом</div>
+    </div>
+    </details>
+  </div>
+
+  <!-- Target status (отдельный блок) -->
+  <div class="bsect">
+    <details open>
+    <summary><h3><span class="caret">▼</span> 🔥 Цель под негативным эффектом</h3></summary>
+    <div class="bsect-body">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px">
+      Если используешь таланты Sadist, Pyromaniac, Thunder Strike, Eyeless и пр. — цель <b>должна быть под статусом</b>, чтобы бонусы считались. Статус активируется автоматически при выборе таланта, или включи вручную.
+    </div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(239,83,80,.05);border:1px solid rgba(239,83,80,.2);border-radius:6px">
       <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;cursor:pointer">
         <input type="checkbox" id="b-status-target" onchange="calcBuild()" style="margin:0"> Активировать «цель со статусом»
@@ -608,9 +619,9 @@
         <option value="confuse">Растерянность 🌀</option>
         <option value="mark">Отмечен 🎯 (Negotiator, Shroud, Sacrum)</option>
       </select>
-      <span style="font-size:10px;color:var(--muted);flex:1;min-width:200px">
-        Включает бонусы талантов: Pyromaniac (горение), Sadist (кровь), Thunder Strike (шок), Eyeless (слепота), Pressure Point (любой), Diamondback, Scorpio и др.
-      </span>
+    </div>
+    <div style="font-size:10px;color:var(--muted);margin-top:6px">
+      Таланты, триггерящиеся на статусе: Pyromaniac (🔥), Sadist (🩸), Thunder Strike (⚡), Eyeless (👁), Pressure Point (любой), Diamondback, Scorpio, Finisher, Spike, Galvanize.
     </div>
     </div>
     </details>
@@ -1405,6 +1416,6 @@
 
 <div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>
 
-<script src="js/main.js?v=cherry-20260421-5"></script>
+<script src="js/main.js?v=cherry-20260421-6"></script>
 </body>
 </html>

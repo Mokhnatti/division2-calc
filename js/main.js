@@ -1512,6 +1512,7 @@ function onWpnTalentChange(){
   const t=WEAPON_TALENTS_FULL[selectedWpnTalent];
   const desc=document.getElementById("b-wpn-tal-desc");
   if(desc)desc.textContent=t?.desc_ru||t?.desc_en||"";
+  if(t&&(t.name_en||selectedWpnTalent)) _autoStatusFromTalent(t.name_en||selectedWpnTalent);
   calcBuild();
 }
 
@@ -1592,11 +1593,28 @@ function _checkTalentReq(talentName, isPerfect){
   return `<div style="font-size:11px;color:var(--red);margin-top:4px;padding:4px 6px;background:rgba(239,83,80,.08);border-left:2px solid var(--red);border-radius:3px"><b>${lbl}:</b> ${parts.join(' · ')}</div>`;
 }
 
+// Status-dependent talents: name_en → status type to auto-enable
+const STATUS_TALENTS = {
+  "Sadist":"bleed","Pyromaniac":"burn","Thunder Strike":"shock","Eyeless":"blind",
+  "Pressure Point":"any","Diamondback":"any","Scorpio":"any","Finisher":"any","Spike":"any",
+  "Galvanize":"ensnare","Pulse":"pulse","Dread":"mark","Negotiator's Dilemma":"mark",
+  "Decoy":"any","Intimidate":"any"
+};
+function _autoStatusFromTalent(talName){
+  if(!talName) return;
+  const cb = document.getElementById("b-status-target");
+  const sel = document.getElementById("b-status-type");
+  if(!cb||!sel) return;
+  const status = STATUS_TALENTS[talName];
+  if(!status) return;
+  if(!cb.checked){ cb.checked = true; }
+  if(sel.value === "any" || sel.value === "") sel.value = status==="any"?"any":status;
+}
 function onChestTalentChange(){
   const id=document.getElementById("b-chest-talent").value;
   const desc=document.getElementById("b-chest-talent-desc");
   if(!desc)return;
-  if(!id){desc.textContent="";return;}
+  if(!id){desc.textContent="";calcBuild();return;}
   const isPerfect=id.startsWith("perfect:");
   const baseId=isPerfect?id.slice(8):id;
   const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
@@ -1604,6 +1622,8 @@ function onChestTalentChange(){
     const prefix=isPerfect?"⭐ СОВЕРШЕННЫЙ — ":"";
     const req=_checkTalentReq(t.name_en, isPerfect);
     desc.innerHTML=`<div>${prefix}${escapeHtml(t.desc_ru||t.description||"")}</div>${req}`;
+    _autoStatusFromTalent(t.name_en);
+    calcBuild();
   }
 }
 
@@ -1611,7 +1631,7 @@ function onBpTalentChange(){
   const id=document.getElementById("b-bp-talent").value;
   const desc=document.getElementById("b-bp-talent-desc");
   if(!desc)return;
-  if(!id){desc.textContent="";return;}
+  if(!id){desc.textContent="";calcBuild();return;}
   const isPerfect=id.startsWith("perfect:");
   const baseId=isPerfect?id.slice(8):id;
   const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
@@ -1619,6 +1639,8 @@ function onBpTalentChange(){
     const prefix=isPerfect?"⭐ СОВЕРШЕННЫЙ — ":"";
     const req=_checkTalentReq(t.name_en, isPerfect);
     desc.innerHTML=`<div>${prefix}${escapeHtml(t.desc_ru||t.description||"")}</div>${req}`;
+    _autoStatusFromTalent(t.name_en);
+    calcBuild();
   }
 }
 
