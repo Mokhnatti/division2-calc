@@ -557,23 +557,6 @@
       <div class="bstat"><label title="Экспертные знания оружия — отдельный множитель поверх WD. При +15 ур. экспертизы получаешь +15% урона от оружия. Не входит в графу 'Доп. урон от всего оружия' в меню игры, но применяется в реальном уроне.">Экспертиза оружия ⓘ</label><input id="b-expertise" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
     </div>
 
-    <div style="font-size:11px;color:#fdd835;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">🎯 Тип цели (фракция)</div>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(253,216,53,.05);border:1px solid rgba(253,216,53,.2);border-radius:6px;margin-bottom:8px">
-      <select id="b-target-faction" onchange="calcBuild()" class="bsel" style="font-size:11px;padding:3px 8px;min-width:170px">
-        <option value="any">Любая</option>
-        <option value="hunters">Hunters (охотники)</option>
-        <option value="black_tusk">Black Tusk (Чёрный клык)</option>
-        <option value="true_sons">True Sons (Истинные сыны)</option>
-        <option value="outcasts">Outcasts (Изгои)</option>
-        <option value="cleaners">Cleaners (Чистильщики)</option>
-        <option value="rikers">Rikers</option>
-        <option value="dz_npc">DZ NPC</option>
-      </select>
-      <span style="font-size:10px;color:var(--muted);flex:1;min-width:200px">
-        <b>Hunters/Black Tusk</b> — высокая броня, лучше DtA. <b>Cleaners/Outcasts</b> — горючие, бонус Pyromaniac. <b>True Sons</b> — обычная цель.
-      </span>
-    </div>
-
     <div style="font-size:11px;color:#42a5f5;margin:8px 0 6px;text-transform:uppercase;letter-spacing:.5px">👥 Состав группы</div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.2);border-radius:6px">
       <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;cursor:pointer">
@@ -590,6 +573,33 @@
       </span>
     </div>
 
+    </div>
+    </details>
+  </div>
+
+  <!-- Target faction (отдельный блок) -->
+  <div class="bsect">
+    <details>
+    <summary><h3><span class="caret">▼</span> 🎯 Тип цели (фракция)</h3></summary>
+    <div class="bsect-body">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px">
+      Влияет на баланс DtA/DtH и бонусы типа Pyromaniac против Cleaners.
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:rgba(253,216,53,.05);border:1px solid rgba(253,216,53,.2);border-radius:6px">
+      <select id="b-target-faction" onchange="calcBuild()" class="bsel" style="font-size:11px;padding:3px 8px;min-width:170px">
+        <option value="any">Любая</option>
+        <option value="hunters">Hunters (охотники)</option>
+        <option value="black_tusk">Black Tusk (Чёрный клык)</option>
+        <option value="true_sons">True Sons (Истинные сыны)</option>
+        <option value="outcasts">Outcasts (Изгои)</option>
+        <option value="cleaners">Cleaners (Чистильщики)</option>
+        <option value="rikers">Rikers</option>
+        <option value="dz_npc">DZ NPC</option>
+      </select>
+      <span style="font-size:10px;color:var(--muted);flex:1;min-width:200px">
+        <b>Hunters/Black Tusk</b> — высокая броня, лучше DtA. <b>Cleaners/Outcasts</b> — горючие, бонус Pyromaniac. <b>True Sons</b> — обычная цель.
+      </span>
+    </div>
     </div>
     </details>
   </div>
@@ -1416,6 +1426,6 @@
 
 <div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>
 
-<script src="js/main.js?v=cherry-20260421-6"></script>
+<script src="js/main.js?v=cherry-20260421-7"></script>
 </body>
 </html>
