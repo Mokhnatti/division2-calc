@@ -1,11 +1,13 @@
 // Language state — must be declared before render() runs (TDZ fix)
 var currentLang = (function(){
   try {
-    var stored = typeof localStorage !== 'undefined' && localStorage.getItem("d2calc_lang");
-    if (stored === 'ru' || stored === 'en') return stored;
+    // URL path is the authoritative source — /en/ always EN, /ru/ always RU
     var path = (typeof location !== 'undefined' ? location.pathname : '') || '';
     if (/^\/ru(\/|$)/.test(path)) return 'ru';
     if (/^\/en(\/|$)/.test(path)) return 'en';
+    // Root / → check localStorage then navigator
+    var stored = typeof localStorage !== 'undefined' && localStorage.getItem("d2calc_lang");
+    if (stored === 'ru' || stored === 'en') return stored;
     var nav = typeof navigator !== 'undefined' ? ((navigator.languages||[])[0]||navigator.language||'') : '';
     if (typeof nav === 'string' && nav.toLowerCase().indexOf('ru') === 0) return 'ru';
     return 'en';
