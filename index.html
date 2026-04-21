@@ -289,6 +289,16 @@
       <div class="slot-btn" id="bs-wpn" onclick="openWpnSlot()" style="min-height:58px"><span class="ss">— выбери оружие —</span></div>
     </div>
     <div class="wpn-stats" id="b-wpn-stats"></div>
+    <details style="margin-top:10px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;background:rgba(255,255,255,.02)">
+      <summary style="font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;cursor:pointer;user-select:none">🔧 Уточнение оружия (из карточки в игре)</summary>
+      <div style="font-size:10px;color:var(--muted);margin:6px 0 8px">Необязательно. Если пусто — берутся статы выбранного оружия. Заполняй, когда данные с карточки отличаются (экзотики, прототип, индивидуальный ролл).</div>
+      <div class="bstat-row">
+        <div class="bstat"><label>Базовый урон</label><input id="wpn-ovr-dmg" type="number" placeholder="авто" oninput="calcBuild()"><span class="u"></span></div>
+        <div class="bstat"><label>RPM</label><input id="wpn-ovr-rpm" type="number" placeholder="авто" oninput="calcBuild()"><span class="u"></span></div>
+        <div class="bstat"><label>Магазин</label><input id="wpn-ovr-mag" type="number" placeholder="авто" oninput="calcBuild()"><span class="u"></span></div>
+        <div class="bstat"><label>Перезарядка</label><input id="wpn-ovr-reload" type="number" step="0.01" placeholder="авто" oninput="calcBuild()"><span class="u">сек</span></div>
+      </div>
+    </details>
     <div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
       <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px">Талант оружия:</label>
       <select id="b-wpn-tal" class="bsel" style="flex:1;min-width:200px;max-width:380px" onchange="onWpnTalentChange()"></select>
@@ -537,11 +547,11 @@
 
     <div style="font-size:11px;color:#42a5f5;margin:6px 0;text-transform:uppercase">Прочее</div>
     <div class="bstat-row">
-      <div class="bstat"><label>Вне укрытия (OoC)</label><input id="b-ooc" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat" style="display:none"><label>Вне укрытия (OoC)</label><input id="b-ooc" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Урон по броне (DtA)</label><input id="b-dta" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label title="Damage to Health — бонус урона по целям без брони (голое HP). Источники: Hunter's Fury 4pc, некоторые бренды и названные предметы.">Урон здоровью (DtH) ⓘ</label><input id="b-dth" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Скорость перезарядки</label><input id="b-reload" value="0" type="number" oninput="calcBuild()"><span class="u">%</span><label style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);margin-left:6px;cursor:pointer"><input type="checkbox" id="b-no-reload" onchange="calcBuild()" style="margin:0"> без перезарядки</label></div>
-      <div class="bstat"><label>Скорострельность (RoF)</label><input id="b-rof" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
+      <div class="bstat" style="display:none"><label>Скорострельность (RoF)</label><input id="b-rof" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label>Магазин (mag %)</label><input id="b-mag" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label title="Amplified — отдельный внешний множитель DPS. Источники: Страйкер 4pc Hackstep Protocol (до +20%), некоторые экзотики/таланты. Не входит в WD бакет.">Amp (усилитель) ⓘ</label><input id="b-amp" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
       <div class="bstat"><label title="Экспертные знания оружия — отдельный множитель поверх WD. При +15 ур. экспертизы получаешь +15% урона от оружия. Не входит в графу 'Доп. урон от всего оружия' в меню игры, но применяется в реальном уроне.">Экспертиза оружия ⓘ</label><input id="b-expertise" value="0" type="number" oninput="calcBuild()"><span class="u">%</span></div>
@@ -1395,6 +1405,6 @@
 
 <div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>
 
-<script src="js/main.js?v=cherry-20260421-4"></script>
+<script src="js/main.js?v=cherry-20260421-5"></script>
 </body>
 </html>

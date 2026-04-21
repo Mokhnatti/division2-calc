@@ -2905,15 +2905,29 @@ const GEAR_TALENTS = D2DATA.GEAR_TALENTS || [];
 let selectedWpnId="police_m4";
 let selectedWpnTalent="none";
 function getWeapon(){
+  let base;
   if(selectedWpnId==="custom"){
-    return{id:"custom",name:"Своё оружие",cat:document.getElementById("cw-cat").value,
+    base={id:"custom",name:"Своё оружие",cat:document.getElementById("cw-cat").value,
       dmg:parseFloat(document.getElementById("cw-dmg").value)||60000,
       rpm:parseFloat(document.getElementById("cw-rpm").value)||750,
       mag:parseFloat(document.getElementById("cw-mag").value)||30,
       reload:parseFloat(document.getElementById("cw-rel").value)||2.0,
       kind:"custom",tal:"",tal_type:"none"};
+  } else {
+    base=WPNS[selectedWpnId]||WPNS_BASE[0];
   }
-  return WPNS[selectedWpnId]||WPNS_BASE[0];
+  const ovrDmg=parseFloat(document.getElementById("wpn-ovr-dmg")?.value);
+  const ovrRpm=parseFloat(document.getElementById("wpn-ovr-rpm")?.value);
+  const ovrMag=parseFloat(document.getElementById("wpn-ovr-mag")?.value);
+  const ovrRel=parseFloat(document.getElementById("wpn-ovr-reload")?.value);
+  if(!isNaN(ovrDmg)||!isNaN(ovrRpm)||!isNaN(ovrMag)||!isNaN(ovrRel)){
+    return{...base,
+      dmg:!isNaN(ovrDmg)?ovrDmg:base.dmg,
+      rpm:!isNaN(ovrRpm)?ovrRpm:base.rpm,
+      mag:!isNaN(ovrMag)?ovrMag:base.mag,
+      reload:!isNaN(ovrRel)?ovrRel:base.reload};
+  }
+  return base;
 }
 
 // Weapon picker modal — reuses slot-modal UI but with weapon filters
