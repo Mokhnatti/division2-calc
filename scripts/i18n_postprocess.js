@@ -22,22 +22,22 @@ const STATIC_REPLACEMENTS = [
   // Page structure
   ['<html lang="ru">', '<html lang="en">'],
   // Nav
-  ['<a class="logo" href="/">', '<a class="logo" href="/en/">'],
-  ['<a href="/exotic/">Экзотики</a>', '<a href="/en/exotic/">Exotics</a>'],
-  ['<a href="/named/">Именные</a>', '<a href="/en/named/">Named</a>'],
-  ['<a href="/set/">Комплекты</a>', '<a href="/en/set/">Sets</a>'],
-  ['<a href="/brand/">Бренды</a>', '<a href="/en/brand/">Brands</a>'],
-  ['<a class="calc-btn" href="/">🔢 Калькулятор</a>', '<a class="calc-btn" href="/en/">🔢 Calculator</a>'],
-  ['<a href="/">divcalc.xyz</a> — калькулятор DPS для Tom Clancy\'s The Division 2',
+  ['<a class="logo" href="/ru/">', '<a class="logo" href="/en/">'],
+  ['<a href="/ru/exotic/">Экзотики</a>', '<a href="/en/exotic/">Exotics</a>'],
+  ['<a href="/ru/named/">Именные</a>', '<a href="/en/named/">Named</a>'],
+  ['<a href="/ru/set/">Комплекты</a>', '<a href="/en/set/">Sets</a>'],
+  ['<a href="/ru/brand/">Бренды</a>', '<a href="/en/brand/">Brands</a>'],
+  ['<a class="calc-btn" href="/">🔢 Калькулятор</a>', '<a class="calc-btn" href="/">🔢 Calculator</a>'],
+  ['<a href="/ru/">divcalc.xyz</a> — калькулятор DPS для Tom Clancy\'s The Division 2',
     '<a href="/en/">divcalc.xyz</a> — DPS calculator for Tom Clancy\'s The Division 2'],
   ['Данные актуальны для Title Update 21 (Year 9)', 'Data accurate for Title Update 22 (Year 8 Season 1 «Rise Up»)'],
   ['Данные актуальны для Title Update 22 (Year 8 Season 1)', 'Data accurate for Title Update 22 (Year 8 Season 1 «Rise Up»)'],
   // Breadcrumb
-  ['<a href="/">Главная</a>', '<a href="/en/">Home</a>'],
-  ['<a href="/exotic/">Экзотики</a> <span>›</span>', '<a href="/en/exotic/">Exotics</a> <span>›</span>'],
-  ['<a href="/named/">Именные</a> <span>›</span>', '<a href="/en/named/">Named</a> <span>›</span>'],
-  ['<a href="/set/">Комплекты</a> <span>›</span>', '<a href="/en/set/">Sets</a> <span>›</span>'],
-  ['<a href="/brand/">Бренды</a> <span>›</span>', '<a href="/en/brand/">Brands</a> <span>›</span>'],
+  ['<a href="/ru/">Главная</a>', '<a href="/en/">Home</a>'],
+  ['<a href="/ru/exotic/">Экзотики</a> <span>›</span>', '<a href="/en/exotic/">Exotics</a> <span>›</span>'],
+  ['<a href="/ru/named/">Именные</a> <span>›</span>', '<a href="/en/named/">Named</a> <span>›</span>'],
+  ['<a href="/ru/set/">Комплекты</a> <span>›</span>', '<a href="/en/set/">Sets</a> <span>›</span>'],
+  ['<a href="/ru/brand/">Бренды</a> <span>›</span>', '<a href="/en/brand/">Brands</a> <span>›</span>'],
   // Section headers
   ['>Характеристики<', '>Stats<'],
   ['>Пиковые характеристики<', '>Peak stats<'],
@@ -87,6 +87,70 @@ const STATIC_REPLACEMENTS = [
   ['>Навыки<', '>Skills<'],
   [' патронов<', ' rounds<'],
   [' сек<', ' sec<'],
+  // Gear slot types (item.g field)
+  ['>Бронежилет<', '>Chest<'],
+  ['>Рюкзак<', '>Backpack<'],
+  ['>Наколенники<', '>Kneepads<'],
+  ['>Перчатки<', '>Gloves<'],
+  ['>Маска<', '>Mask<'],
+  ['>Кобура<', '>Holster<'],
+  ['>Штурмовые винтовки<', '>Assault Rifles<'],
+  ['>Пистолеты-пулемёты<', '>SMGs<'],
+  ['>Пулемёты<', '>LMGs<'],
+  ['>Ручные пулемёты<', '>LMGs<'],
+  ['>Снайперские винтовки<', '>Marksman Rifles<'],
+  ['>Дробовики<', '>Shotguns<'],
+  ['>Пистолеты<', '>Pistols<'],
+  ['>Винтовки<', '>Rifles<'],
+  // Source labels in tables (show up as plain text)
+  ['Запечатанный тайник', 'Sealed Cache'],
+  ['Экзотик-тайник', 'Exotic Cache'],
+  ['Именной босс-', 'Named Boss-'],
+  ['Именной босс', 'Named Boss'],
+  ['Именной NPC', 'Named NPC'],
+  ['Награда сезона', 'Season Reward'],
+  ['Сезонная награда', 'Season Reward'],
+  ['Боевой пропуск', 'Battle Pass'],
+  ['Крафт-торговец', 'Craft Vendor'],
+  ['Мировой дроп', 'World Drop'],
+  ['Ивентовый тайник', 'Event Cache'],
+  ['Глоб. событие', 'Global Event'],
+  ['Тёмная зона', 'Dark Zone'],
+  ['Обратный отсчёт', 'Countdown'],
+  // Talent prefix
+  ['⭐ СОВЕРШЕННЫЙ', '⭐ PERFECT'],
+  ['Идеальный', 'Perfect'],
+  ['летие игры', 'anniversary event'],
+  ['Кэмп Уайт Оук', 'Camp White Oak'],
+  ['Прочее', 'Other'],
+  // Brand attribute labels
+  ['Боезапас', 'Ammo capacity'],
+  ['Точность', 'Accuracy'],
+  ['Прочность объектов навыков', 'Skill object durability'],
+  ['от выстрелов в голову', 'from headshots'],
+  ['от навыков', 'from skills'],
+  ['Восстановление брони', 'Armor regen'],
+  ['этого бренда', 'of this brand'],
+  // Raid-related
+  ['Толсторог', 'Bighorn'],
+  ['этаж 100', 'floor 100'],
+  ['Прохождение', 'Completion'],
+  // meta field values (come after " · ")
+  [' · Ручные пулемёты<', ' · LMGs<'],
+  // meta field values (come after " · ")
+  [' · Бронежилет<', ' · Chest<'],
+  [' · Рюкзак<', ' · Backpack<'],
+  [' · Наколенники<', ' · Kneepads<'],
+  [' · Перчатки<', ' · Gloves<'],
+  [' · Маска<', ' · Mask<'],
+  [' · Кобура<', ' · Holster<'],
+  [' · Штурмовые винтовки<', ' · Assault Rifles<'],
+  [' · Пистолеты-пулемёты<', ' · SMGs<'],
+  [' · Пулемёты<', ' · LMGs<'],
+  [' · Снайперские винтовки<', ' · Marksman Rifles<'],
+  [' · Дробовики<', ' · Shotguns<'],
+  [' · Пистолеты<', ' · Pistols<'],
+  [' · Винтовки<', ' · Rifles<'],
   // Source type labels (localized in sources)
   [' Миссия</b>', ' Mission</b>'],
   [' Именной NPC</b>', ' Named NPC</b>'],
@@ -172,44 +236,40 @@ function applyReplacements(html) {
   return out;
 }
 
-// Rewrite all internal /exotic/, /named/, /set/, /brand/ links to /en/... (for EN page)
+// Rewrite /ru/... → /en/... in all href + JSON-LD item URLs
 function rewriteInternalLinks(html) {
-  return html
-    .replace(/href="\/exotic\//g, 'href="/en/exotic/')
-    .replace(/href="\/named\//g, 'href="/en/named/')
-    .replace(/href="\/set\//g, 'href="/en/set/')
-    .replace(/href="\/brand\//g, 'href="/en/brand/')
-    .replace(/href="\/"/g, 'href="/en/"');
+  return html.replace(/href="\/ru\//g, 'href="/en/');
 }
 
-// Update canonical + OG URL from /exotic/x to /en/exotic/x
+// Update canonical + OG URL from /ru/... to /en/...
 function rewriteCanonicalToEn(html) {
   return html
-    .replace(/<link rel="canonical" href="https:\/\/divcalc\.xyz\//g, '<link rel="canonical" href="https://divcalc.xyz/en/')
-    .replace(/<meta property="og:url" content="https:\/\/divcalc\.xyz\//g, '<meta property="og:url" content="https://divcalc.xyz/en/')
-    // Update JSON-LD URL fields (Product.url etc.)
-    .replace(/"url":"https:\/\/divcalc\.xyz\/(exotic|named|set|brand)\//g, '"url":"https://divcalc.xyz/en/$1/');
+    .replace(/<link rel="canonical" href="https:\/\/divcalc\.xyz\/ru\//g, '<link rel="canonical" href="https://divcalc.xyz/en/')
+    .replace(/<meta property="og:url" content="https:\/\/divcalc\.xyz\/ru\//g, '<meta property="og:url" content="https://divcalc.xyz/en/')
+    .replace(/"url":"https:\/\/divcalc\.xyz\/ru\//g, '"url":"https://divcalc.xyz/en/')
+    .replace(/"item":"https:\/\/divcalc\.xyz\/ru\//g, '"item":"https://divcalc.xyz/en/');
 }
 
 // Inject hreflang tags into <head>
-// ruPath: "/exotic/foo" (without leading slash? — should always have /)
+// ruPath: "/ru/exotic/foo" — full path including /ru/ prefix
 function hreflangBlock(ruPath) {
+  const enPath = ruPath.replace(/^\/ru\//, '/en/');
   const ru = `https://divcalc.xyz${ruPath}`;
-  const en = `https://divcalc.xyz/en${ruPath}`;
+  const en = `https://divcalc.xyz${enPath}`;
   return `<link rel="alternate" hreflang="ru" href="${ru}">
 <link rel="alternate" hreflang="en" href="${en}">
 <link rel="alternate" hreflang="x-default" href="${en}">`;
 }
 
-// Inject hreflang before </head>
 function injectHreflang(html, ruPath) {
   const block = hreflangBlock(ruPath);
   return html.replace(/<\/head>/i, block + '\n</head>');
 }
 
-// Inject language switcher button into <body> at the top (before <nav>)
+// Inject language switcher: on RU page, link to EN equivalent; on EN page, link to RU equivalent
 function injectLangSwitcher(html, lang, ruPath) {
-  const targetUrl = lang === 'ru' ? `/en${ruPath}` : ruPath;
+  const enPath = ruPath.replace(/^\/ru\//, '/en/');
+  const targetUrl = lang === 'ru' ? enPath : ruPath;
   const label = lang === 'ru' ? '🇬🇧 EN' : '🇷🇺 RU';
   const titleAttr = lang === 'ru' ? 'Switch to English' : 'Переключить на русский';
   const btn = `<a href="${targetUrl}" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="${titleAttr}">${label}</a>`;
@@ -223,23 +283,84 @@ function translateHtmlToEn(ruHtml, item, ruPath, itemType) {
   let html = ruHtml;
 
   // Swap item-specific RU text with EN equivalents
-  // (item.name or item.name_ru → item.en or item.name_en)
   const ruName = item.name_ru || item.name || '';
   const enName = item.en || item.name_en || item.name_full_en || '';
 
   if (ruName && enName && ruName !== enName) {
-    // Replace h1 and visible headings
-    html = html.split(`>${escape(ruName)}<`).join(`>${escape(enName)}<`);
-    // But keep EN subtitle shown on RU version
+    // Hide EN subtitle on EN page (it'd be duplicate of h1 now)
     html = html.split(`class="en-name">${escape(enName)}<`).join(`class="en-name" style="display:none"><`);
+    // Replace ALL occurrences of the RU name (escaped) with EN name
+    // This covers: <title>, meta content, og, JSON-LD, h1, breadcrumb, synergy strong tags, etc.
+    html = html.split(escape(ruName)).join(escape(enName));
   }
 
-  // Swap RU description/talent description if EN exists
+  // Swap talent RU name → EN name (prefer explicit tal_name_en, then tal for weapons, then keep tal_ru)
+  const ruTalName = item.tal_name_ru || item.tal_ru || '';
+  const enTalName = item.tal_name_en || item.tal_en || item.tal || '';
+  if (ruTalName && enTalName && ruTalName !== enTalName && enTalName.length > 0) {
+    html = html.split(escape(ruTalName)).join(escape(enTalName));
+  }
+
+  // Swap RU talent/flavor description if EN exists
   const ruDesc = item.tal_desc_ru || item.d || item.bonus_ru || '';
   const enDesc = item.tal_desc || item.d_en || item.bonus_short_en || '';
   if (ruDesc && enDesc && ruDesc !== enDesc) {
     html = html.split(escape(ruDesc)).join(escape(enDesc));
   }
+
+  // Hide/remove source_ru rows on EN — no EN translation exists, RU leak looks bad
+  if (item.source_ru) {
+    const escaped = escape(item.source_ru);
+    html = html.replace(new RegExp(`\\s*<tr><td>[^<]+</td><td>${escapeRegex(escaped)}</td></tr>`, 'g'), '');
+  }
+
+  // Hide stats_ru row (attributes) — no EN equivalent in data
+  if (item.stats_ru) {
+    const escaped = escape(item.stats_ru);
+    html = html.replace(new RegExp(`\\s*<tr><td>[^<]+</td><td>${escapeRegex(escaped)}</td></tr>`, 'g'), '');
+  }
+  // Hide mods_ru row
+  if (item.mods_ru) {
+    const escaped = escape(item.mods_ru);
+    html = html.replace(new RegExp(`\\s*<tr><td>[^<]+</td><td>${escapeRegex(escaped)}</td></tr>`, 'g'), '');
+  }
+
+  // Swap related-card RU name with EN name (rc-name is RU, rc-meta starts with EN)
+  // On EN page: put EN as primary title, drop RU name from meta, keep only category.
+  html = html.replace(
+    /<div class="rc-name">([^<]+)<\/div>\s*<div class="rc-meta">([^<]+)<\/div>/g,
+    (m, ruN, metaLine) => {
+      const ruTrim = ruN.trim();
+      const parts = metaLine.split('·').map(s => s.trim());
+      const enN = parts[0] || '';
+      const rest = parts.slice(1);
+      if (!enN || enN === ruTrim) return m;
+      const newMeta = rest.join(' · ');
+      return `<div class="rc-name">${enN}</div>\n      <div class="rc-meta">${newMeta}</div>`;
+    }
+  );
+
+  // Category index: replace intro paragraph content
+  html = html.replace(
+    /<p class="cat-intro"[^>]*>Все предметы категории «([^»]+)» в The Division 2\. Нажми на предмет чтобы увидеть полные статы и гайд\.<\/p>/g,
+    (m, titleRu) => `<p class="cat-intro" style="color:var(--muted);margin:8px 0 24px">All items in the category in The Division 2. Click an item to see full stats and guide.</p>`
+  );
+
+  // Hide peak_bonus section if present — note is RU-only, looks bad on EN page
+  html = html.replace(/<section class="peak-bonus">[\s\S]*?<\/section>/g, '');
+
+  // Final sweep: hide elements whose visible text is predominantly cyrillic.
+  // These represent data fields that don't yet have EN equivalents.
+  // Targets: <p>, <li>, <div>, <td> whose innerText is >=60% cyrillic and >=20 chars.
+  const EN_PLACEHOLDER = '<em style="color:var(--muted);font-size:11px">Translation coming soon</em>';
+  html = html.replace(/<(p|li|td)([^>]*)>([^<]{20,})<\/\1>/g, (m, tag, attrs, txt) => {
+    const cyr = (txt.match(/[А-Яа-яЁё]/g) || []).length;
+    const total = txt.replace(/\s/g, '').length;
+    if (total > 0 && cyr / total >= 0.5) {
+      return `<${tag}${attrs}>${EN_PLACEHOLDER}</${tag}>`;
+    }
+    return m;
+  });
 
   // Apply static dictionary
   html = applyReplacements(html);
@@ -257,6 +378,10 @@ function translateHtmlToEn(ruHtml, item, ruPath, itemType) {
   html = injectLangSwitcher(html, 'en', ruPath);
 
   return html;
+}
+
+function escapeRegex(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 /**

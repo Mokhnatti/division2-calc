@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Комплекты снаряжения — Division 2 | divcalc.xyz</title>
+<title>Sets — Division 2 | divcalc.xyz</title>
 <meta name="description" content="Все комплекты снаряжения в Tom Clancy's The Division 2. Статы, таланты, лучшие билды. Рассчитай DPS на divcalc.xyz.">
 <link rel="canonical" href="https://divcalc.xyz/en/set/">
 <link rel="stylesheet" href="/css/page.css">
@@ -16,17 +16,18 @@
     // Only run on page load; don't show if cookie already set
     if (document.cookie.match(/(?:^|;\s*)d2calc_lang=(ru|en)/)) return;
     var currentIsEn = document.documentElement.lang === 'en' || /^\/en\//.test(location.pathname);
+    var currentIsRu = /^\/ru\//.test(location.pathname);
     var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
     prefLang = prefLang.toLowerCase();
     // RU page but user prefers EN → banner
-    if (!currentIsEn && prefLang.indexOf('en') === 0) {
-      var altUrl = '/en' + location.pathname + location.search;
+    if (currentIsRu && prefLang.indexOf('en') === 0) {
+      var altUrl = location.pathname.replace(/^\/ru\//, '/en/') + location.search;
       var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
       showBanner(msg);
     }
     // EN page but user prefers RU → banner
     else if (currentIsEn && prefLang.indexOf('ru') === 0) {
-      var altUrl = location.pathname.replace(/^\/en/, '') + location.search;
+      var altUrl = location.pathname.replace(/^\/en\//, '/ru/') + location.search;
       var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
       showBanner(msg);
     }
@@ -47,12 +48,12 @@
 })();
 </script>
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108598463,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
-<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/set/">
+<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/set/">
 <link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/set/">
 <link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/set/">
 </head>
 <body>
-<a href="/set/" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
+<a href="/ru/set/" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
 <nav class="site-nav">
   <a class="logo" href="/en/">divcalc.xyz</a>
   <div class="nav-links">
@@ -61,120 +62,120 @@
     <a href="/en/set/">Sets</a>
     <a href="/en/brand/">Brands</a>
   </div>
-  <a class="calc-btn" href="/en/">🔢 Calculator</a>
+  <a class="calc-btn" href="/">🔢 Calculator</a>
 </nav>
 <div class="breadcrumb">
   <a href="/en/">Home</a> <span>›</span>
-  Комплекты снаряжения
+  Sets
 </div>
 <main class="item-page">
   <h1>Sets</h1>
-  <p style="color:var(--muted);margin:8px 0 24px">Все предметы категории «Комплекты снаряжения» в The Division 2. Нажми на предмет чтобы увидеть полные статы и гайд.</p>
+  <p class="cat-intro" style="color:var(--muted);margin:8px 0 24px">All items in the category in The Division 2. Click an item to see full stats and guide.</p>
   <div class="ad-slot ad-top"></div>
   <div class="related-grid" style="margin-top:20px">
     <a class="related-card" href="/en/set/striker-s-battlegear">
-      <div class="rc-name">Снаряжение боевика</div>
-      <div class="rc-meta">Striker's Battlegear</div>
+      <div class="rc-name">Striker's Battlegear</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/heartbreaker">
-      <div class="rc-name">Разбиватель сердец</div>
-      <div class="rc-meta">Heartbreaker</div>
+      <div class="rc-name">Heartbreaker</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/umbra-initiative">
       <div class="rc-name">Umbra Initiative</div>
       <div class="rc-meta">Umbra Initiative</div>
     </a>
     <a class="related-card" href="/en/set/hunter-s-fury">
-      <div class="rc-name">Ярость охотника</div>
-      <div class="rc-meta">Hunter's Fury</div>
+      <div class="rc-name">Hunter's Fury</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/negotiator-s-dilemma">
-      <div class="rc-name">Дилемма переговорщика</div>
-      <div class="rc-meta">Negotiator's Dilemma</div>
+      <div class="rc-name">Negotiator's Dilemma</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/hotshot">
-      <div class="rc-name">Горячая штучка</div>
-      <div class="rc-meta">Hotshot</div>
+      <div class="rc-name">Hotshot</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/ongoing-directive">
-      <div class="rc-name">Бессрочная директива</div>
-      <div class="rc-meta">Ongoing Directive</div>
+      <div class="rc-name">Ongoing Directive</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/true-patriot">
-      <div class="rc-name">Истинный патриот</div>
-      <div class="rc-meta">True Patriot</div>
+      <div class="rc-name">True Patriot</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/aces-eights">
-      <div class="rc-name">Восьмерки и тузы</div>
-      <div class="rc-meta">Aces &amp; Eights</div>
+      <div class="rc-name">Aces &amp; Eights</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/tip-of-the-spear">
-      <div class="rc-name">Острие копья</div>
-      <div class="rc-meta">Tip of the Spear</div>
+      <div class="rc-name">Tip of the Spear</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/breaking-point">
-      <div class="rc-name">Переломная точка</div>
-      <div class="rc-meta">Breaking Point</div>
+      <div class="rc-name">Breaking Point</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/virtuoso">
-      <div class="rc-name">Виртуоз</div>
-      <div class="rc-meta">Virtuoso</div>
+      <div class="rc-name">Virtuoso</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/tipping-scales">
       <div class="rc-name">Tipping Scales</div>
       <div class="rc-meta">Tipping Scales</div>
     </a>
     <a class="related-card" href="/en/set/concentrated-company">
-      <div class="rc-name">Точка концентрации</div>
-      <div class="rc-meta">Concentrated Company</div>
+      <div class="rc-name">Concentrated Company</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/foundry-bulwark">
-      <div class="rc-name">Сталелитейный бастион</div>
-      <div class="rc-meta">Foundry Bulwark</div>
+      <div class="rc-name">Foundry Bulwark</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/system-corruption">
-      <div class="rc-name">Коррупция в системе</div>
-      <div class="rc-meta">System Corruption</div>
+      <div class="rc-name">System Corruption</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/aegis">
-      <div class="rc-name">Эгида</div>
-      <div class="rc-meta">Aegis</div>
+      <div class="rc-name">Aegis</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/cavalier">
-      <div class="rc-name">Кавалер</div>
-      <div class="rc-meta">Cavalier</div>
+      <div class="rc-name">Cavalier</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/rigger">
-      <div class="rc-name">Такелажник</div>
-      <div class="rc-meta">Rigger</div>
+      <div class="rc-name">Rigger</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/eclipse-protocol">
-      <div class="rc-name">Протокол Затмение</div>
-      <div class="rc-meta">Eclipse Protocol</div>
+      <div class="rc-name">Eclipse Protocol</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/future-initiative">
-      <div class="rc-name">Инициатива будущего</div>
-      <div class="rc-meta">Future Initiative</div>
+      <div class="rc-name">Future Initiative</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/hard-wired">
-      <div class="rc-name">Спецпрограмма</div>
-      <div class="rc-meta">Hard Wired</div>
+      <div class="rc-name">Hard Wired</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/ortiz-exuro">
-      <div class="rc-name">Ортис: Эксуро</div>
-      <div class="rc-meta">Ortiz: Exuro</div>
+      <div class="rc-name">Ortiz: Exuro</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/refactor">
-      <div class="rc-name">Рефакторинг</div>
-      <div class="rc-meta">Refactor</div>
+      <div class="rc-name">Refactor</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/measured-assembly">
-      <div class="rc-name">Аккуратная сборка</div>
-      <div class="rc-meta">Measured Assembly</div>
+      <div class="rc-name">Measured Assembly</div>
+      <div class="rc-meta"></div>
     </a>
     <a class="related-card" href="/en/set/core-strength">
-      <div class="rc-name">Сила мышечного корсета</div>
-      <div class="rc-meta">Core Strength</div>
+      <div class="rc-name">Core Strength</div>
+      <div class="rc-meta"></div>
     </a>
   </div>
   <div class="ad-slot ad-bottom"></div>

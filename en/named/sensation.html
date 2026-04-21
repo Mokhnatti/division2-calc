@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Сенсация (Sensation) — Division 2 named weapon | divcalc.xyz</title>
-<meta name="description" content="Сенсация (Sensation) — named weapon for Division 2. Тип: Ручные пулемёты. Talent: . Stats and best builds.">
-<meta property="og:title" content="Сенсация — Division 2">
-<meta property="og:description" content="Сенсация (Sensation) — named weapon for Division 2. Тип: Ручные пулемёты. Talent: . Stats and best builds.">
+<title>Sensation (Sensation) — Division 2 named weapon | divcalc.xyz</title>
+<meta name="description" content="Sensation (Sensation) — named weapon for Division 2. Тип: Ручные пулемёты. Talent: . Stats and best builds.">
+<meta property="og:title" content="Sensation — Division 2">
+<meta property="og:description" content="Sensation (Sensation) — named weapon for Division 2. Тип: Ручные пулемёты. Talent: . Stats and best builds.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://divcalc.xyz/en/named/sensation">
 <meta property="og:site_name" content="divcalc.xyz">
@@ -21,17 +21,18 @@
     // Only run on page load; don't show if cookie already set
     if (document.cookie.match(/(?:^|;\s*)d2calc_lang=(ru|en)/)) return;
     var currentIsEn = document.documentElement.lang === 'en' || /^\/en\//.test(location.pathname);
+    var currentIsRu = /^\/ru\//.test(location.pathname);
     var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
     prefLang = prefLang.toLowerCase();
     // RU page but user prefers EN → banner
-    if (!currentIsEn && prefLang.indexOf('en') === 0) {
-      var altUrl = '/en' + location.pathname + location.search;
+    if (currentIsRu && prefLang.indexOf('en') === 0) {
+      var altUrl = location.pathname.replace(/^\/ru\//, '/en/') + location.search;
       var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
       showBanner(msg);
     }
     // EN page but user prefers RU → banner
     else if (currentIsEn && prefLang.indexOf('ru') === 0) {
-      var altUrl = location.pathname.replace(/^\/en/, '') + location.search;
+      var altUrl = location.pathname.replace(/^\/en\//, '/ru/') + location.search;
       var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
       showBanner(msg);
     }
@@ -53,17 +54,17 @@
 </script>
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108598463,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"Сенсация","alternateName":"Sensation","description":"Сенсация (Sensation) — named weapon for Division 2. Тип: Ручные пулемёты. Talent: . Stats and best builds.","url":"https://divcalc.xyz/en/named/sensation"}
+{"@context":"https://schema.org","@type":"Product","name":"Sensation","alternateName":"Sensation","description":"Sensation (Sensation) — named weapon for Division 2. Тип: Ручные пулемёты. Talent: . Stats and best builds.","url":"https://divcalc.xyz/en/named/sensation"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divcalc.xyz/"},{"@type":"ListItem","position":2,"name":"Named","item":"https://divcalc.xyz/named/"},{"@type":"ListItem","position":3,"name":"Сенсация","item":"https://divcalc.xyz/named/sensation"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divcalc.xyz/"},{"@type":"ListItem","position":2,"name":"Named","item":"https://divcalc.xyz/en/named/"},{"@type":"ListItem","position":3,"name":"Sensation","item":"https://divcalc.xyz/en/named/sensation"}]}
 </script>
-<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/named/sensation">
+<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/named/sensation">
 <link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/named/sensation">
 <link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/named/sensation">
 </head>
 <body>
-<a href="/named/sensation" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
+<a href="/ru/named/sensation" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
 <nav class="site-nav">
   <a class="logo" href="/en/">divcalc.xyz</a>
   <div class="nav-links">
@@ -72,12 +73,12 @@
     <a href="/en/set/">Sets</a>
     <a href="/en/brand/">Brands</a>
   </div>
-  <a class="calc-btn" href="/en/">🔢 Calculator</a>
+  <a class="calc-btn" href="/">🔢 Calculator</a>
 </nav>
 <div class="breadcrumb">
   <a href="/en/">Home</a> <span>›</span>
   <a href="/en/named/">Named</a> <span>›</span>
-  Сенсация
+  Sensation
 </div>
 <main class="item-page">
   <div class="item-hero">
@@ -87,7 +88,7 @@
       <div class="en-name" style="display:none"></div>
       <div class="badges">
         <span class="badge badge-named">Named</span>
-        <span class="badge badge-cat">Ручные пулемёты</span>
+        <span class="badge badge-cat">LMGs</span>
         
       </div>
     </div>
@@ -108,32 +109,32 @@
 
   <section class="sources" style="margin-top:14px">
       <h2>📍 Where to farm</h2>
-      <p style="color:var(--muted);font-size:13px">🌍 General world drop (any weapon pool / container)</p>
+      <p style="color:var(--muted);font-size:13px"><em style="color:var(--muted);font-size:11px">Translation coming soon</em></p>
     </section>
 
   <section class="synergy">
     <h2>Synergies</h2>
-    <p>Calculate DPS of a build with <strong>Sensation</strong> в <a href="/en/">divcalc.xyz calculator</a>. Check compatibility with <a href="/en/set/">sets</a> и <a href="/en/brand/">brands</a>.</p>
+    <p>Calculate DPS of a build with <strong>Sensation</strong> в <a href="/">divcalc.xyz calculator</a>. Check compatibility with <a href="/en/set/">sets</a> и <a href="/en/brand/">brands</a>.</p>
   </section>
 
   <section class="related">
     <h2>Similar named</h2>
     <div class="related-grid">
       <a class="related-card" href="/en/named/emeline-s-guard">
-        <div class="rc-name">Страж Эмелин</div>
-        <div class="rc-meta">Emeline's Guard · Пистолеты-пулемёты</div>
+        <div class="rc-name">Emeline's Guard</div>
+      <div class="rc-meta">SMGs</div>
       </a>
       <a class="related-card" href="/en/named/p320-xcompact">
-        <div class="rc-name">P320 Xcompact</div>
-        <div class="rc-meta">P320 XCompact · Пистолеты</div>
+        <div class="rc-name">P320 XCompact</div>
+      <div class="rc-meta">Pistols</div>
       </a>
       <a class="related-card" href="/en/named/savage-wolverine">
-        <div class="rc-name">Дикая росомаха</div>
-        <div class="rc-meta">Savage Wolverine · Штурмовые винтовки</div>
+        <div class="rc-name">Savage Wolverine</div>
+      <div class="rc-meta">Assault Rifles</div>
       </a>
       <a class="related-card" href="/en/named/glory-daze">
-        <div class="rc-name">Блеск славы</div>
-        <div class="rc-meta">Glory Daze · Штурмовые винтовки</div>
+        <div class="rc-name">Glory Daze</div>
+      <div class="rc-meta">Assault Rifles</div>
       </a>
     </div>
   </section>

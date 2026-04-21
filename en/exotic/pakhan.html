@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Пахан (Pakhan) — Division 2 exotic LMG | divcalc.xyz</title>
-<meta name="description" content="Пахан (Pakhan) — exotic weapon for Division 2. Damage 135, RPM 650 RPM, magazine 45. Talent: Пахан. Stats, guide, best builds.">
-<meta property="og:title" content="Пахан — Division 2 exotic">
-<meta property="og:description" content="Пахан (Pakhan) — exotic weapon for Division 2. Damage 135, RPM 650 RPM, magazine 45. Talent: Пахан. Stats, guide, best builds.">
+<title>Pakhan (Pakhan) — Division 2 exotic LMG | divcalc.xyz</title>
+<meta name="description" content="Pakhan (Pakhan) — exotic weapon for Division 2. Damage 135, RPM 650 RPM, magazine 45. Talent: Pakhan. Stats, guide, best builds.">
+<meta property="og:title" content="Pakhan — Division 2 exotic">
+<meta property="og:description" content="Pakhan (Pakhan) — exotic weapon for Division 2. Damage 135, RPM 650 RPM, magazine 45. Talent: Pakhan. Stats, guide, best builds.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://divcalc.xyz/en/exotic/pakhan">
 <meta property="og:site_name" content="divcalc.xyz">
@@ -21,17 +21,18 @@
     // Only run on page load; don't show if cookie already set
     if (document.cookie.match(/(?:^|;\s*)d2calc_lang=(ru|en)/)) return;
     var currentIsEn = document.documentElement.lang === 'en' || /^\/en\//.test(location.pathname);
+    var currentIsRu = /^\/ru\//.test(location.pathname);
     var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
     prefLang = prefLang.toLowerCase();
     // RU page but user prefers EN → banner
-    if (!currentIsEn && prefLang.indexOf('en') === 0) {
-      var altUrl = '/en' + location.pathname + location.search;
+    if (currentIsRu && prefLang.indexOf('en') === 0) {
+      var altUrl = location.pathname.replace(/^\/ru\//, '/en/') + location.search;
       var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
       showBanner(msg);
     }
     // EN page but user prefers RU → banner
     else if (currentIsEn && prefLang.indexOf('ru') === 0) {
-      var altUrl = location.pathname.replace(/^\/en/, '') + location.search;
+      var altUrl = location.pathname.replace(/^\/en\//, '/ru/') + location.search;
       var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
       showBanner(msg);
     }
@@ -53,17 +54,17 @@
 </script>
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108598463,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"Пахан","alternateName":"Pakhan","description":"Пахан (Pakhan) — exotic weapon for Division 2. Damage 135, RPM 650 RPM, magazine 45. Talent: Пахан. Stats, guide, best builds.","url":"https://divcalc.xyz/en/exotic/pakhan"}
+{"@context":"https://schema.org","@type":"Product","name":"Pakhan","alternateName":"Pakhan","description":"Pakhan (Pakhan) — exotic weapon for Division 2. Damage 135, RPM 650 RPM, magazine 45. Talent: Pakhan. Stats, guide, best builds.","url":"https://divcalc.xyz/en/exotic/pakhan"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divcalc.xyz/"},{"@type":"ListItem","position":2,"name":"Exotics","item":"https://divcalc.xyz/exotic/"},{"@type":"ListItem","position":3,"name":"Пахан","item":"https://divcalc.xyz/exotic/pakhan"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divcalc.xyz/"},{"@type":"ListItem","position":2,"name":"Exotics","item":"https://divcalc.xyz/en/exotic/"},{"@type":"ListItem","position":3,"name":"Pakhan","item":"https://divcalc.xyz/en/exotic/pakhan"}]}
 </script>
-<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/exotic/pakhan">
+<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/exotic/pakhan">
 <link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/exotic/pakhan">
 <link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/exotic/pakhan">
 </head>
 <body>
-<a href="/exotic/pakhan" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
+<a href="/ru/exotic/pakhan" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
 <nav class="site-nav">
   <a class="logo" href="/en/">divcalc.xyz</a>
   <div class="nav-links">
@@ -72,12 +73,12 @@
     <a href="/en/set/">Sets</a>
     <a href="/en/brand/">Brands</a>
   </div>
-  <a class="calc-btn" href="/en/">🔢 Calculator</a>
+  <a class="calc-btn" href="/">🔢 Calculator</a>
 </nav>
 <div class="breadcrumb">
   <a href="/en/">Home</a> <span>›</span>
   <a href="/en/exotic/">Exotics</a> <span>›</span>
-  Пахан
+  Pakhan
 </div>
 <main class="item-page">
   <div class="item-hero">
@@ -102,64 +103,53 @@
       <tr><td>Magazine</td><td>45 rounds</td></tr>
       <tr><td>Reload</td><td>2.5 sec</td></tr>
       <tr><td>Weapon type</td><td>LMG</td></tr>
-      <tr><td>Where to farm</td><td>- Гарантированная награда за сезон &quot;Перекрестки&quot;
-- Целевые Трофеи
-- Боссы Героизма, Легендарной сложности, Рейда, Вылазки, Вылазки
-- Экзотические контейнеры.
-- Обычные вражеские NPC (наименьший шанс)</td></tr>
     </table>
   </section>
 
   <section class="talent">
-    <h2>Talent: Пахан</h2>
+    <h2>Talent: Pakhan</h2>
     <div class="talent-block">
-      <h3>Пахан (Pakhan (Exotic))</h3>
-      <p>Kills grant +5% weapon damage for 10s, stacking up to 10 times. At max stacks, gain +20% rate of fire for 10s.</p>
+      <h3>Pakhan (Pakhan (Exotic))</h3>
+      <p><em style="color:var(--muted);font-size:11px">Translation coming soon</em></p>
     </div>
   </section>
 
   
-  <section class="peak-bonus">
-    <h2>Peak stats</h2>
-    <div class="talent-block" style="border-left-color:#58a6ff">
-      <h3>Max damage (with stacks/condition)</h3>
-      <p>4 убийства × +75% mag</p>
-    </div>
-  </section>
+  
 
   <div class="ad-slot ad-mid"></div>
 
   <section class="sources" style="margin-top:14px">
     <h2>📍 Where to farm</h2>
     <h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">✓ Confirmed sources</h3>
-      <table class="stats-table"><tbody><tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>🛠 Craft Vendor</b></td><td style="padding:6px;border-bottom:1px solid var(--border)">Касси (крафт-торговец)</td></tr></tbody></table>
+      <table class="stats-table"><tbody><tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>🛠 Craft Vendor</b></td><td style="padding:6px;border-bottom:1px solid var(--border)"><em style="color:var(--muted);font-size:11px">Translation coming soon</em></td></tr></tbody></table>
     <h3 style="font-size:14px;margin-top:12px;margin-bottom:6px">Possibly also</h3>
-      <table class="stats-table"><tbody><tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>🎉 Event</b></td><td style="padding:6px;border-bottom:1px solid var(--border)">10-летие игры, Летний ивент</td></tr><tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>🏆 Награда сезона</b></td><td style="padding:6px;border-bottom:1px solid var(--border)">Сезонная награда Y7S1</td></tr></tbody></table>
+      <table class="stats-table"><tbody><tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>🎉 Event</b></td><td style="padding:6px;border-bottom:1px solid var(--border)"><em style="color:var(--muted);font-size:11px">Translation coming soon</em></td></tr><tr><td style="padding:6px;border-bottom:1px solid var(--border)"><b>🏆 Season Reward</b></td><td style="padding:6px;border-bottom:1px solid var(--border)"><em style="color:var(--muted);font-size:11px">Translation coming soon</em></td></tr></tbody></table>
   </section>
 
   <section class="synergy">
     <h2>Synergies</h2>
-    <p>Build the optimal loadout for <strong>Pakhan</strong> with the <a href="/en/">divcalc.xyz DPS calculator</a>. Check synergies with <a href="/en/set/">gear sets</a> и <a href="/en/named/">named weapons</a>.</p>
+    <p>Build the optimal loadout for <strong>Pakhan</strong> with the <a href="/">divcalc.xyz DPS calculator</a>. Check synergies with <a href="/en/set/">gear sets</a> и <a href="/en/named/">named weapons</a>.</p>
   </section>
 
   <section class="related">
     <h2>Other exotics</h2>
     <div class="related-grid">
       <a class="related-card" href="/en/exotic/agitator">
-        <div class="rc-name">Агитатор</div>
-        <div class="rc-meta">Agitator · AR</div>
+        <div class="rc-name">Agitator</div>
+      <div class="rc-meta">AR</div>
       </a>
       <a class="related-card" href="/en/exotic/capacitor">
-        <div class="rc-name">Конденсатор</div>
-        <div class="rc-meta">Capacitor · AR</div>
+        <div class="rc-name">Capacitor</div>
+      <div class="rc-meta">AR</div>
       </a>
       <a class="related-card" href="/en/exotic/chameleon">
-        <div class="rc-name">Хамелеон</div>
-        <div class="rc-meta">Chameleon · AR</div>
+        <div class="rc-name">Chameleon</div>
+      <div class="rc-meta">AR</div>
       </a>
       <a class="related-card" href="/en/exotic/eagle-bearer">
-        <div class="rc-name">Орлиное знамя</div>
-        <div class="rc-meta">Eagle Bearer · AR</div>
+        <div class="rc-name">Eagle Bearer</div>
+      <div class="rc-meta">AR</div>
       </a>
     </div>
   </section>

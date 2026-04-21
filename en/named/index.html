@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Именное снаряжение — Division 2 | divcalc.xyz</title>
+<title>Named — Division 2 | divcalc.xyz</title>
 <meta name="description" content="Все named gear в Tom Clancy's The Division 2. Статы, таланты, лучшие билды. Рассчитай DPS на divcalc.xyz.">
 <link rel="canonical" href="https://divcalc.xyz/en/named/">
 <link rel="stylesheet" href="/css/page.css">
@@ -16,17 +16,18 @@
     // Only run on page load; don't show if cookie already set
     if (document.cookie.match(/(?:^|;\s*)d2calc_lang=(ru|en)/)) return;
     var currentIsEn = document.documentElement.lang === 'en' || /^\/en\//.test(location.pathname);
+    var currentIsRu = /^\/ru\//.test(location.pathname);
     var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
     prefLang = prefLang.toLowerCase();
     // RU page but user prefers EN → banner
-    if (!currentIsEn && prefLang.indexOf('en') === 0) {
-      var altUrl = '/en' + location.pathname + location.search;
+    if (currentIsRu && prefLang.indexOf('en') === 0) {
+      var altUrl = location.pathname.replace(/^\/ru\//, '/en/') + location.search;
       var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
       showBanner(msg);
     }
     // EN page but user prefers RU → banner
     else if (currentIsEn && prefLang.indexOf('ru') === 0) {
-      var altUrl = location.pathname.replace(/^\/en/, '') + location.search;
+      var altUrl = location.pathname.replace(/^\/en\//, '/ru/') + location.search;
       var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
       showBanner(msg);
     }
@@ -47,12 +48,12 @@
 })();
 </script>
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108598463,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
-<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/named/">
+<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/named/">
 <link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/named/">
 <link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/named/">
 </head>
 <body>
-<a href="/named/" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
+<a href="/ru/named/" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
 <nav class="site-nav">
   <a class="logo" href="/en/">divcalc.xyz</a>
   <div class="nav-links">
@@ -61,1181 +62,1181 @@
     <a href="/en/set/">Sets</a>
     <a href="/en/brand/">Brands</a>
   </div>
-  <a class="calc-btn" href="/en/">🔢 Calculator</a>
+  <a class="calc-btn" href="/">🔢 Calculator</a>
 </nav>
 <div class="breadcrumb">
   <a href="/en/">Home</a> <span>›</span>
-  Именное снаряжение
+  Named
 </div>
 <main class="item-page">
   <h1>Named</h1>
-  <p style="color:var(--muted);margin:8px 0 24px">Все предметы категории «Именное снаряжение» в The Division 2. Нажми на предмет чтобы увидеть полные статы и гайд.</p>
+  <p class="cat-intro" style="color:var(--muted);margin:8px 0 24px">All items in the category in The Division 2. Click an item to see full stats and guide.</p>
   <div class="ad-slot ad-top"></div>
   <div class="related-grid" style="margin-top:20px">
     <a class="related-card" href="/en/named/emeline-s-guard">
-      <div class="rc-name">Страж Эмелин</div>
-      <div class="rc-meta">Emeline's Guard · Пистолеты-пулемёты</div>
+      <div class="rc-name">Emeline's Guard</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/p320-xcompact">
-      <div class="rc-name">P320 Xcompact</div>
-      <div class="rc-meta">P320 XCompact · Пистолеты</div>
+      <div class="rc-name">P320 XCompact</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/savage-wolverine">
-      <div class="rc-name">Дикая росомаха</div>
-      <div class="rc-meta">Savage Wolverine · Штурмовые винтовки</div>
+      <div class="rc-name">Savage Wolverine</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/glory-daze">
-      <div class="rc-name">Блеск славы</div>
-      <div class="rc-meta">Glory Daze · Штурмовые винтовки</div>
+      <div class="rc-name">Glory Daze</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/the-virginian">
-      <div class="rc-name">Вирджинец</div>
-      <div class="rc-meta">The Virginian · Винтовки</div>
+      <div class="rc-name">The Virginian</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/the-apartment">
-      <div class="rc-name">Квартира</div>
-      <div class="rc-meta">The Apartment · Пистолеты-пулемёты</div>
+      <div class="rc-name">The Apartment</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/upshift">
-      <div class="rc-name">Повышение передачи</div>
-      <div class="rc-meta">Upshift · Ручные пулемёты</div>
+      <div class="rc-name">Upshift</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/pyromaniac">
-      <div class="rc-name">Пироман</div>
-      <div class="rc-meta">Pyromaniac · Штурмовые винтовки</div>
+      <div class="rc-name">Pyromaniac</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/surge">
-      <div class="rc-name">Рывок</div>
-      <div class="rc-meta">Surge · Винтовки</div>
+      <div class="rc-name">Surge</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/maxim-9">
       <div class="rc-name">Maxim 9</div>
-      <div class="rc-meta">Maxim 9 · Пистолеты</div>
+      <div class="rc-meta">Maxim 9 · Pistols</div>
     </a>
     <a class="related-card" href="/en/named/vzaimoobmen">
       <div class="rc-name">Взаимообмен</div>
-      <div class="rc-meta"> · Пистолеты-пулемёты</div>
+      <div class="rc-meta"> · SMGs</div>
     </a>
     <a class="related-card" href="/en/named/trader">
-      <div class="rc-name">Торговец</div>
-      <div class="rc-meta">Trader · Винтовки</div>
+      <div class="rc-name">Trader</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/thorn">
-      <div class="rc-name">Колючка</div>
-      <div class="rc-meta">Thorn · Дробовики</div>
+      <div class="rc-name">Thorn</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/like-glue">
-      <div class="rc-name">Липучка</div>
-      <div class="rc-meta">Like Glue · Дробовики</div>
+      <div class="rc-name">Like Glue</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/black-friday">
-      <div class="rc-name">Черная пятница</div>
-      <div class="rc-meta">Black Friday · Ручные пулемёты</div>
+      <div class="rc-name">Black Friday</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/burn-out">
-      <div class="rc-name">Выгорание</div>
-      <div class="rc-meta">Burn Out · Штурмовые винтовки</div>
+      <div class="rc-name">Burn Out</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/orbit">
-      <div class="rc-name">Орбита</div>
-      <div class="rc-meta">Orbit · Пистолеты</div>
+      <div class="rc-name">Orbit</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/tsunami">
-      <div class="rc-name">Цунами</div>
-      <div class="rc-meta">Tsunami · Дробовики</div>
+      <div class="rc-name">Tsunami</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/enforcer">
-      <div class="rc-name">Вышибала</div>
-      <div class="rc-meta">Enforcer · Дробовики</div>
+      <div class="rc-name">Enforcer</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/kingbreaker">
-      <div class="rc-name">Тираноубийца</div>
-      <div class="rc-meta">Kingbreaker · Штурмовые винтовки</div>
+      <div class="rc-name">Kingbreaker</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/dare">
-      <div class="rc-name">Смелость</div>
-      <div class="rc-meta">Dare · Ручные пулемёты</div>
+      <div class="rc-name">Dare</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/lefty">
-      <div class="rc-name">Левша</div>
-      <div class="rc-meta">Lefty · Дробовики</div>
+      <div class="rc-name">Lefty</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/stage-left">
-      <div class="rc-name">Тихое прощание</div>
-      <div class="rc-meta">Stage Left · Винтовки</div>
+      <div class="rc-name">Stage Left</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/good-times">
-      <div class="rc-name">Веселые времена</div>
-      <div class="rc-meta">Good Times · Ручные пулемёты</div>
+      <div class="rc-name">Good Times</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/the-grudge">
-      <div class="rc-name">Обида</div>
-      <div class="rc-meta">The Grudge · Пистолеты-пулемёты</div>
+      <div class="rc-name">The Grudge</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/safety-distance">
-      <div class="rc-name">Безопасная дистанция</div>
-      <div class="rc-meta">Safety Distance · Пистолеты-пулемёты</div>
+      <div class="rc-name">Safety Distance</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/boomstick">
-      <div class="rc-name">Обрез</div>
-      <div class="rc-meta">Boomstick · Дробовики</div>
+      <div class="rc-name">Boomstick</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/cold-relations">
-      <div class="rc-name">Прохладные отношения</div>
-      <div class="rc-meta">Cold Relations · Пистолеты-пулемёты</div>
+      <div class="rc-name">Cold Relations</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/the-darkness">
-      <div class="rc-name">Тьма</div>
-      <div class="rc-meta">The Darkness · Снайперские винтовки</div>
+      <div class="rc-name">The Darkness</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/sleipner">
-      <div class="rc-name">Слейпнир</div>
-      <div class="rc-meta">Sleipner · Ручные пулемёты</div>
+      <div class="rc-name">Sleipner</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/swap-chain">
-      <div class="rc-name">Цепочка</div>
-      <div class="rc-meta">Swap Chain · Пистолеты-пулемёты</div>
+      <div class="rc-name">Swap Chain</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/sharpshooter-s-93r">
-      <div class="rc-name">Снайперская 93r</div>
-      <div class="rc-meta">Sharpshooter's 93R · Пистолеты</div>
+      <div class="rc-name">Sharpshooter's 93R</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/froth">
-      <div class="rc-name">Вспениватель</div>
-      <div class="rc-meta">Froth · Дробовики</div>
+      <div class="rc-name">Froth</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/shield-splinterer">
-      <div class="rc-name">Щитолом</div>
-      <div class="rc-meta">Shield Splinterer · Штурмовые винтовки</div>
+      <div class="rc-name">Shield Splinterer</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/diceros-special">
-      <div class="rc-name">Особый дисерос</div>
-      <div class="rc-meta">Diceros Special · Пистолеты</div>
+      <div class="rc-name">Diceros Special</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/quiet-roar">
-      <div class="rc-name">Тихий рык</div>
-      <div class="rc-meta">Quiet Roar · Ручные пулемёты</div>
+      <div class="rc-name">Quiet Roar</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/pinprick">
-      <div class="rc-name">Шпилька</div>
-      <div class="rc-meta">Pinprick · Снайперские винтовки</div>
+      <div class="rc-name">Pinprick</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/manic">
-      <div class="rc-name">Мания</div>
-      <div class="rc-meta">Manic · Штурмовые винтовки</div>
+      <div class="rc-name">Manic</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/everlasting-gaze">
-      <div class="rc-name">Долгий взгляд</div>
-      <div class="rc-meta">Everlasting Gaze · Винтовки</div>
+      <div class="rc-name">Everlasting Gaze</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/whisper">
-      <div class="rc-name">Шепот</div>
-      <div class="rc-meta">Whisper · Винтовки</div>
+      <div class="rc-name">Whisper</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/brutus">
-      <div class="rc-name">Брут</div>
-      <div class="rc-meta">Brutus · Снайперские винтовки</div>
+      <div class="rc-name">Brutus</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/lud">
-      <div class="rc-name">Луд</div>
-      <div class="rc-meta">Lud · Штурмовые винтовки</div>
+      <div class="rc-name">Lud</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/purist">
-      <div class="rc-name">Пурист</div>
-      <div class="rc-meta">Purist · Пистолеты-пулемёты</div>
+      <div class="rc-name">Purist</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/ekim-s-long-stick">
-      <div class="rc-name">Длинная палка Экима</div>
-      <div class="rc-meta">Ekim's Long stick · Снайперские винтовки</div>
+      <div class="rc-name">Ekim's Long stick</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/designated-hitter">
-      <div class="rc-name">1 - Снайперский удар</div>
-      <div class="rc-meta">Designated Hitter · Снайперские винтовки</div>
+      <div class="rc-name">Designated Hitter</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/relic">
-      <div class="rc-name">Реликвия</div>
-      <div class="rc-meta">Relic · Снайперские винтовки</div>
+      <div class="rc-name">Relic</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/prophet">
-      <div class="rc-name">Пророк</div>
-      <div class="rc-meta">Prophet · Пистолеты</div>
+      <div class="rc-name">Prophet</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/carnage">
-      <div class="rc-name">Бойня</div>
-      <div class="rc-meta">Carnage · Ручные пулемёты</div>
+      <div class="rc-name">Carnage</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/survivalist-d50">
-      <div class="rc-name">D50 &quot;Выживальщик&quot;</div>
-      <div class="rc-meta">Survivalist D50 · Пистолеты</div>
+      <div class="rc-name">Survivalist D50</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/test-subject">
-      <div class="rc-name">Подопытный</div>
-      <div class="rc-meta">Test Subject · Штурмовые винтовки</div>
+      <div class="rc-name">Test Subject</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/harmony">
-      <div class="rc-name">Гармония</div>
-      <div class="rc-meta">Harmony · Винтовки</div>
+      <div class="rc-name">Harmony</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/achilles">
-      <div class="rc-name">Ахиллес</div>
-      <div class="rc-meta">Achilles · Винтовки</div>
+      <div class="rc-name">Achilles</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/instigator">
-      <div class="rc-name">Подстрекатель</div>
-      <div class="rc-meta">Instigator · Снайперские винтовки</div>
+      <div class="rc-name">Instigator</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/commando">
-      <div class="rc-name">Коммандос</div>
-      <div class="rc-meta">Commando · Снайперские винтовки</div>
+      <div class="rc-name">Commando</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/mechanical-beast">
-      <div class="rc-name">Механический зверь</div>
-      <div class="rc-meta">Mechanical beast · Штурмовые винтовки</div>
+      <div class="rc-name">Mechanical beast</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/scalpel">
-      <div class="rc-name">Скальпель</div>
-      <div class="rc-meta">Scalpel · Снайперские винтовки</div>
+      <div class="rc-name">Scalpel</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/artist-s-tool">
-      <div class="rc-name">Кисть художника</div>
-      <div class="rc-meta">Artist's Tool · Винтовки</div>
+      <div class="rc-name">Artist's Tool</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/mozambique-special">
-      <div class="rc-name">Мозамбикский сувенир</div>
-      <div class="rc-meta">Mozambique Special · Пистолеты</div>
+      <div class="rc-name">Mozambique Special</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/tabula-rasa">
-      <div class="rc-name">Табула раса</div>
-      <div class="rc-meta">Tabula Rasa · Ручные пулемёты</div>
+      <div class="rc-name">Tabula Rasa</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/the-drill">
-      <div class="rc-name">Дрель</div>
-      <div class="rc-meta">The Drill · Штурмовые винтовки</div>
+      <div class="rc-name">The Drill</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/cricket">
-      <div class="rc-name">Сверчок</div>
-      <div class="rc-meta">Cricket · Ручные пулемёты</div>
+      <div class="rc-name">Cricket</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/lightning-rod">
-      <div class="rc-name">Громоотвод</div>
-      <div class="rc-meta">Lightning Rod · Пистолеты</div>
+      <div class="rc-name">Lightning Rod</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/dark-winter">
-      <div class="rc-name">Темная зима</div>
-      <div class="rc-meta">Dark Winter · Пистолеты-пулемёты</div>
+      <div class="rc-name">Dark Winter</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/caretaker">
-      <div class="rc-name">Смотритель</div>
-      <div class="rc-meta">Caretaker · Штурмовые винтовки</div>
+      <div class="rc-name">Caretaker</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/big-show">
-      <div class="rc-name">Большое шоу</div>
-      <div class="rc-meta">Big Show · Ручные пулемёты</div>
+      <div class="rc-name">Big Show</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/cabaret">
-      <div class="rc-name">Кабаре</div>
-      <div class="rc-meta">Cabaret · Пистолеты-пулемёты</div>
+      <div class="rc-name">Cabaret</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/baker-s-dozen">
-      <div class="rc-name">Чертова дюжина</div>
-      <div class="rc-meta">Baker's Dozen · Винтовки</div>
+      <div class="rc-name">Baker's Dozen</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/goalie">
-      <div class="rc-name">Вратарь</div>
-      <div class="rc-meta">Goalie · Ручные пулемёты</div>
+      <div class="rc-name">Goalie</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/invisible-hand">
-      <div class="rc-name">Невидимая длань</div>
-      <div class="rc-meta">Invisible Hand · Штурмовые винтовки</div>
+      <div class="rc-name">Invisible Hand</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/huntsman">
-      <div class="rc-name">Егерь</div>
-      <div class="rc-meta">Huntsman · Штурмовые винтовки</div>
+      <div class="rc-name">Huntsman</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/born-great">
-      <div class="rc-name">Прирожденное величие</div>
-      <div class="rc-meta">Born Great · Штурмовые винтовки</div>
+      <div class="rc-name">Born Great</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/the-railsplitter">
-      <div class="rc-name">Рельсолом</div>
-      <div class="rc-meta">The Railsplitter · Штурмовые винтовки</div>
+      <div class="rc-name">The Railsplitter</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/new-reliable">
-      <div class="rc-name">Надежная новинка</div>
-      <div class="rc-meta">New Reliable · Ручные пулемёты</div>
+      <div class="rc-name">New Reliable</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/rusty">
-      <div class="rc-name">Ржавчина</div>
-      <div class="rc-meta">Rusty · Ручные пулемёты</div>
+      <div class="rc-name">Rusty</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/grown-great">
-      <div class="rc-name">Рукотворное величие</div>
-      <div class="rc-meta">Grown Great · Пистолеты-пулемёты</div>
+      <div class="rc-name">Grown Great</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/rock-n-roll">
-      <div class="rc-name">Рок-н-ролл</div>
-      <div class="rc-meta">Rock n' Roll · Дробовики</div>
+      <div class="rc-name">Rock n' Roll</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/the-send-off">
-      <div class="rc-name">Прощание</div>
-      <div class="rc-meta">The Send-Off · Дробовики</div>
+      <div class="rc-name">The Send-Off</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/cu-lebre">
-      <div class="rc-name">Куэлебре</div>
-      <div class="rc-meta">Cuélebre · Дробовики</div>
+      <div class="rc-name">Cuélebre</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/lockdown">
-      <div class="rc-name">Изоляция</div>
-      <div class="rc-meta">Lockdown · Дробовики</div>
+      <div class="rc-name">Lockdown</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/first-sight">
-      <div class="rc-name">Первый взгляд</div>
-      <div class="rc-meta">First Sight · Штурмовые винтовки</div>
+      <div class="rc-name">First Sight</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/mechanical-animal">
-      <div class="rc-name">Механический зверь</div>
-      <div class="rc-meta">Mechanical Animal · Штурмовые винтовки</div>
+      <div class="rc-name">Mechanical Animal</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/lexington">
-      <div class="rc-name">Лексингтон</div>
-      <div class="rc-meta">Lexington · Штурмовые винтовки</div>
+      <div class="rc-name">Lexington</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/the-stinger">
-      <div class="rc-name">Стингер</div>
-      <div class="rc-meta">The Stinger · Ручные пулемёты</div>
+      <div class="rc-name">The Stinger</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/the-sleigher">
-      <div class="rc-name">Отмороз</div>
-      <div class="rc-meta">The Sleigher · Пистолеты-пулемёты</div>
+      <div class="rc-name">The Sleigher</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/slingshot">
-      <div class="rc-name">Рогатка</div>
-      <div class="rc-meta">Slingshot · Пистолеты-пулемёты</div>
+      <div class="rc-name">Slingshot</div>
+      <div class="rc-meta">SMGs</div>
     </a>
     <a class="related-card" href="/en/named/backup-boomstick">
-      <div class="rc-name">Запасной обрез</div>
-      <div class="rc-meta">Backup Boomstick · Дробовики</div>
+      <div class="rc-name">Backup Boomstick</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/firestarter">
-      <div class="rc-name">Поджигатель</div>
-      <div class="rc-meta">Firestarter · Дробовики</div>
+      <div class="rc-name">Firestarter</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/the-mop">
-      <div class="rc-name">Швабра</div>
-      <div class="rc-meta">The Mop · Дробовики</div>
+      <div class="rc-name">The Mop</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/cooler">
-      <div class="rc-name">Охладитель</div>
-      <div class="rc-meta">Cooler · Винтовки</div>
+      <div class="rc-name">Cooler</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/named/the-white-death">
-      <div class="rc-name">Белая смерть</div>
-      <div class="rc-meta">The White Death · Снайперские винтовки</div>
+      <div class="rc-name">The White Death</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/oh-carol">
-      <div class="rc-name">Рождественский гимн</div>
-      <div class="rc-meta">Oh Carol · Снайперские винтовки</div>
+      <div class="rc-name">Oh Carol</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/handbasket">
-      <div class="rc-name">Корзина</div>
-      <div class="rc-meta">Handbasket · Снайперские винтовки</div>
+      <div class="rc-name">Handbasket</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/quickstep">
-      <div class="rc-name">Быстрый шаг</div>
-      <div class="rc-meta">Quickstep · Пистолеты</div>
+      <div class="rc-name">Quickstep</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/tdi-kard-custom">
-      <div class="rc-name">ТДИ «Кард» Кастом</div>
-      <div class="rc-meta">TDI &quot;Kard&quot; Custom · Пистолеты</div>
+      <div class="rc-name">TDI &quot;Kard&quot; Custom</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/the-harvest">
-      <div class="rc-name">Урожай</div>
-      <div class="rc-meta">The Harvest · Пистолеты</div>
+      <div class="rc-name">The Harvest</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/lullaby">
       <div class="rc-name">Lullaby</div>
-      <div class="rc-meta">Lullaby · Дробовики</div>
+      <div class="rc-meta">Lullaby · Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/sweet-dreams">
-      <div class="rc-name">Сладкий сон</div>
-      <div class="rc-meta">Sweet Dreams · Дробовики</div>
+      <div class="rc-name">Sweet Dreams</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/the-sheriff">
-      <div class="rc-name">Шериф</div>
-      <div class="rc-meta">The Sheriff · Дробовики</div>
+      <div class="rc-name">The Sheriff</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/ruthless">
       <div class="rc-name">Ruthless</div>
-      <div class="rc-meta">Ruthless · Винтовки</div>
+      <div class="rc-meta">Ruthless · Rifles</div>
     </a>
     <a class="related-card" href="/en/named/merciless">
       <div class="rc-name">Merciless</div>
-      <div class="rc-meta">Merciless · Винтовки</div>
+      <div class="rc-meta">Merciless · Rifles</div>
     </a>
     <a class="related-card" href="/en/named/sleipnir">
-      <div class="rc-name">Слейпнир</div>
-      <div class="rc-meta">Sleipnir · Ручные пулемёты</div>
+      <div class="rc-name">Sleipnir</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/interchange">
-      <div class="rc-name">Взаимообмен</div>
-      <div class="rc-meta">Interchange · Штурмовые винтовки</div>
+      <div class="rc-name">Interchange</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/archivist">
-      <div class="rc-name">Архивариус</div>
-      <div class="rc-meta">Archivist · Штурмовые винтовки</div>
+      <div class="rc-name">Archivist</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/acr-e">
-      <div class="rc-name">АКР-Э (ACR-E)</div>
-      <div class="rc-meta">ACR-E · Штурмовые винтовки</div>
+      <div class="rc-name">ACR-E</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/smuggled-akm">
-      <div class="rc-name">Контрабандный АКМ</div>
-      <div class="rc-meta">Smuggled AKM · Штурмовые винтовки</div>
+      <div class="rc-name">Smuggled AKM</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-smuggled-akm">
-      <div class="rc-name">Самодельный контрабандный АКМ</div>
-      <div class="rc-meta">Homemade smuggled AKM · Штурмовые винтовки</div>
+      <div class="rc-name">Homemade smuggled AKM</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/army-akm">
-      <div class="rc-name">Армейский АКМ</div>
-      <div class="rc-meta">Army AKM · Штурмовые винтовки</div>
+      <div class="rc-name">Army AKM</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/mania">
-      <div class="rc-name">Мания</div>
-      <div class="rc-meta">Mania · Штурмовые винтовки</div>
+      <div class="rc-name">Mania</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/bighorn-sheep-shv-mode">
-      <div class="rc-name">Толсторог (Режим ШВ)</div>
-      <div class="rc-meta">Bighorn sheep (ShV mode) · Штурмовые винтовки</div>
+      <div class="rc-name">Bighorn sheep (ShV mode)</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/bighorn-mode-b">
-      <div class="rc-name">Толсторог (Режим В)</div>
-      <div class="rc-meta">Bighorn (Mode B) · Штурмовые винтовки</div>
+      <div class="rc-name">Bighorn (Mode B)</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-f2000">
-      <div class="rc-name">Самодельный F2000</div>
-      <div class="rc-meta">Homemade F2000 · Штурмовые винтовки</div>
+      <div class="rc-name">Homemade F2000</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/fal-sa-58">
-      <div class="rc-name">ФАЛ СА-58 (FAL SA-58)</div>
-      <div class="rc-meta">FAL SA-58 · Штурмовые винтовки</div>
+      <div class="rc-name">FAL SA-58</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/fal-sa-58-para">
-      <div class="rc-name">ФАЛ СА-58 Пара (FAL SA-58 Para)</div>
-      <div class="rc-meta">FAL SA-58 Para · Штурмовые винтовки</div>
+      <div class="rc-name">FAL SA-58 Para</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-fal-sa-58-para">
-      <div class="rc-name">Самодельный FAL SA-58 Para</div>
-      <div class="rc-meta">Homemade FAL SA-58 Para · Штурмовые винтовки</div>
+      <div class="rc-name">Homemade FAL SA-58 Para</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-famas-2010">
-      <div class="rc-name">Самодельный FAMAS 2010</div>
-      <div class="rc-meta">Homemade FAMAS 2010 · Штурмовые винтовки</div>
+      <div class="rc-name">Homemade FAMAS 2010</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/burnout">
-      <div class="rc-name">Выгорание</div>
-      <div class="rc-meta">Burnout · Штурмовые винтовки</div>
+      <div class="rc-name">Burnout</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/improved-g36-c">
-      <div class="rc-name">Улучшенный G36 C</div>
-      <div class="rc-meta">Improved G36 C · Штурмовые винтовки</div>
+      <div class="rc-name">Improved G36 C</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-improved-g36-c">
-      <div class="rc-name">Самодельный улучшенный G36 C</div>
-      <div class="rc-meta">Homemade improved G36 C · Штурмовые винтовки</div>
+      <div class="rc-name">Homemade improved G36 C</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/natural-greatness">
-      <div class="rc-name">Прирожденное величие</div>
-      <div class="rc-meta">Natural Greatness · Штурмовые винтовки</div>
+      <div class="rc-name">Natural Greatness</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/army-g36">
-      <div class="rc-name">Армейский G36</div>
-      <div class="rc-meta">Army G36 · Штурмовые винтовки</div>
+      <div class="rc-name">Army G36</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/wild-wolverine">
-      <div class="rc-name">Дикая росомаха</div>
-      <div class="rc-meta">Wild wolverine · Штурмовые винтовки</div>
+      <div class="rc-name">Wild wolverine</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/drill">
-      <div class="rc-name">Дрель</div>
-      <div class="rc-meta">Drill · Штурмовые винтовки</div>
+      <div class="rc-name">Drill</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/police-m4">
-      <div class="rc-name">Полицейский М4</div>
-      <div class="rc-meta">Police M4 · Штурмовые винтовки</div>
+      <div class="rc-name">Police M4</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-police-m4">
-      <div class="rc-name">Самодельный полицейский М4</div>
-      <div class="rc-meta">Homemade police M4 · Штурмовые винтовки</div>
+      <div class="rc-name">Homemade police M4</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/lexington-lvoa-c">
-      <div class="rc-name">Лексингтон (LVOA-C)</div>
-      <div class="rc-meta">Lexington (LVOA-C) · Штурмовые винтовки</div>
+      <div class="rc-name">Lexington (LVOA-C)</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/blaze-of-glory">
-      <div class="rc-name">Блеск славы</div>
-      <div class="rc-meta">Blaze of Glory · Штурмовые винтовки</div>
+      <div class="rc-name">Blaze of Glory</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/army-p416-g3">
-      <div class="rc-name">Армейский P416 G3</div>
-      <div class="rc-meta">Army P416 G3 · Штурмовые винтовки</div>
+      <div class="rc-name">Army P416 G3</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/us-special-forces-mk16">
-      <div class="rc-name">Mk16 спецназа США</div>
-      <div class="rc-meta">US Special Forces Mk16 · Штурмовые винтовки</div>
+      <div class="rc-name">US Special Forces Mk16</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/tactical-mk16">
-      <div class="rc-name">Тактическая Mk16</div>
-      <div class="rc-meta">Tactical Mk16 · Штурмовые винтовки</div>
+      <div class="rc-name">Tactical Mk16</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-tactical-mk16">
-      <div class="rc-name">Самодельная тактическая Mk16</div>
-      <div class="rc-meta">Homemade tactical Mk16 · Штурмовые винтовки</div>
+      <div class="rc-name">Homemade tactical Mk16</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/railbreaker">
-      <div class="rc-name">Рельсолом</div>
-      <div class="rc-meta">Railbreaker · Штурмовые винтовки</div>
+      <div class="rc-name">Railbreaker</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/tyrannicide">
-      <div class="rc-name">Тираноубийца</div>
-      <div class="rc-meta">Tyrannicide · Штурмовые винтовки</div>
+      <div class="rc-name">Tyrannicide</div>
+      <div class="rc-meta">Assault Rifles</div>
     </a>
     <a class="related-card" href="/en/named/g28">
       <div class="rc-name">G28</div>
-      <div class="rc-meta">G28 · Снайперские винтовки</div>
+      <div class="rc-meta">G28 · Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-classic-m44-carbine">
-      <div class="rc-name">Самодельный классический карабин М44</div>
-      <div class="rc-meta">Homemade classic M44 carbine · Снайперские винтовки</div>
+      <div class="rc-name">Homemade classic M44 carbine</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/christmas-carol">
-      <div class="rc-name">Рождественский гимн</div>
-      <div class="rc-meta">Christmas carol · Снайперские винтовки</div>
+      <div class="rc-name">Christmas carol</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/modified-m44">
-      <div class="rc-name">Доработанный М44</div>
-      <div class="rc-meta">Modified M44 · Снайперские винтовки</div>
+      <div class="rc-name">Modified M44</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-modified-m44">
-      <div class="rc-name">Самодельный доработанный М44</div>
-      <div class="rc-meta">Homemade modified M44 · Снайперские винтовки</div>
+      <div class="rc-name">Homemade modified M44</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/hunting-m44">
-      <div class="rc-name">Охотничий М44</div>
-      <div class="rc-meta">Hunting M44 · Снайперские винтовки</div>
+      <div class="rc-name">Hunting M44</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-carbon-fiber-m700">
-      <div class="rc-name">Самодельная углепластиковая М700</div>
-      <div class="rc-meta">Homemade carbon fiber M700 · Снайперские винтовки</div>
+      <div class="rc-name">Homemade carbon fiber M700</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/tactical-m700">
-      <div class="rc-name">Тактическая М700</div>
-      <div class="rc-meta">Tactical M700 · Снайперские винтовки</div>
+      <div class="rc-name">Tactical M700</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-model-700">
-      <div class="rc-name">Самодельная Модель 700</div>
-      <div class="rc-meta">Homemade Model 700 · Снайперские винтовки</div>
+      <div class="rc-name">Homemade Model 700</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/model-700">
-      <div class="rc-name">Модель 700</div>
-      <div class="rc-meta">Model 700 · Снайперские винтовки</div>
+      <div class="rc-name">Model 700</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-mk20-ssr-us-special-forces">
-      <div class="rc-name">Самодельный Mk20 SSR Спецназа США</div>
-      <div class="rc-meta">Homemade Mk20 SSR US Special Forces · Снайперские винтовки</div>
+      <div class="rc-name">Homemade Mk20 SSR US Special Forces</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/sr-1">
-      <div class="rc-name">СР-1 (SR-1)</div>
-      <div class="rc-meta">SR-1 · Снайперские винтовки</div>
+      <div class="rc-name">SR-1</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-sr-1">
-      <div class="rc-name">Самодельная SR-1</div>
-      <div class="rc-meta">Homemade SR-1 · Снайперские винтовки</div>
+      <div class="rc-name">Homemade SR-1</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/sniper-strike">
-      <div class="rc-name">Снайперский удар</div>
-      <div class="rc-meta">Sniper Strike · Снайперские винтовки</div>
+      <div class="rc-name">Sniper Strike</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/hairpin">
-      <div class="rc-name">Шпилька</div>
-      <div class="rc-meta">Hairpin · Снайперские винтовки</div>
+      <div class="rc-name">Hairpin</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/srs-a1">
-      <div class="rc-name">СРС А1 (SRS A1)</div>
-      <div class="rc-meta">SRS A1 · Снайперские винтовки</div>
+      <div class="rc-name">SRS A1</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/homemade-srs-a1">
-      <div class="rc-name">Самодельная SRS A1</div>
-      <div class="rc-meta">Homemade SRS A1 · Снайперские винтовки</div>
+      <div class="rc-name">Homemade SRS A1</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/svd-from-reserve">
-      <div class="rc-name">СВД из резерва</div>
-      <div class="rc-meta">SVD from reserve · Снайперские винтовки</div>
+      <div class="rc-name">SVD from reserve</div>
+      <div class="rc-meta">Marksman Rifles</div>
     </a>
     <a class="related-card" href="/en/named/courage">
-      <div class="rc-name">Смелость</div>
-      <div class="rc-meta">Courage · Ручные пулемёты</div>
+      <div class="rc-name">Courage</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/stoner-machine-gun">
-      <div class="rc-name">Пулемет &quot;Стоунер&quot;</div>
-      <div class="rc-meta">Stoner machine gun · Ручные пулемёты</div>
+      <div class="rc-name">Stoner machine gun</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/quiet-growl">
-      <div class="rc-name">Тихий рык</div>
-      <div class="rc-meta">Quiet growl · Ручные пулемёты</div>
+      <div class="rc-name">Quiet growl</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/homemade-modified-l86-a2">
-      <div class="rc-name">Самодельный доработанный L86 A2</div>
-      <div class="rc-meta">Homemade modified L86 A2 · Ручные пулемёты</div>
+      <div class="rc-name">Homemade modified L86 A2</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/army-l86-lsw">
-      <div class="rc-name">Армейский L86 LSW</div>
-      <div class="rc-meta">Army L86 LSW · Ручные пулемёты</div>
+      <div class="rc-name">Army L86 LSW</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/army-mk46">
-      <div class="rc-name">Армейский MK46</div>
-      <div class="rc-meta">Army MK46 · Ручные пулемёты</div>
+      <div class="rc-name">Army MK46</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/homemade-army-mk46">
-      <div class="rc-name">Самодельный армейский МК46</div>
-      <div class="rc-meta">Homemade army MK46 · Ручные пулемёты</div>
+      <div class="rc-name">Homemade army MK46</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/tactical-m249-para">
-      <div class="rc-name">Тактический М249 Para</div>
-      <div class="rc-meta">Tactical M249 Para · Ручные пулемёты</div>
+      <div class="rc-name">Tactical M249 Para</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/homemade-smuggled-m60-e6">
-      <div class="rc-name">Самодельный контрабандный М60 Е6</div>
-      <div class="rc-meta">Homemade smuggled M60 E6 · Ручные пулемёты</div>
+      <div class="rc-name">Homemade smuggled M60 E6</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/fun-times">
-      <div class="rc-name">Веселые времена</div>
-      <div class="rc-meta">Fun times · Ручные пулемёты</div>
+      <div class="rc-name">Fun times</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/classic-m60">
-      <div class="rc-name">Классический М60</div>
-      <div class="rc-meta">Classic M60 · Ручные пулемёты</div>
+      <div class="rc-name">Classic M60</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/sensation">
-      <div class="rc-name">Сенсация</div>
-      <div class="rc-meta">Sensation · Ручные пулемёты</div>
+      <div class="rc-name">Sensation</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/homemade-classic-m60">
-      <div class="rc-name">Самодельный классичесский М60</div>
-      <div class="rc-meta">Homemade classic M60 · Ручные пулемёты</div>
+      <div class="rc-name">Homemade classic M60</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/army-m60-e4">
-      <div class="rc-name">Армейский М60 Е4</div>
-      <div class="rc-meta">Army M60 E4 · Ручные пулемёты</div>
+      <div class="rc-name">Army M60 E4</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/homemade-infantry-mg5">
-      <div class="rc-name">Самодельный пехотный MG5</div>
-      <div class="rc-meta">Homemade infantry MG5 · Ручные пулемёты</div>
+      <div class="rc-name">Homemade infantry MG5</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/mg5">
-      <div class="rc-name">МГ5 (MG5)</div>
-      <div class="rc-meta">MG5 · Ручные пулемёты</div>
+      <div class="rc-name">MG5</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/slaughterhouse">
-      <div class="rc-name">Бойня</div>
-      <div class="rc-meta">Slaughterhouse · Ручные пулемёты</div>
+      <div class="rc-name">Slaughterhouse</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/homemade-contraband-rpk-74e">
-      <div class="rc-name">Самодельный контрабандный РПК-74Э</div>
-      <div class="rc-meta">Homemade contraband RPK-74E · Ручные пулемёты</div>
+      <div class="rc-name">Homemade contraband RPK-74E</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/reliable-new-product">
-      <div class="rc-name">Надежная новинка</div>
-      <div class="rc-meta">Reliable new product · Ручные пулемёты</div>
+      <div class="rc-name">Reliable new product</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/rust">
-      <div class="rc-name">Ржавчина</div>
-      <div class="rc-meta">Rust · Ручные пулемёты</div>
+      <div class="rc-name">Rust</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/classic-rpk-74">
-      <div class="rc-name">Классический РПК-74</div>
-      <div class="rc-meta">Classic RPK-74 · Ручные пулемёты</div>
+      <div class="rc-name">Classic RPK-74</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/army-rpk-74-m">
-      <div class="rc-name">Армейский РПК-74 М</div>
-      <div class="rc-meta">Army RPK-74 M · Ручные пулемёты</div>
+      <div class="rc-name">Army RPK-74 M</div>
+      <div class="rc-meta">LMGs</div>
     </a>
     <a class="related-card" href="/en/named/enemy-layer">
-      <div class="rc-name">Врагоукладчик</div>
-      <div class="rc-meta">Enemy Layer · Дробовики</div>
+      <div class="rc-name">Enemy Layer</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/parting">
-      <div class="rc-name">Прощание</div>
-      <div class="rc-meta">Parting · Дробовики</div>
+      <div class="rc-name">Parting</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/spare-sawn-off-shotgun">
-      <div class="rc-name">Запасной обрез</div>
-      <div class="rc-meta">Spare sawn-off shotgun · Дробовики</div>
+      <div class="rc-name">Spare sawn-off shotgun</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/double-barreled-shotgun">
-      <div class="rc-name">Двуствольный дробовик</div>
-      <div class="rc-meta">Double-barreled shotgun · Дробовики</div>
+      <div class="rc-name">Double-barreled shotgun</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/homemade-double-barreled-shotgun">
-      <div class="rc-name">Самодельный двуствольный дробовик</div>
-      <div class="rc-meta">Homemade double-barreled shotgun · Дробовики</div>
+      <div class="rc-name">Homemade double-barreled shotgun</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/sawed-off-shotgun">
-      <div class="rc-name">Обрез</div>
-      <div class="rc-meta">Sawed-off shotgun · Дробовики</div>
+      <div class="rc-name">Sawed-off shotgun</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/homemade-modified-m870-mcs">
-      <div class="rc-name">Самодельный доработанный M870 MCS</div>
-      <div class="rc-meta">Homemade modified M870 MCS · Дробовики</div>
+      <div class="rc-name">Homemade modified M870 MCS</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/m870-express">
-      <div class="rc-name">M870 &quot;Экспресс&quot;</div>
-      <div class="rc-meta">M870 &quot;Express&quot; · Дробовики</div>
+      <div class="rc-name">M870 &quot;Express&quot;</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/homemade-m870-express">
-      <div class="rc-name">Самодельный М870 &quot;Экспресс&quot;</div>
-      <div class="rc-meta">Homemade M870 &quot;Express&quot; · Дробовики</div>
+      <div class="rc-name">Homemade M870 &quot;Express&quot;</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/army-m870">
-      <div class="rc-name">Армейский М870</div>
-      <div class="rc-meta">Army M870 · Дробовики</div>
+      <div class="rc-name">Army M870</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/insulation">
-      <div class="rc-name">Изоляция</div>
-      <div class="rc-meta">Insulation · Дробовики</div>
+      <div class="rc-name">Insulation</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/homemade-contraband-sasg-12-s">
-      <div class="rc-name">Самодельный контрабандный SASG-12 S</div>
-      <div class="rc-meta">Homemade contraband SASG-12 S · Дробовики</div>
+      <div class="rc-name">Homemade contraband SASG-12 S</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/sasg-12">
-      <div class="rc-name">САСГ-12 (SASG-12)</div>
-      <div class="rc-meta">SASG-12 · Дробовики</div>
+      <div class="rc-name">SASG-12</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/tactical-sasg-12-k">
-      <div class="rc-name">Тактический SASG-12 K</div>
-      <div class="rc-meta">Tactical SASG-12 K · Дробовики</div>
+      <div class="rc-name">Tactical SASG-12 K</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/spas-12">
-      <div class="rc-name">СПАС-12 (SPAS-12)</div>
-      <div class="rc-meta">SPAS-12 · Дробовики</div>
+      <div class="rc-name">SPAS-12</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/homemade-spas-12">
-      <div class="rc-name">Самодельный SPAS-12</div>
-      <div class="rc-meta">Homemade SPAS-12 · Дробовики</div>
+      <div class="rc-name">Homemade SPAS-12</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/velcro">
-      <div class="rc-name">Липучка</div>
-      <div class="rc-meta">Velcro · Дробовики</div>
+      <div class="rc-name">Velcro</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/super-90">
-      <div class="rc-name">Супер 90 (Super 90)</div>
-      <div class="rc-meta">Super 90 · Дробовики</div>
+      <div class="rc-name">Super 90</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/homemade-super-90">
-      <div class="rc-name">Самодельный Super 90</div>
-      <div class="rc-meta">Homemade Super 90 · Дробовики</div>
+      <div class="rc-name">Homemade Super 90</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/tactical-super-90-sbs">
-      <div class="rc-name">Тактический Super 90 SBS</div>
-      <div class="rc-meta">Tactical Super 90 SBS · Дробовики</div>
+      <div class="rc-name">Tactical Super 90 SBS</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/homemade-tactical-super-90-sbs">
-      <div class="rc-name">Самодельный тактический Super 90 SBS</div>
-      <div class="rc-meta">Homemade tactical Super 90 SBS · Дробовики</div>
+      <div class="rc-name">Homemade tactical Super 90 SBS</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/named/sniper-93r">
-      <div class="rc-name">Снайперская 93R</div>
-      <div class="rc-meta">Sniper 93R · Пистолеты</div>
+      <div class="rc-name">Sniper 93R</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/policeman-686-magnum">
-      <div class="rc-name">Полицейский 686 &quot;Магнум&quot;</div>
-      <div class="rc-meta">Policeman 686 Magnum · Пистолеты</div>
+      <div class="rc-name">Policeman 686 Magnum</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/homemade-police-686-magnum">
-      <div class="rc-name">Самодельный полицейский 686 &quot;Магнум&quot;</div>
-      <div class="rc-meta">Homemade police 686 Magnum · Пистолеты</div>
+      <div class="rc-name">Homemade police 686 Magnum</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/d50-survivalist">
-      <div class="rc-name">D50 &quot;Выживальщик&quot;</div>
-      <div class="rc-meta">D50 &quot;Survivalist&quot; · Пистолеты</div>
+      <div class="rc-name">D50 &quot;Survivalist&quot;</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/tuned-kard">
-      <div class="rc-name">Тюнингованный KARD</div>
-      <div class="rc-meta">Tuned KARD · Пистолеты</div>
+      <div class="rc-name">Tuned KARD</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/m45a1">
-      <div class="rc-name">М45А1</div>
-      <div class="rc-meta">M45A1 · Пистолеты</div>
+      <div class="rc-name">M45A1</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/mozambican-souvenir">
-      <div class="rc-name">Мозамбикский сувенир</div>
-      <div class="rc-meta">Mozambican souvenir · Пистолеты</div>
+      <div class="rc-name">Mozambican souvenir</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/tactical-m1911">
-      <div class="rc-name">Тактический М1911</div>
-      <div class="rc-meta">Tactical M1911 · Пистолеты</div>
+      <div class="rc-name">Tactical M1911</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/homemade-tactical-m1911">
-      <div class="rc-name">Самодельный тактический М1911</div>
-      <div class="rc-meta">Homemade tactical M1911 · Пистолеты</div>
+      <div class="rc-name">Homemade tactical M1911</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/homemade-army-m9">
-      <div class="rc-name">Самодельный армейский М9</div>
-      <div class="rc-meta">Homemade army M9 · Пистолеты</div>
+      <div class="rc-name">Homemade army M9</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/officer-m9-a1">
-      <div class="rc-name">Офицерский М9 А1</div>
-      <div class="rc-meta">Officer M9 A1 · Пистолеты</div>
+      <div class="rc-name">Officer M9 A1</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/pf45-first-wave">
-      <div class="rc-name">PF45 Первой волны</div>
-      <div class="rc-meta">PF45 First Wave · Пистолеты</div>
+      <div class="rc-name">PF45 First Wave</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/hard-working-bee">
-      <div class="rc-name">Трудолюбивая пчелка</div>
-      <div class="rc-meta">Hard working bee · Пистолеты</div>
+      <div class="rc-name">Hard working bee</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/px4-storm-type-t">
-      <div class="rc-name">Px4 &quot;Шторм&quot;. Тип T</div>
-      <div class="rc-meta">Px4 &quot;Storm&quot;. Type T · Пистолеты</div>
+      <div class="rc-name">Px4 &quot;Storm&quot;. Type T</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/homemade-px4-storm-type-t">
-      <div class="rc-name">Самодельный Px4 &quot;Шторм&quot;. Тип T</div>
-      <div class="rc-meta">Homemade Px4 &quot;Storm&quot;. Type T · Пистолеты</div>
+      <div class="rc-name">Homemade Px4 &quot;Storm&quot;. Type T</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/homemade-diseros">
-      <div class="rc-name">Самодельный дисерос</div>
-      <div class="rc-meta">Homemade diseros · Пистолеты</div>
+      <div class="rc-name">Homemade diseros</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/special-diseros">
-      <div class="rc-name">Особый Дисерос</div>
-      <div class="rc-meta">Special Diseros · Пистолеты</div>
+      <div class="rc-name">Special Diseros</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/short-barreled-diseros">
-      <div class="rc-name">Короткоствольный дисерос</div>
-      <div class="rc-meta">Short-barreled diseros · Пистолеты</div>
+      <div class="rc-name">Short-barreled diseros</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/tactical-x-45">
-      <div class="rc-name">Тактический Х-45</div>
-      <div class="rc-meta">Tactical X-45 · Пистолеты</div>
+      <div class="rc-name">Tactical X-45</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/homemade-tactical-x-45">
-      <div class="rc-name">Самодельный тактический Х-45</div>
-      <div class="rc-meta">Homemade tactical X-45 · Пистолеты</div>
+      <div class="rc-name">Homemade tactical X-45</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/named/the-archivist">
-      <div class="rc-name">Архивариус</div>
-      <div class="rc-meta">The Archivist · Rifle</div>
+      <div class="rc-name">The Archivist</div>
+      <div class="rc-meta">Rifle</div>
     </a>
     <a class="related-card" href="/en/named/first-bloom">
       <div class="rc-name">First Bloom</div>
       <div class="rc-meta">First Bloom · Rifle</div>
     </a>
     <a class="related-card" href="/en/named/bell-ringer">
-      <div class="rc-name">Звонарь</div>
-      <div class="rc-meta">Bell Ringer · AR</div>
+      <div class="rc-name">Bell Ringer</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/named/gear-shift">
-      <div class="rc-name">Повышение передачи</div>
-      <div class="rc-meta">Gear Shift · AR</div>
+      <div class="rc-name">Gear Shift</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/named/the-headline-grabber">
-      <div class="rc-name">Сенсация</div>
-      <div class="rc-meta">The Headline-grabber · AR</div>
+      <div class="rc-name">The Headline-grabber</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/named/adrestia">
-      <div class="rc-name">Адрестия</div>
-      <div class="rc-meta">Adrestia · MMR</div>
+      <div class="rc-name">Adrestia</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/named/punch-drunk">
-      <div class="rc-name">Нокдаун</div>
-      <div class="rc-meta">Punch Drunk · Маска</div>
+      <div class="rc-name">Punch Drunk</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/named/nightwatcher">
-      <div class="rc-name">Ночной дозорный</div>
-      <div class="rc-meta">Nightwatcher · Маска</div>
+      <div class="rc-name">Nightwatcher</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/named/chill-out">
-      <div class="rc-name">Холодок</div>
-      <div class="rc-meta">Chill Out · Маска</div>
+      <div class="rc-name">Chill Out</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/named/visionario">
-      <div class="rc-name">Визионарий</div>
-      <div class="rc-meta">Visionario · Маска</div>
+      <div class="rc-name">Visionario</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/named/the-hollow-man">
-      <div class="rc-name">Полый человек</div>
-      <div class="rc-meta">The Hollow Man · Маска</div>
+      <div class="rc-name">The Hollow Man</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/named/liquid-engineer">
-      <div class="rc-name">Жидкий инженер</div>
-      <div class="rc-meta">Liquid Engineer · Рюкзак</div>
+      <div class="rc-name">Liquid Engineer</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/hermano">
-      <div class="rc-name">Эрмано</div>
-      <div class="rc-meta">Hermano · Рюкзак</div>
+      <div class="rc-name">Hermano</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/the-courier">
-      <div class="rc-name">Курьер</div>
-      <div class="rc-meta">The Courier · Рюкзак</div>
+      <div class="rc-name">The Courier</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/backbone">
-      <div class="rc-name">Хребет</div>
-      <div class="rc-meta">Backbone · Рюкзак</div>
+      <div class="rc-name">Backbone</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/anarchist-s-cookbook">
-      <div class="rc-name">Поваренная книга анархиста</div>
-      <div class="rc-meta">Anarchist's Cookbook · Рюкзак</div>
+      <div class="rc-name">Anarchist's Cookbook</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/strategic-alignment">
-      <div class="rc-name">Стратегический вектор</div>
-      <div class="rc-meta">Strategic Alignment · Рюкзак</div>
+      <div class="rc-name">Strategic Alignment</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/lavoisier">
-      <div class="rc-name">Лавуазье</div>
-      <div class="rc-meta">Lavoisier · Рюкзак</div>
+      <div class="rc-name">Lavoisier</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/matador">
-      <div class="rc-name">Матадор</div>
-      <div class="rc-meta">Matador · Рюкзак</div>
+      <div class="rc-name">Matador</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/the-gift">
-      <div class="rc-name">Дар</div>
-      <div class="rc-meta">The Gift · Рюкзак</div>
+      <div class="rc-name">The Gift</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/percussive-maintenance">
-      <div class="rc-name">Ударный метод</div>
-      <div class="rc-meta">Percussive Maintenance · Рюкзак</div>
+      <div class="rc-name">Percussive Maintenance</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/vigil">
-      <div class="rc-name">Вигилия</div>
-      <div class="rc-meta">Vigil · Рюкзак</div>
+      <div class="rc-name">Vigil</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/devil-s-due">
-      <div class="rc-name">Дьяволу дьяволово</div>
-      <div class="rc-meta">Devil's Due · Рюкзак</div>
+      <div class="rc-name">Devil's Due</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/battery-pack">
-      <div class="rc-name">Батарейный блок</div>
-      <div class="rc-meta">Battery Pack · Рюкзак</div>
+      <div class="rc-name">Battery Pack</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/the-setup">
-      <div class="rc-name">Подстава</div>
-      <div class="rc-meta">The Setup · Рюкзак</div>
+      <div class="rc-name">The Setup</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/force-multiplier">
-      <div class="rc-name">Умножитель силы</div>
-      <div class="rc-meta">Force Multiplier · Рюкзак</div>
+      <div class="rc-name">Force Multiplier</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/proxy">
-      <div class="rc-name">Прокси</div>
-      <div class="rc-meta">Proxy · Рюкзак</div>
+      <div class="rc-name">Proxy</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/axel">
-      <div class="rc-name">Аксель</div>
-      <div class="rc-meta">Axel · Рюкзак</div>
+      <div class="rc-name">Axel</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/cap-n">
-      <div class="rc-name">Кэп</div>
-      <div class="rc-meta">Cap'n · Рюкзак</div>
+      <div class="rc-name">Cap'n</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/festive-delivery">
-      <div class="rc-name">Новогодняя доставка</div>
-      <div class="rc-meta">Festive Delivery · Рюкзак</div>
+      <div class="rc-name">Festive Delivery</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/henri">
-      <div class="rc-name">Анри</div>
-      <div class="rc-meta">Henri · Бронежилет</div>
+      <div class="rc-name">Henri</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/hunter-killer">
-      <div class="rc-name">Охотник-убийца</div>
-      <div class="rc-meta">Hunter-Killer · Бронежилет</div>
+      <div class="rc-name">Hunter-Killer</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/everyday-carrier">
-      <div class="rc-name">Повседневный рюкзак</div>
-      <div class="rc-meta">Everyday Carrier · Бронежилет</div>
+      <div class="rc-name">Everyday Carrier</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/chainkiller">
-      <div class="rc-name">Серийный убийца</div>
-      <div class="rc-meta">Chainkiller · Бронежилет</div>
+      <div class="rc-name">Chainkiller</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/pointman">
-      <div class="rc-name">Ключевая фигура</div>
-      <div class="rc-meta">Pointman · Бронежилет</div>
+      <div class="rc-name">Pointman</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/vedmedytsya-vest">
-      <div class="rc-name">Жилет Vedmedytsya</div>
-      <div class="rc-meta">Vedmedytsya Vest · Бронежилет</div>
+      <div class="rc-name">Vedmedytsya Vest</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/the-sacrifice">
-      <div class="rc-name">Жертва</div>
-      <div class="rc-meta">The Sacrifice · Бронежилет</div>
+      <div class="rc-name">The Sacrifice</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/zero-f-s">
-      <div class="rc-name">Без проблем</div>
-      <div class="rc-meta">Zero F’s · Бронежилет</div>
+      <div class="rc-name">Zero F’s</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/ferocious-calm">
-      <div class="rc-name">Свирепое спокойствие</div>
-      <div class="rc-meta">Ferocious Calm · Бронежилет</div>
+      <div class="rc-name">Ferocious Calm</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/door-kicker-s-knock">
-      <div class="rc-name">Вынос двери</div>
-      <div class="rc-meta">Door-Kicker’s Knock · Бронежилет</div>
+      <div class="rc-name">Door-Kicker’s Knock</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/caesar-s-guard">
-      <div class="rc-name">Защита Цезаря</div>
-      <div class="rc-meta">Caesar's Guard · Бронежилет</div>
+      <div class="rc-name">Caesar's Guard</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/closer">
-      <div class="rc-name">Замыкатель</div>
-      <div class="rc-meta">Closer · Бронежилет</div>
+      <div class="rc-name">Closer</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/cherished">
-      <div class="rc-name">Заветный</div>
-      <div class="rc-meta">Cherished · Бронежилет</div>
+      <div class="rc-name">Cherished</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/carpenter">
-      <div class="rc-name">Плотник</div>
-      <div class="rc-meta">Carpenter · Бронежилет</div>
+      <div class="rc-name">Carpenter</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/bober">
-      <div class="rc-name">Бобер</div>
-      <div class="rc-meta">Bober · Бронежилет</div>
+      <div class="rc-name">Bober</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/pristine-example">
-      <div class="rc-name">Эталонный образец</div>
-      <div class="rc-meta">Pristine Example · Бронежилет</div>
+      <div class="rc-name">Pristine Example</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/sleight">
-      <div class="rc-name">Ловкий трюк</div>
-      <div class="rc-meta">Sleight · Бронежилет</div>
+      <div class="rc-name">Sleight</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/combustor">
-      <div class="rc-name">Камера сгорания</div>
-      <div class="rc-meta">Combustor · Бронежилет</div>
+      <div class="rc-name">Combustor</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/equalizer">
-      <div class="rc-name">Уравнитель</div>
-      <div class="rc-meta">Equalizer · Бронежилет</div>
+      <div class="rc-name">Equalizer</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/deathgrips">
-      <div class="rc-name">Хватка смерти</div>
-      <div class="rc-meta">Deathgrips · Перчатки</div>
+      <div class="rc-name">Deathgrips</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/named/contractor-s-gloves">
-      <div class="rc-name">Перчатки наемника</div>
-      <div class="rc-meta">Contractor’s Gloves · Перчатки</div>
+      <div class="rc-name">Contractor’s Gloves</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/named/motherly-love">
-      <div class="rc-name">Материнская любовь</div>
-      <div class="rc-meta">Motherly Love · Перчатки</div>
+      <div class="rc-name">Motherly Love</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/named/eagles-grasp">
-      <div class="rc-name">Орлиная хватка</div>
-      <div class="rc-meta">Eagles Grasp · Перчатки</div>
+      <div class="rc-name">Eagles Grasp</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/named/firm-handshake">
-      <div class="rc-name">Крепкое рукопожатие</div>
-      <div class="rc-meta">Firm Handshake · Перчатки</div>
+      <div class="rc-name">Firm Handshake</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/named/forge">
-      <div class="rc-name">Горнило</div>
-      <div class="rc-meta">Forge · Кобура</div>
+      <div class="rc-name">Forge</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/named/ammo-dump">
-      <div class="rc-name">Склад боеприпасов</div>
-      <div class="rc-meta">Ammo Dump · Кобура</div>
+      <div class="rc-name">Ammo Dump</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/named/picaros-holster">
       <div class="rc-name">Picaros Holster</div>
-      <div class="rc-meta">Picaros Holster · Кобура</div>
+      <div class="rc-meta">Picaros Holster · Holster</div>
     </a>
     <a class="related-card" href="/en/named/spot-on">
-      <div class="rc-name">В яблочко</div>
-      <div class="rc-meta">Spot-on · Кобура</div>
+      <div class="rc-name">Spot-on</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/named/salvo">
-      <div class="rc-name">Залп</div>
-      <div class="rc-meta">Salvo · Кобура</div>
+      <div class="rc-name">Salvo</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/named/claws-out">
-      <div class="rc-name">Когти веером</div>
-      <div class="rc-meta">Claws Out · Кобура</div>
+      <div class="rc-name">Claws Out</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/named/fox-s-prayer">
-      <div class="rc-name">Окопная молитва</div>
-      <div class="rc-meta">Fox’s Prayer · Наколенники</div>
+      <div class="rc-name">Fox’s Prayer</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/named/snow-machine">
-      <div class="rc-name">Снежная машина</div>
-      <div class="rc-meta">Snow Machine · Наколенники</div>
+      <div class="rc-name">Snow Machine</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/named/turmoil">
-      <div class="rc-name">Сумятица</div>
-      <div class="rc-meta">Turmoil · Наколенники</div>
+      <div class="rc-name">Turmoil</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/named/emperor-s-guard">
-      <div class="rc-name">Охрана императора</div>
-      <div class="rc-meta">Emperor’s Guard · Наколенники</div>
+      <div class="rc-name">Emperor’s Guard</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/named/grease">
-      <div class="rc-name">Смазка</div>
-      <div class="rc-meta">Grease · Наколенники</div>
+      <div class="rc-name">Grease</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/named/cloak">
-      <div class="rc-name">Маскировщики</div>
-      <div class="rc-meta">Cloak · Наколенники</div>
+      <div class="rc-name">Cloak</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/named/birdie-s-quick-fix-pack">
-      <div class="rc-name">Аптечка Бёрди</div>
-      <div class="rc-meta">Birdie's Quick Fix Pack · Рюкзак</div>
+      <div class="rc-name">Birdie's Quick Fix Pack</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/ninjabike-messenger-backpack">
-      <div class="rc-name">НиндзяВелосипед Рюкзак-мессенджер (NinjaBike Messenger Backpack)</div>
-      <div class="rc-meta">NinjaBike 
-Messenger Backpack · Рюкзак</div>
+      <div class="rc-name">NinjaBike 
+Messenger Backpack</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/centurion-scabbard">
-      <div class="rc-name">Ножны центуриона</div>
-      <div class="rc-meta">Centurion Scabbard · Кобура</div>
+      <div class="rc-name">Centurion Scabbard</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/named/acosta-kneepads">
       <div class="rc-name">Acosta Kneepads</div>
-      <div class="rc-meta">Acosta Kneepads · Наколенники</div>
+      <div class="rc-meta">Acosta Kneepads · Kneepads</div>
     </a>
     <a class="related-card" href="/en/named/">
       <div class="rc-name">Движущая сила</div>
-      <div class="rc-meta">Движущая сила · Бронежилет</div>
+      <div class="rc-meta">Движущая сила · Chest</div>
     </a>
     <a class="related-card" href="/en/named/robin">
-      <div class="rc-name">Зарянка</div>
-      <div class="rc-meta">Robin · Бронежилет</div>
+      <div class="rc-name">Robin</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/bulldog">
-      <div class="rc-name">Бульдог</div>
-      <div class="rc-meta">Bulldog · Рюкзак</div>
+      <div class="rc-name">Bulldog</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/named/picaro-s-holster">
-      <div class="rc-name">Пикаро</div>
-      <div class="rc-meta">Picaro's Holster · Кобуры</div>
+      <div class="rc-name">Picaro's Holster</div>
+      <div class="rc-meta">Кобуры</div>
     </a>
     <a class="related-card" href="/en/named/impetus">
-      <div class="rc-name">Движущая сила</div>
-      <div class="rc-meta">Impetus · Бронежилет</div>
+      <div class="rc-name">Impetus</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/named/eagle-s-grasp">
-      <div class="rc-name">Орлиная хватка</div>
-      <div class="rc-meta">Eagle's Grasp · Перчатки</div>
+      <div class="rc-name">Eagle's Grasp</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/named/p-caro-s-holster">
-      <div class="rc-name">Кобура Пикаро</div>
-      <div class="rc-meta">Pícaro's Holster · Кобура</div>
+      <div class="rc-name">Pícaro's Holster</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/named/hydden-gloves">
-      <div class="rc-name">Перчатки Hydden</div>
-      <div class="rc-meta">Hydden Gloves · Перчатки</div>
+      <div class="rc-name">Hydden Gloves</div>
+      <div class="rc-meta">Gloves</div>
     </a>
   </div>
   <div class="ad-slot ad-bottom"></div>

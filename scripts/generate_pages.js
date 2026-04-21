@@ -58,17 +58,18 @@ const GA_CODE = `<script async src="https://www.googletagmanager.com/gtag/js?id=
     // Only run on page load; don't show if cookie already set
     if (document.cookie.match(/(?:^|;\\s*)d2calc_lang=(ru|en)/)) return;
     var currentIsEn = document.documentElement.lang === 'en' || /^\\/en\\//.test(location.pathname);
+    var currentIsRu = /^\\/ru\\//.test(location.pathname);
     var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
     prefLang = prefLang.toLowerCase();
     // RU page but user prefers EN → banner
-    if (!currentIsEn && prefLang.indexOf('en') === 0) {
-      var altUrl = '/en' + location.pathname + location.search;
+    if (currentIsRu && prefLang.indexOf('en') === 0) {
+      var altUrl = location.pathname.replace(/^\\/ru\\//, '/en/') + location.search;
       var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
       showBanner(msg);
     }
     // EN page but user prefers RU → banner
     else if (currentIsEn && prefLang.indexOf('ru') === 0) {
-      var altUrl = location.pathname.replace(/^\\/en/, '') + location.search;
+      var altUrl = location.pathname.replace(/^\\/en\\//, '/ru/') + location.search;
       var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
       showBanner(msg);
     }
@@ -93,12 +94,12 @@ const YM_CODE = `<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[
 
 function nav() {
   return `<nav class="site-nav">
-  <a class="logo" href="/">divcalc.xyz</a>
+  <a class="logo" href="/ru/">divcalc.xyz</a>
   <div class="nav-links">
-    <a href="/exotic/">Экзотики</a>
-    <a href="/named/">Именные</a>
-    <a href="/set/">Комплекты</a>
-    <a href="/brand/">Бренды</a>
+    <a href="/ru/exotic/">Экзотики</a>
+    <a href="/ru/named/">Именные</a>
+    <a href="/ru/set/">Комплекты</a>
+    <a href="/ru/brand/">Бренды</a>
   </div>
   <a class="calc-btn" href="/">🔢 Калькулятор</a>
 </nav>`;
@@ -106,8 +107,8 @@ function nav() {
 
 function footer() {
   return `<footer>
-  <p><a href="/">divcalc.xyz</a> — калькулятор DPS для Tom Clancy's The Division 2 · <a href="/exotic/">Экзотики</a> · <a href="/set/">Комплекты</a> · <a href="/named/">Именные</a></p>
-  <p style="margin-top:6px">Данные актуальны для Title Update 21 (Year 9)</p>
+  <p><a href="/ru/">divcalc.xyz</a> — калькулятор DPS для Tom Clancy's The Division 2 · <a href="/ru/exotic/">Экзотики</a> · <a href="/ru/set/">Комплекты</a> · <a href="/ru/named/">Именные</a></p>
+  <p style="margin-top:6px">Данные актуальны для Title Update 22 (Year 8 Season 1)</p>
 </footer>`;
 }
 
@@ -237,7 +238,7 @@ function generateExoticWeapon(key, item, allExotics) {
   const relatedCards = otherKeys.map(k => {
     const o = allExotics[k];
     const s = makeSlug(o.name_ru, o.en);
-    return `<a class="related-card" href="/exotic/${s}">
+    return `<a class="related-card" href="/ru/exotic/${s}">
         <div class="rc-name">${escape(o.name_ru || k)}</div>
         <div class="rc-meta">${escape(o.en || '')} · ${escape(o.cat || '')}</div>
       </a>`;
@@ -245,7 +246,7 @@ function generateExoticWeapon(key, item, allExotics) {
 
   const title = `${escape(nameRu)} (${escape(nameEn)}) — Division 2 экзотик ${escape(cat)} | divcalc.xyz`;
   const desc = `${escape(nameRu)} (${escape(nameEn)}) — экзотическое оружие Division 2. Урон ${dmg}, скорострельность ${rpm} RPM, магазин ${mag}. Талант: ${escape(talNameRu)}. Статы, гайд, лучшие билды.`;
-  const canonical = `https://divcalc.xyz/exotic/${slug}`;
+  const canonical = `https://divcalc.xyz/ru/exotic/${slug}`;
 
   return { slug, html: `<!DOCTYPE html>
 <html lang="ru">
@@ -268,15 +269,15 @@ ${YM_CODE}
 </script>
 ${breadcrumbJsonLd([
   {name:'Главная',url:'https://divcalc.xyz/'},
-  {name:'Экзотики',url:'https://divcalc.xyz/exotic/'},
+  {name:'Экзотики',url:'https://divcalc.xyz/ru/exotic/'},
   {name:nameRu,url:canonical}
 ])}
 </head>
 <body>
 ${nav()}
 <div class="breadcrumb">
-  <a href="/">Главная</a> <span>›</span>
-  <a href="/exotic/">Экзотики</a> <span>›</span>
+  <a href="/ru/">Главная</a> <span>›</span>
+  <a href="/ru/exotic/">Экзотики</a> <span>›</span>
   ${escape(nameRu)}
 </div>
 <main class="item-page">
@@ -322,7 +323,7 @@ ${nav()}
 
   <section class="synergy">
     <h2>Синергии</h2>
-    <p>Подбери оптимальный билд для <strong>${escape(nameRu)}</strong> с помощью <a href="/">калькулятора DPS divcalc.xyz</a>. Проверь синергии с <a href="/set/">комплектами снаряжения</a> и <a href="/named/">именным оружием</a>.</p>
+    <p>Подбери оптимальный билд для <strong>${escape(nameRu)}</strong> с помощью <a href="/">калькулятора DPS divcalc.xyz</a>. Проверь синергии с <a href="/ru/set/">комплектами снаряжения</a> и <a href="/ru/named/">именным оружием</a>.</p>
   </section>
 
   <section class="related">
@@ -352,7 +353,7 @@ function generateExoticGear(idx, item, allItems) {
   const otherItems = allItems.filter((_, i) => i !== idx).slice(0, 4);
   const relatedCards = otherItems.map(o => {
     const s = makeSlug(o.name, o.en);
-    return `<a class="related-card" href="/exotic/${s}">
+    return `<a class="related-card" href="/ru/exotic/${s}">
         <div class="rc-name">${escape(o.name || '')}</div>
         <div class="rc-meta">${escape(o.en || '')} · ${escape(o.g || '')}</div>
       </a>`;
@@ -360,7 +361,7 @@ function generateExoticGear(idx, item, allItems) {
 
   const title = `${escape(nameRu)} (${escape(nameEn)}) — Division 2 экзотик | divcalc.xyz`;
   const desc = `${escape(nameRu)} (${escape(nameEn)}) — экзотическое снаряжение Division 2. Тип: ${escape(gearType)}. Талант: ${escape(talNameRu)}. Статы, гайд, лучшие билды.`;
-  const canonical = `https://divcalc.xyz/exotic/${slug}`;
+  const canonical = `https://divcalc.xyz/ru/exotic/${slug}`;
 
   return { slug, html: `<!DOCTYPE html>
 <html lang="ru">
@@ -383,15 +384,15 @@ ${YM_CODE}
 </script>
 ${breadcrumbJsonLd([
   {name:'Главная',url:'https://divcalc.xyz/'},
-  {name:'Экзотики',url:'https://divcalc.xyz/exotic/'},
+  {name:'Экзотики',url:'https://divcalc.xyz/ru/exotic/'},
   {name:nameRu,url:canonical}
 ])}
 </head>
 <body>
 ${nav()}
 <div class="breadcrumb">
-  <a href="/">Главная</a> <span>›</span>
-  <a href="/exotic/">Экзотики</a> <span>›</span>
+  <a href="/ru/">Главная</a> <span>›</span>
+  <a href="/ru/exotic/">Экзотики</a> <span>›</span>
   ${escape(nameRu)}
 </div>
 <main class="item-page">
@@ -432,7 +433,7 @@ ${nav()}
 
   <section class="synergy">
     <h2>Синергии</h2>
-    <p>Подбери оптимальный билд с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе DPS divcalc.xyz</a>. Смотри также <a href="/set/">комплекты снаряжения</a>.</p>
+    <p>Подбери оптимальный билд с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе DPS divcalc.xyz</a>. Смотри также <a href="/ru/set/">комплекты снаряжения</a>.</p>
   </section>
 
   <section class="related">
@@ -471,14 +472,14 @@ function generateNamed(idx, item, allItems) {
     mag ? `<tr><td>Магазин</td><td>${mag} патронов</td></tr>` : '',
     reload ? `<tr><td>Перезарядка</td><td>${reload} сек</td></tr>` : '',
     gType ? `<tr><td>Тип</td><td>${escape(tType || gType)}</td></tr>` : '',
-    brand ? `<tr><td>Бренд</td><td><a href="/brand/${slugifyEn(brand)}">${escape(brand)}</a></td></tr>` : '',
+    brand ? `<tr><td>Бренд</td><td><a href="/ru/brand/${slugifyEn(brand)}">${escape(brand)}</a></td></tr>` : '',
     item.source_ru ? `<tr><td>Источник</td><td>${escape(item.source_ru)}</td></tr>` : '',
   ].filter(Boolean).join('\n      ');
 
   const otherItems = allItems.filter((_, i) => i !== idx && i < idx + 10).slice(0, 4);
   const relatedCards = otherItems.map(o => {
     const s = makeSlug(o.name, o.en);
-    return `<a class="related-card" href="/named/${s}">
+    return `<a class="related-card" href="/ru/named/${s}">
         <div class="rc-name">${escape(o.name || '')}</div>
         <div class="rc-meta">${escape(o.en || '')} · ${escape(o.g || '')}</div>
       </a>`;
@@ -486,7 +487,7 @@ function generateNamed(idx, item, allItems) {
 
   const title = `${escape(nameRu)} (${escape(nameEn)}) — Division 2 именное оружие | divcalc.xyz`;
   const desc = `${escape(nameRu)} (${escape(nameEn)}) — именное оружие Division 2. Тип: ${escape(gType)}${dmg ? `, урон ${dmg}` : ''}. Талант: ${escape(talNameRu)}. Статы и лучшие билды.`;
-  const canonical = `https://divcalc.xyz/named/${slug}`;
+  const canonical = `https://divcalc.xyz/ru/named/${slug}`;
 
   return { slug, html: `<!DOCTYPE html>
 <html lang="ru">
@@ -509,15 +510,15 @@ ${YM_CODE}
 </script>
 ${breadcrumbJsonLd([
   {name:'Главная',url:'https://divcalc.xyz/'},
-  {name:'Именные',url:'https://divcalc.xyz/named/'},
+  {name:'Именные',url:'https://divcalc.xyz/ru/named/'},
   {name:nameRu,url:canonical}
 ])}
 </head>
 <body>
 ${nav()}
 <div class="breadcrumb">
-  <a href="/">Главная</a> <span>›</span>
-  <a href="/named/">Именные</a> <span>›</span>
+  <a href="/ru/">Главная</a> <span>›</span>
+  <a href="/ru/named/">Именные</a> <span>›</span>
   ${escape(nameRu)}
 </div>
 <main class="item-page">
@@ -557,7 +558,7 @@ ${nav()}
 
   <section class="synergy">
     <h2>Синергии</h2>
-    <p>Рассчитай DPS билда с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Проверь совместимость с <a href="/set/">комплектами</a> и <a href="/brand/">брендами</a>.</p>
+    <p>Рассчитай DPS билда с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Проверь совместимость с <a href="/ru/set/">комплектами</a> и <a href="/ru/brand/">брендами</a>.</p>
   </section>
 
   <section class="related">
@@ -585,7 +586,7 @@ function generateNamedGear(idx, item, allItems) {
 
   const statsRows = [
     gType ? `<tr><td>Тип снаряжения</td><td>${escape(gType)}</td></tr>` : '',
-    brand ? `<tr><td>Бренд</td><td><a href="/brand/${slugifyEn(brand)}">${escape(brand)}</a></td></tr>` : '',
+    brand ? `<tr><td>Бренд</td><td><a href="/ru/brand/${slugifyEn(brand)}">${escape(brand)}</a></td></tr>` : '',
     item.bonus_ru ? `<tr><td>Бонус</td><td>${escape(item.bonus_ru)}</td></tr>` : '',
     item.source_ru ? `<tr><td>Источник</td><td>${escape(item.source_ru)}</td></tr>` : '',
   ].filter(Boolean).join('\n      ');
@@ -593,7 +594,7 @@ function generateNamedGear(idx, item, allItems) {
   const otherItems = allItems.filter((_, i) => i !== idx).slice(0, 4);
   const relatedCards = otherItems.map(o => {
     const s = makeSlug(o.name, o.en);
-    return `<a class="related-card" href="/named/${s}">
+    return `<a class="related-card" href="/ru/named/${s}">
         <div class="rc-name">${escape(o.name || '')}</div>
         <div class="rc-meta">${escape(o.en || '')} · ${escape(o.g || '')}</div>
       </a>`;
@@ -601,7 +602,7 @@ function generateNamedGear(idx, item, allItems) {
 
   const title = `${escape(nameRu)} (${escape(nameEn)}) — Division 2 именное снаряжение | divcalc.xyz`;
   const desc = `${escape(nameRu)} (${escape(nameEn)}) — именное снаряжение Division 2. Тип: ${escape(gType)}${brand ? `, бренд ${escape(brand)}` : ''}. Бонусы, статы и билды.`;
-  const canonical = `https://divcalc.xyz/named/${slug}`;
+  const canonical = `https://divcalc.xyz/ru/named/${slug}`;
 
   return { slug, html: `<!DOCTYPE html>
 <html lang="ru">
@@ -624,15 +625,15 @@ ${YM_CODE}
 </script>
 ${breadcrumbJsonLd([
   {name:'Главная',url:'https://divcalc.xyz/'},
-  {name:'Именные',url:'https://divcalc.xyz/named/'},
+  {name:'Именные',url:'https://divcalc.xyz/ru/named/'},
   {name:nameRu,url:canonical}
 ])}
 </head>
 <body>
 ${nav()}
 <div class="breadcrumb">
-  <a href="/">Главная</a> <span>›</span>
-  <a href="/named/">Именные</a> <span>›</span>
+  <a href="/ru/">Главная</a> <span>›</span>
+  <a href="/ru/named/">Именные</a> <span>›</span>
   ${escape(nameRu)}
 </div>
 <main class="item-page">
@@ -664,7 +665,7 @@ ${nav()}
 
   <section class="synergy">
     <h2>Синергии</h2>
-    <p>Рассчитай DPS билда с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Смотри также <a href="/brand/${slugifyEn(brand || '')}">другие предметы бренда ${escape(brand)}</a>.</p>
+    <p>Рассчитай DPS билда с <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Смотри также <a href="/ru/brand/${slugifyEn(brand || '')}">другие предметы бренда ${escape(brand)}</a>.</p>
   </section>
 
   <section class="related">
@@ -714,7 +715,7 @@ function generateSet(key, item, allSets) {
   const relatedCards = otherKeys.map(k => {
     const o = allSets[k];
     const s = makeSlug(o.name, o.en);
-    return `<a class="related-card" href="/set/${s}">
+    return `<a class="related-card" href="/ru/set/${s}">
         <div class="rc-name">${escape(o.name || k)}</div>
         <div class="rc-meta">${escape(o.en || '')}</div>
       </a>`;
@@ -723,7 +724,7 @@ function generateSet(key, item, allSets) {
   const aliases = item.aliases_ru ? item.aliases_ru.join(', ') : '';
   const title = `${escape(nameRu)} (${escape(nameEn)}) — Division 2 комплект снаряжения | divcalc.xyz`;
   const desc = `${escape(nameRu)} (${escape(nameEn)}) — комплект снаряжения Division 2. Бонусы: ${bonuses.slice(0,2).map(b => escape(b)).join('; ')}. Таланты, синергии, лучшие билды.`;
-  const canonical = `https://divcalc.xyz/set/${slug}`;
+  const canonical = `https://divcalc.xyz/ru/set/${slug}`;
 
   return { slug, html: `<!DOCTYPE html>
 <html lang="ru">
@@ -746,15 +747,15 @@ ${YM_CODE}
 </script>
 ${breadcrumbJsonLd([
   {name:'Главная',url:'https://divcalc.xyz/'},
-  {name:'Комплекты',url:'https://divcalc.xyz/set/'},
+  {name:'Комплекты',url:'https://divcalc.xyz/ru/set/'},
   {name:nameRu,url:canonical}
 ])}
 </head>
 <body>
 ${nav()}
 <div class="breadcrumb">
-  <a href="/">Главная</a> <span>›</span>
-  <a href="/set/">Комплекты</a> <span>›</span>
+  <a href="/ru/">Главная</a> <span>›</span>
+  <a href="/ru/set/">Комплекты</a> <span>›</span>
   ${escape(nameRu)}
 </div>
 <main class="item-page">
@@ -791,7 +792,7 @@ ${nav()}
 
   <section class="synergy">
     <h2>Синергии и рекомендуемые билды</h2>
-    <p>Рассчитай DPS и подбери снаряжение для комплекта <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Проверь совместимость с <a href="/exotic/">экзотическим оружием</a>.</p>
+    <p>Рассчитай DPS и подбери снаряжение для комплекта <strong>${escape(nameRu)}</strong> в <a href="/">калькуляторе divcalc.xyz</a>. Проверь совместимость с <a href="/ru/exotic/">экзотическим оружием</a>.</p>
   </section>
 
   <section class="related">
@@ -821,7 +822,7 @@ function generateBrand(idx, key, item, allBrands) {
   const relatedCards = otherKeys.map(k => {
     const o = allBrands[k];
     const s = slugifyEn(k);
-    return `<a class="related-card" href="/brand/${s}">
+    return `<a class="related-card" href="/ru/brand/${s}">
         <div class="rc-name">${escape(o.name_full_en || k)}</div>
         <div class="rc-meta">${escape(o.bonuses ? o.bonuses[0] : '')}</div>
       </a>`;
@@ -830,7 +831,7 @@ function generateBrand(idx, key, item, allBrands) {
   const coreAttr = item.core_en || '';
   const title = `${escape(nameEn)} — Division 2 бренд снаряжения | divcalc.xyz`;
   const desc = `${escape(nameEn)} — бренд снаряжения Division 2. Бонусы бренда: ${bonuses.slice(0,2).map(b => escape(b)).join('; ')}. Статы, именные предметы, лучшие билды.`;
-  const canonical = `https://divcalc.xyz/brand/${slug}`;
+  const canonical = `https://divcalc.xyz/ru/brand/${slug}`;
 
   return { slug, html: `<!DOCTYPE html>
 <html lang="ru">
@@ -853,15 +854,15 @@ ${YM_CODE}
 </script>
 ${breadcrumbJsonLd([
   {name:'Главная',url:'https://divcalc.xyz/'},
-  {name:'Бренды',url:'https://divcalc.xyz/brand/'},
+  {name:'Бренды',url:'https://divcalc.xyz/ru/brand/'},
   {name:nameEn,url:canonical}
 ])}
 </head>
 <body>
 ${nav()}
 <div class="breadcrumb">
-  <a href="/">Главная</a> <span>›</span>
-  <a href="/brand/">Бренды</a> <span>›</span>
+  <a href="/ru/">Главная</a> <span>›</span>
+  <a href="/ru/brand/">Бренды</a> <span>›</span>
   ${escape(nameEn)}
 </div>
 <main class="item-page">
@@ -893,7 +894,7 @@ ${nav()}
 
   <section class="synergy">
     <h2>Синергии</h2>
-    <p>Подбери оптимальное сочетание брендов в <a href="/">калькуляторе DPS divcalc.xyz</a>. Смотри также <a href="/named/">именное снаряжение</a> этого бренда.</p>
+    <p>Подбери оптимальное сочетание брендов в <a href="/">калькуляторе DPS divcalc.xyz</a>. Смотри также <a href="/ru/named/">именное снаряжение</a> этого бренда.</p>
   </section>
 
   <section class="related">
@@ -915,9 +916,9 @@ ${footer()}
 function generateCategoryIndex(dir, titleRu, badge, items) {
   const title = `${titleRu} — Division 2 | divcalc.xyz`;
   const desc = `Все ${titleRu.toLowerCase()} в Tom Clancy's The Division 2. Статы, таланты, лучшие билды. Рассчитай DPS на divcalc.xyz.`;
-  const canonical = `https://divcalc.xyz/${dir}/`;
+  const canonical = `https://divcalc.xyz/ru/${dir}/`;
   const cards = items.map(({ slug, nameRu, nameEn, meta }) =>
-    `<a class="related-card" href="/${dir}/${slug}">
+    `<a class="related-card" href="/ru/${dir}/${slug}">
       <div class="rc-name">${escape(nameRu)}</div>
       <div class="rc-meta">${escape(nameEn)}${meta ? ' · ' + escape(meta) : ''}</div>
     </a>`
@@ -938,12 +939,12 @@ ${YM_CODE}
 <body>
 ${nav()}
 <div class="breadcrumb">
-  <a href="/">Главная</a> <span>›</span>
+  <a href="/ru/">Главная</a> <span>›</span>
   ${titleRu}
 </div>
 <main class="item-page">
   <h1>${titleRu}</h1>
-  <p style="color:var(--muted);margin:8px 0 24px">Все предметы категории «${titleRu}» в The Division 2. Нажми на предмет чтобы увидеть полные статы и гайд.</p>
+  <p class="cat-intro" style="color:var(--muted);margin:8px 0 24px">Все предметы категории «${titleRu}» в The Division 2. Нажми на предмет чтобы увидеть полные статы и гайд.</p>
   ${adSlot('ad-top')}
   <div class="related-grid" style="margin-top:20px">
     ${cards}
@@ -1026,6 +1027,16 @@ function main() {
   // Build source lookup: en_name → source_ru
   const exoticSourceMap = {};
   exoticGearRaw.forEach(i => { if (i.en && i.source_ru) exoticSourceMap[i.en] = i.source_ru; });
+  // Legacy EN talent names (exotics.json has descriptive `tal` like "Eagle's Strike + Tenacity")
+  const legacyTalMap = {};
+  exoticGearRaw.forEach(i => { if (i.en && i.tal) legacyTalMap[i.en] = i.tal; });
+  // Enrich exotic_weapons with tal_name_en from legacy where available
+  for (const key of Object.keys(exoticWeapons)) {
+    const w = exoticWeapons[key];
+    if (w && w.en && !w.tal_name_en && legacyTalMap[w.en]) {
+      w.tal_name_en = legacyTalMap[w.en];
+    }
+  }
   const exoticGear = exoticGearRaw;
   const namedWeapons = require(path.join(ROOT, 'data/named.json'));
   const namedGear = require(path.join(ROOT, 'data/named_gear.json'));
@@ -1038,15 +1049,14 @@ function main() {
 
   // Helper: write both RU and EN versions of an item page
   function writeItemPagePair(category, slug, html, item) {
-    const ruPath = `/${category}/${slug}`;
-    // RU version — original, + hreflang + lang switcher
-    writeFile(path.join(ROOT, category, `${slug}.html`), enhanceRuHtml(html, ruPath));
-    // EN version — translated post-processor
+    const catPath = `/${category}/${slug}`;
+    const ruPath = `/ru${catPath}`;
+    const enPath = `/en${catPath}`;
+    writeFile(path.join(ROOT, 'ru', category, `${slug}.html`), enhanceRuHtml(html, ruPath));
     writeFile(path.join(ROOT, 'en', category, `${slug}.html`), translateHtmlToEn(html, item, ruPath, category));
-    // Sitemap entry with alternates
     sitemapUrls.push({
       loc: `https://divcalc.xyz${ruPath}`,
-      enLoc: `https://divcalc.xyz/en${ruPath}`,
+      enLoc: `https://divcalc.xyz${enPath}`,
       priority: category === 'set' ? '0.75' : (category === 'brand' ? '0.65' : '0.7'),
       freq: 'monthly'
     });
@@ -1126,14 +1136,14 @@ function main() {
   // — Category index pages (RU + EN) —
   function writeIndexPair(dir, titleRu, badge, items, enPath) {
     const ruHtml = generateCategoryIndex(dir, titleRu, badge, items);
-    const ruPath = `/${dir}/`;
-    writeFile(path.join(ROOT, dir, 'index.html'), enhanceRuHtml(ruHtml, ruPath));
-    // EN version: translate
+    const ruPath = `/ru/${dir}/`;
+    const enFullPath = `/en/${dir}/`;
+    writeFile(path.join(ROOT, 'ru', dir, 'index.html'), enhanceRuHtml(ruHtml, ruPath));
     writeFile(path.join(ROOT, 'en', dir, 'index.html'),
       translateHtmlToEn(ruHtml, {name: titleRu, en: enPath}, ruPath, dir));
     sitemapUrls.push({
       loc: `https://divcalc.xyz${ruPath}`,
-      enLoc: `https://divcalc.xyz/en${ruPath}`,
+      enLoc: `https://divcalc.xyz${enFullPath}`,
       priority: dir === 'brand' ? '0.75' : '0.8',
       freq: 'weekly'
     });

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Экзотики — Division 2 | divcalc.xyz</title>
+<title>Exotics — Division 2 | divcalc.xyz</title>
 <meta name="description" content="Все экзотики в Tom Clancy's The Division 2. Статы, таланты, лучшие билды. Рассчитай DPS на divcalc.xyz.">
 <link rel="canonical" href="https://divcalc.xyz/en/exotic/">
 <link rel="stylesheet" href="/css/page.css">
@@ -16,17 +16,18 @@
     // Only run on page load; don't show if cookie already set
     if (document.cookie.match(/(?:^|;\s*)d2calc_lang=(ru|en)/)) return;
     var currentIsEn = document.documentElement.lang === 'en' || /^\/en\//.test(location.pathname);
+    var currentIsRu = /^\/ru\//.test(location.pathname);
     var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
     prefLang = prefLang.toLowerCase();
     // RU page but user prefers EN → banner
-    if (!currentIsEn && prefLang.indexOf('en') === 0) {
-      var altUrl = '/en' + location.pathname + location.search;
+    if (currentIsRu && prefLang.indexOf('en') === 0) {
+      var altUrl = location.pathname.replace(/^\/ru\//, '/en/') + location.search;
       var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
       showBanner(msg);
     }
     // EN page but user prefers RU → banner
     else if (currentIsEn && prefLang.indexOf('ru') === 0) {
-      var altUrl = location.pathname.replace(/^\/en/, '') + location.search;
+      var altUrl = location.pathname.replace(/^\/en\//, '/ru/') + location.search;
       var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
       showBanner(msg);
     }
@@ -47,12 +48,12 @@
 })();
 </script>
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108598463,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
-<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/exotic/">
+<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/exotic/">
 <link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/exotic/">
 <link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/exotic/">
 </head>
 <body>
-<a href="/exotic/" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
+<a href="/ru/exotic/" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
 <nav class="site-nav">
   <a class="logo" href="/en/">divcalc.xyz</a>
   <div class="nav-links">
@@ -61,460 +62,460 @@
     <a href="/en/set/">Sets</a>
     <a href="/en/brand/">Brands</a>
   </div>
-  <a class="calc-btn" href="/en/">🔢 Calculator</a>
+  <a class="calc-btn" href="/">🔢 Calculator</a>
 </nav>
 <div class="breadcrumb">
   <a href="/en/">Home</a> <span>›</span>
-  Экзотики
+  Exotics
 </div>
 <main class="item-page">
   <h1>Exotics</h1>
-  <p style="color:var(--muted);margin:8px 0 24px">Все предметы категории «Экзотики» в The Division 2. Нажми на предмет чтобы увидеть полные статы и гайд.</p>
+  <p class="cat-intro" style="color:var(--muted);margin:8px 0 24px">All items in the category in The Division 2. Click an item to see full stats and guide.</p>
   <div class="ad-slot ad-top"></div>
   <div class="related-grid" style="margin-top:20px">
     <a class="related-card" href="/en/exotic/agitator">
-      <div class="rc-name">Агитатор</div>
-      <div class="rc-meta">Agitator · AR</div>
+      <div class="rc-name">Agitator</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/capacitor">
-      <div class="rc-name">Конденсатор</div>
-      <div class="rc-meta">Capacitor · AR</div>
+      <div class="rc-name">Capacitor</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/chameleon">
-      <div class="rc-name">Хамелеон</div>
-      <div class="rc-meta">Chameleon · AR</div>
+      <div class="rc-name">Chameleon</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/eagle-bearer">
-      <div class="rc-name">Орлиное знамя</div>
-      <div class="rc-meta">Eagle Bearer · AR</div>
+      <div class="rc-name">Eagle Bearer</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/st-elmo-s-engine">
-      <div class="rc-name">Мотор святого Эльма</div>
-      <div class="rc-meta">St. Elmo's Engine · AR</div>
+      <div class="rc-name">St. Elmo's Engine</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/strega">
-      <div class="rc-name">Стрега</div>
-      <div class="rc-meta">Strega · AR</div>
+      <div class="rc-name">Strega</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/the-bighorn-semi-auto-mode">
-      <div class="rc-name">Толсторог</div>
-      <div class="rc-meta">The Bighorn - Semi-Auto Mode · AR</div>
+      <div class="rc-name">The Bighorn - Semi-Auto Mode</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/the-bighorn-full-auto-mode">
-      <div class="rc-name">Толсторог (авто)</div>
-      <div class="rc-meta">The Bighorn Full-Auto Mode · AR</div>
+      <div class="rc-name">The Bighorn Full-Auto Mode</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/backfire">
-      <div class="rc-name">Обратный удар</div>
-      <div class="rc-meta">Backfire · SMG</div>
+      <div class="rc-name">Backfire</div>
+      <div class="rc-meta">SMG</div>
     </a>
     <a class="related-card" href="/en/exotic/lady-death">
-      <div class="rc-name">Леди Смерть</div>
-      <div class="rc-meta">Lady Death · SMG</div>
+      <div class="rc-name">Lady Death</div>
+      <div class="rc-meta">SMG</div>
     </a>
     <a class="related-card" href="/en/exotic/ouroboros">
-      <div class="rc-name">Уроборос</div>
-      <div class="rc-meta">Ouroboros · SMG</div>
+      <div class="rc-name">Ouroboros</div>
+      <div class="rc-meta">SMG</div>
     </a>
     <a class="related-card" href="/en/exotic/oxpecker">
-      <div class="rc-name">Волоклюй</div>
-      <div class="rc-meta">Oxpecker · SMG</div>
+      <div class="rc-name">Oxpecker</div>
+      <div class="rc-meta">SMG</div>
     </a>
     <a class="related-card" href="/en/exotic/the-chatterbox">
-      <div class="rc-name">Трещотка</div>
-      <div class="rc-meta">The Chatterbox · SMG</div>
+      <div class="rc-name">The Chatterbox</div>
+      <div class="rc-meta">SMG</div>
     </a>
     <a class="related-card" href="/en/exotic/big-alejandro">
-      <div class="rc-name">Большой Алехандро</div>
-      <div class="rc-meta">Big Alejandro · LMG</div>
+      <div class="rc-name">Big Alejandro</div>
+      <div class="rc-meta">LMG</div>
     </a>
     <a class="related-card" href="/en/exotic/bluescreen">
-      <div class="rc-name">Синий экран</div>
-      <div class="rc-meta">Bluescreen · LMG</div>
+      <div class="rc-name">Bluescreen</div>
+      <div class="rc-meta">LMG</div>
     </a>
     <a class="related-card" href="/en/exotic/bullet-king">
-      <div class="rc-name">Король Стрелков</div>
-      <div class="rc-meta">Bullet King · LMG</div>
+      <div class="rc-name">Bullet King</div>
+      <div class="rc-meta">LMG</div>
     </a>
     <a class="related-card" href="/en/exotic/iron-lung">
-      <div class="rc-name">Железный лун</div>
-      <div class="rc-meta">Iron Lung · LMG</div>
+      <div class="rc-name">Iron Lung</div>
+      <div class="rc-meta">LMG</div>
     </a>
     <a class="related-card" href="/en/exotic/pakhan">
-      <div class="rc-name">Пахан</div>
-      <div class="rc-meta">Pakhan · LMG</div>
+      <div class="rc-name">Pakhan</div>
+      <div class="rc-meta">LMG</div>
     </a>
     <a class="related-card" href="/en/exotic/pestilence">
-      <div class="rc-name">Мор</div>
-      <div class="rc-meta">Pestilence · LMG</div>
+      <div class="rc-name">Pestilence</div>
+      <div class="rc-meta">LMG</div>
     </a>
     <a class="related-card" href="/en/exotic/bittersweet">
-      <div class="rc-name">Горькая радость</div>
-      <div class="rc-meta">Bittersweet · MMR</div>
+      <div class="rc-name">Bittersweet</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/diamondback">
-      <div class="rc-name">Гремучник</div>
-      <div class="rc-meta">Diamondback · AR</div>
+      <div class="rc-name">Diamondback</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/doctor-home">
-      <div class="rc-name">Домашний доктор</div>
-      <div class="rc-meta">Doctor Home · Rifle</div>
+      <div class="rc-name">Doctor Home</div>
+      <div class="rc-meta">Rifle</div>
     </a>
     <a class="related-card" href="/en/exotic/merciless">
-      <div class="rc-name">Безжалостный</div>
-      <div class="rc-meta">Merciless · AR</div>
+      <div class="rc-name">Merciless</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/ruthless">
-      <div class="rc-name">Беспощадный</div>
-      <div class="rc-meta">Ruthless · AR</div>
+      <div class="rc-name">Ruthless</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/the-ravenous">
-      <div class="rc-name">Обжора</div>
-      <div class="rc-meta">The Ravenous · Rifle</div>
+      <div class="rc-name">The Ravenous</div>
+      <div class="rc-meta">Rifle</div>
     </a>
     <a class="related-card" href="/en/exotic/vindicator">
-      <div class="rc-name">Мститель</div>
-      <div class="rc-meta">Vindicator · AR</div>
+      <div class="rc-name">Vindicator</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/dread-edict">
-      <div class="rc-name">Суровый приговор</div>
-      <div class="rc-meta">Dread Edict · MMR</div>
+      <div class="rc-name">Dread Edict</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/mantis">
-      <div class="rc-name">Богомол</div>
-      <div class="rc-meta">Mantis · MMR</div>
+      <div class="rc-name">Mantis</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/nemesis">
-      <div class="rc-name">Немезида</div>
-      <div class="rc-meta">Nemesis · MMR</div>
+      <div class="rc-name">Nemesis</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/sacrum-imperium">
       <div class="rc-name">Sacrum Imperium</div>
       <div class="rc-meta">Sacrum Imperium · MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/shroud">
-      <div class="rc-name">Саван</div>
-      <div class="rc-meta">Shroud · MMR</div>
+      <div class="rc-name">Shroud</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/bighorn">
-      <div class="rc-name">Толсторог (MMR)</div>
-      <div class="rc-meta">Bighorn · MMR</div>
+      <div class="rc-name">Bighorn</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/lullaby">
-      <div class="rc-name">Колыбельная</div>
-      <div class="rc-meta">Lullaby · SG</div>
+      <div class="rc-name">Lullaby</div>
+      <div class="rc-meta">SG</div>
     </a>
     <a class="related-card" href="/en/exotic/overlord">
-      <div class="rc-name">Властелин</div>
-      <div class="rc-meta">Overlord · SG</div>
+      <div class="rc-name">Overlord</div>
+      <div class="rc-meta">SG</div>
     </a>
     <a class="related-card" href="/en/exotic/scorpio">
-      <div class="rc-name">Скорпион</div>
-      <div class="rc-meta">Scorpio · SG</div>
+      <div class="rc-name">Scorpio</div>
+      <div class="rc-meta">SG</div>
     </a>
     <a class="related-card" href="/en/exotic/sweet-dreams">
-      <div class="rc-name">Сладкий сон</div>
-      <div class="rc-meta">Sweet Dreams · SG</div>
+      <div class="rc-name">Sweet Dreams</div>
+      <div class="rc-meta">SG</div>
     </a>
     <a class="related-card" href="/en/exotic/busy-little-bee">
-      <div class="rc-name">Трудолюбивая пчелка</div>
-      <div class="rc-meta">Busy Little Bee · Pistol</div>
+      <div class="rc-name">Busy Little Bee</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/liberty">
-      <div class="rc-name">Свобода</div>
-      <div class="rc-meta">Liberty · Pistol</div>
+      <div class="rc-name">Liberty</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/mosquito">
-      <div class="rc-name">Москит</div>
-      <div class="rc-meta">Mosquito · Pistol</div>
+      <div class="rc-name">Mosquito</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/regulus">
-      <div class="rc-name">Регул</div>
-      <div class="rc-meta">Regulus · Pistol</div>
+      <div class="rc-name">Regulus</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/tempest">
-      <div class="rc-name">Буря</div>
-      <div class="rc-meta">Tempest · Pistol</div>
+      <div class="rc-name">Tempest</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/whiplash">
-      <div class="rc-name">Хлыст</div>
-      <div class="rc-meta">Whiplash · Pistol</div>
+      <div class="rc-name">Whiplash</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/sheriff">
-      <div class="rc-name">Шериф</div>
-      <div class="rc-meta">Sheriff · SG</div>
+      <div class="rc-name">Sheriff</div>
+      <div class="rc-meta">SG</div>
     </a>
     <a class="related-card" href="/en/exotic/the-bighorn">
-      <div class="rc-name">Толсторог</div>
-      <div class="rc-meta">The Bighorn · AR</div>
+      <div class="rc-name">The Bighorn</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/the-littlehorn">
-      <div class="rc-name">Худорог</div>
-      <div class="rc-meta">The Littlehorn · Rifle</div>
+      <div class="rc-name">The Littlehorn</div>
+      <div class="rc-meta">Rifle</div>
     </a>
     <a class="related-card" href="/en/exotic/beagle-bearer">
-      <div class="rc-name">Ослиное знамя</div>
-      <div class="rc-meta">Beagle Bearer · Rifle</div>
+      <div class="rc-name">Beagle Bearer</div>
+      <div class="rc-meta">Rifle</div>
     </a>
     <a class="related-card" href="/en/exotic/the-satiated">
-      <div class="rc-name">Проглот</div>
-      <div class="rc-meta">The Satiated · Rifle</div>
+      <div class="rc-name">The Satiated</div>
+      <div class="rc-meta">Rifle</div>
     </a>
     <a class="related-card" href="/en/exotic/warlord">
-      <div class="rc-name">Воевода</div>
-      <div class="rc-meta">Warlord · AR</div>
+      <div class="rc-name">Warlord</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/liberator">
-      <div class="rc-name">Освободитель</div>
-      <div class="rc-meta">Liberator · AR</div>
+      <div class="rc-name">Liberator</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/caduceus">
-      <div class="rc-name">Кадуцей</div>
-      <div class="rc-meta">Caduceus · AR</div>
+      <div class="rc-name">Caduceus</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/hungry-hog">
-      <div class="rc-name">Пожиратель rounds</div>
-      <div class="rc-meta">Hungry Hog · AR</div>
+      <div class="rc-name">Hungry Hog</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/historian">
-      <div class="rc-name">Историк</div>
-      <div class="rc-meta">Historian · MMR</div>
+      <div class="rc-name">Historian</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/tenebrae">
-      <div class="rc-name">Сумерки</div>
-      <div class="rc-meta">Tenebrae · MMR</div>
+      <div class="rc-name">Tenebrae</div>
+      <div class="rc-meta">MMR</div>
     </a>
     <a class="related-card" href="/en/exotic/centurion">
-      <div class="rc-name">Центурион</div>
-      <div class="rc-meta">Centurion · Pistol</div>
+      <div class="rc-name">Centurion</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/damascus">
-      <div class="rc-name">Дамаск</div>
-      <div class="rc-meta">Damascus · Pistol</div>
+      <div class="rc-name">Damascus</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/golden-rhino">
-      <div class="rc-name">Золотой Рино</div>
-      <div class="rc-meta">Golden Rhino · Pistol</div>
+      <div class="rc-name">Golden Rhino</div>
+      <div class="rc-meta">Pistol</div>
     </a>
     <a class="related-card" href="/en/exotic/cassidy">
-      <div class="rc-name">Кэссиди</div>
-      <div class="rc-meta">Cassidy · SG</div>
+      <div class="rc-name">Cassidy</div>
+      <div class="rc-meta">SG</div>
     </a>
     <a class="related-card" href="/en/exotic/engraved-double-barrel-sawed-off">
-      <div class="rc-name">Двуствольный обрез с гравировкой</div>
-      <div class="rc-meta">Engraved Double Barrel Sawed Off · SG</div>
+      <div class="rc-name">Engraved Double Barrel Sawed Off</div>
+      <div class="rc-meta">SG</div>
     </a>
     <a class="related-card" href="/en/exotic/medved">
-      <div class="rc-name">Медведь</div>
-      <div class="rc-meta">Medved · SG</div>
+      <div class="rc-name">Medved</div>
+      <div class="rc-meta">SG</div>
     </a>
     <a class="related-card" href="/en/exotic/midas">
-      <div class="rc-name">Мидас</div>
-      <div class="rc-meta">Midas · AR</div>
+      <div class="rc-name">Midas</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/hildr">
-      <div class="rc-name">Хильдур</div>
-      <div class="rc-meta">Hildr · AR</div>
+      <div class="rc-name">Hildr</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/eir">
-      <div class="rc-name">Эйр</div>
-      <div class="rc-meta">Eir · AR</div>
+      <div class="rc-name">Eir</div>
+      <div class="rc-meta">AR</div>
     </a>
     <a class="related-card" href="/en/exotic/acosta-s-go-bag">
-      <div class="rc-name">Сумка Акосты</div>
-      <div class="rc-meta">Acosta's Go-Bag · Рюкзак</div>
+      <div class="rc-name">Acosta's Go-Bag</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/exotic/acosta-s-kneepads">
-      <div class="rc-name">Наколенники Акосты</div>
-      <div class="rc-meta">Acosta's Kneepads · Наколенники</div>
+      <div class="rc-name">Acosta's Kneepads</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/exotic/beacon">
-      <div class="rc-name">Маяк</div>
-      <div class="rc-meta">Beacon · Бронежилет</div>
+      <div class="rc-name">Beacon</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/exotic/birdie-s-quick-fix">
-      <div class="rc-name">Аварийный набор Птички</div>
-      <div class="rc-meta">Birdie’s Quick Fix · Рюкзак</div>
+      <div class="rc-name">Birdie’s Quick Fix</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/exotic/blacklisters">
-      <div class="rc-name">Черный список</div>
-      <div class="rc-meta">Blacklisters · Наколенники</div>
+      <div class="rc-name">Blacklisters</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/exotic/bloody-knuckles">
-      <div class="rc-name">Кровавый кастет</div>
-      <div class="rc-meta">Bloody Knuckles · Перчатки</div>
+      <div class="rc-name">Bloody Knuckles</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/exotic/btsu-datagloves">
-      <div class="rc-name">Инфоперчатки черных бивней</div>
-      <div class="rc-meta">BTSU Datagloves · Перчатки</div>
+      <div class="rc-name">BTSU Datagloves</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/exotic/catalyst">
-      <div class="rc-name">Катализатор</div>
-      <div class="rc-meta">Catalyst · Маска</div>
+      <div class="rc-name">Catalyst</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/exotic/catharsis">
-      <div class="rc-name">Катарсис</div>
-      <div class="rc-meta">Catharsis · Маска</div>
+      <div class="rc-name">Catharsis</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/exotic/centurion-s-scabbard">
-      <div class="rc-name">Ножны Центуриона</div>
-      <div class="rc-meta">Centurion’s Scabbard · Кобура</div>
+      <div class="rc-name">Centurion’s Scabbard</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/exotic/collector">
-      <div class="rc-name">Собиратель</div>
-      <div class="rc-meta">Collector · Бронежилет</div>
+      <div class="rc-name">Collector</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/exotic/coyote-s-mask">
-      <div class="rc-name">Койот</div>
-      <div class="rc-meta">Coyote’s Mask · Маска</div>
+      <div class="rc-name">Coyote’s Mask</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/exotic/dodge-city-gunslinger">
-      <div class="rc-name">Кобура Стрелка из Додж-Сити</div>
-      <div class="rc-meta">Dodge City Gunslinger · Кобура</div>
+      <div class="rc-name">Dodge City Gunslinger</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/exotic/dodge-city-gunslinger-s-holster">
-      <div class="rc-name">Кобура стрелка из Додж-Сити</div>
-      <div class="rc-meta">Dodge City Gunslinger's Holster · Кобура</div>
+      <div class="rc-name">Dodge City Gunslinger's Holster</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/exotic/exodus">
-      <div class="rc-name">Исход</div>
-      <div class="rc-meta">Exodus · Перчатки</div>
+      <div class="rc-name">Exodus</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/exotic/exodus-gloves">
-      <div class="rc-name">Перчатки Исход</div>
-      <div class="rc-meta">Exodus Gloves · Перчатки</div>
+      <div class="rc-name">Exodus Gloves</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/exotic/harrier-pride">
-      <div class="rc-name">Гордость Харриерс</div>
-      <div class="rc-meta">Harrier Pride · Рюкзак</div>
+      <div class="rc-name">Harrier Pride</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/exotic/imperial-dynasty">
-      <div class="rc-name">Императорская династия</div>
-      <div class="rc-meta">Imperial Dynasty · Кобура</div>
+      <div class="rc-name">Imperial Dynasty</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/exotic/investor">
-      <div class="rc-name">Инвестор</div>
-      <div class="rc-meta">Investor · Маска</div>
+      <div class="rc-name">Investor</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/exotic/kendra-s-liberty">
-      <div class="rc-name">Свобода</div>
-      <div class="rc-meta">Kendra's Liberty · Пистолеты</div>
+      <div class="rc-name">Kendra's Liberty</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/exotic/memento">
       <div class="rc-name">Memento</div>
-      <div class="rc-meta">Memento · Рюкзак</div>
+      <div class="rc-meta">Memento · Backpack</div>
     </a>
     <a class="related-card" href="/en/exotic/merciless-ruthless">
-      <div class="rc-name">Безжалостный</div>
-      <div class="rc-meta">Merciless / Ruthless · Винтовки</div>
+      <div class="rc-name">Merciless / Ruthless</div>
+      <div class="rc-meta">Rifles</div>
     </a>
     <a class="related-card" href="/en/exotic/mosquito-song">
-      <div class="rc-name">Москит</div>
-      <div class="rc-meta">Mosquito Song · Пистолеты</div>
+      <div class="rc-name">Mosquito Song</div>
+      <div class="rc-meta">Pistols</div>
     </a>
     <a class="related-card" href="/en/exotic/nimble-holster">
-      <div class="rc-name">Гибкая кобура</div>
-      <div class="rc-meta">Nimble Holster · Кобура</div>
+      <div class="rc-name">Nimble Holster</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/exotic/ninjabike-bag">
-      <div class="rc-name">Курьерский рюкзак «ВелоНиндзя»</div>
-      <div class="rc-meta">NinjaBike Bag · Рюкзак</div>
+      <div class="rc-name">NinjaBike Bag</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/exotic/ninjabike-kneepads">
-      <div class="rc-name">Наколенники ВелоНиндзя</div>
-      <div class="rc-meta">NinjaBike Kneepads · Наколенники</div>
+      <div class="rc-name">NinjaBike Kneepads</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/exotic/ninjabike-messenger">
-      <div class="rc-name">Курьерский ВелоНиндзя</div>
-      <div class="rc-meta">NinjaBike Messenger · Рюкзак</div>
+      <div class="rc-name">NinjaBike Messenger</div>
+      <div class="rc-meta">Backpack</div>
     </a>
     <a class="related-card" href="/en/exotic/ninjabike-messenger-kneepads">
-      <div class="rc-name">Курьерские наколенники ВелоНиндзя</div>
-      <div class="rc-meta">NinjaBike Messenger Kneepads · Наколенники</div>
+      <div class="rc-name">NinjaBike Messenger Kneepads</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/exotic/overdogs">
-      <div class="rc-name">Претенденты на победу</div>
-      <div class="rc-meta">Overdogs · Перчатки</div>
+      <div class="rc-name">Overdogs</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/exotic/provocator">
-      <div class="rc-name">Провокатор</div>
-      <div class="rc-meta">Provocator · Бронежилет</div>
+      <div class="rc-name">Provocator</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/exotic/ridgeway-s-pride">
-      <div class="rc-name">Гордость Риджвея</div>
-      <div class="rc-meta">Ridgeway's Pride · Бронежилет</div>
+      <div class="rc-name">Ridgeway's Pride</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/exotic/rugged-gauntlets">
-      <div class="rc-name">Особо прочные перчатки</div>
-      <div class="rc-meta">Rugged Gauntlets · Перчатки</div>
+      <div class="rc-name">Rugged Gauntlets</div>
+      <div class="rc-meta">Gloves</div>
     </a>
     <a class="related-card" href="/en/exotic/sawyer-s-kneepads">
-      <div class="rc-name">Наколенники Сойер</div>
-      <div class="rc-meta">Sawyer’s Kneepads · Наколенники</div>
+      <div class="rc-name">Sawyer’s Kneepads</div>
+      <div class="rc-meta">Kneepads</div>
     </a>
     <a class="related-card" href="/en/exotic/shocker-punch">
-      <div class="rc-name">Шоковый удар</div>
-      <div class="rc-meta">Shocker Punch · Кобура</div>
+      <div class="rc-name">Shocker Punch</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/exotic/sweet-dreams-lullaby">
-      <div class="rc-name">Сладкий сон</div>
-      <div class="rc-meta">Sweet Dreams / Lullaby · Дробовики</div>
+      <div class="rc-name">Sweet Dreams / Lullaby</div>
+      <div class="rc-meta">Shotguns</div>
     </a>
     <a class="related-card" href="/en/exotic/tardigrade-armor-system">
-      <div class="rc-name">Система брони Тихоходка</div>
-      <div class="rc-meta">Tardigrade Armor System · Бронежилет</div>
+      <div class="rc-name">Tardigrade Armor System</div>
+      <div class="rc-meta">Chest</div>
     </a>
     <a class="related-card" href="/en/exotic/the-catalyst">
-      <div class="rc-name">Катализатор</div>
-      <div class="rc-meta">The Catalyst · Маска</div>
+      <div class="rc-name">The Catalyst</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/exotic/tinkerer">
-      <div class="rc-name">Кустарь</div>
-      <div class="rc-meta">Tinkerer · Маска</div>
+      <div class="rc-name">Tinkerer</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/exotic/vile">
-      <div class="rc-name">Злодей</div>
-      <div class="rc-meta">Vile · Маска</div>
+      <div class="rc-name">Vile</div>
+      <div class="rc-meta">Mask</div>
     </a>
     <a class="related-card" href="/en/exotic/waveform">
-      <div class="rc-name">Форма волны</div>
-      <div class="rc-meta">Waveform · Кобура</div>
+      <div class="rc-name">Waveform</div>
+      <div class="rc-meta">Holster</div>
     </a>
     <a class="related-card" href="/en/exotic/momento">
       <div class="rc-name">Momento</div>
       <div class="rc-meta">Momento · bp</div>
     </a>
     <a class="related-card" href="/en/exotic/birdie-s-quick-fix-pack">
-      <div class="rc-name">Аварийный набор Птички</div>
-      <div class="rc-meta">Birdie's Quick Fix Pack · bp</div>
+      <div class="rc-name">Birdie's Quick Fix Pack</div>
+      <div class="rc-meta">bp</div>
     </a>
     <a class="related-card" href="/en/exotic/ninjabike-messenger-backpack">
-      <div class="rc-name">Курьерский рюкзак ВелоНиндзя</div>
-      <div class="rc-meta">NinjaBike Messenger Backpack · bp</div>
+      <div class="rc-name">NinjaBike Messenger Backpack</div>
+      <div class="rc-meta">bp</div>
     </a>
     <a class="related-card" href="/en/exotic/ridgeway-s-shame">
-      <div class="rc-name">Позор Риджвея</div>
-      <div class="rc-meta">Ridgeway's Shame · chest</div>
+      <div class="rc-name">Ridgeway's Shame</div>
+      <div class="rc-meta">chest</div>
     </a>
     <a class="related-card" href="/en/exotic/rathbone-s-gloves">
-      <div class="rc-name">Перчатки Рэтбоуна</div>
-      <div class="rc-meta">Rathbone's Gloves · gloves</div>
+      <div class="rc-name">Rathbone's Gloves</div>
+      <div class="rc-meta">gloves</div>
     </a>
     <a class="related-card" href="/en/exotic/burly-knuckles">
-      <div class="rc-name">Курвовый кастет</div>
-      <div class="rc-meta">Burly Knuckles · gloves</div>
+      <div class="rc-name">Burly Knuckles</div>
+      <div class="rc-meta">gloves</div>
     </a>
     <a class="related-card" href="/en/exotic/dodge-city-mudslinger-s-holster">
-      <div class="rc-name">Кобура куробоя из Додж-Сити</div>
-      <div class="rc-meta">Dodge City Mudslinger's Holster · holster</div>
+      <div class="rc-name">Dodge City Mudslinger's Holster</div>
+      <div class="rc-meta">holster</div>
     </a>
     <a class="related-card" href="/en/exotic/bikeninja-messenger-kneepads">
-      <div class="rc-name">Курьерские наколенники НиндзяВело</div>
-      <div class="rc-meta">BikeNinja Messenger Kneepads · knees</div>
+      <div class="rc-name">BikeNinja Messenger Kneepads</div>
+      <div class="rc-meta">knees</div>
     </a>
     <a class="related-card" href="/en/exotic/dogface">
-      <div class="rc-name">Морда собаки</div>
-      <div class="rc-meta">Dogface · mask</div>
+      <div class="rc-name">Dogface</div>
+      <div class="rc-meta">mask</div>
     </a>
   </div>
   <div class="ad-slot ad-bottom"></div>

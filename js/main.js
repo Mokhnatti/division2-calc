@@ -568,11 +568,17 @@ let modFilter="all";
 
 function openSlot(slot){
   curSlot=slot;
-  document.getElementById("mod-title").textContent="Выбор: "+SLOT_META[slot].label;
+  const isEn=currentLang==="en";
+  document.getElementById("mod-title").textContent=(isEn?"Choose: ":"Выбор: ")+SLOT_META[slot].label;
   document.getElementById("mod-s1").value="";
   document.getElementById("mod-s2").value="";
   modFilter="all";
-  document.querySelectorAll("#mod-filters .mf-btn").forEach(b=>b.classList.toggle("on",b.dataset.k==="all"));
+  document.getElementById("mod-filters").innerHTML=
+    `<button class="mf-btn on" data-k="all">${isEn?"All":"Все"}</button>`+
+    `<button class="mf-btn" data-k="green">${isEn?"Sets":"Комплекты"}</button>`+
+    `<button class="mf-btn" data-k="brand">${isEn?"Brands":"Бренды"}</button>`+
+    `<button class="mf-btn" data-k="named">${isEn?"Named":"Именные"}</button>`+
+    `<button class="mf-btn" data-k="exotic">${isEn?"Exotic":"Экзотики"}</button>`;
   document.getElementById("slot-modal").classList.add("open");
   renderSlotItems();
   setTimeout(()=>document.getElementById("mod-s1").focus(),50);
@@ -1540,8 +1546,28 @@ function _checkTalentReq(talentName, isPerfect){
   const parts = [];
   if(req.requires_attribute_threshold){
     const r = req.requires_attribute_threshold;
-    const what = r.attr_color ? `${r.min_count}+ ${r.attr_color} атрибутов` : `${r.min_count}+ ${r.attr_type} атрибутов`;
-    parts.push(`⚠ ${what}`);
+    const isEn2 = currentLang==='en';
+    let what = '';
+    if(r.core_offensive_min !== undefined){
+      what = isEn2 ? `${r.core_offensive_min}+ offensive core (red)` : `${r.core_offensive_min}+ красных core`;
+    } else if(r.core_defensive_min !== undefined){
+      what = isEn2 ? `${r.core_defensive_min}+ defensive core (blue)` : `${r.core_defensive_min}+ синих core`;
+    } else if(r.core_utility_min !== undefined){
+      what = isEn2 ? `${r.core_utility_min}+ utility core (yellow)` : `${r.core_utility_min}+ жёлтых core`;
+    } else if(r.min_offensive_attrs !== undefined){
+      what = isEn2 ? `${r.min_offensive_attrs}+ offensive attributes` : `${r.min_offensive_attrs}+ offensive атрибутов`;
+    } else if(r.min_defensive_attrs !== undefined){
+      what = isEn2 ? `${r.min_defensive_attrs}+ defensive attributes` : `${r.min_defensive_attrs}+ defensive атрибутов`;
+    } else if(r.min_utility_attrs !== undefined){
+      what = isEn2 ? `${r.min_utility_attrs}+ utility attributes` : `${r.min_utility_attrs}+ utility атрибутов`;
+    } else if(r.attr_color && r.min_count !== undefined){
+      what = `${r.min_count}+ ${r.attr_color}`;
+    } else if(r.attr_type && r.min_count !== undefined){
+      what = `${r.min_count}+ ${r.attr_type}`;
+    } else if(r.note){
+      what = r.note;
+    }
+    if(what) parts.push(`⚠ ${what}`);
   }
   if(req.applicable_weapon_classes){
     parts.push(`только ${req.applicable_weapon_classes.join('/')}`);
@@ -2883,19 +2909,20 @@ function getWeapon(){
 let wpnModFilterKind="all"; // all/base/named/exotic
 let wpnModFilterCat="all";  // all/AR/SMG/LMG/MMR/Rifle/SG/Pistol
 function openWpnSlot(){
-  document.getElementById("mod-title").textContent="Выбор оружия";
+  const isEn=currentLang==="en";
+  document.getElementById("mod-title").textContent=isEn?"Choose weapon":"Выбор оружия";
   document.getElementById("mod-s1").value="";
   document.getElementById("mod-s2").value="";
   wpnModFilterKind="all";wpnModFilterCat="all";
   curSlot="__weapon__";
   // Replace filter bar with weapon-specific
   document.getElementById("mod-filters").innerHTML=
-    '<button class="mf-btn on" data-wk="all">Все</button>'+
-    '<button class="mf-btn" data-wk="base">Базовые</button>'+
-    '<button class="mf-btn" data-wk="named">Именные</button>'+
-    '<button class="mf-btn" data-wk="exotic">Экзотики</button>'+
+    `<button class="mf-btn on" data-wk="all">${isEn?"All":"Все"}</button>`+
+    `<button class="mf-btn" data-wk="base">${isEn?"Base":"Базовые"}</button>`+
+    `<button class="mf-btn" data-wk="named">${isEn?"Named":"Именные"}</button>`+
+    `<button class="mf-btn" data-wk="exotic">${isEn?"Exotic":"Экзотики"}</button>`+
     '<span style="width:10px"></span>'+
-    '<button class="mf-btn on" data-wc="all">Все типы</button>'+
+    `<button class="mf-btn on" data-wc="all">${isEn?"All types":"Все типы"}</button>`+
     '<button class="mf-btn" data-wc="AR">AR</button>'+
     '<button class="mf-btn" data-wc="SMG">SMG</button>'+
     '<button class="mf-btn" data-wc="LMG">LMG</button>'+
@@ -2918,25 +2945,35 @@ function renderWpnList(){
     const parts=[w.name,w.en||"",w.cat,w.tal||"",w.tal_desc||"",w.base||""].join(" ").toLowerCase();
     return qs.every(q=>q.split(/\s+/).every(wrd=>parts.includes(wrd)));
   });
+  const isEn=currentLang==="en";
+  const loc=isEn?"en":"ru";
+  const magLbl=isEn?"mag":"маг";
+  const secLbl=isEn?"s":"с";
+  const baseLbl=isEn?"base":"базовое";
+  const notFoundMsg=isEn?"Nothing found":"Ничего не найдено";
   const html=filtered.slice(0,300).map(w=>{
     const kindClass=w.kind==="base"?"brand":w.kind==="named"?"named":"exotic";
-    const kindLbl=w.kind==="base"?"Базовое":w.kind==="named"?"Именное":"Экзотик";
+    const kindLbl=isEn?(w.kind==="base"?"Base":w.kind==="named"?"Named":"Exotic"):(w.kind==="base"?"Базовое":w.kind==="named"?"Именное":"Экзотик");
     const tagClass=w.kind==="base"?"b-brand":w.kind==="named"?"b-named":"b-exotic";
-    const stats=`<span style="color:var(--orange)">${w.dmg.toLocaleString("ru")}</span> · ${w.rpm}rpm · ${w.mag}маг · ${w.reload}с`;
-    const tal=w.tal&&w.tal!=="—"?`<div class="mi-tal">${w.tal}</div>`:"";
-    const tald=w.tal_desc?`<div class="mi-desc">${w.tal_desc}</div>`:"";
-    const base=w.base?`<div class="mi-desc" style="color:#555">базовое: ${w.base}</div>`:"";
+    const stats=`<span style="color:var(--orange)">${w.dmg.toLocaleString(loc)}</span> · ${w.rpm}rpm · ${w.mag}${magLbl} · ${w.reload}${secLbl}`;
+    const primaryName=isEn?(w.en||w.name):(w.name||w.en);
+    const secondaryName=isEn?(w.name&&w.name!==primaryName?w.name:""):(w.en&&w.en!==primaryName?w.en:"");
+    const talName=isEn?(w.tal||w.tal_ru||""):(w.tal_ru||w.tal||"");
+    const talDescTxt=isEn?(w.tal_desc||w.tal_desc_ru||""):(w.tal_desc_ru||w.tal_desc||"");
+    const tal=talName&&talName!=="—"?`<div class="mi-tal">${talName}</div>`:"";
+    const tald=talDescTxt?`<div class="mi-desc">${talDescTxt}</div>`:"";
+    const base=w.base?`<div class="mi-desc" style="color:#555">${baseLbl}: ${w.base}</div>`:"";
     const srcInfo=(w.kind==="named"||w.kind==="exotic")?renderSourceInfo(w.en):"";
     return`<div class="mitem" onclick="pickWpn('${w.id}')">
       <div class="mi-h">
-        <div><span class="mi-n ${kindClass}">${w.name}</span>${wikiIcon(w.en||w.name)} ${w.en?`<span class="mi-en">${w.en}</span>`:""}</div>
+        <div><span class="mi-n ${kindClass}">${primaryName}</span>${wikiIcon(w.en||w.name)} ${secondaryName?`<span class="mi-en">${secondaryName}</span>`:""}</div>
         <span class="badge ${tagClass}">${w.cat} · ${kindLbl}</span>
       </div>
       <div class="mi-desc">${stats}</div>
       ${tal}${tald}${base}${srcInfo}
     </div>`;
   }).join("");
-  document.getElementById("mod-list").innerHTML=html||'<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">Ничего не найдено</div>';
+  document.getElementById("mod-list").innerHTML=html||`<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">${notFoundMsg}</div>`;
 }
 function pickWpn(id){
   selectedWpnId=id;
@@ -2953,7 +2990,11 @@ function updateWpnBtn(){
   const kind=w.kind||"base";
   const cls=kind==="base"?"brand":kind;
   el.className="slot-btn filled "+cls;
-  el.innerHTML=`<span class="sn ${cls}">${w.name}</span><span class="ss">${w.cat} · ${w.dmg.toLocaleString("ru")} · ${w.rpm}rpm · ${w.mag}маг · ${w.reload}с</span>`;
+  const isEn=currentLang==="en";
+  const displayName=isEn?(w.en||w.name):(w.name||w.en);
+  const magLbl=isEn?"mag":"маг";
+  const secLbl=isEn?"s":"с";
+  el.innerHTML=`<span class="sn ${cls}">${displayName}</span><span class="ss">${w.cat} · ${w.dmg.toLocaleString(isEn?"en":"ru")} · ${w.rpm}rpm · ${w.mag}${magLbl} · ${w.reload}${secLbl}</span>`;
 }
 
 // Extend modal filter click handler for weapon tabs
@@ -3131,12 +3172,18 @@ function calcBuild(){
   // Show/hide custom
   document.getElementById("b-custom-sect").style.display=wpn.kind==="custom"?"block":"none";
   // Weapon info bar
+  const _isEnBar=currentLang==="en";
+  const _baseLbl=_isEnBar?"Base":"База";
+  const _totalLbl=_isEnBar?"Total dmg":"Общий урон";
+  const _magLbl=_isEnBar?"Magazine":"Магазин";
+  const _reloadLbl=_isEnBar?"Reload":"Перезарядка";
+  const _secLbl=_isEnBar?"s":"с";
   document.getElementById("b-wpn-stats").innerHTML=
-    `<div class="wpn-stat">База: <b>${wpn.dmg.toLocaleString("ru")}</b></div>`+
-    `<div class="wpn-stat" id="b-wpn-total-dmg" style="color:var(--orange);border-color:rgba(245,166,35,.3)">Общий урон: <b>—</b></div>`+
+    `<div class="wpn-stat">${_baseLbl}: <b>${wpn.dmg.toLocaleString(_isEnBar?"en":"ru")}</b></div>`+
+    `<div class="wpn-stat" id="b-wpn-total-dmg" style="color:var(--orange);border-color:rgba(245,166,35,.3)">${_totalLbl}: <b>—</b></div>`+
     `<div class="wpn-stat">RPM: <b>${wpn.rpm}</b></div>`+
-    `<div class="wpn-stat">Магазин: <b>${wpn.mag}</b></div>`+
-    `<div class="wpn-stat">Перезарядка: <b>${wpn.reload}с</b></div>`+
+    `<div class="wpn-stat">${_magLbl}: <b>${wpn.mag}</b></div>`+
+    `<div class="wpn-stat">${_reloadLbl}: <b>${wpn.reload}${_secLbl}</b></div>`+
     (wpn.tal?`<div class="wpn-stat" style="color:var(--orange);border-color:rgba(245,166,35,.3)">${talentName(wpn.tal)}</div>`:"");
   // Lock 4th-roll talent for exotic (they have fixed unique talent), show exotic talent desc
   const wpnTalSel=document.getElementById("b-wpn-tal");
@@ -3931,9 +3978,15 @@ function calcBuild(){
   if(totalDmgEl){
     const hasPeak=peakWD>tWD;
     const hasExpAmp=mEXP>0||mAMP>0;
-    totalDmgEl.innerHTML=`<div style="font-size:11px">В игре карточка: <b>${baseDmg.toLocaleString("ru")}</b> <span style="color:var(--muted);font-size:10px">(+${tWD}% WD, БЕЗ экспертизы/ампа)</span></div>`+
-      (hasExpAmp?`<div style="font-size:11px;margin-top:2px">Реальный per-shot: <b style="color:var(--green)">${realDmg.toLocaleString("ru")}</b> <span style="color:var(--muted);font-size:10px">(+${mEXP}% exp × +${mAMP}% amp)</span></div>`:"")+
-      (hasPeak?`<div style="font-size:11px;margin-top:2px">Пик со стаками: <b style="color:var(--orange)">${peakDmg.toLocaleString("ru")}</b> <span style="color:#f5a623;font-size:10px">(+${peakWD}% WD)</span></div>`:"");
+    const _isEnTD=currentLang==="en";
+    const _loc=_isEnTD?"en":"ru";
+    const _cardLbl=_isEnTD?"In-game card":"В игре карточка";
+    const _noExp=_isEnTD?"no expertise/amp":"БЕЗ экспертизы/ампа";
+    const _realLbl=_isEnTD?"Real per-shot":"Реальный per-shot";
+    const _peakLbl=_isEnTD?"Peak with stacks":"Пик со стаками";
+    totalDmgEl.innerHTML=`<div style="font-size:11px">${_cardLbl}: <b>${baseDmg.toLocaleString(_loc)}</b> <span style="color:var(--muted);font-size:10px">(+${tWD}% WD, ${_noExp})</span></div>`+
+      (hasExpAmp?`<div style="font-size:11px;margin-top:2px">${_realLbl}: <b style="color:var(--green)">${realDmg.toLocaleString(_loc)}</b> <span style="color:var(--muted);font-size:10px">(+${mEXP}% exp × +${mAMP}% amp)</span></div>`:"")+
+      (hasPeak?`<div style="font-size:11px;margin-top:2px">${_peakLbl}: <b style="color:var(--orange)">${peakDmg.toLocaleString(_loc)}</b> <span style="color:#f5a623;font-size:10px">(+${peakWD}% WD)</span></div>`:"");
   }
   // Simpson-ish average over 10s window (sustained fight)
   const samplesAvg=[0,1,2,3,5,7,10].map(tt=>dpsAtTime(wpn,tWD,tROF,tMAG,tCHC,tCHD,tHSD,mHSR,tRELOAD,mOOCeff,mDTAeff,activeStacks,hasChest,hasBP,tt,mDTHeff).dps);
@@ -4293,7 +4346,8 @@ function runBuildValidation(ctx){
   }
 
   // Empty chest/bp for stack sets
-  const stackSets=Object.entries(cnt).filter(([nm,c])=>c>=4&&SB[nm]&&SB[nm].stacks);
+  const STACKING_SET_NAMES=["Боевое снаряжение Страйкера","Снаряжение боевика","Strikers Battlegear","Striker's Battlegear","Tipping Scales","Переломный момент","Точка разрыва","Переломная точка","Инициатива Умбра","Umbra Initiative","Umbra","Снаряжение охотника","Hunter's Fury","Ярость охотника"];
+  const stackSets=Object.entries(cnt).filter(([nm,c])=>c>=4&&(SB[nm]&&SB[nm].stacks||STACKING_SET_NAMES.includes(nm)));
   if(stackSets.length===0&&filledCount>=4){
     warns.push({level:"info",text:"В билде нет сетов со стаками — рассмотри Страйкер/Tipping Scales/Умбра/Точка разрыва для роста DPS во времени."});
   }

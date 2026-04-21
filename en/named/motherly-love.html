@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Материнская любовь (Motherly Love) — Division 2 named gear | divcalc.xyz</title>
-<meta name="description" content="Материнская любовь (Motherly Love) — named gear for Division 2. Тип: Перчатки, бренд Alps Summit 
+<title>Motherly Love (Motherly Love) — Division 2 named gear | divcalc.xyz</title>
+<meta name="description" content="Motherly Love (Motherly Love) — named gear for Division 2. Тип: Перчатки, бренд Alps Summit 
 Armament. Bonuses, stats and builds.">
-<meta property="og:title" content="Материнская любовь — Division 2">
-<meta property="og:description" content="Материнская любовь (Motherly Love) — named gear for Division 2. Тип: Перчатки, бренд Alps Summit 
+<meta property="og:title" content="Motherly Love — Division 2">
+<meta property="og:description" content="Motherly Love (Motherly Love) — named gear for Division 2. Тип: Перчатки, бренд Alps Summit 
 Armament. Bonuses, stats and builds.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://divcalc.xyz/en/named/motherly-love">
@@ -23,17 +23,18 @@ Armament. Bonuses, stats and builds.">
     // Only run on page load; don't show if cookie already set
     if (document.cookie.match(/(?:^|;\s*)d2calc_lang=(ru|en)/)) return;
     var currentIsEn = document.documentElement.lang === 'en' || /^\/en\//.test(location.pathname);
+    var currentIsRu = /^\/ru\//.test(location.pathname);
     var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
     prefLang = prefLang.toLowerCase();
     // RU page but user prefers EN → banner
-    if (!currentIsEn && prefLang.indexOf('en') === 0) {
-      var altUrl = '/en' + location.pathname + location.search;
+    if (currentIsRu && prefLang.indexOf('en') === 0) {
+      var altUrl = location.pathname.replace(/^\/ru\//, '/en/') + location.search;
       var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
       showBanner(msg);
     }
     // EN page but user prefers RU → banner
     else if (currentIsEn && prefLang.indexOf('ru') === 0) {
-      var altUrl = location.pathname.replace(/^\/en/, '') + location.search;
+      var altUrl = location.pathname.replace(/^\/en\//, '/ru/') + location.search;
       var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
       showBanner(msg);
     }
@@ -55,18 +56,18 @@ Armament. Bonuses, stats and builds.">
 </script>
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108598463,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"Материнская любовь","alternateName":"Motherly Love","description":"Материнская любовь (Motherly Love) — named gear for Division 2. Тип: Перчатки, бренд Alps Summit 
+{"@context":"https://schema.org","@type":"Product","name":"Motherly Love","alternateName":"Motherly Love","description":"Motherly Love (Motherly Love) — named gear for Division 2. Тип: Перчатки, бренд Alps Summit 
 Armament. Bonuses, stats and builds.","url":"https://divcalc.xyz/en/named/motherly-love"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divcalc.xyz/"},{"@type":"ListItem","position":2,"name":"Named","item":"https://divcalc.xyz/named/"},{"@type":"ListItem","position":3,"name":"Материнская любовь","item":"https://divcalc.xyz/named/motherly-love"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divcalc.xyz/"},{"@type":"ListItem","position":2,"name":"Named","item":"https://divcalc.xyz/en/named/"},{"@type":"ListItem","position":3,"name":"Motherly Love","item":"https://divcalc.xyz/en/named/motherly-love"}]}
 </script>
-<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/named/motherly-love">
+<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/named/motherly-love">
 <link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/named/motherly-love">
 <link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/named/motherly-love">
 </head>
 <body>
-<a href="/named/motherly-love" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
+<a href="/ru/named/motherly-love" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
 <nav class="site-nav">
   <a class="logo" href="/en/">divcalc.xyz</a>
   <div class="nav-links">
@@ -75,12 +76,12 @@ Armament. Bonuses, stats and builds.","url":"https://divcalc.xyz/en/named/mother
     <a href="/en/set/">Sets</a>
     <a href="/en/brand/">Brands</a>
   </div>
-  <a class="calc-btn" href="/en/">🔢 Calculator</a>
+  <a class="calc-btn" href="/">🔢 Calculator</a>
 </nav>
 <div class="breadcrumb">
   <a href="/en/">Home</a> <span>›</span>
   <a href="/en/named/">Named</a> <span>›</span>
-  Материнская любовь
+  Motherly Love
 </div>
 <main class="item-page">
   <div class="item-hero">
@@ -90,7 +91,7 @@ Armament. Bonuses, stats and builds.","url":"https://divcalc.xyz/en/named/mother
       <div class="en-name" style="display:none"></div>
       <div class="badges">
         <span class="badge badge-named">Named</span>
-        <span class="badge badge-cat">Перчатки</span>
+        <span class="badge badge-cat">Gloves</span>
         <span class="badge badge-brand">Alps Summit 
 Armament</span>
       </div>
@@ -102,11 +103,10 @@ Armament</span>
   <section class="stats">
     <h2>Stats</h2>
     <table class="stats-table">
-      <tr><td>Gear slot</td><td>Перчатки</td></tr>
+      <tr><td>Gear slot</td><td>Gloves</td></tr>
       <tr><td>Brand</td><td><a href="/en/brand/alps-summit-armament">Alps Summit 
 Armament</a></td></tr>
       <tr><td>Bonus</td><td>Skill Health</td></tr>
-      <tr><td>Source</td><td>Чертеж для производственной станции на 2 этапе специализации &quot;Механик&quot;</td></tr>
     </table>
   </section>
 
@@ -114,12 +114,12 @@ Armament</a></td></tr>
 
   <section class="sources" style="margin-top:14px">
       <h2>📍 Where to farm</h2>
-      <p style="color:var(--muted);font-size:13px">🌍 General world drop (any weapon pool / container)</p>
+      <p style="color:var(--muted);font-size:13px"><em style="color:var(--muted);font-size:11px">Translation coming soon</em></p>
     </section>
 
   <section class="synergy">
     <h2>Synergies</h2>
-    <p>Calculate DPS of a build with <strong>Motherly Love</strong> в <a href="/en/">divcalc.xyz calculator</a>. See also <a href="/en/brand/alps-summit-armament">other items of brand Alps Summit 
+    <p>Calculate DPS of a build with <strong>Motherly Love</strong> в <a href="/">divcalc.xyz calculator</a>. See also <a href="/en/brand/alps-summit-armament">other items of brand Alps Summit 
 Armament</a>.</p>
   </section>
 
@@ -127,20 +127,20 @@ Armament</a>.</p>
     <h2>Similar named</h2>
     <div class="related-grid">
       <a class="related-card" href="/en/named/punch-drunk">
-        <div class="rc-name">Нокдаун</div>
-        <div class="rc-meta">Punch Drunk · Маска</div>
+        <div class="rc-name">Punch Drunk</div>
+      <div class="rc-meta">Mask</div>
       </a>
       <a class="related-card" href="/en/named/nightwatcher">
-        <div class="rc-name">Ночной дозорный</div>
-        <div class="rc-meta">Nightwatcher · Маска</div>
+        <div class="rc-name">Nightwatcher</div>
+      <div class="rc-meta">Mask</div>
       </a>
       <a class="related-card" href="/en/named/chill-out">
-        <div class="rc-name">Холодок</div>
-        <div class="rc-meta">Chill Out · Маска</div>
+        <div class="rc-name">Chill Out</div>
+      <div class="rc-meta">Mask</div>
       </a>
       <a class="related-card" href="/en/named/visionario">
-        <div class="rc-name">Визионарий</div>
-        <div class="rc-meta">Visionario · Маска</div>
+        <div class="rc-name">Visionario</div>
+      <div class="rc-meta">Mask</div>
       </a>
     </div>
   </section>

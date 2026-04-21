@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Морда собаки (Dogface) — Division 2 exotic | divcalc.xyz</title>
-<meta name="description" content="Морда собаки (Dogface) — exotic gear for Division 2. Тип: mask. Talent: Морда собаки (талант). Stats, guide, best builds.">
-<meta property="og:title" content="Морда собаки — Division 2 exotic">
-<meta property="og:description" content="Морда собаки (Dogface) — exotic gear for Division 2. Тип: mask. Talent: Морда собаки (талант). Stats, guide, best builds.">
+<title>Dogface (Dogface) — Division 2 exotic | divcalc.xyz</title>
+<meta name="description" content="Dogface (Dogface) — exotic gear for Division 2. Тип: mask. Talent: Dogface (талант). Stats, guide, best builds.">
+<meta property="og:title" content="Dogface — Division 2 exotic">
+<meta property="og:description" content="Dogface (Dogface) — exotic gear for Division 2. Тип: mask. Talent: Dogface (талант). Stats, guide, best builds.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://divcalc.xyz/en/exotic/dogface">
 <meta property="og:site_name" content="divcalc.xyz">
@@ -21,17 +21,18 @@
     // Only run on page load; don't show if cookie already set
     if (document.cookie.match(/(?:^|;\s*)d2calc_lang=(ru|en)/)) return;
     var currentIsEn = document.documentElement.lang === 'en' || /^\/en\//.test(location.pathname);
+    var currentIsRu = /^\/ru\//.test(location.pathname);
     var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
     prefLang = prefLang.toLowerCase();
     // RU page but user prefers EN → banner
-    if (!currentIsEn && prefLang.indexOf('en') === 0) {
-      var altUrl = '/en' + location.pathname + location.search;
+    if (currentIsRu && prefLang.indexOf('en') === 0) {
+      var altUrl = location.pathname.replace(/^\/ru\//, '/en/') + location.search;
       var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
       showBanner(msg);
     }
     // EN page but user prefers RU → banner
     else if (currentIsEn && prefLang.indexOf('ru') === 0) {
-      var altUrl = location.pathname.replace(/^\/en/, '') + location.search;
+      var altUrl = location.pathname.replace(/^\/en\//, '/ru/') + location.search;
       var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
       showBanner(msg);
     }
@@ -53,17 +54,17 @@
 </script>
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108598463,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"Морда собаки","alternateName":"Dogface","description":"Морда собаки (Dogface) — exotic gear for Division 2. Тип: mask. Talent: Морда собаки (талант). Stats, guide, best builds.","url":"https://divcalc.xyz/en/exotic/dogface"}
+{"@context":"https://schema.org","@type":"Product","name":"Dogface","alternateName":"Dogface","description":"Dogface (Dogface) — exotic gear for Division 2. Тип: mask. Talent: Dogface (талант). Stats, guide, best builds.","url":"https://divcalc.xyz/en/exotic/dogface"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divcalc.xyz/"},{"@type":"ListItem","position":2,"name":"Exotics","item":"https://divcalc.xyz/exotic/"},{"@type":"ListItem","position":3,"name":"Морда собаки","item":"https://divcalc.xyz/exotic/dogface"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divcalc.xyz/"},{"@type":"ListItem","position":2,"name":"Exotics","item":"https://divcalc.xyz/en/exotic/"},{"@type":"ListItem","position":3,"name":"Dogface","item":"https://divcalc.xyz/en/exotic/dogface"}]}
 </script>
-<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/exotic/dogface">
+<link rel="alternate" hreflang="ru" href="https://divcalc.xyz/ru/exotic/dogface">
 <link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/exotic/dogface">
 <link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/exotic/dogface">
 </head>
 <body>
-<a href="/exotic/dogface" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
+<a href="/ru/exotic/dogface" style="position:fixed;top:10px;right:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;z-index:9999;border:1px solid rgba(255,255,255,.2)" title="Переключить на русский">🇷🇺 RU</a>
 <nav class="site-nav">
   <a class="logo" href="/en/">divcalc.xyz</a>
   <div class="nav-links">
@@ -72,12 +73,12 @@
     <a href="/en/set/">Sets</a>
     <a href="/en/brand/">Brands</a>
   </div>
-  <a class="calc-btn" href="/en/">🔢 Calculator</a>
+  <a class="calc-btn" href="/">🔢 Calculator</a>
 </nav>
 <div class="breadcrumb">
   <a href="/en/">Home</a> <span>›</span>
   <a href="/en/exotic/">Exotics</a> <span>›</span>
-  Морда собаки
+  Dogface
 </div>
 <main class="item-page">
   <div class="item-hero">
@@ -104,9 +105,9 @@
   </section>
 
   <section class="talent">
-    <h2>Talent: Морда собаки (талант)</h2>
+    <h2>Talent: Dogface (талант)</h2>
     <div class="talent-block">
-      <h3>Морда собаки (талант)</h3>
+      <h3>Dogface (талант)</h3>
       <p>April Fools. Better luck next time.</p>
     </div>
   </section>
@@ -115,32 +116,32 @@
 
   <section class="sources" style="margin-top:14px">
       <h2>📍 Where to farm</h2>
-      <p style="color:var(--muted);font-size:13px">🌍 General world drop (any weapon pool / container)</p>
+      <p style="color:var(--muted);font-size:13px"><em style="color:var(--muted);font-size:11px">Translation coming soon</em></p>
     </section>
 
   <section class="synergy">
     <h2>Synergies</h2>
-    <p>Build the optimal loadout with <strong>Dogface</strong> в <a href="/en/">divcalc.xyz DPS calculator</a>. See also <a href="/en/set/">комплекты снаряжения</a>.</p>
+    <p>Build the optimal loadout with <strong>Dogface</strong> в <a href="/">divcalc.xyz DPS calculator</a>. See also <a href="/en/set/">комплекты снаряжения</a>.</p>
   </section>
 
   <section class="related">
     <h2>Other exotics</h2>
     <div class="related-grid">
       <a class="related-card" href="/en/exotic/acosta-s-go-bag">
-        <div class="rc-name">Сумка Акосты</div>
-        <div class="rc-meta">Acosta's Go-Bag · Рюкзак</div>
+        <div class="rc-name">Acosta's Go-Bag</div>
+      <div class="rc-meta">Backpack</div>
       </a>
       <a class="related-card" href="/en/exotic/acosta-s-kneepads">
-        <div class="rc-name">Наколенники Акосты</div>
-        <div class="rc-meta">Acosta's Kneepads · Наколенники</div>
+        <div class="rc-name">Acosta's Kneepads</div>
+      <div class="rc-meta">Kneepads</div>
       </a>
       <a class="related-card" href="/en/exotic/agitator">
-        <div class="rc-name">Агитатор</div>
-        <div class="rc-meta">Agitator · Штурмовые винтовки</div>
+        <div class="rc-name">Agitator</div>
+      <div class="rc-meta">Assault Rifles</div>
       </a>
       <a class="related-card" href="/en/exotic/backfire">
-        <div class="rc-name">Обратный удар</div>
-        <div class="rc-meta">Backfire · Пистолеты-пулемёты</div>
+        <div class="rc-name">Backfire</div>
+      <div class="rc-meta">SMGs</div>
       </a>
     </div>
   </section>

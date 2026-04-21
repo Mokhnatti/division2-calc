@@ -1,1 +1,70 @@
-﻿{    email admin@divcalc.xyz}divcalc.xyz, www.divcalc.xyz {    # SEO static files — до encode, с явным Content-Type и без Alt-Svc    @seo_static {        path /robots.txt        path /sitemap.xml        path /llms.txt        path /BingSiteAuth.xml        path /yandex_*.html        path /google*.html        path /300dc7cc2fb14cd6671f7e103f9e4df4ee58e402854c4c6380146a2da5c5b85f.txt    }    handle @seo_static {        header {            -Alt-Svc            Cache-Control "public, max-age=300, must-revalidate"            X-Content-Type-Options "nosniff"            defer        }        root * /var/www/divcalc        file_server    }    # PocketBase backend    handle /api/* {        reverse_proxy 127.0.0.1:8090    }    handle /_/* {        reverse_proxy 127.0.0.1:8090    }    # Prerender: для ботов (поисковики + AI crawlers) на корне → статический index.prerendered.html    @bots_on_root {        path /        header_regexp User-Agent "(?i)(googlebot|google-inspectiontool|bingbot|bingpreview|yandexbot|yandeximages|yandexmetrika|gptbot|chatgpt-user|oai-searchbot|perplexitybot|claudebot|claude-web|anthropic-ai|ccbot|facebookexternalhit|twitterbot|linkedinbot|slackbot|applebot|duckduckbot|baiduspider|sogou|mj12bot|ahrefsbot|semrushbot)"    }    handle @bots_on_root {        encode gzip zstd        root * /var/www/divcalc        rewrite * /index.prerendered.html        file_server    }    # Обычные пользователи + все остальные пути → SPA    handle {        encode gzip zstd        root * /var/www/divcalc        try_files {path} {path}.html /index.html        file_server    }    log {        output file /var/log/caddy/divcalc_access.log {            roll_size 100mb        }    }}
+{
+    email admin@divcalc.xyz
+}
+
+divcalc.xyz, www.divcalc.xyz {
+    # SEO static files — до encode, с явным Content-Type и без Alt-Svc
+    @seo_static {
+        path /robots.txt
+        path /sitemap.xml
+        path /llms.txt
+        path /BingSiteAuth.xml
+        path /yandex_*.html
+        path /google*.html
+        path /300dc7cc2fb14cd6671f7e103f9e4df4ee58e402854c4c6380146a2da5c5b85f.txt
+    }
+    handle @seo_static {
+        header {
+            -Alt-Svc
+            Cache-Control "public, max-age=300, must-revalidate"
+            X-Content-Type-Options "nosniff"
+            defer
+        }
+        root * /var/www/divcalc
+        file_server
+    }
+
+    # 301 редиректы со старых путей на /ru/ (миграция на /ru/ + /en/)
+    redir /exotic /ru/exotic/ 301
+    redir /named /ru/named/ 301
+    redir /set /ru/set/ 301
+    redir /brand /ru/brand/ 301
+    redir /exotic/* /ru{uri} 301
+    redir /named/* /ru{uri} 301
+    redir /set/* /ru{uri} 301
+    redir /brand/* /ru{uri} 301
+
+    # PocketBase backend
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8090
+    }
+    handle /_/* {
+        reverse_proxy 127.0.0.1:8090
+    }
+
+    # Prerender: для ботов (поисковики + AI crawlers) на корне → статический index.prerendered.html
+    @bots_on_root {
+        path /
+        header_regexp User-Agent "(?i)(googlebot|google-inspectiontool|bingbot|bingpreview|yandexbot|yandeximages|yandexmetrika|gptbot|chatgpt-user|oai-searchbot|perplexitybot|claudebot|claude-web|anthropic-ai|ccbot|facebookexternalhit|twitterbot|linkedinbot|slackbot|applebot|duckduckbot|baiduspider|sogou|mj12bot|ahrefsbot|semrushbot)"
+    }
+    handle @bots_on_root {
+        encode gzip zstd
+        root * /var/www/divcalc
+        rewrite * /index.prerendered.html
+        file_server
+    }
+
+    # Обычные пользователи + все остальные пути → статика с fallback в SPA
+    handle {
+        encode gzip zstd
+        root * /var/www/divcalc
+        try_files {path} {path}.html /index.html
+        file_server
+    }
+
+    log {
+        output file /var/log/caddy/divcalc_access.log {
+            roll_size 100mb
+        }
+    }
+}
