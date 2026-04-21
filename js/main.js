@@ -786,6 +786,21 @@ function autoBindTalent(slot, item){
   const descId = slot==='chest' ? 'b-chest-talent-desc' : 'b-bp-talent-desc';
   const descEl = document.getElementById(descId);
   if(descEl) descEl.textContent = '';
+  // Блокируем селект талантов для green/named/exotic, разблокируем для brand/пустой слот
+  const kind = item && item.kind;
+  const locked = kind==='green' || kind==='named' || kind==='exotic';
+  sel.disabled = locked;
+  sel.style.opacity = locked ? '0.55' : '';
+  sel.style.cursor = locked ? 'not-allowed' : '';
+  const isEn = currentLang==='en';
+  if(locked){
+    const lockMsg = isEn
+      ? `🔒 Talent comes from the equipped ${kind==='green'?'set':kind} piece — cannot override`
+      : `🔒 Талант задаётся ${kind==='green'?'зелёным сетом':(kind==='named'?'именной вещью':'экзотиком')} — выбор недоступен`;
+    sel.title = lockMsg;
+  } else {
+    sel.title = '';
+  }
   if(!item) return;
 
   // Source of talent name to match in GEAR_TALENTS
@@ -1687,7 +1702,7 @@ function applyBuildState(s){
   }
   // Slots
   for(const[slot,st] of Object.entries(s.slots||{})){
-    if(!st){slotState[slot]=null;updateSlotBtn(slot);continue}
+    if(!st){slotState[slot]=null;updateSlotBtn(slot);if(slot==='chest'||slot==='bp')autoBindTalent(slot,null);continue}
     const items=ITEMS_BY_SLOT[slot]||[];
     const match=items.find(it=>{
       if(it.kind!==st.k)return false;
@@ -1697,6 +1712,7 @@ function applyBuildState(s){
     });
     slotState[slot]=match||null;
     updateSlotBtn(slot);
+    if((slot==='chest'||slot==='bp') && match) autoBindTalent(slot, match);
   }
   // Manual stats
   ["chc","chd","hsd","hsrate","ooc","dta","dth","wd","reload","rof","mag","amp","expertise","wd-ar","wd-smg","wd-lmg","wd-mmr","wd-rifle","wd-sg","wd-pistol"].forEach(k=>{if(s.b&&s.b[k]!==undefined)setInput("b-"+k,s.b[k])});
