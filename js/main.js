@@ -5250,22 +5250,55 @@ function renderWeaponMods(){
 function renderSkillGearMods(){
   const host=document.getElementById("smods-content");
   if(!host)return;
+  const isEn = currentLang==='en';
+  const catLbl = {
+    drone: isEn?'🛸 Drone':'🛸 Дрон',
+    turret: isEn?'🔫 Turret':'🔫 Турель',
+    hive: isEn?'🐝 Hive':'🐝 Улей',
+    seeker: isEn?'💣 Seeker Mine':'💣 Мина-искатель',
+    firefly: isEn?'✨ Firefly':'✨ Светлячок',
+    chem_launcher: isEn?'🧪 Chem Launcher':'🧪 Хим. распылитель',
+    shield: isEn?'🛡 Shield':'🛡 Щит',
+    pulse: isEn?'📡 Pulse':'📡 Импульс',
+    sticky_bomb: isEn?'💥 Sticky Bomb':'💥 Липкая бомба',
+    decoy: isEn?'🎭 Decoy':'🎭 Обманщик',
+    recon_pack: isEn?'🎯 Recon Pack':'🎯 Разведрюкзак',
+    banshee: isEn?'👻 Banshee':'👻 Баньши',
+    other: isEn?'⚙ Other':'⚙ Прочее'
+  };
+  const slotLbl = {
+    damage: isEn?'Damage':'Урон',
+    magazine: isEn?'Magazine':'Магазин',
+    duration: isEn?'Duration':'Длительность',
+    range: isEn?'Range':'Дальность',
+    cooldown: isEn?'Cooldown':'Откат',
+    targeting: isEn?'Targeting':'Наведение',
+    speed: isEn?'Speed':'Скорость',
+    armor: isEn?'Armor':'Броня',
+    other: isEn?'Other':'Прочее'
+  };
   const bySkill={};
   for(const m of SKILL_MODS){
-    const k=m.skill_ru||"Прочее";
+    const k = m.skill_category || 'other';
     (bySkill[k]=bySkill[k]||[]).push(m);
   }
-  const skillHtml=Object.keys(bySkill).sort().map(k=>{
+  const order = ['drone','turret','hive','seeker','firefly','chem_launcher','shield','pulse','sticky_bomb','decoy','recon_pack','banshee','other'];
+  const skillHtml=order.filter(k=>bySkill[k]).map(k=>{
     const arr=bySkill[k];
-    const rows=arr.map(m=>`<tr>
-      <td style="text-align:left;color:var(--muted);font-size:11px">${escHtml(m.slot_en||"—")}</td>
-      <td style="text-align:left">${escHtml(m.stat_ru||m.stat_en||"—")}</td>
-      <td style="color:var(--orange);font-weight:700">${escHtml(m.value||"—")}</td>
-    </tr>`).join("");
+    const rows=arr.map(m=>{
+      const name = isEn ? (m.name_en||m.id) : (m.name_ru||m.name_en||m.id);
+      const tooltip = isEn ? (m.tooltip_en||m.tooltip_en_filled||'') : (m.tooltip_ru||m.tooltip_ru_filled||'');
+      const slot = slotLbl[m.mod_slot] || m.mod_slot || '—';
+      return `<tr>
+        <td style="text-align:left;color:var(--named);font-weight:600">${escHtml(name)}</td>
+        <td style="text-align:left;color:var(--muted);font-size:11px">${escHtml(slot)}</td>
+        <td style="text-align:left;font-size:11px;color:var(--text-dim,var(--muted))">${escHtml(tooltip.slice(0,120))}</td>
+      </tr>`;
+    }).join("");
     return `<div class="bsect">
-      <h3>🛠 ${escHtml(k)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
+      <h3>${catLbl[k]||k} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
       <table class="btl">
-        <thead><tr><th style="text-align:left">Слот</th><th style="text-align:left">Характеристика</th><th>Значение</th></tr></thead>
+        <thead><tr><th style="text-align:left">${isEn?'Mod':'Мод'}</th><th style="text-align:left">${isEn?'Slot':'Слот'}</th><th style="text-align:left">${isEn?'Description':'Описание'}</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>`;
