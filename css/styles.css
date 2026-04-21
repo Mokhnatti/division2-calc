@@ -1440,3 +1440,16 @@ mark { background: rgba(254,175,16,.3); color: var(--text); border-radius: 2px; 
     transition-duration: .001ms !important;
   }
 }
+
+/* Screen-reader only — visually hidden but in a11y tree */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
