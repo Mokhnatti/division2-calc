@@ -7,9 +7,9 @@ Disallow: /api/
 Disallow: /_/
 Disallow: /pb/
 
-# Build hash в URL (?b=base64) — дубли + 401
+# Build query в URL (?b=base64) — дубли
 Disallow: /*?b=*
-Disallow: /*#b=*
+# (hash #b=... не отправляется в запросе и не требует блокировки)
 
 # Внутренние/служебные
 Disallow: /data_sources/
