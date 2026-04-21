@@ -1318,12 +1318,26 @@ function computeGearStatTotals(){
       }
     }
   }
-  // SHD Watch (offensive max)
+  // SHD Watch — ALL 4 trees at MAX (offensive/defensive/skill/handling)
   const SHD = (typeof D2DATA!=='undefined' && D2DATA.SHD_WATCH) || {};
-  for(const s of (SHD.offensive_stats||[])){
-    const stat = GSP_ATTR_TO_STAT[s.attr];
-    if(!stat) continue;
-    _gspAddValue(totals, stat, s.max_total || 0);
+  const _shdMap = {
+    // offensive
+    "WeaponDamage":"wd","CritChance":"chc","CritDamage":"chd","HeadshotDamage":"hsd",
+    "DamageToTargetsOutOfCover":"ooc","Explosive":"amp",
+    // handling (reload/rof applicable to DPS)
+    "ReloadSpeed":"reload","RateOfFire":"rof","Accuracy":null,"Stability":null,
+    "MagazineSize":"mag","WeaponHandling":null,
+    // defensive (skip)
+    "Armor":null,"ExplosiveResist":null,"HazardProtection":null,
+    // skill (skip unless skill build)
+    "SkillDamage":null,"SkillHaste":null,"SkillTier":null
+  };
+  for(const treeKey of ["offensive_stats","handling_stats"]){
+    for(const s of (SHD[treeKey]||[])){
+      const stat = _shdMap[s.attr] || GSP_ATTR_TO_STAT[s.attr];
+      if(!stat) continue;
+      _gspAddValue(totals, stat, s.max_total || 0);
+    }
   }
   // Expertise: use gearExpertiseLevel (0-30), applied globally
   totals.expertise = gearExpertiseLevel;
@@ -1508,6 +1522,33 @@ function initGearTalentSelects(){
   fill(bpSel,"backpack");
 }
 
+// Check talent requirement — returns warning HTML (empty if OK)
+function _checkTalentReq(talentName, isPerfect){
+  if(!isPerfect) return ""; // Only Perfect variants have strict thresholds
+  const TR = (typeof D2DATA!=='undefined' && D2DATA.TALENT_REQUIREMENTS) || {};
+  if(!TR || !Object.keys(TR).length) return "";
+  // Normalize: "Glass Cannon" → "perfect_glass_cannon"
+  const key = "perfect_" + String(talentName||'').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,'');
+  const req = TR[key];
+  if(!req) return "";
+  const parts = [];
+  if(req.requires_attribute_threshold){
+    const r = req.requires_attribute_threshold;
+    const what = r.attr_color ? `${r.min_count}+ ${r.attr_color} атрибутов` : `${r.min_count}+ ${r.attr_type} атрибутов`;
+    parts.push(`⚠ ${what}`);
+  }
+  if(req.applicable_weapon_classes){
+    parts.push(`только ${req.applicable_weapon_classes.join('/')}`);
+  }
+  if(req.triggers_on){
+    parts.push(`триггер: ${req.triggers_on}`);
+  }
+  if(!parts.length) return "";
+  const isEn = currentLang==='en';
+  const lbl = isEn?'Requires':'Требуется';
+  return `<div style="font-size:11px;color:var(--red);margin-top:4px;padding:4px 6px;background:rgba(239,83,80,.08);border-left:2px solid var(--red);border-radius:3px"><b>${lbl}:</b> ${parts.join(' · ')}</div>`;
+}
+
 function onChestTalentChange(){
   const id=document.getElementById("b-chest-talent").value;
   const desc=document.getElementById("b-chest-talent-desc");
@@ -1518,7 +1559,8 @@ function onChestTalentChange(){
   const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
   if(t){
     const prefix=isPerfect?"⭐ СОВЕРШЕННЫЙ — ":"";
-    desc.textContent=prefix+(t.desc_ru||t.description||"");
+    const req=_checkTalentReq(t.name_en, isPerfect);
+    desc.innerHTML=`<div>${prefix}${escapeHtml(t.desc_ru||t.description||"")}</div>${req}`;
   }
 }
 
@@ -1532,7 +1574,8 @@ function onBpTalentChange(){
   const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
   if(t){
     const prefix=isPerfect?"⭐ СОВЕРШЕННЫЙ — ":"";
-    desc.textContent=prefix+(t.desc_ru||t.description||"");
+    const req=_checkTalentReq(t.name_en, isPerfect);
+    desc.innerHTML=`<div>${prefix}${escapeHtml(t.desc_ru||t.description||"")}</div>${req}`;
   }
 }
 
@@ -4354,6 +4397,16 @@ function renderTtk(base,avg,peak){
     });
   } else {
     enemies=ENEMY_HP.types||ENEMY_HP[ttkDiff]||[];
+  }
+  // Append Boss tier from enemies_detailed.json if available
+  const ED = (typeof D2DATA!=='undefined' && D2DATA.ENEMIES_DETAILED) || null;
+  if(ED){
+    const diffSlug = (ttkDiff||'normal').toLowerCase();
+    const bossKey = "boss_t40_"+diffSlug;
+    const boss = ED[bossKey];
+    if(boss && boss.hp){
+      enemies.push({name:"👹 "+(currentLang==='en'?'Boss':'Босс'), hp:boss.hp, armor:boss.armor||0});
+    }
   }
   const body=enemies.map(e=>{
     const baseEhp=(e.hp||0)+(e.armor||0);
