@@ -150,8 +150,10 @@
       </div>
     </div>
     <h1>The Division 2</h1>
+    <h2 class="sr-only">Build Calculator</h2>
     <p>Gear Sets / Brand Sets / Exotics / Named Items — Full Database</p>
 </div>
+<main>
 <div class="search-panel">
     <div class="search-row">
         <div class="s-wrap"><input type="text" id="s1" placeholder="Поиск 1 — урон в голову" autocomplete="off" aria-label="s1"><div class="search-hints" id="s1-hints" style="display:none"></div></div>
@@ -281,8 +283,6 @@
     <button class="mf-btn" onclick="openMetaBuilds()" title="Готовые мета-билды для вдохновения" style="background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.4);color:var(--orange)">🎯 Мета-билды</button>
     <div id="b-share-status" style="font-size:11px;color:var(--muted);flex-basis:100%;text-align:center;min-height:14px"></div>
   </div>
-
-  <h2 class="sr-only">Build Calculator</h2>
 
   <!-- Weapon -->
   <div class="bsect">
@@ -1036,9 +1036,9 @@
           <label>Слот</label>
           <select name="slot">
             <option value="">—</option>
-            <option>Маска</option><option>Нагрудник</option><option>Рюкзак</option>
-            <option>Перчатки</option><option>Кобура</option><option>Наколенники</option>
-            <option>Оружие</option>
+            <option value="mask">Маска</option><option value="chest">Нагрудник</option><option value="bp">Рюкзак</option>
+            <option value="gloves">Перчатки</option><option value="holster">Кобура</option><option value="knees">Наколенники</option>
+            <option value="weapon">Оружие</option>
           </select>
         </div>
       </div>
@@ -1441,6 +1441,7 @@
 </div>
 </div>
 
+</main>
 <div class="footer">mokhnatti 2026 — Division 2 Gear Database</div>
 
 <script src="js/main.js?v=cherry-20260421-14"></script>
