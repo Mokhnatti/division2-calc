@@ -52,17 +52,41 @@ function makeSlug(nameRu, nameEn) {
 const GA_CODE = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-DC8DWMXX3Z"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DC8DWMXX3Z');</script>
 <script>
-// Auto-show EN banner if user prefers English
-document.addEventListener('DOMContentLoaded',function(){
-  try{
-    if(localStorage.getItem('d2calc_lang')==='en'){
-      var b=document.createElement('div');
-      b.style.cssText='background:rgba(66,165,245,.15);border-bottom:1px solid rgba(66,165,245,.4);color:#e0e0e0;padding:8px 14px;font-size:12px;text-align:center;font-family:sans-serif';
-      b.innerHTML='🌐 This item page is in Russian only (static SEO page). Return to <a href="/" style="color:#42a5f5;text-decoration:underline">Calculator</a> for English UI.';
-      document.body.insertBefore(b,document.body.firstChild);
+// Auto-banner for EN users on RU pages / RU users on EN pages — suggest switch (no auto-redirect)
+(function(){
+  try {
+    // Only run on page load; don't show if cookie already set
+    if (document.cookie.match(/(?:^|;\\s*)d2calc_lang=(ru|en)/)) return;
+    var currentIsEn = document.documentElement.lang === 'en' || /^\\/en\\//.test(location.pathname);
+    var prefLang = (navigator.languages || [navigator.language || ''])[0] || '';
+    prefLang = prefLang.toLowerCase();
+    // RU page but user prefers EN → banner
+    if (!currentIsEn && prefLang.indexOf('en') === 0) {
+      var altUrl = '/en' + location.pathname + location.search;
+      var msg = 'English version is available. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Switch →</a>';
+      showBanner(msg);
     }
-  }catch(e){}
-});
+    // EN page but user prefers RU → banner
+    else if (currentIsEn && prefLang.indexOf('ru') === 0) {
+      var altUrl = location.pathname.replace(/^\\/en/, '') + location.search;
+      var msg = 'Доступна русская версия. <a href="' + altUrl + '" style="color:#ffc107;font-weight:bold;text-decoration:underline">Переключить →</a>';
+      showBanner(msg);
+    }
+    function showBanner(msg) {
+      document.addEventListener('DOMContentLoaded', function(){
+        var b = document.createElement('div');
+        b.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9998;background:rgba(20,20,25,.92);color:#fff;padding:10px 20px;font:13px sans-serif;text-align:center;border-bottom:1px solid rgba(255,255,255,.1)';
+        b.innerHTML = msg + ' <button id="d2dismiss" style="margin-left:10px;background:transparent;color:#aaa;border:1px solid #555;padding:2px 8px;cursor:pointer;font-size:11px;border-radius:3px">×</button>';
+        document.body.insertBefore(b, document.body.firstChild);
+        document.getElementById('d2dismiss').onclick = function(){
+          var lang = currentIsEn ? 'en' : 'ru';
+          document.cookie = 'd2calc_lang=' + lang + '; Path=/; Max-Age=31536000; SameSite=Lax';
+          b.remove();
+        };
+      });
+    }
+  } catch(e) {}
+})();
 </script>`;
 
 const YM_CODE = `<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108598463,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>`;
@@ -935,24 +959,55 @@ ${footer()}
 
 function generateSitemap(urls) {
   const today = new Date().toISOString().split('T')[0];
-  const entries = urls.map(({ loc, priority, freq }) =>
-    `  <url>
-    <loc>${loc}</loc>
+  // Each urls entry: { loc, enLoc, priority, freq }
+  const entries = [];
+  for (const u of urls) {
+    const ruUrl = u.loc;
+    const enUrl = u.enLoc || u.loc.replace('https://divcalc.xyz/', 'https://divcalc.xyz/en/');
+    // RU entry
+    entries.push(`  <url>
+    <loc>${ruUrl}</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>${freq || 'monthly'}</changefreq>
-    <priority>${priority || '0.6'}</priority>
-  </url>`
-  ).join('\n');
+    <changefreq>${u.freq || 'monthly'}</changefreq>
+    <priority>${u.priority || '0.6'}</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="${ruUrl}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>
+  </url>`);
+    // EN entry
+    entries.push(`  <url>
+    <loc>${enUrl}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${u.freq || 'monthly'}</changefreq>
+    <priority>${u.priority || '0.6'}</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="${ruUrl}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>
+  </url>`);
+  }
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://divcalc.xyz/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://divcalc.xyz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/"/>
   </url>
-${entries}
+  <url>
+    <loc>https://divcalc.xyz/en/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://divcalc.xyz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://divcalc.xyz/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://divcalc.xyz/en/"/>
+  </url>
+${entries.join('\n')}
 </urlset>`;
 }
 
@@ -964,6 +1019,8 @@ function writeFile(filePath, content) {
 }
 
 function main() {
+  const { translateHtmlToEn, enhanceRuHtml } = require('./i18n_postprocess');
+
   const exoticWeapons = require(path.join(ROOT, 'data/exotic_weapons.json'));
   const exoticGearRaw = require(path.join(ROOT, 'data/exotics.json'));
   // Build source lookup: en_name → source_ru
@@ -979,6 +1036,22 @@ function main() {
   const slugsSeen = new Set();
   let total = 0;
 
+  // Helper: write both RU and EN versions of an item page
+  function writeItemPagePair(category, slug, html, item) {
+    const ruPath = `/${category}/${slug}`;
+    // RU version — original, + hreflang + lang switcher
+    writeFile(path.join(ROOT, category, `${slug}.html`), enhanceRuHtml(html, ruPath));
+    // EN version — translated post-processor
+    writeFile(path.join(ROOT, 'en', category, `${slug}.html`), translateHtmlToEn(html, item, ruPath, category));
+    // Sitemap entry with alternates
+    sitemapUrls.push({
+      loc: `https://divcalc.xyz${ruPath}`,
+      enLoc: `https://divcalc.xyz/en${ruPath}`,
+      priority: category === 'set' ? '0.75' : (category === 'brand' ? '0.65' : '0.7'),
+      freq: 'monthly'
+    });
+  }
+
   // — Exotic weapons —
   const exoticWeaponItems = [];
   for (const [key, item] of Object.entries(exoticWeapons)) {
@@ -986,8 +1059,7 @@ function main() {
     const { slug, html } = generateExoticWeapon(key, item, exoticWeapons);
     if (slugsSeen.has(`exotic/${slug}`)) { console.warn(`Dup exotic-weapon slug: ${slug}`); continue; }
     slugsSeen.add(`exotic/${slug}`);
-    writeFile(path.join(ROOT, 'exotic', `${slug}.html`), html);
-    sitemapUrls.push({ loc: `https://divcalc.xyz/exotic/${slug}`, priority: '0.7', freq: 'monthly' });
+    writeItemPagePair('exotic', slug, html, item);
     exoticWeaponItems.push({ slug, nameRu: item.name_ru || key, nameEn: item.en || '', meta: item.cat });
     total++;
   }
@@ -999,8 +1071,7 @@ function main() {
     const { slug, html } = generateExoticGear(i, item, exoticGear);
     if (slugsSeen.has(`exotic/${slug}`)) { console.warn(`Dup exotic-gear slug: ${slug}`); continue; }
     slugsSeen.add(`exotic/${slug}`);
-    writeFile(path.join(ROOT, 'exotic', `${slug}.html`), html);
-    sitemapUrls.push({ loc: `https://divcalc.xyz/exotic/${slug}`, priority: '0.7', freq: 'monthly' });
+    writeItemPagePair('exotic', slug, html, item);
     exoticGearItems.push({ slug, nameRu: item.name || '', nameEn: item.en || '', meta: item.g });
     total++;
   }
@@ -1012,8 +1083,7 @@ function main() {
     const { slug, html } = generateNamed(i, item, namedWeapons);
     if (slugsSeen.has(`named/${slug}`)) { console.warn(`Dup named-weapon slug: ${slug}`); continue; }
     slugsSeen.add(`named/${slug}`);
-    writeFile(path.join(ROOT, 'named', `${slug}.html`), html);
-    sitemapUrls.push({ loc: `https://divcalc.xyz/named/${slug}`, priority: '0.6', freq: 'monthly' });
+    writeItemPagePair('named', slug, html, item);
     namedWeaponItems.push({ slug, nameRu: item.name || '', nameEn: item.en || '', meta: item.g });
     total++;
   }
@@ -1026,8 +1096,7 @@ function main() {
     const { slug, html } = generateNamedGear(i, item, namedGear);
     if (slugsSeen.has(`named/${slug}`)) { console.warn(`Dup named-gear slug: ${slug}`); continue; }
     slugsSeen.add(`named/${slug}`);
-    writeFile(path.join(ROOT, 'named', `${slug}.html`), html);
-    sitemapUrls.push({ loc: `https://divcalc.xyz/named/${slug}`, priority: '0.6', freq: 'monthly' });
+    writeItemPagePair('named', slug, html, item);
     namedGearItems.push({ slug, nameRu: item.name || '', nameEn: item.en || '', meta: item.g });
     total++;
   }
@@ -1038,8 +1107,7 @@ function main() {
     const { slug, html } = generateSet(key, item, gearSets);
     if (slugsSeen.has(`set/${slug}`)) { console.warn(`Dup set slug: ${slug}`); continue; }
     slugsSeen.add(`set/${slug}`);
-    writeFile(path.join(ROOT, 'set', `${slug}.html`), html);
-    sitemapUrls.push({ loc: `https://divcalc.xyz/set/${slug}`, priority: '0.75', freq: 'monthly' });
+    writeItemPagePair('set', slug, html, item);
     setItems.push({ slug, nameRu: item.name || key, nameEn: item.en || '', meta: '' });
     total++;
   }
@@ -1050,30 +1118,36 @@ function main() {
     const { slug, html } = generateBrand(0, key, item, brands);
     if (slugsSeen.has(`brand/${slug}`)) { console.warn(`Dup brand slug: ${slug}`); continue; }
     slugsSeen.add(`brand/${slug}`);
-    writeFile(path.join(ROOT, 'brand', `${slug}.html`), html);
-    sitemapUrls.push({ loc: `https://divcalc.xyz/brand/${slug}`, priority: '0.65', freq: 'monthly' });
+    writeItemPagePair('brand', slug, html, item);
     brandItems.push({ slug, nameRu: item.name_full_en || key, nameEn: item.name_full_en || key, meta: item.core_en });
     total++;
   }
 
-  // — Category index pages —
+  // — Category index pages (RU + EN) —
+  function writeIndexPair(dir, titleRu, badge, items, enPath) {
+    const ruHtml = generateCategoryIndex(dir, titleRu, badge, items);
+    const ruPath = `/${dir}/`;
+    writeFile(path.join(ROOT, dir, 'index.html'), enhanceRuHtml(ruHtml, ruPath));
+    // EN version: translate
+    writeFile(path.join(ROOT, 'en', dir, 'index.html'),
+      translateHtmlToEn(ruHtml, {name: titleRu, en: enPath}, ruPath, dir));
+    sitemapUrls.push({
+      loc: `https://divcalc.xyz${ruPath}`,
+      enLoc: `https://divcalc.xyz/en${ruPath}`,
+      priority: dir === 'brand' ? '0.75' : '0.8',
+      freq: 'weekly'
+    });
+  }
+
   const allExoticItems = [...exoticWeaponItems, ...exoticGearItems];
-  writeFile(path.join(ROOT, 'exotic', 'index.html'),
-    generateCategoryIndex('exotic', 'Экзотики', 'badge-exotic', allExoticItems));
-  sitemapUrls.push({ loc: 'https://divcalc.xyz/exotic/', priority: '0.8', freq: 'weekly' });
+  writeIndexPair('exotic', 'Экзотики', 'badge-exotic', allExoticItems, 'Exotics');
 
   const allNamedItems = [...namedWeaponItems, ...namedGearItems];
-  writeFile(path.join(ROOT, 'named', 'index.html'),
-    generateCategoryIndex('named', 'Именное снаряжение', 'badge-named', allNamedItems));
-  sitemapUrls.push({ loc: 'https://divcalc.xyz/named/', priority: '0.8', freq: 'weekly' });
+  writeIndexPair('named', 'Именное снаряжение', 'badge-named', allNamedItems, 'Named');
 
-  writeFile(path.join(ROOT, 'set', 'index.html'),
-    generateCategoryIndex('set', 'Комплекты снаряжения', 'badge-set', setItems));
-  sitemapUrls.push({ loc: 'https://divcalc.xyz/set/', priority: '0.8', freq: 'weekly' });
+  writeIndexPair('set', 'Комплекты снаряжения', 'badge-set', setItems, 'Sets');
 
-  writeFile(path.join(ROOT, 'brand', 'index.html'),
-    generateCategoryIndex('brand', 'Бренды снаряжения', 'badge-brand', brandItems));
-  sitemapUrls.push({ loc: 'https://divcalc.xyz/brand/', priority: '0.75', freq: 'weekly' });
+  writeIndexPair('brand', 'Бренды снаряжения', 'badge-brand', brandItems, 'Brands');
 
   // — Sitemap —
   writeFile(path.join(ROOT, 'sitemap.xml'), generateSitemap(sitemapUrls));
