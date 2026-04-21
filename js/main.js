@@ -1505,10 +1505,22 @@ function initBuildSlots(){
   buildItemDb();
   Object.keys(slotState).forEach(updateSlotBtn);
   updateWpnBtn();
-  // Populate weapon talent select
+  // Populate weapon talent select — используем WEAPON_TALENTS (старый формат с numeric bonus)
+  // отсортированные по алфавиту. Описание через data-desc для tooltip.
   const talSel=document.getElementById("b-wpn-tal");
   if(talSel){
-    talSel.innerHTML=`<option value="none">${currentLang==='en'?'— none —':'— нет —'}</option>`+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=currentLang==='en'?(v.name_en||v.name_ru):(v.name_ru||v.name_en);return`<option value="${k}">${label}</option>`}).join("");
+    const isEnW=currentLang==='en';
+    const entries=Object.entries(WEAPON_TALENTS).filter(([k])=>k!=='none');
+    entries.sort((a,b)=>{
+      const aN=(isEnW?(a[1].name_en||a[1].name):(a[1].name||a[1].name_en))||a[0];
+      const bN=(isEnW?(b[1].name_en||b[1].name):(b[1].name||b[1].name_en))||b[0];
+      return String(aN).localeCompare(String(bN));
+    });
+    talSel.innerHTML=`<option value="none">${isEnW?'— none —':'— нет —'}</option>`+
+      entries.map(([k,v])=>{
+        const label=(isEnW?(v.name_en||v.name):(v.name||v.name_en))||k;
+        return`<option value="${k}">${label}</option>`;
+      }).join("");
     talSel.value=selectedWpnTalent;
   }
   // Populate Prototype Augment selects
@@ -1529,9 +1541,19 @@ function initBuildSlots(){
 
 function onWpnTalentChange(){
   selectedWpnTalent=document.getElementById("b-wpn-tal").value;
-  const t=WEAPON_TALENTS_FULL[selectedWpnTalent];
+  const t=WEAPON_TALENTS[selectedWpnTalent];
   const desc=document.getElementById("b-wpn-tal-desc");
-  if(desc)desc.textContent=t?.desc_ru||t?.desc_en||"";
+  if(desc){
+    if(t&&t.bonus){
+      const isEn=currentLang==='en';
+      const parts=Object.entries(t.bonus).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`);
+      const cond=t.bonus.conditional?(isEn?' · conditional (peak only)':' · условно (только пик)'):'';
+      const note=t.bonus.note?` · ${t.bonus.note}`:'';
+      desc.textContent=(parts.join(' · ')||(t.name||''))+cond+note;
+    } else {
+      desc.textContent='';
+    }
+  }
   if(t&&(t.name_en||selectedWpnTalent)) _autoStatusFromTalent(t.name_en||selectedWpnTalent);
   calcBuild();
 }
@@ -4781,9 +4803,17 @@ async function toggleLang(){
   }catch(e){}
   try{
     const talSel=document.getElementById("b-wpn-tal");
-    if(talSel&&typeof WEAPON_TALENTS_FULL!=='undefined'){
+    if(talSel&&typeof WEAPON_TALENTS!=='undefined'){
       const prev=talSel.value;
-      talSel.innerHTML=`<option value="none">${currentLang==='en'?'— none —':'— нет —'}</option>`+Object.entries(WEAPON_TALENTS_FULL).map(([k,v])=>{const label=currentLang==='en'?(v.name_en||v.name_ru):(v.name_ru||v.name_en);return`<option value="${k}">${label}</option>`}).join("");
+      const isEnW=currentLang==='en';
+      const entries=Object.entries(WEAPON_TALENTS).filter(([k])=>k!=='none');
+      entries.sort((a,b)=>{
+        const aN=(isEnW?(a[1].name_en||a[1].name):(a[1].name||a[1].name_en))||a[0];
+        const bN=(isEnW?(b[1].name_en||b[1].name):(b[1].name||b[1].name_en))||b[0];
+        return String(aN).localeCompare(String(bN));
+      });
+      talSel.innerHTML=`<option value="none">${isEnW?'— none —':'— нет —'}</option>`+
+        entries.map(([k,v])=>`<option value="${k}">${(isEnW?(v.name_en||v.name):(v.name||v.name_en))||k}</option>`).join("");
       talSel.value=prev;
     }
   }catch(e){}
