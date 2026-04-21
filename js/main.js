@@ -1034,17 +1034,20 @@ function computeGearStatTotals(){
       if(stat && opt.max_roll) _gspAddValue(totals, stat, opt.max_roll);
     }
   }
-  // Specialization passive (MAX full tree)
-  if(gearSpecId){
-    const SPECS = (typeof D2DATA!=='undefined' && D2DATA.SPECIALIZATIONS) || [];
-    const spec = SPECS.find(s=>s.id===gearSpecId);
-    if(spec && spec.total_passive_bonuses){
-      for(const [attr, val] of Object.entries(spec.total_passive_bonuses)){
-        const stat = GSP_ATTR_TO_STAT[attr];
-        if(!stat) continue;
-        if(stat==="reload" || stat==="mag") _gspAddValue(totals, stat, val);
-        else _gspAddValue(totals, stat, val);
-      }
+  // Specialization passive — hand-tuned realistic averages (full tree MAX as played in-game)
+  // Raw total_passive_bonuses from game files is cumulative sum of ALL nodes — unrealistic (+44% rifle is wrong).
+  // In actual gameplay player gets ~10-20% per active node, not cumulative everything.
+  const SPEC_REALISTIC = {
+    "playerspecialization_sharpshooter": {"wd-mmr":0.10, "hsd":0.10, "chd":0.10, "handling":0.10},
+    "playerspecialization_demolitionist": {"wd-lmg":0.10, "amp":0.10, "mag":0.10},
+    "playerspecialization_survivalist":  {"wd":0.05, "hsd":0.05, "reload":0.10, "handling":0.10},
+    "playerspecialization_flamethrower": {"wd-sg":0.10, "amp":0.05, "dth":0.10},
+    "playerspecialization_gunner":       {"wd-lmg":0.10, "mag":0.10, "handling":0.10},
+    "playerspecialization_technician":   {"wd":0.05, "chc":0.05, "chd":0.05},
+  };
+  if(gearSpecId && SPEC_REALISTIC[gearSpecId]){
+    for(const [k,v] of Object.entries(SPEC_REALISTIC[gearSpecId])){
+      _gspAddValue(totals, k, v);
     }
   }
   // SHD Watch (offensive max)
