@@ -41,71 +41,51 @@
 
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebApplication",
-          "@id": "https://divcalc.xyz/en/#webapp",
-          "name": "Division 2 Build Calculator",
-          "alternateName": "divcalc.xyz",
-          "url": "https://divcalc.xyz/",
-          "description": "Калькулятор билдов и DPS для игры The Division 2 с полным русским переводом. 15 актуальных мета-билдов Y8S1, публикация билдов сообщества.",
-          "applicationCategory": "GameApplication",
-          "operatingSystem": "Web",
-          "inLanguage": ["ru", "en"],
-          "browserRequirements": "Requires JavaScript, modern browser",
-          "offers": {"@type": "Offer","price": "0","priceCurrency": "USD"},
-          "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.8","bestRating":"5","ratingCount":"12"},
-          "creator": {"@type":"Person","name":"Mokhnatti","url":"https://github.com/Mokhnatti"}
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://divcalc.xyz/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Почему мой DPS не совпадает с меню оружия в игре?",
-              "acceptedAnswer": {"@type":"Answer","text":"Игровое меню показывает только База × WD. Калькулятор считает полный DPS с учётом крита, хедшотов, брони, стаков сетов, талантов и экспертизы на пиковых стаках. Поэтому Пик DPS в калькуляторе всегда выше — это реальный урон в бою на полных стаках."}
-            },
-            {
-              "@type": "Question",
-              "name": "Что такое бакеты в Division 2?",
-              "acceptedAnswer": {"@type":"Answer","text":"Бакеты — независимые множители урона. Итоговый урон = База × WD × Крит × Хедшот × По броне × Вне укрытия × Усилитель × Экспертиза. Внутри одного бакета значения складываются, между бакетами — умножаются. Главное: WD (Общий урон оружием + по типу), Крит (CHC × CHD), HSD (Headshot Damage × % попаданий в голову)."}
-            },
-            {
-              "@type": "Question",
-              "name": "Как опубликовать свой билд в Сообществе divcalc.xyz?",
-              "acceptedAnswer": {"@type":"Answer","text":"Во вкладке ⚙ BUILD собери билд (выбери оружие, 6 слотов экипировки, вбей итоговые статы из меню игры). Затем нажми 🚀 Опубликовать, заполни название, категорию оружия, описание (можно добавить YouTube-ссылку — она автоматически встроится). Билд появится во вкладке 🏆 Community, другие смогут лайкать, сравнивать и форкать его."}
-            },
-            {
-              "@type": "Question",
-              "name": "Что такое SHD Watch / Часы Скиира?",
-              "acceptedAnswer": {"@type":"Answer","text":"SHD Watch — часы Kinera, открываются после уровня SHD 1000. Дают постоянные бонусы: +10% WD, +20% HSD, +10% CHC, +20% CHD, +20% к боезапасу, +10% к перезарядке, +10% точности, +10% стабильности. Вводи значения в блок ⌚ SHD Watch в калькуляторе — они учтутся в расчёте."}
-            },
-            {
-              "@type": "Question",
-              "name": "Какие мета-билды актуальны в Division 2 Y8S1 Rise Up (апрель 2026)?",
-              "acceptedAnswer": {"@type":"Answer","text":"Топ S-tier билды Y8S1: Agitator Striker Swap (соло Heroic, пик ~3.8M DPS), Big Alejandro Tipping Scales LMG (соло Escalation T6), Future Initiative Buffer (рейд-саппорт), Memento St Elmo Stacker, Refactor Force Multiplier. На divcalc.xyz 15 актуальных мета-билдов с источниками и целевыми статами — раздел 🔥 Мета Y8S1 на странице Сообщества."}
-            },
-            {
-              "@type": "Question",
-              "name": "Работает ли калькулятор на мобильном?",
-              "acceptedAnswer": {"@type":"Answer","text":"Да, divcalc.xyz полностью адаптирован для мобильных. Можно добавить как приложение через PWA (Add to Home Screen в Chrome/Safari). Все вкладки — Сообщество, BUILD, DPS, Скиллы, Танк, Мета — работают на экранах от 375px."}
-            },
-            {
-              "@type": "Question",
-              "name": "На каких языках работает сайт?",
-              "acceptedAnswer": {"@type":"Answer","text":"Полный русский и английский интерфейс. Переключение через кнопку 🇷🇺 RU / 🇬🇧 EN в левом верхнем углу. Переводятся: имена сетов, экзотиков, именных предметов, талантов, кнопки, описания. Имена сетов взяты из официальной русской таблицы Ubisoft."}
-            }
+          "@context": "https://schema.org",
+          "@graph": [
+                {
+                      "@type": "WebApplication",
+                      "@id": "https://divcalc.xyz/en/#webapp",
+                      "name": "Division 2 Build Calculator",
+                      "alternateName": "divcalc.xyz",
+                      "url": "https://divcalc.xyz/en/",
+                      "description": "Division 2 build & DPS calculator. 238 named weapons with stats, 86 exotics, 26 gear sets, 36 brands, 304 talents, TTK on 5 difficulties. Community build sharing.",
+                      "applicationCategory": "GameApplication",
+                      "operatingSystem": "Web",
+                      "inLanguage": [
+                            "en",
+                            "ru"
+                      ],
+                      "browserRequirements": "Requires JavaScript, modern browser",
+                      "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                      },
+                      "aggregateRating": {
+                            "@type": "AggregateRating",
+                            "ratingValue": "4.8",
+                            "bestRating": "5",
+                            "ratingCount": "12"
+                      },
+                      "creator": {
+                            "@type": "Person",
+                            "name": "Mokhnatti",
+                            "url": "https://github.com/Mokhnatti"
+                      }
+                },
+                {
+                      "@type": "BreadcrumbList",
+                      "itemListElement": [
+                            {
+                                  "@type": "ListItem",
+                                  "position": 1,
+                                  "name": "divcalc.xyz",
+                                  "item": "https://divcalc.xyz/"
+                            }
+                      ]
+                }
           ]
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {"@type":"ListItem","position":1,"name":"divcalc.xyz","item":"https://divcalc.xyz/"}
-          ]
-        }
-      ]
     }
     </script>
 
@@ -159,7 +139,7 @@
         <div class="s-wrap"><input type="text" id="s3" placeholder="Search 3 - crit" autocomplete="off" aria-label="s3"><div class="search-hints" id="s3-hints" style="display:none"></div></div>
     </div>
     <div class="controls">
-        <label><input type="radio" name="mode" value="and" checked> <b>И</b>- intersections</label>
+        <label><input type="radio" name="mode" value="and" checked> <b>AND</b>- intersections</label>
         <label><input type="radio" name="mode" value="or"> <b>OR</b>- any</label>
         <span style="font-size:10px;color:#444;margin-left:8px">empty fields are ignored</span>
     </div>
@@ -314,7 +294,7 @@
       <div class="bstat"><label>Damage</label><input type="number" id="cw-dmg" value="60000" oninput="calcBuild()" aria-label="weapon dmg"><span class="u"></span></div>
       <div class="bstat"><label>RPM</label><input type="number" id="cw-rpm" value="750" oninput="calcBuild()" aria-label="weapon rpm"><span class="u"></span></div>
       <div class="bstat"><label>Magazine</label><input type="number" id="cw-mag" value="30" oninput="calcBuild()" aria-label="weapon mag"><span class="u">pcs</span></div>
-      <div class="bstat"><label>Reload</label><input type="number" id="cw-rel" value="2.0" oninput="calcBuild()" aria-label="weapon rel"><span class="u">с</span></div>
+      <div class="bstat"><label>Reload</label><input type="number" id="cw-rel" value="2.0" oninput="calcBuild()" aria-label="weapon rel"><span class="u">s</span></div>
       <div class="bstat"><label>Type</label>
         <select id="cw-cat" style="width:80px;background:transparent;border:none;color:var(--orange);font-size:13px;font-weight:700;outline:none" onchange="calcBuild()" aria-label="cw cat">
           <option value="AR">AR</option><option value="LMG">LMG</option><option value="MMR">MMR</option>
@@ -739,7 +719,7 @@
       <div class="bstat"><label>Skill Damage</label><input type="number" id="rc-skilldmg" value="0" oninput="calcBuild()" aria-label="recal skilldmg"><span class="u">%</span></div>
       <div class="bstat"><label>Free</label><input type="number" id="rc-util3" value="0" oninput="calcBuild()" aria-label="recal util3"><span class="u">%</span></div>
     </div>
-    <div style="font-size:10px;color:#555;margin-top:6px">In weapon DPS only<b style="color:var(--orange)">Headshot damage</b> и <b style="color:var(--orange)">Rounds</b>(per magazine). Defensive and utility bonuses shown for reference.</div>
+    <div style="font-size:10px;color:#555;margin-top:6px">In weapon DPS only<b style="color:var(--orange)">Headshot damage</b> and <b style="color:var(--orange)">Rounds</b>(per magazine). Defensive and utility bonuses shown for reference.</div>
     <details style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px" id="recom-sim-details">
       <summary style="cursor:pointer;font-size:12px;color:var(--orange);font-weight:600">🧬 Recombinator Simulator (pick tier modifiers)</summary>
       <div id="recom-sim" style="margin-top:10px"></div>
@@ -992,22 +972,22 @@
     </div>
     <form class="bug-form" id="bug-form" onsubmit="submitBug(event)">
       <div>
-        <label>What's the problem</label>
+        <label>Issue type</label>
         <select name="type" required>
-          <option value="">- choose -</option>
-          <option>Wrong math/DPS</option>
-          <option>Invalid set bonus</option>
-          <option>Wrong talent named</option>
-          <option>There is not enough item in the database</option>
-          <option>Typo/translation</option>
-          <option>UI / not working</option>
-          <option>Other</option>
+          <option value="">— pick —</option>
+          <option value="math">Wrong math / DPS</option>
+          <option value="set-bonus">Wrong set bonus</option>
+          <option value="talent">Wrong named talent</option>
+          <option value="missing">Missing item in database</option>
+          <option value="typo">Typo / translation</option>
+          <option value="ui">UI / not working</option>
+          <option value="other">Other</option>
         </select>
       </div>
       <div class="bug-row">
         <div>
-          <label>Item/set/weapon</label>
-          <input name="item" type="text" placeholder="for example: Exemplary">
+          <label>Item / set / weapon</label>
+          <input name="item" type="text" placeholder="e.g.: Memento">
         </div>
         <div>
           <label>Slot</label>
@@ -1021,15 +1001,15 @@
       </div>
       <div>
         <label>Description * (what shows / what should be)</label>
-        <textarea name="description" required placeholder="For example: Perfect Vigilance shows +30% WD, and on the wiki +25%. Source: ..."></textarea>
+        <textarea name="description" required placeholder="E.g.: Perfect Vigilance shows +30% WD but wiki says +25%. Source: ..."></textarea>
       </div>
       <div>
-        <label>Screenshot (Ctrl+V / drag / select)</label>
+        <label>Screenshot (Ctrl+V / drag / pick)</label>
         <input type="file" id="bug-file" accept="image/*" onchange="handleBugFile(this.files[0])" aria-label="bug file">
-        <div id="bug-preview" style="margin-top:8px;display:none"><img id="bug-preview-img" style="max-width:100%;max-height:160px;border-radius:6px;border:1px solid var(--border)"><div id="bug-upload-status" style="font-size:10px;color:var(--muted);margin-top:4px"></div></div>
+        <div id="bug-preview" style="margin-top:8px;display:none"><img id="bug-preview-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Bug screenshot preview" style="max-width:100%;max-height:160px;border-radius:6px;border:1px solid var(--border)"><div id="bug-upload-status" style="font-size:10px;color:var(--muted);margin-top:4px"></div></div>
       </div>
       <div>
-        <label>Contact (nickname / email / telegram, optional)</label>
+        <label>Contact (nick / email / telegram, optional)</label>
         <input name="contact" type="text" placeholder="@nick or email">
       </div>
       <input type="hidden" name="page_url" id="bug-page-url">
@@ -1328,7 +1308,7 @@
     </details>
     <details style="padding:8px 0;border-bottom:1px solid var(--border)">
       <summary style="cursor:pointer;font-weight:600;color:var(--orange)">What counts from the Y8S1 Recombinator?</summary>
-      <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.5">Weapons only go into DPS<b>Headshot damage</b> и <b>Rounds</b>(per magazine). Defensive and utility modifiers shown for reference — not counted in DPS.</div>
+      <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.5">Weapons only go into DPS<b>Headshot damage</b> and <b>Rounds</b>(per magazine). Defensive and utility modifiers shown for reference — not counted in DPS.</div>
     </details>
     <details style="padding:8px 0;border-bottom:1px solid var(--border)">
       <summary style="cursor:pointer;font-weight:600;color:var(--orange)">What is "Base/Average/Peak DPS"?</summary>

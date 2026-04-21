@@ -1016,13 +1016,13 @@
         <label>Что за проблема</label>
         <select name="type" required>
           <option value="">— выбери —</option>
-          <option>Неверная математика / DPS</option>
-          <option>Неверный бонус сета</option>
-          <option>Неверный талант именного</option>
-          <option>Не хватает предмета в базе</option>
-          <option>Опечатка / перевод</option>
-          <option>UI / не работает</option>
-          <option>Другое</option>
+          <option value="math">Неверная математика / DPS</option>
+          <option value="set-bonus">Неверный бонус сета</option>
+          <option value="talent">Неверный талант именного</option>
+          <option value="missing">Не хватает предмета в базе</option>
+          <option value="typo">Опечатка / перевод</option>
+          <option value="ui">UI / не работает</option>
+          <option value="other">Другое</option>
         </select>
       </div>
       <div class="bug-row">
@@ -1047,7 +1047,7 @@
       <div>
         <label>Скриншот (Ctrl+V / перетащи / выбери)</label>
         <input type="file" id="bug-file" accept="image/*" onchange="handleBugFile(this.files[0])" aria-label="bug file">
-        <div id="bug-preview" style="margin-top:8px;display:none"><img id="bug-preview-img" style="max-width:100%;max-height:160px;border-radius:6px;border:1px solid var(--border)"><div id="bug-upload-status" style="font-size:10px;color:var(--muted);margin-top:4px"></div></div>
+        <div id="bug-preview" style="margin-top:8px;display:none"><img id="bug-preview-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Bug screenshot preview" style="max-width:100%;max-height:160px;border-radius:6px;border:1px solid var(--border)"><div id="bug-upload-status" style="font-size:10px;color:var(--muted);margin-top:4px"></div></div>
       </div>
       <div>
         <label>Контакт (ник / email / telegram, опционально)</label>

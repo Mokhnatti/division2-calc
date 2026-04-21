@@ -67,6 +67,7 @@ const UI = [
   ['>— любое<', '>— any<'],
   ['>авто<', '>auto<'],
   ['>ИЛИ<', '>OR<'],
+  ['>И<', '>AND<'],
   ['>макс 10<', '>max 10<'],
   ['>макс 20<', '>max 20<'],
   ['>макс 30<', '>max 30<'],
@@ -260,6 +261,9 @@ const UI = [
   ['placeholder="Поиск — имя, бонус..."', 'placeholder="Search — name, bonus..."'],
   ['placeholder="авто"', 'placeholder="auto"'],
   ['placeholder="Поиск по имени / авт"', 'placeholder="Search by name / author"'],
+  // Inline conjunctions in EN sentences (left as RU after dict swap)
+  ['</b> и <b', '</b> and <b'],
+  ['>с<', '>s<'],
   // Legacy keys kept at bottom in case we hit duplicates
   ['>🐛 Баг-репорт<', '>🐛 Bug report<'],
   ['>Войти<', '>Log in<'],
@@ -275,9 +279,27 @@ const UI = [
   ['>Урон по броне<', '>Damage to Armor<'],
   ['>Урон по здоровью<', '>Damage to Health<'],
   // Bug report form labels
+  ['>Что за проблема<', '>Issue type<'],
+  ['>— выбери —<', '>— pick —<'],
+  ['>Неверная математика / DPS<', '>Wrong math / DPS<'],
+  ['>Неверный бонус сета<', '>Wrong set bonus<'],
+  ['>Неверный талант именного<', '>Wrong named talent<'],
+  ['>Не хватает предмета в базе<', '>Missing item in database<'],
+  ['>Опечатка / перевод<', '>Typo / translation<'],
+  ['>UI / не работает<', '>UI / not working<'],
+  ['>Другое<', '>Other<'],
+  ['>Категория оружия<', '>Weapon category<'],
+  ['>Предмет / сет / оружие<', '>Item / set / weapon<'],
   ['>Что сломано?<', '>What\'s broken?<'],
   ['>URL страницы<', '>Page URL<'],
   ['>Описание<', '>Description<'],
+  ['>Слот<', '>Slot<'],
+  ['>Контакт (ник / email / telegram, опционально)<', '>Contact (nick / email / telegram, optional)<'],
+  ['>Скриншот (Ctrl+V / перетащи / выбери)<', '>Screenshot (Ctrl+V / drag / pick)<'],
+  ['placeholder="Напр: Perfect Vigilance показывает +30% WD, а на вики +25%. Источник: ..."',
+   'placeholder="E.g.: Perfect Vigilance shows +30% WD but wiki says +25%. Source: ..."'],
+  ['placeholder="например: Образцовый"', 'placeholder="e.g.: Memento"'],
+  ['>Сообщить о баге<', '>Report a bug<'],
   // Original — keep as fallback (these were in previous dict)
   ['placeholder="авто"', 'placeholder="auto"'],
 ];
@@ -318,9 +340,29 @@ try {
   console.warn('ui_translations apply skipped:', e.message);
 }
 
-// Strip FAQPage JSON-LD block (it's fully Russian — EN equivalent would need full rewrite)
-// Google can still use other schema blocks (WebApplication, Organization)
-out = out.replace(/<script type="application\/ld\+json">\s*\{\s*"@context":\s*"https:\/\/schema\.org",\s*"@type":\s*"FAQPage"[\s\S]*?<\/script>/g, '');
+// Fix JSON-LD: remove FAQPage (fully Russian), fix WebApplication for /en/
+out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/, (m, open, json, close) => {
+  try {
+    const schema = JSON.parse(json);
+    if (schema['@graph']) {
+      // Remove FAQPage entries
+      schema['@graph'] = schema['@graph'].filter(item => item['@type'] !== 'FAQPage');
+      // Fix WebApplication
+      const wa = schema['@graph'].find(item => item['@type'] === 'WebApplication');
+      if (wa) {
+        wa['@id'] = 'https://divcalc.xyz/en/#webapp';
+        wa['url'] = 'https://divcalc.xyz/en/';
+        wa['description'] = 'Division 2 build & DPS calculator. 238 named weapons with stats, 86 exotics, 26 gear sets, 36 brands, 304 talents, TTK on 5 difficulties. Community build sharing.';
+        wa['name'] = 'Division 2 Build Calculator';
+        wa['inLanguage'] = ['en', 'ru'];
+      }
+    }
+    return open + '\n    ' + JSON.stringify(schema, null, 6).replace(/\n/g, '\n    ') + '\n    ' + close;
+  } catch (e) {
+    console.warn('JSON-LD parse failed, skipping schema fix:', e.message);
+    return m;
+  }
+});
 
 // Clean up noscript/comment/data-ru leftover RU (safe because SPA re-renders)
 out = out
