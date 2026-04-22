@@ -113,7 +113,8 @@ function render(){
             const bonuses=isEn&&en&&en.bonuses?en.bonuses:g.bonuses;
             const chest=isEn&&en&&en.chest?en.chest:g.chest;
             const bp=isEn&&en&&en.bp?en.bp:g.bp;
-            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(isEn&&g.en?g.en:g.name)}${wikiIcon(g.en)}${itemPageIcon('set',g.en)}</div><div class="en">${H(isEn?g.name:g.en)}</div></div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
+            const setSubtitle=!isEn&&g.en?`<div class="en">${H(g.en)}</div>`:"";
+            h+=`<div class="card"><div class="card-h"><div><div class="cn gear">${H(isEn&&g.en?g.en:g.name)}${wikiIcon(g.en)}${itemPageIcon('set',g.en)}</div>${setSubtitle}</div><span class="badge b-${g.type}">${TL[g.type]}</span></div>`;
             bonuses.forEach(b=>{const[t,...r]=b.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+=`<div class="tl"><div class="t-line"><span class="t-name">${L("Нагрудник","Chest")}:</span><span class="t-desc">${H(chest)}</span></div>`;
             h+=`<div class="t-line"><span class="t-name">${L("Рюкзак","Backpack")}:</span><span class="t-desc">${H(bp)}</span></div></div></div>`;
@@ -124,9 +125,10 @@ function render(){
     if(fB.length){
         h+=`<div class="section-title">${L("Брендовые наборы","Brand Sets")} <span class="cnt">${fB.length}</span></div><div class="grid sm">`;
         fB.forEach(b=>{
-            const en=trBrand(b.name);
+            const en=trBrand(b.name_full_en||b.name);
+            const brandDisplayName=isEn?(en&&en.name?en.name:(b.name_full_en||b.name)):b.name;
             const bonuses=isEn&&en&&en.bonuses?en.bonuses:b.bonuses;
-            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(b.name)}${wikiIcon(b.name)}${itemPageIcon('brand',b.name)}</div><span class="badge b-brand">${L("Бренд","Brand")}</span></div>`;
+            h+=`<div class="card"><div class="card-h"><div class="cn brand">${H(brandDisplayName)}${wikiIcon(b.name_full_en||b.name)}${itemPageIcon('brand',b.name_full_en||b.name)}</div><span class="badge b-brand">${L("Бренд","Brand")}</span></div>`;
             bonuses.forEach(bn=>{const[t,...r]=bn.split(": ");h+=`<div class="bl"><span class="bt">${t}:</span><span class="bv">${H(r.join(": "))}</span></div>`});
             h+='</div>';
         });h+='</div>';
@@ -149,7 +151,7 @@ function render(){
                   if(auth&&auth.d){tal=auth.tal;d=auth.d}
                 }
                 const displayName=isEn&&e.en?e.en:e.name;
-                const displaySub=isEn?e.name:(e.en||"");
+                const displaySub=!isEn?(e.en||""):"";
                 h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(displayName)}${wikiIcon(e.en)}${itemPageIcon('exotic',e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
                 h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
                 h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
@@ -173,7 +175,7 @@ function render(){
                   if(auth&&auth.d){tal=auth.tal;d=auth.d}
                 }
                 const displayName=isEn&&n.en?n.en:n.name;
-                const displaySub=isEn?n.name:(n.en||"");
+                const displaySub=!isEn?(n.en||""):"";
                 h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}${itemPageIcon('named',n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
                 if(n.brand)h+=`<div class="info">${L("Бренд","Brand")}: ${H(n.brand)}</div>`;
                 const coreVal=Array.isArray(n.core)?n.core[0]:n.core;
@@ -2580,7 +2582,9 @@ function localizeItemName(name){
       ...(D2DATA.E||[]),
       ...(D2DATA.G||[]),
     ] : [];
-    const found = all.find(x => x && (x.name===name || x.name_ru===name));
+    const nameLow=name.toLowerCase();
+    const found = all.find(x => x && (x.name===name || x.name_ru===name ||
+      (x.name&&x.name.toLowerCase()===nameLow) || (x.name_ru&&x.name_ru.toLowerCase()===nameLow)));
     if(found && (found.en||found.name_en)) return found.en||found.name_en;
     // Brands: names already in EN
   }catch(e){}
@@ -2631,8 +2635,11 @@ function renderCardSlotTags(b){
         try{
           const gearSets = (typeof D2DATA!=='undefined' && D2DATA.G) || [];
           // SET_SHORT was produced from our RU long name. Reverse: find EN name
-          const match = gearSets.find(x => setShort(x.name) === g.short || x.name.startsWith(g.short));
-          if(match && match.en) displayShort = match.en.split(/\s+/).slice(0,2).join(' ');
+          const match = gearSets.find(x =>
+            setShort(x.name) === g.short || x.name.startsWith(g.short) ||
+            (x.name_legacy && setShort(x.name_legacy) === g.short) ||
+            (x.name_legacy && x.name_legacy === g.short));
+          if(match && match.en) displayShort = match.en;
         }catch(e){}
       }
     }
@@ -3100,7 +3107,7 @@ const WEAPON_TALENTS_FULL = D2DATA.WEAPON_TALENTS_FULL;
 const GEAR_TALENTS = D2DATA.GEAR_TALENTS || [];
 
 // Currently selected weapon (by id from WPNS)
-let selectedWpnId="police_m4";
+let selectedWpnId=null;
 let selectedWpnTalent="none";
 function getWeapon(){
   let base;
@@ -3215,6 +3222,11 @@ function pickWpn(id){
 }
 function updateWpnBtn(){
   const el=document.getElementById("bs-wpn");
+  if(!selectedWpnId){
+    el.className="slot-btn";
+    el.innerHTML=`<span class="ss">${currentLang==='en'?'— pick a weapon —':'— выбери оружие —'}</span>`;
+    return;
+  }
   const w=WPNS[selectedWpnId]||WPNS_BASE[0];
   const kind=w.kind||"base";
   const cls=kind==="base"?"brand":kind;
@@ -6212,6 +6224,11 @@ function renderSkillCalc(){
   let skills = SD.skills;
   if(_skillFilter !== 'all') skills = skills.filter(s => s.type === _skillFilter);
 
+  const isEn = currentLang==='en';
+  const loc = (ru,en) => isEn ? en : ru;
+  const numFmt = isEn ? 'en' : 'ru';
+  const sSuffix = isEn ? 's' : 'с';
+
   const cards = skills.map(s=>{
     const tierMult = (s.tier_dmg_mult && s.tier_dmg_mult[tier]) || 1.0;
     const durMult = (s.tier_dur_mult && s.tier_dur_mult[tier]) || 1.0;
@@ -6227,19 +6244,18 @@ function renderSkillCalc(){
       const dur = (s.duration_s||60) * durMult;
       const totalDmg = dpsActive * dur;
       const dpsAvg = totalDmg / (dur + cdFinal);
-      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(dpsActive).toLocaleString('ru')}</div><div class="rtn-lbl">DPS активный</div></div>`;
-      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString('ru')}</div><div class="rtn-lbl">DPS средний (с КД)</div></div>`;
-      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/выстрел: <b>${Math.round(dmgPerShot).toLocaleString('ru')}</b> · RPM: ${s.rpm} · Длит: ${dur.toFixed(1)}с · КД: ${cdFinal.toFixed(1)}с · Полный цикл урона: <b>${Math.round(totalDmg).toLocaleString('ru')}</b></div>`;
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(dpsActive).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('DPS активный','Active DPS')}</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('DPS средний (с КД)','Avg DPS (w/ CD)')}</div></div>`;
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">${loc('Урон/выстрел','Dmg/shot')}: <b>${Math.round(dmgPerShot).toLocaleString(numFmt)}</b> · RPM: ${s.rpm} · ${loc('Длит','Dur')}: ${dur.toFixed(1)}${sSuffix} · ${loc('КД','CD')}: ${cdFinal.toFixed(1)}${sSuffix} · ${loc('Полный цикл урона','Full cycle dmg')}: <b>${Math.round(totalDmg).toLocaleString(numFmt)}</b></div>`;
     }
     else if(s.category==='dps' && s.base_dmg_per_drone){
-      // Hive Stinger
       const dmgPerDrone = s.base_dmg_per_drone * tierMult * skillDmgMult;
       const drones = (s.drones_total||1) * (s.tier_drones_mult?.[tier]||1);
       const totalDmg = dmgPerDrone * drones;
       const dpsAvg = totalDmg / ((s.duration_s||60) + cdFinal);
-      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString('ru')}</div><div class="rtn-lbl">Полный урон</div></div>`;
-      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString('ru')}</div><div class="rtn-lbl">DPS средний (с КД)</div></div>`;
-      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/дрон: <b>${Math.round(dmgPerDrone).toLocaleString('ru')}</b> × ${Math.round(drones)} дронов · Длит: ${s.duration_s}с · КД: ${cdFinal.toFixed(1)}с</div>`;
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('Полный урон','Total damage')}</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('DPS средний (с КД)','Avg DPS (w/ CD)')}</div></div>`;
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">${loc('Урон/дрон','Dmg/drone')}: <b>${Math.round(dmgPerDrone).toLocaleString(numFmt)}</b> × ${Math.round(drones)} ${loc('дронов','drones')} · ${loc('Длит','Dur')}: ${s.duration_s}${sSuffix} · ${loc('КД','CD')}: ${cdFinal.toFixed(1)}${sSuffix}</div>`;
     }
     else if(s.category==='burst' || s.category==='high_single'){
       const dmgPer = (s.base_dmg_per_shot || s.base_dmg_per_bomb || s.base_dmg_per_mine || s.base_dmg_per_shell || s.base_dmg_per_target) * tierMult * skillDmgMult;
@@ -6247,9 +6263,9 @@ function renderSkillCalc(){
       const totalDmg = dmgPer * count;
       const dpsAvg = totalDmg / cdFinal;
       const isMulti = count > 1;
-      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString('ru')}</div><div class="rtn-lbl">Burst урон${isMulti?` (${count}×)`:''}</div></div>`;
-      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString('ru')}</div><div class="rtn-lbl">DPS на КД</div></div>`;
-      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/выстрел: <b>${Math.round(dmgPer).toLocaleString('ru')}</b>${isMulti?` × ${count}`:''} · КД: ${cdFinal.toFixed(1)}с</div>`;
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('Burst урон','Burst damage')}${isMulti?` (${count}×)`:''}</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('DPS на КД','DPS on CD')}</div></div>`;
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">${loc('Урон/выстрел','Dmg/shot')}: <b>${Math.round(dmgPer).toLocaleString(numFmt)}</b>${isMulti?` × ${count}`:''} · ${loc('КД','CD')}: ${cdFinal.toFixed(1)}${sSuffix}</div>`;
     }
     else if(s.category==='aoe_dot'){
       const dmgPerTick = (s.base_dmg_per_tick || s.base_dmg_per_target) * tierMult * skillDmgMult * (s.applies_burn || s.applies_bleed ? 1+status/100 : 1);
@@ -6258,26 +6274,27 @@ function renderSkillCalc(){
       const dpsActive = dmgPerTick * tps;
       const totalDmg = dpsActive * dur;
       const dpsAvg = totalDmg / (dur + cdFinal);
-      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(dpsActive).toLocaleString('ru')}</div><div class="rtn-lbl">DPS на цели</div></div>`;
-      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString('ru')}</div><div class="rtn-lbl">DPS средний</div></div>`;
-      const targetsLine = s.max_targets?` × ${s.max_targets} целей`:'';
-      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/тик: <b>${Math.round(dmgPerTick).toLocaleString('ru')}</b> × ${tps}/с${targetsLine} · Длит: ${dur}с · КД: ${cdFinal.toFixed(1)}с${(s.applies_burn||s.applies_bleed)?` · 🔥 +${status}% статус`:''}</div>`;
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(dpsActive).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('DPS на цели','DPS on target')}</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">${Math.round(dpsAvg).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('DPS средний','Avg DPS')}</div></div>`;
+      const targetsLine = s.max_targets?` × ${s.max_targets} ${loc('целей','targets')}`:'';
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">${loc('Урон/тик','Dmg/tick')}: <b>${Math.round(dmgPerTick).toLocaleString(numFmt)}</b> × ${tps}/${sSuffix}${targetsLine} · ${loc('Длит','Dur')}: ${dur}${sSuffix} · ${loc('КД','CD')}: ${cdFinal.toFixed(1)}${sSuffix}${(s.applies_burn||s.applies_bleed)?` · 🔥 +${status}% ${loc('статус','status')}`:''}</div>`;
     }
     else if(s.category==='burst_amp'){
       const dmgPer = s.base_dmg_per_target * tierMult * skillDmgMult;
       const totalDmg = dmgPer * s.max_targets;
-      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString('ru')}</div><div class="rtn-lbl">Burst урон</div></div>`;
-      burstLine = `<div class="rtn-avg"><div class="rtn-val">+${s.amp_to_marked}%</div><div class="rtn-lbl">Усиление меченым</div></div>`;
-      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">Урон/цель: <b>${Math.round(dmgPer).toLocaleString('ru')}</b> × ${s.max_targets} · КД: ${cdFinal.toFixed(1)}с</div>`;
+      dpsLine = `<div class="rtn-peak"><div class="rtn-val">${Math.round(totalDmg).toLocaleString(numFmt)}</div><div class="rtn-lbl">${loc('Burst урон','Burst damage')}</div></div>`;
+      burstLine = `<div class="rtn-avg"><div class="rtn-val">+${s.amp_to_marked}%</div><div class="rtn-lbl">${loc('Усиление меченым','Bonus to marked')}</div></div>`;
+      extraLine = `<div style="font-size:11px;color:var(--muted);margin-top:6px">${loc('Урон/цель','Dmg/target')}: <b>${Math.round(dmgPer).toLocaleString(numFmt)}</b> × ${s.max_targets} · ${loc('КД','CD')}: ${cdFinal.toFixed(1)}${sSuffix}</div>`;
     }
 
     const typeIcon = {drone:'🛸',turret:'🔫',hive:'🐝',seeker:'💣',firefly:'✨',chem:'🧪',pulse:'📡'}[s.type]||'⚡';
+    const skillName = isEn ? (s.name_en||s.name_ru) : s.name_ru;
+    const skillDesc = isEn ? (s.desc_en||s.desc_ru||'') : (s.desc_ru||'');
 
     return `<div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:8px;padding:14px;margin-bottom:10px">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
         <div>
-          <div style="font-size:14px;font-weight:600;color:var(--blue)">${typeIcon} ${s.name_ru}</div>
-          <div style="font-size:10px;color:var(--muted);margin-top:2px">${s.name_en}</div>
+          <div style="font-size:14px;font-weight:600;color:var(--blue)">${typeIcon} ${skillName}</div>
         </div>
         <div style="font-size:10px;color:var(--muted);background:rgba(66,165,245,.1);padding:3px 8px;border-radius:10px">Tier ${tier}</div>
       </div>
@@ -6286,11 +6303,11 @@ function renderSkillCalc(){
         ${burstLine}
       </div>
       ${extraLine}
-      <div style="font-size:11px;color:#888;margin-top:8px;font-style:italic">${s.desc_ru||''}</div>
+      <div style="font-size:11px;color:#888;margin-top:8px;font-style:italic">${skillDesc}</div>
     </div>`;
   }).join('');
 
-  host.innerHTML = cards || '<div style="padding:40px;text-align:center;color:var(--muted)">Нет навыков в этой категории</div>';
+  host.innerHTML = cards || `<div style="padding:40px;text-align:center;color:var(--muted)">${loc('Нет навыков в этой категории','No skills in this category')}</div>`;
 }
 
 // ===== META BUILDS =====
