@@ -14,6 +14,153 @@ var currentLang = (function(){
   } catch(e) { return 'en'; }
 })();
 
+// ===== i18n =====
+// Add a new language by adding STRINGS.<lang> = { ...same keys... }
+const STRINGS = {
+  ru: {
+    // Search/catalog
+    found_n: (tot,all) => `Найдено: <span>${tot}</span> из ${all}`,
+    mode_and: 'И — пересечения', mode_or: 'ИЛИ — любое',
+    total_items: (n) => `Всего: <span>${n}</span> предметов`,
+    // DPS details
+    dmg_armor: 'Урон/пулю (броня)', dmg_hp: 'Урон/пулю (HP)',
+    cycle_fmt: (mag,rl,cyc) => `Цикл: ${mag}с стрельба + ${rl}с перезарядка = ${cyc}с`,
+    // Weapon mods
+    exotic_mods_title: 'Экзотик-оружие: моды встроены',
+    exotic_mods_rest: ' (уникальные). Слоты заблокированы — общий вклад модов уже заложен в stat-бюджете экзотика.',
+    slot_count: (n) => n===1?'слот':'слота',
+    slot_optic:'прицел', slot_muzzle:'дульный', slot_underbarrel:'подствол', slot_magazine:'магазин',
+    // Gear mods
+    pick_stats: 'Выбери статы выше',
+    // Auth
+    sign_in_title:'👤 Вход', register_title:'👤 Регистрация',
+    signing_in:'Вход...', signed_in:'✓ Успешный вход', sign_in_btn:'Войти',
+    pw_mismatch:'Пароли не совпадают',
+    registering:'Регистрация...', registered:'✓ Аккаунт создан, вошёл', register_btn:'Зарегистрироваться',
+    error_pfx:'Ошибка', net_error:'Сбой сети',
+    // Community feed
+    loading:'Загружаю...', loading_short:'Загрузка...',
+    no_builds_all:'Пока нет билдов в этой категории. Будь первым — жми 🚀 Опубликовать во вкладке BUILD!',
+    no_builds_mine:'Ты ещё ничего не публиковал. Собирай билд в BUILD и жми 🚀 Опубликовать.',
+    no_builds_liked:'Ты ещё ничего не лайкнул. Жми ❤ на понравившиеся билды.',
+    total_likes:'Всего лайков', avg_likes:'В среднем',
+    found:'Найдено', total_in_db:'всего в базе',
+    you_liked_n: (n) => `Ты лайкнул ${n} билдов`,
+    feed_load_err: (msg) => `Ошибка загрузки: ${msg}. Бэкенд PocketBase может быть недоступен.`,
+    // Author profile
+    stat_builds:'Билдов', stat_likes:'Лайков', stat_avg_dps:'Средний DPS',
+    stat_best_dps:'Лучший DPS', stat_fav:'Любимое оружие', no_builds:'Нет билдов',
+    load_err:'Ошибка загрузки',
+    // Publish
+    publishing:'Публикация...', anon:'Аноним',
+    published_ok: 'Опубликовано!', tg_share:'Поделиться в Telegram',
+    tg_build_text: (name) => `Division 2 билд "${name}" — жми чтобы открыть в калькуляторе`,
+    publish_btn:'Опубликовать',
+    // Meta/community top
+    meta_no_builds:'Пока нет билдов в этой категории. <a href="#" onclick="document.querySelector(\'.cat-btn[data-cat=build]\').click();return false" style="color:var(--orange)">Собери и опубликуй свой!</a>',
+    // Wpn category hint
+    wpn_cat_hint: (lbl) => `→ активен бонус "От ${lbl}"`,
+    wpn_cats: {AR:'AR (штурмовая)',SMG:'SMG (ПП)',LMG:'LMG (пулемёт)',MMR:'MMR (снайперка)',Rifle:'Rifle (винтовка)',SG:'SG (дробовик)',Pistol:'Pistol'},
+    // Bug report
+    compressing:'Сжимаю...',
+    screenshot_ready: (kb) => `Готов · ${kb}КБ (загрузится при отправке)`,
+    sending:'Отправка...', uploading_scr:'Загружаю скрин...',
+    uploaded_via: (m) => `Загружено через ${m}`, sent_thanks:'✓ Отправлено. Спасибо!', submit_btn:'Отправить',
+    bug_warn: (cnt,lim,left) => `⚠ В этом месяце уже <b>${cnt}</b> репортов через форму (лимит ${lim}/мес, осталось ~${left}).<br>Если не срочно — лучше открой <a href="https://github.com/Mokhnatti/division2-calc/issues/new" target="_blank" style="color:var(--orange)">issue на GitHub</a>, там без лимита.`,
+    // Skills/mods
+    skills_no_data:'Данные о навыках не загружены',
+    mods_load_fail:'Не удалось загрузить модификаторы',
+    // Admin
+    admin_loading:'Загрузка...', admin_login_req:'Залогинься сначала',
+    admin_not_found:'Ничего не найдено', admin_err: (msg) => `Сбой: ${msg}`,
+    // Comments
+    no_comments:'Пока нет комментов', comments_n: (n) => `Комментариев: <b>${n}</b>`,
+    your_nick:'Твой ник', leave_comment:'Оставить комментарий...',
+    submit_comment:'Отправить', comment_err:'Ошибка отправки комментария',
+    // Recombinator warnings
+    rcm_no_trigger: 'не сработал',
+    rcm_invert_fail: 'условие не выполнено',
+    rcm_nullify_fail: 'два и более модуля на минимуме',
+    rcm_cascade_fail: 'два модуля с одинаковым максимумом',
+    rcm_converge_fail: 'два модуля на минимуме',
+    rcm_equalize_fail: 'медиана не уникальна',
+  },
+  en: {
+    // Search/catalog
+    found_n: (tot,all) => `Found: <span>${tot}</span> of ${all}`,
+    mode_and: 'AND — intersection', mode_or: 'OR — any match',
+    total_items: (n) => `Total: <span>${n}</span> items`,
+    // DPS details
+    dmg_armor: 'Dmg/bullet (armor)', dmg_hp: 'Dmg/bullet (HP)',
+    cycle_fmt: (mag,rl,cyc) => `Cycle: ${mag}s shoot + ${rl}s reload = ${cyc}s`,
+    // Weapon mods
+    exotic_mods_title: 'Exotic weapon: mods built-in',
+    exotic_mods_rest: ' (unique). Slots locked — mods are already factored into the exotic\'s stat budget.',
+    slot_count: (n) => n===1?'slot':'slots',
+    slot_optic:'optic', slot_muzzle:'muzzle', slot_underbarrel:'underbarrel', slot_magazine:'magazine',
+    // Gear mods
+    pick_stats: 'Pick stats above',
+    // Auth
+    sign_in_title:'👤 Sign In', register_title:'👤 Register',
+    signing_in:'Signing in...', signed_in:'✓ Signed in', sign_in_btn:'Sign In',
+    pw_mismatch:'Passwords do not match',
+    registering:'Registering...', registered:'✓ Account created, signed in', register_btn:'Register',
+    error_pfx:'Error', net_error:'Network error',
+    // Community feed
+    loading:'Loading...', loading_short:'Loading...',
+    no_builds_all:'No builds in this category yet. Be the first — click 🚀 Publish in the BUILD tab!',
+    no_builds_mine:'You haven\'t published anything yet. Build in BUILD and click 🚀 Publish.',
+    no_builds_liked:'You haven\'t liked anything yet. Click ❤ on builds you like.',
+    total_likes:'Total likes', avg_likes:'Average',
+    found:'Found', total_in_db:'total in DB',
+    you_liked_n: (n) => `You liked ${n} builds`,
+    feed_load_err: (msg) => `Load error: ${msg}. PocketBase backend may be unavailable.`,
+    // Author profile
+    stat_builds:'Builds', stat_likes:'Likes', stat_avg_dps:'Avg DPS',
+    stat_best_dps:'Best DPS', stat_fav:'Fav weapon', no_builds:'No builds',
+    load_err:'Load error',
+    // Publish
+    publishing:'Publishing...', anon:'Anonymous',
+    published_ok:'Published!', tg_share:'Share on Telegram',
+    tg_build_text: (name) => `Division 2 build "${name}" — click to open in calculator`,
+    publish_btn:'Publish',
+    // Meta/community top
+    meta_no_builds:'No builds in this category yet. <a href="#" onclick="document.querySelector(\'.cat-btn[data-cat=build]\').click();return false" style="color:var(--orange)">Build and publish yours!</a>',
+    // Wpn category hint
+    wpn_cat_hint: (lbl) => `→ active bonus "per ${lbl}"`,
+    wpn_cats: {AR:'AR (assault rifle)',SMG:'SMG',LMG:'LMG',MMR:'MMR (marksman)',Rifle:'Rifle',SG:'SG (shotgun)',Pistol:'Pistol'},
+    // Bug report
+    compressing:'Compressing...',
+    screenshot_ready: (kb) => `Ready · ${kb}KB (will upload on submit)`,
+    sending:'Sending...', uploading_scr:'Uploading screenshot...',
+    uploaded_via: (m) => `Uploaded via ${m}`, sent_thanks:'✓ Sent. Thank you!', submit_btn:'Send',
+    bug_warn: (cnt,lim,left) => `⚠ This month already <b>${cnt}</b> reports via form (limit ${lim}/mo, ~${left} left).<br>If not urgent — open an <a href="https://github.com/Mokhnatti/division2-calc/issues/new" target="_blank" style="color:var(--orange)">issue on GitHub</a> instead, no limit there.`,
+    // Skills/mods
+    skills_no_data:'Skill data not loaded',
+    mods_load_fail:'Failed to load modifiers',
+    // Admin
+    admin_loading:'Loading...', admin_login_req:'Please sign in first',
+    admin_not_found:'Nothing found', admin_err: (msg) => `Error: ${msg}`,
+    // Comments
+    no_comments:'No comments yet', comments_n: (n) => `Comments: <b>${n}</b>`,
+    your_nick:'Your nickname', leave_comment:'Leave a comment...',
+    submit_comment:'Send', comment_err:'Error sending comment',
+    // Recombinator warnings
+    rcm_no_trigger: 'did not trigger',
+    rcm_invert_fail: 'condition not met',
+    rcm_nullify_fail: 'two or more modules at minimum',
+    rcm_cascade_fail: 'two modules at maximum',
+    rcm_converge_fail: 'two modules at minimum',
+    rcm_equalize_fail: 'median is not unique',
+  }
+};
+function i18n(key, ...args) {
+  const lang = currentLang === 'en' ? 'en' : 'ru';
+  const s = (STRINGS[lang] && STRINGS[lang][key] !== undefined) ? STRINGS[lang][key] : (STRINGS.ru[key] !== undefined ? STRINGS.ru[key] : key);
+  return typeof s === 'function' ? s(...args) : s;
+}
+// ===== end i18n =====
+
 const STAT_RU = {
   "weapon damage":"Урон оружия","armor":"Броня","skill tier":"Уровень скиллов",
   "damage to armor":"Урон по броне","damage to health":"Урон по здоровью",
@@ -94,8 +241,8 @@ function render(){
     const fN=activeCat==="all"||activeCat==="named"?fi(N,q,mode):[];
     const tot=fG.length+fB.length+fE.length+fN.length;
     const all=G.length+B.length+E.length+N.length;
-    document.getElementById("rc").innerHTML=qs.length?`Найдено: <span>${tot}</span> из ${all} (${mode==="and"?"И — пересечения":"ИЛИ — любое"})`:
-        `Всего: <span>${all}</span> предметов`;
+    document.getElementById("rc").innerHTML=qs.length?`${i18n('found_n',tot,all)} (${mode==="and"?i18n('mode_and'):i18n('mode_or')})`:
+        i18n('total_items',all);
     let h="";const H=(s)=>hl(s,q);
 
     const isEn=currentLang==="en";
@@ -359,17 +506,18 @@ function calcDPS(){
     // Main value: show both armor/health DPS
     const dpsValEl = document.getElementById("dps-val");
     if(dpsValEl){
-      if(Math.abs(dpsArmor - dpsHealth) < 1){
-        dpsValEl.textContent = Math.round(dps).toLocaleString("ru");
+      const _nFmt = currentLang==='en'?'en':'ru';
+    if(Math.abs(dpsArmor - dpsHealth) < 1){
+        dpsValEl.textContent = Math.round(dps).toLocaleString(_nFmt);
       } else {
-        dpsValEl.innerHTML = `<span style="color:var(--green);font-size:.85em">🛡 ${Math.round(dpsArmor).toLocaleString("ru")}</span> <span style="color:var(--muted);font-size:.5em">|</span> <span style="color:var(--red);font-size:.85em">❤ ${Math.round(dpsHealth).toLocaleString("ru")}</span>`;
+        dpsValEl.innerHTML = `<span style="color:var(--green);font-size:.85em">🛡 ${Math.round(dpsArmor).toLocaleString(_nFmt)}</span> <span style="color:var(--muted);font-size:.5em">|</span> <span style="color:var(--red);font-size:.85em">❤ ${Math.round(dpsHealth).toLocaleString(_nFmt)}</span>`;
       }
     }
     document.getElementById("dps-details").innerHTML =
-        `Урон/пулю (броня): <b style="color:var(--green)">${Math.round(bulletDmgArmor).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
-        `Урон/пулю (HP): <b style="color:var(--red)">${Math.round(bulletDmgHealth).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
-        `Burst DPS: <b>${Math.round(burstDps).toLocaleString("ru")}</b> &nbsp;|&nbsp; `+
-        `Цикл: ${magTime.toFixed(1)}с стрельба + ${reload}с перезарядка = ${cycleTime.toFixed(1)}с`;
+        `${i18n('dmg_armor')}: <b style="color:var(--green)">${Math.round(bulletDmgArmor).toLocaleString(_nFmt)}</b> &nbsp;|&nbsp; `+
+        `${i18n('dmg_hp')}: <b style="color:var(--red)">${Math.round(bulletDmgHealth).toLocaleString(_nFmt)}</b> &nbsp;|&nbsp; `+
+        `Burst DPS: <b>${Math.round(burstDps).toLocaleString(_nFmt)}</b> &nbsp;|&nbsp; `+
+        i18n('cycle_fmt',magTime.toFixed(1),reload,cycleTime.toFixed(1));
 
     // Buckets chart
     const buckets = [
@@ -1235,7 +1383,7 @@ function updateWeaponModsForExotic(){
   const isExotic = (wpn && wpn.kind === "exotic") || (info && info.is_exotic);
 
   if(isExotic){
-    note.innerHTML = `🧿 <b style="color:var(--orange)">Экзотик-оружие: моды встроены</b> (уникальные). Слоты заблокированы — общий вклад модов уже заложен в stat-бюджете экзотика.`;
+    note.innerHTML = `🧿 <b style="color:var(--orange)">${i18n('exotic_mods_title')}</b>${i18n('exotic_mods_rest')}`;
     grid.querySelectorAll("select").forEach(s=>{s.disabled=true; s.style.opacity="0.5"; s.value="none";});
     grid.querySelectorAll("[data-slot-wrap]").forEach(w=>{w.style.display="";});
     for(const slot of Object.keys(weaponModState)) weaponModState[slot] = "none";
@@ -1245,9 +1393,9 @@ function updateWeaponModsForExotic(){
   // Determine available slots
   const available = (info && info.slots_available) || ["optic","muzzle","underbarrel","magazine"];
   const availSet = new Set(available);
-  const lblMapRu = {optic:"прицел", muzzle:"дульный", underbarrel:"подствол", magazine:"магазин"};
+  const lblMapSlot = {optic:i18n('slot_optic'), muzzle:i18n('slot_muzzle'), underbarrel:i18n('slot_underbarrel'), magazine:i18n('slot_magazine')};
   const wpnCls = (wpn && wpn.cat) ? wpn.cat.toUpperCase() : "?";
-  note.innerHTML = `${wpnCls} (${available.length} слот${available.length===1?'':'а'}): ${available.map(s=>lblMapRu[s]||s).join(' + ')}`;
+  note.innerHTML = `${wpnCls} (${available.length} ${i18n('slot_count',available.length)}): ${available.map(s=>lblMapSlot[s]||s).join(' + ')}`;
 
   // Build filtered options per slot (filter by weapon class)
   const allOptions = _buildWeaponModOptions();
@@ -1436,7 +1584,7 @@ function recomputeGearStats(){
       parts.push(`<span style="color:var(--orange)">+${Math.round(v*100)}% ${lbl}</span>`);
     }
     parts.push(`<span style="color:var(--muted)">· Exp ×${totals.expertise||0}</span>`);
-    sumEl.innerHTML = parts.join(" · ") || "Выбери статы выше";
+    sumEl.innerHTML = parts.join(" · ") || i18n('pick_stats');
   }
 }
 
@@ -1635,10 +1783,10 @@ function _checkTalentReq(talentName, isPerfect){
     if(what) parts.push(`⚠ ${what}`);
   }
   if(req.applicable_weapon_classes){
-    parts.push(`только ${req.applicable_weapon_classes.join('/')}`);
+    parts.push(isEn2?`only ${req.applicable_weapon_classes.join('/')}:`:`только ${req.applicable_weapon_classes.join('/')}`);
   }
   if(req.triggers_on){
-    parts.push(`триггер: ${req.triggers_on}`);
+    parts.push(`${isEn2?'trigger':'триггер'}: ${req.triggers_on}`);
   }
   if(!parts.length) return "";
   const isEn = currentLang==='en';
@@ -2150,25 +2298,25 @@ function switchAuthTab(tab){
   if(tr)tr.classList.toggle("on",!isLogin);
   if(fl)fl.style.display=isLogin?"":"none";
   if(fr)fr.style.display=isLogin?"none":"";
-  if(title)title.textContent=isLogin?"👤 Вход":"👤 Регистрация";
+  if(title)title.textContent=isLogin?i18n('sign_in_title'):i18n('register_title');
 }
 async function submitLogin(ev){
   ev.preventDefault();
   const f=ev.target;
   const btn=document.getElementById("auth-login-btn");
   const status=document.getElementById("auth-login-status");
-  btn.disabled=true;btn.textContent="Вход...";
+  btn.disabled=true;btn.textContent=i18n('signing_in');
   status.className="bug-status";status.textContent="";
   try{
     await loginUser(f.email.value.trim(),f.password.value);
     status.className="bug-status ok";
-    status.textContent="✓ Успешный вход";
+    status.textContent=i18n('signed_in');
     setTimeout(()=>{closeAuthModal();},800);
   }catch(e){
     status.className="bug-status err";
-    status.textContent="Ошибка: "+e.message;
+    status.textContent=i18n('error_pfx')+": "+e.message;
   }finally{
-    btn.disabled=false;btn.textContent="Войти";
+    btn.disabled=false;btn.textContent=i18n('sign_in_btn');
   }
 }
 async function submitRegister(ev){
@@ -2179,20 +2327,20 @@ async function submitRegister(ev){
   status.className="bug-status";status.textContent="";
   if(f.password.value!==f.password_confirm.value){
     status.className="bug-status err";
-    status.textContent="Пароли не совпадают";
+    status.textContent=i18n('pw_mismatch');
     return;
   }
-  btn.disabled=true;btn.textContent="Регистрация...";
+  btn.disabled=true;btn.textContent=i18n('registering');
   try{
     await registerUser(f.email.value.trim(),f.password.value,f.username.value.trim());
     status.className="bug-status ok";
-    status.textContent="✓ Аккаунт создан, вошёл";
+    status.textContent=i18n('registered');
     setTimeout(()=>{closeAuthModal();},800);
   }catch(e){
     status.className="bug-status err";
-    status.textContent="Ошибка: "+e.message;
+    status.textContent=i18n('error_pfx')+": "+e.message;
   }finally{
-    btn.disabled=false;btn.textContent="Зарегистрироваться";
+    btn.disabled=false;btn.textContent=i18n('register_btn');
   }
 }
 function openMyBuilds(){
@@ -2264,7 +2412,7 @@ async function loadCommunityFeed(){
   const listEl=document.getElementById("comm-list");
   const status=document.getElementById("comm-status");
   if(!listEl||!status)return;
-  status.textContent="Загружаю...";
+  status.textContent=i18n('loading');
   status.style.color="var(--muted)";
   listEl.innerHTML="";
   const sort=document.getElementById("comm-sort").value||"-likes,-created";
@@ -2310,9 +2458,7 @@ async function loadCommunityFeed(){
     }
     if(items.length===0){
       const msg={
-        all:"Пока нет билдов в этой категории. Будь первым — жми 🚀 Опубликовать во вкладке BUILD!",
-        mine:"Ты ещё ничего не публиковал. Собирай билд в BUILD и жми 🚀 Опубликовать.",
-        liked:"Ты ещё ничего не лайкнул. Жми ❤ на понравившиеся билды.",
+        all:i18n('no_builds_all'), mine:i18n('no_builds_mine'), liked:i18n('no_builds_liked'),
       };
       status.textContent=msg[scope]||msg.all;
       return;
@@ -2321,16 +2467,16 @@ async function loadCommunityFeed(){
     if(scope==="mine"){
       const totalLikes=items.reduce((a,b)=>a+(b.likes||0),0);
       const avgLikes=items.length?Math.round(totalLikes/items.length*10)/10:0;
-      extraStats=` · Всего лайков: <b style="color:var(--red)">${totalLikes}</b> · В среднем: ${avgLikes}`;
+      extraStats=` · ${i18n('total_likes')}: <b style="color:var(--red)">${totalLikes}</b> · ${i18n('avg_likes')}: ${avgLikes}`;
     }else if(scope==="liked"){
-      extraStats=` · Ты лайкнул ${items.length} билдов`;
+      extraStats=` · ${i18n('you_liked_n',items.length)}`;
     }
-    status.innerHTML=`${currentLang==='en'?'Found':'Найдено'}: <b>${items.length}</b>${scope==="all"?` (${currentLang==='en'?'total in DB':'всего в базе'}: ${j.totalItems})`:""}${extraStats}`;
+    status.innerHTML=`${i18n('found')}: <b>${items.length}</b>${scope==="all"?` (${i18n('total_in_db')}: ${j.totalItems})`:""}${extraStats}`;
     const liked=getLikedSet();
     currentBuilds=items;
     listEl.innerHTML=items.map(b=>renderBuildCard(b,liked.has(b.id),isTrending)).join("");
   }catch(e){
-    status.textContent="Ошибка загрузки: "+e.message+". Бэкенд PocketBase может быть недоступен.";
+    status.textContent=i18n('feed_load_err',e.message);
     status.style.color="var(--red)";
   }
 }
@@ -2730,7 +2876,7 @@ async function showAuthorProfile(authorName) {
   const statusEl = document.getElementById('comm-status');
   if (!profileEl || !listEl) return;
   nameEl.textContent = authorName;
-  statsEl.innerHTML = '<div style="font-size:12px;color:var(--muted);padding:10px">Загружаю...</div>';
+  statsEl.innerHTML = `<div style="font-size:12px;color:var(--muted);padding:10px">${i18n('loading')}</div>`;
   buildsEl.innerHTML = '';
   listEl.style.display = 'none';
   if (filterBar) filterBar.style.display = 'none';
@@ -2750,16 +2896,16 @@ async function showAuthorProfile(authorName) {
     items.forEach(b => { if (b.weapon_cat) catCount[b.weapon_cat] = (catCount[b.weapon_cat] || 0) + 1; });
     const favCat = Object.keys(catCount).length ? Object.keys(catCount).reduce((a, b) => catCount[b] > catCount[a] ? b : a) : '—';
     statsEl.innerHTML = `
-      <div class="author-stat-card"><span class="asv">${count}</span><span class="asl">Билдов</span></div>
-      <div class="author-stat-card"><span class="asv">${totalLikes}</span><span class="asl">Лайков</span></div>
-      <div class="author-stat-card"><span class="asv">${avgDps ? Math.round(avgDps / 1000) + 'k' : '—'}</span><span class="asl">Средний DPS</span></div>
-      <div class="author-stat-card"><span class="asv">${bestBuild ? Math.round(bestBuild.peak_dps / 1000) + 'k' : '—'}</span><span class="asl">Лучший DPS${bestBuild ? '<br><span style="font-size:10px;color:var(--named)">' + escapeHtml(bestBuild.name) + '</span>' : ''}</span></div>
-      <div class="author-stat-card"><span class="asv" style="font-size:16px">${escapeHtml(favCat)}</span><span class="asl">Любимое оружие</span></div>
+      <div class="author-stat-card"><span class="asv">${count}</span><span class="asl">${i18n('stat_builds')}</span></div>
+      <div class="author-stat-card"><span class="asv">${totalLikes}</span><span class="asl">${i18n('stat_likes')}</span></div>
+      <div class="author-stat-card"><span class="asv">${avgDps ? Math.round(avgDps / 1000) + 'k' : '—'}</span><span class="asl">${i18n('stat_avg_dps')}</span></div>
+      <div class="author-stat-card"><span class="asv">${bestBuild ? Math.round(bestBuild.peak_dps / 1000) + 'k' : '—'}</span><span class="asl">${i18n('stat_best_dps')}${bestBuild ? '<br><span style="font-size:10px;color:var(--named)">' + escapeHtml(bestBuild.name) + '</span>' : ''}</span></div>
+      <div class="author-stat-card"><span class="asv" style="font-size:16px">${escapeHtml(favCat)}</span><span class="asl">${i18n('stat_fav')}</span></div>
     `;
     const liked = getLikedSet();
-    buildsEl.innerHTML = items.length ? items.map(b => renderBuildCard(b, liked.has(b.id), false)).join('') : '<div style="text-align:center;padding:30px;color:var(--muted);font-size:13px">Нет билдов</div>';
+    buildsEl.innerHTML = items.length ? items.map(b => renderBuildCard(b, liked.has(b.id), false)).join('') : `<div style="text-align:center;padding:30px;color:var(--muted);font-size:13px">${i18n('no_builds')}</div>`;
   } catch (e) {
-    statsEl.innerHTML = `<div style="color:var(--red);font-size:12px;padding:10px">Ошибка загрузки: ${e.message}</div>`;
+    statsEl.innerHTML = `<div style="color:var(--red);font-size:12px;padding:10px">${i18n('load_err')}: ${e.message}</div>`;
   }
 }
 
@@ -2783,7 +2929,7 @@ async function toggleComments(buildId, btn) {
     return;
   }
   box.style.display = 'block';
-  box.innerHTML = '<div style="font-size:11px;color:var(--muted)">Загрузка...</div>';
+  box.innerHTML = `<div style="font-size:11px;color:var(--muted)">${i18n('loading')}</div>`;
   try {
     const r = await fetch(`${PB_API}/comments/records?filter=${encodeURIComponent(`build="${buildId}"`)}&sort=-created&perPage=50`);
     const j = await r.json();
@@ -2794,28 +2940,28 @@ async function toggleComments(buildId, btn) {
         <div style="font-size:11px;color:var(--orange);font-weight:600">${escapeHtml(c.author)} <span style="color:#555;font-weight:400">· ${fmtAgo(c.created)}</span></div>
         <div style="font-size:12px;color:var(--text);margin-top:3px">${escapeHtml(c.text)}</div>
       </div>
-    `).join('') || '<div style="font-size:11px;color:#555;font-style:italic">Пока нет комментов</div>';
+    `).join('') || `<div style="font-size:11px;color:#555;font-style:italic">${i18n('no_comments')}</div>`;
     box.innerHTML = `
-      <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Комментариев: <b>${items.length}</b></div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px">${i18n('comments_n',items.length)}</div>
       ${list}
       <form onsubmit="postComment(event,'${buildId}')" style="margin-top:10px;display:flex;gap:6px;flex-direction:column">
-        <input name="author" type="text" placeholder="Твой ник" maxlength="40" value="${escapeHtml(author)}" style="padding:6px 9px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px">
-        <textarea name="text" placeholder="Оставить комментарий..." required maxlength="1000" style="padding:6px 9px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px;min-height:50px;resize:vertical"></textarea>
-        <button type="submit" class="cc-open" style="align-self:flex-start;padding:5px 14px">Отправить</button>
+        <input name="author" type="text" placeholder="${i18n('your_nick')}" maxlength="40" value="${escapeHtml(author)}" style="padding:6px 9px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px">
+        <textarea name="text" placeholder="${i18n('leave_comment')}" required maxlength="1000" style="padding:6px 9px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px;min-height:50px;resize:vertical"></textarea>
+        <button type="submit" class="cc-open" style="align-self:flex-start;padding:5px 14px">${i18n('submit_comment')}</button>
       </form>
     `;
   } catch (e) {
-    box.innerHTML = `<div style="font-size:11px;color:var(--red)">Ошибка: ${e.message}</div>`;
+    box.innerHTML = `<div style="font-size:11px;color:var(--red)">${i18n('error_pfx')}: ${e.message}</div>`;
   }
 }
 
 async function postComment(ev, buildId) {
   ev.preventDefault();
   const form = ev.target;
-  const author = form.author.value.trim() || 'Аноним';
+  const author = form.author.value.trim() || i18n('anon');
   const text = form.text.value.trim();
   if (!text) return;
-  if (author && author !== 'Аноним') localStorage.setItem('d2calc_author_v1', author);
+  if (author && author !== i18n('anon') && author !== 'Аноним') localStorage.setItem('d2calc_author_v1', author);
   const fp = getFingerprint();
   try {
     const r = await fetch(`${PB_API}/comments/records`, {
@@ -2831,10 +2977,10 @@ async function postComment(ev, buildId) {
       const btn = document.querySelector(`button[onclick*="toggleComments('${buildId}'"]`);
       if (btn) toggleComments(buildId, btn);
     } else {
-      alert('Ошибка отправки комментария');
+      alert(i18n('comment_err'));
     }
   } catch (e) {
-    alert('Сбой сети: ' + e.message);
+    alert(i18n('net_error') + ': ' + e.message);
   }
 }
 function copyBuildUrl(hash,btn){
@@ -3034,7 +3180,7 @@ async function submitPublish(ev){
   const form=ev.target;
   const btn=document.getElementById("pub-submit-btn");
   const status=document.getElementById("pub-status");
-  btn.disabled=true;btn.textContent="Публикация...";
+  btn.disabled=true;btn.textContent=i18n('publishing');
   status.className="bug-status";status.textContent="";
   try{
     const state=getBuildState();
@@ -3044,7 +3190,7 @@ async function submitPublish(ev){
     const wpn=getWeapon();
     const payload={
       name:form.name.value.trim(),
-      author:(currentUser&&currentUser.username)||form.author.value.trim()||"Аноним",
+      author:(currentUser&&currentUser.username)||form.author.value.trim()||i18n('anon'),
       description:form.description.value.trim(),
       weapon_cat:form.weapon_cat.value,
       weapon_name:wpn?wpn.name:"",
@@ -3062,10 +3208,9 @@ async function submitPublish(ev){
       const j=await r.json();
       status.className="bug-status ok";
       const shareLink=location.origin+location.pathname+"#b="+hashB64;
-      const tgLink=`https://t.me/share/url?url=${encodeURIComponent(shareLink)}&text=${encodeURIComponent("Division 2 билд \""+payload.name+"\" — жми чтобы открыть в калькуляторе")}`;
-      status.innerHTML=`✓ Опубликовано! <a href="${tgLink}" target="_blank" style="color:var(--blue);text-decoration:underline">Поделиться в Telegram</a>`;
-      // Save author nickname for next publish
-      if(payload.author&&payload.author!=="Аноним"){
+      const tgLink=`https://t.me/share/url?url=${encodeURIComponent(shareLink)}&text=${encodeURIComponent(i18n('tg_build_text',payload.name))}`;
+      status.innerHTML=`✓ ${i18n('published_ok')} <a href="${tgLink}" target="_blank" style="color:var(--blue);text-decoration:underline">${i18n('tg_share')}</a>`;
+      if(payload.author&&payload.author!==i18n('anon')&&payload.author!=="Аноним"){
         localStorage.setItem("d2calc_author_v1",payload.author);
       }
       // Save publisher mark
@@ -3081,13 +3226,13 @@ async function submitPublish(ev){
     }else{
       const j=await r.json().catch(()=>({}));
       status.className="bug-status err";
-      status.textContent="Ошибка: "+(j.message||j.error||("HTTP "+r.status));
+      status.textContent=i18n('error_pfx')+": "+(j.message||j.error||("HTTP "+r.status));
     }
   }catch(e){
     status.className="bug-status err";
-    status.textContent="Сбой сети: "+e.message;
+    status.textContent=i18n('net_error')+": "+e.message;
   }finally{
-    btn.disabled=false;btn.textContent="Опубликовать";
+    btn.disabled=false;btn.textContent=i18n('publish_btn');
   }
 }
 
@@ -3266,18 +3411,19 @@ document.addEventListener("input",e=>{
 });
 
 function bonusDesc(b,cat){
+  const _e=currentLang==='en';
   const parts=[];
-  if(b.rof)parts.push(`+${b.rof}% скорострельность`);
-  if(b.mag)parts.push(`+${b.mag}% магазин`);
-  if(b.chc)parts.push(`+${b.chc}% шанс крита`);
-  if(b.chd)parts.push(`+${b.chd}% урон крита`);
-  if(b.hsd)parts.push(`+${b.hsd}% урон в голову`);
-  if(b.wd)parts.push(`+${b.wd}% урон оружием`);
+  if(b.rof)parts.push(`+${b.rof}% ${_e?'RoF':'скорострельность'}`);
+  if(b.mag)parts.push(`+${b.mag}% ${_e?'magazine':'магазин'}`);
+  if(b.chc)parts.push(`+${b.chc}% ${_e?'CHC':'шанс крита'}`);
+  if(b.chd)parts.push(`+${b.chd}% ${_e?'CHD':'урон крита'}`);
+  if(b.hsd)parts.push(`+${b.hsd}% ${_e?'HSD':'урон в голову'}`);
+  if(b.wd)parts.push(`+${b.wd}% ${_e?'WD':'урон оружием'}`);
   if(b.type_dmg){
     const match=!b.type||b.type==="ALL"||b.type.split("+").some(t=>cat&&cat.includes(t));
-    parts.push(`+${b.type_dmg}% урон ${b.type||""}${match?" ✓":" ✗ (не тот тип)"}`);
+    parts.push(`+${b.type_dmg}% ${_e?'dmg':'урон'} ${b.type||""}${match?" ✓":_e?" ✗ (wrong type)":" ✗ (не тот тип)"}`);
   }
-  if(b.handling)parts.push(`+${b.handling}% управление`);
+  if(b.handling)parts.push(`+${b.handling}% ${_e?'handling':'управление'}`);
   return parts.join(" · ")||"—";
 }
 
@@ -3525,6 +3671,8 @@ function calcBuild(){
   }
 
   // Aggregate bonuses
+  const _be=currentLang==='en';
+  const _bl=(ru,en)=>_be?en:ru;
   let tWD=0,tROF=0,tMAG=0,tCHC=0,tCHD=0,tHSD=0,tRELOAD=0;
   const bonuses=[];const activeStacks=[];
   // Единый список гарантированных (авто) статов: {stat, value, source, conditional?}
@@ -3549,7 +3697,7 @@ function calcBuild(){
       if(match){
         pushG("wd",b.type_dmg,source+" ("+typeLbl+")");
       }else{
-        pushG("wd",b.type_dmg,source+" ("+typeLbl+" ✗ не твой тип)",true);
+        pushG("wd",b.type_dmg,source+" ("+typeLbl+_bl(" ✗ не твой тип"," ✗ wrong type")+")",true);
       }
     }
   };
@@ -3561,7 +3709,7 @@ function calcBuild(){
       if(b==="stacks"&&def.stacks){
         activeStacks.push({name:nm,def:def.stacks,color:def.color});
         const maxS=hasChest[nm]&&def.stacks.max_chest?def.stacks.max_chest:def.stacks.max_base;
-        bonuses.push({color:def.color,tier,nm,desc:`Стаки (${def.stacks.stat}) — макс ${maxS}${hasChest[nm]&&def.stacks.max_chest?" (нагрудник)":""}`});
+        bonuses.push({color:def.color,tier,nm,desc:_bl(`Стаки (${def.stacks.stat}) — макс ${maxS}${hasChest[nm]&&def.stacks.max_chest?" (нагрудник)":""}`,`Stacks (${def.stacks.stat}) — max ${maxS}${hasChest[nm]&&def.stacks.max_chest?" (chest)":""}`)});
       }else if(b&&typeof b==="object"){
         if(b.rof)tROF+=b.rof;
         if(b.mag)tMAG+=b.mag;
@@ -3580,7 +3728,7 @@ function calcBuild(){
         bonuses.push({color:def.color,tier,nm,desc:bonusDesc(b,wpn.cat)+noteExtra});
       }else if(typeof b==="string"&&b!=="stacks"){
         const note=def.p4_note?def.p4_note:b;
-        bonuses.push({color:def.color,tier,nm,desc:`4шт: ${note}`});
+        bonuses.push({color:def.color,tier,nm,desc:`${_bl('4шт','4pc')}: ${note}`});
       }
     });
   }
@@ -3747,16 +3895,15 @@ function calcBuild(){
       if(!itType) continue;
       const matches=(itType==='any'||wantType==='any'||itType===wantType);
       if(!matches) continue;
-      if(it.status_wd){statusWD+=it.status_wd;statusSources.push(`${it.name}: +${it.status_wd}% WD по статусным`);}
-      if(it.status_chc){statusCHC+=it.status_chc;statusSources.push(`${it.name}: +${it.status_chc}% CHC по статусным`);}
-      if(it.status_chd){statusCHD+=it.status_chd;statusSources.push(`${it.name}: +${it.status_chd}% CHD по статусным`);}
+      if(it.status_wd){statusWD+=it.status_wd;statusSources.push(`${it.name}: +${it.status_wd}% WD ${_bl('по статусным','vs status')}`);}
+      if(it.status_chc){statusCHC+=it.status_chc;statusSources.push(`${it.name}: +${it.status_chc}% CHC ${_bl('по статусным','vs status')}`);}
+      if(it.status_chd){statusCHD+=it.status_chd;statusSources.push(`${it.name}: +${it.status_chd}% CHD ${_bl('по статусным','vs status')}`);}
     }
-    // Применяем к pickWD: добавляем на пике (peak) — потому что только при cели со статусом
     if(statusWD) tPeakOnly.wd+=statusWD;
     if(statusCHC) tPeakOnly.chc=(tPeakOnly.chc||0)+statusCHC;
     if(statusCHD) tPeakOnly.chd=(tPeakOnly.chd||0)+statusCHD;
     if(statusSources.length){
-      bonuses.push({color:"#ef5350",tier:"🔥",nm:"Цель со статусом",desc:statusSources.join(" · ")});
+      bonuses.push({color:"#ef5350",tier:"🔥",nm:_bl("Цель со статусом","Status target"),desc:statusSources.join(" · ")});
     }
   }
   globalThis._statusActive=_statusActiveLocal;
@@ -3768,32 +3915,33 @@ function calcBuild(){
   // Экзотик-доспехи с DPS-релевантными бонусами
   for(const[slot,it] of Object.entries(slotState)){
     if(!it||it.kind!=="exotic"||!it.exotic_armor_dps)continue;
-    const exSrc=`🧿 Экзотик-доспех: ${it.name}`;
+    const exSrc=`🧿 ${_bl('Экзотик-доспех','Exotic armor')}: ${it.name}`;
+    const _pk=_bl(' (пик)',' (peak)');
     const isAmp=it.exotic_amp_type==="amp";
     if(it.exotic_peak_wd){
       if(isAmp){tWD+=it.exotic_peak_wd; pushG("wd",it.exotic_peak_wd,exSrc);}
-      else{tPeakOnly.wd+=it.exotic_peak_wd; pushG("wd",it.exotic_peak_wd,exSrc+" (пик)",true);}
+      else{tPeakOnly.wd+=it.exotic_peak_wd; pushG("wd",it.exotic_peak_wd,exSrc+_pk,true);}
     }
     if(it.exotic_peak_chd){
       if(isAmp){tCHD+=it.exotic_peak_chd; pushG("chd",it.exotic_peak_chd,exSrc);}
-      else{tPeakOnly.chd+=it.exotic_peak_chd; pushG("chd",it.exotic_peak_chd,exSrc+" (пик)",true);}
+      else{tPeakOnly.chd+=it.exotic_peak_chd; pushG("chd",it.exotic_peak_chd,exSrc+_pk,true);}
     }
     if(it.exotic_peak_chc){
       if(isAmp){tCHC+=it.exotic_peak_chc; pushG("chc",it.exotic_peak_chc,exSrc);}
-      else{tPeakOnly.chc+=it.exotic_peak_chc; pushG("chc",it.exotic_peak_chc,exSrc+" (пик)",true);}
+      else{tPeakOnly.chc+=it.exotic_peak_chc; pushG("chc",it.exotic_peak_chc,exSrc+_pk,true);}
     }
     if(it.exotic_peak_rof){
       if(isAmp){tROF+=it.exotic_peak_rof; pushG("rof",it.exotic_peak_rof,exSrc);}
-      else{tPeakOnly.rof+=it.exotic_peak_rof; pushG("rof",it.exotic_peak_rof,exSrc+" (пик)",true);}
+      else{tPeakOnly.rof+=it.exotic_peak_rof; pushG("rof",it.exotic_peak_rof,exSrc+_pk,true);}
     }
-    bonuses.push({color:"#ab47bc",tier:"🧿",nm:`Экзотик: ${it.name}`,desc:it.exotic_note||""});
+    bonuses.push({color:"#ab47bc",tier:"🧿",nm:`${_bl('Экзотик','Exotic')}: ${it.name}`,desc:it.exotic_note||""});
   }
 
   for(const ni of namedItems){
     const tb=ni.item.talentBonus;
     if(!tb){bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+" — "+(ni.item.talentDesc||"")});continue}
     const isCond=tb.conditional;
-    const niSrc=`Именной: ${ni.item.name}`;
+    const niSrc=`${_bl('Именной','Named')}: ${ni.item.name}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -3810,7 +3958,7 @@ function calcBuild(){
     });
     if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,niSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
-    bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
+    bonuses.push({color:"#ab47bc",tier:"им",nm:ni.item.name,desc:(ni.item.talent||"")+": "+mathStr+(isCond?_bl(" (условно — только пик)"," (conditional — peak only)"):"")});
   }
 
   // Gear talents (chest + backpack) — selected from dropdown
@@ -3902,11 +4050,11 @@ function calcBuild(){
       ["wd","chc","chd","hsd","rof","mag","reload"].forEach(k=>{
         if(pb[k]){
           tPeakOnly[k]=(tPeakOnly[k]||0)+pb[k];
-          pushG(k,pb[k],exSrc+" (пик)"+(pb.note?" · "+pb.note:""),true);
+          pushG(k,pb[k],exSrc+_bl(" (пик)"," (peak)")+(pb.note?" · "+pb.note:""),true);
         }
       });
     }
-    bonuses.push({color:"#ab47bc",tier:"🧿",nm:"Экзотик: "+wpn.name,desc:(talentName(wpn.tal)||"")+": "+(talentDesc(wpn.tal_desc,wpn.tal_ru_full||wpn.tal_desc_ru)||"").slice(0,140)});
+    bonuses.push({color:"#ab47bc",tier:"🧿",nm:_bl('Экзотик: ','Exotic: ')+wpn.name,desc:(talentName(wpn.tal)||"")+": "+(talentDesc(wpn.tal_desc,wpn.tal_ru_full||wpn.tal_desc_ru)||"").slice(0,140)});
   }
 
   // Weapon 4th-roll talent (applies on top of base/exotic/named). For exotic — skip (slot locked)
@@ -3941,14 +4089,14 @@ function calcBuild(){
     });
     if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,wtSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
-    bonuses.push({color:"#f5a623",tier:"🎯",nm:(_wt_en?"Talent: ":"Талант: ")+wtName,desc:mathStr+(isCond?(_wt_en?" (conditional — peak only)":" (условно — только пик)"):"")+( tb.note?" · "+tb.note:"")});
+    bonuses.push({color:"#f5a623",tier:"🎯",nm:(_wt_en?"Talent: ":"Талант: ")+wtName,desc:mathStr+(isCond?(_wt_en?" (conditional — peak only)":_bl(" (условно — только пик)"," (conditional — peak only)")):"")+( tb.note?" · "+tb.note:"")});
   }
 
   // Named weapon talent (if any) — applies same way as named armor
   if(wpn.kind==="named"&&wpn.named_bonus){
     const tb=wpn.named_bonus;
     const isCond=tb.conditional;
-    const nwSrc=`Оружие: ${wpn.name}`;
+    const nwSrc=`${_bl('Оружие','Weapon')}: ${wpn.name}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -3965,7 +4113,7 @@ function calcBuild(){
     });
     if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,nwSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
-    bonuses.push({color:"#ab47bc",tier:"🔫",nm:"Оружие: "+wpn.name,desc:(talentName(wpn.tal)||"")+": "+mathStr+(isCond?" (условно — только пик)":"")});
+    bonuses.push({color:"#ab47bc",tier:"🔫",nm:_bl('Оружие: ','Weapon: ')+wpn.name,desc:(talentName(wpn.tal)||"")+": "+mathStr+(isCond?_bl(" (условно — только пик)"," (conditional — peak only)"):"")});
   }
 
   // Manual stats — пользователь вводит ИТОГИ из меню игры ("Наступление").
@@ -4007,11 +4155,11 @@ function calcBuild(){
     Pistol:parseFloat(document.getElementById("b-wd-pistol")?.value)||0,
   };
   const catBonus=catBonusMap[wpn.cat]||0;
-  const wpnCatLabel={AR:"AR (штурмовая)",SMG:"SMG (ПП)",LMG:"LMG (пулемёт)",MMR:"MMR (снайперка)",Rifle:"Rifle (винтовка)",SG:"SG (дробовик)",Pistol:"Pistol"};
+  const wpnCatLabel=i18n('wpn_cats');
   const hintEl=document.getElementById("b-wpn-cat-hint");
   if(hintEl){
-    const lbl=wpnCatLabel[wpn.cat]||wpn.cat||"—";
-    hintEl.textContent=`→ активен бонус "От ${lbl}"`;
+    const lbl=(wpnCatLabel&&wpnCatLabel[wpn.cat])||wpn.cat||"—";
+    hintEl.textContent=i18n('wpn_cat_hint',lbl);
   }
   // ОБНУЛЯЕМ все авто-накопления: берём ИТОГ только из ручных полей
   tWD=mWD+catBonus;
@@ -4039,34 +4187,35 @@ function calcBuild(){
   const protoSum=proto.wd+proto.hsd+proto.chc+proto.chd+proto.elite+proto.health;
   if(protoSum>0||proto.slots>0){
     const parts=[];
-    if(proto.slots>0)parts.push(`${proto.slots}/6 слотов Prototype`);
+    if(proto.slots>0)parts.push(`${proto.slots}/6 ${_bl('слотов','slots')} Prototype`);
     if(proto.wd)parts.push(`+${proto.wd}% WD`);
     if(proto.hsd)parts.push(`+${proto.hsd}% HSD`);
     if(proto.chc)parts.push(`+${proto.chc}% CHC`);
     if(proto.chd)parts.push(`+${proto.chd}% CHD`);
-    if(proto.elite)parts.push(`+${proto.elite}% vs Elite (по элите)`);
-    if(proto.health)parts.push(`+${proto.health}% vs Health (по здоровью)`);
+    if(proto.elite)parts.push(`+${proto.elite}% vs Elite${_bl(' (по элите)','')}`);
+    if(proto.health)parts.push(`+${proto.health}% vs Health${_bl(' (по здоровью)','')}`);
     bonuses.push({color:"#ab47bc",tier:"🧪",nm:"Prototype Gear",desc:parts.join(" · ")});
   }
   // Recombinator (Y8S1 seasonal modifiers) — информативно, не влияет на DPS (итог вводится вручную)
   const rc={hsd:v("rc-hsd"),ammo:v("rc-ammo"),ergo:v("rc-ergo"),armor:v("rc-armor"),elite:v("rc-elite"),hazprot:v("rc-hazprot"),status:v("rc-status"),skilldmg:v("rc-skilldmg"),util3:v("rc-util3")};
-  if(rc.hsd)pushG("hsd",rc.hsd,"Рекомбинатор: Offense");
-  if(rc.ammo)pushG("mag",rc.ammo,"Рекомбинатор: Offense");
+  const _rcn=_bl('Рекомбинатор','Recombinator');
+  if(rc.hsd)pushG("hsd",rc.hsd,`${_rcn}: Offense`);
+  if(rc.ammo)pushG("mag",rc.ammo,`${_rcn}: Offense`);
   const rcOff=rc.hsd+rc.ammo+rc.ergo;
   const rcDef=rc.armor+rc.elite+rc.hazprot;
   const rcUtl=rc.status+rc.skilldmg+rc.util3;
   if(rcOff>0){
     const parts=[];
     if(rc.hsd)parts.push(`+${rc.hsd}% HSD`);
-    if(rc.ammo)parts.push(`+${rc.ammo}% патроны`);
-    if(rc.ergo)parts.push(`+${rc.ergo}% эргономика`);
-    bonuses.push({color:"#ef5350",tier:"🧬",nm:"Рекомбинатор: Offense",desc:parts.join(" · ")});
+    if(rc.ammo)parts.push(`+${rc.ammo}% ${_bl('патроны','ammo')}`);
+    if(rc.ergo)parts.push(`+${rc.ergo}% ${_bl('эргономика','ergonomics')}`);
+    bonuses.push({color:"#ef5350",tier:"🧬",nm:`${_rcn}: Offense`,desc:parts.join(" · ")});
   }
   if(rcDef>0){
-    bonuses.push({color:"#42a5f5",tier:"🧬",nm:"Рекомбинатор: Defense",desc:`+${rc.armor}% броня · +${rc.elite}% vs элит · +${rc.hazprot}% защ. статусов (не DPS)`});
+    bonuses.push({color:"#42a5f5",tier:"🧬",nm:`${_rcn}: Defense`,desc:_bl(`+${rc.armor}% броня · +${rc.elite}% vs элит · +${rc.hazprot}% защ. статусов (не DPS)`,`+${rc.armor}% armor · +${rc.elite}% vs elite · +${rc.hazprot}% hazard prot (not DPS)`)});
   }
   if(rcUtl>0){
-    bonuses.push({color:"#fdd835",tier:"🧬",nm:"Рекомбинатор: Utility",desc:`+${rc.status}% статусы · +${rc.skilldmg}% урон навыка · +${rc.util3}% свободный (не DPS оружия)`});
+    bonuses.push({color:"#fdd835",tier:"🧬",nm:`${_rcn}: Utility`,desc:_bl(`+${rc.status}% статусы · +${rc.skilldmg}% урон навыка · +${rc.util3}% свободный (не DPS оружия)`,`+${rc.status}% status · +${rc.skilldmg}% skill dmg · +${rc.util3}% free (not weapon DPS)`)});
   }
 
   // Prototype Augments (Y8S1)
@@ -4165,7 +4314,7 @@ function calcBuild(){
   if(topKey){
     const keys=[];
     bonuses.forEach(b=>{
-      if(b.tier==="🧿") keys.push(localizeItemName(b.nm.replace(/^Экзотик:\s*/,"")));
+      if(b.tier==="🧿") keys.push(localizeItemName(b.nm.replace(/^(?:Экзотик|Exotic):\s*/,"")));
       else if(typeof b.tier==="number"&&b.tier===4) keys.push(setShort(b.nm)+(currentLang==='en'?" 4pc":" 4шт"));
     });
     const mainLbl = currentLang==='en' ? '💥 Core:' : '💥 Главное:';
@@ -4619,48 +4768,41 @@ function computeBuildWeights(ctx){
 // Returns list of warning objects: {level:'err'|'warn'|'info', text:string}
 function runBuildValidation(ctx){
   const warns=[];
+  const _e=currentLang==='en';
+  const _w=(ru,en)=>_e?en:ru;
   const {wpn,cnt,hasChest,hasBP,brandCnt,tCHC,tWD,tHSD,tROF,namedItems,slotState}=ctx;
 
-  // Count filled slots
   const filledCount=Object.values(slotState).filter(x=>x).length;
   if(filledCount<6){
-    warns.push({level:"warn",text:`Заполнено ${filledCount}/6 слотов брони. Ты теряешь часть характеристик.`});
+    warns.push({level:"warn",text:_w(`Заполнено ${filledCount}/6 слотов брони. Ты теряешь часть характеристик.`,`${filledCount}/6 armor slots filled. You're missing some stats.`)});
   }
 
-  // CHC cap check
   if(tCHC>60){
-    warns.push({level:"warn",text:`Шанс крита <b>${Math.round(tCHC)}%</b> превышает soft-cap 60%. Избыточные <b>${Math.round(tCHC-60)}%</b> пропадают впустую — перебрось их в CHD/WD/HSD.`});
+    warns.push({level:"warn",text:_w(`Шанс крита <b>${Math.round(tCHC)}%</b> превышает soft-cap 60%. Избыточные <b>${Math.round(tCHC-60)}%</b> пропадают впустую — перебрось их в CHD/WD/HSD.`,`CHC <b>${Math.round(tCHC)}%</b> exceeds soft-cap 60%. Excess <b>${Math.round(tCHC-60)}%</b> is wasted — reroll to CHD/WD/HSD.`)});
   }
 
-  // Set piece checks
   for(const[nm,count] of Object.entries(cnt)){
     const def=SB[nm];if(!def)continue;
     if(count===1){
-      warns.push({level:"info",text:`"${nm}" — только 1шт, все бонусы сета (p2/p3/p4) неактивны. Либо добери, либо убери.`});
+      warns.push({level:"info",text:_w(`"${nm}" — только 1шт, все бонусы сета (p2/p3/p4) неактивны. Либо добери, либо убери.`,`"${nm}" — only 1 piece, all set bonuses (p2/p3/p4) inactive. Add more or remove it.`)});
     }else if(count===2&&def.p4&&def.p4!=="stacks"){
       // OK 2pc
     }else if(count===3&&def.p4){
-      // Has 3pc, 4pc missing — only tell if 4pc is meaningful
       if(def.p4==="stacks"||(typeof def.p4==="object"&&Object.keys(def.p4).length>0)){
-        warns.push({level:"info",text:`"${nm}" — 3шт, активны p2+p3. До 4шт остался 1 предмет — это даст основной эффект сета (стаки/бонус).`});
+        warns.push({level:"info",text:_w(`"${nm}" — 3шт, активны p2+p3. До 4шт остался 1 предмет — это даст основной эффект сета (стаки/бонус).`,`"${nm}" — 3 pieces, p2+p3 active. 1 more piece for 4pc — gives the main set effect (stacks/bonus).`)});
       }
     }
-    // Stack chest/bp checks
     if(def.stacks&&count>=4){
       if(!hasChest[nm]&&def.stacks.max_chest){
-        warns.push({level:"info",text:`"${nm}" 4pc — сет-стаки активны. Нагрудник этого сета расширит макс до <b>${def.stacks.max_chest}</b> (сейчас ${def.stacks.max_base}).`});
+        warns.push({level:"info",text:_w(`"${nm}" 4pc — сет-стаки активны. Нагрудник этого сета расширит макс до <b>${def.stacks.max_chest}</b> (сейчас ${def.stacks.max_base}).`,`"${nm}" 4pc — set stacks active. Chest of this set expands max to <b>${def.stacks.max_chest}</b> (now ${def.stacks.max_base}).`)});
       }
       if(!hasBP[nm]&&(def.stacks.wd_bp||def.stacks.chd_bp_extra)){
-        const bonus=def.stacks.wd_bp?`+${(def.stacks.wd_bp-def.stacks.wd_base).toFixed(1)}% WD/стак`:`+${def.stacks.chd_bp_extra}% CHD/стак`;
-        warns.push({level:"info",text:`"${nm}" — рюкзак этого сета усилит стаки: ${bonus}.`});
+        const bonus=def.stacks.wd_bp?`+${(def.stacks.wd_bp-def.stacks.wd_base).toFixed(1)}% WD/${_w('стак','stack')}`:`+${def.stacks.chd_bp_extra}% CHD/${_w('стак','stack')}`;
+        warns.push({level:"info",text:_w(`"${nm}" — рюкзак этого сета усилит стаки: ${bonus}.`,`"${nm}" — backpack of this set boosts stacks: ${bonus}.`)});
       }
     }
   }
 
-  // Brand: 1pc is fine (gives its single-piece bonus), no warning.
-  // Only note if 2pc skipped when there are 3 of the same brand — unlikely in practice.
-
-  // Weapon cat mismatch with set type damage
   if(wpn&&wpn.cat){
     for(const[nm,count] of Object.entries(cnt)){
       const def=SB[nm];if(!def)continue;
@@ -4669,23 +4811,21 @@ function runBuildValidation(ctx){
           const wpnCat=wpn.cat||"";
           const match=b.type.split("+").some(t=>wpnCat===t||wpnCat.includes(t));
           if(!match&&count>=2){
-            warns.push({level:"warn",text:`Бонус сета "${nm}" даёт +${b.type_dmg}% урона ${b.type}, но у тебя <b>${wpn.cat}</b> — бонус не работает.`});
+            warns.push({level:"warn",text:_w(`Бонус сета "${nm}" даёт +${b.type_dmg}% урона ${b.type}, но у тебя <b>${wpn.cat}</b> — бонус не работает.`,`Set "${nm}" gives +${b.type_dmg}% dmg to ${b.type}, but your weapon is <b>${wpn.cat}</b> — bonus inactive.`)});
           }
         }
       });
     }
   }
 
-  // Empty chest/bp for stack sets
   const STACKING_SET_NAMES=["Боевое снаряжение Страйкера","Снаряжение боевика","Strikers Battlegear","Striker's Battlegear","Tipping Scales","Переломный момент","Точка разрыва","Переломная точка","Инициатива Умбра","Umbra Initiative","Umbra","Снаряжение охотника","Hunter's Fury","Ярость охотника"];
   const stackSets=Object.entries(cnt).filter(([nm,c])=>c>=4&&(SB[nm]&&SB[nm].stacks||STACKING_SET_NAMES.includes(nm)));
   if(stackSets.length===0&&filledCount>=4){
-    warns.push({level:"info",text:"В билде нет сетов со стаками — рассмотри Страйкер/Tipping Scales/Умбра/Точка разрыва для роста DPS во времени."});
+    warns.push({level:"info",text:_w("В билде нет сетов со стаками — рассмотри Страйкер/Tipping Scales/Умбра/Точка разрыва для роста DPS во времени.","No stacking sets in build — consider Striker/Tipping Scales/Umbra/Punto de Ruptura for DPS scaling over time.")});
   }
 
-  // Publish-ready check
   if(filledCount===6&&warns.filter(w=>w.level==="warn").length===0){
-    warns.push({level:"ok",text:"✓ Билд полностью собран. Нет критичных предупреждений. Можно публиковать через 🚀."});
+    warns.push({level:"ok",text:_w("✓ Билд полностью собран. Нет критичных предупреждений. Можно публиковать через 🚀.","✓ Build is complete. No critical warnings. Ready to publish via 🚀.")});
   }
 
   // Render
@@ -5050,7 +5190,7 @@ async function initRecomSim(){
   const el=document.getElementById("recom-sim");
   if(!el)return;
   const mods=await loadRecombinatorRef();
-  if(!mods||!mods.length){el.innerHTML='<i>Не удалось загрузить модификаторы</i>';return}
+  if(!mods||!mods.length){el.innerHTML=`<i>${i18n('mods_load_fail')}</i>`;return}
   const cats={Offense:[],Defense:[],Utility:[],Wildcard:[]};
   for(const m of mods){if(cats[m.category])cats[m.category].push(m)}
   const catColors={Offense:"#ef5350",Defense:"#42a5f5",Utility:"#fdd835",Wildcard:"#ce93d8"};
@@ -5139,7 +5279,7 @@ function recalcRecomSim(){
         const others=otherTwo[cat];
         const maxOther=Math.max(stacks[others[0]],stacks[others[1]]);
         if(stacks[others[0]]===stacks[others[1]]||stacks[cat]>=maxOther){
-          warnings.push(`T${t} Invert — не сработал (условие не выполнено)`);
+          warnings.push(`T${t} Invert — ${i18n('rcm_no_trigger')} (${i18n('rcm_invert_fail')})`);
         } else {
           const highKey=stacks[others[0]]>stacks[others[1]]?others[0]:others[1];
           if(!locked[cat]&&!locked[highKey]){
@@ -5165,7 +5305,7 @@ function recalcRecomSim(){
       const minVal=Math.min(stacks.offense,stacks.defense,stacks.utility);
       const ties=[["offense","defense","utility"].filter(k=>stacks[k]===minVal)];
       if(ties[0].length>1){
-        warnings.push(`T${t} Nullify — не сработал (два и более модуля на минимуме)`);
+        warnings.push(`T${t} Nullify — ${i18n('rcm_no_trigger')} (${i18n('rcm_nullify_fail')})`);
       } else {
         const lowKey=ties[0][0];
         if(!locked[lowKey]){
@@ -5179,7 +5319,7 @@ function recalcRecomSim(){
       const vals=[["offense",stacks.offense],["defense",stacks.defense],["utility",stacks.utility]];
       vals.sort((a,b)=>b[1]-a[1]);
       if(vals[0][1]===vals[1][1]){
-        warnings.push(`T${t} Cascade — не сработал (два модуля с одинаковым максимумом)`);
+        warnings.push(`T${t} Cascade — ${i18n('rcm_no_trigger')} (${i18n('rcm_cascade_fail')})`);
       } else {
         const highKey=vals[0][0];
         const bonus=Math.ceil(stacks[highKey]/2);
@@ -5190,7 +5330,7 @@ function recalcRecomSim(){
       const vals=[["offense",stacks.offense],["defense",stacks.defense],["utility",stacks.utility]];
       vals.sort((a,b)=>a[1]-b[1]);
       if(vals[0][1]===vals[1][1]){
-        warnings.push(`T${t} Converge — не сработал (два модуля на минимуме)`);
+        warnings.push(`T${t} Converge — ${i18n('rcm_no_trigger')} (${i18n('rcm_converge_fail')})`);
       } else {
         const lowKey=vals[0][0];
         const avg=Math.floor((stacks[vals[1][0]]+stacks[vals[2][0]])/2);
@@ -5201,7 +5341,7 @@ function recalcRecomSim(){
       const sorted=[stacks.offense,stacks.defense,stacks.utility].slice().sort((a,b)=>a-b);
       const med=sorted[1];
       if(sorted[0]===sorted[1]||sorted[1]===sorted[2]){
-        warnings.push(`T${t} Equalize — не сработал (медиана не уникальна)`);
+        warnings.push(`T${t} Equalize — ${i18n('rcm_no_trigger')} (${i18n('rcm_equalize_fail')})`);
       } else {
         for(const k of["offense","defense","utility"]){if(!locked[k]){stacks[k]=med;history[k]=[med];}}
       }
@@ -5454,7 +5594,7 @@ async function openBugModal(){
   const count=await fetchBugCount();
   if(count>=WARN_THRESHOLD){
     const left=Math.max(0,FORMSPREE_LIMIT-count);
-    warn.innerHTML=`⚠ В этом месяце уже <b>${count}</b> репортов через форму (лимит ${FORMSPREE_LIMIT}/мес, осталось ~${left}).<br>Если не срочно — лучше открой <a href="https://github.com/Mokhnatti/division2-calc/issues/new" target="_blank" style="color:var(--orange)">issue на GitHub</a>, там без лимита.`;
+    warn.innerHTML=i18n('bug_warn',count,FORMSPREE_LIMIT,left);
     warn.style.display="block";
   }
 }
@@ -5465,13 +5605,13 @@ function closeBugModal(){
 async function handleBugFile(file){
   if(!file||!file.type.startsWith("image/"))return;
   const status=document.getElementById("bug-upload-status");
-  status.textContent="Сжимаю...";
+  status.textContent=i18n('compressing');
   const compressed=await compressImage(file,1400,0.78);
   bugScreenshotBlob=compressed;
   const url=URL.createObjectURL(compressed);
   document.getElementById("bug-preview-img").src=url;
   document.getElementById("bug-preview").style.display="block";
-  status.textContent="Готов · "+(compressed.size/1024|0)+"КБ (загрузится при отправке)";
+  status.textContent=i18n('screenshot_ready',compressed.size/1024|0);
 }
 
 function compressImage(file,maxW,quality){
@@ -5514,7 +5654,7 @@ async function submitBug(ev){
   const form=ev.target;
   const btn=document.getElementById("bug-submit-btn");
   const status=document.getElementById("bug-status");
-  btn.disabled=true;btn.textContent="Отправка...";
+  btn.disabled=true;btn.textContent=i18n('sending');
   status.className="bug-status";status.textContent="";
   try{
     const payload={
@@ -5528,14 +5668,14 @@ async function submitBug(ev){
       _subject:"Division 2 Calc — баг-репорт",
     };
     if(bugScreenshotBlob){
-      document.getElementById("bug-upload-status").textContent="Загружаю скрин...";
+      document.getElementById("bug-upload-status").textContent=i18n('uploading_scr');
       const up=await uploadScreenshot(bugScreenshotBlob);
       if(up.url){
         payload.screenshot_url=up.url;
       }else if(up.dataUrl){
-        payload.screenshot_base64=up.dataUrl.length>180000?up.dataUrl.slice(0,180000)+"...[обрезано]":up.dataUrl;
+        payload.screenshot_base64=up.dataUrl.length>180000?up.dataUrl.slice(0,180000)+"...[truncated]":up.dataUrl;
       }
-      document.getElementById("bug-upload-status").textContent="Загружено через "+up.method;
+      document.getElementById("bug-upload-status").textContent=i18n('uploaded_via',up.method);
     }
     const r=await fetch(FORMSPREE_ENDPOINT,{
       method:"POST",
@@ -5544,7 +5684,7 @@ async function submitBug(ev){
     });
     if(r.ok){
       status.className="bug-status ok";
-      status.textContent="✓ Отправлено. Спасибо!";
+      status.textContent=i18n('sent_thanks');
       form.reset();
       bugScreenshotBlob=null;
       document.getElementById("bug-preview").style.display="none";
@@ -5553,13 +5693,13 @@ async function submitBug(ev){
     }else{
       const j=await r.json().catch(()=>({}));
       status.className="bug-status err";
-      status.textContent="Ошибка: "+(j.error||j.errors?.map(e=>e.message).join(", ")||r.status);
+      status.textContent=i18n('error_pfx')+": "+(j.error||j.errors?.map(e=>e.message).join(", ")||r.status);
     }
   }catch(e){
     status.className="bug-status err";
-    status.textContent="Сбой сети: "+e.message;
+    status.textContent=i18n('net_error')+": "+e.message;
   }finally{
-    btn.disabled=false;btn.textContent="Отправить";
+    btn.disabled=false;btn.textContent=i18n('submit_btn');
   }
 }
 
@@ -6223,21 +6363,21 @@ function setTopFilter(f){
 async function loadTopBuilds(){
   const host=document.getElementById("top-builds-content");
   if(!host)return;
-  host.innerHTML='<div style="padding:40px;text-align:center;color:var(--muted)">Загрузка...</div>';
+  host.innerHTML=`<div style="padding:40px;text-align:center;color:var(--muted)">${i18n('loading_short')}</div>`;
   try{
     const filter=topBuildsFilter==="all"?"":`&filter=${encodeURIComponent(`weapon_cat="${topBuildsFilter}"`)}`;
     const r=await fetch(`${PB_API}/builds/records?sort=-likes&perPage=20${filter}`);
     const data=await r.json();
     const items=data.items||[];
     if(!items.length){
-      host.innerHTML='<div style="padding:40px;text-align:center;color:var(--muted)">Пока нет билдов в этой категории. <a href="#" onclick="document.querySelector(\'.cat-btn[data-cat=build]\').click();return false" style="color:var(--orange)">Собери и опубликуй свой!</a></div>';
+      host.innerHTML=`<div style="padding:40px;text-align:center;color:var(--muted)">${i18n('meta_no_builds')}</div>`;
       return;
     }
     const liked=getLikedSet();
     const html=items.map(b=>renderBuildCard(b,liked.has(b.id),false)).join("");
     host.innerHTML=`<div class="comm-grid">${html}</div>`;
   }catch(e){
-    host.innerHTML=`<div style="padding:40px;text-align:center;color:var(--red)">Ошибка: ${escapeHtml(e.message)}</div>`;
+    host.innerHTML=`<div style="padding:40px;text-align:center;color:var(--red)">${i18n('error_pfx')}: ${escapeHtml(e.message)}</div>`;
   }
 }
 
@@ -6253,7 +6393,7 @@ function renderSkillCalc(){
   if(!host) return;
   const SD = (typeof D2DATA!=='undefined' && D2DATA.SKILLS_DATA) || null;
   if(!SD || !SD.skills){
-    host.innerHTML = '<div style="padding:20px;color:var(--red)">Данные о навыках не загружены</div>';
+    host.innerHTML = `<div style="padding:20px;color:var(--red)">${i18n('skills_no_data')}</div>`;
     return;
   }
   const tier = Math.max(0, Math.min(6, parseInt(document.getElementById('sk-tier')?.value)||0));
@@ -6590,9 +6730,9 @@ async function doAdminSearch(){
   const q=(document.getElementById('admin-user-search')?.value||'').trim();
   const host=document.getElementById('admin-user-list');
   if(!host)return;
-  host.innerHTML='<div style="padding:20px;text-align:center;color:var(--muted)">Загрузка...</div>';
+  host.innerHTML=`<div style="padding:20px;text-align:center;color:var(--muted)">${i18n('admin_loading')}</div>`;
   const token=currentUser&&currentUser.token;
-  if(!token){ host.innerHTML='<div style="padding:20px;color:var(--red)">Залогинься сначала</div>'; return; }
+  if(!token){ host.innerHTML=`<div style="padding:20px;color:var(--red)">${i18n('admin_login_req')}</div>`; return; }
   const safe=q.replace(/"/g,'\\"');
   const filter=q?`&filter=${encodeURIComponent(`(username~"${safe}"||email~"${safe}"||name~"${safe}")`)}`:'';
   try{
@@ -6600,14 +6740,14 @@ async function doAdminSearch(){
       headers:{Authorization:token}
     });
     if(!r.ok){
-      const t=await r.text();
-      host.innerHTML=`<div style="padding:20px;color:var(--red)">Ошибка: HTTP ${r.status}<br><small>${escapeHtml(t.slice(0,200))}</small></div>`;
+      const respTxt=await r.text();
+      host.innerHTML=`<div style="padding:20px;color:var(--red)">${i18n('error_pfx')}: HTTP ${r.status}<br><small>${escapeHtml(respTxt.slice(0,200))}</small></div>`;
       return;
     }
     const j=await r.json();
     const users=j.items||[];
     if(!users.length){
-      host.innerHTML='<div style="padding:20px;text-align:center;color:var(--muted)">Ничего не найдено</div>';
+      host.innerHTML=`<div style="padding:20px;text-align:center;color:var(--muted)">${i18n('admin_not_found')}</div>`;
       return;
     }
     host.innerHTML=users.map(u=>{
@@ -6627,7 +6767,7 @@ async function doAdminSearch(){
       </div>`;
     }).join('');
   }catch(e){
-    host.innerHTML=`<div style="padding:20px;color:var(--red)">Сбой: ${escapeHtml(e.message)}</div>`;
+    host.innerHTML=`<div style="padding:20px;color:var(--red)">${i18n('admin_err',escapeHtml(e.message))}</div>`;
   }
 }
 async function adminSetRole(userId,role){
