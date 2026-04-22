@@ -4481,16 +4481,16 @@ function calcBuild(){
   if(topN&&topSect){
     topN.innerHTML=`
       <div class="rtn-base">
-        <div class="rtn-val">${Math.round(baseDPS).toLocaleString("ru")}</div>
-        <div class="rtn-lbl">База · без стаков</div>
+        <div class="rtn-val">${Math.round(baseDPS).toLocaleString(_dp_en?"en":"ru")}</div>
+        <div class="rtn-lbl">${_dp_loc("База · без стаков","Base · no stacks")}</div>
       </div>
       <div class="rtn-avg">
-        <div class="rtn-val">${Math.round(avgDPS10).toLocaleString("ru")}</div>
-        <div class="rtn-lbl">Средний · 10с бой</div>
+        <div class="rtn-val">${Math.round(avgDPS10).toLocaleString(_dp_en?"en":"ru")}</div>
+        <div class="rtn-lbl">${_dp_loc("Средний · 10с бой","Avg · 10s fight")}</div>
       </div>
       <div class="rtn-peak">
-        <div class="rtn-val">${Math.round(maxDPS).toLocaleString("ru")}</div>
-        <div class="rtn-lbl">Пик · фул стаки</div>
+        <div class="rtn-val">${Math.round(maxDPS).toLocaleString(_dp_en?"en":"ru")}</div>
+        <div class="rtn-lbl">${_dp_loc("Пик · фул стаки","Peak · full stacks")}</div>
       </div>`;
     topSect.style.display="block";
   }
@@ -4948,6 +4948,15 @@ function applyUiTranslations(){
       });
     }
   });
+  // Leaf divs and spans (pure text, no child elements) — e.g. section headers
+  document.querySelectorAll('div,span').forEach(el=>{
+    if(el.children.length>0) return;
+    if(el.hasAttribute('data-no-translate')) return;
+    const raw=(el.textContent||'').trim();
+    if(!raw||raw.length>200) return;
+    const t=map[raw];
+    if(t) el.textContent=t;
+  });
   // Input placeholders
   document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{
     const raw = (el.placeholder||'').trim();
@@ -4990,6 +4999,14 @@ async function toggleLang(){
   if(typeof render==="function")render();
   if(activeCat==="build")calcBuild();
   if(activeCat==="community")loadCommunityFeed();
+  if(activeCat==="skills")try{renderSkillCalc();}catch(e){}
+  if(activeCat==="wmods")try{renderWeaponMods();}catch(e){}
+  if(activeCat==="smods"){try{renderSkillGearMods();}catch(e){}}
+  if(activeCat==="expertise")try{renderExpertise();}catch(e){}
+  if(activeCat==="formulas")try{renderFormulas();}catch(e){}
+  if(activeCat==="tank")try{renderTank();}catch(e){}
+  // Reset escalation memoization so it re-renders with new lang
+  if(activeCat==="help"){try{__escRefRendered=false;renderEscalationRef();}catch(e){}}
   // Re-render Mode B UI when language changes
   if(gearStatMode==="gear"){
     try{
