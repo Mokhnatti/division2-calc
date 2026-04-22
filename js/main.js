@@ -178,7 +178,28 @@ const STAT_RU = {
   "smg damage":"Урон ПП","rifle damage":"Урон винтовок","mmr damage":"Урон снайперок",
   "lmg damage":"Урон пулемётов","shotgun damage":"Урон дробовиков",
 };
-function translateStat(s){if(!s)return s;return STAT_RU[s.toLowerCase()]||s;}
+const STAT_EN = {
+  "weapon damage":"Weapon Damage","armor":"Armor","skill tier":"Skill Tier",
+  "damage to armor":"Damage to Armor","damage to health":"Damage to Health",
+  "headshot damage":"Headshot Damage","crit chance":"Critical Hit Chance",
+  "crit damage":"Critical Hit Damage","rate of fire":"Rate of Fire",
+  "weapon handling":"Weapon Handling","reload speed":"Reload Speed",
+  "magazine size":"Magazine Size","accuracy":"Accuracy","stability":"Stability",
+  "optimal range":"Optimal Range","armor on kill":"Armor on Kill",
+  "armor regeneration":"Armor Regeneration","health on kill":"Health on Kill",
+  "status effects":"Status Effects","hazard protection":"Hazard Protection",
+  "skill haste":"Skill Haste","skill duration":"Skill Duration",
+  "skill health":"Skill Health","skill damage":"Skill Damage",
+  "pistol damage":"Pistol Damage","assault rifle damage":"Assault Rifle Damage",
+  "smg damage":"SMG Damage","rifle damage":"Rifle Damage","mmr damage":"Marksman Rifle Damage",
+  "lmg damage":"LMG Damage","shotgun damage":"Shotgun Damage",
+};
+function translateStat(s){if(!s)return s;const k=s.toLowerCase();return currentLang==='en'?(STAT_EN[k]||s):(STAT_RU[k]||s);}
+
+const SLOT_TYPE_EN={
+  "Маска":"Mask","Перчатки":"Gloves","Наколенники":"Knee Pads","Нагрудник":"Chest","Рюкзак":"Backpack","Кобура":"Holster",
+  "Маски":"Masks","Перчатки":"Gloves","Наколенники":"Knee Pads","Нагрудники":"Chests","Рюкзаки":"Backpacks","Кобуры":"Holsters",
+};
 
 // ===== GEAR SETS =====
 const G = D2DATA.G;
@@ -300,7 +321,7 @@ function render(){
                 }
                 const displayName=isEn&&e.en?e.en:e.name;
                 const displaySub=!isEn?(e.en||""):"";
-                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(displayName)}${wikiIcon(e.en)}${itemPageIcon('exotic',e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(e.t)}</span></div>`;
+                h+=`<div class="card"><div class="card-h"><div><div class="cn exotic">${H(displayName)}${wikiIcon(e.en)}${itemPageIcon('exotic',e.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-exotic">${H(isEn?(GR_EN[e.t]||e.t):e.t)}</span></div>`;
                 h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
                 h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div></div>`;
             });h+='</div>';
@@ -324,7 +345,7 @@ function render(){
                 }
                 const displayName=isEn&&n.en?n.en:n.name;
                 const displaySub=!isEn?(n.en||""):"";
-                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}${itemPageIcon('named',n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(n.t)}</span></div>`;
+                h+=`<div class="card"><div class="card-h"><div><div class="cn named">${H(displayName)}${wikiIcon(n.en)}${itemPageIcon('named',n.en)}</div>${displaySub?`<div class="en">${H(displaySub)}</div>`:""}</div><span class="badge b-named">${H(isEn?(GR_EN[n.t]||n.t):n.t)}</span></div>`;
                 if(n.brand)h+=`<div class="info">${L("Бренд","Brand")}: ${H(n.brand)}</div>`;
                 const coreVal=Array.isArray(n.core)?n.core[0]:n.core;
                 if(coreVal)h+=`<div class="info" style="color:#ff9800">${L("Осн. реквизит","Core")}: ${H(translateStat(coreVal))}</div>`;
@@ -868,7 +889,7 @@ function renderSlotItems(){
       const attr1Str=it.attr1?Object.entries(it.attr1).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", "):"";
       const attr2Str=it.attr2?Object.entries(it.attr2).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", "):"";
       const attrsStr=[attr1Str,attr2Str].filter(x=>x).join(" · ");
-      const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
+      const bonusStr=(_isen?(it.bonus_short_en||it.bonus_ru):it.bonus_ru)?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${_isen?(it.bonus_short_en||it.bonus_ru):it.bonus_ru}</div>`:"";
       const talLocal=talentName(it.talent);
       const talStr=it.talent?`<div class="mi-tal">${talLocal}${it.brand?" · <span style=\"color:var(--blue)\">"+it.brand+"</span>":""}</div>`:(it.brand?`<div class="mi-tal" style="color:var(--blue)">${it.brand}</div>`:"");
       body=`${talStr}
@@ -881,7 +902,7 @@ function renderSlotItems(){
     }else if(it.kind==="exotic"){
       const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
       const coreStr=coreVal?`<div class="mi-desc" style="color:#ff9800">Core: ${translateStat(coreVal)}</div>`:"";
-      const bonusStr=it.bonus_ru?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${it.bonus_ru}</div>`:"";
+      const bonusStr=(_isen?(it.bonus_short_en||it.bonus_ru):it.bonus_ru)?`<div class="mi-desc" style="color:#ff9800;font-weight:600">★ ${_isen?(it.bonus_short_en||it.bonus_ru):it.bonus_ru}</div>`:"";
       body=`<div class="mi-tal">${talentName(it.talent)||""}</div>
             ${it.talentDesc?`<div class="mi-desc">${it.talentDesc}</div>`:""}
             ${bonusStr}${coreStr}
