@@ -282,10 +282,10 @@ function render(){
     }
 
     // EXOTICS
+    const GR_EN={"Штурмовые винтовки":"Assault Rifles","Пистолеты-пулемёты":"SMGs","Ручные пулемёты":"LMGs","Дробовики":"Shotguns","Снайперские винтовки":"Marksman Rifles","Винтовки":"Rifles","Пистолеты":"Pistols","Маски":"Masks","Рюкзаки":"Backpacks","Нагрудники":"Chests","Перчатки":"Gloves","Наколенники":"Knee Pads","Кобуры":"Holsters"};
     if(fE.length){
         h+=`<div class="section-title">${L("Экзотики","Exotics")} <span class="cnt">${fE.length}</span></div>`;
         const eg={};fE.forEach(e=>{if(!eg[e.g])eg[e.g]=[];eg[e.g].push(e)});
-        const GR_EN={"Штурмовые винтовки":"Assault Rifles","Пистолеты-пулемёты":"SMGs","Ручные пулемёты":"LMGs","Дробовики":"Shotguns","Снайперские винтовки":"Marksman Rifles","Винтовки":"Rifles","Пистолеты":"Pistols","Маски":"Masks","Рюкзаки":"Backpacks","Нагрудники":"Chests","Перчатки":"Gloves","Наколенники":"Knee Pads","Кобуры":"Holsters"};
         ["Штурмовые винтовки","Пистолеты-пулемёты","Ручные пулемёты","Дробовики","Снайперские винтовки","Винтовки","Пистолеты","Маски","Рюкзаки","Нагрудники","Перчатки","Наколенники","Кобуры"].forEach(gr=>{
             if(!eg[gr])return;
             h+=`<div class="sub">${isEn?(GR_EN[gr]||gr):gr} (${eg[gr].length})</div><div class="grid">`;

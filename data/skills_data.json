@@ -15,10 +15,35 @@
       "rpm": 600,
       "duration_s": 90,
       "cooldown_s": 40,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "tier_dur_mult": [1.0, 1.10, 1.20, 1.30, 1.40, 1.50, 1.60],
-      "tier_cd_mult": [1.0, 0.92, 0.84, 0.76, 0.68, 0.60, 0.50],
-      "desc_ru": "Летающий дрон стреляет очередями по выбранной цели"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "tier_dur_mult": [
+        1.0,
+        1.1,
+        1.2,
+        1.3,
+        1.4,
+        1.5,
+        1.6
+      ],
+      "tier_cd_mult": [
+        1.0,
+        0.92,
+        0.84,
+        0.76,
+        0.68,
+        0.6,
+        0.5
+      ],
+      "desc_ru": "Летающий дрон стреляет очередями по выбранной цели",
+      "desc_en": "Flying drone fires bursts at the selected target"
     },
     {
       "id": "drone_bombardier",
@@ -29,8 +54,17 @@
       "base_dmg_per_bomb": 95000,
       "bombs_per_run": 5,
       "cooldown_s": 60,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Бомбардировка площади — 5 бомб подряд"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Бомбардировка площади — 5 бомб подряд",
+      "desc_en": "Area bombardment — 5 bombs in sequence"
     },
     {
       "id": "turret_assault",
@@ -42,9 +76,26 @@
       "rpm": 480,
       "duration_s": 120,
       "cooldown_s": 90,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "tier_dur_mult": [1.0, 1.10, 1.20, 1.30, 1.40, 1.50, 1.60],
-      "desc_ru": "Турель стреляет автоматическими очередями"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "tier_dur_mult": [
+        1.0,
+        1.1,
+        1.2,
+        1.3,
+        1.4,
+        1.5,
+        1.6
+      ],
+      "desc_ru": "Турель стреляет автоматическими очередями",
+      "desc_en": "Turret fires automatic bursts at enemies"
     },
     {
       "id": "turret_sniper",
@@ -56,9 +107,18 @@
       "rpm": 30,
       "duration_s": 120,
       "cooldown_s": 90,
-      "tier_dmg_mult": [1.0, 1.20, 1.40, 1.62, 1.86, 2.10, 2.40],
+      "tier_dmg_mult": [
+        1.0,
+        1.2,
+        1.4,
+        1.62,
+        1.86,
+        2.1,
+        2.4
+      ],
       "always_crit": true,
-      "desc_ru": "Турель стреляет по одной цели с гарантированным критом"
+      "desc_ru": "Турель стреляет по одной цели с гарантированным критом",
+      "desc_en": "Turret fires at a single target with guaranteed crit"
     },
     {
       "id": "turret_incinerator",
@@ -71,8 +131,17 @@
       "duration_s": 8,
       "cooldown_s": 90,
       "applies_burn": true,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Огнемёт — наносит урон огнём + поджигает врагов"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Огнемёт — наносит урон огнём + поджигает врагов",
+      "desc_en": "Flamethrower — deals fire damage and ignites enemies"
     },
     {
       "id": "turret_artillery",
@@ -83,8 +152,17 @@
       "base_dmg_per_shell": 180000,
       "shells_per_charge": 3,
       "cooldown_s": 90,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Артиллерия — 3 снаряда по выбранной зоне"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Артиллерия — 3 снаряда по выбранной зоне",
+      "desc_en": "Artillery — 3 shells fired at a selected area"
     },
     {
       "id": "hive_stinger",
@@ -97,9 +175,26 @@
       "drones_per_sec": 1,
       "duration_s": 60,
       "cooldown_s": 80,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "tier_drones_mult": [1.0, 1.0, 1.2, 1.3, 1.4, 1.5, 1.6],
-      "desc_ru": "Дроны улья атакуют врагов рядом"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "tier_drones_mult": [
+        1.0,
+        1.0,
+        1.2,
+        1.3,
+        1.4,
+        1.5,
+        1.6
+      ],
+      "desc_ru": "Дроны улья атакуют врагов рядом",
+      "desc_en": "Hive drones attack nearby enemies"
     },
     {
       "id": "seeker_explosive",
@@ -110,9 +205,18 @@
       "base_dmg_per_mine": 240000,
       "mines_per_charge": 3,
       "cooldown_s": 60,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
       "applies_bleed": true,
-      "desc_ru": "Самонаводящаяся фугасная мина — взрыв + кровотечение"
+      "desc_ru": "Самонаводящаяся фугасная мина — взрыв + кровотечение",
+      "desc_en": "Homing explosive mine — blast + bleed"
     },
     {
       "id": "seeker_cluster",
@@ -123,8 +227,17 @@
       "base_dmg_per_mine": 95000,
       "mines_per_charge": 4,
       "cooldown_s": 60,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "4 малые мины — каждая летит к врагу"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "4 малые мины — каждая летит к врагу",
+      "desc_en": "4 small mines — each homes in on an enemy"
     },
     {
       "id": "seeker_airburst",
@@ -136,8 +249,17 @@
       "mines_per_charge": 2,
       "cooldown_s": 60,
       "applies_burn": true,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Воздушный взрыв — поджигает + урон"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Воздушный взрыв — поджигает + урон",
+      "desc_en": "Airburst — ignites + deals damage"
     },
     {
       "id": "firefly_demolisher",
@@ -149,8 +271,17 @@
       "max_targets": 6,
       "charges": 1,
       "cooldown_s": 50,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Дрон-деструктор атакует до 6 врагов взрывом"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Дрон-деструктор атакует до 6 врагов взрывом",
+      "desc_en": "Destroyer drone attacks up to 6 enemies with explosions"
     },
     {
       "id": "firefly_burster",
@@ -162,8 +293,17 @@
       "max_targets": 5,
       "applies_burn": true,
       "cooldown_s": 50,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Дрон поджигает врагов + урон"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Дрон поджигает врагов + урон",
+      "desc_en": "Drone ignites enemies + deals damage"
     },
     {
       "id": "chem_firestarter",
@@ -177,8 +317,17 @@
       "max_targets": 8,
       "applies_burn": true,
       "cooldown_s": 50,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Поджигает площадь — DoT горение"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Поджигает площадь — DoT горение",
+      "desc_en": "Ignites an area — fire DoT"
     },
     {
       "id": "chem_oxidizer",
@@ -191,8 +340,17 @@
       "duration_s": 8,
       "max_targets": 6,
       "cooldown_s": 50,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Окисляющая кислота — урон по площади"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Окисляющая кислота — урон по площади",
+      "desc_en": "Oxidizing acid — area damage"
     },
     {
       "id": "pulse_remote",
@@ -204,8 +362,17 @@
       "max_targets": 8,
       "cooldown_s": 90,
       "amp_to_marked": 15,
-      "tier_dmg_mult": [1.0, 1.18, 1.36, 1.54, 1.72, 1.90, 2.10],
-      "desc_ru": "Импульс взрывается + помечает врагов на +15% урона"
+      "tier_dmg_mult": [
+        1.0,
+        1.18,
+        1.36,
+        1.54,
+        1.72,
+        1.9,
+        2.1
+      ],
+      "desc_ru": "Импульс взрывается + помечает врагов на +15% урона",
+      "desc_en": "Pulse explodes + marks enemies for +15% damage"
     },
     {
       "id": "striker_drone",
@@ -217,8 +384,17 @@
       "rpm": 800,
       "duration_s": 60,
       "cooldown_s": 60,
-      "tier_dmg_mult": [1.0, 1.20, 1.42, 1.66, 1.92, 2.20, 2.55],
-      "desc_ru": "Дрон-ударник Y8 — летает рядом, стреляет по любым врагам"
+      "tier_dmg_mult": [
+        1.0,
+        1.2,
+        1.42,
+        1.66,
+        1.92,
+        2.2,
+        2.55
+      ],
+      "desc_ru": "Дрон-ударник Y8 — летает рядом, стреляет по любым врагам",
+      "desc_en": "Y8 Striker Drone — hovers nearby, fires at any enemy"
     }
   ]
 }
