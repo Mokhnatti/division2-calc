@@ -5136,8 +5136,9 @@ async function toggleLang(){
       talSel.value=prev;
     }
   }catch(e){}
-  if(typeof render==="function")render();
-  if(activeCat==="build")calcBuild();
+  const _catalogCats=["all","gear","brand","exotic","named","meta"];
+  if(typeof render==="function"&&_catalogCats.includes(activeCat))render();
+  if(activeCat==="build")try{calcBuild();}catch(e){}
   if(activeCat==="community")loadCommunityFeed();
   if(activeCat==="skills")try{renderSkillCalc();}catch(e){}
   if(activeCat==="wmods")try{renderWeaponMods();}catch(e){}
