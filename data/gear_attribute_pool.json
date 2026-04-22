@@ -29,22 +29,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -124,22 +124,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -244,22 +244,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -332,22 +332,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -445,22 +445,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -532,22 +532,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -645,15 +645,15 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -711,15 +711,15 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -803,22 +803,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -855,22 +855,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -933,22 +933,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
@@ -999,22 +999,22 @@
       {
         "attr": "CritChance",
         "ru": "Шанс крит. удара",
-        "min_roll": 0.033,
-        "max_roll": 0.055,
+        "min_roll": 0.036,
+        "max_roll": 0.06,
         "cat": "offense"
       },
       {
         "attr": "CritDamage",
         "ru": "Урон крит. удара",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {
         "attr": "HeadshotDamage",
         "ru": "Урон в голову",
-        "min_roll": 0.066,
-        "max_roll": 0.11,
+        "min_roll": 0.072,
+        "max_roll": 0.12,
         "cat": "offense"
       },
       {

@@ -1020,6 +1020,22 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSlotModal()});
 
 // ===== GEAR STAT PICKER (Mode B) =====
 
+const GSP_ATTR_EN = {
+  "CritChance":"Critical Hit Chance","CritDamage":"Critical Hit Damage",
+  "HeadshotDamage":"Headshot Damage","WeaponDamage":"Weapon Damage",
+  "DamageToTargetsOutOfCover":"Damage out of Cover","DamageToHealth":"Damage to Health",
+  "DamageToArmor":"Damage to Armor","ArmorOnKill":"Armor on Kill",
+  "ExplosiveResist":"Explosive Resist","Health":"Health","HazardProtection":"Hazard Protection",
+  "SkillHaste":"Skill Haste","SkillDamage":"Skill Damage","WeaponHandling":"Weapon Handling",
+  "ReloadSpeed":"Reload Speed","WeaponDamageAR":"AR Damage","WeaponDamageSMG":"SMG Damage",
+  "WeaponDamageLMG":"LMG Damage","WeaponDamageMMR":"Marksman Rifle Damage",
+  "WeaponDamageRifle":"Rifle Damage","WeaponDamageShotgun":"Shotgun Damage",
+  "WeaponDamagePistol":"Pistol Damage","RepairSkills":"Repair Skills",
+  "StatusEffects":"Status Effects","Hazard":"Hazard Protection",
+  "BlindResist":"Blind Resistance","DisruptResist":"Disrupt Resistance",
+  "HealthOnKill":"Health on Kill","SkillTier":"Skill Tier",
+};
+
 // Map Hunter attribute names → our calculator stat keys
 const GSP_ATTR_TO_STAT = {
   // Pure DPS
@@ -1258,21 +1274,19 @@ function renderGearSlotPickers(){
   for(const slot of slots){
     const pool = POOL[slot] || {};
     const lbl = GSP_SLOT_LABELS[slot];
+    const _attrLbl = (a) => isEn ? (GSP_ATTR_EN[a.attr] || a.en || a.attr) : (a.ru || a.attr);
     const coreOpts = (pool.core_options||[]).map(c=>{
       const maxR = c.max_roll_values && c.max_roll_values[slot];
       const maxLbl = typeof maxR==="number" ? ` (+${(maxR*100).toFixed(1)}%)` : "";
-      const ru = c.ru || c.attr;
-      return `<option value="${c.attr}">${ru}${maxLbl}</option>`;
+      return `<option value="${c.attr}">${_attrLbl(c)}${maxLbl}</option>`;
     }).join("");
     const attr1Opts = (pool.attr1_options||[]).map(a=>{
-      const ru = a.ru || a.attr;
       const maxLbl = a.max_roll ? ` (+${(a.max_roll*100).toFixed(1)}%)` : "";
-      return `<option value="${a.attr}">${ru}${maxLbl}</option>`;
+      return `<option value="${a.attr}">${_attrLbl(a)}${maxLbl}</option>`;
     }).join("");
     const attr2Opts = (pool.attr2_options||[]).map(a=>{
-      const ru = a.ru || a.attr;
       const maxLbl = a.max_roll ? ` (+${(a.max_roll*100).toFixed(1)}%)` : "";
-      return `<option value="${a.attr}">${ru}${maxLbl}</option>`;
+      return `<option value="${a.attr}">${_attrLbl(a)}${maxLbl}</option>`;
     }).join("");
     const state = gearStatState[slot] || {core:"",attr1:"",attr2:""};
     html += `<div style="padding:8px;border:1px solid var(--border);border-radius:6px;background:rgba(255,255,255,.02)">
