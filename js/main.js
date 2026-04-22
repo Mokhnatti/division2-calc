@@ -504,9 +504,9 @@ function calcDPS(){
     document.getElementById("crit-mult").textContent = "x" + bCrit.toFixed(2);
 
     // Main value: show both armor/health DPS
+    const _nFmt = currentLang==='en'?'en':'ru';
     const dpsValEl = document.getElementById("dps-val");
     if(dpsValEl){
-      const _nFmt = currentLang==='en'?'en':'ru';
     if(Math.abs(dpsArmor - dpsHealth) < 1){
         dpsValEl.textContent = Math.round(dps).toLocaleString(_nFmt);
       } else {
