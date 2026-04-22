@@ -2,3 +2,12 @@ data_sources/quiz_state.json
 *.bak
 node_modules/
 index.prerendered.html
+
+# v2 refactor
+dist/
+.vite/
+*.tsbuildinfo
+.DS_Store
+.turbo/
+coverage/
+game-source/

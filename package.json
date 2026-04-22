@@ -1,15 +1,23 @@
 {
-  "name": "division2-calc",
-  "version": "1.0.0",
-  "description": "The Division 2 DPS calculator, gear database and community builds",
+  "name": "divcalc",
+  "version": "2.0.0-alpha.0",
   "private": true,
-  "scripts": {
-    "translate": "node scripts/translate_items.js",
-    "wiki": "node scripts/scrape_wiki.js",
-    "refresh": "npm run translate && npm run wiki"
-  },
+  "description": "The Division 2 build calculator — divcalc.xyz",
+  "type": "module",
   "homepage": "https://divcalc.xyz",
+  "scripts": {
+    "dev": "pnpm --filter @divcalc/web dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint"
+  },
   "devDependencies": {
-    "puppeteer": "^24.41.0"
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "packageManager": "pnpm@10.33.1",
+  "engines": {
+    "node": ">=20"
   }
 }
