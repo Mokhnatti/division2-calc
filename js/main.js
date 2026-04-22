@@ -5024,10 +5024,16 @@ function getEnDescription(type,enName){
 // Authoritative talent description (from faildruid/division-2-db — real in-game text)
 // Takes English talent name (e.g. "Perfect Vigilance") and returns official description
 function getAuthoritativeTalent(talEn){
-  if(!__translations||!talEn)return null;
-  const a=__translations.talents_authoritative;
-  if(!a)return null;
-  return a[talEn]||null;
+  if(!talEn)return null;
+  const a=__translations&&__translations.talents_authoritative;
+  if(a&&a[talEn])return a[talEn];
+  // Fallback: search WEAPON_TALENTS by name (normalize Perfectly→Perfect for matching)
+  const norm=s=>s.replace(/^Perfectly\s+/,'Perfect ');
+  const talNorm=norm(talEn);
+  const WT=(typeof D2DATA!=='undefined'&&D2DATA.WEAPON_TALENTS)||{};
+  const entry=Object.values(WT).find(t=>t.name&&norm(t.name)===talNorm);
+  if(entry&&entry.bonus&&entry.bonus.note)return{tal:entry.name||talEn,d:entry.bonus.note};
+  return null;
 }
 
 const STAT_TOOLTIPS = D2DATA.STAT_TOOLTIPS;
