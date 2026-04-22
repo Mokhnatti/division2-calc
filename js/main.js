@@ -138,9 +138,10 @@ function render(){
     if(fE.length){
         h+=`<div class="section-title">${L("Экзотики","Exotics")} <span class="cnt">${fE.length}</span></div>`;
         const eg={};fE.forEach(e=>{if(!eg[e.g])eg[e.g]=[];eg[e.g].push(e)});
+        const GR_EN={"Штурмовые винтовки":"Assault Rifles","Пистолеты-пулемёты":"SMGs","Ручные пулемёты":"LMGs","Дробовики":"Shotguns","Снайперские винтовки":"Marksman Rifles","Винтовки":"Rifles","Пистолеты":"Pistols","Маски":"Masks","Рюкзаки":"Backpacks","Нагрудники":"Chests","Перчатки":"Gloves","Наколенники":"Knee Pads","Кобуры":"Holsters"};
         ["Штурмовые винтовки","Пистолеты-пулемёты","Ручные пулемёты","Дробовики","Снайперские винтовки","Винтовки","Пистолеты","Маски","Рюкзаки","Нагрудники","Перчатки","Наколенники","Кобуры"].forEach(gr=>{
             if(!eg[gr])return;
-            h+=`<div class="sub">${gr} (${eg[gr].length})</div><div class="grid">`;
+            h+=`<div class="sub">${isEn?(GR_EN[gr]||gr):gr} (${eg[gr].length})</div><div class="grid">`;
             eg[gr].forEach(e=>{
                 const en=trExotic(e.en);
                 let tal=isEn?(en&&en.tal?en.tal:e.tal):(e.tal_ru||talentName(e.tal));
@@ -165,7 +166,7 @@ function render(){
         const ng={};fN.forEach(n=>{if(!ng[n.g])ng[n.g]=[];ng[n.g].push(n)});
         ["Штурмовые винтовки","Пистолеты-пулемёты","Дробовики","Ручные пулемёты","Снайперские винтовки","Винтовки","Пистолеты","Маски","Нагрудники","Рюкзаки","Перчатки","Кобуры","Наколенники"].forEach(gr=>{
             if(!ng[gr])return;
-            h+=`<div class="sub">${gr} (${ng[gr].length})</div><div class="grid">`;
+            h+=`<div class="sub">${isEn?(GR_EN[gr]||gr):gr} (${ng[gr].length})</div><div class="grid">`;
             ng[gr].forEach(n=>{
                 const en=trNamed(n.en);
                 let tal=isEn?(en&&en.tal?en.tal:n.tal):(n.tal_ru||talentName(n.tal));
@@ -182,7 +183,8 @@ function render(){
                 if(coreVal)h+=`<div class="info" style="color:#ff9800">${L("Осн. реквизит","Core")}: ${H(translateStat(coreVal))}</div>`;
                 if(n.attr1){const a1=Object.entries(n.attr1).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", ");if(a1)h+=`<div class="info" style="color:#4caf50">${L("Атр.1","Attr.1")}: ${H(a1)}</div>`;}
                 if(n.attr2){const a2=Object.entries(n.attr2).map(([k,v])=>`+${v}% ${translateStat(k)}`).join(", ");if(a2)h+=`<div class="info" style="color:#4caf50">${L("Атр.2","Attr.2")}: ${H(a2)}</div>`;}
-                if(n.bonus_ru)h+=`<div class="info" style="color:#ff9800;font-weight:600">${L("Бонус","Bonus")}: ${H(n.bonus_ru)}</div>`;
+                const bonusVal=isEn?(n.bonus_short_en||n.bonus_ru):n.bonus_ru;
+                if(bonusVal)h+=`<div class="info" style="color:#ff9800;font-weight:600">${L("Бонус","Bonus")}: ${H(bonusVal)}</div>`;
                 if(tal)h+=`<div class="t-line"><span class="t-name">${H(tal)}</span></div>`;
                 if(d)h+=`<div class="t-desc" style="font-size:12px;line-height:1.4">${H(d)}</div>`;
                 h+=`</div>`;
@@ -190,7 +192,7 @@ function render(){
         });
     }
 
-    if(!tot&&qs.length)h='<div style="text-align:center;padding:60px;color:#444;font-size:15px">Ничего не найдено</div>';
+    if(!tot&&qs.length)h=`<div style="text-align:center;padding:60px;color:#444;font-size:15px">${isEn?'Nothing found':'Ничего не найдено'}</div>`;
     c.innerHTML=h;
 }
 
@@ -560,7 +562,7 @@ function buildItemDb(){
     // greens: one entry per set
     G.forEach(g=>arr.push({kind:"green",name:g.name+" — "+genre,en:g.en,setName:g.name,color:g.type==="red"?"#ef5350":g.type==="blue"?"#42a5f5":g.type==="yellow"?"#fdd835":"#ce93d8",bonuses:g.bonuses,slot}));
     // brands: one entry per brand per slot
-    B.forEach(b=>arr.push({kind:"brand",name:b.name+" — "+genre,brand:b.name,bonuses:b.bonuses,slot}));
+    B.forEach(b=>arr.push({kind:"brand",name:b.name+" — "+genre,brand:b.name,enName:b.name_full_en||b.name,bonuses:b.bonuses,slot}));
     // named items for this slot
     N.filter(n=>matchGenre(n.g,genre)).forEach(n=>{
       const tb=talentBonus(n.tal);
@@ -701,13 +703,16 @@ function renderSlotItems(){
   });
   const html=filtered.slice(0,200).map((it,i)=>{
     const globalIdx=items.indexOf(it);
+    const _isen=currentLang==='en';
     const tagClass=it.kind==="green"?"b-gear":it.kind==="named"?"b-named":it.kind==="exotic"?"b-exotic":"b-brand";
-    const tagLbl=it.kind==="green"?"Сет":it.kind==="brand"?"Бренд":it.kind==="named"?"Именной":"Экзотик";
+    const tagLbl=it.kind==="green"?(_isen?"Set":"Сет"):it.kind==="brand"?(_isen?"Brand":"Бренд"):it.kind==="named"?(_isen?"Named":"Именной"):(_isen?"Exotic":"Экзотик");
     let body="";
     if(it.kind==="green"){
       body=`<div class="mi-desc">${(it.bonuses||[]).slice(0,3).join(" · ")}</div>`;
     }else if(it.kind==="brand"){
-      body=`<div class="mi-desc">${(it.bonuses||[]).join(" · ")}</div>`;
+      const _brEn=_isen?getEnDescription("brands",it.enName||it.brand):null;
+      const _brBonuses=(_isen&&_brEn&&_brEn.bonuses)?_brEn.bonuses:(it.bonuses||[]);
+      body=`<div class="mi-desc">${_brBonuses.join(" · ")}</div>`;
     }else if(it.kind==="named"){
       const mathStr=it.talentBonus?Object.entries(it.talentBonus).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" "):"";
       const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
@@ -723,7 +728,7 @@ function renderSlotItems(){
             ${bonusStr}
             ${coreStr}
             ${attrsStr?`<div class="mi-desc" style="color:#4caf50">${attrsStr}</div>`:""}
-            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus&&it.talentBonus.conditional?" (условно)":""}</div>`:""}
+            ${mathStr?`<div class="mi-math">→ ${mathStr}${it.talentBonus&&it.talentBonus.conditional?(_isen?" (cond)":" (условно)"):""}</div>`:""}
             ${renderSourceInfo(it.en)}`;
     }else if(it.kind==="exotic"){
       const coreVal=Array.isArray(it.core)?it.core[0]:it.core;
@@ -745,21 +750,23 @@ function renderSlotItems(){
     </div>`;
   }).join("");
   if(!html){
-    const filterLbl={all:'Все',green:'Сеты',brand:'Бренды',named:'Именные',exotic:'Экзотики'}[modFilter]||modFilter;
+    const _si_en=currentLang==='en';
+    const filterLbl=_si_en?{all:'All',green:'Sets',brand:'Brands',named:'Named',exotic:'Exotic'}[modFilter]||modFilter:{all:'Все',green:'Сеты',brand:'Бренды',named:'Именные',exotic:'Экзотики'}[modFilter]||modFilter;
     const totalForKind=items.filter(it=>modFilter==='all'||it.kind===modFilter).length;
     const hasSearch=qs.length>0;
     let msg;
     if(totalForKind===0){
-      msg=`В слоте «${SLOT_META[curSlot]?.label||curSlot}» нет предметов категории «${filterLbl}».<br><span style="color:#666;font-size:11px">Попробуй другой фильтр.</span>`;
+      msg=_si_en?`No items of type «${filterLbl}» in this slot.<br><span style="color:#666;font-size:11px">Try a different filter.</span>`:`В слоте «${SLOT_META[curSlot]?.label||curSlot}» нет предметов категории «${filterLbl}».<br><span style="color:#666;font-size:11px">Попробуй другой фильтр.</span>`;
     }else if(hasSearch){
-      msg=`Ничего не найдено по запросу «${qs.join(' ')}» в категории «${filterLbl}».<br><span style="color:#666;font-size:11px">Очисти поиск или поменяй фильтр.</span>`;
+      msg=_si_en?`Nothing found for «${qs.join(' ')}» in «${filterLbl}».<br><span style="color:#666;font-size:11px">Clear search or change filter.</span>`:`Ничего не найдено по запросу «${qs.join(' ')}» в категории «${filterLbl}».<br><span style="color:#666;font-size:11px">Очисти поиск или поменяй фильтр.</span>`;
     }else{
-      msg='Ничего не найдено';
+      msg=_si_en?'Nothing found':'Ничего не найдено';
     }
     document.getElementById("mod-list").innerHTML=`<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">${msg}</div>`;
   }else{
     const totalForKind=items.filter(it=>modFilter==='all'||it.kind===modFilter).length;
-    const counterHtml=`<div style="padding:6px 12px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">Найдено: <b style="color:var(--orange)">${filtered.length}</b>${filtered.length<totalForKind?` <span style="color:#666">из ${totalForKind}</span>`:''}${filtered.length>200?' <span style="color:#666">(показано первые 200)</span>':''}</div>`;
+    const _ci_en=currentLang==='en';
+    const counterHtml=`<div style="padding:6px 12px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">${_ci_en?'Found':'Найдено'}: <b style="color:var(--orange)">${filtered.length}</b>${filtered.length<totalForKind?` <span style="color:#666">${_ci_en?'of':'из'} ${totalForKind}</span>`:''}${filtered.length>200?` <span style="color:#666">(${_ci_en?'first 200 shown':'показано первые 200'})</span>`:''}</div>`;
     document.getElementById("mod-list").innerHTML=counterHtml+html;
   }
 }
@@ -3809,19 +3816,20 @@ function calcBuild(){
   // Gear talents (chest + backpack) — selected from dropdown
   const chestTalId=document.getElementById("b-chest-talent")?.value;
   const bpTalId=document.getElementById("b-bp-talent")?.value;
-  for(const[selId,slotName] of [[chestTalId,"Нагрудник"],[bpTalId,"Рюкзак"]]){
+  const _gb_en=currentLang==='en';
+  for(const[selId,slotKey,slotRu,slotEn] of [[chestTalId,"chest","Нагрудник","Chest"],[bpTalId,"bp","Рюкзак","Backpack"]]){
     if(!selId)continue;
+    const slotName=_gb_en?slotEn:slotRu;
     const isPerfect=selId.startsWith("perfect:");
     const baseId=isPerfect?selId.slice(8):selId;
     const t=GEAR_TALENTS.find(x=>(x.id||x.name_en)===baseId);
     if(!t)continue;
-    const slotKey=slotName==="Нагрудник"?"chest":"bp";
     const it=slotState[slotKey];
     if(it&&(it.kind==="named"||it.kind==="exotic")&&it.talent){
-      bonuses.push({color:"#ffa000",tier:"⚠️",nm:"Талант "+slotName,desc:`Уже задан вещью "${it.name}": ${it.talent}. Селект игнорируется.`});
+      const itmName=_gb_en?(it.en||it.name):it.name;
+      bonuses.push({color:"#ffa000",tier:"⚠️",nm:(_gb_en?"Talent ":"Талант ")+slotName,desc:_gb_en?`Already set by "${itmName}": ${it.talent}. Dropdown ignored.`:`Уже задан вещью "${itmName}": ${it.talent}. Селект игнорируется.`});
       continue;
     }
-    // Для Perfect сначала пробуем "Perfect X", потом X. Для обычного — X, потом "Perfect X".
     const tb=isPerfect?(talentBonus("Perfect "+t.name_en)||talentBonus(t.perfect_name_ru)||talentBonus(t.name_en)):(talentBonus(t.name_en)||talentBonus("Perfect "+t.name_en));
     if(tb){
       const isCond=tb.conditional;
@@ -3837,13 +3845,13 @@ function calcBuild(){
             else if(k==="mag")tMAG+=tb[k];
             else if(k==="reload")tRELOAD+=tb[k];
           }
-          pushG(k,tb[k],`${slotName}: ${isPerfect?"⭐ ":""}${t.name_ru||t.name_en}`,isCond);
+          pushG(k,tb[k],`${slotName}: ${isPerfect?"⭐ ":""}${_gb_en?(t.name_en):(t.name_ru||t.name_en)}`,isCond);
         }
       });
     }
-    const label=isPerfect?(t.perfect_name_ru||`${t.name_ru||t.name_en} (идеальный)`):(t.name_ru||t.name_en);
-    const descText=t.desc_ru||t.description||"";
-    bonuses.push({color:"#f5a623",tier:"🎽",nm:`Талант ${slotName}`,desc:`${label}: ${descText.slice(0,120)}${descText.length>120?"...":""}`});
+    const label=_gb_en?(isPerfect?(t.perfect_name_en||t.name_en):(t.name_en)):(isPerfect?(t.perfect_name_ru||`${t.name_ru||t.name_en} (идеальный)`):(t.name_ru||t.name_en));
+    const descText=_gb_en?(t.desc_en||t.description||""):(t.desc_ru||t.description||"");
+    bonuses.push({color:"#f5a623",tier:"🎽",nm:(_gb_en?"Talent ":"Талант ")+slotName,desc:`${label}: ${descText.slice(0,120)}${descText.length>120?"...":""}`});
   }
 
   // Exotic weapon talent — always applies, guaranteed
@@ -3905,18 +3913,18 @@ function calcBuild(){
   const wtFull=(wpn.kind==="exotic")?null:WEAPON_TALENTS_FULL[selectedWpnTalent];
   const wtOld=(wpn.kind==="exotic")?null:WEAPON_TALENTS[selectedWpnTalent];
   const wtBonus=(wtFull?.bonus&&Object.keys(wtFull.bonus).length>0)?wtFull.bonus:wtOld?.bonus??null;
-  const wtName=wtFull?(wtFull.name_ru?`${wtFull.name_ru} (${wtFull.name_en})`:wtFull.name_en):wtOld?.name||"";
-  // Class restriction check: если у таланта есть classes и оно не совпадает с пушкой — не применяем
+  const _wt_en=currentLang==='en';
+  const wtName=_wt_en?(wtFull?.name_en||wtOld?.name||""):(wtFull?(wtFull.name_ru?`${wtFull.name_ru} (${wtFull.name_en})`:wtFull.name_en):wtOld?.name||"");
+  // Class restriction check
   const wtClasses=wtOld?.classes||wtFull?.applicable_weapon_classes?.filter(c=>c!=="universal")||null;
   const wtClassMismatch=wtClasses&&wtClasses.length&&wpn.cat&&!wtClasses.includes(wpn.cat);
   if(wtClassMismatch){
-    const isEnC=currentLang==="en";
-    bonuses.push({color:"#ef5350",tier:"⚠",nm:"Талант: "+wtName,desc:(isEnC?`Only applies to ${wtClasses.join('/')} — current weapon is ${wpn.cat}, bonus inactive`:`Только на ${wtClasses.join('/')} — у тебя ${wpn.cat}, бонус не работает`)});
+    bonuses.push({color:"#ef5350",tier:"⚠",nm:(_wt_en?"Talent: ":"Талант: ")+wtName,desc:(_wt_en?`Only applies to ${wtClasses.join('/')} — current weapon is ${wpn.cat}, bonus inactive`:`Только на ${wtClasses.join('/')} — у тебя ${wpn.cat}, бонус не работает`)});
   }
   if(wtBonus&&!wtClassMismatch){
     const tb=wtBonus;
     const isCond=tb.conditional;
-    const wtSrc=`Талант оружия: ${wtName}`;
+    const wtSrc=_wt_en?`Weapon talent: ${wtName}`:`Талант оружия: ${wtName}`;
     ["wd","chc","chd","hsd","rof","mag"].forEach(k=>{
       if(tb[k]){
         if(isCond)tPeakOnly[k]+=tb[k];
@@ -3933,7 +3941,7 @@ function calcBuild(){
     });
     if(tb.reload){tRELOAD+=tb.reload; if(!isCond)pushG("reload",tb.reload,wtSrc);}
     const mathStr=Object.entries(tb).filter(([k])=>!["note","conditional","static"].includes(k)).map(([k,v])=>`+${v}% ${k}`).join(" ");
-    bonuses.push({color:"#f5a623",tier:"🎯",nm:"Талант: "+wtName,desc:mathStr+(isCond?" (условно — только пик)":"")+(tb.note?" · "+tb.note:"")});
+    bonuses.push({color:"#f5a623",tier:"🎯",nm:(_wt_en?"Talent: ":"Талант: ")+wtName,desc:mathStr+(isCond?(_wt_en?" (conditional — peak only)":" (условно — только пик)"):"")+( tb.note?" · "+tb.note:"")});
   }
 
   // Named weapon talent (if any) — applies same way as named armor
@@ -4351,25 +4359,28 @@ function calcBuild(){
   </svg>`;
 
   // Peak DPS split: по броне vs по HP (DtA и DtH параллельны)
+  const _dp_en=currentLang==='en';
+  const _dp_loc=(ru,en)=>_dp_en?en:ru;
+  const _dpFmt=v=>Math.round(v).toLocaleString(_dp_en?"en":"ru");
   const peakArmor = peak.dpsArmor||peak.dps;
   const peakHealth = peak.dpsHealth||peak.dps;
   const hasDthSplit = Math.abs(peakArmor-peakHealth) > 1;
   const peakDisplay = hasDthSplit
     ? `<div style="display:flex;flex-direction:column;gap:2px;align-items:center">
-         <div style="font-size:24px;font-weight:700;color:var(--green)">🛡 ${Math.round(peakArmor).toLocaleString("ru")}</div>
-         <div style="font-size:24px;font-weight:700;color:var(--red)">❤ ${Math.round(peakHealth).toLocaleString("ru")}</div>
+         <div style="font-size:24px;font-weight:700;color:var(--green)">🛡 ${_dpFmt(peakArmor)}</div>
+         <div style="font-size:24px;font-weight:700;color:var(--red)">❤ ${_dpFmt(peakHealth)}</div>
        </div>`
-    : `<div style="font-size:32px;font-weight:700;color:var(--orange)">${Math.round(maxDPS).toLocaleString("ru")}</div>`;
-  const peakLbl = hasDthSplit ? "ПИК (броня / HP)" : "ПИК (фул стаки)";
+    : `<div style="font-size:32px;font-weight:700;color:var(--orange)">${_dpFmt(maxDPS)}</div>`;
+  const peakLbl = hasDthSplit ? _dp_loc("ПИК (броня / HP)","PEAK (armor / HP)") : _dp_loc("ПИК (фул стаки)","PEAK (full stacks)");
   document.getElementById("b-peak").innerHTML=
     `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
       <div>
-        <div style="font-size:22px;font-weight:700;color:#888">${Math.round(baseDPS).toLocaleString("ru")}</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">БАЗА (без стаков)</div>
+        <div style="font-size:22px;font-weight:700;color:#888">${_dpFmt(baseDPS)}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">${_dp_loc("БАЗА (без стаков)","BASE (no stacks)")}</div>
       </div>
       <div>
-        <div style="font-size:26px;font-weight:700;color:#f5a623">${Math.round(avgDPS10).toLocaleString("ru")}</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">СРЕДНИЙ (10с бой)</div>
+        <div style="font-size:26px;font-weight:700;color:#f5a623">${_dpFmt(avgDPS10)}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">${_dp_loc("СРЕДНИЙ (10с бой)","AVG (10s fight)")}</div>
       </div>
       <div>
         ${peakDisplay}
@@ -4377,10 +4388,10 @@ function calcBuild(){
       </div>
     </div>
     <div style="font-size:11px;color:var(--muted);margin-top:12px;border-top:1px solid var(--border);padding-top:8px">
-      Прирост база→пик: <b style="color:${rampPct>0?"#00c853":"#888"}">+${rampPct}%</b> · WD ×${peak.wdMult.toFixed(2)} · Крит ×${peak.critAvg.toFixed(2)} · HS ×${peak.hsM.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · Маг ${peak.mag_f} · <b style="color:var(--orange)">DPM ${Math.round(dpmPeak).toLocaleString("ru")}</b>
+      ${_dp_loc("Прирост база→пик","Base→peak ramp")}: <b style="color:${rampPct>0?"#00c853":"#888"}">+${rampPct}%</b> · WD ×${peak.wdMult.toFixed(2)} · ${_dp_loc("Крит","Crit")} ×${peak.critAvg.toFixed(2)} · HS ×${peak.hsM.toFixed(2)} · RPM ${Math.round(peak.rpm_f)} · ${_dp_loc("Маг","Mag")} ${peak.mag_f} · <b style="color:var(--orange)">DPM ${_dpFmt(dpmPeak)}</b>
     </div>
-    <div style="margin-top:8px"><div style="font-size:10px;color:var(--muted);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px">📈 DPS во времени (0-30с)</div>${chartSvg}</div>
-    ${(globalThis._statusActive&&globalThis._statusBonusWD)?`<div style="margin-top:8px;padding:6px 10px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.3);border-radius:5px;font-size:11px;color:var(--red)">🔥 Цель со статусом: <b>+${globalThis._statusBonusWD}% WD</b>${globalThis._statusBonusCHC?`, +${globalThis._statusBonusCHC}% CHC`:''}${globalThis._statusBonusCHD?`, +${globalThis._statusBonusCHD}% CHD`:''} (учтено в Пик DPS)</div>`:""}
+    <div style="margin-top:8px"><div style="font-size:10px;color:var(--muted);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px">📈 ${_dp_loc("DPS во времени (0-30с)","DPS over time (0-30s)")}</div>${chartSvg}</div>
+    ${(globalThis._statusActive&&globalThis._statusBonusWD)?`<div style="margin-top:8px;padding:6px 10px;background:rgba(239,83,80,.1);border:1px solid rgba(239,83,80,.3);border-radius:5px;font-size:11px;color:var(--red)">🔥 ${_dp_loc("Цель со статусом","Target with status")}: <b>+${globalThis._statusBonusWD}% WD</b>${globalThis._statusBonusCHC?`, +${globalThis._statusBonusCHC}% CHC`:''}${globalThis._statusBonusCHD?`, +${globalThis._statusBonusCHD}% CHD`:''} (${_dp_loc("учтено в Пик DPS","included in Peak DPS")})</div>`:""}
     ${(()=>{
       const gs=globalThis._groupSize||1;
       if(gs<2)return"";
@@ -4389,10 +4400,10 @@ function calcBuild(){
         const it=slotState[slot];
         if(it&&it.kind==='exotic'&&it.group_exotic) groupItems.push(it);
       }
-      if(!groupItems.length)return`<div style="margin-top:8px;padding:6px 10px;background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.2);border-radius:5px;font-size:11px;color:var(--muted)">👥 В группе ${gs} игроков. У тебя нет групповых экзотиков.</div>`;
+      if(!groupItems.length)return`<div style="margin-top:8px;padding:6px 10px;background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.2);border-radius:5px;font-size:11px;color:var(--muted)">👥 ${_dp_loc(`В группе ${gs} игроков. У тебя нет групповых экзотиков.`,`Group of ${gs}. You have no group exotics.`)}</div>`;
       return`<div style="margin-top:8px;padding:8px 12px;background:rgba(66,165,245,.1);border:1px solid rgba(66,165,245,.3);border-left:3px solid var(--blue);border-radius:5px;font-size:11px">
-        <div style="color:var(--blue);font-weight:700;margin-bottom:4px">👥 В группе (${gs}): активны ${groupItems.length} групповых экзотиков</div>
-        ${groupItems.map(it=>`<div style="color:var(--muted);font-size:10px;margin-top:2px">• <b style="color:var(--text)">${it.name}</b>: ${it.group_note||''}</div>`).join('')}
+        <div style="color:var(--blue);font-weight:700;margin-bottom:4px">👥 ${_dp_loc(`В группе (${gs}): активны ${groupItems.length} групповых экзотиков`,`Group (${gs}): ${groupItems.length} group exotic(s) active`)}</div>
+        ${groupItems.map(it=>`<div style="color:var(--muted);font-size:10px;margin-top:2px">• <b style="color:var(--text)">${_dp_en?(it.en||it.name):it.name}</b>: ${it.group_note||''}</div>`).join('')}
       </div>`;
     })()}
     ${(wpn.is_burst&&wpn.tal_bonus)?(()=>{
@@ -4402,7 +4413,7 @@ function calcBuild(){
       const burstShot=Math.round(baseShot*(1+wpn.tal_bonus/100));
       const burstCrit=Math.round(burstShot*(1+(mCHD||0)/100));
       return `<div style="margin-top:8px;padding:8px 12px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.4);border-left:3px solid var(--orange);border-radius:5px;font-size:11px">
-        <div style="color:var(--orange);font-weight:700;margin-bottom:4px">💥 BURST одиночный выстрел: <b style="font-size:16px">${burstShot.toLocaleString('ru')}</b> урон <span style="color:var(--muted);font-weight:400">(в крит: ${burstCrit.toLocaleString('ru')})</span></div>
+        <div style="color:var(--orange);font-weight:700;margin-bottom:4px">💥 ${_dp_loc("BURST одиночный выстрел","BURST single shot")}: <b style="font-size:16px">${burstShot.toLocaleString(_dp_en?'en':'ru')}</b> ${_dp_loc("урон","dmg")} <span style="color:var(--muted);font-weight:400">(${_dp_loc("в крит","crit")}: ${burstCrit.toLocaleString(_dp_en?'en':'ru')})</span></div>
         <div style="color:var(--muted);font-size:10px">${wpn.burst_note||''}</div>
       </div>`;
     })():""}
@@ -4491,11 +4502,19 @@ function calcBuild(){
     // Активные стаки сетов
     for(const s of activeStacks){
       const maxS=(hasChest[s.name]&&s.def.max_chest)?s.def.max_chest:s.def.max_base;
-      conds.push(`📦 <b>${s.name}</b>: набрать ${maxS} стаков (стрелять/попадать/убивать)`);
+      conds.push(`📦 <b>${s.name}</b>: ${_dp_loc(`набрать ${maxS} стаков (стрелять/попадать/убивать)`,`reach ${maxS} stacks (shoot/hit/kill)`)}`);
     }
-    // Экзотик-оружие условия
+    // Exotic weapon conditions
     if(wpn&&wpn.kind==="exotic"&&wpn.tal_type&&wpn.tal_type!=='none'&&wpn.tal_type!=='amp'){
-      const exCondMap={
+      const exCondMap=_dp_en?{
+        kill: `kill ${wpn.tal_max||50} enemies (stacks reset on reload)`,
+        stacks: `build up ${wpn.tal_max||30} hits`,
+        shot_cover: `fire from cover until max stacks`,
+        hs_kill: `headshot kill to activate`,
+        swap_in: `swap to this weapon (10-20s window)`,
+        no_reload: `kill without reloading`,
+        conditional: `fulfill talent condition (see description)`,
+      }:{
         kill: `убить ${wpn.tal_max||50} врагов (стаки сгорают на перезарядке)`,
         stacks: `накопить ${wpn.tal_max||30} попаданий`,
         shot_cover: `стрелять из укрытия до макс стаков`,
@@ -4504,29 +4523,29 @@ function calcBuild(){
         no_reload: `убивать без перезарядки`,
         conditional: `выполнить условие таланта (см. описание)`,
       };
-      if(exCondMap[wpn.tal_type]) conds.push(`🧿 <b>${wpn.name}</b>: ${exCondMap[wpn.tal_type]}`);
+      if(exCondMap[wpn.tal_type]) conds.push(`🧿 <b>${_dp_en?(wpn.en||wpn.name):wpn.name}</b>: ${exCondMap[wpn.tal_type]}`);
     }
     // Conditional peak-only bonuses (gear talents + named items)
     const peakOnly=tPeakOnly.wd+tPeakOnly.chc+tPeakOnly.chd+tPeakOnly.hsd;
     if(peakOnly>0){
-      conds.push(`🎽 Таланты нагрудника/рюкзака: выполнить условие (стаки крита/попаданий/убийств)`);
+      conds.push(`🎽 ${_dp_loc("Таланты нагрудника/рюкзака: выполнить условие (стаки крита/попаданий/убийств)","Chest/backpack talents: fulfill condition (crit/hit/kill stacks)")}`);
     }
     // Status target
     if(globalThis._statusActive){
-      const stMap={any:'любой',burn:'горение',bleed:'кровотечение',shock:'шок',blind:'ослепление',poison:'отравление',disrupt:'дезориентация'};
-      conds.push(`🔥 Цель под негативным эффектом: <b>${stMap[globalThis._statusType]||globalThis._statusType}</b>`);
+      const stMap=_dp_en?{any:'any',burn:'burn',bleed:'bleed',shock:'shock',blind:'blind',poison:'poison',disrupt:'disrupt'}:{any:'любой',burn:'горение',bleed:'кровотечение',shock:'шок',blind:'ослепление',poison:'отравление',disrupt:'дезориентация'};
+      conds.push(`🔥 ${_dp_loc("Цель под негативным эффектом","Target with status effect")}: <b>${stMap[globalThis._statusType]||globalThis._statusType}</b>`);
     }
     // Group
     if((globalThis._groupSize||1)>1){
-      conds.push(`👥 В группе ${globalThis._groupSize} игроков`);
+      conds.push(`👥 ${_dp_loc(`В группе ${globalThis._groupSize} игроков`,`Group of ${globalThis._groupSize}`)}`);
     }
     if(conds.length){
       condEl.innerHTML=`<div style="margin-top:8px;padding:8px 12px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);border-left:3px solid var(--orange);border-radius:5px;font-size:11px">
-        <div style="color:var(--orange);font-weight:600;margin-bottom:6px">📋 Условия Пик DPS (выполни все для макс. урона):</div>
+        <div style="color:var(--orange);font-weight:600;margin-bottom:6px">📋 ${_dp_loc("Условия Пик DPS (выполни все для макс. урона)","Peak DPS conditions (complete all for max damage)")}:</div>
         ${conds.map(c=>`<div style="color:var(--muted);margin:2px 0;line-height:1.4">• ${c}</div>`).join('')}
       </div>`;
     }else{
-      condEl.innerHTML=`<div style="margin-top:8px;padding:6px 10px;background:rgba(0,200,83,.05);border:1px solid rgba(0,200,83,.2);border-radius:5px;font-size:11px;color:var(--muted)">✓ Билд без условных бонусов — DPS постоянный</div>`;
+      condEl.innerHTML=`<div style="margin-top:8px;padding:6px 10px;background:rgba(0,200,83,.05);border:1px solid rgba(0,200,83,.2);border-radius:5px;font-size:11px;color:var(--muted)">✓ ${_dp_loc("Билд без условных бонусов — DPS постоянный","Build has no conditional bonuses — DPS is constant")}</div>`;
     }
   }
 
@@ -4539,12 +4558,12 @@ function calcBuild(){
     if(tCHD) parts.push(`<span style="color:var(--red)">CHD +${Math.round(tCHD)}%</span>`);
     if(tHSD) parts.push(`<span style="color:var(--blue)">HSD +${Math.round(tHSD)}%</span>`);
     if(tROF) parts.push(`<span style="color:var(--yellow)">RoF +${Math.round(tROF)}%</span>`);
-    if(tMAG) parts.push(`<span style="color:var(--yellow)">Маг +${Math.round(tMAG)}%</span>`);
+    if(tMAG) parts.push(`<span style="color:var(--yellow)">${_dp_loc("Маг","Mag")} +${Math.round(tMAG)}%</span>`);
     if(tRELOAD) parts.push(`<span style="color:var(--yellow)">Reload +${Math.round(tRELOAD)}%</span>`);
     if(parts.length){
       autoEl.innerHTML=`<div style="margin-top:8px;padding:6px 10px;background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.2);border-radius:5px;font-size:11px">
-        <span style="color:var(--muted)">🤖 Авто-сумма из шмоток/сетов/брендов:</span> ${parts.join(' · ')}
-        <div style="font-size:10px;color:#666;margin-top:3px">Это всё уже учтено в Пик DPS. Поля ниже — ТВОИ итоги из меню игры (WD/CHC/... с учётом всего), не задваивай.</div>
+        <span style="color:var(--muted)">🤖 ${_dp_loc("Авто-сумма из шмоток/сетов/брендов","Auto-sum from gear/sets/brands")}:</span> ${parts.join(' · ')}
+        <div style="font-size:10px;color:#666;margin-top:3px">${_dp_loc("Это всё уже учтено в Пик DPS. Поля ниже — ТВОИ итоги из меню игры (WD/CHC/... с учётом всего), не задваивай.","All of this is already included in Peak DPS. Fields below are YOUR in-game totals (WD/CHC/... with everything included) — don't double-count.")}</div>
       </div>`;
     }else{
       autoEl.innerHTML='';
@@ -4867,8 +4886,7 @@ function updateStatTooltips(){
 }
 
 // ===== LANGUAGE SWITCHER =====
-// currentLang declared earlier (TDZ fix) — reassign here to ensure localStorage value
-currentLang=localStorage.getItem("d2calc_lang")||"ru";
+// currentLang set by IIFE (URL > localStorage > navigator) — do NOT reassign here
 function updateLangBtn(){
   const btn=document.getElementById("lang-btn");
   if(!btn)return;
@@ -5254,11 +5272,12 @@ async function renderRecombinatorRef(){
   const el=document.getElementById("rcm-reference");
   if(!el)return;
   const mods=await loadRecombinatorRef();
-  if(!mods||!mods.length){el.innerHTML='<i>Не удалось загрузить</i>';return}
+  if(!mods||!mods.length){el.innerHTML=`<i>${currentLang==='en'?'Failed to load':'Не удалось загрузить'}</i>`;return}
   const cats={Offense:[],Defense:[],Utility:[],Wildcard:[]};
   for(const m of mods){if(cats[m.category])cats[m.category].push(m)}
   const colors={Offense:"#ef5350",Defense:"#42a5f5",Utility:"#fdd835",Wildcard:"#ce93d8"};
-  const labels={Offense:"⚔ Атакующие (Offense)",Defense:"🛡 Защитные (Defense)",Utility:"🔧 Вспомогательные (Utility)",Wildcard:"⭐ Универсальные (Wildcard)"};
+  const _rcm_en=currentLang==='en';
+  const labels={Offense:_rcm_en?"⚔ Offense":"⚔ Атакующие (Offense)",Defense:_rcm_en?"🛡 Defense":"🛡 Защитные (Defense)",Utility:_rcm_en?"🔧 Utility":"🔧 Вспомогательные (Utility)",Wildcard:_rcm_en?"⭐ Wildcard":"⭐ Универсальные (Wildcard)"};
   let html="";
   for(const cat of Object.keys(cats)){
     if(!cats[cat].length)continue;
@@ -5294,6 +5313,7 @@ function renderEscalationRef(){
   const el=document.getElementById("esc-ref-content");
   if(!el)return;
   __escRefRendered=true;
+  const isEn=currentLang==='en';
   const tblStyle="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:11px";
   const thStyle="background:rgba(255,255,255,.06);padding:4px 8px;text-align:center;border:1px solid var(--border);color:var(--orange);font-weight:700";
   const tdStyle="padding:4px 8px;text-align:center;border:1px solid var(--border)";
@@ -5301,7 +5321,7 @@ function renderEscalationRef(){
   let h="";
   h+=`<div style="font-weight:700;color:var(--orange);margin-bottom:6px;font-size:12px">Difficulty Scaling</div>`;
   h+=`<table style="${tblStyle}"><thead><tr>`;
-  for(const c of["Тир","Deposit","Profit","Group","Enemy DMG","Enemy HP","Enemy AR","Drop %"])h+=`<th style="${thStyle}">${c}</th>`;
+  for(const c of[isEn?"Tier":"Тир","Deposit","Profit","Group","Enemy DMG","Enemy HP","Enemy AR","Drop %"])h+=`<th style="${thStyle}">${c}</th>`;
   h+=`</tr></thead><tbody>`;
   for(let i=0;i<=10;i++){
     const t=ESCALATION_TIERS[String(i)]||{hp:0,ar:0,dmg:100};
@@ -5309,7 +5329,7 @@ function renderEscalationRef(){
     const d=ESCALATION_DROP_CHANCE[i]||0;
     const td=i%2===0?tdStyle:tdAlt;
     h+=`<tr>
-      <td style="${td}">${i===0?"Базовый":"T"+i}</td>
+      <td style="${td}">${i===0?(isEn?"Base":"Базовый"):"T"+i}</td>
       <td style="${td}">${r.deposit}</td>
       <td style="${td}">${r.profit}</td>
       <td style="${td}">${r.group}</td>
@@ -5320,9 +5340,9 @@ function renderEscalationRef(){
     </tr>`;
   }
   h+=`</tbody></table>`;
-  h+=`<div style="font-weight:700;color:var(--orange);margin-bottom:6px;font-size:12px">Мутаторы по тирам</div>`;
+  h+=`<div style="font-weight:700;color:var(--orange);margin-bottom:6px;font-size:12px">${isEn?"Mutators by Tier":"Мутаторы по тирам"}</div>`;
   h+=`<table style="${tblStyle}"><thead><tr>`;
-  for(const c of["Тир","Harvester","Suppressor","Anchor","Aid Specialist"])h+=`<th style="${thStyle}">${c}</th>`;
+  for(const c of[isEn?"Tier":"Тир","Harvester","Suppressor","Anchor","Aid Specialist"])h+=`<th style="${thStyle}">${c}</th>`;
   h+=`</tr></thead><tbody>`;
   for(let i=1;i<=10;i++){
     const m=ESCALATION_MUTATORS[i];
@@ -5339,23 +5359,23 @@ function renderEscalationRef(){
   h+=`</tbody></table>`;
   h+=`<div style="font-weight:700;color:var(--orange);margin-bottom:6px;font-size:12px">Prototype Gear</div>`;
   h+=`<div style="display:flex;gap:16px;flex-wrap:wrap">`;
-  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">Стоимость прокачки (Prototype Cores)</div>`;
-  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">Уровень</th><th style="${thStyle}">Cores</th></tr></thead><tbody>`;
+  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">${isEn?"Upgrade cost (Prototype Cores)":"Стоимость прокачки (Prototype Cores)"}</div>`;
+  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">${isEn?"Level":"Уровень"}</th><th style="${thStyle}">Cores</th></tr></thead><tbody>`;
   for(let i=2;i<=10;i++){
     const td=i%2===0?tdStyle:tdAlt;
     h+=`<tr><td style="${td}">${i-1}→${i}</td><td style="${td}">${PROTO_UPGRADE_COST[i]}</td></tr>`;
   }
   h+=`</tbody></table></div>`;
-  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">Стоимость перероллов</div>`;
-  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">Ролл</th><th style="${thStyle}">Cores</th></tr></thead><tbody>`;
+  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">${isEn?"Reroll cost":"Стоимость перероллов"}</div>`;
+  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">${isEn?"Roll":"Ролл"}</th><th style="${thStyle}">Cores</th></tr></thead><tbody>`;
   for(let i=0;i<PROTO_REROLL_COST.length;i++){
     const td=i%2===0?tdStyle:tdAlt;
     const label=i===PROTO_REROLL_COST.length-1?`${i+1}+`:`${i+1}`;
     h+=`<tr><td style="${td}">${label}</td><td style="${td}">${PROTO_REROLL_COST[i]}</td></tr>`;
   }
   h+=`</tbody></table></div>`;
-  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">Шанс макс. роллов</div>`;
-  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">Макс. роллов</th><th style="${thStyle}">Шанс</th></tr></thead><tbody>`;
+  h+=`<div><div style="color:var(--muted);font-size:11px;margin-bottom:4px">${isEn?"Max roll chance":"Шанс макс. роллов"}</div>`;
+  h+=`<table style="${tblStyle};margin-bottom:0"><thead><tr><th style="${thStyle}">${isEn?"Max rolls":"Макс. роллов"}</th><th style="${thStyle}">${isEn?"Chance":"Шанс"}</th></tr></thead><tbody>`;
   const rk=Object.keys(PROTO_ROLL_CHANCE);
   for(let i=0;i<rk.length;i++){
     const td=i%2===0?tdStyle:tdAlt;
@@ -5600,7 +5620,8 @@ function renderWeaponMods(){
     return (ia<0?99:ia)-(ib<0?99:ib);
   });
   if(!keys.length){
-    host.innerHTML=`<div class="bsect" style="text-align:center;color:var(--muted)">Нет модов по фильтру.</div>`;
+    const _wm_en=currentLang==='en';
+    host.innerHTML=`<div class="bsect" style="text-align:center;color:var(--muted)">${_wm_en?'No mods match the filter.':'Нет модов по фильтру.'}</div>`;
     return;
   }
   const typeIcon={ "OPTICS RAIL":"🔭", "MAGAZINE SLOT":"📦", "MUZZLE SLOT":"💥", "UNDERBARREL":"🔻" };
@@ -5684,6 +5705,8 @@ function renderSkillGearMods(){
       </table>
     </div>`;
   }).join("");
+  const GCAT_EN={"Атака":"Offense","Навык":"Skill","Оборона":"Defense"};
+  const GSTAT_EN={"Шанс крит. попадания":"Critical Hit Chance","Урон от крит. попадания":"Critical Hit Damage","Урон от выстрелов в голову":"Headshot Damage","Броня за убийство":"Armor on Kill","Сопротивление кровотечению":"Bleed Resistance","Сопротивлению ослеплению":"Blind Resistance","Сопротивление возгоранию":"Burn Resistance","Сопротивление дезориентации":"Disorient Resistance","Сопротивление заморозке":"Freeze Resistance","Сопротивление прилипанию":"Ensnare Resistance","Получаемый ремонт":"Incoming Repairs","Защита от Элитных врагов":"Protection from Elites","Сопротивление импульсу":"Pulse Resistance","Сопротивление шоку":"Shock Resistance","Длительность действия навыка":"Skill Duration","Убыстрение":"Skill Haste","Навыки ремонта":"Repair Skills"};
   const byCat={};
   for(const m of GEAR_MODS){
     const k=m.category_ru||"Прочее";
@@ -5691,28 +5714,30 @@ function renderSkillGearMods(){
   }
   const gearHtml=Object.keys(byCat).sort().map(k=>{
     const arr=byCat[k];
+    const kDisplay=isEn?(GCAT_EN[k]||k):k;
     const rows=arr.map(m=>{
       let val=m.value;
       if(typeof val==="number"){
         val = val<=1 ? (val*100).toFixed(2).replace(/\.00$/,"")+"%" : String(val);
       }
+      const statDisplay=isEn?(GSTAT_EN[m.stat_ru]||m.stat_en||m.stat_ru||"—"):(m.stat_ru||"—");
       return `<tr>
-        <td style="text-align:left">${escHtml(m.stat_ru||"—")}</td>
+        <td style="text-align:left">${escHtml(statDisplay)}</td>
         <td style="color:var(--orange);font-weight:700">${escHtml(val||"—")}</td>
       </tr>`;
     }).join("");
     return `<div class="bsect">
-      <h3>🎽 ${escHtml(k)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
+      <h3>🎽 ${escHtml(kDisplay)} <span style="color:var(--muted);font-weight:400;font-size:11px">(${arr.length})</span></h3>
       <table class="btl">
-        <thead><tr><th style="text-align:left">Характеристика</th><th>Максимум</th></tr></thead>
+        <thead><tr><th style="text-align:left">${isEn?'Attribute':'Характеристика'}</th><th>${isEn?'Max':'Максимум'}</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>`;
   }).join("");
   host.innerHTML = `
-    <div class="bsect"><h3>📟 Моды навыков (${SKILL_MODS.length})</h3></div>
+    <div class="bsect"><h3>📟 ${isEn?'Skill Mods':'Моды навыков'} (${SKILL_MODS.length})</h3></div>
     ${skillHtml}
-    <div class="bsect" style="margin-top:16px"><h3>🎽 Моды снаряжения (${GEAR_MODS.length})</h3></div>
+    <div class="bsect" style="margin-top:16px"><h3>🎽 ${isEn?'Gear Mods':'Моды снаряжения'} (${GEAR_MODS.length})</h3></div>
     ${gearHtml}
   `;
 }
