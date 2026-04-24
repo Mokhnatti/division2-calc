@@ -155,20 +155,18 @@
 
 <section class="panel gp">
   <div class="panel-title">
-    <span>🎒 {lang === 'en' ? 'Gear Presets' : 'Пресеты брони'}</span>
+    <span>🎒 {lang === 'ru' ? 'Пресеты брони' : 'Gear Presets'}</span>
   </div>
   <div class="gp-grid">
     {#each PRESETS as p (p.id)}
       <button class="gp-btn" data-color={p.color} onclick={() => apply(p)}>
-        <div class="gp-name">{lang === 'en' ? p.name_en : p.name_ru}</div>
-        <div class="gp-desc">{lang === 'en' ? p.desc_en : p.desc_ru}</div>
+        <div class="gp-name">{lang === 'ru' ? p.name_ru : p.name_en}</div>
+        <div class="gp-desc">{lang === 'ru' ? p.desc_ru : p.desc_en}</div>
       </button>
     {/each}
   </div>
   <div class="gp-note">
-    {lang === 'en'
-      ? 'Fills all 6 gear slots at once. Good starting point — tweak after.'
-      : 'Заполняет все 6 слотов сразу. Стартовая точка — допили по вкусу.'}
+    {lang === 'ru' ? 'Заполняет все 6 слотов сразу. Стартовая точка — допили по вкусу.' : 'Fills all 6 gear slots at once. Good starting point — tweak after.'}
   </div>
 </section>
 

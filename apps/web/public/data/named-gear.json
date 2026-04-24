@@ -332,10 +332,21 @@
       "core": "wd",
       "fixedAttrs": [
         {
-          "stat": "armor",
-          "value": 8
+          "stat": "wd",
+          "value": 15
+        },
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "hsd",
+          "value": 20
         }
-      ]
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "+20% grenade damage, +50% radius (not regular weapons)."
     },
     {
       "id": "motherly_love",
@@ -435,7 +446,21 @@
       "slot": "kneepads",
       "brand": "overlord_armaments",
       "core": "wd",
-      "fixedAttrs": []
+      "fixedAttrs": [
+        {
+          "stat": "ooc",
+          "value": 8
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 8,
+          "amp": true
+        }
+      ],
+      "exoticMechanic": "+8% amplified damage while out of cover."
     },
     {
       "id": "snow_machine",
@@ -492,7 +517,22 @@
       "id": "ninjabike_messenger_backpack",
       "slot": "backpack",
       "core": "wd",
-      "fixedAttrs": []
+      "fixedAttrs": [
+        {
+          "stat": "wd",
+          "value": 15
+        },
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        }
+      ],
+      "activeBonuses": [],
+      "exoticMechanic": "Counts as any gear-set piece (utility, no damage)."
     },
     {
       "id": "centurion_scabbard",
@@ -537,6 +577,774 @@
       "slot": "gloves",
       "core": "wd",
       "fixedAttrs": []
+    },
+    {
+      "id": "memento",
+      "slot": "backpack",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "wd",
+          "value": 15
+        },
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        },
+        {
+          "stat": "chc",
+          "value": 5
+        },
+        {
+          "stat": "chd",
+          "value": 5
+        }
+      ],
+      "exoticMechanic": "5 trophies (kills) = +15% WD, +5% CHC, +5% CHD stacked."
+    },
+    {
+      "id": "birdies_quick_fix_pack",
+      "slot": "backpack",
+      "core": "armor",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "hsd",
+          "value": 10
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "+80% Revive speed (utility)."
+    },
+    {
+      "id": "harrier_pride",
+      "slot": "backpack",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 25
+        },
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "exoticMechanic": "+10% WD per Perfect talent equipped (max 3 = 30%)."
+    },
+    {
+      "id": "tardigrade_armor_system",
+      "slot": "chest",
+      "core": "armor",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "hsd",
+          "value": 20
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "HS grants bonus armor to self + allies (defensive)."
+    },
+    {
+      "id": "ridgeways_pride",
+      "slot": "chest",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 15,
+          "amp": true
+        }
+      ],
+      "exoticMechanic": "+15% amplified WD vs marked/covered targets (Bleeding Edge)"
+    },
+    {
+      "id": "collector",
+      "slot": "chest",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        },
+        {
+          "stat": "handling",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "exoticMechanic": "Kill → refill skill resources (skill build)."
+    },
+    {
+      "id": "provocator",
+      "slot": "chest",
+      "core": "wd",
+      "fixedAttrs": [],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Challenger: +20% damage resistance within 15m. Defensive."
+    },
+    {
+      "id": "beacon",
+      "slot": "chest",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        },
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 15,
+          "amp": true
+        }
+      ],
+      "exoticMechanic": "Pulse target → +15% amp WD vs pulsed."
+    },
+    {
+      "id": "btsu_datagloves",
+      "slot": "gloves",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 25
+        },
+        {
+          "stat": "hsd",
+          "value": 25
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Shock amplifies skill damage (skill build)."
+    },
+    {
+      "id": "rathbones_gloves",
+      "slot": "gloves",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        },
+        {
+          "stat": "hsd",
+          "value": 20
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "exoticMechanic": "+20% WD vs shocked/blinded."
+    },
+    {
+      "id": "bloody_knuckles",
+      "slot": "gloves",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "wd",
+          "value": 10
+        },
+        {
+          "stat": "hsd",
+          "value": 20
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 20,
+          "amp": true
+        }
+      ],
+      "exoticMechanic": "Melee/explosive kill → +20% amp WD."
+    },
+    {
+      "id": "rugged_gauntlets",
+      "slot": "gloves",
+      "core": "armor",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "hsd",
+          "value": 10
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Shotgun hits restore armor per pellet (defensive)."
+    },
+    {
+      "id": "exodus_gloves",
+      "slot": "gloves",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        },
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Armor break → drop smoke bomb (defensive/tactical)."
+    },
+    {
+      "id": "overdogs",
+      "slot": "gloves",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "wd",
+          "value": 15
+        },
+        {
+          "stat": "handling",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "exoticMechanic": "Each ally <10m = +5% WD (max 15% at 3 allies)."
+    },
+    {
+      "id": "dodge_city_gunslingers_holster",
+      "slot": "holster",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "wd",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 150,
+          "amp": true
+        }
+      ],
+      "exoticMechanic": "Holstered pistol stacks: 10 stacks × +15% amp WD = +150% amp on next hit."
+    },
+    {
+      "id": "imperial_dynasty",
+      "slot": "holster",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "wd",
+          "value": 15
+        },
+        {
+          "stat": "handling",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Targeted enemy catches fire (debuff application)."
+    },
+    {
+      "id": "waveform",
+      "slot": "holster",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 25
+        },
+        {
+          "stat": "hsd",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "exoticMechanic": "Weapon kills → +15% SMG/AR damage stacks (10s, max 3)."
+    },
+    {
+      "id": "shocker_punch",
+      "slot": "holster",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "wd",
+          "value": 10
+        },
+        {
+          "stat": "hsd",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Shocker applies shock to all hit targets."
+    },
+    {
+      "id": "centurions_scabbard",
+      "slot": "holster",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        },
+        {
+          "stat": "hsd",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "exoticMechanic": "Reload → next 3 shots deal +30% bonus damage."
+    },
+    {
+      "id": "nimble_holster",
+      "slot": "holster",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "handling",
+          "value": 20
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Holstered weapon reloads over time (utility)."
+    },
+    {
+      "id": "ninjabike_messenger_kneepads",
+      "slot": "kneepads",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "handling",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Universal gear-set slot (utility)."
+    },
+    {
+      "id": "acostas_kneepads",
+      "slot": "kneepads",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "handling",
+          "value": 10
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Group skill bonus + healing (utility)."
+    },
+    {
+      "id": "blacklisters",
+      "slot": "kneepads",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "hsd",
+          "value": 20
+        },
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "exoticMechanic": "Marked enemies take +15% WD."
+    },
+    {
+      "id": "coyotes_mask",
+      "slot": "mask",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "hsd",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        }
+      ],
+      "exoticMechanic": "Every 10s: +15% CHC, +15% CHD to self + allies <10m."
+    },
+    {
+      "id": "vile",
+      "slot": "mask",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "wd",
+          "value": 15
+        },
+        {
+          "stat": "hsd",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 15,
+          "amp": true
+        }
+      ],
+      "exoticMechanic": "Poisoned enemies → +15% amp WD."
+    },
+    {
+      "id": "catharsis",
+      "slot": "mask",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "hsd",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 15,
+          "amp": true
+        }
+      ],
+      "exoticMechanic": "Burning enemies → +15% amp WD."
+    },
+    {
+      "id": "the_catalyst",
+      "slot": "mask",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "hsd",
+          "value": 15
+        },
+        {
+          "stat": "handling",
+          "value": 10
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Statuses combine into Catalyst — enhanced effect (situational)."
+    },
+    {
+      "id": "tinkerer",
+      "slot": "mask",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "wd",
+          "value": 10
+        },
+        {
+          "stat": "handling",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Repair kits buff skills (skill build)."
+    },
+    {
+      "id": "investor",
+      "slot": "mask",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 15
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [
+        {
+          "stat": "wd",
+          "value": 10,
+          "amp": true
+        }
+      ],
+      "exoticMechanic": "Tag enemy on hit → +10% amp WD to tagged."
+    },
+    {
+      "id": "acostas_go_bag",
+      "slot": "backpack",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "wd",
+          "value": 10
+        },
+        {
+          "stat": "handling",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Allies' skill CDs faster (utility)."
+    },
+    {
+      "id": "sawyers_kneepads",
+      "slot": "kneepads",
+      "core": "armor",
+      "fixedAttrs": [
+        {
+          "stat": "chc",
+          "value": 10
+        },
+        {
+          "stat": "chd",
+          "value": 15
+        },
+        {
+          "stat": "handling",
+          "value": 15
+        }
+      ],
+      "isExotic": true,
+      "activeBonuses": [],
+      "exoticMechanic": "Immune to suppression/pinning, +15% stability (defensive)."
     }
   ]
 }

@@ -93,7 +93,7 @@
     return `#item=${encodeURIComponent(id)}`;
   }
 
-  type Section = { title: string; kind: 'weapon' | 'brand' | 'set' | 'named' | 'exotic'; items: Weapon[] | string[] };
+  type Section = { title: string; kind: 'weapon' | 'brand' | 'set' | 'named' | 'exotic' | 'namedGear' | 'exoticGear'; items: Weapon[] | string[] };
 
   let sections = $derived.by<Section[]>(() => {
     const q = query.trim().toLowerCase();
@@ -107,7 +107,7 @@
           .filter((w) => match(wName(w), w.id));
         if (catWeapons.length > 0) {
           const catLabel = CAT_LABELS[cat];
-          result.push({ title: lang === 'en' ? catLabel.en : catLabel.ru, kind: 'weapon', items: catWeapons });
+          result.push({ title: lang === 'ru' ? catLabel.ru : catLabel.en, kind: 'weapon', items: catWeapons });
         }
       }
     }
@@ -118,9 +118,20 @@
           .filter((w) => match(wName(w), w.id));
         if (items.length > 0) {
           const catLabel = CAT_LABELS[cat];
-          const prefix = lang === 'en' ? 'Named' : 'Именные';
-          result.push({ title: `${prefix} — ${lang === 'en' ? catLabel.en : catLabel.ru}`, kind: 'named', items });
+          const prefix = lang === 'ru' ? 'Именные' : 'Named';
+          result.push({ title: `${prefix} — ${lang === 'ru' ? catLabel.ru : catLabel.en}`, kind: 'named', items });
         }
+      }
+      // Named GEAR (non-weapon): chest, backpack, gloves, mask, holster, kneepads
+      const namedGear = data.namedGear
+        .filter((n) => !n.isExotic)
+        .filter((n) => match(i18next.t(n.id, { ns: 'named-gear', defaultValue: n.id }) as string, n.id));
+      if (namedGear.length > 0) {
+        result.push({
+          title: lang === 'ru' ? 'Именная экипировка' : 'Named Gear',
+          kind: 'namedGear',
+          items: namedGear.map((n) => n.id),
+        });
       }
     }
     if (filter === 'all' || filter === 'exotic') {
@@ -130,9 +141,20 @@
           .filter((w) => match(wName(w), w.id));
         if (items.length > 0) {
           const catLabel = CAT_LABELS[cat];
-          const prefix = lang === 'en' ? 'Exotic' : 'Экзотики';
-          result.push({ title: `${prefix} — ${lang === 'en' ? catLabel.en : catLabel.ru}`, kind: 'exotic', items });
+          const prefix = lang === 'ru' ? 'Экзотики' : 'Exotic';
+          result.push({ title: `${prefix} — ${lang === 'ru' ? catLabel.ru : catLabel.en}`, kind: 'exotic', items });
         }
+      }
+      // Exotic GEAR
+      const exoticGear = data.namedGear
+        .filter((n) => n.isExotic)
+        .filter((n) => match(i18next.t(n.id, { ns: 'named-gear', defaultValue: n.id }) as string, n.id));
+      if (exoticGear.length > 0) {
+        result.push({
+          title: lang === 'ru' ? 'Экзотическая экипировка' : 'Exotic Gear',
+          kind: 'exoticGear',
+          items: exoticGear.map((n) => n.id),
+        });
       }
     }
     if (filter === 'all' || filter === 'brands') {
@@ -165,8 +187,8 @@
     <div class="chip-row">
       <button class="btn small" class:active={filter === 'all'} onclick={() => (filter = 'all')}>{t('ui', 'all')}</button>
       <button class="btn small" class:active={filter === 'weapons'} onclick={() => (filter = 'weapons')}>{t('ui', 'weapons')}</button>
-      <button class="btn small" class:active={filter === 'named'} onclick={() => (filter = 'named')}>{lang === 'en' ? 'Named' : 'Именные'}</button>
-      <button class="btn small" class:active={filter === 'exotic'} onclick={() => (filter = 'exotic')}>{lang === 'en' ? 'Exotic' : 'Экзотики'}</button>
+      <button class="btn small" class:active={filter === 'named'} onclick={() => (filter = 'named')}>{lang === 'ru' ? 'Именные' : 'Named'}</button>
+      <button class="btn small" class:active={filter === 'exotic'} onclick={() => (filter = 'exotic')}>{lang === 'ru' ? 'Экзотики' : 'Exotic'}</button>
       <button class="btn small" class:active={filter === 'brands'} onclick={() => (filter = 'brands')}>{t('ui', 'brands')}</button>
       <button class="btn small" class:active={filter === 'sets'} onclick={() => (filter = 'sets')}>{t('ui', 'sets')}</button>
     </div>
@@ -219,7 +241,7 @@
                   {brandName(id)}
                 </span>
                 {#if brand?.core}
-                  <span class="cc-core core-{brand.core}">{brand.core.toUpperCase()}</span>
+                  <span class="cc-core core-{brand.core}">{(brand.core === 'skill_tier' ? 'SKL' : brand.core.toUpperCase())}</span>
                 {/if}
               </div>
               {#each brandBonusList(id) as line, i (i)}
@@ -243,12 +265,36 @@
                 <div class="cc-bonus">{line}</div>
               {/each}
               {#if setChest(id)}
-                <div class="cc-talent">🎽 {lang === 'en' ? 'Chest' : 'Нагрудник'}: {setChest(id)}</div>
+                <div class="cc-talent">🎽 {lang === 'ru' ? 'Нагрудник' : 'Chest'}: {setChest(id)}</div>
               {/if}
               {#if setBp(id)}
-                <div class="cc-talent">🎒 {lang === 'en' ? 'Backpack' : 'Рюкзак'}: {setBp(id)}</div>
+                <div class="cc-talent">🎒 {lang === 'ru' ? 'Рюкзак' : 'Backpack'}: {setBp(id)}</div>
               {/if}
             </a>
+          {/each}
+        {:else if sec.kind === 'namedGear' || sec.kind === 'exoticGear'}
+          {#each sec.items as id (id)}
+            {@const ng = data.namedGear.find((n) => n.id === id)}
+            {#if ng}
+              <a class="cat-card" href={itemUrl(id)} data-kind={sec.kind === 'exoticGear' ? 'exotic' : 'named'}>
+                <div class="cc-head">
+                  <span class="cc-name" class:named={!ng.isExotic} class:exotic={ng.isExotic}>
+                    {i18next.t(ng.id, { ns: 'named-gear', defaultValue: ng.id })}
+                  </span>
+                  <span class="cc-badge">{ng.slot.toUpperCase()}</span>
+                </div>
+                <div class="cc-stats num">
+                  🛡 {ng.core === 'skill_tier' ? 'SKL' : ng.core.toUpperCase()}
+                  {#if ng.brand}· {brandName(ng.brand)}{/if}
+                </div>
+                {#each ng.fixedAttrs as a, i (i)}
+                  <div class="cc-talent">🔒 +{a.value}% {i18next.t(a.stat, { ns: 'stats', defaultValue: a.stat })}</div>
+                {/each}
+                {#if namedBonus(id)}
+                  <div class="cc-talent-desc">{namedBonus(id)}</div>
+                {/if}
+              </a>
+            {/if}
           {/each}
         {/if}
       </div>

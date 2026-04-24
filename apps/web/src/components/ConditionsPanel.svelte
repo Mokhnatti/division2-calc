@@ -26,31 +26,31 @@
 
   function statusLabel(s: typeof STATUSES[number]) {
     void lang;
-    return lang === 'en' ? s.en : s.ru;
+    return lang === 'ru' ? s.ru : s.en;
   }
 </script>
 
 <section class="panel cond">
-  <div class="panel-title"><span>{lang === 'en' ? 'Combat Conditions' : 'Условия боя'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Условия боя' : 'Combat Conditions'}</span></div>
 
   <div class="row">
-    <div class="label">{lang === 'en' ? 'Group size' : 'Группа'}</div>
+    <div class="label">{lang === 'ru' ? 'Группа' : 'Group size'}</div>
     <div class="group-btns">
       {#each [1, 2, 3, 4] as n (n)}
         <button
           class="btn small"
           class:active={groupSize === n}
           onclick={() => onGroupSize(n)}
-        >{n === 1 ? (lang === 'en' ? 'Solo' : 'Соло') : `${n}`}</button>
+        >{n === 1 ? (lang === 'ru' ? 'Соло' : 'Solo') : `${n}`}</button>
       {/each}
     </div>
     {#if groupSize > 1}
-      <span class="hint-green">+{(groupSize - 1) * 5}% WD</span>
+      <span class="hint-note">{lang === 'ru' ? 'TTK: HP врагов растёт' : 'TTK: enemy HP scales'}</span>
     {/if}
   </div>
 
   <div class="row">
-    <div class="label">{lang === 'en' ? 'Target status' : 'Статус цели'}</div>
+    <div class="label">{lang === 'ru' ? 'Статус цели' : 'Target status'}</div>
     <div class="status-btns">
       {#each STATUSES as s (s.id)}
         <button
@@ -69,11 +69,11 @@
   <div class="row toggles">
     <label class="tog">
       <input type="checkbox" checked={targetPulsed} onchange={(e) => onPulsed((e.currentTarget as HTMLInputElement).checked)} />
-      <span>{lang === 'en' ? 'Target pulsed' : 'Цель отмечена'}</span>
+      <span>{lang === 'ru' ? 'Цель отмечена' : 'Target pulsed'}</span>
     </label>
     <label class="tog">
       <input type="checkbox" checked={fullArmor} onchange={(e) => onFullArmor((e.currentTarget as HTMLInputElement).checked)} />
-      <span>{lang === 'en' ? 'Full armor' : 'Полная броня'}</span>
+      <span>{lang === 'ru' ? 'Полная броня' : 'Full armor'}</span>
     </label>
   </div>
 </section>
@@ -105,4 +105,5 @@
   .tog { display: flex; align-items: center; gap: 6px; cursor: pointer; font: 700 10px/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); }
   .tog input { accent-color: var(--orange); }
   .hint-green { font: 700 10px/1 var(--f-mono); color: var(--green); padding: 4px 8px; background: rgba(1,254,144,.08); border-radius: 999px; }
+  .hint-note { font: 500 10px/1 var(--f-mono); color: var(--muted); padding: 4px 8px; background: var(--raised); border-radius: 999px; font-style: italic; }
 </style>

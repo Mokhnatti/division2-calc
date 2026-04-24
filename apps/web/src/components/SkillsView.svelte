@@ -165,35 +165,48 @@
       });
   });
 
-  const FILTERS: Array<{ id: typeof filter; label: string; icon: string }> = [
-    { id: 'all', icon: '⚡', label: 'all' },
-    { id: 'drone', icon: '🛸', label: 'Drone' },
-    { id: 'turret', icon: '🔫', label: 'Turret' },
-    { id: 'hive', icon: '🐝', label: 'Hive' },
-    { id: 'seeker', icon: '💣', label: 'Seeker' },
-    { id: 'firefly', icon: '✨', label: 'Firefly' },
-    { id: 'chem', icon: '🧪', label: 'Chem' },
-    { id: 'pulse', icon: '📡', label: 'Pulse' },
-  ];
+  const FILTERS = $derived<Array<{ id: typeof filter; label: string; icon: string }>>(
+    lang === 'ru'
+      ? [
+          { id: 'all', icon: '⚡', label: 'Все' },
+          { id: 'drone', icon: '🛸', label: 'Дрон' },
+          { id: 'turret', icon: '🔫', label: 'Турель' },
+          { id: 'hive', icon: '🐝', label: 'Улей' },
+          { id: 'seeker', icon: '💣', label: 'Искатель' },
+          { id: 'firefly', icon: '✨', label: 'Светлячок' },
+          { id: 'chem', icon: '🧪', label: 'Хим.пуск' },
+          { id: 'pulse', icon: '📡', label: 'Импульс' },
+        ]
+      : [
+          { id: 'all', icon: '⚡', label: 'All' },
+          { id: 'drone', icon: '🛸', label: 'Drone' },
+          { id: 'turret', icon: '🔫', label: 'Turret' },
+          { id: 'hive', icon: '🐝', label: 'Hive' },
+          { id: 'seeker', icon: '💣', label: 'Seeker' },
+          { id: 'firefly', icon: '✨', label: 'Firefly' },
+          { id: 'chem', icon: '🧪', label: 'Chem' },
+          { id: 'pulse', icon: '📡', label: 'Pulse' },
+        ]
+  );
 </script>
 
 <section class="panel sk-inputs">
-  <div class="panel-title"><span>{lang === 'en' ? 'Skill Build Params' : 'Параметры билда навыков'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Параметры билда навыков' : 'Skill Build Params'}</span></div>
   <div class="inputs-grid">
     <label>
-      <span>Skill Tier (0-6)</span>
+      <span>{lang === 'ru' ? 'Уровень навыков (0-6)' : 'Skill Tier (0-6)'}</span>
       <input class="input num" type="number" min="0" max="6" bind:value={tier} />
     </label>
     <label>
-      <span>Skill Damage %</span>
+      <span>{lang === 'ru' ? 'Урон навыков %' : 'Skill Damage %'}</span>
       <input class="input num" type="number" min="0" max="2000" bind:value={sdmgPct} />
     </label>
     <label>
-      <span>Skill Haste %</span>
+      <span>{lang === 'ru' ? 'Ускорение навыков %' : 'Skill Haste %'}</span>
       <input class="input num" type="number" min="0" max="500" bind:value={haste} />
     </label>
     <label>
-      <span>Status %</span>
+      <span>{lang === 'ru' ? 'Эффекты статусов %' : 'Status %'}</span>
       <input class="input num" type="number" min="0" max="500" bind:value={statusPct} />
     </label>
   </div>
@@ -212,7 +225,7 @@
 {#if err}
   <div class="status error">{err}</div>
 {:else if !skillsRaw}
-  <div class="status">Loading…</div>
+  <div class="status">{lang === 'ru' ? 'Загрузка…' : 'Loading…'}</div>
 {:else}
   <div class="skill-list">
     {#each rows as r (r.s.name_en ?? r.s.id ?? Math.random())}
@@ -226,27 +239,27 @@
           {#if r.dpsActive > 0}
             <div class="sm primary">
               <div class="v num">{fmt(r.dpsActive)}</div>
-              <div class="l">{lang === 'en' ? 'Active DPS' : 'DPS активный'}</div>
+              <div class="l">{lang === 'ru' ? 'DPS активный' : 'Active DPS'}</div>
             </div>
             <div class="sm">
               <div class="v num">{fmt(r.dpsAvg)}</div>
-              <div class="l">{lang === 'en' ? 'Avg DPS (w/ CD)' : 'DPS средний (КД)'}</div>
+              <div class="l">{lang === 'ru' ? 'DPS средний (КД)' : 'Avg DPS (w/ CD)'}</div>
             </div>
           {:else}
             <div class="sm primary">
               <div class="v num">{fmt(r.totalDmg)}</div>
-              <div class="l">{lang === 'en' ? 'Total damage' : 'Полный урон'}</div>
+              <div class="l">{lang === 'ru' ? 'Полный урон' : 'Total damage'}</div>
             </div>
             <div class="sm">
               <div class="v num">{fmt(r.dpsAvg)}</div>
-              <div class="l">{lang === 'en' ? 'Avg DPS' : 'DPS средний'}</div>
+              <div class="l">{lang === 'ru' ? 'DPS средний' : 'Avg DPS'}</div>
             </div>
           {/if}
         </div>
         <div class="sk-meta num">
-          {lang === 'en' ? 'Dmg/shot' : 'Урон/выстрел'}: <b>{fmt(r.dmgPerShot)}</b>
+          {lang === 'ru' ? 'Урон/выстрел' : 'Dmg/shot'}: <b>{fmt(r.dmgPerShot)}</b>
           {#if r.s.rpm}· RPM: {r.s.rpm}{/if}
-          · {lang === 'en' ? 'Dur' : 'Длит'}: {r.dur.toFixed(1)}s
+          · {lang === 'ru' ? 'Длит' : 'Dur'}: {r.dur.toFixed(1)}s
           · CD: {r.cdFinal.toFixed(1)}s
         </div>
         <div class="sk-desc">{skillDesc(r.s)}</div>
@@ -257,7 +270,7 @@
 
 {#if utilitySkills.length > 0}
   <section class="panel util-header">
-    <div class="panel-title"><span>🛡 {lang === 'en' ? 'Utility Skills (healing/shield)' : 'Скиллы поддержки (хил/щит)'}</span></div>
+    <div class="panel-title"><span>🛡 {lang === 'ru' ? 'Скиллы поддержки (хил/щит)' : 'Utility Skills (healing/shield)'}</span></div>
   </section>
   <div class="util-list">
     {#each utilitySkills as u, i (i)}
@@ -270,9 +283,9 @@
         <div class="util-meta num">
           {#if u.health}❤ {Math.round((u.health as number) * (1 + tier * 0.15)).toLocaleString()}{/if}
           {#if u.base_heal}💚 {Math.round((u.base_heal as number) * (1 + tier * 0.15) * (1 + sdmgPct / 100)).toLocaleString()}/s{/if}
-          {#if u.armor_restore_pct}🛡 +{((u.armor_restore_pct as number) * 100).toFixed(0)}% armor{/if}
-          {#if u.charges}· {u.charges} charges{/if}
-          {#if u.cooldown}· CD {u.cooldown}s{/if}
+          {#if u.armor_restore_pct}🛡 +{((u.armor_restore_pct as number) * 100).toFixed(0)}% {lang === 'ru' ? 'брони' : 'armor'}{/if}
+          {#if u.charges}· {u.charges} {lang === 'ru' ? 'зарядов' : 'charges'}{/if}
+          {#if u.cooldown}· {lang === 'ru' ? 'КД' : 'CD'} {u.cooldown}s{/if}
         </div>
         <div class="util-desc">{lang === 'en' ? (u.desc_en as string) || '' : (u.desc_ru as string) || ''}</div>
       </div>

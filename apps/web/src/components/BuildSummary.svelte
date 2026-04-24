@@ -53,7 +53,7 @@
     }));
   });
 
-  function loc(en: string, ru: string): string { void lang; return lang === 'en' ? en : ru; }
+  function loc(en: string, ru: string): string { void lang; return lang === 'ru' ? ru : en; }
   let maxRampDps = $derived(Math.max(...summary.ramp.map((r) => r.dps), summary.dps.burstDps, 1));
 </script>
 
@@ -204,6 +204,28 @@
 
     {#if !hasWeapon}
       <div class="hint">{t('ui', 'pick_weapon')}</div>
+    {:else}
+      <div class="wpn-final-block">
+        <div class="subtitle">🎯 {loc('Weapon final stats', 'Характеристики оружия')}</div>
+        <table class="wpn-final-tbl">
+          <tbody>
+            <tr class="hero"><td class="num">{fmt((summary.dpsInput.weapon?.baseDamage ?? 0) * (1 + (summary.additive.wd ?? 0)/100 + (summary.dpsInput.additive?.weaponTypeDamagePct ?? 0)/100))}</td><td>{loc('Weapon damage', 'Урон от оружия')}</td></tr>
+            <tr><td class="num">{summary.additive.chc.toFixed(1)}%</td><td>{loc('Crit Chance', 'Шанс крит. попадания')}</td></tr>
+            <tr><td class="num">{summary.additive.chd.toFixed(1)}%</td><td>{loc('Crit Damage', 'Урон крит. попадания')}</td></tr>
+            <tr><td class="num">{(summary.additive.hsd + ((weapon?.headshotMultiplier ?? 1.5) - 1) * 100).toFixed(1)}%</td><td>{loc('Headshot Damage', 'Урон в голову')}</td></tr>
+            <tr><td class="num">{(summary.additive.dta ?? 0).toFixed(1)}%</td><td>{loc('Damage to Armor', 'Урон броне')}</td></tr>
+            <tr><td class="num">{(summary.additive.dth ?? 0).toFixed(1)}%</td><td>{loc('Damage to Health', 'Урон здоровью')}</td></tr>
+            <tr><td class="num">{weapon?.optimalRange ?? '—'}</td><td>{loc('Optimal Range', 'Дальность')}</td></tr>
+            <tr class="hero"><td class="num">{(summary.dpsInput.weapon?.reloadSeconds ?? 0).toFixed(2)}s</td><td>{loc('Reload Time', 'Время на перезарядку')}</td></tr>
+            <tr><td class="num">{Math.round(summary.dpsInput.weapon?.rpm ?? 0)}</td><td>{loc('Rate of Fire (RPM)', 'Скорострельность (В/М)')}</td></tr>
+            <tr><td class="num">{summary.dpsInput.weapon?.magazine ?? 0}</td><td>{loc('Magazine', 'Магазин')}</td></tr>
+            <tr><td class="num">{(summary.dpsInput.additive?.weaponTypeDamagePct ?? 0).toFixed(1)}%</td><td>{loc('Weapon-class bonus', 'Доп. урон от класса')} ({weapon?.category.toUpperCase() ?? ''})</td></tr>
+            <tr><td class="num">{((summary.additive as Record<string, number>).handling ?? 0).toFixed(1)}%</td><td>{loc('Reload Speed Bonus', 'Повышение скорости перезарядки')}</td></tr>
+            <tr><td class="num">{((summary.additive as Record<string, number>).handling ?? 0).toFixed(1)}%</td><td>{loc('Handling (Accuracy / Stability)', 'Эргономичность')}</td></tr>
+            <tr><td class="num">{((summary.additive as Record<string, number>).ooc ?? 0).toFixed(1)}%</td><td>{loc('Damage Out of Cover', 'Урон вне укрытия')}</td></tr>
+          </tbody>
+        </table>
+      </div>
     {/if}
 
     {#if pro && additiveRows.length > 0}

@@ -9,7 +9,7 @@
       "baseDamage": 58897,
       "rpm": 650,
       "magazine": 30,
-      "reloadSeconds": 1.91,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -26,7 +26,7 @@
       "baseDamage": 58897,
       "rpm": 650,
       "magazine": 30,
-      "reloadSeconds": 1.91,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -43,7 +43,7 @@
       "baseDamage": 49104,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.4,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -62,7 +62,7 @@
       "baseDamage": 67175,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 2.3,
+      "reloadSeconds": 2.5,
       "optimalRange": 27,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -78,7 +78,7 @@
       "baseDamage": 57218,
       "rpm": 680,
       "magazine": 42,
-      "reloadSeconds": 2.16,
+      "reloadSeconds": 2.3,
       "optimalRange": 26,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -95,7 +95,7 @@
       "baseDamage": 64717,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 2.3,
+      "reloadSeconds": 2.5,
       "optimalRange": 27,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -112,7 +112,7 @@
       "baseDamage": 64717,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 2.3,
+      "reloadSeconds": 2.5,
       "optimalRange": 27,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -129,7 +129,7 @@
       "baseDamage": 52564,
       "rpm": 750,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -165,7 +165,7 @@
       "baseDamage": 57618,
       "rpm": 700,
       "magazine": 30,
-      "reloadSeconds": 1.85,
+      "reloadSeconds": 2.04,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -185,7 +185,7 @@
       "baseDamage": 49790,
       "rpm": 790,
       "magazine": 30,
-      "reloadSeconds": 2.02,
+      "reloadSeconds": 2.4,
       "optimalRange": 28,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -202,7 +202,7 @@
       "baseDamage": 52564,
       "rpm": 750,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -241,7 +241,7 @@
       "baseDamage": 44802,
       "rpm": 900,
       "magazine": 30,
-      "reloadSeconds": 2.39,
+      "reloadSeconds": 2.1,
       "optimalRange": 32,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -258,7 +258,7 @@
       "baseDamage": 47365,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 26,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -275,7 +275,7 @@
       "baseDamage": 47365,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.13,
+      "reloadSeconds": 2.3,
       "optimalRange": 26,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -296,7 +296,7 @@
       "baseDamage": 49104,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.4,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -312,7 +312,7 @@
       "baseDamage": 49104,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.4,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -328,7 +328,7 @@
       "baseDamage": 57646,
       "rpm": 700,
       "magazine": 20,
-      "reloadSeconds": 2.14,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -345,7 +345,7 @@
       "baseDamage": 57646,
       "rpm": 700,
       "magazine": 20,
-      "reloadSeconds": 2.14,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -362,7 +362,7 @@
       "baseDamage": 57646,
       "rpm": 700,
       "magazine": 20,
-      "reloadSeconds": 2.14,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -379,7 +379,7 @@
       "baseDamage": 57646,
       "rpm": 700,
       "magazine": 20,
-      "reloadSeconds": 2.14,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -396,7 +396,7 @@
       "baseDamage": 45273,
       "rpm": 900,
       "magazine": 30,
-      "reloadSeconds": 2.49,
+      "reloadSeconds": 2.2,
       "optimalRange": 26,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -413,7 +413,7 @@
       "baseDamage": 45273,
       "rpm": 900,
       "magazine": 30,
-      "reloadSeconds": 2.49,
+      "reloadSeconds": 2.2,
       "optimalRange": 26,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -430,7 +430,7 @@
       "baseDamage": 67175,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 2.8,
+      "reloadSeconds": 2.5,
       "optimalRange": 27,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -448,7 +448,7 @@
       "baseDamage": 52564,
       "rpm": 750,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -465,7 +465,7 @@
       "baseDamage": 52564,
       "rpm": 750,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -482,7 +482,7 @@
       "baseDamage": 52564,
       "rpm": 750,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -499,7 +499,7 @@
       "baseDamage": 47365,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 17,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -517,7 +517,7 @@
       "baseDamage": 57634,
       "rpm": 700,
       "magazine": 20,
-      "reloadSeconds": 2.13,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -535,7 +535,7 @@
       "baseDamage": 51271,
       "rpm": 800,
       "magazine": 30,
-      "reloadSeconds": 2.06,
+      "reloadSeconds": 2.4,
       "optimalRange": 28,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -551,7 +551,7 @@
       "baseDamage": 45273,
       "rpm": 900,
       "magazine": 30,
-      "reloadSeconds": 2.49,
+      "reloadSeconds": 2.2,
       "optimalRange": 26,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -569,7 +569,7 @@
       "baseDamage": 57218,
       "rpm": 782,
       "magazine": 42,
-      "reloadSeconds": 2.16,
+      "reloadSeconds": 2.3,
       "optimalRange": 26,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -587,7 +587,7 @@
       "baseDamage": 63509,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 1.87,
+      "reloadSeconds": 2.4,
       "optimalRange": 27,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -605,7 +605,7 @@
       "baseDamage": 48700,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.24,
+      "reloadSeconds": 2.4,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -623,7 +623,7 @@
       "baseDamage": 59221,
       "rpm": 650,
       "magazine": 30,
-      "reloadSeconds": 2.02,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -641,7 +641,7 @@
       "baseDamage": 64717,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 2.3,
+      "reloadSeconds": 2.5,
       "optimalRange": 27,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -659,7 +659,7 @@
       "baseDamage": 55935,
       "rpm": 700,
       "magazine": 30,
-      "reloadSeconds": 2.17,
+      "reloadSeconds": 2.5,
       "optimalRange": 28,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -677,7 +677,7 @@
       "baseDamage": 64717,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 2.3,
+      "reloadSeconds": 2.5,
       "optimalRange": 27,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -694,7 +694,7 @@
       "baseDamage": 52564,
       "rpm": 750,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -711,7 +711,7 @@
       "baseDamage": 47365,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.34,
+      "reloadSeconds": 2.3,
       "optimalRange": 26,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -745,7 +745,7 @@
       "baseDamage": 59221,
       "rpm": 650,
       "magazine": 30,
-      "reloadSeconds": 2.02,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -778,7 +778,7 @@
       "baseDamage": 46918,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.24,
+      "reloadSeconds": 2.4,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -795,7 +795,7 @@
       "baseDamage": 46918,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.24,
+      "reloadSeconds": 2.4,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -812,7 +812,7 @@
       "baseDamage": 46918,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.24,
+      "reloadSeconds": 2.4,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -830,7 +830,7 @@
       "baseDamage": 51271,
       "rpm": 800,
       "magazine": 30,
-      "reloadSeconds": 2.06,
+      "reloadSeconds": 2.4,
       "optimalRange": 28,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -848,7 +848,7 @@
       "baseDamage": 45132,
       "rpm": 900,
       "magazine": 40,
-      "reloadSeconds": 2.4,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -866,7 +866,7 @@
       "baseDamage": 55935,
       "rpm": 700,
       "magazine": 30,
-      "reloadSeconds": 2.17,
+      "reloadSeconds": 2.5,
       "optimalRange": 28,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -900,7 +900,7 @@
       "baseDamage": 59221,
       "rpm": 650,
       "magazine": 30,
-      "reloadSeconds": 2.02,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -916,16 +916,63 @@
       "category": "ar",
       "baseDamage": 46918,
       "rpm": 850,
-      "magazine": 40,
-      "reloadSeconds": 2.04,
+      "magazine": 30,
+      "reloadSeconds": 2.4,
       "optimalRange": 31,
-      "headshotMultiplier": 1.65,
+      "headshotMultiplier": 1.55,
       "modSlots": [
         "scope",
         "muzzle",
         "underbarrel",
         "magazine"
-      ]
+      ],
+      "intrinsicAttrs": [
+        {
+          "stat": "wd_ar",
+          "value": 12.7,
+          "max": 15
+        },
+        {
+          "stat": "dth",
+          "value": 17.5,
+          "max": 21
+        },
+        {
+          "stat": "hsd",
+          "value": 9,
+          "max": 10
+        }
+      ],
+      "builtInMods": [
+        {
+          "slot": "scope",
+          "stat": "chd",
+          "value": 15,
+          "name_ru": "Планка \"Проводник\""
+        },
+        {
+          "slot": "muzzle",
+          "stat": "chc",
+          "value": 15,
+          "name_ru": "Настольник \"Перезаряд\""
+        },
+        {
+          "slot": "underbarrel",
+          "stat": "handling",
+          "value": 10,
+          "name_ru": "Рукоятка \"Изоляция\""
+        },
+        {
+          "slot": "magazine",
+          "stat": "mag_add",
+          "value": 30,
+          "name_ru": "Магазин \"Изоляция\""
+        }
+      ],
+      "talentId": "talent_exotic_weapon_the_senate_actum_est",
+      "talType": "special",
+      "talBonus": 0,
+      "talMax": 0
     },
     {
       "id": "strega",
@@ -934,7 +981,7 @@
       "baseDamage": 57646,
       "rpm": 700,
       "magazine": 20,
-      "reloadSeconds": 1.95,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -954,7 +1001,7 @@
       "baseDamage": 59221,
       "rpm": 650,
       "magazine": 30,
-      "reloadSeconds": 2.02,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -971,7 +1018,7 @@
       "baseDamage": 59221,
       "rpm": 650,
       "magazine": 30,
-      "reloadSeconds": 2.02,
+      "reloadSeconds": 2.3,
       "optimalRange": 31,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -1014,7 +1061,10 @@
         "muzzle",
         "underbarrel",
         "magazine"
-      ]
+      ],
+      "talentId": "bighorn_exotic",
+      "talType": "amp",
+      "talBonus": 20
     },
     {
       "id": "the_bighorn_full_auto_mode",
@@ -1031,7 +1081,10 @@
         "muzzle",
         "underbarrel",
         "magazine"
-      ]
+      ],
+      "talentId": "bighorn_exotic",
+      "talType": "amp",
+      "talBonus": 20
     },
     {
       "id": "the_drill",
@@ -1040,7 +1093,7 @@
       "baseDamage": 49790,
       "rpm": 790,
       "magazine": 30,
-      "reloadSeconds": 2.02,
+      "reloadSeconds": 2.4,
       "optimalRange": 28,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -1058,7 +1111,7 @@
       "baseDamage": 44802,
       "rpm": 900,
       "magazine": 30,
-      "reloadSeconds": 2.39,
+      "reloadSeconds": 2.3,
       "optimalRange": 32,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -1076,7 +1129,7 @@
       "baseDamage": 63509,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 1.87,
+      "reloadSeconds": 2.4,
       "optimalRange": 27,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -1093,7 +1146,7 @@
       "baseDamage": 58662,
       "rpm": 725,
       "magazine": 25,
-      "reloadSeconds": 2.31,
+      "reloadSeconds": 2.1,
       "optimalRange": 22,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1131,7 +1184,7 @@
       "baseDamage": 76916,
       "rpm": 550,
       "magazine": 32,
-      "reloadSeconds": 1.47,
+      "reloadSeconds": 1.9,
       "optimalRange": 20,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1148,7 +1201,7 @@
       "baseDamage": 76916,
       "rpm": 550,
       "magazine": 32,
-      "reloadSeconds": 1.47,
+      "reloadSeconds": 1.9,
       "optimalRange": 20,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1165,7 +1218,7 @@
       "baseDamage": 53904,
       "rpm": 800,
       "magazine": 30,
-      "reloadSeconds": 1.79,
+      "reloadSeconds": 2.1,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1183,7 +1236,7 @@
       "baseDamage": 47849,
       "rpm": 900,
       "magazine": 32,
-      "reloadSeconds": 1.92,
+      "reloadSeconds": 2.4,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1200,7 +1253,7 @@
       "baseDamage": 63593,
       "rpm": 700,
       "magazine": 53,
-      "reloadSeconds": 1.46,
+      "reloadSeconds": 2.5,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1218,7 +1271,7 @@
       "baseDamage": 48512,
       "rpm": 1000,
       "magazine": 32,
-      "reloadSeconds": 2.26,
+      "reloadSeconds": 2,
       "optimalRange": 15,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1234,7 +1287,7 @@
       "baseDamage": 46735,
       "rpm": 1000,
       "magazine": 32,
-      "reloadSeconds": 2.3,
+      "reloadSeconds": 2,
       "optimalRange": 15,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1251,7 +1304,7 @@
       "baseDamage": 48512,
       "rpm": 1000,
       "magazine": 32,
-      "reloadSeconds": 2.26,
+      "reloadSeconds": 2,
       "optimalRange": 15,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1303,7 +1356,7 @@
       "baseDamage": 58662,
       "rpm": 725,
       "magazine": 25,
-      "reloadSeconds": 2.31,
+      "reloadSeconds": 2.1,
       "optimalRange": 22,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1320,7 +1373,7 @@
       "baseDamage": 63593,
       "rpm": 700,
       "magazine": 53,
-      "reloadSeconds": 1.46,
+      "reloadSeconds": 2.5,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1335,7 +1388,7 @@
       "baseDamage": 40506,
       "rpm": 1200,
       "magazine": 19,
-      "reloadSeconds": 2.38,
+      "reloadSeconds": 1.9,
       "optimalRange": 15,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1353,7 +1406,7 @@
       "baseDamage": 50627,
       "rpm": 900,
       "magazine": 50,
-      "reloadSeconds": 1.54,
+      "reloadSeconds": 2.3,
       "optimalRange": 19,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1371,7 +1424,7 @@
       "baseDamage": 58662,
       "rpm": 725,
       "magazine": 25,
-      "reloadSeconds": 2.31,
+      "reloadSeconds": 2.1,
       "optimalRange": 22,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -1389,7 +1442,7 @@
       "baseDamage": 35409,
       "rpm": 900,
       "magazine": 32,
-      "reloadSeconds": 1.75,
+      "reloadSeconds": 2.4,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1410,7 +1463,7 @@
       "baseDamage": 78416,
       "rpm": 600,
       "magazine": 30,
-      "reloadSeconds": 1.46,
+      "reloadSeconds": 2.3,
       "optimalRange": 19,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1424,7 +1477,7 @@
       "baseDamage": 53904,
       "rpm": 800,
       "magazine": 30,
-      "reloadSeconds": 1.79,
+      "reloadSeconds": 2.1,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1441,7 +1494,7 @@
       "baseDamage": 53904,
       "rpm": 800,
       "magazine": 30,
-      "reloadSeconds": 1.79,
+      "reloadSeconds": 2.1,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1458,7 +1511,7 @@
       "baseDamage": 53904,
       "rpm": 800,
       "magazine": 30,
-      "reloadSeconds": 1.79,
+      "reloadSeconds": 2.1,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1475,7 +1528,7 @@
       "baseDamage": 53904,
       "rpm": 800,
       "magazine": 30,
-      "reloadSeconds": 1.79,
+      "reloadSeconds": 2.1,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1507,7 +1560,7 @@
       "baseDamage": 38301,
       "rpm": 1275,
       "magazine": 50,
-      "reloadSeconds": 1.65,
+      "reloadSeconds": 1.7,
       "optimalRange": 15,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1548,7 +1601,7 @@
       "baseDamage": 39457,
       "rpm": 1100,
       "magazine": 50,
-      "reloadSeconds": 1.57,
+      "reloadSeconds": 2.2,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1563,7 +1616,7 @@
       "baseDamage": 39457,
       "rpm": 1100,
       "magazine": 50,
-      "reloadSeconds": 1.57,
+      "reloadSeconds": 2.2,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1578,7 +1631,7 @@
       "baseDamage": 76916,
       "rpm": 550,
       "magazine": 32,
-      "reloadSeconds": 1.47,
+      "reloadSeconds": 1.9,
       "optimalRange": 20,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1595,7 +1648,7 @@
       "baseDamage": 63692,
       "rpm": 650,
       "magazine": 25,
-      "reloadSeconds": 1.67,
+      "reloadSeconds": 2.3,
       "optimalRange": 16,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1612,7 +1665,7 @@
       "baseDamage": 63593,
       "rpm": 700,
       "magazine": 53,
-      "reloadSeconds": 1.46,
+      "reloadSeconds": 2.5,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1627,7 +1680,7 @@
       "baseDamage": 46735,
       "rpm": 1000,
       "magazine": 32,
-      "reloadSeconds": 2.3,
+      "reloadSeconds": 2,
       "optimalRange": 15,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1645,7 +1698,7 @@
       "baseDamage": 50999,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.09,
+      "reloadSeconds": 2.1,
       "optimalRange": 22,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1680,7 +1733,7 @@
       "baseDamage": 63692,
       "rpm": 650,
       "magazine": 25,
-      "reloadSeconds": 1.67,
+      "reloadSeconds": 2.3,
       "optimalRange": 60,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1716,7 +1769,7 @@
       "baseDamage": 58662,
       "rpm": 725,
       "magazine": 25,
-      "reloadSeconds": 2.31,
+      "reloadSeconds": 2.1,
       "optimalRange": 22,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1733,7 +1786,7 @@
       "baseDamage": 58662,
       "rpm": 725,
       "magazine": 25,
-      "reloadSeconds": 2.31,
+      "reloadSeconds": 2.1,
       "optimalRange": 22,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1750,7 +1803,7 @@
       "baseDamage": 63692,
       "rpm": 650,
       "magazine": 25,
-      "reloadSeconds": 1.67,
+      "reloadSeconds": 2.3,
       "optimalRange": 16,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1767,7 +1820,7 @@
       "baseDamage": 63692,
       "rpm": 650,
       "magazine": 25,
-      "reloadSeconds": 1.67,
+      "reloadSeconds": 2.3,
       "optimalRange": 16,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1784,7 +1837,7 @@
       "baseDamage": 40506,
       "rpm": 1200,
       "magazine": 19,
-      "reloadSeconds": 1.69,
+      "reloadSeconds": 1.9,
       "optimalRange": 15,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1801,7 +1854,7 @@
       "baseDamage": 50999,
       "rpm": 850,
       "magazine": 30,
-      "reloadSeconds": 2.09,
+      "reloadSeconds": 2.1,
       "optimalRange": 22,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1819,7 +1872,7 @@
       "baseDamage": 39457,
       "rpm": 850,
       "magazine": 50,
-      "reloadSeconds": 1.43,
+      "reloadSeconds": 1.7,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1839,7 +1892,7 @@
       "baseDamage": 47849,
       "rpm": 900,
       "magazine": 32,
-      "reloadSeconds": 1.92,
+      "reloadSeconds": 2.4,
       "optimalRange": 21,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1875,7 +1928,7 @@
       "baseDamage": 50627,
       "rpm": 900,
       "magazine": 50,
-      "reloadSeconds": 1.54,
+      "reloadSeconds": 2.3,
       "optimalRange": 19,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1923,7 +1976,7 @@
       "baseDamage": 39307,
       "rpm": 1200,
       "magazine": 33,
-      "reloadSeconds": 2.38,
+      "reloadSeconds": 1.9,
       "optimalRange": 15,
       "headshotMultiplier": 1.6,
       "modSlots": [
@@ -1992,7 +2045,7 @@
       "baseDamage": 65234,
       "rpm": 600,
       "magazine": 100,
-      "reloadSeconds": 3.85,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2009,7 +2062,7 @@
       "baseDamage": 65234,
       "rpm": 600,
       "magazine": 100,
-      "reloadSeconds": 3.85,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2081,7 +2134,7 @@
       "baseDamage": 54604,
       "rpm": 750,
       "magazine": 100,
-      "reloadSeconds": 4.76,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2101,7 +2154,7 @@
       "baseDamage": 54604,
       "rpm": 750,
       "magazine": 100,
-      "reloadSeconds": 4,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2119,7 +2172,7 @@
       "baseDamage": 67711,
       "rpm": 600,
       "magazine": 100,
-      "reloadSeconds": 3.75,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2135,7 +2188,7 @@
       "baseDamage": 67711,
       "rpm": 600,
       "magazine": 100,
-      "reloadSeconds": 3.75,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2151,7 +2204,7 @@
       "baseDamage": 71538,
       "rpm": 600,
       "magazine": 40,
-      "reloadSeconds": 4,
+      "reloadSeconds": 3,
       "optimalRange": 30,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2186,7 +2239,7 @@
       "baseDamage": 61097,
       "rpm": 700,
       "magazine": 30,
-      "reloadSeconds": 3.18,
+      "reloadSeconds": 3,
       "optimalRange": 30,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2203,7 +2256,7 @@
       "baseDamage": 61097,
       "rpm": 700,
       "magazine": 30,
-      "reloadSeconds": 3.18,
+      "reloadSeconds": 3,
       "optimalRange": 30,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2256,7 +2309,7 @@
       "baseDamage": 65234,
       "rpm": 600,
       "magazine": 100,
-      "reloadSeconds": 3.85,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2325,14 +2378,20 @@
       "headshotMultiplier": 1.65,
       "modSlots": [
         "scope",
-        "muzzle",
         "underbarrel",
         "magazine"
       ],
+      "builtInMods": [
+        { "slot": "scope", "stat": "chc", "value": 10, "name_ru": "Рога дракона" },
+        { "slot": "underbarrel", "stat": "chd", "value": 20, "name_ru": "Чешуя" },
+        { "slot": "magazine", "stat": "mag_add", "value": 35, "name_ru": "Меха" }
+      ],
+      "appliesBurn": true,
+      "burnThresholdPct": 50,
       "talentId": "iron_lung_exotic",
-      "talType": "amp",
-      "talBonus": 45,
-      "talMax": 5
+      "talType": "special",
+      "talBonus": 0,
+      "talMax": 0
     },
     {
       "id": "iwi_negev",
@@ -2341,7 +2400,7 @@
       "baseDamage": 54604,
       "rpm": 750,
       "magazine": 100,
-      "reloadSeconds": 4,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2391,7 +2450,7 @@
       "baseDamage": 61097,
       "rpm": 700,
       "magazine": 30,
-      "reloadSeconds": 3.18,
+      "reloadSeconds": 3,
       "optimalRange": 30,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2459,7 +2518,7 @@
       "baseDamage": 65234,
       "rpm": 600,
       "magazine": 100,
-      "reloadSeconds": 3.85,
+      "reloadSeconds": 5.8,
       "optimalRange": 40,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2527,7 +2586,7 @@
       "baseDamage": 71538,
       "rpm": 600,
       "magazine": 40,
-      "reloadSeconds": 2.86,
+      "reloadSeconds": 3,
       "optimalRange": 30,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2562,7 +2621,7 @@
       "baseDamage": 71538,
       "rpm": 600,
       "magazine": 40,
-      "reloadSeconds": 4,
+      "reloadSeconds": 3,
       "optimalRange": 30,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2593,8 +2652,9 @@
         "magazine"
       ],
       "talentId": "pestilence_exotic",
-      "talType": "none",
-      "talBonus": 0
+      "talType": "stacks",
+      "talBonus": 50,
+      "talMax": 50
     },
     {
       "id": "quiet_roar",
@@ -2673,7 +2733,7 @@
       "baseDamage": 61097,
       "rpm": 700,
       "magazine": 30,
-      "reloadSeconds": 3.18,
+      "reloadSeconds": 3,
       "optimalRange": 30,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -2740,7 +2800,7 @@
       "baseDamage": 97743,
       "rpm": 420,
       "magazine": 20,
-      "reloadSeconds": 2.88,
+      "reloadSeconds": 2.3,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2758,7 +2818,7 @@
       "baseDamage": 101828,
       "rpm": 420,
       "magazine": 30,
-      "reloadSeconds": 2.63,
+      "reloadSeconds": 2.3,
       "optimalRange": 45,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2810,7 +2870,7 @@
       "baseDamage": 231346,
       "rpm": 180,
       "magazine": 10,
-      "reloadSeconds": 2.36,
+      "reloadSeconds": 2.3,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2830,7 +2890,7 @@
       "baseDamage": 231346,
       "rpm": 180,
       "magazine": 10,
-      "reloadSeconds": 2.6,
+      "reloadSeconds": 3,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2885,7 +2945,7 @@
       "baseDamage": 129270,
       "rpm": 320,
       "magazine": 10,
-      "reloadSeconds": 1.93,
+      "reloadSeconds": 3,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2905,7 +2965,7 @@
       "baseDamage": 145850,
       "rpm": 275,
       "magazine": 10,
-      "reloadSeconds": 2.45,
+      "reloadSeconds": 2.2,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2923,7 +2983,7 @@
       "baseDamage": 124901,
       "rpm": 300,
       "magazine": 30,
-      "reloadSeconds": 1.94,
+      "reloadSeconds": 3.5,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2941,7 +3001,7 @@
       "baseDamage": 107258,
       "rpm": 360,
       "magazine": 30,
-      "reloadSeconds": 2.03,
+      "reloadSeconds": 2.4,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2958,7 +3018,7 @@
       "baseDamage": 100615,
       "rpm": 380,
       "magazine": 30,
-      "reloadSeconds": 2.08,
+      "reloadSeconds": 2.4,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2975,7 +3035,7 @@
       "baseDamage": 100615,
       "rpm": 380,
       "magazine": 30,
-      "reloadSeconds": 2.08,
+      "reloadSeconds": 2.4,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -2992,7 +3052,7 @@
       "baseDamage": 106971,
       "rpm": 400,
       "magazine": 30,
-      "reloadSeconds": 2.44,
+      "reloadSeconds": 2.3,
       "optimalRange": 50,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3008,7 +3068,7 @@
       "baseDamage": 106971,
       "rpm": 400,
       "magazine": 30,
-      "reloadSeconds": 2.44,
+      "reloadSeconds": 2.3,
       "optimalRange": 50,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3024,7 +3084,7 @@
       "baseDamage": 129180,
       "rpm": 320,
       "magazine": 10,
-      "reloadSeconds": 2.32,
+      "reloadSeconds": 3.5,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3041,7 +3101,7 @@
       "baseDamage": 129180,
       "rpm": 320,
       "magazine": 10,
-      "reloadSeconds": 2.32,
+      "reloadSeconds": 3.5,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3058,7 +3118,7 @@
       "baseDamage": 102270,
       "rpm": 400,
       "magazine": 30,
-      "reloadSeconds": 1.74,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3075,7 +3135,7 @@
       "baseDamage": 145850,
       "rpm": 275,
       "magazine": 10,
-      "reloadSeconds": 2.45,
+      "reloadSeconds": 2.2,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3092,7 +3152,7 @@
       "baseDamage": 145850,
       "rpm": 275,
       "magazine": 10,
-      "reloadSeconds": 2.45,
+      "reloadSeconds": 2.2,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3109,7 +3169,7 @@
       "baseDamage": 145850,
       "rpm": 275,
       "magazine": 10,
-      "reloadSeconds": 2.45,
+      "reloadSeconds": 2.2,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3126,7 +3186,7 @@
       "baseDamage": 124901,
       "rpm": 300,
       "magazine": 30,
-      "reloadSeconds": 1.94,
+      "reloadSeconds": 3.5,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3143,7 +3203,7 @@
       "baseDamage": 102270,
       "rpm": 400,
       "magazine": 30,
-      "reloadSeconds": 1.74,
+      "reloadSeconds": 2.3,
       "optimalRange": 35,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3160,7 +3220,7 @@
       "baseDamage": 121258,
       "rpm": 320,
       "magazine": 20,
-      "reloadSeconds": 2.68,
+      "reloadSeconds": 3.5,
       "optimalRange": 45,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3177,7 +3237,7 @@
       "baseDamage": 125865,
       "rpm": 320,
       "magazine": 20,
-      "reloadSeconds": 2.63,
+      "reloadSeconds": 3.5,
       "optimalRange": 45,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3193,7 +3253,7 @@
       "baseDamage": 121258,
       "rpm": 320,
       "magazine": 20,
-      "reloadSeconds": 2.68,
+      "reloadSeconds": 3.5,
       "optimalRange": 45,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3210,7 +3270,7 @@
       "baseDamage": 129180,
       "rpm": 320,
       "magazine": 10,
-      "reloadSeconds": 2.32,
+      "reloadSeconds": 3.5,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3227,7 +3287,7 @@
       "baseDamage": 129180,
       "rpm": 320,
       "magazine": 10,
-      "reloadSeconds": 2.32,
+      "reloadSeconds": 3,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3244,7 +3304,7 @@
       "baseDamage": 100615,
       "rpm": 380,
       "magazine": 30,
-      "reloadSeconds": 2.08,
+      "reloadSeconds": 2.4,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3262,7 +3322,7 @@
       "baseDamage": 134360,
       "rpm": 240,
       "magazine": 60,
-      "reloadSeconds": 2.18,
+      "reloadSeconds": 2.4,
       "optimalRange": 50,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3301,7 +3361,7 @@
       "baseDamage": 92365,
       "rpm": 420,
       "magazine": 30,
-      "reloadSeconds": 2.63,
+      "reloadSeconds": 2.3,
       "optimalRange": 45,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3319,7 +3379,7 @@
       "baseDamage": 150316,
       "rpm": 240,
       "magazine": 30,
-      "reloadSeconds": 1.73,
+      "reloadSeconds": 2.4,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3370,7 +3430,7 @@
       "baseDamage": 97743,
       "rpm": 420,
       "magazine": 20,
-      "reloadSeconds": 2.88,
+      "reloadSeconds": 2.3,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3386,7 +3446,7 @@
       "baseDamage": 97743,
       "rpm": 420,
       "magazine": 20,
-      "reloadSeconds": 2.88,
+      "reloadSeconds": 2.3,
       "optimalRange": 55,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3402,7 +3462,7 @@
       "baseDamage": 102970,
       "rpm": 380,
       "magazine": 20,
-      "reloadSeconds": 2.97,
+      "reloadSeconds": 1.9,
       "optimalRange": 60,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -3442,7 +3502,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 7,
-      "reloadSeconds": 3.15,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3459,7 +3519,7 @@
       "baseDamage": 412516,
       "rpm": 55,
       "magazine": 7,
-      "reloadSeconds": 3.98,
+      "reloadSeconds": 2.3,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3476,7 +3536,7 @@
       "baseDamage": 433564,
       "rpm": 55,
       "magazine": 5,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 4.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3492,7 +3552,7 @@
       "baseDamage": 433564,
       "rpm": 55,
       "magazine": 5,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 4.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3508,7 +3568,7 @@
       "baseDamage": 156663,
       "rpm": 260,
       "magazine": 10,
-      "reloadSeconds": 2.85,
+      "reloadSeconds": 2.6,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3526,7 +3586,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 7,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 3,
       "optimalRange": 60,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3543,7 +3603,7 @@
       "baseDamage": 417692,
       "rpm": 55,
       "magazine": 5,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3560,7 +3620,7 @@
       "baseDamage": 417692,
       "rpm": 55,
       "magazine": 5,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3577,7 +3637,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 7,
-      "reloadSeconds": 3.15,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3594,7 +3654,7 @@
       "baseDamage": 156663,
       "rpm": 260,
       "magazine": 10,
-      "reloadSeconds": 2.48,
+      "reloadSeconds": 2.6,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3632,7 +3692,7 @@
       "baseDamage": 206425,
       "rpm": 180,
       "magazine": 20,
-      "reloadSeconds": 3.6,
+      "reloadSeconds": 2.4,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3649,7 +3709,7 @@
       "baseDamage": 386989,
       "rpm": 60,
       "magazine": 10,
-      "reloadSeconds": 3.15,
+      "reloadSeconds": 2.6,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3667,7 +3727,7 @@
       "baseDamage": 417692,
       "rpm": 55,
       "magazine": 5,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 4.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3684,7 +3744,7 @@
       "baseDamage": 417692,
       "rpm": 55,
       "magazine": 5,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3701,7 +3761,7 @@
       "baseDamage": 412516,
       "rpm": 55,
       "magazine": 7,
-      "reloadSeconds": 3.98,
+      "reloadSeconds": 3.3,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3718,7 +3778,7 @@
       "baseDamage": 412516,
       "rpm": 55,
       "magazine": 7,
-      "reloadSeconds": 3.96,
+      "reloadSeconds": 3.3,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3735,7 +3795,7 @@
       "baseDamage": 412516,
       "rpm": 55,
       "magazine": 7,
-      "reloadSeconds": 3.98,
+      "reloadSeconds": 3.3,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3752,7 +3812,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 7,
-      "reloadSeconds": 3.9,
+      "reloadSeconds": 3.2,
       "optimalRange": 60,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3774,7 +3834,7 @@
       "baseDamage": 441570,
       "rpm": 55,
       "magazine": 7,
-      "reloadSeconds": 7.05,
+      "reloadSeconds": -0.001,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3790,7 +3850,7 @@
       "baseDamage": 441570,
       "rpm": 55,
       "magazine": 7,
-      "reloadSeconds": 7.05,
+      "reloadSeconds": -0.001,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3806,7 +3866,7 @@
       "baseDamage": 940240,
       "rpm": 50,
       "magazine": 5,
-      "reloadSeconds": 2.78,
+      "reloadSeconds": 3.2,
       "optimalRange": 60,
       "headshotMultiplier": 2.5,
       "modSlots": [
@@ -3827,7 +3887,7 @@
       "baseDamage": 433564,
       "rpm": 55,
       "magazine": 5,
-      "reloadSeconds": 4.77,
+      "reloadSeconds": 4.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.37,
       "modSlots": [
@@ -3844,7 +3904,7 @@
       "baseDamage": 156663,
       "rpm": 260,
       "magazine": 10,
-      "reloadSeconds": 2.85,
+      "reloadSeconds": 2.6,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3861,7 +3921,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 7,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 3,
       "optimalRange": 60,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3878,7 +3938,7 @@
       "baseDamage": 206425,
       "rpm": 180,
       "magazine": 20,
-      "reloadSeconds": 3.6,
+      "reloadSeconds": 2.4,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3896,7 +3956,7 @@
       "baseDamage": 206425,
       "rpm": 180,
       "magazine": 20,
-      "reloadSeconds": 3.6,
+      "reloadSeconds": 2.4,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3917,7 +3977,7 @@
       "baseDamage": 403810,
       "rpm": 70,
       "magazine": 7,
-      "reloadSeconds": 3.04,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3934,7 +3994,7 @@
       "baseDamage": 412516,
       "rpm": 55,
       "magazine": 7,
-      "reloadSeconds": 0,
+      "reloadSeconds": 3.3,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3954,7 +4014,7 @@
       "baseDamage": 145850,
       "rpm": 275,
       "magazine": 20,
-      "reloadSeconds": 4.99,
+      "reloadSeconds": 2.2,
       "optimalRange": 55,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3971,7 +4031,7 @@
       "baseDamage": 145850,
       "rpm": 275,
       "magazine": 20,
-      "reloadSeconds": 4.99,
+      "reloadSeconds": 2.2,
       "optimalRange": 55,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -3988,7 +4048,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 7,
-      "reloadSeconds": 3.15,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -4005,7 +4065,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 5,
-      "reloadSeconds": 3.15,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -4022,7 +4082,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 7,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 3,
       "optimalRange": 60,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -4039,7 +4099,7 @@
       "baseDamage": 409357,
       "rpm": 60,
       "magazine": 7,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 3,
       "optimalRange": 60,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -4056,7 +4116,7 @@
       "baseDamage": 156663,
       "rpm": 260,
       "magazine": 10,
-      "reloadSeconds": 2.85,
+      "reloadSeconds": 2.6,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -4073,7 +4133,7 @@
       "baseDamage": 403810,
       "rpm": 70,
       "magazine": 7,
-      "reloadSeconds": 3.04,
+      "reloadSeconds": 3.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -4090,7 +4150,7 @@
       "baseDamage": 145850,
       "rpm": 275,
       "magazine": 20,
-      "reloadSeconds": 4.99,
+      "reloadSeconds": 2.2,
       "optimalRange": 55,
       "headshotMultiplier": 2.25,
       "modSlots": [
@@ -4108,7 +4168,7 @@
       "baseDamage": 433564,
       "rpm": 55,
       "magazine": 5,
-      "reloadSeconds": 4.29,
+      "reloadSeconds": 4.2,
       "optimalRange": 50,
       "headshotMultiplier": 2.37,
       "modSlots": [
@@ -4133,7 +4193,10 @@
         "muzzle",
         "underbarrel",
         "magazine"
-      ]
+      ],
+      "talentId": "bighorn_exotic",
+      "talType": "amp",
+      "talBonus": 20
     },
     {
       "id": "acs_12",
@@ -4142,7 +4205,7 @@
       "baseDamage": 180748,
       "rpm": 300,
       "magazine": 20,
-      "reloadSeconds": 3.35,
+      "reloadSeconds": 2.3,
       "optimalRange": 16,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -4396,7 +4459,7 @@
       "baseDamage": 703672,
       "rpm": 75,
       "magazine": 5,
-      "reloadSeconds": 3.35,
+      "reloadSeconds": -0.001,
       "optimalRange": 11,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -4430,7 +4493,7 @@
       "baseDamage": 703672,
       "rpm": 75,
       "magazine": 5,
-      "reloadSeconds": 3.35,
+      "reloadSeconds": -0.001,
       "optimalRange": 11,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -4446,7 +4509,7 @@
       "baseDamage": 703672,
       "rpm": 75,
       "magazine": 5,
-      "reloadSeconds": 3.35,
+      "reloadSeconds": -0.001,
       "optimalRange": 11,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -4548,7 +4611,7 @@
       "baseDamage": 409568,
       "rpm": 130,
       "magazine": 7,
-      "reloadSeconds": 2.5,
+      "reloadSeconds": 1.8,
       "optimalRange": 14,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -4626,7 +4689,7 @@
       "baseDamage": 150623,
       "rpm": 360,
       "magazine": 20,
-      "reloadSeconds": 3.35,
+      "reloadSeconds": 2.3,
       "optimalRange": 16,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -4738,7 +4801,7 @@
       "baseDamage": 409568,
       "rpm": 130,
       "magazine": 7,
-      "reloadSeconds": 3,
+      "reloadSeconds": 1.8,
       "optimalRange": 14,
       "headshotMultiplier": 1.65,
       "modSlots": [
@@ -4838,7 +4901,7 @@
       "baseDamage": 93963,
       "rpm": 400,
       "magazine": 10,
-      "reloadSeconds": 1.61,
+      "reloadSeconds": 1.9,
       "optimalRange": 18,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -5083,7 +5146,7 @@
       "baseDamage": 102585,
       "rpm": 350,
       "magazine": 15,
-      "reloadSeconds": 1.65,
+      "reloadSeconds": 1.9,
       "optimalRange": 16,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -5294,7 +5357,7 @@
       "baseDamage": 52978,
       "rpm": 700,
       "magazine": 20,
-      "reloadSeconds": 1.56,
+      "reloadSeconds": 1.71,
       "optimalRange": 12,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -5389,7 +5452,7 @@
       "baseDamage": 62714,
       "rpm": 700,
       "magazine": 30,
-      "reloadSeconds": 2,
+      "reloadSeconds": 1.71,
       "optimalRange": 30,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -5443,7 +5506,7 @@
       "baseDamage": 88321,
       "rpm": 400,
       "magazine": 15,
-      "reloadSeconds": 1.99,
+      "reloadSeconds": 2.25,
       "optimalRange": 16,
       "headshotMultiplier": 1.95,
       "modSlots": [
@@ -5483,6 +5546,482 @@
         "underbarrel",
         "magazine"
       ]
+    },
+    {
+      "id": "the_archivist",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 56500,
+      "rpm": 650,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 27
+    },
+    {
+      "id": "alexandrian",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 58500,
+      "rpm": 625,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 35
+    },
+    {
+      "id": "first_bloom",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 55000,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 2.04,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 28
+    },
+    {
+      "id": "gr9",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 42500,
+      "rpm": 750,
+      "magazine": 200,
+      "reloadSeconds": 4.67,
+      "headshotMultiplier": 1.65,
+      "optimalRange": 30
+    },
+    {
+      "id": "colossus",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 60000,
+      "rpm": 550,
+      "magazine": 100,
+      "reloadSeconds": 5.6,
+      "headshotMultiplier": 1.65,
+      "optimalRange": 35
+    },
+    {
+      "id": "the_headline_grabber",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 65000,
+      "rpm": 500,
+      "magazine": 100,
+      "reloadSeconds": 5.8,
+      "headshotMultiplier": 1.65,
+      "optimalRange": 40
+    },
+    {
+      "id": "black_market_rpk_74_e_replica",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 59000,
+      "rpm": 650,
+      "magazine": 45,
+      "reloadSeconds": 3,
+      "headshotMultiplier": 1.65,
+      "optimalRange": 28
+    },
+    {
+      "id": "artemis",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 400000,
+      "rpm": 54,
+      "magazine": 7,
+      "reloadSeconds": 3.3,
+      "headshotMultiplier": 1,
+      "optimalRange": 42
+    },
+    {
+      "id": "halicarnassus",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 124900,
+      "rpm": 310,
+      "magazine": 7,
+      "reloadSeconds": 2.33,
+      "headshotMultiplier": 2,
+      "optimalRange": 12
+    },
+    {
+      "id": "olympian",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 120000,
+      "rpm": 300,
+      "magazine": 10,
+      "reloadSeconds": 3.5,
+      "headshotMultiplier": 1,
+      "optimalRange": 60
+    },
+    {
+      "id": "cuélebre",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 92500,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 0.7,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 14
+    },
+    {
+      "id": "sheriff",
+      "kind": "exotic",
+      "category": "shotgun",
+      "baseDamage": 58500,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 0.6,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 16,
+      "talentId": "talent_exotic_shotgun_autentico",
+      "talType": "amp",
+      "talBonus": 35
+    },
+    {
+      "id": "babylonian",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 58500,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 0.6,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 16
+    },
+    {
+      "id": "giza",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 39500,
+      "rpm": 1200,
+      "magazine": 33,
+      "reloadSeconds": 1.9,
+      "headshotMultiplier": 1.5,
+      "optimalRange": 15
+    },
+    {
+      "id": "warlord",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 64500,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 2.5,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 31,
+      "talentId": "warlord_exotic",
+      "talType": "kill",
+      "talBonus": 25,
+      "talMax": 1
+    },
+    {
+      "id": "survivor_ak_47",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 64500,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 2.5,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 31
+    },
+    {
+      "id": "liberator",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 47000,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.4,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 35,
+      "talentId": "liberator_exotic",
+      "talType": "amp",
+      "talBonus": 25
+    },
+    {
+      "id": "emt_p416",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 51000,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 26
+    },
+    {
+      "id": "hazmat_p416",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 51000,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 26
+    },
+    {
+      "id": "jtf_p416",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 51000,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 26
+    },
+    {
+      "id": "caduceus",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 58500,
+      "rpm": 625,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "headshotMultiplier": 1.55,
+      "optimalRange": 35,
+      "talentId": "talent_exotic_rifle_transfusion",
+      "talType": "hs_kill",
+      "talBonus": 50
+    },
+    {
+      "id": "hungry_hog",
+      "kind": "exotic",
+      "category": "lmg",
+      "baseDamage": 72500,
+      "rpm": 500,
+      "magazine": 100,
+      "reloadSeconds": 5.8,
+      "headshotMultiplier": 1.65,
+      "optimalRange": 40,
+      "talentId": "hungry_hog_exotic",
+      "talType": "stacks",
+      "talBonus": 40,
+      "talMax": 40
+    },
+    {
+      "id": "military_rpk_74_m",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 59000,
+      "rpm": 650,
+      "magazine": 45,
+      "reloadSeconds": 3,
+      "headshotMultiplier": 1.65,
+      "optimalRange": 28
+    },
+    {
+      "id": "black_market_rpk_74_e",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 59000,
+      "rpm": 650,
+      "magazine": 45,
+      "reloadSeconds": 3,
+      "headshotMultiplier": 1.65,
+      "optimalRange": 28
+    },
+    {
+      "id": "historian",
+      "kind": "exotic",
+      "category": "mmr",
+      "baseDamage": 250000,
+      "rpm": 300,
+      "magazine": 10,
+      "reloadSeconds": 3.5,
+      "headshotMultiplier": 1,
+      "optimalRange": 60,
+      "talentId": "historian_exotic",
+      "talType": "hs_kill",
+      "talBonus": 50
+    },
+    {
+      "id": "tenebrae",
+      "kind": "exotic",
+      "category": "mmr",
+      "baseDamage": 153000,
+      "rpm": 275,
+      "magazine": 20,
+      "reloadSeconds": 2.2,
+      "headshotMultiplier": 1,
+      "optimalRange": 60,
+      "talentId": "tenebrae_exotic",
+      "talType": "conditional",
+      "talBonus": 30
+    },
+    {
+      "id": "centurion",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 105000,
+      "rpm": 310,
+      "magazine": 7,
+      "reloadSeconds": 1.9,
+      "headshotMultiplier": 2,
+      "optimalRange": 12,
+      "talentId": "talent_exotic_pistol_faster_than_reloading",
+      "talType": "swap_in",
+      "talBonus": 15
+    },
+    {
+      "id": "damascus",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 67500,
+      "rpm": 350,
+      "magazine": 15,
+      "reloadSeconds": 1.7,
+      "headshotMultiplier": 2,
+      "optimalRange": 16,
+      "talentId": "damascus_exotic",
+      "talType": "kill",
+      "talBonus": 30,
+      "talMax": 1
+    },
+    {
+      "id": "m9",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 50000,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 1.9,
+      "headshotMultiplier": 1.5
+    },
+    {
+      "id": "golden_rhino",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 180000,
+      "rpm": 180,
+      "magazine": 6,
+      "reloadSeconds": 1.8,
+      "headshotMultiplier": 2,
+      "optimalRange": 18,
+      "talentId": "talent_exotic_ostracize",
+      "talType": "conditional",
+      "talBonus": 25
+    },
+    {
+      "id": "hunter_m870",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 92500,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 0.7,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 14
+    },
+    {
+      "id": "police_m870",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 92500,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 0.7,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 14
+    },
+    {
+      "id": "cassidy",
+      "kind": "exotic",
+      "category": "shotgun",
+      "baseDamage": 48500,
+      "rpm": 180,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 14,
+      "talentId": "cassidy_exotic",
+      "talType": "amp",
+      "talBonus": 35
+    },
+    {
+      "id": "firemans_super_90",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 58500,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 0.6,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 16
+    },
+    {
+      "id": "medved",
+      "kind": "exotic",
+      "category": "shotgun",
+      "baseDamage": 280000,
+      "rpm": 180,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 20,
+      "talentId": "talent_exotic_shotgun_cryesix12",
+      "talType": "stacks",
+      "talBonus": 20,
+      "talMax": 7
+    },
+    {
+      "id": "saiga_12",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 48500,
+      "rpm": 180,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "headshotMultiplier": 1.45,
+      "optimalRange": 14
+    },
+    {
+      "id": "midas",
+      "kind": "exotic",
+      "category": "smg",
+      "baseDamage": 71000,
+      "rpm": 550,
+      "magazine": 32,
+      "reloadSeconds": 1.9,
+      "headshotMultiplier": 1.5,
+      "optimalRange": 17,
+      "talentId": "talent_exotic_smg_MPX",
+      "talType": "stacks",
+      "talBonus": 25,
+      "talMax": 25
+    },
+    {
+      "id": "mp5",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 55000,
+      "rpm": 800,
+      "magazine": 32,
+      "reloadSeconds": 2.1,
+      "headshotMultiplier": 1.5,
+      "optimalRange": 16
+    },
+    {
+      "id": "hildr",
+      "kind": "exotic",
+      "category": "smg",
+      "baseDamage": 53000,
+      "rpm": 825,
+      "magazine": 32,
+      "reloadSeconds": 2,
+      "headshotMultiplier": 1.5,
+      "optimalRange": 20,
+      "talentId": "hildr_exotic",
+      "talType": "stacks",
+      "talBonus": 30,
+      "talMax": 20
     }
   ]
 }

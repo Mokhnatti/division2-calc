@@ -31,6 +31,7 @@
     { key: 'rof', label_en: 'Rate of Fire', label_ru: 'Скорострельность', icon: '⚡', max: 100 },
     { key: 'mag', label_en: 'Magazine', label_ru: 'Магазин', icon: '📦', max: 100 },
     { key: 'reload', label_en: 'Reload Speed', label_ru: 'Скорость перезарядки', icon: '🔄', max: 100 },
+    { key: 'amp', label_en: 'Amplified Damage (Striker/Glass Cannon/Hunter\'s Fury)', label_ru: 'Усиленный урон (Страйкер/Стеклопушка)', icon: '🔥', max: 500 },
   ];
   const TYPE_FIELDS: Array<{ key: keyof Stats; label: string; icon: string }> = [
     { key: 'wd_ar', label: 'AR', icon: '🔫' },
@@ -46,21 +47,21 @@
 <section class="panel stats-panel">
   {#if view === 'both' || view === 'toggle'}
     <div class="panel-title">
-      <span>{lang === 'en' ? 'Input Mode' : 'Режим ввода'}</span>
+      <span>{lang === 'ru' ? 'Режим ввода' : 'Input Mode'}</span>
       <div class="mode-tabs">
         <button
           class="mt-btn"
           class:active={mode === 'gear'}
           onclick={() => onModeChange('gear')}
         >
-          🎒 {lang === 'en' ? 'From Gear' : 'Из брони'}
+          🎒 {lang === 'ru' ? 'Из брони' : 'From Gear'}
         </button>
         <button
           class="mt-btn"
           class:active={mode === 'stats'}
           onclick={() => onModeChange('stats')}
         >
-          📊 {lang === 'en' ? 'From Stats' : 'Статами'}
+          📊 {lang === 'ru' ? 'Статами' : 'From Stats'}
         </button>
       </div>
     </div>
@@ -69,20 +70,18 @@
   {#if mode === 'stats' && (view === 'both' || view === 'fields')}
     {#if view === 'fields'}
       <div class="panel-title">
-        <span>{lang === 'en' ? 'Manual Stats' : 'Статы вручную'}</span>
+        <span>{lang === 'ru' ? 'Статы вручную' : 'Manual Stats'}</span>
       </div>
     {/if}
     <div class="stats-hint">
-      {lang === 'en'
-        ? 'Enter stats directly. Gear choices are ignored for DPS.'
-        : 'Вводи % напрямую. Выбор брони игнорируется для DPS.'}
+      {lang === 'ru' ? 'Вводи % напрямую. Выбор брони игнорируется для DPS.' : 'Enter stats directly. Gear choices are ignored for DPS.'}
     </div>
     <div class="stats-grid">
       {#each FIELDS as f (f.key)}
         <label class="sf">
           <span class="sf-label">
             <span class="sf-ico">{f.icon}</span>
-            <span>{lang === 'en' ? f.label_en : f.label_ru}</span>
+            <span>{lang === 'ru' ? f.label_ru : f.label_en}</span>
           </span>
           <div class="sf-input">
             <input
@@ -100,8 +99,8 @@
     </div>
 
     <div class="type-title">
-      {lang === 'en' ? 'Damage by Weapon Type' : 'Урон по типу оружия'}
-      <span class="type-hint">{lang === 'en' ? '(applied only if weapon matches)' : '(применяется только если оружие совпадает)'}</span>
+      {lang === 'ru' ? 'Урон по типу оружия' : 'Damage by Weapon Type'}
+      <span class="type-hint">{lang === 'ru' ? '(применяется только если оружие совпадает)' : '(applied only if weapon matches)'}</span>
     </div>
     <div class="type-grid">
       {#each TYPE_FIELDS as f (f.key)}
@@ -126,9 +125,7 @@
     </div>
   {:else if mode === 'gear' && view === 'both'}
     <div class="stats-hint">
-      {lang === 'en'
-        ? 'DPS auto-computed from gear picks, brands, sets, mods, talents below.'
-        : 'DPS считается автоматически из выбранной брони, брендов, сетов, модов, талантов.'}
+      {lang === 'ru' ? 'DPS считается автоматически из выбранной брони, брендов, сетов, модов, талантов.' : 'DPS auto-computed from gear picks, brands, sets, mods, talents below.'}
     </div>
   {/if}
 </section>

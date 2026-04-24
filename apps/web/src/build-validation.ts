@@ -33,7 +33,7 @@ export function validateBuild(
   const emptySlots: SlotKey[] = [];
   for (const k of SLOT_KEYS) {
     const s = state.gear[k];
-    if (!s.brandId && !s.setId) emptySlots.push(k);
+    if (!s.brandId && !s.setId && !s.namedId) emptySlots.push(k);
   }
   if (emptySlots.length > 0) {
     warns.push({

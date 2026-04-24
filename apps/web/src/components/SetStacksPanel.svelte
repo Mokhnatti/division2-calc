@@ -41,7 +41,7 @@
 
 {#if fourPcSets.length > 0}
   <section class="panel stacks">
-    <div class="panel-title"><span>{lang === 'en' ? '4pc Set Stacks' : 'Стаки 4шт сета'}</span></div>
+    <div class="panel-title"><span>{lang === 'ru' ? 'Стаки 4шт сета' : '4pc Set Stacks'}</span></div>
     {#each fourPcSets as s (s.setId)}
       {@const hasChest = !!chestTalent[s.setId]}
       {@const hasBp = !!bpTalent[s.setId]}
@@ -49,10 +49,10 @@
       {@const current = Math.min(stacks[s.setId] ?? 0, cap)}
       <div class="stack-row">
         <div class="s-head">
-          <span class="s-name">{lang === 'en' ? s.name.en : s.name.ru}</span>
+          <span class="s-name">{lang === 'ru' ? s.name.ru : s.name.en}</span>
           <span class="s-max num">{current} / {cap}</span>
         </div>
-        <div class="s-trig">⚡ {lang === 'en' ? s.triggerNote.en : s.triggerNote.ru}</div>
+        <div class="s-trig">⚡ {lang === 'ru' ? s.triggerNote.ru : s.triggerNote.en}</div>
         <div class="slider-wrap">
           <input
             type="range"
@@ -74,16 +74,16 @@
         {#if s.maxChest || s.perStackBp}
           <div class="set-tal-row">
             {#if s.maxChest}
-              <label class="tal-chk">
-                <input type="checkbox" checked={hasChest} onchange={(e) => onChestTalent(s.setId, (e.currentTarget as HTMLInputElement).checked)} />
-                <span>{lang === 'en' ? `Chest talent (→ ${s.maxChest} cap)` : `Талант жилета (→ ${s.maxChest} cap)`}</span>
-              </label>
+              <div class="tal-info" class:on={hasChest}>
+                {hasChest ? '✅' : '⚪'}
+                <span>{lang === 'ru' ? `Талант жилета (→ ${s.maxChest} cap) — авто от одежды` : `Chest talent (→ ${s.maxChest} cap) — auto`}</span>
+              </div>
             {/if}
             {#if s.perStackBp}
-              <label class="tal-chk">
-                <input type="checkbox" checked={hasBp} onchange={(e) => onBpTalent(s.setId, (e.currentTarget as HTMLInputElement).checked)} />
-                <span>{lang === 'en' ? 'Backpack talent (stronger per-stack)' : 'Талант рюкзака (сильнее за стак)'}</span>
-              </label>
+              <div class="tal-info" class:on={hasBp}>
+                {hasBp ? '✅' : '⚪'}
+                <span>{lang === 'ru' ? 'Талант рюкзака (сильнее за стак) — авто от одежды' : 'Backpack talent (stronger per-stack) — auto'}</span>
+              </div>
             {/if}
           </div>
         {/if}
@@ -107,6 +107,6 @@
   .slider-wrap .input { padding: 4px 6px; font-size: 11px; }
   .s-bonus { margin-top: 6px; font: 700 11px/1 var(--f-mono); color: var(--green); padding: 4px 8px; background: rgba(1,254,144,.08); border-radius: 3px; }
   .set-tal-row { display: flex; flex-direction: column; gap: 3px; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border); }
-  .tal-chk { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--text-dim); cursor: pointer; }
-  .tal-chk input { accent-color: var(--orange); }
+  .tal-info { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--muted); }
+  .tal-info.on { color: var(--green); }
 </style>

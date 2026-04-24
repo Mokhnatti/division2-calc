@@ -14,6 +14,7 @@
   let query = $state('');
   let kindFilter = $state<'all' | 'base' | 'named' | 'exotic'>('all');
   let categoryFilter = $state<string>('all');
+  let listOpen = $state(false);
 
   let lang = $derived(langState.current);
 
@@ -77,11 +78,15 @@
         {selected.baseDamage.toLocaleString()} · {selected.rpm}rpm · {selected.magazine}mag · {selected.reloadSeconds}s
       </div>
       <a class="sel-info" href={`#item=${encodeURIComponent(selected.id)}`}>
-        📄 {langState.current === 'en' ? 'Details · where to get' : 'Детали · где взять'} ↗
+        📄 {langState.current === 'ru' ? 'Детали · где взять' : 'Details · where to get'} ↗
       </a>
     </div>
+    <button class="btn small toggle-list" onclick={() => (listOpen = !listOpen)}>
+      {listOpen ? '▴' : '▾'} {lang === 'ru' ? (listOpen ? 'Скрыть список' : 'Сменить оружие') : (listOpen ? 'Hide list' : 'Change weapon')}
+    </button>
   {/if}
 
+  {#if !selected || listOpen}
   <div class="filters">
     <input class="input" type="search" placeholder={t('ui', 'search')} bind:value={query} />
     <div class="chip-row">
@@ -122,6 +127,7 @@
   {#if filtered.length > 100}
     <div class="more">+ {filtered.length - 100}</div>
   {/if}
+  {/if}
 </section>
 
 <style>
@@ -150,4 +156,5 @@
   .name.exotic { color: var(--exotic); }
   .cat { font-size: 9px; color: var(--muted); }
   .more { padding: 8px; text-align: center; font-size: 10px; color: var(--dim); font-family: var(--f-mono); }
+  .toggle-list { margin: 8px 0 4px; font-size: 10px; letter-spacing: .08em; }
 </style>

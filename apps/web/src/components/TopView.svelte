@@ -2,6 +2,7 @@
   import { t, lang as langState } from '../lang-state.svelte.js';
   import type { BuildState, SlotKey } from '../build-state.svelte.js';
   import type { GameData } from '../data.js';
+  import { applyPreset } from '../data/preset-logic.js';
 
   interface Props {
     build: BuildState;
@@ -89,9 +90,60 @@
     return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').replace(/_+/g, '_');
   }
 
-  function loadBuild(b: MetaBuild) {
+  async function loadBuild(b: MetaBuild) {
     build.reset();
-    // Find weapon by EN name
+    // If meta-build has explicit buildConfig — use it precisely.
+    const cfg = (b as unknown as { buildConfig?: {
+      weaponId?: string;
+      gear?: Record<string, { brandId?: string | null; setId?: string | null; namedId?: string | null; coreStat?: string }>;
+      applyPreset?: string;
+      specializationId?: string;
+      specClassPicks?: string[];
+      activeSpecPerks?: string[];
+      fullArmor?: boolean;
+      setStacks?: Record<string, number>;
+      recombinator?: Array<{ stat: string; value: number }>;
+    } }).buildConfig;
+    if (cfg) {
+      if (cfg.weaponId) build.weaponId = cfg.weaponId;
+      if (cfg.gear) {
+        for (const [slot, g] of Object.entries(cfg.gear) as Array<[SlotKey, { brandId?: string | null; setId?: string | null; namedId?: string | null; coreStat?: string }]>) {
+          if (g.brandId) build.setSlotBrand(slot, g.brandId);
+          else if (g.setId) build.setSlotSet(slot, g.setId);
+          else if (g.namedId) build.setSlotNamed(slot, g.namedId);
+          if (g.coreStat) build.setSlotCore(slot, g.coreStat as 'wd' | 'armor' | 'skill_tier');
+        }
+      }
+      if (cfg.applyPreset) {
+        applyPreset(cfg.applyPreset, build, data);
+      }
+      if (cfg.specializationId) build.specializationId = cfg.specializationId;
+      if (cfg.specClassPicks) {
+        for (const cls of cfg.specClassPicks) {
+          if (!build.specClassPicks.includes(cls)) build.toggleSpecClassPick(cls);
+        }
+      }
+      if (cfg.activeSpecPerks) {
+        for (const id of cfg.activeSpecPerks) {
+          if (!build.activeSpecPerks.includes(id)) build.toggleSpecPerk(id);
+        }
+      }
+      if (cfg.fullArmor === false) build.fullArmor = false;
+      if (cfg.setStacks) {
+        for (const [sid, n] of Object.entries(cfg.setStacks)) {
+          build.setSetStacks(sid, n);
+        }
+      }
+      if (cfg.recombinator) {
+        cfg.recombinator.forEach((r, i) => build.setRecombinatorSlot(i, r.stat as never, r.value));
+      }
+      // Note: shdWatchActive is NOT auto-enabled — Watch stats already included in computeBuild
+      // as always-on baseline. The flag is for legacy conditional bonus (+10 CHC/CHD extra) that
+      // would double-count. Keep it off.
+      onLoaded();
+      return;
+    }
+    // Fallback: generic loader (for old meta-builds without buildConfig)
     const wpnName = (b.wpn_en || b.weapon_en || '').toLowerCase();
     if (wpnName) {
       const match = data.weapons.find((w) => {
@@ -135,7 +187,7 @@
 
 <section class="panel top-header">
   <div class="panel-title">
-    <span>{lang === 'en' ? 'Meta Builds Y8S1' : 'Мета-билды Y8S1'}</span>
+    <span>{lang === 'ru' ? 'Мета-билды Y8S1' : 'Meta Builds Y8S1'}</span>
     {#if builds}<span class="count num">{filtered.length}</span>{/if}
   </div>
   <div class="tier-row">
@@ -151,7 +203,7 @@
 {:else if !builds}
   <div class="status">Loading…</div>
 {:else if filtered.length === 0}
-  <div class="status">{lang === 'en' ? 'No meta builds' : 'Нет мета-билдов'}</div>
+  <div class="status">{lang === 'ru' ? 'Нет мета-билдов' : 'No meta builds'}</div>
 {:else}
   <div class="meta-list">
     {#each filtered as b (b.id ?? b.name ?? Math.random())}
@@ -177,13 +229,13 @@
         {/if}
         <div class="m-actions">
           <button class="btn small load" onclick={() => loadBuild(b)}>
-            {lang === 'en' ? '⤴ Load' : '⤴ Загрузить'}
+            {lang === 'ru' ? '⤴ Загрузить' : '⤴ Load'}
           </button>
           {#if b.source_author}
             <span class="m-author">
               ✎ {b.source_author}
               {#if /^mokhnatti$/i.test(b.source_author.trim())}
-                <span class="admin-badge" title={lang === 'en' ? 'Calculator author' : 'Автор калькулятора'}>★ ADMIN</span>
+                <span class="admin-badge" title={lang === 'ru' ? 'Автор калькулятора' : 'Calculator author'}>★ ADMIN</span>
               {/if}
             </span>
           {/if}

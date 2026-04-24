@@ -10,17 +10,48 @@
     void lang;
     return i18next.t(id, { ns: 'weapon-mods', defaultValue: id }) as string;
   }
+
+  const SLOT_LABELS_RU: Record<string, string> = {
+    optic: 'Оптика',
+    muzzle: 'Дульный тормоз',
+    underbarrel: 'Подствольный',
+    magazine: 'Магазин',
+  };
+  function slotLabel(slot: string): string {
+    if (lang === 'ru' && SLOT_LABELS_RU[slot]) return SLOT_LABELS_RU[slot].toUpperCase();
+    return slot.toUpperCase();
+  }
+
+  const RAW_STAT_RU: Record<string, string> = {
+    'Rate of Fire': 'Скорострельность',
+    'Reload Speed': 'Скорость перезарядки',
+    'Critical Hit Damage': 'Урон крит. удара',
+    'Critical Hit Chance': 'Шанс крит. удара',
+    'Weapon Damage': 'Урон оружия',
+    'Headshot Damage': 'Урон в голову',
+    'Optimal Range': 'Оптимальная дистанция',
+    'Accuracy': 'Точность',
+    'Stability': 'Стабильность',
+    'Handling': 'Обращение',
+    'Magazine Size': 'Размер магазина',
+    'targets at which it\'s aimed': 'по целям, в которые наведено',
+    'dark areas': 'в тёмных зонах',
+  };
+  function statLabel(s: string): string {
+    if (lang === 'ru' && RAW_STAT_RU[s]) return RAW_STAT_RU[s];
+    return s;
+  }
 </script>
 
 <section class="panel">
   <div class="panel-title">
-    <span>{lang === 'en' ? 'Weapon Mods' : 'Моды оружия'}</span>
+    <span>{lang === 'ru' ? 'Моды оружия' : 'Weapon Mods'}</span>
     <span class="count num">{WEAPON_MODS.length}</span>
   </div>
   {#each MOD_SLOTS as slot (slot)}
     {@const mods = WEAPON_MODS.filter((m) => m.slot === slot)}
     <div class="group">
-      <div class="g-head">{slot.toUpperCase()} <span class="sub-count">({mods.length})</span></div>
+      <div class="g-head">{slotLabel(slot)} <span class="sub-count">({mods.length})</span></div>
       <div class="grid">
         {#each mods as m (m.id)}
           <div class="mod">
@@ -28,7 +59,7 @@
             {#if m.stat && m.value}
               <div class="m-bonus" class:good={m.value > 0} class:bad={m.value < 0}>{m.value > 0 ? '+' : ''}{m.value}% {m.stat.toUpperCase()}</div>
             {:else if m.rawStat}
-              <div class="m-bonus muted">{m.rawStat}</div>
+              <div class="m-bonus muted">{statLabel(m.rawStat)}</div>
             {/if}
           </div>
         {/each}
@@ -38,7 +69,7 @@
 </section>
 
 <section class="panel">
-  <div class="panel-title"><span>{lang === 'en' ? 'Gear Mods (Inserts)' : 'Вставки брони'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Вставки брони' : 'Gear Mods (Inserts)'}</span></div>
   {#each ['offense', 'defense', 'skill'] as const as cat (cat)}
     {@const mods = GEAR_MODS.filter((m) => m.category === cat)}
     <div class="group">
@@ -48,7 +79,7 @@
       <div class="grid">
         {#each mods as m (m.id)}
           <div class="mod" style="border-left-color: {CATEGORY_LABELS[cat].color}">
-            <div class="m-name">{lang === 'en' ? m.name.en : m.name.ru}</div>
+            <div class="m-name">{lang === 'ru' ? m.name.ru : m.name.en}</div>
             <div class="m-bonus">+{m.value}{m.value < 100 ? '%' : ''}</div>
           </div>
         {/each}

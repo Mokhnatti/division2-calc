@@ -11,14 +11,14 @@
 
   function msg(w: BuildWarning): string {
     void lang;
-    return lang === 'en' ? w.message.en : w.message.ru;
+    return lang === 'ru' ? w.message.ru : w.message.en;
   }
 </script>
 
 {#if warnings.length > 0}
   <section class="panel warnings">
     <div class="panel-title">
-      <span>{lang === 'en' ? 'Build hints' : 'Советы по билду'}</span>
+      <span>{lang === 'ru' ? 'Советы по билду' : 'Build hints'}</span>
       <span class="count num">{warnings.length}</span>
     </div>
     <ul>

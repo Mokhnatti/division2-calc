@@ -65,7 +65,7 @@
             s[cat as 'Offense' | 'Defense' | 'Utility'] = s[highKey as 'Offense' | 'Defense' | 'Utility'];
             s[highKey as 'Offense' | 'Defense' | 'Utility'] = tmp;
           } else {
-            warnings.push(`T${t + 1} Invert: ${lang === 'en' ? 'no trigger' : 'не сработал'}`);
+            warnings.push(`T${t + 1} ${lang === 'ru' ? 'Инверт: не сработал' : 'Invert: no trigger'}`);
           }
         }
       }
@@ -96,36 +96,34 @@
 
 <section class="panel rc-header">
   <div class="panel-title">
-    <span>🧬 {lang === 'en' ? 'Recombinator Simulator' : 'Симулятор рекомбинатора'}</span>
-    <button class="btn small danger" onclick={reset}>{lang === 'en' ? 'Reset' : 'Сброс'}</button>
+    <span>🧬 {lang === 'ru' ? 'Симулятор рекомбинатора' : 'Recombinator Simulator'}</span>
+    <button class="btn small danger" onclick={reset}>{lang === 'ru' ? 'Сброс' : 'Reset'}</button>
   </div>
   <div class="intro">
-    {lang === 'en'
-      ? 'Pick 10 mods in order to simulate final stack counts. Each effect resolves in sequence.'
-      : 'Выбери 10 модификаторов по порядку. Эффекты применяются по очереди.'}
+    {lang === 'ru' ? 'Выбери 10 модификаторов по порядку. Эффекты применяются по очереди.' : 'Pick 10 mods in order to simulate final stack counts. Each effect resolves in sequence.'}
   </div>
 </section>
 
 <section class="panel rc-stacks">
-  <div class="panel-title"><span>{lang === 'en' ? 'Final Stacks' : 'Итоговые стаки'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Итоговые стаки' : 'Final Stacks'}</span></div>
   <div class="rc-stacks-grid">
     <div class="rc-stack" data-cat="offense" class:locked={stacks.locked.Offense} class:saturated={stacks.saturated.Offense}>
-      <div class="rc-stack-cat">⚔ {lang === 'en' ? 'Offense' : 'Атака'}</div>
+      <div class="rc-stack-cat">⚔ {lang === 'ru' ? 'Атака' : 'Offense'}</div>
       <div class="rc-stack-val num">{stacks.s.Offense}</div>
-      {#if stacks.locked.Offense}<div class="rc-flag">🔒 locked</div>{/if}
-      {#if stacks.saturated.Offense}<div class="rc-flag">💧 saturated</div>{/if}
+      {#if stacks.locked.Offense}<div class="rc-flag">🔒 {lang === 'ru' ? 'заблок.' : 'locked'}</div>{/if}
+      {#if stacks.saturated.Offense}<div class="rc-flag">💧 {lang === 'ru' ? 'насыщ.' : 'saturated'}</div>{/if}
     </div>
     <div class="rc-stack" data-cat="defense" class:locked={stacks.locked.Defense} class:saturated={stacks.saturated.Defense}>
-      <div class="rc-stack-cat">🛡 {lang === 'en' ? 'Defense' : 'Защита'}</div>
+      <div class="rc-stack-cat">🛡 {lang === 'ru' ? 'Защита' : 'Defense'}</div>
       <div class="rc-stack-val num">{stacks.s.Defense}</div>
-      {#if stacks.locked.Defense}<div class="rc-flag">🔒 locked</div>{/if}
-      {#if stacks.saturated.Defense}<div class="rc-flag">💧 saturated</div>{/if}
+      {#if stacks.locked.Defense}<div class="rc-flag">🔒 {lang === 'ru' ? 'заблок.' : 'locked'}</div>{/if}
+      {#if stacks.saturated.Defense}<div class="rc-flag">💧 {lang === 'ru' ? 'насыщ.' : 'saturated'}</div>{/if}
     </div>
     <div class="rc-stack" data-cat="utility" class:locked={stacks.locked.Utility} class:saturated={stacks.saturated.Utility}>
-      <div class="rc-stack-cat">⚡ {lang === 'en' ? 'Utility' : 'Навыки'}</div>
+      <div class="rc-stack-cat">⚡ {lang === 'ru' ? 'Навыки' : 'Utility'}</div>
       <div class="rc-stack-val num">{stacks.s.Utility}</div>
-      {#if stacks.locked.Utility}<div class="rc-flag">🔒 locked</div>{/if}
-      {#if stacks.saturated.Utility}<div class="rc-flag">💧 saturated</div>{/if}
+      {#if stacks.locked.Utility}<div class="rc-flag">🔒 {lang === 'ru' ? 'заблок.' : 'locked'}</div>{/if}
+      {#if stacks.saturated.Utility}<div class="rc-flag">💧 {lang === 'ru' ? 'насыщ.' : 'saturated'}</div>{/if}
     </div>
   </div>
   {#if stacks.warnings.length > 0}
@@ -136,7 +134,7 @@
 </section>
 
 <section class="panel rc-slots">
-  <div class="panel-title"><span>{lang === 'en' ? 'Mod Slots (T1-T10)' : 'Слоты модов (T1-T10)'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Слоты модов (T1-T10)' : 'Mod Slots (T1-T10)'}</span></div>
   <div class="rc-slot-grid">
     {#each slots as s, i (i)}
       {@const m = s ? mods.find((x) => x.id === s) : null}
@@ -148,22 +146,22 @@
           onchange={(e) => setSlot(i, (e.currentTarget as HTMLSelectElement).value || null)}
         >
           <option value="">—</option>
-          <optgroup label="⚔ Offense">
+          <optgroup label={lang === 'ru' ? '⚔ Атака' : '⚔ Offense'}>
             {#each modsByCat.Offense as mo (mo.id)}
               <option value={mo.id}>{mo.icon} {mo.name}</option>
             {/each}
           </optgroup>
-          <optgroup label="🛡 Defense">
+          <optgroup label={lang === 'ru' ? '🛡 Защита' : '🛡 Defense'}>
             {#each modsByCat.Defense as mo (mo.id)}
               <option value={mo.id}>{mo.icon} {mo.name}</option>
             {/each}
           </optgroup>
-          <optgroup label="⚡ Utility">
+          <optgroup label={lang === 'ru' ? '⚡ Навыки' : '⚡ Utility'}>
             {#each modsByCat.Utility as mo (mo.id)}
               <option value={mo.id}>{mo.icon} {mo.name}</option>
             {/each}
           </optgroup>
-          <optgroup label="🌀 Wildcard">
+          <optgroup label={lang === 'ru' ? '🌀 Универс.' : '🌀 Wildcard'}>
             {#each modsByCat.Wildcard as mo (mo.id)}
               <option value={mo.id}>{mo.icon} {mo.name}</option>
             {/each}
@@ -178,11 +176,11 @@
 </section>
 
 <section class="panel rc-legend">
-  <div class="panel-title"><span>{lang === 'en' ? 'Modifier Reference' : 'Справочник модов'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Справочник модов' : 'Modifier Reference'}</span></div>
   <div class="rc-cats">
     {#each (['Offense', 'Defense', 'Utility', 'Wildcard'] as const) as cat (cat)}
       <div class="rc-cat-block" data-cat={cat.toLowerCase()}>
-        <div class="rc-cat-title">{cat}</div>
+        <div class="rc-cat-title">{lang === 'ru' ? ({Offense: 'Атака', Defense: 'Защита', Utility: 'Навыки', Wildcard: 'Универсальные'}[cat]) : cat}</div>
         <div class="rc-cat-list">
           {#each modsByCat[cat] as m (m.id)}
             <div class="rc-mod">

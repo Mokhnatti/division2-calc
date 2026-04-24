@@ -16,10 +16,12 @@
       "bonuses": [
         {
           "stat": "wd",
-          "value": 25
+          "value": 17.5
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive",
+      "note": "Conditional: +3.5% WD per 10% ammo missing (0% full mag → +35% empty). Avg over mag = +17.5%."
     },
     {
       "id": "outsider",
@@ -46,7 +48,8 @@
       "applicableWeaponClasses": [
         "Rifle"
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "close_personal",
@@ -74,7 +77,8 @@
           "value": 25
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "headhunter",
@@ -98,7 +102,8 @@
           "value": 50
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "crit_damage"
     },
     {
       "id": "allegro",
@@ -127,14 +132,15 @@
     {
       "id": "sadist",
       "kind": "weapon",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [
         {
           "stat": "wd",
           "value": 12
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "spike",
@@ -146,7 +152,8 @@
           "value": 25
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "skill_damage"
     },
     {
       "id": "unhinged",
@@ -161,7 +168,8 @@
       "applicableWeaponClasses": [
         "LMG"
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "jazz_hands",
@@ -185,7 +193,8 @@
           "value": 65
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "crit_damage"
     },
     {
       "id": "sustained",
@@ -202,14 +211,15 @@
     {
       "id": "eyeless",
       "kind": "weapon",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [
         {
           "stat": "wd",
           "value": 10
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "measured",
@@ -221,7 +231,8 @@
           "value": 15
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "steady_handed",
@@ -274,14 +285,15 @@
     {
       "id": "ranger",
       "kind": "weapon",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [
         {
           "stat": "wd",
           "value": 15
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "opportunistic",
@@ -329,7 +341,8 @@
           "value": 50
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "lucky_shot",
@@ -353,7 +366,8 @@
           "value": 40
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "crit_damage"
     },
     {
       "id": "overflowing",
@@ -394,14 +408,15 @@
     {
       "id": "flatline",
       "kind": "weapon",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [
         {
           "stat": "wd",
           "value": 20
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "preservation",
@@ -425,7 +440,8 @@
           "value": 20
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "headshot_damage"
     },
     {
       "id": "determined",
@@ -461,7 +477,8 @@
           "value": 35
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "headshot_damage"
     },
     {
       "id": "capacitor_exotic",
@@ -633,7 +650,8 @@
           "value": 10
         }
       ],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_back_and_forth",
@@ -1008,14 +1026,15 @@
     {
       "id": "perfect_killer",
       "kind": "weapon",
-      "bonusType": "amplified",
+      "bonusType": "additive",
       "bonuses": [
         {
           "stat": "chd",
           "value": 90
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "crit_damage"
     },
     {
       "id": "perfectly_near_sighted",
@@ -1038,12 +1057,13 @@
           "value": 20
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "perfect_frenzy",
       "kind": "weapon",
-      "bonusType": "amplified",
+      "bonusType": "additive",
       "bonuses": [
         {
           "stat": "wd",
@@ -1054,7 +1074,8 @@
           "value": 27
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_allegro",
@@ -1078,7 +1099,8 @@
           "value": 20
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "perfect_streamline",
@@ -1109,14 +1131,15 @@
     {
       "id": "perfectly_ignited",
       "kind": "weapon",
-      "bonusType": "amplified",
+      "bonusType": "additive",
       "bonuses": [
         {
           "stat": "wd",
           "value": 30
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "headshot_damage"
     },
     {
       "id": "perfectly_close_personal",
@@ -1133,14 +1156,16 @@
     {
       "id": "perfect_optimist",
       "kind": "weapon",
-      "bonusType": "amplified",
+      "bonusType": "additive",
       "bonuses": [
         {
           "stat": "wd",
-          "value": 27
+          "value": 22.5
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive",
+      "note": "Perfect: +4.5% WD per 10% ammo missing (0 → +45% empty). Avg = +22.5%."
     },
     {
       "id": "perfectly_in_sync",
@@ -1212,7 +1237,8 @@
           "value": 25
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "perfect_outsider",
@@ -1239,14 +1265,15 @@
     {
       "id": "perfectly_measured",
       "kind": "weapon",
-      "bonusType": "amplified",
+      "bonusType": "additive",
       "bonuses": [
         {
           "stat": "wd",
           "value": 10
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfectly_vindictive",
@@ -1289,7 +1316,8 @@
           "value": 35
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "perfect_fast_hands",
@@ -1395,9 +1423,10 @@
     {
       "id": "perfect_spike",
       "kind": "weapon",
-      "bonusType": "amplified",
+      "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "skill_damage"
     },
     {
       "id": "perfect_boomerang",
@@ -1421,7 +1450,8 @@
           "value": 25
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "perfectly_naked",
@@ -1452,7 +1482,8 @@
           "value": 20
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "perfect_first_blood",
@@ -1492,7 +1523,8 @@
           "value": 35
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "perfect_pumped_up",
@@ -1540,7 +1572,8 @@
           "value": 12
         }
       ],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "perfectly_extra",
@@ -1632,42 +1665,48 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "gunslinger",
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "focus",
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "spark",
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "obliterate",
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "intimidate",
       "kind": "chest",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "headhunter_2",
@@ -1693,16 +1732,18 @@
     {
       "id": "glass_cannon",
       "kind": "chest",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "spotter",
       "kind": "chest",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "unbreakable",
@@ -1793,7 +1834,8 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "skill_damage"
     },
     {
       "id": "tech_support",
@@ -1814,49 +1856,56 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "versatile",
       "kind": "backpack",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "unstoppable_force",
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "companion",
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "composure",
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "concussion",
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "wicked",
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "opportunistic_2",
@@ -2003,14 +2052,16 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "crit_damage"
     },
     {
       "id": "parabellum_rounds",
       "kind": "chest",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "bleeding_edge",
@@ -2038,7 +2089,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_intimidate",
@@ -2052,7 +2104,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_glass_cannon",
@@ -2073,7 +2126,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_vanguard",
@@ -2122,7 +2176,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfectly_explosive_delivery",
@@ -2150,7 +2205,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_entrench",
@@ -2171,7 +2227,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "overcharge",
@@ -2220,7 +2277,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "crit_damage"
     },
     {
       "id": "hollow_point_ammo",
@@ -2318,7 +2376,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "sustainability",
@@ -2416,14 +2475,16 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_composure",
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_clutch",
@@ -2458,7 +2519,8 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "perfect_versatile",
@@ -2507,7 +2569,8 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "skill_damage"
     },
     {
       "id": "perfectly_calculated",
@@ -2561,9 +2624,10 @@
     {
       "id": "symptom_aggravator",
       "kind": "backpack",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "dead_man_s_hand",
@@ -2605,7 +2669,8 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "safe_charging",
@@ -2619,7 +2684,8 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "advanced_combat_tactics",
@@ -2668,7 +2734,8 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "complete_uptime",
@@ -2682,7 +2749,8 @@
       "kind": "backpack",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": false
+      "hasPerfectVariant": false,
+      "bucket": "wd_additive"
     },
     {
       "id": "accelerando",
@@ -2710,7 +2778,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "camaraderie",
@@ -2848,9 +2917,10 @@
     {
       "id": "apex_predator",
       "kind": "chest",
-      "bonusType": "additive",
+      "bonusType": "amplified",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_multiplicative"
     },
     {
       "id": "stoic",
@@ -2885,7 +2955,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "crit_damage"
     },
     {
       "id": "electromagnetic_trigger",
@@ -2899,7 +2970,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "red_white_and_blue",
@@ -2941,7 +3013,8 @@
       "kind": "chest",
       "bonusType": "additive",
       "bonuses": [],
-      "hasPerfectVariant": true
+      "hasPerfectVariant": true,
+      "bucket": "wd_additive"
     },
     {
       "id": "robust",

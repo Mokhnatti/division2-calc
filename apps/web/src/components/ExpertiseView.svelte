@@ -48,12 +48,10 @@
 
 <section class="panel exp-header">
   <div class="panel-title">
-    <span>{lang === 'en' ? 'Expertise' : 'Экспертиза'}</span>
+    <span>{lang === 'ru' ? 'Экспертиза' : 'Expertise'}</span>
   </div>
   <div class="intro">
-    {lang === 'en'
-      ? 'Expertise Grade adds a multiplicative bonus to weapon damage, armor, and skills. Max Grade is 30.'
-      : 'Экспертиза добавляет мультипликативный бонус к урону оружия, броне и навыкам. Максимальный уровень — 30.'}
+    {lang === 'ru' ? 'Экспертиза добавляет мультипликативный бонус к урону оружия, броне и навыкам. Максимальный уровень — 30.' : 'Expertise Grade adds a multiplicative bonus to weapon damage, armor, and skills. Max Grade is 30.'}
   </div>
 </section>
 
@@ -64,35 +62,33 @@
       <div class="m-grade num">G{g}</div>
       <div class="m-stats">
         <div class="ms"><span class="k">WD</span><span class="v num">+{r?.weaponWd.toFixed(0)}%</span></div>
-        <div class="ms"><span class="k">Armor</span><span class="v num">+{r?.armorPct.toFixed(1)}%</span></div>
-        <div class="ms"><span class="k">Skill</span><span class="v num">+{r?.skillPct.toFixed(1)}%</span></div>
+        <div class="ms"><span class="k">{lang === 'ru' ? 'Броня' : 'Armor'}</span><span class="v num">+{r?.armorPct.toFixed(1)}%</span></div>
+        <div class="ms"><span class="k">{lang === 'ru' ? 'Навыки' : 'Skill'}</span><span class="v num">+{r?.skillPct.toFixed(1)}%</span></div>
       </div>
     </div>
   {/each}
 </div>
 
 <section class="panel table-wrap">
-  <div class="panel-title"><span>{lang === 'en' ? 'Escalation — Tier Scaling' : 'Эскалация — масштабирование тиров'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Эскалация — масштабирование тиров' : 'Escalation — Tier Scaling'}</span></div>
   <div class="intro" style="padding: 0 14px 8px">
-    {lang === 'en'
-      ? 'Y8S1+ Countdown game mode. Higher tiers = more enemy HP/armor + higher rewards and drop chance.'
-      : 'Режим Y8S1+ Countdown. Выше тир — больше HP/брони у врагов, больше наград и шанс дропа.'}
+    {lang === 'ru' ? 'Режим Y8S1+ Countdown. Выше тир — больше HP/брони у врагов, больше наград и шанс дропа.' : 'Y8S1+ Countdown game mode. Higher tiers = more enemy HP/armor + higher rewards and drop chance.'}
   </div>
   <table class="esc-table">
     <thead>
       <tr>
-        <th>{lang === 'en' ? 'Tier' : 'Тир'}</th>
-        <th class="num">{lang === 'en' ? 'Enemy HP' : 'HP врагов'}</th>
-        <th class="num">{lang === 'en' ? 'Enemy Armor' : 'Броня'}</th>
-        <th class="num">{lang === 'en' ? 'Enemy DMG' : 'Урон врагов'}</th>
-        <th class="num">{lang === 'en' ? 'Drop %' : 'Шанс дропа'}</th>
+        <th>{lang === 'ru' ? 'Тир' : 'Tier'}</th>
+        <th class="num">{lang === 'ru' ? 'HP врагов' : 'Enemy HP'}</th>
+        <th class="num">{lang === 'ru' ? 'Броня' : 'Enemy Armor'}</th>
+        <th class="num">{lang === 'ru' ? 'Урон врагов' : 'Enemy DMG'}</th>
+        <th class="num">{lang === 'ru' ? 'Шанс дропа' : 'Drop %'}</th>
       </tr>
     </thead>
     <tbody>
       {#each escTierIds as id (id)}
         {@const t = escTiers[String(id)]}
         <tr class:top={id === 10}>
-          <td>{id === 0 ? (lang === 'en' ? 'Base' : 'База') : 'T' + id}</td>
+          <td>{id === 0 ? (lang === 'ru' ? 'База' : 'Base') : 'T' + id}</td>
           <td class="num">+{t.hp}%</td>
           <td class="num">+{t.ar}%</td>
           <td class="num">{t.dmg}%</td>
@@ -105,11 +101,11 @@
 
 {#if escMutIds.length > 0}
 <section class="panel table-wrap">
-  <div class="panel-title"><span>{lang === 'en' ? 'Mutators by Tier' : 'Мутаторы по тирам'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Мутаторы по тирам' : 'Mutators by Tier'}</span></div>
   <table class="esc-table">
     <thead>
       <tr>
-        <th>{lang === 'en' ? 'Tier' : 'Тир'}</th>
+        <th>{lang === 'ru' ? 'Тир' : 'Tier'}</th>
         <th class="num">Harvester</th>
         <th class="num">Suppressor</th>
         <th class="num">Anchor</th>
@@ -133,14 +129,14 @@
 {/if}
 
 <section class="panel table-wrap">
-  <div class="panel-title"><span>{lang === 'en' ? 'All Grades' : 'Все уровни'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Все уровни' : 'All Grades'}</span></div>
   <table>
     <thead>
       <tr>
-        <th>{lang === 'en' ? 'Grade' : 'Ур.'}</th>
-        <th class="num">Weapon Damage</th>
-        <th class="num">Armor</th>
-        <th class="num">Skill</th>
+        <th>{lang === 'ru' ? 'Ур.' : 'Grade'}</th>
+        <th class="num">{lang === 'ru' ? 'Урон оружия' : 'Weapon Damage'}</th>
+        <th class="num">{lang === 'ru' ? 'Броня' : 'Armor'}</th>
+        <th class="num">{lang === 'ru' ? 'Навыки' : 'Skill'}</th>
       </tr>
     </thead>
     <tbody>

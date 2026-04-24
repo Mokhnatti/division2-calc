@@ -35,81 +35,77 @@
 
 <section class="panel tank-header">
   <div class="panel-title">
-    <span>🛡 {lang === 'en' ? 'Tank Calculator' : 'Калькулятор танка'}</span>
+    <span>🛡 {lang === 'ru' ? 'Калькулятор танка' : 'Tank Calculator'}</span>
   </div>
   <div class="intro">
-    {lang === 'en'
-      ? 'Estimate time-to-die under enemy fire. Caps: armor mitigation 70%, physical 90%, DoT 90%.'
-      : 'Оценка time-to-die под огнём. Капы: броня 70%, физ. урон 90%, DoT 90%.'}
+    {lang === 'ru' ? 'Оценка time-to-die под огнём. Капы: броня 70%, физ. урон 90%, DoT 90%.' : 'Estimate time-to-die under enemy fire. Caps: armor mitigation 70%, physical 90%, DoT 90%.'}
   </div>
 </section>
 
 <section class="panel tank-inputs">
-  <div class="panel-title"><span>{lang === 'en' ? 'Tank Stats' : 'Статы танка'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Статы танка' : 'Tank Stats'}</span></div>
   <div class="grid">
     <label>
-      <span>💙 {lang === 'en' ? 'Total Armor' : 'Всего брони'}</span>
+      <span>💙 {lang === 'ru' ? 'Всего брони' : 'Total Armor'}</span>
       <input class="input num" type="number" bind:value={totalArmor} />
     </label>
     <label>
-      <span>🛡 {lang === 'en' ? 'Armor %' : 'Броня %'}</span>
+      <span>🛡 {lang === 'ru' ? 'Броня %' : 'Armor %'}</span>
       <input class="input num" type="number" bind:value={armorBonus} />
     </label>
     <label>
-      <span>❤ {lang === 'en' ? 'Health %' : 'Здоровье %'}</span>
+      <span>❤ {lang === 'ru' ? 'Здоровье %' : 'Health %'}</span>
       <input class="input num" type="number" bind:value={healthBonus} />
     </label>
     <label>
-      <span>🏅 {lang === 'en' ? 'Protection from Elites %' : 'Защита от элиты %'}</span>
+      <span>🏅 {lang === 'ru' ? 'Защита от элиты %' : 'Protection from Elites %'}</span>
       <input class="input num" type="number" max="50" bind:value={protectionFromElites} />
     </label>
     <label>
-      <span>⚕ {lang === 'en' ? 'Incoming Repair %' : 'Ремонт %'}</span>
+      <span>⚕ {lang === 'ru' ? 'Ремонт %' : 'Incoming Repair %'}</span>
       <input class="input num" type="number" bind:value={incomingRepair} />
     </label>
     <label>
-      <span>🎯 {lang === 'en' ? 'Armor on Kill %' : 'Броня за убийство %'}</span>
+      <span>🎯 {lang === 'ru' ? 'Броня за убийство %' : 'Armor on Kill %'}</span>
       <input class="input num" type="number" bind:value={armorOnKill} />
     </label>
     <label>
-      <span>💢 {lang === 'en' ? 'Enemy Damage/hit' : 'Урон врага/выстрел'}</span>
+      <span>💢 {lang === 'ru' ? 'Урон врага/выстрел' : 'Enemy Damage/hit'}</span>
       <input class="input num" type="number" bind:value={enemyDmg} />
     </label>
   </div>
 </section>
 
 <section class="panel tank-results">
-  <div class="panel-title"><span>{lang === 'en' ? 'Results' : 'Результат'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Результат' : 'Results'}</span></div>
   <div class="metrics-grid">
     <div class="m primary">
       <div class="v num">{fmt(effectiveArmor)}</div>
-      <div class="l">{lang === 'en' ? 'Effective Armor' : 'Эффективная броня'}</div>
+      <div class="l">{lang === 'ru' ? 'Эффективная броня' : 'Effective Armor'}</div>
     </div>
     <div class="m">
       <div class="v num">{fmt(effectiveHealth)}</div>
-      <div class="l">{lang === 'en' ? 'Effective Health' : 'Эффективное здоровье'}</div>
+      <div class="l">{lang === 'ru' ? 'Эффективное здоровье' : 'Effective Health'}</div>
     </div>
     <div class="m">
       <div class="v num">{armorMitigationPct.toFixed(1)}%</div>
-      <div class="l">{lang === 'en' ? 'Armor Mitigation' : 'Снижение урона бронёй'}</div>
+      <div class="l">{lang === 'ru' ? 'Снижение урона бронёй' : 'Armor Mitigation'}</div>
     </div>
     <div class="m">
       <div class="v num">{fmt(effectiveDmgTaken)}</div>
-      <div class="l">{lang === 'en' ? 'Actual Dmg Taken/hit' : 'Фактический урон/выстрел'}</div>
+      <div class="l">{lang === 'ru' ? 'Фактический урон/выстрел' : 'Actual Dmg Taken/hit'}</div>
     </div>
     <div class="m">
       <div class="v num">{fmtTime(timeToDieArmor)}</div>
-      <div class="l">{lang === 'en' ? 'Armor break time' : 'Время до пробития брони'}</div>
+      <div class="l">{lang === 'ru' ? 'Время до пробития брони' : 'Armor break time'}</div>
     </div>
     <div class="m primary">
       <div class="v num">{fmtTime(timeToDieTotal)}</div>
-      <div class="l">{lang === 'en' ? 'Total TTD' : 'Полное TTD'}</div>
+      <div class="l">{lang === 'ru' ? 'Полное TTD' : 'Total TTD'}</div>
     </div>
   </div>
   <div class="note">
-    {lang === 'en'
-      ? 'Simplified. Real mitigation depends on enemy level, damage type, DoT resistance.'
-      : 'Упрощённо. Реальное снижение зависит от уровня врага, типа урона, сопротивления DoT.'}
+    {lang === 'ru' ? 'Упрощённо. Реальное снижение зависит от уровня врага, типа урона, сопротивления DoT.' : 'Simplified. Real mitigation depends on enemy level, damage type, DoT resistance.'}
   </div>
 </section>
 

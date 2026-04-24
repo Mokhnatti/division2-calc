@@ -1,6 +1,9 @@
 import i18next from 'i18next';
 import HttpBackend from 'i18next-http-backend';
 
+declare const __BUILD_TS__: string | undefined;
+const BUILD_TOKEN = typeof __BUILD_TS__ !== 'undefined' ? __BUILD_TS__ : String(Date.now());
+
 const SUPPORTED = ['en', 'ru'] as const;
 export type Locale = (typeof SUPPORTED)[number];
 const NAMESPACES = ['ui', 'stats', 'weapons', 'brands', 'gear-sets', 'talents', 'named-gear', 'named-bonus', 'named-source', 'talent-desc', 'weapon-mods', 'weapon-source', 'brand-bonuses', 'set-bonuses', 'set-chest', 'set-backpack'];
@@ -37,7 +40,7 @@ export async function initI18n(lng: Locale): Promise<void> {
     supportedLngs: [...SUPPORTED],
     load: 'currentOnly',
     nonExplicitSupportedLngs: false,
-    backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' },
+    backend: { loadPath: `/locales/{{lng}}/{{ns}}.json?v=${BUILD_TOKEN}` },
     interpolation: { escapeValue: false },
     returnEmptyString: false,
     partialBundledLanguages: true,

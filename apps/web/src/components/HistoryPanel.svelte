@@ -31,10 +31,10 @@
 
 <section class="panel hist">
   <div class="panel-title">
-    <span>{lang === 'en' ? 'Saved builds' : 'Сохранённые билды'}</span>
+    <span>{lang === 'ru' ? 'Сохранённые билды' : 'Saved builds'}</span>
     {#if list.length > 0}
       <button class="toggle" onclick={() => (showAll = !showAll)}>
-        {showAll ? (lang === 'en' ? 'Hide' : 'Скрыть') : (lang === 'en' ? `Show (${list.length})` : `Показать (${list.length})`)}
+        {showAll ? (lang === 'ru' ? 'Скрыть' : 'Hide') : (lang === 'ru' ? `Показать (${list.length})` : `Show (${list.length})`)}
       </button>
     {/if}
   </div>
@@ -43,10 +43,10 @@
     <input
       class="input"
       type="text"
-      placeholder={lang === 'en' ? 'Build name' : 'Имя билда'}
+      placeholder={lang === 'ru' ? 'Имя билда' : 'Build name'}
       bind:value={newName}
     />
-    <button class="btn small" onclick={save}>💾 {lang === 'en' ? 'Save' : 'Сохранить'}</button>
+    <button class="btn small" onclick={save}>💾 {lang === 'ru' ? 'Сохранить' : 'Save'}</button>
   </div>
 
   {#if showAll && list.length > 0}
@@ -57,7 +57,7 @@
             <span class="l-name">{s.name}</span>
             <span class="l-date">{new Date(s.at).toLocaleDateString()}</span>
           </button>
-          <button class="del-btn" onclick={() => del(s.name)} title={lang === 'en' ? 'Delete' : 'Удалить'}>×</button>
+          <button class="del-btn" onclick={() => del(s.name)} title={lang === 'ru' ? 'Удалить' : 'Delete'}>×</button>
         </li>
       {/each}
     </ul>

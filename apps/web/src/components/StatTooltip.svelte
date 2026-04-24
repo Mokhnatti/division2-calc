@@ -60,7 +60,7 @@
 </script>
 
 {#if tip}
-  <span class="stat-tip" title={lang === 'en' ? tip.en : tip.ru}>
+  <span class="stat-tip" title={lang === 'ru' ? tip.ru : tip.en}>
     ⓘ
   </span>
 {/if}

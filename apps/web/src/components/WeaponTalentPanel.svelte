@@ -85,13 +85,13 @@
 {#if weapon && isBase}
   <div class="wtp">
     <div class="wtp-head">
-      <span class="wtp-picker-label">🎯 {lang === 'en' ? 'Talent' : 'Талант'}:</span>
+      <span class="wtp-picker-label">🎯 {lang === 'ru' ? 'Талант' : 'Talent'}:</span>
       <select
         class="input wtp-picker"
         value={customTalentId ?? ''}
         onchange={(e) => onCustomTalentChange?.(((e.currentTarget as HTMLSelectElement).value || null))}
       >
-        <option value="">— {lang === 'en' ? 'none' : 'нет'} —</option>
+        <option value="">— {lang === 'ru' ? 'нет' : 'none'} —</option>
         {#each weaponTalentOpts as t (t.id)}
           <option value={t.id}>{t.name}</option>
         {/each}
@@ -132,7 +132,7 @@
     {#if stacksSupported && weapon.talMax && weapon.talMax > 1}
       <div class="wtp-stacks">
         <div class="ws-label">
-          {lang === 'en' ? 'Stacks' : 'Стаки'}: <b class="num">{Math.min(stacks, weapon.talMax)}/{weapon.talMax}</b>
+          {lang === 'ru' ? 'Стаки' : 'Stacks'}: <b class="num">{Math.min(stacks, weapon.talMax)}/{weapon.talMax}</b>
         </div>
         <input
           type="range"

@@ -25,38 +25,23 @@
     talentOptions?: Array<{ id: string; name: string; note: string }>;
     talentLocked?: boolean;
     inputMode?: 'gear' | 'stats';
+    exoticTalentActive?: boolean;
+    onExoticTalentToggle?: (v: boolean) => void;
   }
 
   let { slot, slotState: s, data, onBrandChange, onSetChange, onNamedChange, onCoreChange, onAttrChange, onModChange,
-        talentId, talentActive, onTalentChange, onTalentActiveChange, talentOptions, talentLocked, inputMode = 'gear' }: Props = $props();
+        talentId, talentActive, onTalentChange, onTalentActiveChange, talentOptions, talentLocked, inputMode = 'gear',
+        exoticTalentActive = false, onExoticTalentToggle }: Props = $props();
   let statsMode = $derived(inputMode === 'stats');
   let lang = $derived(langState.current);
 
   let pickerOpen = $state(false);
-  let pickerMode = $state<'brand' | 'set' | 'named'>('brand');
 
-  function openPicker(m: 'brand' | 'set' | 'named') {
-    pickerMode = m;
-    pickerOpen = true;
-  }
-
-  // Group toggle: BRAND | SET | NAMED (mutually exclusive)
+  // Derived kind (for styling + conditional UI): which group is currently selected.
   type Group = 'brand' | 'set' | 'named';
-  let group: Group = $state((s.namedId ? 'named' : s.setId ? 'set' : 'brand'));
-
-  $effect(() => {
-    // Sync group when state changes externally (e.g. reset, load)
-    const shouldBe: Group = s.namedId ? 'named' : s.setId ? 'set' : 'brand';
-    if (shouldBe !== group) group = shouldBe;
-  });
-
-  function pickGroup(g: Group) {
-    group = g;
-    // Clear others to enforce mutually exclusive
-    if (g === 'brand') { onSetChange(null); onNamedChange(null); }
-    if (g === 'set')   { onBrandChange(null); onNamedChange(null); }
-    if (g === 'named') { onBrandChange(null); onSetChange(null); }
-  }
+  let group: Group = $derived(
+    s.namedId ? 'named' : s.setId ? 'set' : 'brand'
+  );
 
   let brandOptions = $derived.by(() => {
     void lang;
@@ -80,7 +65,10 @@
       .sort((a, b) => a.name.localeCompare(b.name));
   });
 
-  const ATTR_KEYS: AttrStat[] = ['chc', 'chd', 'hsd', 'dta', 'dth', 'ooc', 'wd', 'mag', 'reload', 'handling'];
+  // Gear attribute pool (from game data gear_attribute_pool.json, TU22.1).
+  // All 13 attrs available per slot — player picks any 2 for brand/set gear.
+  // mag/reload are NOT gear attrs (they're weapon mod stats), so excluded here.
+  const ATTR_KEYS: AttrStat[] = ['chc', 'chd', 'hsd', 'wd', 'dta', 'dth', 'ooc', 'handling'];
 
   let attrOptions = $derived.by(() => {
     void lang;
@@ -105,82 +93,145 @@
   let hasModSlot = $derived(MOD_SLOT_KEYS.has(slot));
 
   let coreColorClass = $derived('core-' + s.coreStat);
+
+  let currentLabel = $derived(
+    group === 'named' && s.namedId
+      ? (namedOptions.find((n) => n.id === s.namedId)?.name ?? s.namedId)
+      : group === 'set' && s.setId
+      ? (setOptions.find((opt) => opt.id === s.setId)?.name ?? s.setId)
+      : group === 'brand' && s.brandId
+      ? (brandOptions.find((b) => b.id === s.brandId)?.name ?? s.brandId)
+      : ''
+  );
+  let currentBadge = $derived(
+    s.namedId ? 'NAMED' : s.setId ? 'SET' : s.brandId ? 'BRAND' : ''
+  );
 </script>
 
 <div class="gslot">
   <div class="gslot-title">
     <span class="ico">{SLOT_ICONS[slot]}</span>
     <span class="slot-label">{t('ui', slot)}</span>
-    <div class="group-toggle" role="radiogroup" aria-label="Gear group">
-      <button type="button" role="radio" aria-checked={group === 'brand'} class="gt" class:on={group === 'brand'} onclick={() => pickGroup('brand')}>BRAND</button>
-      <button type="button" role="radio" aria-checked={group === 'set'} class="gt" class:on={group === 'set'} onclick={() => pickGroup('set')}>SET</button>
-      {#if namedOptions.length > 0}
-        <button type="button" role="radio" aria-checked={group === 'named'} class="gt" class:on={group === 'named'} onclick={() => pickGroup('named')}>NAMED</button>
-      {/if}
-    </div>
+    {#if currentBadge}<span class="kind-badge kind-{group}">{currentBadge}</span>{/if}
   </div>
 
   <div class="gslot-row row-1">
-    {#if group === 'brand'}
-      {@const brandName = s.brandId ? (brandOptions.find((b) => b.id === s.brandId)?.name ?? s.brandId) : ''}
-      <button type="button" class="input sel group-sel picker-btn" onclick={() => openPicker('brand')}>
-        {s.brandId ? brandName : (lang === 'en' ? '— Pick brand —' : '— Выбрать бренд —')} <span class="caret">▼</span>
-      </button>
-    {:else if group === 'set'}
-      {@const setName = s.setId ? (setOptions.find((opt) => opt.id === s.setId)?.name ?? s.setId) : ''}
-      <button type="button" class="input sel group-sel picker-btn" onclick={() => openPicker('set')}>
-        {s.setId ? setName : (lang === 'en' ? '— Pick set —' : '— Выбрать сет —')} <span class="caret">▼</span>
-      </button>
-    {:else}
-      {@const namedName = s.namedId ? (namedOptions.find((n) => n.id === s.namedId)?.name ?? s.namedId) : ''}
-      <button type="button" class="input sel group-sel named picker-btn" onclick={() => openPicker('named')}>
-        {s.namedId ? namedName : (lang === 'en' ? '— Pick named —' : '— Выбрать именное —')} <span class="caret">▼</span>
-      </button>
-    {/if}
+    <button type="button" class="input sel group-sel picker-btn kind-{group}" onclick={() => (pickerOpen = true)}>
+      {currentLabel || (lang === 'ru' ? '— Выбрать —' : '— Pick —')} <span class="caret">▼</span>
+    </button>
     {#if !statsMode}
-      <select
-        class="input {coreColorClass}"
-        value={s.coreStat}
-        onchange={(e) => onCoreChange((e.currentTarget as HTMLSelectElement).value as GearSlot['coreStat'])}
-      >
-        <option value="wd">WD</option>
-        <option value="armor">ARM</option>
-        <option value="skill_tier">SKL</option>
-      </select>
+      {#if group === 'named' && s.namedId}
+        <div class="core-locked">🔒</div>
+      {:else}
+        <select
+          class="input {coreColorClass}"
+          value={s.coreStat}
+          onchange={(e) => onCoreChange((e.currentTarget as HTMLSelectElement).value as GearSlot['coreStat'])}
+        >
+          <option value="wd">WD</option>
+          <option value="armor">ARM</option>
+          <option value="skill_tier">SKL</option>
+        </select>
+      {/if}
     {/if}
   </div>
 
   {#if group === 'named' && s.namedId}
+    {@const ng = data.namedGear.find((n) => n.id === s.namedId)}
     {#if namedBonus}<div class="named-bonus">🔒 {namedBonus}</div>{/if}
-    <a class="named-info" href={`#item=${encodeURIComponent(s.namedId)}`}>📄 {lang === 'en' ? 'Details · where to get' : 'Детали · где взять'} ↗</a>
+    {#if ng?.isExotic && ng.activeBonuses && ng.activeBonuses.length > 0 && onExoticTalentToggle}
+      <label class="exotic-toggle">
+        <input type="checkbox" checked={exoticTalentActive} onchange={(e) => onExoticTalentToggle((e.currentTarget as HTMLInputElement).checked)} />
+        <span>⚡ {lang === 'ru' ? 'Талант активен' : 'Talent active'}</span>
+        <span class="exo-bonus">
+          {#each ng.activeBonuses as b, i (i)}{i > 0 ? ' · ' : ''}+{b.value}% {i18next.t(b.stat, { ns: 'stats', defaultValue: b.stat })}{#if b.amp} (amp){/if}{/each}
+        </span>
+      </label>
+    {/if}
+    <a class="named-info" href={`#item=${encodeURIComponent(s.namedId)}`}>📄 {lang === 'ru' ? 'Детали · где взять' : 'Details · where to get'} ↗</a>
   {/if}
 
   {#if !statsMode}
-    <div class="gslot-row attr-row">
-      <select
-        class="input sel attr"
-        value={s.attr1 ?? ''}
-        onchange={(e) => onAttrChange('attr1', ((e.currentTarget as HTMLSelectElement).value || null) as AttrStat | null)}
-      >
-        <option value="">— attr1 —</option>
-        {#each attrOptions as a (a.key)}
-          <option value={a.key}>{a.name}</option>
-        {/each}
-      </select>
-      <select
-        class="input sel attr"
-        value={s.attr2 ?? ''}
-        onchange={(e) => onAttrChange('attr2', ((e.currentTarget as HTMLSelectElement).value || null) as AttrStat | null)}
-      >
-        <option value="">— attr2 —</option>
-        {#each attrOptions as a (a.key)}
-          <option value={a.key}>{a.name}</option>
-        {/each}
-      </select>
-    </div>
+    {#if group === 'named' && s.namedId}
+      {@const ng = data.namedGear.find((n) => n.id === s.namedId)}
+      {@const fixed = ng?.fixedAttrs ?? []}
+      <div class="gslot-row attr-row named-locked-row">
+        {#if fixed.length > 0}
+          <div class="locked-attr">
+            🔒 +{fixed[0].value}% {i18next.t(fixed[0].stat, { ns: 'stats', defaultValue: fixed[0].stat })}
+          </div>
+        {:else}
+          <select
+            class="input sel attr"
+            value={s.attr1 ?? ''}
+            onchange={(e) => onAttrChange('attr1', ((e.currentTarget as HTMLSelectElement).value || null) as AttrStat | null)}
+          >
+            <option value="">— attr1 —</option>
+            {#each attrOptions as a (a.key)}
+              <option value={a.key}>{a.name}</option>
+            {/each}
+          </select>
+        {/if}
+        {#if fixed.length > 1}
+          <div class="locked-attr">
+            🔒 +{fixed[1].value}% {i18next.t(fixed[1].stat, { ns: 'stats', defaultValue: fixed[1].stat })}
+          </div>
+        {:else}
+          <select
+            class="input sel attr"
+            value={s.attr2 ?? ''}
+            onchange={(e) => onAttrChange('attr2', ((e.currentTarget as HTMLSelectElement).value || null) as AttrStat | null)}
+          >
+            <option value="">— attr2 —</option>
+            {#each attrOptions as a (a.key)}
+              <option value={a.key}>{a.name}</option>
+            {/each}
+          </select>
+        {/if}
+      </div>
+    {:else if group === 'set'}
+      <!-- Set gear: only 1 attribute slot (2nd slot reserved for set bonus) -->
+      <div class="gslot-row attr-row set-attrs">
+        <select
+          class="input sel attr"
+          value={s.attr1 ?? ''}
+          onchange={(e) => onAttrChange('attr1', ((e.currentTarget as HTMLSelectElement).value || null) as AttrStat | null)}
+        >
+          <option value="">— attr —</option>
+          {#each attrOptions as a (a.key)}
+            <option value={a.key}>{a.name}</option>
+          {/each}
+        </select>
+        <div class="set-slot-info">🟢 {lang === 'ru' ? 'Бонус сета' : 'Set bonus'}</div>
+      </div>
+    {:else}
+      <!-- Brand gear: 2 attribute slots -->
+      <div class="gslot-row attr-row">
+        <select
+          class="input sel attr"
+          value={s.attr1 ?? ''}
+          onchange={(e) => onAttrChange('attr1', ((e.currentTarget as HTMLSelectElement).value || null) as AttrStat | null)}
+        >
+          <option value="">— attr1 —</option>
+          {#each attrOptions as a (a.key)}
+            <option value={a.key}>{a.name}</option>
+          {/each}
+        </select>
+        <select
+          class="input sel attr"
+          value={s.attr2 ?? ''}
+          onchange={(e) => onAttrChange('attr2', ((e.currentTarget as HTMLSelectElement).value || null) as AttrStat | null)}
+        >
+          <option value="">— attr2 —</option>
+          {#each attrOptions as a (a.key)}
+            <option value={a.key}>{a.name}</option>
+          {/each}
+        </select>
+      </div>
+    {/if}
   {/if}
 
-  {#if hasTalent && talentOptions && onTalentChange}
+  {#if hasTalent && talentOptions && onTalentChange && group !== 'named'}
     <div class="gslot-row tal-row">
       <span class="tal-label">🎯 TALENT</span>
       {#if talentLocked}
@@ -219,20 +270,20 @@
         value={s.modAttr ?? ''}
         onchange={(e) => onModChange((e.currentTarget as HTMLSelectElement).value || null)}
       >
-        <option value="">— {langState.current === 'en' ? 'gear mod' : 'вставка'} —</option>
-        <optgroup label="{langState.current === 'en' ? CATEGORY_LABELS.offense.en : CATEGORY_LABELS.offense.ru}">
+        <option value="">— {langState.current === 'ru' ? 'вставка' : 'gear mod'} —</option>
+        <optgroup label="{langState.current === 'ru' ? CATEGORY_LABELS.offense.ru : CATEGORY_LABELS.offense.en}">
           {#each GEAR_MODS.filter((m) => m.category === 'offense') as m (m.id)}
-            <option value={m.id}>{langState.current === 'en' ? m.name.en : m.name.ru} +{m.value}%</option>
+            <option value={m.id}>{langState.current === 'ru' ? m.name.ru : m.name.en} +{m.value}%</option>
           {/each}
         </optgroup>
-        <optgroup label="{langState.current === 'en' ? CATEGORY_LABELS.defense.en : CATEGORY_LABELS.defense.ru}">
+        <optgroup label="{langState.current === 'ru' ? CATEGORY_LABELS.defense.ru : CATEGORY_LABELS.defense.en}">
           {#each GEAR_MODS.filter((m) => m.category === 'defense') as m (m.id)}
-            <option value={m.id}>{langState.current === 'en' ? m.name.en : m.name.ru}</option>
+            <option value={m.id}>{langState.current === 'ru' ? m.name.ru : m.name.en}</option>
           {/each}
         </optgroup>
-        <optgroup label="{langState.current === 'en' ? CATEGORY_LABELS.skill.en : CATEGORY_LABELS.skill.ru}">
+        <optgroup label="{langState.current === 'ru' ? CATEGORY_LABELS.skill.ru : CATEGORY_LABELS.skill.en}">
           {#each GEAR_MODS.filter((m) => m.category === 'skill') as m (m.id)}
-            <option value={m.id}>{langState.current === 'en' ? m.name.en : m.name.ru} +{m.value}%</option>
+            <option value={m.id}>{langState.current === 'ru' ? m.name.ru : m.name.en} +{m.value}%</option>
           {/each}
         </optgroup>
       </select>
@@ -242,15 +293,14 @@
 
 {#if pickerOpen}
   <GearPickerModal
-    mode={pickerMode}
     {data}
-    current={pickerMode === 'brand' ? s.brandId : pickerMode === 'set' ? s.setId : s.namedId}
     availableNamed={data.namedGear.filter((n) => n.slot === slot)}
-    onPick={(id) => {
-      if (pickerMode === 'brand') onBrandChange(id);
-      else if (pickerMode === 'set') onSetChange(id);
-      else onNamedChange(id);
-    }}
+    currentBrandId={s.brandId}
+    currentSetId={s.setId}
+    currentNamedId={s.namedId}
+    onPickBrand={onBrandChange}
+    onPickSet={onSetChange}
+    onPickNamed={onNamedChange}
     onClose={() => (pickerOpen = false)}
   />
 {/if}
@@ -293,6 +343,44 @@
   .tal-toggle { display: flex; align-items: center; gap: 3px; font: 700 9px/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); cursor: pointer; justify-content: center; }
   .tal-toggle input { accent-color: var(--orange); }
   .named-bonus { font-size: 10px; color: var(--named); background: rgba(254,175,16,.06); padding: 4px 8px; margin-top: 4px; border-radius: 3px; border-left: 2px solid var(--named); font-style: italic; }
+  .exotic-toggle { display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 10px; color: var(--exotic, #ff6b00); cursor: pointer; padding: 4px 8px; background: rgba(255,107,0,.08); border: 1px solid rgba(255,107,0,.3); border-radius: 3px; flex-wrap: wrap; }
+  .exotic-toggle input { accent-color: var(--exotic, #ff6b00); }
+  .exotic-toggle .exo-bonus { color: var(--green); font-family: var(--f-mono); font-size: 9px; }
   .named-info { display: inline-block; margin-top: 4px; font-size: 10px; color: var(--blue); text-decoration: none; padding: 3px 8px; background: rgba(88,169,255,.08); border: 1px solid rgba(88,169,255,.3); border-radius: 3px; }
+  .named-locked-row { grid-template-columns: 1fr 1fr; }
+  .locked-attr {
+    font-size: 10px; color: var(--named, #b19cd9);
+    padding: 5px 8px;
+    background: rgba(177,156,217,.08);
+    border: 1px dashed rgba(177,156,217,.3);
+    border-radius: 3px;
+    display: flex; align-items: center; gap: 4px;
+    font-style: italic;
+  }
+  .core-locked {
+    display: flex; align-items: center; justify-content: center;
+    padding: 5px 4px; font-size: 12px; color: var(--named, #b19cd9);
+    background: rgba(177,156,217,.08);
+    border: 1px dashed rgba(177,156,217,.3); border-radius: 3px;
+  }
+  .kind-badge {
+    font: 700 9px/1 var(--f-display); letter-spacing: .12em;
+    padding: 3px 6px; border-radius: 3px;
+    margin-left: auto;
+  }
+  .kind-badge.kind-brand { background: rgba(88,169,255,.12); color: var(--blue); }
+  .kind-badge.kind-set { background: rgba(1,254,144,.12); color: var(--green); }
+  .kind-badge.kind-named { background: rgba(177,156,217,.15); color: var(--named, #b19cd9); }
+  .picker-btn.kind-brand { border-left: 2px solid rgba(88,169,255,.4); }
+  .picker-btn.kind-set { border-left: 2px solid rgba(1,254,144,.4); }
+  .picker-btn.kind-named { border-left: 2px solid rgba(177,156,217,.4); }
+  .set-attrs { grid-template-columns: 1fr 1fr; }
+  .set-slot-info {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: var(--green); font-style: italic;
+    padding: 5px 8px;
+    background: rgba(1,254,144,.06);
+    border: 1px dashed rgba(1,254,144,.3); border-radius: 3px;
+  }
   .named-info:hover { background: rgba(88,169,255,.18); }
 </style>

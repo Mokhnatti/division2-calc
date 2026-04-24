@@ -38,7 +38,7 @@
 </script>
 
 <section class="panel wm">
-  <div class="panel-title"><span>{langState.current === 'en' ? 'Weapon Mods' : 'Моды оружия'}</span></div>
+  <div class="panel-title"><span>{langState.current === 'ru' ? 'Моды оружия' : 'Weapon Mods'}</span></div>
 
   {#each MOD_SLOTS as slot (slot)}
     {@const modList = modsFiltered(slot)}

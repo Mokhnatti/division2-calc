@@ -18,6 +18,7 @@
   import LangDropdown from './components/LangDropdown.svelte';
   import HeaderActions from './components/HeaderActions.svelte';
   import GearTalentsPanel from './components/GearTalentsPanel.svelte';
+  import { findSpec } from './data/specializations.js';
   import WeaponModsPanel from './components/WeaponModsPanel.svelte';
   import DpsBreakdown from './components/DpsBreakdown.svelte';
   import SkillsView from './components/SkillsView.svelte';
@@ -35,6 +36,7 @@
   import WarningsPanel from './components/WarningsPanel.svelte';
   import StatsInputPanel from './components/StatsInputPanel.svelte';
   import ModPresetsPanel from './components/ModPresetsPanel.svelte';
+  import RecombinatorInputPanel from './components/RecombinatorInputPanel.svelte';
   import HistoryPanel from './components/HistoryPanel.svelte';
   import BuildCompare from './components/BuildCompare.svelte';
   import GearPresets from './components/GearPresets.svelte';
@@ -205,7 +207,7 @@
   <h1>DIVCALC</h1>
   <p>{headerSubtitle}</p>
   <div class="header-right">
-    <HeaderActions />
+    <HeaderActions {build} {data} {summary} />
   </div>
 </header>
 
@@ -294,6 +296,8 @@
                 onTalentChange={slot === 'chest' ? (id) => (build.chestTalentId = id) : slot === 'backpack' ? (id) => (build.backpackTalentId = id) : undefined}
                 onTalentActiveChange={slot === 'chest' ? (v) => (build.chestTalentActive = v) : slot === 'backpack' ? (v) => (build.backpackTalentActive = v) : undefined}
                 inputMode={build.inputMode}
+                exoticTalentActive={!!build.exoticActive[slot]}
+                onExoticTalentToggle={(v) => build.setExoticActive(slot, v)}
               />
             {/each}
           </div>
@@ -317,9 +321,35 @@
         <GearTalentsPanel
           shdActive={build.shdWatchActive}
           specId={build.specializationId}
+          classPicks={build.specClassPicks}
+          mmrRifleHsd={build.specMmrRifleHsd}
           onShdActiveChange={(v) => (build.shdWatchActive = v)}
           onSpecChange={(id) => (build.specializationId = id)}
+          onClassPickToggle={(cls) => build.toggleSpecClassPick(cls)}
+          onMmrRifleHsdChange={(v) => (build.specMmrRifleHsd = v)}
         />
+
+        {#if build.specializationId}
+          {@const spec = findSpec(build.specializationId)}
+          {#if spec?.treePerks?.length}
+            <section class="panel">
+              <div class="panel-title"><span>🌳 Дерево спека — пассивки</span></div>
+              {#each spec.treePerks as perk (perk.id)}
+                <label class="perk-row">
+                  <input
+                    type="checkbox"
+                    checked={build.activeSpecPerks.includes(perk.id)}
+                    onchange={() => build.toggleSpecPerk(perk.id)}
+                  />
+                  <span class="perk-name">{perk.name.ru}</span>
+                  {#if perk.condition}
+                    <span class="perk-cond">{perk.condition.ru}</span>
+                  {/if}
+                </label>
+              {/each}
+            </section>
+          {/if}
+        {/if}
 
         <ConditionsPanel
           groupSize={build.groupSize}
@@ -333,33 +363,33 @@
         />
 
         {#if summary}
+          {@const autoChest = Object.fromEntries(
+            Object.entries(summary.setCounts).map(([id]) => [id, build.gear.chest.setId === id])
+          )}
+          {@const autoBp = Object.fromEntries(
+            Object.entries(summary.setCounts).map(([id]) => [id, build.gear.backpack.setId === id])
+          )}
           <SetStacksPanel
             setCounts={summary.setCounts}
             stacks={build.setStacks}
-            chestTalent={build.setChestTalent}
-            bpTalent={build.setBpTalent}
+            chestTalent={autoChest}
+            bpTalent={autoBp}
             onChange={(id, n) => build.setSetStacks(id, n)}
-            onChestTalent={(id, v) => build.setSetChestTalent(id, v)}
-            onBpTalent={(id, v) => build.setSetBpTalent(id, v)}
+            onChestTalent={() => {}}
+            onBpTalent={() => {}}
           />
         {/if}
 
         <GearPresets {build} />
 
-        <ModPresetsPanel
-          onApply={(chestMod, backpackMod, maskMod) => {
-            build.setSlotAttr('chest', 'modAttr', chestMod as never);
-            build.setSlotAttr('backpack', 'modAttr', backpackMod as never);
-            build.setSlotAttr('mask', 'modAttr', maskMod as never);
-          }}
-        />
+        <ModPresetsPanel {build} {data} />
+
+        <RecombinatorInputPanel {build} />
       </div>
 
       <div class="col col-right">
         <BuildSummaryCard {summary} {data} weaponId={build.weaponId} dashboardMode={true} />
         <WarningsPanel warnings={validateBuild(build, summary, data)} />
-        <HistoryPanel {build} onLoad={() => { /* re-render triggered by build changes */ }} />
-        <BuildCompare {build} {data} currentSummary={summary} />
       </div>
     </div>
   {:else if activeTab === 'catalog'}
@@ -416,7 +446,7 @@
 
 <footer class="footer">
   <span class="foot-brand">divcalc</span>
-  <span class="foot-muted">v2 preview · {data?.weapons.length ?? 0} weapons · {data?.brands.length ?? 0} brands · {data?.sets.length ?? 0} sets</span>
+  <span class="foot-muted">Y8S1 "Rise Up" (TU22.1, Apr 2026) · {data?.weapons.length ?? 0} weapons · {data?.brands.length ?? 0} brands · {data?.sets.length ?? 0} sets</span>
 </footer>
 
 <style>
@@ -444,4 +474,8 @@
   .footer { padding: 20px; text-align: center; border-top: 1px solid var(--border); margin-top: 30px; }
   .foot-brand { font: 700 11px/1 var(--f-display); color: var(--orange); letter-spacing: .22em; text-transform: uppercase; margin-right: 12px; }
   .foot-muted { font: 500 10px/1 var(--f-mono); color: var(--dim); letter-spacing: .06em; }
+  .perk-row { display: flex; align-items: center; gap: 8px; padding: 4px 2px; font-size: 11px; cursor: pointer; }
+  .perk-row input { accent-color: var(--orange); }
+  .perk-name { color: var(--text); font-weight: 600; }
+  .perk-cond { color: var(--muted); font-size: 10px; font-style: italic; }
 </style>

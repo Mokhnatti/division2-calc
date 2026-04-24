@@ -37,7 +37,7 @@
   function saveSnapshot() {
     if (!currentSummary) return;
     const url = encodeBuild(build);
-    const name = prompt(lang === 'en' ? 'Build name:' : 'Название билда:', `Build ${snapshots.length + 1}`);
+    const name = prompt(lang === 'ru' ? 'Название билда:' : 'Build name:', `Build ${snapshots.length + 1}`);
     if (!name) return;
     snapshots = [...snapshots, { name, url, summary: currentSummary }];
     persist();
@@ -57,7 +57,7 @@
   }
 
   function wName(id: string | null): string {
-    if (!id) return lang === 'en' ? '— none —' : '— нет —';
+    if (!id) return lang === 'ru' ? '— нет —' : '— none —';
     void lang;
     return i18next.t(id, { ns: 'weapons', defaultValue: id }) as string;
   }
@@ -79,28 +79,26 @@
 
 <section class="panel bc">
   <div class="panel-title">
-    <span>⚖ {lang === 'en' ? 'Compare Builds' : 'Сравнение билдов'}</span>
+    <span>⚖ {lang === 'ru' ? 'Сравнение билдов' : 'Compare Builds'}</span>
     <button class="btn small" onclick={saveSnapshot} disabled={!currentSummary}>
-      💾 {lang === 'en' ? 'Save current' : 'Сохранить текущий'}
+      💾 {lang === 'ru' ? 'Сохранить текущий' : 'Save current'}
     </button>
   </div>
 
   {#if snapshots.length === 0}
     <div class="bc-empty">
-      {lang === 'en'
-        ? 'Save 2+ snapshots to compare. Configure a build, save it, change something, save again — see delta.'
-        : 'Сохрани 2+ снапшота для сравнения. Настрой билд, сохрани, поменяй что-то, сохрани ещё раз — увидишь разницу.'}
+      {lang === 'ru' ? 'Сохрани 2+ снапшота для сравнения. Настрой билд, сохрани, поменяй что-то, сохрани ещё раз — увидишь разницу.' : 'Save 2+ snapshots to compare. Configure a build, save it, change something, save again — see delta.'}
     </div>
   {:else}
     <table class="bc-table">
       <thead>
         <tr>
           <th></th>
-          <th>{lang === 'en' ? 'Weapon' : 'Оружие'}</th>
+          <th>{lang === 'ru' ? 'Оружие' : 'Weapon'}</th>
           <th class="num">Burst DPS</th>
           <th class="num">Sustained</th>
           <th class="num">Bullet</th>
-          <th class="num">{lang === 'en' ? 'vs best' : 'от лучшего'}</th>
+          <th class="num">{lang === 'ru' ? 'от лучшего' : 'vs best'}</th>
           <th></th>
         </tr>
       </thead>

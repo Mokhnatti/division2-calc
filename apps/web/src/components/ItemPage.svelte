@@ -99,7 +99,7 @@
 
 <section class="item-page">
   <div class="nav-back">
-    <button class="btn" onclick={onClose}>← {lang === 'en' ? 'Back' : 'Назад'}</button>
+    <button class="btn" onclick={onClose}>← {lang === 'ru' ? 'Назад' : 'Back'}</button>
   </div>
 
   <div class="item-hero" data-kind={weapon?.kind ?? (named ? 'named' : brand ? 'brand' : gearSet ? 'set' : 'none')}>
@@ -113,20 +113,20 @@
 
   {#if weapon}
     <section class="panel">
-      <div class="panel-title"><span>{lang === 'en' ? 'Stats' : 'Характеристики'}</span></div>
+      <div class="panel-title"><span>{lang === 'ru' ? 'Характеристики' : 'Stats'}</span></div>
       <div class="stats-grid">
-        <div class="s"><span class="k">💥 {lang === 'en' ? 'Base Dmg' : 'Базовый урон'}</span><span class="v num">{weapon.baseDamage.toLocaleString()}</span></div>
+        <div class="s"><span class="k">💥 {lang === 'ru' ? 'Базовый урон' : 'Base Dmg'}</span><span class="v num">{weapon.baseDamage.toLocaleString()}</span></div>
         <div class="s"><span class="k">⚡ RPM</span><span class="v num">{weapon.rpm}</span></div>
-        <div class="s"><span class="k">📦 {lang === 'en' ? 'Magazine' : 'Магазин'}</span><span class="v num">{weapon.magazine}</span></div>
-        <div class="s"><span class="k">🔄 {lang === 'en' ? 'Reload' : 'Перезарядка'}</span><span class="v num">{weapon.reloadSeconds}s</span></div>
-        {#if weapon.optimalRange}<div class="s"><span class="k">🎯 {lang === 'en' ? 'Range' : 'Дистанция'}</span><span class="v num">{weapon.optimalRange}m</span></div>{/if}
+        <div class="s"><span class="k">📦 {lang === 'ru' ? 'Магазин' : 'Magazine'}</span><span class="v num">{weapon.magazine}</span></div>
+        <div class="s"><span class="k">🔄 {lang === 'ru' ? 'Перезарядка' : 'Reload'}</span><span class="v num">{weapon.reloadSeconds}s</span></div>
+        {#if weapon.optimalRange}<div class="s"><span class="k">🎯 {lang === 'ru' ? 'Дистанция' : 'Range'}</span><span class="v num">{weapon.optimalRange}m</span></div>{/if}
         <div class="s"><span class="k">🧠 HSD</span><span class="v num">×{weapon.headshotMultiplier.toFixed(2)}</span></div>
       </div>
     </section>
 
     {#if talentName}
       <section class="panel">
-        <div class="panel-title"><span>🎯 {lang === 'en' ? 'Talent' : 'Талант'}</span></div>
+        <div class="panel-title"><span>🎯 {lang === 'ru' ? 'Талант' : 'Talent'}</span></div>
         <div class="talent-name">{talentName}</div>
         {#if talentDesc}
           <div class="talent-desc">{talentDesc}</div>
@@ -136,14 +136,14 @@
 
     {#if source}
       <section class="panel source-panel">
-        <div class="panel-title"><span>📍 {lang === 'en' ? 'Where to Get' : 'Где взять'}</span></div>
+        <div class="panel-title"><span>📍 {lang === 'ru' ? 'Где взять' : 'Where to Get'}</span></div>
         <div class="source-text">{source}</div>
       </section>
     {/if}
 
     {#if weapon.modSlots && weapon.modSlots.length}
       <section class="panel">
-        <div class="panel-title"><span>🔧 {lang === 'en' ? 'Mod Slots' : 'Слоты модов'}</span></div>
+        <div class="panel-title"><span>🔧 {lang === 'ru' ? 'Слоты модов' : 'Mod Slots'}</span></div>
         <div class="slots-row">
           {#each weapon.modSlots as s (s)}
             <span class="slot-chip">{s}</span>
@@ -153,55 +153,55 @@
     {/if}
   {:else if named}
     <section class="panel">
-      <div class="panel-title"><span>🔒 {lang === 'en' ? 'Fixed Bonus' : 'Фикс. бонус'}</span></div>
+      <div class="panel-title"><span>🔒 {lang === 'ru' ? 'Фикс. бонус' : 'Fixed Bonus'}</span></div>
       <div class="named-text">{namedBonus || '—'}</div>
     </section>
     {#if namedSource}
       <section class="panel source-panel">
-        <div class="panel-title"><span>📍 {lang === 'en' ? 'Where to Get' : 'Где взять'}</span></div>
+        <div class="panel-title"><span>📍 {lang === 'ru' ? 'Где взять' : 'Where to Get'}</span></div>
         <div class="source-text">{namedSource}</div>
       </section>
     {/if}
     <section class="panel">
-      <div class="panel-title"><span>{lang === 'en' ? 'Base' : 'База'}</span></div>
+      <div class="panel-title"><span>{lang === 'ru' ? 'База' : 'Base'}</span></div>
       <div class="stats-grid">
-        <div class="s"><span class="k">{lang === 'en' ? 'Slot' : 'Слот'}</span><span class="v">{named.slot}</span></div>
-        {#if named.brand}<div class="s"><span class="k">{lang === 'en' ? 'Brand' : 'Бренд'}</span><span class="v">{tName(named.brand, 'brands')}</span></div>{/if}
-        <div class="s"><span class="k">{lang === 'en' ? 'Core' : 'Ядро'}</span><span class="v">{named.core}</span></div>
+        <div class="s"><span class="k">{lang === 'ru' ? 'Слот' : 'Slot'}</span><span class="v">{named.slot}</span></div>
+        {#if named.brand}<div class="s"><span class="k">{lang === 'ru' ? 'Бренд' : 'Brand'}</span><span class="v">{tName(named.brand, 'brands')}</span></div>{/if}
+        <div class="s"><span class="k">{lang === 'ru' ? 'Ядро' : 'Core'}</span><span class="v">{named.core}</span></div>
       </div>
     </section>
   {:else if brand}
     <section class="panel">
-      <div class="panel-title"><span>{lang === 'en' ? 'Brand Bonuses' : 'Бонусы бренда'}</span></div>
+      <div class="panel-title"><span>{lang === 'ru' ? 'Бонусы бренда' : 'Brand Bonuses'}</span></div>
       <div class="bonuses-list">
         {#each brandBonuses as b, i (i)}<div class="bonus-line">{b}</div>{/each}
       </div>
       {#if brand.core}
         <div class="meta-row">
-          <span class="k">{lang === 'en' ? 'Core' : 'Ядро'}:</span>
+          <span class="k">{lang === 'ru' ? 'Ядро' : 'Core'}:</span>
           <span class="v core-{brand.core}">{brand.core.toUpperCase()}</span>
         </div>
       {/if}
     </section>
   {:else if gearSet}
     <section class="panel">
-      <div class="panel-title"><span>{lang === 'en' ? 'Set Bonuses' : 'Бонусы сета'}</span></div>
+      <div class="panel-title"><span>{lang === 'ru' ? 'Бонусы сета' : 'Set Bonuses'}</span></div>
       <div class="bonuses-list">
         {#each setBonuses as b, i (i)}<div class="bonus-line">{b}</div>{/each}
       </div>
       <div class="meta-row">
-        <span class="k">{lang === 'en' ? 'Type' : 'Тип'}:</span>
+        <span class="k">{lang === 'ru' ? 'Тип' : 'Type'}:</span>
         <span class="v tag-{gearSet.type}">{gearSet.type}</span>
       </div>
       {#if setChest}
-        <div class="set-talent">🎽 {lang === 'en' ? 'Chest' : 'Нагрудник'}: {setChest}</div>
+        <div class="set-talent">🎽 {lang === 'ru' ? 'Нагрудник' : 'Chest'}: {setChest}</div>
       {/if}
       {#if setBp}
-        <div class="set-talent">🎒 {lang === 'en' ? 'Backpack' : 'Рюкзак'}: {setBp}</div>
+        <div class="set-talent">🎒 {lang === 'ru' ? 'Рюкзак' : 'Backpack'}: {setBp}</div>
       {/if}
     </section>
   {:else}
-    <div class="not-found">{lang === 'en' ? 'Item not found' : 'Предмет не найден'}</div>
+    <div class="not-found">{lang === 'ru' ? 'Предмет не найден' : 'Item not found'}</div>
   {/if}
 </section>
 

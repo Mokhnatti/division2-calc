@@ -57,6 +57,10 @@ export interface NamedGear {
   brand?: string;
   core: string;
   fixedAttrs: Array<{ stat: string; value: number }>;
+  isExotic?: boolean;
+  /** Bonuses granted when the exotic's unique talent is active (user-toggled). */
+  activeBonuses?: Array<{ stat: string; value: number; amp?: boolean }>;
+  exoticMechanic?: string;
 }
 
 export interface GameData {
@@ -74,8 +78,14 @@ export interface GameData {
   };
 }
 
+// Build token — different per build to invalidate SW cache.
+// Vite replaces `__BUILD_TS__` during build via define plugin; fall back to current timestamp in dev.
+declare const __BUILD_TS__: string | undefined;
+const BUILD_TOKEN = typeof __BUILD_TS__ !== 'undefined' ? __BUILD_TS__ : String(Date.now());
+
 async function fetchJson<T>(url: string): Promise<T> {
-  const r = await fetch(url);
+  const sep = url.includes('?') ? '&' : '?';
+  const r = await fetch(`${url}${sep}v=${BUILD_TOKEN}`, { cache: 'no-cache' });
   if (!r.ok) throw new Error(`${url}: ${r.status}`);
   return (await r.json()) as T;
 }

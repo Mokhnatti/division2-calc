@@ -54,16 +54,14 @@
     },
   ];
 
-  function q(f: FAQ) { void lang; return lang === 'en' ? f.q_en : f.q_ru; }
-  function a(f: FAQ) { void lang; return lang === 'en' ? f.a_en : f.a_ru; }
+  function q(f: FAQ) { void lang; return lang === 'ru' ? f.q_ru : f.q_en; }
+  function a(f: FAQ) { void lang; return lang === 'ru' ? f.a_ru : f.a_en; }
 </script>
 
 <section class="panel help-header">
-  <div class="panel-title"><span>{lang === 'en' ? 'Help / FAQ' : 'Справка / FAQ'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Справка / FAQ' : 'Help / FAQ'}</span></div>
   <div class="intro">
-    {lang === 'en'
-      ? 'Common questions about the calculator and Division 2 mechanics.'
-      : 'Частые вопросы про калькулятор и механики Division 2.'}
+    {lang === 'ru' ? 'Частые вопросы про калькулятор и механики Division 2.' : 'Common questions about the calculator and Division 2 mechanics.'}
   </div>
 </section>
 
@@ -77,24 +75,22 @@
 </div>
 
 <section class="panel help-contact">
-  <div class="panel-title"><span>{lang === 'en' ? 'Contact & Credits' : 'Контакты и авторы'}</span></div>
+  <div class="panel-title"><span>{lang === 'ru' ? 'Контакты и авторы' : 'Contact & Credits'}</span></div>
   <ul>
     <li>
-      {lang === 'en' ? 'Project' : 'Проект'}:
+      {lang === 'ru' ? 'Проект' : 'Project'}:
       <a href="https://github.com/Mokhnatti/division2-calc" target="_blank" rel="noopener">github.com/Mokhnatti/division2-calc</a>
     </li>
     <li>
-      {lang === 'en' ? 'Formulas' : 'Формулы'}:
+      {lang === 'ru' ? 'Формулы' : 'Formulas'}:
       <a href="https://s-i-n.co.uk/div2/builds" target="_blank" rel="noopener">s-i-n.co.uk</a> · MarcoStyle · iKia87 · Ahmad gearsheet
     </li>
     <li>
-      {lang === 'en' ? 'Data' : 'Данные'}:
-      {lang === 'en' ? 'partially from Division community, not official.' : 'частично из сообщества Division, неофициальные.'}
+      {lang === 'ru' ? 'Данные' : 'Data'}:
+      {lang === 'ru' ? 'частично из сообщества Division, неофициальные.' : 'partially from Division community, not official.'}
     </li>
     <li>
-      {lang === 'en'
-        ? 'This is a fan project. Not affiliated with Ubisoft / Massive Entertainment.'
-        : 'Фанатский проект. Не связан с Ubisoft / Massive Entertainment.'}
+      {lang === 'ru' ? 'Фанатский проект. Не связан с Ubisoft / Massive Entertainment.' : 'This is a fan project. Not affiliated with Ubisoft / Massive Entertainment.'}
     </li>
   </ul>
 </section>

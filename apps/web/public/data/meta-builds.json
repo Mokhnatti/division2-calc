@@ -1,5 +1,78 @@
 [
   {
+    "id": "st_elmo_strikers_dd",
+    "name_en": "St. Elmo's Engine × Strikers DD",
+    "name_ru": "Мотор святого Эльма × Боевик ДД",
+    "tag_en": "S-Tier AR / Verified 1:1 with game",
+    "tag_ru": "S-Тир AR / Проверен 1:1 с игрой",
+    "description_en": "Top DD-crit AR build. Verified match: WD 116 216, CHC 55%, CHD 120%, HSD 84%, Reload 1.66s, Mag 60, RPM 1063. Sustained DPS ~6.85M with spec tree perks active (Firing Position + Accelerated Reload). Gear: Equalizer chest (NAMED, Unit Alloys), 4× Strikers Battlegear (backpack/gloves/mask/kneepads), Salvo holster (NAMED, Unit Alloys). Strikers 4pc Risk Management @ 100 stacks = +90% amplified. Equalizer Obliterate @ 24 stacks = +24% amplified. Spec: Gunner + AR class pick.",
+    "description_ru": "Топ DD-крит AR билд. Проверен 1:1 с игрой: WD 116 216, CHC 55%, CHD 120%, HSD 84%, Перезарядка 1.66с, Маг 60, RPM 1063. Sustained DPS ~6.85M с активными перками спека (Огневая позиция + Ускоренное заряжание). Шмот: Уравнитель нагрудник (NAMED, Unit Alloys), 4× Снаряжение боевика (рюкзак/перчатки/маска/наколенники), Залп кобура (NAMED, Unit Alloys). Strikers 4шт Risk Management @ 100 стаков = +90% amplified. Обликий Уравнителя @ 24 стака = +24% amplified. Спек: Стрелок + AR class pick.",
+    "wpn_en": "St. Elmo's Engine",
+    "weapon_cat": "AR",
+    "set_focus": "Striker's Battlegear",
+    "tier": "S",
+    "expected_dps_peak_m": 6.85,
+    "buildConfig": {
+      "weaponId": "st_elmo_s_engine",
+      "gear": {
+        "chest":    { "namedId": "equalizer",             "coreStat": "wd" },
+        "backpack": { "setId":   "striker_s_battlegear",  "coreStat": "wd" },
+        "gloves":   { "setId":   "striker_s_battlegear",  "coreStat": "wd" },
+        "mask":     { "setId":   "striker_s_battlegear",  "coreStat": "wd" },
+        "holster":  { "namedId": "salvo",                 "coreStat": "wd" },
+        "kneepads": { "setId":   "striker_s_battlegear",  "coreStat": "wd" }
+      },
+      "applyPreset": "dd",
+      "specializationId": "gunner",
+      "specClassPicks": ["ar"],
+      "activeSpecPerks": ["firing_position", "accelerated_reload_s3"],
+      "fullArmor": false,
+      "setStacks": { "striker_s_battlegear": 100 }
+    }
+  },
+  {
+    "id": "iron_lung_burn",
+    "name_en": "Iron Lung × Burn Status",
+    "name_ru": "Железный лун × Горение",
+    "tag_en": "LMG / Status build",
+    "tag_ru": "LMG / Статус-билд",
+    "description_en": "Fire-bullet LMG build — Iron Lung (Ardent talent) applies burn after heat meter fills (~43rd shot of mag 85). Scales with Status Effects % and Burn Duration % stats. Base Burn DPS = 300 × 40 × (1 + Status%), Duration = 5s × (1 + BurnDur%). Burn is independent from weapon damage. Pair with Golan Gear / Empress / Electrique brands for Status Effects, or roll on gear mods. Set: Ongoing Directive (bleed/burn synergy) or Hunter's Fury.",
+    "description_ru": "Огненный LMG-билд — Железный лун (талант Пылкость) поджигает цель после заполнения теплового счётчика (~43-й выстрел магазина 85). Скалируется от статов Негативные эффекты % и Длительность горения %. Base Burn DPS = 300 × 40 × (1 + Status%), Длительность = 5с × (1 + BurnDur%). Горение не зависит от урона оружия. Сочетать с брендами Golan Gear / Empress / Electrique для Status Effects, или ролл на вставках. Сет: Бессрочная директива (синергия bleed/burn) или Ярость охотника.",
+    "wpn_en": "Iron Lung",
+    "weapon_cat": "LMG",
+    "set_focus": "Ongoing Directive",
+    "tier": "S",
+    "expected_dps_peak_m": 4.5
+  },
+  {
+    "id": "tipping_eagle_mmr",
+    "name_en": "Tipping Scales × Eagle Bearer MMR",
+    "name_ru": "Tipping Scales × Орлиное знамя MMR",
+    "tag_en": "MMR / One-shot Headhunter",
+    "tag_ru": "MMR / Headhunter one-shot",
+    "description_en": "MMR headhunter build. Tipping Scales 4pc stacks +200 crit damage. Eagle Bearer exotic MMR. Chest talent Headhunter (Серийный убийца) — stores HS-kill damage, applies to next hit ×1.25 (×1.50 with Perfect). Cap = weapon_base × 8 (×12.5 if HSD > 150%). One-shot named enemies with single headshot kill chain.",
+    "description_ru": "MMR headhunter билд. Tipping Scales 4шт стаки +200 крит урон. Орлиное знамя экзотик MMR. Талант нагрудника Серийный убийца (Headhunter) — накапливает урон hs-kill, применяет к следующему хиту ×1.25 (×1.50 с Perfect). Cap = weapon_base × 8 (×12.5 если HSD > 150%). One-shot именных врагов цепью хедшотов.",
+    "wpn_en": "Eagle Bearer",
+    "weapon_cat": "MMR",
+    "set_focus": "Tipping Scales",
+    "tier": "S",
+    "expected_dps_peak_m": 3.0
+  },
+  {
+    "id": "big_alejandro_striker_lmg",
+    "name_en": "Big Alejandro × Strikers LMG",
+    "name_ru": "Большой Алехандро × Боевик LMG",
+    "tag_en": "S-Tier LMG / Out of cover",
+    "tag_ru": "S-Тир LMG / Вне укрытия",
+    "description_en": "Current best LMG DPS. Strikers 4pc stacks (OoC synergy — stacks build FAST on spray). Big Alejandro exotic LMG grants +100% weapon damage when out of cover. Peak ~12-15M DPS with full Striker stacks + OoC active. Gear: Equalizer chest + 4× Strikers + named holster (Salvo / Picaro's).",
+    "description_ru": "Лучший LMG-DPS на данный момент. Strikers 4шт стаки (OoC синергия — стаки набиваются БЫСТРО непрерывной стрельбой). Большой Алехандро экзотик LMG даёт +100% урон оружия вне укрытия. Пик ~12-15M DPS с полными стаками Strikers + OoC активен. Шмот: Уравнитель + 4× Strikers + именная кобура (Залп / Picaro's).",
+    "wpn_en": "Big Alejandro",
+    "weapon_cat": "LMG",
+    "set_focus": "Striker's Battlegear",
+    "tier": "S",
+    "expected_dps_peak_m": 12.0
+  },
+  {
     "id": "striker_lmg",
     "name_en": "Striker LMG",
     "name_ru": "Боевик LMG",

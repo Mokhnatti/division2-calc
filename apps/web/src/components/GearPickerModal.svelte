@@ -4,17 +4,32 @@
   import { lang as langState } from '../lang-state.svelte.js';
 
   interface Props {
-    mode: 'brand' | 'set' | 'named';
     data: GameData;
-    current: string | null;
     availableNamed?: NamedGear[];
-    onPick: (id: string | null) => void;
+    currentBrandId?: string | null;
+    currentSetId?: string | null;
+    currentNamedId?: string | null;
+    onPickBrand: (id: string | null) => void;
+    onPickSet: (id: string | null) => void;
+    onPickNamed: (id: string | null) => void;
     onClose: () => void;
   }
 
-  let { mode, data, current, availableNamed = [], onPick, onClose }: Props = $props();
+  let {
+    data,
+    availableNamed = [],
+    currentBrandId = null,
+    currentSetId = null,
+    currentNamedId = null,
+    onPickBrand,
+    onPickSet,
+    onPickNamed,
+    onClose,
+  }: Props = $props();
+
   let lang = $derived(langState.current);
   let query = $state('');
+  let filter = $state<'all' | 'brand' | 'set' | 'named' | 'exotic'>('all');
 
   function focusOnMount(node: HTMLInputElement) {
     queueMicrotask(() => node.focus());
@@ -43,29 +58,84 @@
     return i18next.t(id, { ns: 'named-bonus', defaultValue: '' }) as string;
   }
 
-  let items = $derived.by(() => {
+  type UnifiedItem =
+    | { kind: 'brand'; id: string; name: string; core?: string; bonuses: string[] }
+    | { kind: 'set'; id: string; name: string; type?: string; bonuses: string[] }
+    | { kind: 'named'; id: string; name: string; brand?: string; bonus: string; isExotic?: boolean };
+
+  let items = $derived.by<UnifiedItem[]>(() => {
+    void lang;
     const q = query.trim().toLowerCase();
-    if (mode === 'brand') {
-      return data.brands
-        .map((b: Brand) => ({ id: b.id, name: tName(b.id, 'brands'), core: b.core, bonuses: brandBonuses(b.id) }))
-        .filter((x) => !q || x.name.toLowerCase().includes(q) || x.id.toLowerCase().includes(q))
-        .sort((a, b) => a.name.localeCompare(b.name));
-    } else if (mode === 'set') {
-      return data.sets
-        .map((s: GearSet) => ({ id: s.id, name: tName(s.id, 'gear-sets'), type: s.type, bonuses: setBonuses(s.id) }))
-        .filter((x) => !q || x.name.toLowerCase().includes(q))
-        .sort((a, b) => a.name.localeCompare(b.name));
-    } else {
-      return availableNamed
-        .map((n) => ({ id: n.id, name: tName(n.id, 'named-gear'), brand: n.brand, bonus: namedBonus(n.id) }))
-        .filter((x) => !q || x.name.toLowerCase().includes(q))
-        .sort((a, b) => a.name.localeCompare(b.name));
+    const all: UnifiedItem[] = [];
+
+    if (filter === 'all' || filter === 'brand') {
+      for (const b of data.brands as Brand[]) {
+        const name = tName(b.id, 'brands');
+        all.push({ kind: 'brand', id: b.id, name, core: b.core, bonuses: brandBonuses(b.id) });
+      }
     }
+    if (filter === 'all' || filter === 'set') {
+      for (const s of data.sets as GearSet[]) {
+        const name = tName(s.id, 'gear-sets');
+        all.push({ kind: 'set', id: s.id, name, type: s.type, bonuses: setBonuses(s.id) });
+      }
+    }
+    if (filter === 'all' || filter === 'named' || filter === 'exotic') {
+      for (const n of availableNamed) {
+        const isExo = !!n.isExotic;
+        if (filter === 'named' && isExo) continue;
+        if (filter === 'exotic' && !isExo) continue;
+        const name = tName(n.id, 'named-gear');
+        all.push({ kind: 'named', id: n.id, name, brand: n.brand, bonus: namedBonus(n.id), isExotic: isExo });
+      }
+    }
+
+    return all
+      .filter((x) => !q || x.name.toLowerCase().includes(q) || x.id.toLowerCase().includes(q))
+      .sort((a, b) => {
+        // brand → set → named order within search results
+        const order: Record<string, number> = { brand: 0, set: 1, named: 2 };
+        const oa = order[a.kind], ob = order[b.kind];
+        if (oa !== ob) return oa - ob;
+        return a.name.localeCompare(b.name);
+      });
   });
+
+  function isCurrent(it: UnifiedItem): boolean {
+    if (it.kind === 'brand') return currentBrandId === it.id;
+    if (it.kind === 'set') return currentSetId === it.id;
+    if (it.kind === 'named') return currentNamedId === it.id;
+    return false;
+  }
+
+  function pick(it: UnifiedItem) {
+    if (it.kind === 'brand') onPickBrand(it.id);
+    else if (it.kind === 'set') onPickSet(it.id);
+    else onPickNamed(it.id);
+    onClose();
+  }
+
+  function clearAll() {
+    onPickBrand(null);
+    onPickSet(null);
+    onPickNamed(null);
+    onClose();
+  }
 
   function onKey(e: KeyboardEvent) {
     if (e.key === 'Escape') onClose();
   }
+
+  let counts = $derived.by(() => {
+    void lang;
+    const exoCount = availableNamed.filter((n) => n.isExotic).length;
+    return {
+      brand: data.brands.length,
+      set: data.sets.length,
+      named: availableNamed.length - exoCount,
+      exotic: exoCount,
+    };
+  });
 </script>
 
 <svelte:window on:keydown={onKey} />
@@ -73,48 +143,70 @@
 <div class="gp-overlay" onclick={onClose} role="presentation"></div>
 <div class="gp-modal">
   <div class="gp-title">
-    <span>
-      {#if mode === 'brand'}{lang === 'en' ? 'Pick Brand' : 'Выбрать бренд'}
-      {:else if mode === 'set'}{lang === 'en' ? 'Pick Set' : 'Выбрать сет'}
-      {:else}{lang === 'en' ? 'Pick Named' : 'Выбрать именное'}{/if}
-    </span>
+    <span>{lang === 'ru' ? 'Выбрать экипировку' : 'Pick gear'}</span>
     <button class="gp-close" onclick={onClose}>×</button>
   </div>
 
-  <input
-    class="input"
-    type="search"
-    placeholder={lang === 'en' ? 'Search...' : 'Поиск...'}
-    bind:value={query}
-    use:focusOnMount
-  />
+  <div class="gp-toolbar">
+    <input
+      class="input"
+      type="search"
+      placeholder={lang === 'ru' ? 'Поиск по всем брендам, сетам, именным...' : 'Search across all brands, sets, named...'}
+      bind:value={query}
+      use:focusOnMount
+    />
+    <div class="chip-filters">
+      <button class="chip" class:on={filter === 'all'} onclick={() => (filter = 'all')}>
+        {lang === 'ru' ? 'Все' : 'All'} · {counts.brand + counts.set + counts.named}
+      </button>
+      <button class="chip brand" class:on={filter === 'brand'} onclick={() => (filter = 'brand')}>
+        {lang === 'ru' ? 'Бренды' : 'Brands'} · {counts.brand}
+      </button>
+      <button class="chip set" class:on={filter === 'set'} onclick={() => (filter = 'set')}>
+        {lang === 'ru' ? 'Сеты' : 'Sets'} · {counts.set}
+      </button>
+      {#if counts.named > 0}
+        <button class="chip named" class:on={filter === 'named'} onclick={() => (filter = 'named')}>
+          {lang === 'ru' ? 'Именные' : 'Named'} · {counts.named}
+        </button>
+      {/if}
+      {#if counts.exotic > 0}
+        <button class="chip exotic" class:on={filter === 'exotic'} onclick={() => (filter = 'exotic')}>
+          {lang === 'ru' ? 'Экзотик' : 'Exotic'} · {counts.exotic}
+        </button>
+      {/if}
+    </div>
+  </div>
 
   <div class="gp-grid">
-    <button class="gp-card gp-clear" class:current={!current} onclick={() => { onPick(null); onClose(); }}>
-      <div class="gp-name">— {lang === 'en' ? 'None' : 'Нет'} —</div>
+    <button class="gp-card gp-clear" onclick={clearAll}>
+      <div class="gp-name">— {lang === 'ru' ? 'Очистить' : 'Clear'} —</div>
     </button>
-    {#each items as it (it.id)}
+    {#each items as it (it.kind + ':' + it.id)}
       <button
         class="gp-card"
-        class:current={current === it.id}
-        data-type={mode === 'set' ? (it as { type?: string }).type : ''}
-        data-kind={mode}
-        onclick={() => { onPick(it.id); onClose(); }}
+        class:current={isCurrent(it)}
+        data-type={it.kind === 'set' ? (it as { type?: string }).type : ''}
+        data-kind={it.kind}
+        data-exotic={it.kind === 'named' && (it as { isExotic?: boolean }).isExotic ? 'true' : 'false'}
+        onclick={() => pick(it)}
       >
         <div class="gp-head">
-          {#if mode === 'brand'}<span class="gp-core core-{(it as { core?: string }).core}">{(it as { core?: string }).core?.toUpperCase() ?? ''}</span>{/if}
-          {#if mode === 'set'}<span class="gp-tag tag-{(it as { type?: string }).type}">{(it as { type?: string }).type}</span>{/if}
+          {#if it.kind === 'brand'}<span class="gp-core core-{(it as { core?: string }).core}">{(it as { core?: string }).core?.toUpperCase() ?? ''}</span>{/if}
+          {#if it.kind === 'set'}<span class="gp-tag tag-{(it as { type?: string }).type}">{(it as { type?: string }).type}</span>{/if}
+          {#if it.kind === 'named'}<span class="gp-tag {(it as { isExotic?: boolean }).isExotic ? 'tag-exotic' : 'tag-named'}">{(it as { isExotic?: boolean }).isExotic ? 'EXOTIC' : 'NAMED'}</span>{/if}
           <span class="gp-name">{it.name}</span>
         </div>
-        {#if mode === 'brand'}
+        {#if it.kind === 'brand' || it.kind === 'set'}
           {#each (it as { bonuses: string[] }).bonuses as ln, i (i)}<div class="gp-bonus">{ln}</div>{/each}
-        {:else if mode === 'set'}
-          {#each (it as { bonuses: string[] }).bonuses as ln, i (i)}<div class="gp-bonus">{ln}</div>{/each}
-        {:else}
+        {:else if it.kind === 'named'}
           {#if (it as { bonus?: string }).bonus}<div class="gp-bonus gp-locked">🔒 {(it as { bonus?: string }).bonus}</div>{/if}
         {/if}
       </button>
     {/each}
+    {#if items.length === 0}
+      <div class="gp-empty">{lang === 'ru' ? 'Ничего не найдено' : 'No matches'}</div>
+    {/if}
   </div>
 </div>
 
@@ -143,6 +235,23 @@
     font-size: 20px; cursor: pointer; padding: 2px 10px;
   }
   .gp-close:hover { color: var(--red); }
+  .gp-toolbar { display: flex; flex-direction: column; gap: 6px; }
+  .gp-toolbar .input { padding: 8px 12px; font-size: 13px; }
+  .chip-filters { display: flex; gap: 4px; flex-wrap: wrap; }
+  .chip {
+    padding: 5px 10px;
+    background: var(--bg-2); border: 1px solid var(--border);
+    color: var(--muted); border-radius: 999px; cursor: pointer;
+    font: 700 10px/1 var(--f-display); letter-spacing: .1em;
+    text-transform: uppercase; transition: all .12s;
+  }
+  .chip:hover { border-color: var(--border-hi); color: var(--text-dim); }
+  .chip.on { background: var(--orange); color: #000; border-color: var(--orange); }
+  .chip.brand.on { background: var(--blue); border-color: var(--blue); }
+  .chip.set.on { background: var(--green); border-color: var(--green); }
+  .chip.named.on { background: var(--named, #b19cd9); border-color: var(--named, #b19cd9); }
+  .chip.exotic.on { background: var(--exotic, #ff6b00); border-color: var(--exotic, #ff6b00); color: #000; }
+
   .gp-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 6px; overflow-y: auto;
@@ -182,10 +291,10 @@
   .gp-tag.tag-blue { background: rgba(88,169,255,.15); color: var(--blue); }
   .gp-tag.tag-yellow { background: rgba(255,235,59,.15); color: #ffd54f; }
   .gp-tag.tag-purple { background: rgba(186,104,200,.15); color: #ce93d8; }
-  .gp-bonus { font-size: 11px; color: var(--text-dim); line-height: 1.3; }
-  .gp-locked { color: var(--orange); font-style: italic; }
-  @media (max-width: 600px) {
-    .gp-modal { inset: 10px; width: auto; height: auto; transform: none; }
-    .gp-grid { grid-template-columns: 1fr; }
-  }
+  .gp-tag.tag-named { background: rgba(177,156,217,.15); color: var(--named, #b19cd9); }
+  .gp-tag.tag-exotic { background: rgba(255,107,0,.18); color: var(--exotic, #ff6b00); }
+  .gp-card[data-exotic="true"] { border-left: 3px solid var(--exotic, #ff6b00) !important; }
+  .gp-bonus { font-size: 11px; color: var(--text-dim); }
+  .gp-bonus.gp-locked { color: var(--named, #b19cd9); font-style: italic; }
+  .gp-empty { grid-column: 1 / -1; padding: 40px; text-align: center; color: var(--muted); font-style: italic; }
 </style>

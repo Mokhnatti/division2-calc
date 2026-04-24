@@ -58,20 +58,18 @@
 {#if weights.length > 0}
   <section class="panel bw">
     <div class="panel-title">
-      <span>⚖ {lang === 'en' ? 'Stat weights (+1%)' : 'Веса статов (+1%)'}</span>
+      <span>⚖ {lang === 'ru' ? 'Веса статов (+1%)' : 'Stat weights (+1%)'}</span>
     </div>
     <div class="bw-note">
-      {lang === 'en'
-        ? 'DPS delta if you add +1% of each stat. Highest on top = best to invest.'
-        : 'Прирост DPS при добавлении +1% каждого стата. Сверху — лучший для вложений.'}
+      {lang === 'ru' ? 'Прирост DPS при добавлении +1% каждого стата. Сверху — лучший для вложений.' : 'DPS delta if you add +1% of each stat. Highest on top = best to invest.'}
     </div>
     <div class="bw-list">
       {#each weights as w (w.key)}
         {@const w2 = Math.max(2, (Math.abs(w.delta) / maxAbsDelta) * 100)}
         <div class="bw-row">
           <div class="bw-lbl">
-            <span class="bw-key">{lang === 'en' ? w.label_en : w.label_ru}</span>
-            <span class="bw-desc">{lang === 'en' ? w.desc_en : w.desc_ru}</span>
+            <span class="bw-key">{lang === 'ru' ? w.label_ru : w.label_en}</span>
+            <span class="bw-desc">{lang === 'ru' ? w.desc_ru : w.desc_en}</span>
           </div>
           <div class="bw-bar-wrap">
             <div class="bw-bar" style:width="{w2}%"></div>

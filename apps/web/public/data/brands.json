@@ -317,6 +317,13 @@
           }
         },
         {
+          "pieces": 2,
+          "bonus": {
+            "stat": "wd_ar",
+            "value": 20
+          }
+        },
+        {
           "pieces": 3,
           "bonus": {
             "stat": "mag",
