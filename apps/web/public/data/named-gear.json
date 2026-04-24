@@ -1,0 +1,542 @@
+{
+  "version": "2.0.0",
+  "gameVersion": "TU23.1",
+  "items": [
+    {
+      "id": "punch_drunk",
+      "slot": "mask",
+      "brand": "douglas_harding",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "hsd",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "id": "nightwatcher",
+      "slot": "mask",
+      "brand": "gila_guard",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "chill_out",
+      "slot": "mask",
+      "brand": "gila_guard",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "visionario",
+      "slot": "mask",
+      "brand": "legatus_s_p_a",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "the_hollow_man",
+      "slot": "mask",
+      "brand": "yaahl_gear",
+      "core": "armor",
+      "fixedAttrs": [
+        {
+          "stat": "health",
+          "value": 14
+        }
+      ]
+    },
+    {
+      "id": "liquid_engineer",
+      "slot": "backpack",
+      "brand": "belstone_armory",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "hermano",
+      "slot": "backpack",
+      "brand": "brazos_de_arcabuz",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "the_courier",
+      "slot": "backpack",
+      "brand": "habsburg_guard",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "backbone",
+      "slot": "backpack",
+      "brand": "lengmo",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "anarchist_s_cookbook",
+      "slot": "backpack",
+      "brand": "golan_gear",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "strategic_alignment",
+      "slot": "backpack",
+      "brand": "china_light_industries_corporation",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "lavoisier",
+      "slot": "backpack",
+      "brand": "electrique",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "matador",
+      "slot": "backpack",
+      "brand": "walker_harris_co",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "the_gift",
+      "slot": "backpack",
+      "brand": "providence_defense",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "percussive_maintenance",
+      "slot": "backpack",
+      "brand": "alps_summit_armament",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "vigil",
+      "slot": "backpack",
+      "brand": "legatus_s_p_a",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "devil_s_due",
+      "slot": "backpack",
+      "brand": "ceska_vyroba_s_r_o",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "battery_pack",
+      "slot": "backpack",
+      "brand": "empress_international",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "the_setup",
+      "slot": "backpack",
+      "brand": "uzina_getica",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "force_multiplier",
+      "slot": "backpack",
+      "brand": "hana_u_corporation",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "proxy",
+      "slot": "backpack",
+      "brand": "palisade_steelworks",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "axel",
+      "slot": "backpack",
+      "brand": "shiny_monkey",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "cap_n",
+      "slot": "backpack",
+      "brand": "imminence_armaments",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "festive_delivery",
+      "slot": "backpack",
+      "brand": "grupo_sombra_s_a",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "henri",
+      "slot": "chest",
+      "brand": "electrique",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "hunter_killer",
+      "slot": "chest",
+      "brand": "golan_gear",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "everyday_carrier",
+      "slot": "chest",
+      "brand": "belstone_armory",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "chainkiller",
+      "slot": "chest",
+      "brand": "walker_harris_co",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "pointman",
+      "slot": "chest",
+      "brand": "gila",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "vedmedytsya_vest",
+      "slot": "chest",
+      "brand": "petrov",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "the_sacrifice",
+      "slot": "chest",
+      "brand": "providence_defense",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "zero_f_s",
+      "slot": "chest",
+      "brand": "badger_tuff",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "ferocious_calm",
+      "slot": "chest",
+      "brand": "fenris_group_ab",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "door_kicker_s_knock",
+      "slot": "chest",
+      "brand": "grupo_sombra_s_a",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "caesar_s_guard",
+      "slot": "chest",
+      "brand": "empress_international",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "closer",
+      "slot": "chest",
+      "brand": "uzina_getica",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "cherished",
+      "slot": "chest",
+      "brand": "habsburg_guard",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "carpenter",
+      "slot": "chest",
+      "brand": "lengmo",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "bober",
+      "slot": "chest",
+      "brand": "zwiadowka_sp_z_o_o",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "pristine_example",
+      "slot": "chest",
+      "brand": "airaldi_holdings",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "sleight",
+      "slot": "chest",
+      "brand": "urban_lookout",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "combustor",
+      "slot": "chest",
+      "brand": "palisade_steelworks",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "equalizer",
+      "slot": "chest",
+      "brand": "unit_alloys",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "deathgrips",
+      "slot": "gloves",
+      "brand": "5_11_tactical",
+      "core": "armor",
+      "fixedAttrs": [
+        {
+          "stat": "armor_on_kill",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "contractor_s_gloves",
+      "slot": "gloves",
+      "brand": "petrov",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "armor",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "id": "motherly_love",
+      "slot": "gloves",
+      "brand": "alps_summit_armament",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "health",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "id": "eagles_grasp",
+      "slot": "gloves",
+      "brand": "zwiadowka_sp_z_o_o",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "handling",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "id": "firm_handshake",
+      "slot": "gloves",
+      "brand": "sokolov_concern",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "status_effects",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "id": "forge",
+      "slot": "holster",
+      "brand": "richter_kaiser",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "health",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "id": "ammo_dump",
+      "slot": "holster",
+      "brand": "badger_tuff",
+      "core": "armor",
+      "fixedAttrs": []
+    },
+    {
+      "id": "picaros_holster",
+      "slot": "holster",
+      "brand": "brazos_de_arcabuz",
+      "core": "armor",
+      "fixedAttrs": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "spot_on",
+      "slot": "holster",
+      "brand": "urban_lookout",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "salvo",
+      "slot": "holster",
+      "brand": "unit_alloys",
+      "core": "wd",
+      "fixedAttrs": [
+        {
+          "stat": "rof",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "claws_out",
+      "slot": "holster",
+      "brand": "wyvern_wear",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "fox_s_prayer",
+      "slot": "kneepads",
+      "brand": "overlord_armaments",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "snow_machine",
+      "slot": "kneepads",
+      "brand": "electrique",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "turmoil",
+      "slot": "kneepads",
+      "brand": "ceska_vyroba_s_r_o",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "emperor_s_guard",
+      "slot": "kneepads",
+      "brand": "murakami_industries",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "armor_regen",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "grease",
+      "slot": "kneepads",
+      "brand": "shiny_monkey",
+      "core": "skill_tier",
+      "fixedAttrs": [
+        {
+          "stat": "status_effects",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "id": "cloak",
+      "slot": "kneepads",
+      "brand": "imminence_armaments",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "birdie_s_quick_fix_pack",
+      "slot": "backpack",
+      "core": "skill_tier",
+      "fixedAttrs": []
+    },
+    {
+      "id": "ninjabike_messenger_backpack",
+      "slot": "backpack",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "centurion_scabbard",
+      "slot": "holster",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "acosta_kneepads",
+      "slot": "kneepads",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "robin",
+      "slot": "chest",
+      "brand": "royal_works",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "bulldog",
+      "slot": "backpack",
+      "brand": "royal_works",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "impetus",
+      "slot": "chest",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "picaro_s_holster",
+      "slot": "holster",
+      "core": "wd",
+      "fixedAttrs": []
+    },
+    {
+      "id": "hydden_gloves",
+      "slot": "gloves",
+      "core": "wd",
+      "fixedAttrs": []
+    }
+  ]
+}

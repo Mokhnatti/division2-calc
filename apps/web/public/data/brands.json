@@ -1,0 +1,345 @@
+{
+  "version": "2.0.0",
+  "gameVersion": "TU23.1",
+  "brands": [
+    {
+      "id": "providence_defense",
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "hsd",
+            "value": 13
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "chc",
+            "value": 8
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "chd",
+            "value": 13
+          }
+        }
+      ],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "uzina_getica",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "empress_international",
+      "bonuses": [],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "wyvern_wear",
+      "bonuses": [],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "belstone_armory",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "alps_summit_armaments",
+      "bonuses": [],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "china_light_industries_corporation",
+      "bonuses": [],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "palisade_steelworks",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "brazos_de_arcabuz",
+      "bonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "mag",
+            "value": 50
+          }
+        }
+      ],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "gila_guard",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "fenris_group_ab",
+      "bonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "reload",
+            "value": 30
+          }
+        }
+      ],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "petrov_defense_group",
+      "bonuses": [],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "overlord_armaments",
+      "bonuses": [],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "walker_harris_co",
+      "bonuses": [],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "yaahl_gear",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "electrique",
+      "bonuses": [],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "hana_u_corporation",
+      "bonuses": [],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "murakami_industries",
+      "bonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 18
+          }
+        }
+      ],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "richter_kaiser_gmbh",
+      "bonuses": [],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "5_11_tactical",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "badger_tuff",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "golan_gear_ltd",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "habsburg_guard_hg",
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "hsd",
+            "value": 13
+          }
+        }
+      ],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "lengmo",
+      "bonuses": [],
+      "core": "armor",
+      "dlc": null
+    },
+    {
+      "id": "ceska_vyroba_s_r_o",
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "chc",
+            "value": 8
+          }
+        }
+      ],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "douglas_harding",
+      "bonuses": [],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "grupo_sombra_s_a",
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "chd",
+            "value": 13
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "hsd",
+            "value": 13
+          }
+        }
+      ],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "airaldi_holdings",
+      "bonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "hsd",
+            "value": 13
+          }
+        }
+      ],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "sokolov_concern",
+      "bonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "chd",
+            "value": 13
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "chc",
+            "value": 8
+          }
+        }
+      ],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "zwiadowka_sp_z_o_o",
+      "bonuses": [],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "legatus_s_p_a",
+      "bonuses": [],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "shiny_monkey_gear",
+      "bonuses": [],
+      "core": "skill_tier",
+      "dlc": null
+    },
+    {
+      "id": "imminence_armaments",
+      "bonuses": [],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "urban_lookout",
+      "bonuses": [],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "unit_alloys",
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "rof",
+            "value": 5
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "mag",
+            "value": 50
+          }
+        }
+      ],
+      "core": "wd",
+      "dlc": null
+    },
+    {
+      "id": "royal_works",
+      "bonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "chd",
+            "value": 15
+          }
+        }
+      ],
+      "core": "wd",
+      "dlc": null
+    }
+  ]
+}

@@ -27,6 +27,8 @@ export interface TargetStateBucket {
   damageToArmorPct: number;
   damageToHealthPct: number;
   damageOutOfCoverPct: number;
+  /** If true, target has armor → apply DtA. If false, target is on health → apply DtH. Default: true (full armor) */
+  fullArmor?: boolean;
 }
 
 export interface ExpertiseBonus {
@@ -44,7 +46,17 @@ export interface DpsInput {
 
 export interface DpsOutput {
   bulletDamage: number;
+  bulletDamageArmor: number;
+  bulletDamageHealth: number;
+  bulletDamageNoCrit: number;
+  bulletDamageCrit: number;
+  bulletDamageHsOnly: number;
+  bulletDamageCritHs: number;
   burstDps: number;
+  burstDpsArmor: number;
+  burstDpsHealth: number;
   sustainedDps: number;
+  sustainedDpsArmor: number;
+  sustainedDpsHealth: number;
   cycleSeconds: number;
 }

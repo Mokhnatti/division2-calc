@@ -1,0 +1,790 @@
+[
+  {
+    "id": "amplify",
+    "name": "Amplify",
+    "category": "Offense",
+    "description": "Adds 5 Offense stacks with no change to contribution type.",
+    "effectDesc": "No change to stat type",
+    "effectType": "none",
+    "icon": "📈",
+    "stackChanges": [
+      {
+        "cat": "Offense",
+        "amount": 5
+      }
+    ],
+    "stats": [
+      {
+        "stat": "weaponHandling",
+        "base": 5,
+        "synergy": 1
+      }
+    ],
+    "synergy": [
+      "compress",
+      "convert1",
+      "convert2"
+    ],
+    "description_ru": "Добавляет 5 стеков нападения без изменения типа вклада.",
+    "effectDesc_ru": "Никаких изменений в типе статистики"
+  },
+  {
+    "id": "consume",
+    "name": "Consume",
+    "category": "Offense",
+    "description": "Gains 10 Offense stacks by consuming 5 Defense and 5 Utility stacks.",
+    "effectDesc": "No change to stat type",
+    "effectType": "none",
+    "icon": "🔄",
+    "stackChanges": [
+      {
+        "cat": "Offense",
+        "amount": 10
+      },
+      {
+        "cat": "Defense",
+        "amount": -5
+      },
+      {
+        "cat": "Utility",
+        "amount": -5
+      }
+    ],
+    "stats": [
+      {
+        "stat": "weaponHandling",
+        "base": 10,
+        "synergy": 2
+      }
+    ],
+    "synergy": [
+      "amplify",
+      "compress",
+      "convert1",
+      "convert2"
+    ],
+    "description_ru": "Получает 10 стаков атаки, потребляя 5 стеков защиты и 5 стаков полезности.",
+    "effectDesc_ru": "Никаких изменений в типе статистики"
+  },
+  {
+    "id": "saturate",
+    "name": "Saturate",
+    "category": "Offense",
+    "description": "Adds 25 Offense stacks, but they no longer contribute to stats.",
+    "effectDesc": "Offense stacks stop contributing to stats (still count for other passives)",
+    "effectType": "saturate",
+    "icon": "💧",
+    "stackChanges": [
+      {
+        "cat": "Offense",
+        "amount": 25
+      }
+    ],
+    "stats": [],
+    "synergy": [
+      "compress"
+    ],
+    "description_ru": "Добавляет 25 стаков атаки, но они больше не влияют на статистику.",
+    "effectDesc_ru": "Стеки атак перестают влиять на статистику (все еще учитываются для других пассивных способностей)."
+  },
+  {
+    "id": "compress",
+    "name": "Compress",
+    "category": "Offense",
+    "description": "Removes 10 Offense stacks, but each remaining stack is 50% more potent.",
+    "effectDesc": "Each remaining Offense stack is 50% more potent",
+    "effectType": "compress",
+    "icon": "🗜️",
+    "stackChanges": [
+      {
+        "cat": "Offense",
+        "amount": -10
+      }
+    ],
+    "stats": [
+      {
+        "stat": "weaponHandling",
+        "base": 0,
+        "synergy": 8
+      }
+    ],
+    "synergy": [
+      "amplify",
+      "consume",
+      "saturate",
+      "convert1",
+      "convert2"
+    ],
+    "description_ru": "Удаляет 10 стаков атаки, но каждый оставшийся стак на 50% сильнее.",
+    "effectDesc_ru": "Каждый оставшийся набор атак на 50% сильнее."
+  },
+  {
+    "id": "convert1",
+    "name": "Convert 1",
+    "category": "Offense",
+    "description": "Offense stacks now provide Headshot Damage at 3% per stack instead of Weapon Handling.",
+    "effectDesc": "Offense → Headshot Damage (base 3% per stack) instead of Weapon Handling",
+    "effectType": "convert",
+    "icon": "🎯",
+    "stackChanges": [],
+    "stats": [
+      {
+        "stat": "headshotDamage",
+        "base": 30,
+        "synergy": 6
+      }
+    ],
+    "synergy": [
+      "amplify",
+      "consume",
+      "compress"
+    ],
+    "description_ru": "Стеки атак теперь дают 3% урона от выстрела в голову вместо навыка обращения с оружием.",
+    "effectDesc_ru": "Нападение → Урон от выстрела в голову (базовый 3% за стек) вместо владения оружием."
+  },
+  {
+    "id": "convert2",
+    "name": "Convert 2",
+    "category": "Offense",
+    "description": "Offense stacks now provide Magazine Size at 1% per stack instead of Weapon Handling.",
+    "effectDesc": "Offense → Magazine Size (base 1% per stack) instead of Weapon Handling",
+    "effectType": "convert",
+    "icon": "🔋",
+    "stackChanges": [],
+    "stats": [
+      {
+        "stat": "magazineSize",
+        "base": 10,
+        "synergy": 2
+      }
+    ],
+    "synergy": [
+      "amplify",
+      "consume",
+      "compress"
+    ],
+    "description_ru": "Стеки нападения теперь обеспечивают размер магазина на 1% за заряд вместо обращения с оружием.",
+    "effectDesc_ru": "Нападение → Размер магазина (базовый 1% за заряд) вместо обращения с оружием."
+  },
+  {
+    "id": "split",
+    "name": "Split",
+    "category": "Offense",
+    "description": "Redistributes 15 Offense stacks as 10 Defense and 10 Utility stacks.",
+    "effectDesc": "Redistributes stacks",
+    "effectType": "redistribute",
+    "icon": "↔️",
+    "stackChanges": [
+      {
+        "cat": "Offense",
+        "amount": -15
+      },
+      {
+        "cat": "Defense",
+        "amount": 10
+      },
+      {
+        "cat": "Utility",
+        "amount": 10
+      }
+    ],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Перераспределяет 15 стеков нападения на 10 стеков защиты и 10 стеков полезности.",
+    "effectDesc_ru": "Перераспределяет стеки"
+  },
+  {
+    "id": "pivotO",
+    "name": "Pivot",
+    "category": "Offense",
+    "description": "Boosts the current lowest module by increasing whichever module is currently the lowest.",
+    "effectDesc": "Increases whichever module is currently the lowest",
+    "effectType": "pivot",
+    "icon": "🔃",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Повышает текущий самый низкий модуль, увеличивая тот модуль, который в данный момент является самым низким.",
+    "effectDesc_ru": "Увеличивает тот модуль, который в данный момент является самым низким."
+  },
+  {
+    "id": "invertO",
+    "name": "Invert",
+    "category": "Offense",
+    "description": "Swap Offense stacks with the current highest module stacks. If Offense stacks are already the highest, or Defense and Utility stacks are tied for highest, nothing happens.",
+    "effectDesc": "Swaps Offense stacks with the highest other module. Fails if Offense is already the highest, or if Defense and Utility are tied for highest.",
+    "effectType": "invert",
+    "icon": "🔀",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Поменяйте местами стеки атак с текущими самыми высокими стеками модулей. Если стеки атаки уже самые высокие или стеки защиты и полезности равны, ничего не происходит.",
+    "effectDesc_ru": "Меняет местами стеки нападения с другими модулями более высокого уровня. Ошибка, если атака уже самая высокая или если защита и полезность имеют одинаковое значение."
+  },
+  {
+    "id": "stabilizeO",
+    "name": "Stabilize",
+    "category": "Offense",
+    "description": "Offense stacks are locked and cannot change.",
+    "effectDesc": "Offense stacks are frozen at their current value; all subsequent changes to Offense stacks are ignored.",
+    "effectType": "stabilize",
+    "icon": "🔒",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [
+      "amplify",
+      "consume"
+    ],
+    "description_ru": "Стеки атак заблокированы и не могут быть изменены.",
+    "effectDesc_ru": "Стеки атак замораживаются на своем текущем значении; все последующие изменения стеков атак игнорируются."
+  },
+  {
+    "id": "amplifyD",
+    "name": "Amplify",
+    "category": "Defense",
+    "description": "Adds 5 Defense stacks with no change to contribution type.",
+    "effectDesc": "No change to stat type",
+    "effectType": "none",
+    "icon": "📈",
+    "stackChanges": [
+      {
+        "cat": "Defense",
+        "amount": 5
+      }
+    ],
+    "stats": [
+      {
+        "stat": "totalArmor",
+        "base": 2.5,
+        "synergy": 1
+      }
+    ],
+    "synergy": [
+      "compressD",
+      "convert1D",
+      "convert2D"
+    ],
+    "description_ru": "Добавляет 5 стеков защиты без изменения типа вклада.",
+    "effectDesc_ru": "Никаких изменений в типе статистики"
+  },
+  {
+    "id": "consumeD",
+    "name": "Consume",
+    "category": "Defense",
+    "description": "Gains 10 Defense stacks by consuming 5 Offense and 5 Utility stacks.",
+    "effectDesc": "No change to stat type",
+    "effectType": "none",
+    "icon": "🔄",
+    "stackChanges": [
+      {
+        "cat": "Defense",
+        "amount": 10
+      },
+      {
+        "cat": "Offense",
+        "amount": -5
+      },
+      {
+        "cat": "Utility",
+        "amount": -5
+      }
+    ],
+    "stats": [
+      {
+        "stat": "totalArmor",
+        "base": 5,
+        "synergy": 2
+      }
+    ],
+    "synergy": [
+      "amplifyD",
+      "compressD",
+      "convert1D",
+      "convert2D"
+    ],
+    "description_ru": "Получает 10 стаков защиты, потребляя 5 стаков атаки и 5 стаков полезности.",
+    "effectDesc_ru": "Никаких изменений в типе статистики"
+  },
+  {
+    "id": "saturateD",
+    "name": "Saturate",
+    "category": "Defense",
+    "description": "Adds 25 Defense stacks, but they no longer contribute to stats.",
+    "effectDesc": "Defense stacks stop contributing to stats (still count for other passives such as Cascade/Convert)",
+    "effectType": "saturate",
+    "icon": "💧",
+    "stackChanges": [
+      {
+        "cat": "Defense",
+        "amount": 25
+      }
+    ],
+    "stats": [],
+    "synergy": [
+      "cascade",
+      "convert1D",
+      "convert2D"
+    ],
+    "description_ru": "Добавляет 25 стаков защиты, но они больше не влияют на статистику.",
+    "effectDesc_ru": "Стеки защиты перестают влиять на статистику (все еще учитываются для других пассивных способностей, таких как Каскад/Конвертация)"
+  },
+  {
+    "id": "compressD",
+    "name": "Compress",
+    "category": "Defense",
+    "description": "Removes 10 Defense stacks, but each remaining stack is 50% more potent.",
+    "effectDesc": "Each remaining Defense stack is 50% more potent",
+    "effectType": "compress",
+    "icon": "🗜️",
+    "stackChanges": [
+      {
+        "cat": "Defense",
+        "amount": -10
+      }
+    ],
+    "stats": [
+      {
+        "stat": "totalArmor",
+        "base": 0,
+        "synergy": 6
+      }
+    ],
+    "synergy": [
+      "amplifyD",
+      "consumeD",
+      "nullify",
+      "convert1D",
+      "convert2D"
+    ],
+    "description_ru": "Удаляет 10 стаков защиты, но каждый оставшийся стак на 50% сильнее.",
+    "effectDesc_ru": "Каждый оставшийся стек защиты на 50% сильнее."
+  },
+  {
+    "id": "convert1D",
+    "name": "Convert 1",
+    "category": "Defense",
+    "description": "Defense stacks now provide Protection from Elites at 0.5% per stack instead of Max Armor.",
+    "effectDesc": "Defense → Protection from Elites (0.5%/stack base, 0.75%/stack with Compress+Nullify) instead of Max Armor. Best with Compress+Nullify (30 stacks × 1.5 potency) = 22.5% Protection from Elites.",
+    "effectType": "convert",
+    "icon": "⭐",
+    "stackChanges": [],
+    "stats": [
+      {
+        "stat": "protectionFromElites",
+        "base": 10,
+        "synergy": 4.5
+      }
+    ],
+    "synergy": [
+      "amplifyD",
+      "consumeD",
+      "saturateD",
+      "compressD"
+    ],
+    "description_ru": "Стеки защиты теперь дают Защиту от элиты на уровне 0,5% за стек вместо максимальной брони.",
+    "effectDesc_ru": "Защита → Защита от элит (0,5%/базовый стак, 0,75%/стак со сжатием+обнулением) вместо максимальной брони. Лучше всего использовать «Сжатие+Обнуление» (30 стаков × 1,5 эффективности) = 22,5% защиты от элит."
+  },
+  {
+    "id": "convert2D",
+    "name": "Convert 2",
+    "category": "Defense",
+    "description": "Defense stacks now provide Hazard Protection at 1% per stack instead of Max Armor.",
+    "effectDesc": "Defense → Hazard Protection (1%/stack base, 1.5%/stack with Compress) instead of Max Armor.",
+    "effectType": "convert",
+    "icon": "☢️",
+    "stackChanges": [],
+    "stats": [
+      {
+        "stat": "hazardProtection",
+        "base": 20,
+        "synergy": 6
+      }
+    ],
+    "synergy": [
+      "amplifyD",
+      "consumeD",
+      "compressD"
+    ],
+    "description_ru": "Стеки защиты теперь обеспечивают защиту от опасностей на 1% за стек вместо максимальной брони.",
+    "effectDesc_ru": "Защита → Защита от опасностей (1%/базовый стак, 1,5%/стек со сжатием) вместо максимальной брони."
+  },
+  {
+    "id": "splitD",
+    "name": "Split",
+    "category": "Defense",
+    "description": "Redistributes 15 Defense stacks as 10 Offense and 10 Utility stacks.",
+    "effectDesc": "Redistributes stacks",
+    "effectType": "redistribute",
+    "icon": "↔️",
+    "stackChanges": [
+      {
+        "cat": "Defense",
+        "amount": -15
+      },
+      {
+        "cat": "Offense",
+        "amount": 10
+      },
+      {
+        "cat": "Utility",
+        "amount": 10
+      }
+    ],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Перераспределяет 15 стеков защиты на 10 стеков нападения и 10 стеков полезности.",
+    "effectDesc_ru": "Перераспределяет стеки"
+  },
+  {
+    "id": "pivotD",
+    "name": "Pivot",
+    "category": "Defense",
+    "description": "Boosts the current lowest module using Defense stacks.",
+    "effectDesc": "Increases the lowest module’s stacks using available Defense stacks. Useful in recovery builds.",
+    "effectType": "pivot",
+    "icon": "🔁",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Усиливает текущий самый низкий модуль с помощью стеков защиты.",
+    "effectDesc_ru": "Увеличивает стеки самого нижнего модуля, используя доступные стеки защиты. Полезно в сборках восстановления."
+  },
+  {
+    "id": "invertD",
+    "name": "Invert",
+    "category": "Defense",
+    "description": "Swap Defense stacks with the current highest module stacks. If Defense stacks are already the highest, or Offense and Utility stacks are tied for highest, nothing happens.",
+    "effectDesc": "Swaps Defense stacks with the highest other module. Fails if Defense is already the highest, or if Offense and Utility are tied for highest.",
+    "effectType": "invert",
+    "icon": "🔀",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Поменяйте местами стеки защиты с текущими стеками модулей с наибольшим количеством модулей. Если стеки защиты уже самые высокие или стеки нападения и полезности равны по величине, ничего не происходит.",
+    "effectDesc_ru": "Меняет местами стеки защиты с другими модулями высшего уровня. Ошибка, если Защита уже самая высокая или если Нападение и Полезность имеют одинаковые наивысшие значения."
+  },
+  {
+    "id": "stabilizeD",
+    "name": "Stabilize",
+    "category": "Defense",
+    "description": "Defense stacks are locked and cannot change.",
+    "effectDesc": "Defense stacks are frozen at their current value; all subsequent changes to Defense stacks are ignored.",
+    "effectType": "stabilize",
+    "icon": "🔒",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [
+      "amplifyD",
+      "consumeD"
+    ],
+    "description_ru": "Стеки защиты заблокированы и не могут быть изменены.",
+    "effectDesc_ru": "Стеки защиты заморожены на их текущем уровне; все последующие изменения стеков защиты игнорируются."
+  },
+  {
+    "id": "amplifyU",
+    "name": "Amplify",
+    "category": "Utility",
+    "description": "Adds 5 Utility stacks with no change to contribution type.",
+    "effectDesc": "No change to stat type",
+    "effectType": "none",
+    "icon": "📈",
+    "stackChanges": [
+      {
+        "cat": "Utility",
+        "amount": 5
+      }
+    ],
+    "stats": [
+      {
+        "stat": "skillDamage",
+        "base": 5,
+        "synergy": 1
+      }
+    ],
+    "synergy": [
+      "compressU",
+      "convert1U",
+      "convert2U"
+    ],
+    "description_ru": "Добавляет 5 стеков полезности без изменения типа вклада.",
+    "effectDesc_ru": "Никаких изменений в типе статистики"
+  },
+  {
+    "id": "consumeU",
+    "name": "Consume",
+    "category": "Utility",
+    "description": "Gains 10 Utility stacks by consuming 5 Offense and 5 Defense stacks.",
+    "effectDesc": "No change to stat type",
+    "effectType": "none",
+    "icon": "🔄",
+    "stackChanges": [
+      {
+        "cat": "Utility",
+        "amount": 10
+      },
+      {
+        "cat": "Offense",
+        "amount": -5
+      },
+      {
+        "cat": "Defense",
+        "amount": -5
+      }
+    ],
+    "stats": [
+      {
+        "stat": "skillDamage",
+        "base": 10,
+        "synergy": 2
+      }
+    ],
+    "synergy": [
+      "amplifyU",
+      "compressU",
+      "convert1U",
+      "convert2U"
+    ],
+    "description_ru": "Получает 10 стаков полезности, потребляя 5 стеков атаки и 5 стеков защиты.",
+    "effectDesc_ru": "Никаких изменений в типе статистики"
+  },
+  {
+    "id": "saturateU",
+    "name": "Saturate",
+    "category": "Utility",
+    "description": "Adds 25 Utility stacks, but they no longer contribute to stats.",
+    "effectDesc": "Utility stacks stop contributing to stats (still count for other passives)",
+    "effectType": "saturate",
+    "icon": "💧",
+    "stackChanges": [
+      {
+        "cat": "Utility",
+        "amount": 25
+      }
+    ],
+    "stats": [],
+    "synergy": [
+      "cascade",
+      "converge"
+    ],
+    "description_ru": "Добавляет 25 стаков полезности, но они больше не влияют на статистику.",
+    "effectDesc_ru": "Стеки полезности перестают влиять на статистику (все еще учитываются для других пассивных способностей)."
+  },
+  {
+    "id": "compressU",
+    "name": "Compress",
+    "category": "Utility",
+    "description": "Removes 10 Utility stacks, but each remaining stack is 50% more potent.",
+    "effectDesc": "Each remaining Utility stack is 50% more potent",
+    "effectType": "compress",
+    "icon": "🗜️",
+    "stackChanges": [
+      {
+        "cat": "Utility",
+        "amount": -10
+      }
+    ],
+    "stats": [
+      {
+        "stat": "skillDamage",
+        "base": 0,
+        "synergy": 8
+      }
+    ],
+    "synergy": [
+      "amplifyU",
+      "consumeU",
+      "saturateU",
+      "convert1U",
+      "convert2U"
+    ],
+    "description_ru": "Удаляет 10 стаков Utility, но каждый оставшийся стек на 50% сильнее.",
+    "effectDesc_ru": "Каждый оставшийся стек Utility на 50% эффективнее."
+  },
+  {
+    "id": "convert1U",
+    "name": "Convert 1",
+    "category": "Utility",
+    "description": "Utility stacks now provide Skill Repair at 1% per stack instead of Skill Damage.",
+    "effectDesc": "Utility → Skill Repair (1%/stack) instead of Skill Damage",
+    "effectType": "convert",
+    "icon": "🩹",
+    "stackChanges": [],
+    "stats": [
+      {
+        "stat": "skillRepair",
+        "base": 20,
+        "synergy": 5
+      }
+    ],
+    "synergy": [
+      "amplifyU",
+      "consumeU",
+      "compressU"
+    ],
+    "description_ru": "Стеки служебных способностей теперь обеспечивают восстановление навыка с 1% за каждый стек вместо урона от навыка.",
+    "effectDesc_ru": "Утилита → Ремонт навыка (1%/стака) вместо урона навыка."
+  },
+  {
+    "id": "convert2U",
+    "name": "Convert 2",
+    "category": "Utility",
+    "description": "Utility stacks now provide Status Effects at 1% per stack instead of Skill Damage.",
+    "effectDesc": "Utility → Status Effects (1%/stack) instead of Skill Damage",
+    "effectType": "convert",
+    "icon": "☣️",
+    "stackChanges": [],
+    "stats": [
+      {
+        "stat": "statusEffects",
+        "base": 20,
+        "synergy": 5
+      }
+    ],
+    "synergy": [
+      "amplifyU",
+      "consumeU",
+      "compressU"
+    ],
+    "description_ru": "Стеки служебных способностей теперь дают эффекты статуса с 1% за каждый стек вместо урона от навыков.",
+    "effectDesc_ru": "Утилита → Эффекты статуса (1%/стак) вместо урона от умений."
+  },
+  {
+    "id": "splitU",
+    "name": "Split",
+    "category": "Utility",
+    "description": "Redistributes 15 Utility stacks as 10 Offense and 10 Defense stacks.",
+    "effectDesc": "Redistributes stacks",
+    "effectType": "redistribute",
+    "icon": "↔️",
+    "stackChanges": [
+      {
+        "cat": "Utility",
+        "amount": -15
+      },
+      {
+        "cat": "Offense",
+        "amount": 10
+      },
+      {
+        "cat": "Defense",
+        "amount": 10
+      }
+    ],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Перераспределяет 15 стеков полезности на 10 стеков нападения и 10 стеков защиты.",
+    "effectDesc_ru": "Перераспределяет стеки"
+  },
+  {
+    "id": "pivotU",
+    "name": "Pivot",
+    "category": "Utility",
+    "description": "Boosts the current lowest module by increasing whichever module is currently the lowest.",
+    "effectDesc": "Increases whichever module is currently the lowest",
+    "effectType": "pivot",
+    "icon": "🔃",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Повышает текущий самый низкий модуль, увеличивая тот модуль, который в данный момент является самым низким.",
+    "effectDesc_ru": "Увеличивает тот модуль, который в данный момент является самым низким."
+  },
+  {
+    "id": "invertU",
+    "name": "Invert",
+    "category": "Utility",
+    "description": "Swap Utility stacks with the current highest module stacks. If Utility stacks are already the highest, or Offense and Defense stacks are tied for highest, nothing happens.",
+    "effectDesc": "Swaps Utility stacks with the highest other module. Fails if Utility is already the highest, or if Offense and Defense are tied for highest.",
+    "effectType": "invert",
+    "icon": "🔀",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Поменяйте местами стеки Utility с текущими стеками модулей с наибольшим количеством модулей. Если стеки «Полезность» уже самые высокие или стеки «Нападение» и «Защита» равны по величине, ничего не происходит.",
+    "effectDesc_ru": "Меняет местами стопки Utility с другими модулями более высокого уровня. Ошибка, если Полезность уже самая высокая или если Нападение и Защита имеют одинаковое значение."
+  },
+  {
+    "id": "stabilizeU",
+    "name": "Stabilize",
+    "category": "Utility",
+    "description": "Utility stacks are locked and cannot change.",
+    "effectDesc": "Utility stacks are frozen at their current value; all subsequent changes to Utility stacks are ignored.",
+    "effectType": "stabilize",
+    "icon": "🔒",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [
+      "amplifyU",
+      "consumeU"
+    ],
+    "description_ru": "Стеки утилит заблокированы и не могут быть изменены.",
+    "effectDesc_ru": "Стеки утилит фиксируются на их текущем значении; все последующие изменения в стеках утилит игнорируются."
+  },
+  {
+    "id": "nullify",
+    "name": "Nullify",
+    "category": "Wildcard",
+    "description": "Reverses all previous value changes on the lowest module — additions become subtractions and vice-versa.",
+    "effectDesc": "Reverses additions/subtractions on the lowest stack module. Fails if two or more modules are tied for lowest. Invert passives are unaffected.",
+    "effectType": "nullify",
+    "icon": "↩️",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [
+      "compress",
+      "convert1",
+      "convert2"
+    ],
+    "description_ru": "Отменяет все предыдущие изменения значений наименьшего модуля — сложения становятся вычитаниями и наоборот.",
+    "effectDesc_ru": "Отменяет сложение/вычитание в самом нижнем модуле стека. Ошибка, если два или более модулей привязаны к самому низкому уровню. Инвертированные пассивы не затрагиваются."
+  },
+  {
+    "id": "cascade",
+    "name": "Cascade",
+    "category": "Wildcard",
+    "description": "Disables the highest module’s stacks, then splits half its value (rounded up) equally into the other two modules.",
+    "effectDesc": "Highest module’s stacks stop contributing; +⌈highest/2⌉ stacks added to each other two modules. Fails if two or more tied for highest.",
+    "effectType": "cascade",
+    "icon": "🌀",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [
+      "amplify",
+      "consume"
+    ],
+    "description_ru": "Отключает стеки самого высокого модуля, а затем делит половину его значения (округленного вверх) поровну на два других модуля.",
+    "effectDesc_ru": "Стеки самого высокого модуля перестают вносить вклад; Стеки +⌈самый высокий/2⌉ добавили друг к другу два модуля. Неудачно, если двое или более имеют одинаковый наивысший результат."
+  },
+  {
+    "id": "converge",
+    "name": "Converge",
+    "category": "Wildcard",
+    "description": "The lowest module gains the average of the other two modules’ stacks; the other two are then reduced to 0.",
+    "effectDesc": "Lowest module = average of the other two, then the other two drop to 0. Fails if two or more tied for lowest.",
+    "effectType": "converge",
+    "icon": "➡️",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [
+      "amplify",
+      "consume",
+      "saturate"
+    ],
+    "description_ru": "Самый низкий модуль получает среднее значение стеков двух других модулей; два других затем уменьшаются до 0.",
+    "effectDesc_ru": "Самый низкий модуль = среднее значение двух других, затем два других падают до 0. Ошибка, если два или более имеют одинаковый самый низкий модуль."
+  },
+  {
+    "id": "equalize",
+    "name": "Equalize",
+    "category": "Wildcard",
+    "description": "All three modules become equal to the middle stack value.",
+    "effectDesc": "All modules set to the median stack count. Fails if the middle value is tied with the highest or lowest.",
+    "effectType": "equalize",
+    "icon": "⚖️",
+    "stackChanges": [],
+    "stats": [],
+    "synergy": [],
+    "description_ru": "Все три модуля становятся равными значению среднего стека.",
+    "effectDesc_ru": "Для всех модулей установлено медианное количество стеков. Ошибка, если среднее значение связано с самым высоким или самым низким."
+  }
+]

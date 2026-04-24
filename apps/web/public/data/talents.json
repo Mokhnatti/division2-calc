@@ -1,0 +1,2982 @@
+{
+  "version": "2.0.0",
+  "gameVersion": "TU23.1",
+  "talents": [
+    {
+      "id": "none",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "optimist",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "outsider",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 35
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "rifleman",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 60
+        }
+      ],
+      "applicableWeaponClasses": [
+        "Rifle"
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "close_personal",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 40
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "frenzy",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        },
+        {
+          "stat": "rof",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "headhunter",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 1250
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "killer",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "chc",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "allegro",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "rof",
+          "value": 12
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "adrenaline_rush",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "sadist",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 12
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "spike",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "unhinged",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "applicableWeaponClasses": [
+        "LMG"
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "jazz_hands",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "reload",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "strained",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "chd",
+          "value": 65
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "sustained",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "eyeless",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "measured",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "steady_handed",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "mag",
+          "value": 100
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "boomerang",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 12
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "vanguard",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 8
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "in_sync",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "ranger",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "opportunistic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "precision",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "chc",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "fast_hands",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "reload",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "pummel",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "lucky_shot",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "mag",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "finisher",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 40
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "overflowing",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "mag",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "calculated",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "perpetuation",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "hsd",
+          "value": 12
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "flatline",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "preservation",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 5
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "ignited",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "determined",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 8
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "surgical",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "chc",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "naked",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 35
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "capacitor_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "eagle_bearer_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "chameleon_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "agitator_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        },
+        {
+          "stat": "rof",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "nemesis_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "pestilence_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "ouroboros_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "scorpio_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "regicide_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "hsd",
+          "value": 50
+        },
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "mosquito_song_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "restrained_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "elmos_mark_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "back_and_forth",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 9
+        },
+        {
+          "stat": "rof",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "perfect_back_and_forth",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 12
+        },
+        {
+          "stat": "rof",
+          "value": 13
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "cover_shooter_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "bighorn_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        },
+        {
+          "stat": "hsd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "payment_in_kind_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "unnerve_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "breathe_free_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        },
+        {
+          "stat": "rof",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "chatterbox_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "rof",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "bluescreen_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "bullet_king_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "iron_lung_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 45
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "pakhan_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        },
+        {
+          "stat": "rof",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "transfusion_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "agonizing_bite_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "doctor_home_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "merciless_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "ruthless_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "geri_and_freki_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "ortiz_assault_interface_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "full_stop_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "hsd",
+          "value": 50
+        },
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "in_plain_sight_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 100
+        },
+        {
+          "stat": "chd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "high_priority_target_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        },
+        {
+          "stat": "hsd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "the_trap_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "sandman_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "capitulate_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "liberty_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "whiplash_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "oxpecker_exotic",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "perfect_stabilize",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_on_empty",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_killer",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "chd",
+          "value": 90
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_near_sighted",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "applicableWeaponClasses": [
+        "AR",
+        "Rifle"
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_pressure_point",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_frenzy",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 27
+        },
+        {
+          "stat": "rof",
+          "value": 27
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_allegro",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "rof",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_flatline",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_streamline",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 47
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_overflowing",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "future_perfection",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "perfectly_ignited",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_close_personal",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 38
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_optimist",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 27
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_in_sync",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_precision_strike",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 35
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_thunder_strike",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 35
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_strained",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "chd",
+          "value": 80
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_preservation",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_immobilize",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_outsider",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_unwavering",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "applicableWeaponClasses": [
+        "SMG"
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_measured",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_vindictive",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "chc",
+          "value": 21
+        },
+        {
+          "stat": "chd",
+          "value": 21
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_unhinged",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 22
+        }
+      ],
+      "applicableWeaponClasses": [
+        "LMG"
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_sadist",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 35
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_fast_hands",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "reload",
+          "value": 40
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_optimized",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_overwhelm",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 48
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_steady_handed",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_soft_spot",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 24
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_rifleman",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 66
+        }
+      ],
+      "applicableWeaponClasses": [
+        "Rifle"
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_lucky_shot",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_perpetuation",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 15
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_sledgehammer",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_spike",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_boomerang",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "chd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_behind_you",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 25
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_naked",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "hsd",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_reformation",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_ranger",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_first_blood",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "hsd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_determined",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "hsd",
+          "value": 30
+        },
+        {
+          "stat": "chd",
+          "value": 20
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_eyeless",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 35
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_pumped_up",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 30
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_jazz_hands",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "reload",
+          "value": 50
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_pummel",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 40
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_brazen",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 12
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_extra",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_distance",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_salvage",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_breadbasket",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "hsd",
+          "value": 70
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_finisher",
+      "kind": "weapon",
+      "bonusType": "amplified",
+      "bonuses": [
+        {
+          "stat": "chc",
+          "value": 35
+        },
+        {
+          "stat": "chd",
+          "value": 40
+        }
+      ],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "future_perfection_mmr",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "hidden_rock",
+      "kind": "weapon",
+      "bonusType": "additive",
+      "bonuses": [
+        {
+          "stat": "wd",
+          "value": 10
+        }
+      ],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "explosive_delivery",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "kinetic_momentum",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "gunslinger",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "focus",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "spark",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "obliterate",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "intimidate",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "headhunter_2",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "empathic_resolve",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "overwatch",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "glass_cannon",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "spotter",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "unbreakable",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "vanguard_2",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "protected_reload",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "entrench",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "efficient",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "mad_bomber",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "braced",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "skilled",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "tag_team",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "trauma",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "tamper_proof",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "reassigned",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "combined_arms",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "tech_support",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "shock_and_awe",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "vigilance",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "versatile",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "unstoppable_force",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "companion",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "composure",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "concussion",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "wicked",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "opportunistic_2",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "clutch",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "safeguard",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "bloodsucker",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "leadership",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "protector",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "adrenaline_rush_2",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "galvanize",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "energize",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "calculated_2",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "overclock",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "creeping_death",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "category",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "skill_dps",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "skill_dps_sustain",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "weapon_dps",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "weapon_skill_dps",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "sustain",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "utility",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "challenger",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "bond",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "parabellum_rounds",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "bleeding_edge",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "ablative_nano_plating",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "hoarder",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_obliterate",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_intimidate",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_spark",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_glass_cannon",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_unbreakable",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_gunslinger",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_vanguard",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_spotter",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_overwatch",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_headhunter",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_trauma",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_kinetic_momentum",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_companion",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_explosive_delivery",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_mad_bomber",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_braced",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_focus",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_entrench",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_skilled",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "risk_management",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "overcharge",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "proliferation",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "aces_high",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "bulwark_protocol",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "umbra_protocol",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "scales_of_justice",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "snowball",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "hollow_point_ammo",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "makeshift_repairs",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "point_of_no_return",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "overcharging",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "all_for_one",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "tactical_superiority",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "max_bpm",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "endless_hunger",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "hivemind",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "target_rich_environment",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "chain_combustion",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "best_buds",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "press_the_advantage",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "specialized_destruction",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "sustainability",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "waving_the_flag",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "fortissimo",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "hardened",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "patience",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "shock_awe",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "fireworks_show",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "rebalance",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "combat_medic",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "kill_confirmed",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "one_in_hand",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "resourceful",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_hardened",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_vigilance",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_composure",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_clutch",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_concussion",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_wicked",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_bloodsucker",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_unstoppable_force",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_versatile",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_shock_and_awe",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_creeping_death",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_overclock",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_leadership",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_adrenaline_rush",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_combined_arms",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_calculated",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_energize",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_galvanize",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfect_tech_support",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_tamper_proof",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "perfectly_opportunistic",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "feedback_loop",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "symptom_aggravator",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "dead_man_s_hand",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "shield_surge",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "umbra_surge",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "armor_overflow",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "stars_and_stripes",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "point_of_honor",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "safe_charging",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "one_for_all",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "advanced_combat_tactics",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "cold",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "overwhelming_force",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "smart_cooperation",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "critical_measures",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "trauma_specialist",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "heatstroke",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "complete_uptime",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "signature_moves",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "accelerando",
+      "kind": "backpack",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": false
+    },
+    {
+      "id": "sheriffs_favor",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "over_engineered",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "on_point",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "camaraderie",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "increased_interest",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "indirect_transmission",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "core_exercise",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "outer_core",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "inner_core",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "from_the_shadows",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "into_the_light",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "headache",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "blessed",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "daring",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "chain_killer",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "chain_killer_chest",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "tend_and_befriend",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "hostile_negotiations",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "rules_of_engagement",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "ortiz_incinerator_turret_prototype",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "charging",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "heartstopper",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "apex_predator",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "stoic",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "polyethylene_plating",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "deceit",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "huddle",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "throttle_control",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "electromagnetic_trigger",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "aggressive_recon",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "red_white_and_blue",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "full_flag",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "urban_disruption",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "urban_disruption_backpack",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "urban_disruption_chest",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "symphony",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "robust",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "steadfast",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "carefree",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "elevated",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    },
+    {
+      "id": "providence_talent_well_rounded",
+      "kind": "chest",
+      "bonusType": "additive",
+      "bonuses": [],
+      "hasPerfectVariant": true
+    }
+  ]
+}

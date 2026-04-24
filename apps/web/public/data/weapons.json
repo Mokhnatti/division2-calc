@@ -1,0 +1,5488 @@
+{
+  "version": "2.0.0",
+  "gameVersion": "TU23.1",
+  "weapons": [
+    {
+      "id": "acr",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 58897,
+      "rpm": 650,
+      "magazine": 30,
+      "reloadSeconds": 1.91,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "acr_e",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 58897,
+      "rpm": 650,
+      "magazine": 30,
+      "reloadSeconds": 1.91,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "agitator",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 49104,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.4,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "magazine"
+      ],
+      "talentId": "agitator_exotic",
+      "talType": "swap_in",
+      "talBonus": 30
+    },
+    {
+      "id": "ak_m",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 67175,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "aug_a3_cqc",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 57218,
+      "rpm": 680,
+      "magazine": 42,
+      "reloadSeconds": 2.16,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "black_market_ak_m",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 64717,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "black_market_ak_m_replica",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 64717,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "born_great",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 52564,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_stabilize"
+    },
+    {
+      "id": "burnout",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 45273,
+      "rpm": 900,
+      "magazine": 30,
+      "reloadSeconds": 2.49,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_on_empty"
+    },
+    {
+      "id": "capacitor",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 57618,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 1.85,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "capacitor_exotic",
+      "talType": "amp",
+      "talBonus": 30
+    },
+    {
+      "id": "carbine_7",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 49790,
+      "rpm": 790,
+      "magazine": 30,
+      "reloadSeconds": 2.02,
+      "optimalRange": 28,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "caretaker",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 52564,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_killer"
+    },
+    {
+      "id": "chameleon",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 44671,
+      "rpm": 900,
+      "magazine": 30,
+      "reloadSeconds": 2.4,
+      "optimalRange": 20,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "chameleon_exotic",
+      "talType": "stacks",
+      "talBonus": 20,
+      "talMax": 30
+    },
+    {
+      "id": "ctar_21",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 44802,
+      "rpm": 900,
+      "magazine": 30,
+      "reloadSeconds": 2.39,
+      "optimalRange": 32,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "custom_p416_g3",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 47365,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "eagle_bearer",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 47365,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.13,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "eagle_bearer_exotic",
+      "talType": "kill",
+      "talBonus": 50,
+      "talMax": 50
+    },
+    {
+      "id": "f2000",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 49104,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.4,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "f2000_replica",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 49104,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.4,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "fal",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 57646,
+      "rpm": 700,
+      "magazine": 20,
+      "reloadSeconds": 2.14,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "fal_sa_58",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 57646,
+      "rpm": 700,
+      "magazine": 20,
+      "reloadSeconds": 2.14,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "fal_sa_58_para",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 57646,
+      "rpm": 700,
+      "magazine": 20,
+      "reloadSeconds": 2.14,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "fal_sa_58_para_replica",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 57646,
+      "rpm": 700,
+      "magazine": 20,
+      "reloadSeconds": 2.14,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "famas_2010",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 45273,
+      "rpm": 900,
+      "magazine": 30,
+      "reloadSeconds": 2.49,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "famas_2010_replica",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 45273,
+      "rpm": 900,
+      "magazine": 30,
+      "reloadSeconds": 2.49,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "first_sight",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 67175,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 2.8,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "30_hsd_50_reload_speed_debuff"
+    },
+    {
+      "id": "g36_c",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 52564,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "g36_enhanced",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 52564,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "g36_enhanced_replica",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 52564,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "glory_daze",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 47365,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 17,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_near_sighted"
+    },
+    {
+      "id": "goalie",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 57634,
+      "rpm": 700,
+      "magazine": 20,
+      "reloadSeconds": 2.13,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_pressure_point"
+    },
+    {
+      "id": "honey_badger",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 51271,
+      "rpm": 800,
+      "magazine": 30,
+      "reloadSeconds": 2.06,
+      "optimalRange": 28,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "huntsman",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 45273,
+      "rpm": 900,
+      "magazine": 30,
+      "reloadSeconds": 2.49,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_frenzy"
+    },
+    {
+      "id": "invisible_hand",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 57218,
+      "rpm": 782,
+      "magazine": 42,
+      "reloadSeconds": 2.16,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_allegro"
+    },
+    {
+      "id": "kingbreaker",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 63509,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 1.87,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_flatline"
+    },
+    {
+      "id": "lexington",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 48700,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.24,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "1_782_base_damage"
+    },
+    {
+      "id": "lud",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 59221,
+      "rpm": 650,
+      "magazine": 30,
+      "reloadSeconds": 2.02,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_streamline"
+    },
+    {
+      "id": "manic",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 64717,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_overflowing"
+    },
+    {
+      "id": "mechanical_animal",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 55935,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 2.17,
+      "optimalRange": 28,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "future_perfection"
+    },
+    {
+      "id": "military_ak_m",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 64717,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 2.3,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_g36",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 52564,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_p416",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 47365,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_p416_g3",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 47365,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.34,
+      "optimalRange": 26,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "mk16",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 59221,
+      "rpm": 650,
+      "magazine": 30,
+      "reloadSeconds": 2.02,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "pdr",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 57618,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 2.04,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "police_m4",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 46918,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.24,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "police_m4_replica",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 46918,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.24,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "pyromaniac",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 46918,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.24,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_ignited"
+    },
+    {
+      "id": "savage_wolverine",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 51271,
+      "rpm": 800,
+      "magazine": 30,
+      "reloadSeconds": 2.06,
+      "optimalRange": 28,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfectly_close_personal"
+    },
+    {
+      "id": "shield_splinterer",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 45132,
+      "rpm": 900,
+      "magazine": 40,
+      "reloadSeconds": 2.4,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_optimist"
+    },
+    {
+      "id": "sig_556",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 55935,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 2.17,
+      "optimalRange": 28,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "sig_sauer_556",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 55935,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 2.17,
+      "optimalRange": 28,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "socom_mk16",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 59221,
+      "rpm": 650,
+      "magazine": 30,
+      "reloadSeconds": 2.02,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "st_elmo_s_engine",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 46918,
+      "rpm": 850,
+      "magazine": 40,
+      "reloadSeconds": 2.04,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "strega",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 57646,
+      "rpm": 700,
+      "magazine": 20,
+      "reloadSeconds": 1.95,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "unnerve",
+      "talType": "kill",
+      "talBonus": 20
+    },
+    {
+      "id": "tactical_mk_16",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 59221,
+      "rpm": 650,
+      "magazine": 30,
+      "reloadSeconds": 2.02,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tactical_mk_16_replica",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 59221,
+      "rpm": 650,
+      "magazine": 30,
+      "reloadSeconds": 2.02,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "test_subject",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 57618,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 2.04,
+      "optimalRange": 31,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfectly_in_sync"
+    },
+    {
+      "id": "the_bighorn_semi_auto_mode",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 230829,
+      "rpm": 120,
+      "magazine": 42,
+      "reloadSeconds": 2.1,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.55,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "the_bighorn_full_auto_mode",
+      "kind": "exotic",
+      "category": "ar",
+      "baseDamage": 57218,
+      "rpm": 800,
+      "magazine": 42,
+      "reloadSeconds": 1.8,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.55,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "the_drill",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 49790,
+      "rpm": 790,
+      "magazine": 30,
+      "reloadSeconds": 2.02,
+      "optimalRange": 28,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_precision_strike"
+    },
+    {
+      "id": "the_railsplitter",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 44802,
+      "rpm": 900,
+      "magazine": 30,
+      "reloadSeconds": 2.39,
+      "optimalRange": 32,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_accurate"
+    },
+    {
+      "id": "tkb_408",
+      "kind": "base",
+      "category": "ar",
+      "baseDamage": 63509,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 1.87,
+      "optimalRange": 27,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "aug_a3_para_xs",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 58662,
+      "rpm": 725,
+      "magazine": 25,
+      "reloadSeconds": 2.31,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "backfire",
+      "kind": "exotic",
+      "category": "smg",
+      "baseDamage": 50999,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.09,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "payment_in_kind",
+      "talType": "kill",
+      "talBonus": 50,
+      "talMax": 10
+    },
+    {
+      "id": "black_market_t821",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 76916,
+      "rpm": 550,
+      "magazine": 32,
+      "reloadSeconds": 1.47,
+      "optimalRange": 20,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "black_market_t821_replica",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 76916,
+      "rpm": 550,
+      "magazine": 32,
+      "reloadSeconds": 1.47,
+      "optimalRange": 20,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "cabaret",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 53904,
+      "rpm": 800,
+      "magazine": 30,
+      "reloadSeconds": 1.79,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_thunder_strike"
+    },
+    {
+      "id": "cmmg_banshee",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 47849,
+      "rpm": 900,
+      "magazine": 32,
+      "reloadSeconds": 1.92,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "cold_relations",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 63593,
+      "rpm": 700,
+      "magazine": 53,
+      "reloadSeconds": 1.46,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_strained"
+    },
+    {
+      "id": "converted_smg_9",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 48512,
+      "rpm": 1000,
+      "magazine": 32,
+      "reloadSeconds": 2.26,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "converted_smg_9_a2",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 46735,
+      "rpm": 1000,
+      "magazine": 32,
+      "reloadSeconds": 2.3,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "converted_smg_9_replica",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 48512,
+      "rpm": 1000,
+      "magazine": 32,
+      "reloadSeconds": 2.26,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "dark_winter",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 38301,
+      "rpm": 1200,
+      "magazine": 25,
+      "reloadSeconds": 2.06,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_killer"
+    },
+    {
+      "id": "emeline_s_guard",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 39457,
+      "rpm": 1100,
+      "magazine": 50,
+      "reloadSeconds": 1.57,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_preservation"
+    },
+    {
+      "id": "enhanced_aug_a3p",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 58662,
+      "rpm": 725,
+      "magazine": 25,
+      "reloadSeconds": 2.31,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "enhanced_pp_19",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 63593,
+      "rpm": 700,
+      "magazine": 53,
+      "reloadSeconds": 1.46,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle"
+      ]
+    },
+    {
+      "id": "froth",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 40506,
+      "rpm": 1200,
+      "magazine": 19,
+      "reloadSeconds": 2.38,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_immobilize"
+    },
+    {
+      "id": "grown_great",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 50627,
+      "rpm": 900,
+      "magazine": 50,
+      "reloadSeconds": 1.54,
+      "optimalRange": 19,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_stabilize"
+    },
+    {
+      "id": "interchange",
+      "kind": "named",
+      "category": "ar",
+      "baseDamage": 58662,
+      "rpm": 725,
+      "magazine": 25,
+      "reloadSeconds": 2.31,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_back_and_forth"
+    },
+    {
+      "id": "lady_death",
+      "kind": "exotic",
+      "category": "smg",
+      "baseDamage": 35409,
+      "rpm": 900,
+      "magazine": 32,
+      "reloadSeconds": 1.75,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "breathe_free",
+      "talType": "kill",
+      "talBonus": 50,
+      "talMax": 10
+    },
+    {
+      "id": "m1928",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 78416,
+      "rpm": 600,
+      "magazine": 30,
+      "reloadSeconds": 1.46,
+      "optimalRange": 19,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "magazine"
+      ]
+    },
+    {
+      "id": "mp5_st",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 53904,
+      "rpm": 800,
+      "magazine": 30,
+      "reloadSeconds": 1.79,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "mp5_st_replica",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 53904,
+      "rpm": 800,
+      "magazine": 30,
+      "reloadSeconds": 1.79,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "mp5_n",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 53904,
+      "rpm": 800,
+      "magazine": 30,
+      "reloadSeconds": 1.79,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "mp5a2",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 53904,
+      "rpm": 800,
+      "magazine": 30,
+      "reloadSeconds": 1.79,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "mp7",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 46406,
+      "rpm": 950,
+      "magazine": 40,
+      "reloadSeconds": 2,
+      "optimalRange": 19,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "ouroboros",
+      "kind": "exotic",
+      "category": "smg",
+      "baseDamage": 38301,
+      "rpm": 1275,
+      "magazine": 50,
+      "reloadSeconds": 1.65,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "ouroboros_exotic",
+      "talType": "stacks",
+      "talBonus": 50,
+      "talMax": 100
+    },
+    {
+      "id": "oxpecker",
+      "kind": "exotic",
+      "category": "smg",
+      "baseDamage": 46406,
+      "rpm": 950,
+      "magazine": 40,
+      "reloadSeconds": 2,
+      "optimalRange": 19,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "oxpecker_exotic",
+      "talType": "kill",
+      "talBonus": 20
+    },
+    {
+      "id": "p90",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 39457,
+      "rpm": 1100,
+      "magazine": 50,
+      "reloadSeconds": 1.57,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle"
+      ]
+    },
+    {
+      "id": "p90_replica",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 39457,
+      "rpm": 1100,
+      "magazine": 50,
+      "reloadSeconds": 1.57,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle"
+      ]
+    },
+    {
+      "id": "police_t821",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 76916,
+      "rpm": 550,
+      "magazine": 32,
+      "reloadSeconds": 1.47,
+      "optimalRange": 20,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "police_ump_45",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 63692,
+      "rpm": 650,
+      "magazine": 25,
+      "reloadSeconds": 1.67,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "pp_19",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 63593,
+      "rpm": 700,
+      "magazine": 53,
+      "reloadSeconds": 1.46,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle"
+      ]
+    },
+    {
+      "id": "purist",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 46735,
+      "rpm": 1000,
+      "magazine": 32,
+      "reloadSeconds": 2.3,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_streamline"
+    },
+    {
+      "id": "safety_distance",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 50999,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.09,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_outsider"
+    },
+    {
+      "id": "sig_mpx",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 50999,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.09,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "slingshot",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 63692,
+      "rpm": 650,
+      "magazine": 25,
+      "reloadSeconds": 1.67,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "45_optimal_range_60_total"
+    },
+    {
+      "id": "swap_chain",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 46406,
+      "rpm": 950,
+      "magazine": 40,
+      "reloadSeconds": 2,
+      "optimalRange": 19,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_unwavering"
+    },
+    {
+      "id": "tactical_aug_a3p",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 58662,
+      "rpm": 725,
+      "magazine": 25,
+      "reloadSeconds": 2.31,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tactical_aug_a3p_replica",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 58662,
+      "rpm": 725,
+      "magazine": 25,
+      "reloadSeconds": 2.31,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tactical_ump_45",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 63692,
+      "rpm": 650,
+      "magazine": 25,
+      "reloadSeconds": 1.67,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tactical_ump_45_replica",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 63692,
+      "rpm": 650,
+      "magazine": 25,
+      "reloadSeconds": 1.67,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tactical_vector_sbr_9mm",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 40506,
+      "rpm": 1200,
+      "magazine": 19,
+      "reloadSeconds": 1.69,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "the_apartment",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 50999,
+      "rpm": 850,
+      "magazine": 30,
+      "reloadSeconds": 2.09,
+      "optimalRange": 22,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_measured"
+    },
+    {
+      "id": "the_chatterbox",
+      "kind": "exotic",
+      "category": "smg",
+      "baseDamage": 39457,
+      "rpm": 850,
+      "magazine": 50,
+      "reloadSeconds": 1.43,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "incessant_chatter",
+      "talType": "amp",
+      "talBonus": 0
+    },
+    {
+      "id": "the_grudge",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 47849,
+      "rpm": 900,
+      "magazine": 32,
+      "reloadSeconds": 1.92,
+      "optimalRange": 21,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_vindictive"
+    },
+    {
+      "id": "the_sleigher",
+      "kind": "named",
+      "category": "smg",
+      "baseDamage": 92990,
+      "rpm": 250,
+      "magazine": 50,
+      "reloadSeconds": 2.3,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "hidden_rock"
+    },
+    {
+      "id": "tommy_gun",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 50627,
+      "rpm": 900,
+      "magazine": 50,
+      "reloadSeconds": 1.54,
+      "optimalRange": 19,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "magazine"
+      ]
+    },
+    {
+      "id": "vector_sbr_45_acp",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 38301,
+      "rpm": 1200,
+      "magazine": 25,
+      "reloadSeconds": 2.06,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "vector_sbr_45_acp_replica",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 38301,
+      "rpm": 1200,
+      "magazine": 25,
+      "reloadSeconds": 2.06,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "vector_sbr_9mm",
+      "kind": "base",
+      "category": "smg",
+      "baseDamage": 39307,
+      "rpm": 1200,
+      "magazine": 33,
+      "reloadSeconds": 2.38,
+      "optimalRange": 15,
+      "headshotMultiplier": 1.6,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "big_alejandro",
+      "kind": "exotic",
+      "category": "lmg",
+      "baseDamage": 39279,
+      "rpm": 1100,
+      "magazine": 200,
+      "reloadSeconds": 0,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [],
+      "talentId": "big_alejandro",
+      "talType": "shot_cover",
+      "talBonus": 0,
+      "talMax": 100
+    },
+    {
+      "id": "big_show",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 53546,
+      "rpm": 800,
+      "magazine": 50,
+      "reloadSeconds": 2.96,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_thunder_strike"
+    },
+    {
+      "id": "black_friday",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 56414,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_unhinged"
+    },
+    {
+      "id": "black_market_m60_e6",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 65234,
+      "rpm": 600,
+      "magazine": 100,
+      "reloadSeconds": 3.85,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "black_market_m60_e6_replica",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 65234,
+      "rpm": 600,
+      "magazine": 100,
+      "reloadSeconds": 3.85,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "black_market_rpk_74",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 71538,
+      "rpm": 600,
+      "magazine": 40,
+      "reloadSeconds": 4,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "black_market_rpk_74_replica",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 71538,
+      "rpm": 600,
+      "magazine": 40,
+      "reloadSeconds": 4,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "bluescreen",
+      "kind": "exotic",
+      "category": "lmg",
+      "baseDamage": 62361,
+      "rpm": 720,
+      "magazine": 200,
+      "reloadSeconds": 2.22,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "bluescreen_exotic",
+      "talType": "stacks",
+      "talBonus": 20,
+      "talMax": 10
+    },
+    {
+      "id": "bullet_king",
+      "kind": "exotic",
+      "category": "lmg",
+      "baseDamage": 54604,
+      "rpm": 750,
+      "magazine": 100,
+      "reloadSeconds": 4.76,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "bullet_king_exotic",
+      "talType": "no_reload",
+      "talBonus": 0
+    },
+    {
+      "id": "carnage",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 54604,
+      "rpm": 750,
+      "magazine": 100,
+      "reloadSeconds": 4,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_sadist"
+    },
+    {
+      "id": "classic_m60",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 67711,
+      "rpm": 600,
+      "magazine": 100,
+      "reloadSeconds": 3.75,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "classic_m60_replica",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 67711,
+      "rpm": 600,
+      "magazine": 100,
+      "reloadSeconds": 3.75,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "classic_rpk_74",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 71538,
+      "rpm": 600,
+      "magazine": 40,
+      "reloadSeconds": 4,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "cricket",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 49480,
+      "rpm": 750,
+      "magazine": 200,
+      "reloadSeconds": 3.63,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_precision_strike"
+    },
+    {
+      "id": "custom_l86_a2",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 61097,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 3.18,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "custom_l86_a2_replica",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 61097,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 3.18,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "dare",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 49480,
+      "rpm": 750,
+      "magazine": 200,
+      "reloadSeconds": 3.63,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_flatline"
+    },
+    {
+      "id": "gear_shift",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 48300,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_gear_shift_talent"
+    },
+    {
+      "id": "good_times",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 65234,
+      "rpm": 600,
+      "magazine": 100,
+      "reloadSeconds": 3.85,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_fast_hands"
+    },
+    {
+      "id": "hk_gr9",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 49480,
+      "rpm": 750,
+      "magazine": 200,
+      "reloadSeconds": 3.63,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": []
+    },
+    {
+      "id": "infantry_mg5",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 52334,
+      "rpm": 800,
+      "magazine": 50,
+      "reloadSeconds": 3.01,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "infantry_mg5_replica",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 52334,
+      "rpm": 800,
+      "magazine": 50,
+      "reloadSeconds": 3.01,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "iron_lung",
+      "kind": "exotic",
+      "category": "lmg",
+      "baseDamage": 54322,
+      "rpm": 800,
+      "magazine": 50,
+      "reloadSeconds": 2.96,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "iron_lung_exotic",
+      "talType": "amp",
+      "talBonus": 45,
+      "talMax": 5
+    },
+    {
+      "id": "iwi_negev",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 54604,
+      "rpm": 750,
+      "magazine": 100,
+      "reloadSeconds": 4,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m249_b",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 48300,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "mg5",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 54322,
+      "rpm": 800,
+      "magazine": 50,
+      "reloadSeconds": 2.96,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_l86_lsw",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 61097,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 3.18,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_l86_a2",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 61097,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 3.18,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_l86_a2_replica",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 61097,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 3.18,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "bellringer",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 52334,
+      "rpm": 800,
+      "magazine": 50,
+      "reloadSeconds": 3.01,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_m60_e4",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 65234,
+      "rpm": 600,
+      "magazine": 100,
+      "reloadSeconds": 3.85,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_mk46",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 48300,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_mk46_replica",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 48300,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_rpk_74",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 71538,
+      "rpm": 600,
+      "magazine": 40,
+      "reloadSeconds": 4,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "new_reliable",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 71538,
+      "rpm": 600,
+      "magazine": 40,
+      "reloadSeconds": 2.86,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_optimized"
+    },
+    {
+      "id": "october_fifth_m249_b",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 48300,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "pakhan",
+      "kind": "exotic",
+      "category": "lmg",
+      "baseDamage": 71538,
+      "rpm": 600,
+      "magazine": 40,
+      "reloadSeconds": 4,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "pakhan_exotic",
+      "talType": "kill",
+      "talBonus": 50,
+      "talMax": 10
+    },
+    {
+      "id": "pestilence",
+      "kind": "exotic",
+      "category": "lmg",
+      "baseDamage": 48300,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "pestilence_exotic",
+      "talType": "none",
+      "talBonus": 0
+    },
+    {
+      "id": "quiet_roar",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 62361,
+      "rpm": 580,
+      "magazine": 200,
+      "reloadSeconds": 3,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_overwhelm"
+    },
+    {
+      "id": "rusty",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 71538,
+      "rpm": 600,
+      "magazine": 40,
+      "reloadSeconds": 3,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_pressure_point"
+    },
+    {
+      "id": "sleipnir",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 53546,
+      "rpm": 800,
+      "magazine": 50,
+      "reloadSeconds": 2.96,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfectly_frenzy"
+    },
+    {
+      "id": "stoner_lamg",
+      "kind": "base",
+      "category": "lmg",
+      "baseDamage": 62361,
+      "rpm": 580,
+      "magazine": 200,
+      "reloadSeconds": 3,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tabula_rasa",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 61097,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 3.18,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_steady_handed"
+    },
+    {
+      "id": "tactical_m249_para",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 48300,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "the_stinger",
+      "kind": "named",
+      "category": "lmg",
+      "baseDamage": 56414,
+      "rpm": 850,
+      "magazine": 100,
+      "reloadSeconds": 4.54,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "swift"
+    },
+    {
+      "id": "1886",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 386989,
+      "rpm": 100,
+      "magazine": 8,
+      "reloadSeconds": 3.46,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "magazine"
+      ]
+    },
+    {
+      "id": "achilles",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 97743,
+      "rpm": 420,
+      "magazine": 20,
+      "reloadSeconds": 2.88,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_soft_spot"
+    },
+    {
+      "id": "acr_ss",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 101828,
+      "rpm": 420,
+      "magazine": 30,
+      "reloadSeconds": 2.63,
+      "optimalRange": 45,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "artist_s_tool",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 125865,
+      "rpm": 320,
+      "magazine": 20,
+      "reloadSeconds": 2.63,
+      "optimalRange": 45,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_rifleman"
+    },
+    {
+      "id": "baker_s_dozen",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 231346,
+      "rpm": 180,
+      "magazine": 13,
+      "reloadSeconds": 2.86,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_lucky_shot"
+    },
+    {
+      "id": "bittersweet",
+      "kind": "exotic",
+      "category": "rifle",
+      "baseDamage": 231346,
+      "rpm": 180,
+      "magazine": 10,
+      "reloadSeconds": 2.36,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "bittersweet",
+      "talType": "none",
+      "talBonus": 0
+    },
+    {
+      "id": "classic_m1a",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 231346,
+      "rpm": 180,
+      "magazine": 10,
+      "reloadSeconds": 2.6,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "cooler",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 0,
+      "rpm": 320,
+      "magazine": 100,
+      "reloadSeconds": 3,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "refreshing"
+    },
+    {
+      "id": "diamondback",
+      "kind": "exotic",
+      "category": "rifle",
+      "baseDamage": 386989,
+      "rpm": 100,
+      "magazine": 8,
+      "reloadSeconds": 3.15,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "agonizing_bite",
+      "talType": "conditional",
+      "talBonus": 20,
+      "burstNote": "Каждый 10й выстрел = guaranteed crit + status. +20% WD vs status"
+    },
+    {
+      "id": "doctor_home",
+      "kind": "exotic",
+      "category": "rifle",
+      "baseDamage": 129270,
+      "rpm": 320,
+      "magazine": 10,
+      "reloadSeconds": 1.93,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "doctor_home_exotic",
+      "talType": "hs_kill",
+      "talBonus": 20
+    },
+    {
+      "id": "everlasting_gaze",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 145850,
+      "rpm": 275,
+      "magazine": 10,
+      "reloadSeconds": 2.45,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_perpetuation"
+    },
+    {
+      "id": "harmony",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 124901,
+      "rpm": 300,
+      "magazine": 30,
+      "reloadSeconds": 1.94,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfectly_in_sync"
+    },
+    {
+      "id": "lightweight_m4",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 107258,
+      "rpm": 360,
+      "magazine": 30,
+      "reloadSeconds": 2.03,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "lvoa_c",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 100615,
+      "rpm": 380,
+      "magazine": 30,
+      "reloadSeconds": 2.08,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "lvoa_c_replica",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 100615,
+      "rpm": 380,
+      "magazine": 30,
+      "reloadSeconds": 2.08,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m16a2",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 106971,
+      "rpm": 400,
+      "magazine": 30,
+      "reloadSeconds": 2.44,
+      "optimalRange": 50,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m16a2_replica",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 106971,
+      "rpm": 400,
+      "magazine": 30,
+      "reloadSeconds": 2.44,
+      "optimalRange": 50,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m1a_cqb",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 129180,
+      "rpm": 320,
+      "magazine": 10,
+      "reloadSeconds": 2.32,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m1a_cqb_replica",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 129180,
+      "rpm": 320,
+      "magazine": 10,
+      "reloadSeconds": 2.32,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "merciless",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 102270,
+      "rpm": 400,
+      "magazine": 30,
+      "reloadSeconds": 1.74,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_mk17",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 145850,
+      "rpm": 275,
+      "magazine": 10,
+      "reloadSeconds": 2.45,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "police_mk17",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 145850,
+      "rpm": 275,
+      "magazine": 10,
+      "reloadSeconds": 2.45,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "police_mk17_replica",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 145850,
+      "rpm": 275,
+      "magazine": 10,
+      "reloadSeconds": 2.45,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "resolute_mk47",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 124901,
+      "rpm": 300,
+      "magazine": 30,
+      "reloadSeconds": 1.94,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "ruthless",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 102270,
+      "rpm": 400,
+      "magazine": 30,
+      "reloadSeconds": 1.74,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "sig_716",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 121258,
+      "rpm": 320,
+      "magazine": 20,
+      "reloadSeconds": 2.68,
+      "optimalRange": 45,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "sig_716_cqb",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 125865,
+      "rpm": 320,
+      "magazine": 20,
+      "reloadSeconds": 2.63,
+      "optimalRange": 45,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "sig_716_replica",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 121258,
+      "rpm": 320,
+      "magazine": 20,
+      "reloadSeconds": 2.68,
+      "optimalRange": 45,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "socom_m1a",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 129180,
+      "rpm": 320,
+      "magazine": 10,
+      "reloadSeconds": 2.32,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "stage_left",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 129180,
+      "rpm": 320,
+      "magazine": 10,
+      "reloadSeconds": 2.32,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_sledgehammer"
+    },
+    {
+      "id": "surge",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 100615,
+      "rpm": 380,
+      "magazine": 30,
+      "reloadSeconds": 2.08,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_spike"
+    },
+    {
+      "id": "the_ravenous",
+      "kind": "exotic",
+      "category": "rifle",
+      "baseDamage": 134360,
+      "rpm": 240,
+      "magazine": 60,
+      "reloadSeconds": 2.18,
+      "optimalRange": 50,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "geri_and_freki",
+      "talType": "kill",
+      "talBonus": 500,
+      "talMax": 10,
+      "isBurst": true,
+      "burstNote": "10 kills + max stacks: следующий выстрел 500% WD"
+    },
+    {
+      "id": "the_virginian",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 386989,
+      "rpm": 100,
+      "magazine": 8,
+      "reloadSeconds": 3.46,
+      "optimalRange": 35,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfect_boomerang"
+    },
+    {
+      "id": "trader",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 92365,
+      "rpm": 420,
+      "magazine": 30,
+      "reloadSeconds": 2.63,
+      "optimalRange": 45,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_back_and_forth"
+    },
+    {
+      "id": "uic15_mod2",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 150316,
+      "rpm": 240,
+      "magazine": 30,
+      "reloadSeconds": 1.73,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "urban_mdr",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 102970,
+      "rpm": 380,
+      "magazine": 20,
+      "reloadSeconds": 2.85,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "urban_mdr_replica",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 102970,
+      "rpm": 380,
+      "magazine": 20,
+      "reloadSeconds": 2.85,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "usc_45_acp",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 97743,
+      "rpm": 420,
+      "magazine": 20,
+      "reloadSeconds": 2.88,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "usc_45_acp_replica",
+      "kind": "base",
+      "category": "rifle",
+      "baseDamage": 97743,
+      "rpm": 420,
+      "magazine": 20,
+      "reloadSeconds": 2.88,
+      "optimalRange": 55,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "vindicator",
+      "kind": "exotic",
+      "category": "rifle",
+      "baseDamage": 102970,
+      "rpm": 380,
+      "magazine": 20,
+      "reloadSeconds": 2.97,
+      "optimalRange": 60,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "ortiz_assault_interface",
+      "talType": "conditional",
+      "talBonus": 300,
+      "isBurst": true,
+      "burstNote": "10 stacks: следующий выстрел 300% WD"
+    },
+    {
+      "id": "whisper",
+      "kind": "named",
+      "category": "rifle",
+      "baseDamage": 106971,
+      "rpm": 400,
+      "magazine": 30,
+      "reloadSeconds": 2.44,
+      "optimalRange": 50,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_behind_you"
+    },
+    {
+      "id": "adrestia",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 7,
+      "reloadSeconds": 3.15,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_adrestia_talent"
+    },
+    {
+      "id": "brutus",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 412516,
+      "rpm": 55,
+      "magazine": 7,
+      "reloadSeconds": 3.98,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_behind_you"
+    },
+    {
+      "id": "classic_m44_carbine",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 433564,
+      "rpm": 55,
+      "magazine": 5,
+      "reloadSeconds": 4.29,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "classic_m44_carbine_replica",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 433564,
+      "rpm": 55,
+      "magazine": 5,
+      "reloadSeconds": 4.29,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "commando",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 156663,
+      "rpm": 260,
+      "magazine": 10,
+      "reloadSeconds": 2.85,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfectly_naked"
+    },
+    {
+      "id": "covert_srs",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 7,
+      "reloadSeconds": 4.29,
+      "optimalRange": 60,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "custom_m44",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 417692,
+      "rpm": 55,
+      "magazine": 5,
+      "reloadSeconds": 4.29,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "custom_m44_replica",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 417692,
+      "rpm": 55,
+      "magazine": 5,
+      "reloadSeconds": 4.29,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "designated_hitter",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 7,
+      "reloadSeconds": 3.15,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_reformation"
+    },
+    {
+      "id": "dread_edict",
+      "kind": "exotic",
+      "category": "mmr",
+      "baseDamage": 156663,
+      "rpm": 260,
+      "magazine": 10,
+      "reloadSeconds": 2.48,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "full_stop",
+      "talType": "conditional",
+      "talBonus": 500,
+      "isBurst": true,
+      "burstNote": "5 HS stacks: следующий выстрел 500% WD"
+    },
+    {
+      "id": "ekim_s_long_stick",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 441570,
+      "rpm": 55,
+      "magazine": 7,
+      "reloadSeconds": 7.05,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "g28",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 206425,
+      "rpm": 180,
+      "magazine": 20,
+      "reloadSeconds": 3.6,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "handbasket",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 386989,
+      "rpm": 60,
+      "magazine": 10,
+      "reloadSeconds": 3.15,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "230_326_base_damage_200_rpm"
+    },
+    {
+      "id": "hunting_m44",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 417692,
+      "rpm": 55,
+      "magazine": 5,
+      "reloadSeconds": 4.29,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "instigator",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 417692,
+      "rpm": 55,
+      "magazine": 5,
+      "reloadSeconds": 4.29,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_soft_spot"
+    },
+    {
+      "id": "m700_carbon",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 412516,
+      "rpm": 55,
+      "magazine": 7,
+      "reloadSeconds": 3.98,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m700_carbon_replica",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 412516,
+      "rpm": 55,
+      "magazine": 7,
+      "reloadSeconds": 3.96,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m700_tactical",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 412516,
+      "rpm": 55,
+      "magazine": 7,
+      "reloadSeconds": 3.98,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "mantis",
+      "kind": "exotic",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 7,
+      "reloadSeconds": 3.9,
+      "optimalRange": 60,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "in_plain_sight",
+      "talType": "conditional",
+      "talBonus": 100,
+      "isBurst": true,
+      "burstNote": "После стелса от убийства: следующий выстрел +100% WD + гарантированный крит"
+    },
+    {
+      "id": "model_700",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 441570,
+      "rpm": 55,
+      "magazine": 7,
+      "reloadSeconds": 7.05,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "model_700_replica",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 441570,
+      "rpm": 55,
+      "magazine": 7,
+      "reloadSeconds": 7.05,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "nemesis",
+      "kind": "exotic",
+      "category": "mmr",
+      "baseDamage": 940240,
+      "rpm": 50,
+      "magazine": 5,
+      "reloadSeconds": 2.78,
+      "optimalRange": 60,
+      "headshotMultiplier": 2.5,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "nemesis_exotic",
+      "talType": "stacks",
+      "talBonus": 50,
+      "talMax": 10
+    },
+    {
+      "id": "oh_carol",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 433564,
+      "rpm": 55,
+      "magazine": 5,
+      "reloadSeconds": 4.77,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.37,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "137_0_headshot_damage_twinkling_lights"
+    },
+    {
+      "id": "paratrooper_svd",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 156663,
+      "rpm": 260,
+      "magazine": 10,
+      "reloadSeconds": 2.85,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "pinprick",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 7,
+      "reloadSeconds": 4.29,
+      "optimalRange": 60,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_first_blood"
+    },
+    {
+      "id": "relic",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 206425,
+      "rpm": 180,
+      "magazine": 20,
+      "reloadSeconds": 3.6,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfectly_determined"
+    },
+    {
+      "id": "sacrum_imperium",
+      "kind": "exotic",
+      "category": "mmr",
+      "baseDamage": 206425,
+      "rpm": 180,
+      "magazine": 20,
+      "reloadSeconds": 3.6,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "the_trap",
+      "talType": "stacks",
+      "talBonus": 30,
+      "talMax": 5
+    },
+    {
+      "id": "scalpel",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 403810,
+      "rpm": 70,
+      "magazine": 7,
+      "reloadSeconds": 3.04,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "future_perfection"
+    },
+    {
+      "id": "shroud",
+      "kind": "exotic",
+      "category": "mmr",
+      "baseDamage": 412516,
+      "rpm": 55,
+      "magazine": 7,
+      "reloadSeconds": 0,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "shroud",
+      "talType": "hs_kill",
+      "talBonus": 50
+    },
+    {
+      "id": "socom_mk20_ssr",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 145850,
+      "rpm": 275,
+      "magazine": 20,
+      "reloadSeconds": 4.99,
+      "optimalRange": 55,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "socom_mk20_ssr_replica",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 145850,
+      "rpm": 275,
+      "magazine": 20,
+      "reloadSeconds": 4.99,
+      "optimalRange": 55,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "sr_1",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 7,
+      "reloadSeconds": 3.15,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "sr_1_replica",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 5,
+      "reloadSeconds": 3.15,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "srs_a1",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 7,
+      "reloadSeconds": 4.29,
+      "optimalRange": 60,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "srs_a1_replica",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 409357,
+      "rpm": 60,
+      "magazine": 7,
+      "reloadSeconds": 4.29,
+      "optimalRange": 60,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "surplus_svd",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 156663,
+      "rpm": 260,
+      "magazine": 10,
+      "reloadSeconds": 2.85,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tactical_308",
+      "kind": "base",
+      "category": "mmr",
+      "baseDamage": 403810,
+      "rpm": 70,
+      "magazine": 7,
+      "reloadSeconds": 3.04,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "the_darkness",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 145850,
+      "rpm": 275,
+      "magazine": 20,
+      "reloadSeconds": 4.99,
+      "optimalRange": 55,
+      "headshotMultiplier": 2.25,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_eyeless"
+    },
+    {
+      "id": "the_white_death",
+      "kind": "named",
+      "category": "mmr",
+      "baseDamage": 433564,
+      "rpm": 55,
+      "magazine": 5,
+      "reloadSeconds": 4.29,
+      "optimalRange": 50,
+      "headshotMultiplier": 2.37,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "137_0_headshot_damage"
+    },
+    {
+      "id": "bighorn",
+      "kind": "exotic",
+      "category": "mmr",
+      "baseDamage": 57618,
+      "rpm": 750,
+      "magazine": 30,
+      "reloadSeconds": 2,
+      "optimalRange": 40,
+      "headshotMultiplier": 1.55,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "acs_12",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 180748,
+      "rpm": 300,
+      "magazine": 20,
+      "reloadSeconds": 3.35,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "backup_boomstick",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 635712,
+      "rpm": 200,
+      "magazine": 2,
+      "reloadSeconds": 2.51,
+      "optimalRange": 7,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "muzzle"
+      ],
+      "talentId": "core_attribute"
+    },
+    {
+      "id": "black_market_sasg_12_s",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 349804,
+      "rpm": 180,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "black_market_sasg_12_s_replica",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 349804,
+      "rpm": 180,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "boomstick",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 678136,
+      "rpm": 200,
+      "magazine": 2,
+      "reloadSeconds": 3.89,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "muzzle"
+      ],
+      "talentId": "perfect_pumped_up"
+    },
+    {
+      "id": "cu_lebre",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 703672,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 2.23,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "custom_m870_mcs",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 703672,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 3.35,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "custom_m870_mcs_replica",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 703672,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 3.35,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "double_barrel_sawed_off",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 635712,
+      "rpm": 200,
+      "magazine": 2,
+      "reloadSeconds": 2.51,
+      "optimalRange": 7,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "double_barrel_shotgun",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 678136,
+      "rpm": 200,
+      "magazine": 2,
+      "reloadSeconds": 3.54,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "double_barrel_shotgun_replica",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 678136,
+      "rpm": 200,
+      "magazine": 2,
+      "reloadSeconds": 3.89,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "enforcer",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 389936,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 4.65,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_pummel"
+    },
+    {
+      "id": "firestarter",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 635712,
+      "rpm": 200,
+      "magazine": 2,
+      "reloadSeconds": 2.51,
+      "optimalRange": 7,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "muzzle"
+      ],
+      "talentId": "primer_rounds"
+    },
+    {
+      "id": "ksg_shotgun",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 678928,
+      "rpm": 70,
+      "magazine": 12,
+      "reloadSeconds": 7.99,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "lefty",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 180748,
+      "rpm": 300,
+      "magazine": 20,
+      "reloadSeconds": 2.3,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_sledgehammer"
+    },
+    {
+      "id": "like_glue",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 389936,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 4.65,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_brazen"
+    },
+    {
+      "id": "lockdown",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 703672,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 3.35,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_immobilize"
+    },
+    {
+      "id": "lullaby",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 716008,
+      "rpm": 70,
+      "magazine": 8,
+      "reloadSeconds": 4.78,
+      "optimalRange": 13,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m870_express",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 703672,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 3.35,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "m870_express_replica",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 703672,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 3.35,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "marine_super_90",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 389936,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 4.65,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_m870",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 703672,
+      "rpm": 75,
+      "magazine": 5,
+      "reloadSeconds": 3.35,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "overlord",
+      "kind": "exotic",
+      "category": "shotgun",
+      "baseDamage": 678928,
+      "rpm": 70,
+      "magazine": 12,
+      "reloadSeconds": 6.79,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "warlord",
+      "talType": "stacks",
+      "talBonus": 25,
+      "talMax": 10
+    },
+    {
+      "id": "rock_n_roll",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 180748,
+      "rpm": 300,
+      "magazine": 30,
+      "reloadSeconds": 3.35,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_extra"
+    },
+    {
+      "id": "sasg_12",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 349804,
+      "rpm": 180,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "scorpio",
+      "kind": "exotic",
+      "category": "shotgun",
+      "baseDamage": 409568,
+      "rpm": 130,
+      "magazine": 7,
+      "reloadSeconds": 2.5,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "scorpio_exotic",
+      "talType": "conditional",
+      "talBonus": 20,
+      "burstNote": "Все 3 статуса наложены: +20% WD"
+    },
+    {
+      "id": "the_sheriff",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 526412,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 4.23,
+      "optimalRange": 100,
+      "headshotMultiplier": 1.65,
+      "modSlots": [],
+      "talentId": "autentico_35_weapon_damage_100_accuracy_no_damage_drop_off_these_bonus_are_built_into_the_weapons_base_stats"
+    },
+    {
+      "id": "six12",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 409568,
+      "rpm": 130,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "spas_12",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 716008,
+      "rpm": 70,
+      "magazine": 8,
+      "reloadSeconds": 5.45,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "magazine"
+      ]
+    },
+    {
+      "id": "spas_12_replica",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 716008,
+      "rpm": 70,
+      "magazine": 8,
+      "reloadSeconds": 5.5,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "magazine"
+      ]
+    },
+    {
+      "id": "stack_broker",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 150623,
+      "rpm": 360,
+      "magazine": 20,
+      "reloadSeconds": 3.35,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "super_90",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 389936,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 4.65,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "super_90_replica",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 389936,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 4.65,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "sweet_dreams",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 716008,
+      "rpm": 70,
+      "magazine": 8,
+      "reloadSeconds": 4.78,
+      "optimalRange": 13,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "tactical_sasg_12_k",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 349804,
+      "rpm": 180,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel"
+      ]
+    },
+    {
+      "id": "tactical_super_90_sbs",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 389936,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 4.65,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tactical_super_90_sbs_replica",
+      "kind": "base",
+      "category": "shotgun",
+      "baseDamage": 389936,
+      "rpm": 160,
+      "magazine": 8,
+      "reloadSeconds": 4.65,
+      "optimalRange": 11,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "optic",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "the_mop",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 409568,
+      "rpm": 130,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "secondary_attribute"
+    },
+    {
+      "id": "the_send_off",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 678928,
+      "rpm": 70,
+      "magazine": 12,
+      "reloadSeconds": 7.99,
+      "optimalRange": 32,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_distance"
+    },
+    {
+      "id": "thorn",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 716008,
+      "rpm": 70,
+      "magazine": 8,
+      "reloadSeconds": 5.5,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel"
+      ],
+      "talentId": "perfect_brazen"
+    },
+    {
+      "id": "tsunami",
+      "kind": "named",
+      "category": "shotgun",
+      "baseDamage": 349804,
+      "rpm": 180,
+      "magazine": 7,
+      "reloadSeconds": 3,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.65,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "perfect_pummel"
+    },
+    {
+      "id": "586_magnum",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 233278,
+      "rpm": 160,
+      "magazine": 6,
+      "reloadSeconds": 2.54,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "magazine"
+      ]
+    },
+    {
+      "id": "93r",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 52978,
+      "rpm": 700,
+      "magazine": 20,
+      "reloadSeconds": 1.71,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "busy_little_bee",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 93963,
+      "rpm": 400,
+      "magazine": 10,
+      "reloadSeconds": 1.61,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "busy_little_bee",
+      "talType": "swap_in",
+      "talBonus": 9
+    },
+    {
+      "id": "custom_pf45",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 93963,
+      "rpm": 370,
+      "magazine": 10,
+      "reloadSeconds": 1.77,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "d50",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 189172,
+      "rpm": 200,
+      "magazine": 8,
+      "reloadSeconds": 2.24,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic"
+      ]
+    },
+    {
+      "id": "diceros",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 204803,
+      "rpm": 180,
+      "magazine": 6,
+      "reloadSeconds": 2,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "diceros_replica",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 204803,
+      "rpm": 180,
+      "magazine": 6,
+      "reloadSeconds": 2,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "diceros_special",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 198306,
+      "rpm": 180,
+      "magazine": 6,
+      "reloadSeconds": 1.93,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfect_optimist"
+    },
+    {
+      "id": "first_wave_pf45",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 100728,
+      "rpm": 370,
+      "magazine": 10,
+      "reloadSeconds": 1.74,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "kard_45",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 114267,
+      "rpm": 310,
+      "magazine": 10,
+      "reloadSeconds": 1.71,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "liberty",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 189172,
+      "rpm": 200,
+      "magazine": 8,
+      "reloadSeconds": 1.95,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ],
+      "talentId": "liberty_exotic",
+      "talType": "kill",
+      "talBonus": 25,
+      "talMax": 5
+    },
+    {
+      "id": "lightning_rod",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 93963,
+      "rpm": 370,
+      "magazine": 10,
+      "reloadSeconds": 1.77,
+      "optimalRange": 14,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfect_salvage"
+    },
+    {
+      "id": "m1911",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 129885,
+      "rpm": 310,
+      "magazine": 7,
+      "reloadSeconds": 2.24,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "magazine"
+      ]
+    },
+    {
+      "id": "m45a1",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 117436,
+      "rpm": 310,
+      "magazine": 7,
+      "reloadSeconds": 2.33,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "maxim_9",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 125385,
+      "rpm": 280,
+      "magazine": 17,
+      "reloadSeconds": 1.39,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfect_spike"
+    },
+    {
+      "id": "military_m9",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 102585,
+      "rpm": 350,
+      "magazine": 15,
+      "reloadSeconds": 1.9,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "military_m9_replica",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 102585,
+      "rpm": 350,
+      "magazine": 15,
+      "reloadSeconds": 1.9,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle",
+        "magazine"
+      ]
+    },
+    {
+      "id": "mosquito",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 102585,
+      "rpm": 350,
+      "magazine": 15,
+      "reloadSeconds": 1.65,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle"
+      ],
+      "talentId": "mosquito",
+      "talType": "amp",
+      "talBonus": 0
+    },
+    {
+      "id": "mozambique_special",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 117436,
+      "rpm": 310,
+      "magazine": 7,
+      "reloadSeconds": 2.33,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfect_breadbasket"
+    },
+    {
+      "id": "officer_s_m9_a1",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 95698,
+      "rpm": 350,
+      "magazine": 15,
+      "reloadSeconds": 1.96,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "orbit",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 233278,
+      "rpm": 160,
+      "magazine": 6,
+      "reloadSeconds": 2.54,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfect_finisher"
+    },
+    {
+      "id": "p320_xcompact",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 87522,
+      "rpm": 380,
+      "magazine": 15,
+      "reloadSeconds": 1.77,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfect_preservation"
+    },
+    {
+      "id": "police_686_magnum",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 233278,
+      "rpm": 160,
+      "magazine": 6,
+      "reloadSeconds": 2.54,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "magazine"
+      ]
+    },
+    {
+      "id": "police_686_magnum_replica",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 233278,
+      "rpm": 160,
+      "magazine": 6,
+      "reloadSeconds": 2.54,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "magazine"
+      ]
+    },
+    {
+      "id": "prophet",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 233278,
+      "rpm": 160,
+      "magazine": 6,
+      "reloadSeconds": 2.54,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfectly_determined"
+    },
+    {
+      "id": "px4_storm_type_f",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 91692,
+      "rpm": 380,
+      "magazine": 14,
+      "reloadSeconds": 1.63,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "px4_storm_type_t",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 91692,
+      "rpm": 380,
+      "magazine": 14,
+      "reloadSeconds": 1.63,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "px4_storm_type_t_replica",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 91692,
+      "rpm": 380,
+      "magazine": 14,
+      "reloadSeconds": 1.63,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "quickstep",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 117436,
+      "rpm": 310,
+      "magazine": 7,
+      "reloadSeconds": 2.33,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "sport_mode"
+    },
+    {
+      "id": "regulus",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 282072,
+      "rpm": 160,
+      "magazine": 6,
+      "reloadSeconds": 2.31,
+      "optimalRange": 16,
+      "headshotMultiplier": 2,
+      "modSlots": [
+        "muzzle"
+      ],
+      "talentId": "regicide",
+      "talType": "conditional",
+      "talBonus": 400,
+      "isBurst": true,
+      "burstNote": "HS kill: 5m взрыв 400% WD vs ближайшим"
+    },
+    {
+      "id": "sharpshooters_93r",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 52978,
+      "rpm": 700,
+      "magazine": 20,
+      "reloadSeconds": 1.56,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ]
+    },
+    {
+      "id": "snubnosed_diceros",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 211295,
+      "rpm": 180,
+      "magazine": 6,
+      "reloadSeconds": 1.98,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "magazine"
+      ]
+    },
+    {
+      "id": "survivalist_d50",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 189172,
+      "rpm": 200,
+      "magazine": 8,
+      "reloadSeconds": 2.24,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "perfect_sadist"
+    },
+    {
+      "id": "tactical_m1911",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 117436,
+      "rpm": 310,
+      "magazine": 7,
+      "reloadSeconds": 2.33,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tactical_m1911_replica",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 117436,
+      "rpm": 310,
+      "magazine": 7,
+      "reloadSeconds": 2.33,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "optic",
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "tdi_kard_custom",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 114267,
+      "rpm": 310,
+      "magazine": 10,
+      "reloadSeconds": 1.71,
+      "optimalRange": 12,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "secondary_attribute"
+    },
+    {
+      "id": "tempest",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 62714,
+      "rpm": 700,
+      "magazine": 30,
+      "reloadSeconds": 2,
+      "optimalRange": 30,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle"
+      ],
+      "talentId": "restrained",
+      "talType": "conditional",
+      "talBonus": 25,
+      "burstNote": "+25% WD 20s после разрушения щита (sustained, не burst)"
+    },
+    {
+      "id": "the_harvest",
+      "kind": "named",
+      "category": "pistol",
+      "baseDamage": 256610,
+      "rpm": 149,
+      "magazine": 6,
+      "reloadSeconds": 2.54,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "10_base_damage_7_rof"
+    },
+    {
+      "id": "whiplash",
+      "kind": "exotic",
+      "category": "pistol",
+      "baseDamage": 198306,
+      "rpm": 180,
+      "magazine": 6,
+      "reloadSeconds": 0,
+      "optimalRange": 18,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "scope",
+        "muzzle"
+      ],
+      "talentId": "whiplash_exotic",
+      "talType": "conditional",
+      "talBonus": 300,
+      "isBurst": true,
+      "burstNote": "10 stacks: следующий выстрел 300% WD"
+    },
+    {
+      "id": "x_45",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 88321,
+      "rpm": 400,
+      "magazine": 15,
+      "reloadSeconds": 1.99,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "x_45_tactical",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 88321,
+      "rpm": 400,
+      "magazine": 15,
+      "reloadSeconds": 1.99,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    },
+    {
+      "id": "x_45_tactical_replica",
+      "kind": "base",
+      "category": "pistol",
+      "baseDamage": 88321,
+      "rpm": 400,
+      "magazine": 15,
+      "reloadSeconds": 1.99,
+      "optimalRange": 16,
+      "headshotMultiplier": 1.95,
+      "modSlots": [
+        "muzzle",
+        "underbarrel",
+        "magazine"
+      ]
+    }
+  ]
+}

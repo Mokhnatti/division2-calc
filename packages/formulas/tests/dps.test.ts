@@ -58,4 +58,13 @@ describe('calculateDps', () => {
     expect(out.cycleSeconds).toBeCloseTo(5, 2);
     expect(out.sustainedDps).toBeCloseTo(600_000, 0);
   });
+
+  it('zero rpm returns zero dps (empty weapon state)', () => {
+    const input = emptyInput();
+    input.weapon.rpm = 0;
+    const out = calculateDps(input);
+    expect(out.burstDps).toBe(0);
+    expect(out.sustainedDps).toBe(0);
+    expect(out.cycleSeconds).toBe(0);
+  });
 });

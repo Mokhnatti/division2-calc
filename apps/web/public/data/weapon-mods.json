@@ -1,0 +1,712 @@
+{
+  "version": "2.0.0",
+  "gameVersion": "TU23.1",
+  "mods": [
+    {
+      "id": "acog_scope_4x",
+      "slot": "optic",
+      "stat": "range",
+      "value": 50,
+      "rawStat": "Optimal Range"
+    },
+    {
+      "id": "552_holo_sight",
+      "slot": "optic",
+      "stat": "accuracy",
+      "value": 30,
+      "rawStat": "Accuracy"
+    },
+    {
+      "id": "c79_scope_3_4x",
+      "slot": "optic",
+      "stat": "chc",
+      "value": 5,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "cqbss_scope_8x",
+      "slot": "optic",
+      "stat": "hsd",
+      "value": 30,
+      "rawStat": "Headshot Damage"
+    },
+    {
+      "id": "vx1_scope_12x",
+      "slot": "optic",
+      "stat": "hsd",
+      "value": 35,
+      "rawStat": "Headshot damage"
+    },
+    {
+      "id": "digital_scope",
+      "slot": "optic",
+      "stat": "hsd",
+      "value": 45,
+      "rawStat": "Headshot Damage"
+    },
+    {
+      "id": "gr9_built_in_scope_8x",
+      "slot": "optic",
+      "stat": "chc",
+      "value": 5,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "small_rds_scope",
+      "slot": "optic",
+      "stat": "stability",
+      "value": 50,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "t2_micro_red_dot_sight",
+      "slot": "optic",
+      "stat": "accuracy",
+      "value": 30,
+      "rawStat": "Accuracy"
+    },
+    {
+      "id": "russian_red_dot_sight",
+      "slot": "optic",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "exps3_holo_sight",
+      "slot": "optic",
+      "stat": "hsd",
+      "value": 10,
+      "rawStat": "Headshot Damage"
+    },
+    {
+      "id": "pro_red_dot_sight",
+      "slot": "optic",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "reflex_sight",
+      "slot": "optic",
+      "stat": "handling",
+      "value": 12,
+      "rawStat": "Weapon Handling"
+    },
+    {
+      "id": "rugged_mini_reflex_sight",
+      "slot": "optic",
+      "stat": "chc",
+      "value": 5,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "low_reflex_sight",
+      "slot": "optic",
+      "stat": "hsd",
+      "value": 15,
+      "rawStat": "Headshot Damage"
+    },
+    {
+      "id": "open_iron_sights",
+      "slot": "optic",
+      "stat": "accuracy",
+      "value": 30,
+      "rawStat": "Accuracy"
+    },
+    {
+      "id": "streamlined_iron_sights",
+      "slot": "optic",
+      "stat": "reload",
+      "value": 14,
+      "rawStat": "Reload Speed"
+    },
+    {
+      "id": "weighted_iron_sights",
+      "slot": "optic",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "counter_clockwise_tubular_spring",
+      "slot": "magazine",
+      "stat": "hsd",
+      "value": 5,
+      "rawStat": "Headshot Damage",
+      "weaponClasses": [
+        "rifle"
+      ]
+    },
+    {
+      "id": "hard_tubular_spring",
+      "slot": "magazine",
+      "stat": null,
+      "value": 5,
+      "rawStat": "Rate of Fire",
+      "weaponClasses": [
+        "rifle"
+      ]
+    },
+    {
+      "id": "flexible_tubular_spring",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed",
+      "weaponClasses": [
+        "rifle"
+      ]
+    },
+    {
+      "id": "non_disruptive_link",
+      "slot": "magazine",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage",
+      "weaponClasses": [
+        "lmg"
+      ]
+    },
+    {
+      "id": "nimble_link_belt",
+      "slot": "magazine",
+      "stat": null,
+      "value": 5,
+      "rawStat": "Rate of Fire",
+      "weaponClasses": [
+        "lmg"
+      ]
+    },
+    {
+      "id": "tactical_small_pouch",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed",
+      "weaponClasses": [
+        "lmg"
+      ]
+    },
+    {
+      "id": "large_pouch",
+      "slot": "magazine",
+      "stat": null,
+      "value": 35,
+      "rawStat": "rounds",
+      "weaponClasses": [
+        "lmg"
+      ]
+    },
+    {
+      "id": "large_pouch_gunner_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 50,
+      "rawStat": "rounds",
+      "weaponClasses": [
+        "lmg"
+      ]
+    },
+    {
+      "id": "calibrated_link",
+      "slot": "magazine",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability",
+      "weaponClasses": [
+        "lmg"
+      ]
+    },
+    {
+      "id": "underbalanced_integrated_spring",
+      "slot": "magazine",
+      "stat": null,
+      "value": 5,
+      "rawStat": "Rate of Fire"
+    },
+    {
+      "id": "compensated_integrated_spring",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed"
+    },
+    {
+      "id": "overbalanced_integrated_spring",
+      "slot": "magazine",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "stiff_integrated_spring",
+      "slot": "magazine",
+      "stat": "wd",
+      "value": 5,
+      "rawStat": "Weapon Damage"
+    },
+    {
+      "id": "mended_marksman_mag",
+      "slot": "magazine",
+      "stat": "range",
+      "value": 50,
+      "rawStat": "Optimal Range",
+      "weaponClasses": [
+        "mmr"
+      ]
+    },
+    {
+      "id": "lightweight_marksman_mag",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed",
+      "weaponClasses": [
+        "mmr"
+      ]
+    },
+    {
+      "id": "tightly_packed_marksman_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 5,
+      "rawStat": "Rounds",
+      "weaponClasses": [
+        "mmr"
+      ]
+    },
+    {
+      "id": "sturdy_marksman_mag",
+      "slot": "magazine",
+      "stat": "stability",
+      "value": 20,
+      "rawStat": "Stability",
+      "weaponClasses": [
+        "mmr"
+      ]
+    },
+    {
+      "id": "precision_7_62_mag",
+      "slot": "magazine",
+      "stat": "hsd",
+      "value": 10,
+      "rawStat": "Headshot Damage"
+    },
+    {
+      "id": "thin_7_62_mag",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed"
+    },
+    {
+      "id": "light_extended_7_62_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 15,
+      "rawStat": "Rounds"
+    },
+    {
+      "id": "sturdy_extended_7_62_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 20,
+      "rawStat": "Rounds"
+    },
+    {
+      "id": "weighted_7_62_mag",
+      "slot": "magazine",
+      "stat": "stability",
+      "value": 20,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "tactical_5_56_mag",
+      "slot": "magazine",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "infantry_5_56_mag",
+      "slot": "magazine",
+      "stat": "range",
+      "value": 70,
+      "rawStat": "Optimal Range"
+    },
+    {
+      "id": "light_extended_5_56_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 15,
+      "rawStat": "Rounds"
+    },
+    {
+      "id": "sturdy_extended_5_56_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 20,
+      "rawStat": "Rounds"
+    },
+    {
+      "id": "balanced_spring_5_56_mag",
+      "slot": "magazine",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "force_feed_45_acp_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 5,
+      "rawStat": "Rate of Fire"
+    },
+    {
+      "id": "short_spring_45_acp_mag",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed"
+    },
+    {
+      "id": "extended_45_acp_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 15,
+      "rawStat": "Rounds"
+    },
+    {
+      "id": "oversized_45_acp_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 20,
+      "rawStat": "Rounds"
+    },
+    {
+      "id": "precision_feeding_45_mag",
+      "slot": "magazine",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "heavy_spring_9mm_mag",
+      "slot": "magazine",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "oversized_9mm_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 15,
+      "rawStat": "Rounds"
+    },
+    {
+      "id": "extended_9mm_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 20,
+      "rawStat": "Rounds"
+    },
+    {
+      "id": "segmented_9mm_mag",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed"
+    },
+    {
+      "id": "field_pistol_mag",
+      "slot": "magazine",
+      "stat": "range",
+      "value": 30,
+      "rawStat": "Optimal Range",
+      "weaponClasses": [
+        "pistol"
+      ]
+    },
+    {
+      "id": "police_pistol_mag",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed",
+      "weaponClasses": [
+        "pistol"
+      ]
+    },
+    {
+      "id": "extended_pistol_mag",
+      "slot": "magazine",
+      "stat": null,
+      "value": 11,
+      "rawStat": "Rounds",
+      "weaponClasses": [
+        "pistol"
+      ]
+    },
+    {
+      "id": "speed_loading_revolver_drum",
+      "slot": "magazine",
+      "stat": "reload",
+      "value": 20,
+      "rawStat": "Reload Speed"
+    },
+    {
+      "id": "large_suppressor_7_62",
+      "slot": "muzzle",
+      "stat": "accuracy",
+      "value": 30,
+      "rawStat": "Accuracy"
+    },
+    {
+      "id": "muzzle_brake_7_62",
+      "slot": "muzzle",
+      "stat": "chc",
+      "value": 5,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "flash_hider_7_62",
+      "slot": "muzzle",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "loud_vent_brake_7_62",
+      "slot": "muzzle",
+      "stat": "range",
+      "value": 50,
+      "rawStat": "Optimal Range"
+    },
+    {
+      "id": "compensator_7_62",
+      "slot": "muzzle",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "omega_7_62_rifle_suppresor",
+      "slot": "muzzle",
+      "stat": "stability",
+      "value": 40,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "large_suppressor_5_56",
+      "slot": "muzzle",
+      "stat": "accuracy",
+      "value": 30,
+      "rawStat": "Accuracy"
+    },
+    {
+      "id": "muzzle_brake_5_56",
+      "slot": "muzzle",
+      "stat": "chc",
+      "value": 5,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "flash_hider_5_56",
+      "slot": "muzzle",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "loud_vent_brake_5_56",
+      "slot": "muzzle",
+      "stat": "range",
+      "value": 50,
+      "rawStat": "Optimal Range"
+    },
+    {
+      "id": "compensator_5_56",
+      "slot": "muzzle",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "omega_5_56_rifle_suppressor",
+      "slot": "muzzle",
+      "stat": "stability",
+      "value": 40,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "qdc_sound_suppressor",
+      "slot": "muzzle",
+      "stat": "stability",
+      "value": 20,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "small_suppressor_45",
+      "slot": "muzzle",
+      "stat": "accuracy",
+      "value": 30,
+      "rawStat": "Accuracy"
+    },
+    {
+      "id": "osprey_45_suppressor",
+      "slot": "muzzle",
+      "stat": "chc",
+      "value": 5,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "flash_hider_45",
+      "slot": "muzzle",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "muzzle_brake_45",
+      "slot": "muzzle",
+      "stat": "hsd",
+      "value": 10,
+      "rawStat": "Headshot Damage"
+    },
+    {
+      "id": "loud_vent_brake_45",
+      "slot": "muzzle",
+      "stat": "range",
+      "value": 50,
+      "rawStat": "Optimal Range"
+    },
+    {
+      "id": "compensator_45",
+      "slot": "muzzle",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "small_suppressor_9mm",
+      "slot": "muzzle",
+      "stat": "accuracy",
+      "value": 30,
+      "rawStat": "Accuracy"
+    },
+    {
+      "id": "osprey_9_suppressor",
+      "slot": "muzzle",
+      "stat": "chc",
+      "value": 5,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "flash_hider_9mm",
+      "slot": "muzzle",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "muzzle_brake_9mm",
+      "slot": "muzzle",
+      "stat": "hsd",
+      "value": 10,
+      "rawStat": "Headshot Damage"
+    },
+    {
+      "id": "loud_vent_brake_9mm",
+      "slot": "muzzle",
+      "stat": "range",
+      "value": 50,
+      "rawStat": "Optimal Range"
+    },
+    {
+      "id": "compensator_9mm",
+      "slot": "muzzle",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "short_grip",
+      "slot": "underbarrel",
+      "stat": "chd",
+      "value": 10,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "tactical_short_grip",
+      "slot": "underbarrel",
+      "stat": "chd",
+      "value": 15,
+      "rawStat": "Critical Hit Damage"
+    },
+    {
+      "id": "linked_laser_pointer",
+      "slot": "underbarrel",
+      "stat": null,
+      "value": 0,
+      "rawStat": "targets at which it's aimed"
+    },
+    {
+      "id": "handstop",
+      "slot": "underbarrel",
+      "stat": "reload",
+      "value": 14,
+      "rawStat": "Reload Speed"
+    },
+    {
+      "id": "vertical_grip",
+      "slot": "underbarrel",
+      "stat": "accuracy",
+      "value": 30,
+      "rawStat": "Accuracy"
+    },
+    {
+      "id": "angled_grip",
+      "slot": "underbarrel",
+      "stat": "stability",
+      "value": 30,
+      "rawStat": "Stability"
+    },
+    {
+      "id": "laser_pointer",
+      "slot": "underbarrel",
+      "stat": "chc",
+      "value": 5,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "small_laser_pointer",
+      "slot": "underbarrel",
+      "stat": "chc",
+      "value": 7,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "compact_coupled_small_laser_pointer",
+      "slot": "underbarrel",
+      "stat": "chc",
+      "value": 10,
+      "rawStat": "Critical Hit Chance"
+    },
+    {
+      "id": "compact_coupled_laser_pointer",
+      "slot": "underbarrel",
+      "stat": "hsd",
+      "value": 10,
+      "rawStat": "Headshot Damage"
+    },
+    {
+      "id": "pistol_flashlight",
+      "slot": "underbarrel",
+      "stat": null,
+      "value": 0,
+      "rawStat": "dark areas"
+    }
+  ]
+}

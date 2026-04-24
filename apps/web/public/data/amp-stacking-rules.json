@@ -1,0 +1,84 @@
+{
+  "_note": "Правило: внутри ОДНОГО amp-типа (например весь OutOfCover pool) бонусы АДДИТИВНЫ. Между разными типами (OoC × Elite × Armor) — МУЛЬТИПЛИКАТИВНО. Извлечено из attribute_dictionary formulas.",
+  "additive_within_type": {
+    "TargetOutOfCoverDamage": {
+      "formula": "Max(0, (1 + TargetOutOfCoverDamageModBonus + TargetOutOfCoverDamageDefaultModBonus))",
+      "contributing_sources": [
+        "gear attribute \"Out of Cover damage\"",
+        "talent bonuses",
+        "default base"
+      ],
+      "stacking": "additive",
+      "note": "Все источники OoC bonuses сперва суммируются, потом применяется как (1+X)."
+    },
+    "DamageDoneToElites": {
+      "formula": "Max(0, (1 + DamageDoneToElitesModBonus))",
+      "stacking": "additive"
+    },
+    "DamageToHealth": {
+      "formula": "Max(0, (1 + DamageDoneToHealthModBonus))",
+      "stacking": "additive"
+    },
+    "DamageToArmor": {
+      "formula": "Max(0, (1 + DamageDoneToArmorModBonus))",
+      "stacking": "additive"
+    },
+    "CritChance": {
+      "formula": "flat_sum (before cap 0.60)",
+      "stacking": "additive (capped at 60%)"
+    },
+    "CritDamage": {
+      "formula": "flat_sum",
+      "stacking": "additive (no cap)"
+    },
+    "HeadshotDamage": {
+      "formula": "flat_sum",
+      "stacking": "additive (no cap)"
+    },
+    "WeaponDamage": {
+      "formula": "flat + mod",
+      "stacking": "flat bonuses additive, mod bonuses multiplicative",
+      "note": "У WD есть ДВЕ категории: FlatBonus (аддит) и ModBonus (тоже аддит но после него mult). См. formula PlayerArmorFinal в formulas.json"
+    }
+  },
+  "multiplicative_between_types": {
+    "example": "Final_damage = WeaponDamageFlat × (1 + OoC) × (1 + EliteDmg) × (1 + DmgToHealth) × ...",
+    "types_multiplied_separately": [
+      "TargetOutOfCoverDamage",
+      "DamageDoneToElites",
+      "DamageToHealth",
+      "DamageToArmor",
+      "CritDamage (applied on crit)",
+      "HeadshotDamage (applied on HS)",
+      "WeaponDamageModBonus (после FlatBonus)",
+      "DistantDamage / ShortRangeDamage",
+      "NearMiss",
+      "WeakpointDamage"
+    ],
+    "note": "Каждый type один multiplier. Talents с уникальными бонусами (Perfect Focus rampup) — это отдельный WeaponDamageModBonus, добавляется аддитивно к стандартному пулу."
+  },
+  "talent_bonus_categories": {
+    "weapon_damage_flat": [
+      "some talents add to base flat"
+    ],
+    "weapon_damage_mod": [
+      "talents like Focus, Obliterate, Glass Cannon — в этот пул"
+    ],
+    "category_specific": [
+      "Spotter bonus vs pulsed",
+      "Frenzy vs stunned, etc: own multipliers"
+    ],
+    "stacking_behavior": "Talents одного типа обычно replace друг друга (только один active). Разных типов mult."
+  },
+  "mod_bonus_vs_flat_bonus_rule": {
+    "flat_bonus": "Добавляется к базовому значению. Пример: +15% WD flat = base × (1 + 0.15).",
+    "mod_bonus": "Умножается после flat. Пример: flat × (1 + mod).",
+    "effective_formula": "(base + flat1 + flat2 + ...) × (1 + mod1 + mod2 + ...) (НО: mod_bonuses тоже аддит между собой в одной категории)"
+  },
+  "mitigation_caps_reference": {
+    "armor_physical_cap": 0.7,
+    "physical_dot_cap": 0.9,
+    "weapon_skill_trap_cap": 0.95,
+    "note": "См. stat_caps.json для всех caps."
+  }
+}

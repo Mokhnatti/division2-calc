@@ -1,0 +1,132 @@
+{
+  "striker_s_battlegear": [
+    "2pc: +15% Weapon Handling",
+    "3pc: +15% Rate of Fire",
+    "4pc: +25% Weapon Damage"
+  ],
+  "heartbreaker": [
+    "2pc: +15% Assault Rifle Damage & +15% LMG Damage",
+    "3pc: +15% Weapon Handling",
+    "4pc: +25% Weapon Damage"
+  ],
+  "umbra_initiative": [
+    "2pc: +15% Weapon Handling & +15% Magazine Size",
+    "3pc: +15% Weapon Damage",
+    "4pc: +20% Weapon Damage"
+  ],
+  "hunter_s_fury": [
+    "2pc: +15% Skill Haste & +60% Skill Repair",
+    "3pc: +40% Explosive Resistance",
+    "4pc: +20% Weapon Damage"
+  ],
+  "negotiator_s_dilemma": [
+    "2pc: +15% Critical Hit Chance",
+    "3pc: +20% Critical Hit Damage",
+    "4pc: +20% Weapon Damage"
+  ],
+  "hotshot": [
+    "2pc: +15% Shotgun Damage & +15% SMG Damage",
+    "3pc: +20% Armor on Kill & +50% Health",
+    "4pc: +25% Weapon Damage"
+  ],
+  "ongoing_directive": [
+    "2pc: +20% Burn Duration & +15% Skill Health",
+    "3pc: +40% Burn Damage",
+    "4pc: +20% Weapon Damage"
+  ],
+  "true_patriot": [
+    "2pc: +15% Critical Hit Chance",
+    "3pc: +30% Reload Speed",
+    "4pc: +20% Weapon Damage"
+  ],
+  "aces_eights": [
+    "2pc: +15% Marksman Rifle Damage & +15% Rifle Damage",
+    "3pc: +30% Headshot Damage",
+    "4pc: +50% Weapon Damage"
+  ],
+  "tip_of_the_spear": [
+    "2pc: +30% Magazine Size",
+    "3pc: +30% LMG Damage",
+    "4pc: +20% Weapon Damage"
+  ],
+  "breaking_point": [
+    "2pc: +25% Rifle Damage & +25% Marksman Rifle Damage",
+    "3pc: +30% Headshot Damage & +15% Weapon Handling",
+    "4pc: +30% Weapon Damage"
+  ],
+  "virtuoso": [
+    "2pc: +15% Weapon Handling & +15% Magazine Size",
+    "3pc: +15% Weapon Damage",
+    "4pc: +25% Skill Damage"
+  ],
+  "tipping_scales": [
+    "2pc: +30% Magazine Size",
+    "3pc: +30% LMG Damage",
+    "4pc: +20% Weapon Damage"
+  ],
+  "concentrated_company": [
+    "2pc: +10% Weapon Damage",
+    "3pc: +30% Weapon Handling",
+    "4pc: +20% Weapon Damage"
+  ],
+  "foundry_bulwark": [
+    "2pc: +10% Total Armor & +1% Armor Regeneration",
+    "3pc: +50% Shield Health",
+    "4pc: +15% Total Armor"
+  ],
+  "system_corruption": [
+    "2pc: +10% Weapon Damage",
+    "3pc: +20% Weapon Damage",
+    "4pc: +15% Weapon Damage"
+  ],
+  "aegis": [
+    "2pc: +70% Health & +15% Total Armor",
+    "3pc: +100% Shield Health",
+    "4pc: +20% Weapon Damage"
+  ],
+  "cavalier": [
+    "2pc: +30% Hazard Protection",
+    "3pc: +40% Skill Repair",
+    "4pc: +20% Weapon Damage"
+  ],
+  "rigger": [
+    "2pc: +15% Weapon Handling",
+    "3pc: +15% Rate of Fire",
+    "4pc: +20% Weapon Damage"
+  ],
+  "eclipse_protocol": [
+    "2pc: +15% Status Effects & +15% Skill Haste",
+    "3pc: +30% Hazard Protection",
+    "4pc: +15% Status Effects"
+  ],
+  "future_initiative": [
+    "2pc: +30% Skill Repair & +30% Skill Duration",
+    "3pc: +15% Skill Haste",
+    "4pc: +25% Skill Damage"
+  ],
+  "hard_wired": [
+    "2pc: +15% Skill Haste",
+    "3pc: +15% Skill Damage & +30% Skill Repair",
+    "4pc: +25% Skill Damage"
+  ],
+  "ortiz_exuro": [
+    "2pc: +20% Burn Duration & +15% Skill Health",
+    "3pc: +40% Burn Damage",
+    "4pc: +25% Skill Damage"
+  ],
+  "refactor": [
+    "2pc: +15% Status Effects",
+    "3pc: +25% Skill Damage",
+    "4pc: +20% Skill Damage"
+  ],
+  "measured_assembly": [
+    "2pc: +15% Skill Haste",
+    "3pc: +60% Skill Repair & +40% Explosive Resistance",
+    "4pc: +25% Skill Damage"
+  ],
+  "core_strength": [
+    "2pc: +10% Weapon Handling",
+    "3pc: +5% Weapon Damage & +0% Armor & +5% Skill Efficiency",
+    "4pc: +15% Weapon Damage"
+  ]
+}

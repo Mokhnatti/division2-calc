@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "gameVersion": "TU23.1",
+  "generatedAt": "2026-04-23T04:38:31.580Z",
+  "files": {
+    "weapons": "weapons.json",
+    "brands": "brands.json",
+    "gearSets": "gear-sets.json",
+    "talents": "talents.json"
+  },
+  "locales": [
+    "en",
+    "ru"
+  ],
+  "namespaces": [
+    "ui",
+    "stats",
+    "weapons",
+    "brands",
+    "gear-sets",
+    "talents"
+  ]
+}

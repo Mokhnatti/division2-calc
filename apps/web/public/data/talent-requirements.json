@@ -1,0 +1,104 @@
+{
+  "perfect_glass_cannon": {
+    "name_en": "Perfect Glass Cannon",
+    "name_ru": "Совершенный Стеклянная пушка",
+    "slot": "chest",
+    "requires_attribute_threshold": {
+      "core_offensive_min": 2,
+      "note": "Нужно минимум 2 красных core"
+    },
+    "triggers_on": "always_active"
+  },
+  "perfect_obliterate": {
+    "name_en": "Perfect Obliterate",
+    "name_ru": "Совершенное Уничтожение",
+    "slot": "chest",
+    "requires_attribute_threshold": {
+      "min_offensive_attrs": 7,
+      "note": "Требует 7 offensive атрибутов на билде (6 gear + 1 core)"
+    },
+    "triggers_on": "on_hit_critical"
+  },
+  "perfect_focus": {
+    "name_en": "Perfect Focus",
+    "name_ru": "Совершенная Концентрация",
+    "slot": "chest",
+    "applicable_weapon_classes": [
+      "MMR",
+      "Rifle"
+    ],
+    "triggers_on": "scope_time_3sec",
+    "stack_rules": {
+      "rampup_sec": 3,
+      "max_bonus_pct": 1.0
+    }
+  },
+  "perfect_spotter": {
+    "name_en": "Perfect Spotter",
+    "name_ru": "Совершенный Наводчик",
+    "slot": "chest",
+    "triggers_on": "pulsed_enemy",
+    "bonus_damage_vs_pulsed_pct": 0.2
+  },
+  "perfect_vanguard": {
+    "name_en": "Perfect Vanguard",
+    "name_ru": "Совершенный Авангард",
+    "slot": "chest",
+    "triggers_on": "use_shield",
+    "bonus_on_shield_pct": 0.6
+  },
+  "perfect_vigilance": {
+    "name_en": "Perfect Vigilance",
+    "name_ru": "Совершенная Бдительность",
+    "slot": "back",
+    "triggers_on": "no_recent_damage",
+    "cooldown_sec": 5,
+    "bonus_wd_pct": 0.25
+  },
+  "perfect_safeguard": {
+    "name_en": "Perfect Safeguard",
+    "name_ru": "Совершенный Страж",
+    "slot": "back",
+    "triggers_on": "active_repair_skill",
+    "bonus_repair_pct": 0.35
+  },
+  "perfect_opportunistic": {
+    "name_en": "Perfect Opportunistic",
+    "name_ru": "Совершенный Беспринципный",
+    "slot": "back",
+    "triggers_on": "headshot_kill",
+    "bonus_group_wd_pct": 0.1,
+    "duration_sec": 15
+  },
+  "perfect_combined_arms": {
+    "name_en": "Perfect Combined Arms",
+    "name_ru": "Совершенное Комбинированное оружие",
+    "slot": "back",
+    "triggers_on": "skill_hit",
+    "weapon_vs_hit_bonus_pct": 0.25,
+    "duration_sec": 10
+  },
+  "perfect_rifleman": {
+    "name_en": "Perfect Rifleman",
+    "name_ru": "Совершенный Стрелок",
+    "weapon_talent": true,
+    "applicable_weapon_classes": [
+      "MMR",
+      "Rifle"
+    ],
+    "triggers_on": "headshot",
+    "stack_bonus_pct_per_stack": 0.15,
+    "max_stacks": 5
+  },
+  "perfect_strained": {
+    "name_en": "Perfect Strained",
+    "name_ru": "Совершенная Нагрузка",
+    "weapon_talent": true,
+    "triggers_on": "low_armor",
+    "bonus_crit_damage_at_low_armor_pct": 0.35
+  },
+  "_metadata": {
+    "source": "community-verified Y8S1",
+    "note": "Talent requirements в .mitem описаны через myTalentRules + BonusAttributeRef, но conditions (triggers_on, thresholds) захардкожены в game rules. Hand-curated."
+  }
+}
