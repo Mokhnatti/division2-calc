@@ -1,0 +1,38 @@
+{
+  "_doc": "Manual flags for weapons that raw/game doesn't expose: is_burst, special fire mode notes. mod_slots, base_damage и прочие ТТХ — НЕ здесь, они берутся из legacy при импорте (legacy=ground truth) или из raw (для only_raw). Этот файл — только то, что физически отсутствует в обоих источниках.",
+  "_schema": {
+    "slug": "string — slug оружия (matches items.id)",
+    "is_burst": "bool — стреляет очередями (effective RPM считается иначе)",
+    "burst_count": "int — пуль в очереди",
+    "fire_mode": "auto | burst | semi | bolt | pump",
+    "note": "string — пояснение"
+  },
+  "weapons": [
+    { "slug": "m16a2", "is_burst": true, "burst_count": 3, "fire_mode": "burst", "note": "3-round burst only" },
+    { "slug": "police_m16a2", "is_burst": true, "burst_count": 3, "fire_mode": "burst" },
+    { "slug": "military_m16a2", "is_burst": true, "burst_count": 3, "fire_mode": "burst" },
+    { "slug": "the_pieces", "is_burst": true, "burst_count": 3, "fire_mode": "burst", "note": "named M16" },
+    { "slug": "famas_2010", "is_burst": true, "burst_count": 3, "fire_mode": "burst" },
+    { "slug": "f2000", "is_burst": false, "fire_mode": "auto" },
+    { "slug": "93r", "is_burst": true, "burst_count": 3, "fire_mode": "burst", "note": "Beretta 93R machine pistol" },
+    { "slug": "sharpshooters_93r", "is_burst": true, "burst_count": 3, "fire_mode": "burst" },
+    { "slug": "regulus", "is_burst": false, "fire_mode": "semi", "note": "exotic .50 revolver" },
+    { "slug": "diceros", "is_burst": false, "fire_mode": "semi" },
+    { "slug": "diceros_special", "is_burst": false, "fire_mode": "semi" },
+    { "slug": "586_magnum", "is_burst": false, "fire_mode": "semi" },
+    { "slug": "model_686_magnum", "is_burst": false, "fire_mode": "semi" },
+    { "slug": "1886", "is_burst": false, "fire_mode": "lever" },
+    { "slug": "the_sheriff", "is_burst": false, "fire_mode": "lever" },
+    { "slug": "stoner_lmg", "is_burst": false, "fire_mode": "auto" },
+    { "slug": "rpk_74", "is_burst": false, "fire_mode": "auto" },
+    { "slug": "scout_m700", "is_burst": false, "fire_mode": "bolt" },
+    { "slug": "model_700", "is_burst": false, "fire_mode": "bolt" },
+    { "slug": "tactical_m700_carbon", "is_burst": false, "fire_mode": "bolt" },
+    { "slug": "covert_srs", "is_burst": false, "fire_mode": "bolt" },
+    { "slug": "spas_12", "is_burst": false, "fire_mode": "pump" },
+    { "slug": "super_90", "is_burst": false, "fire_mode": "semi" },
+    { "slug": "double_barrel_shotgun", "is_burst": false, "fire_mode": "double" },
+    { "slug": "kingbreaker", "is_burst": false, "fire_mode": "auto", "note": "exotic AR but fires single" },
+    { "slug": "the_bighorn", "is_burst": false, "fire_mode": "switch", "note": "switches between semi and full-auto modes" }
+  ]
+}

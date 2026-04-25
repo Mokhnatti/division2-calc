@@ -1,0 +1,39 @@
+{
+  "_doc": "Семантический мост: имя стата в игре (game_name) → slug на фронте + категория. Источник: ручная сверка attribute_dict.json + apps/web/public/data/talents.json. ~25 ключевых статов калькулятора.",
+  "_schema": {
+    "game_name": "string — поле .name в attribute_dict.json",
+    "slug": "string — короткий код используемый фронтом (wd, chc, chd, hsd...)",
+    "category": "offensive | defensive | utility | weapon",
+    "kind": "additive | multiplicative | flat — как сумруется в DPS-формуле"
+  },
+  "aliases": [
+    { "game_name": "WeaponDamage", "slug": "wd", "category": "offensive", "kind": "additive" },
+    { "game_name": "CriticalHitChance", "slug": "chc", "category": "offensive", "kind": "additive" },
+    { "game_name": "CriticalHitDamage", "slug": "chd", "category": "offensive", "kind": "additive" },
+    { "game_name": "HeadshotDamage", "slug": "hsd", "category": "offensive", "kind": "additive" },
+    { "game_name": "RateOfFire", "slug": "rof", "category": "weapon", "kind": "additive" },
+    { "game_name": "MagSize", "slug": "mag", "category": "weapon", "kind": "additive" },
+    { "game_name": "ReloadSpeed", "slug": "reload", "category": "weapon", "kind": "additive" },
+    { "game_name": "WeaponHandling", "slug": "handling", "category": "weapon", "kind": "additive" },
+    { "game_name": "Accuracy", "slug": "accuracy", "category": "weapon", "kind": "additive" },
+    { "game_name": "Stability", "slug": "stability", "category": "weapon", "kind": "additive" },
+    { "game_name": "OptimalRange", "slug": "range", "category": "weapon", "kind": "additive" },
+    { "game_name": "Armor", "slug": "armor", "category": "defensive", "kind": "flat" },
+    { "game_name": "ArmorOnKill", "slug": "armor_on_kill", "category": "defensive", "kind": "flat" },
+    { "game_name": "ArmorRegen", "slug": "armor_regen", "category": "defensive", "kind": "additive" },
+    { "game_name": "Health", "slug": "health", "category": "defensive", "kind": "flat" },
+    { "game_name": "SkillTier", "slug": "skill_tier", "category": "utility", "kind": "flat" },
+    { "game_name": "SkillHaste", "slug": "skill_haste", "category": "utility", "kind": "additive" },
+    { "game_name": "SkillDamage", "slug": "skill_dmg", "category": "utility", "kind": "additive" },
+    { "game_name": "SkillRepair", "slug": "skill_repair", "category": "utility", "kind": "additive" },
+    { "game_name": "StatusEffects", "slug": "status_effects", "category": "utility", "kind": "additive" },
+    { "game_name": "OutOfCoverDamage", "slug": "ooc", "category": "offensive", "kind": "additive" },
+    { "game_name": "DamageToArmor", "slug": "dta", "category": "offensive", "kind": "additive" },
+    { "game_name": "DamageToHealth", "slug": "dth", "category": "offensive", "kind": "additive" },
+    { "game_name": "DamageToTargetOutOfCover", "slug": "dttooc", "category": "offensive", "kind": "additive" },
+    { "game_name": "ExplosiveDamage", "slug": "explosive_dmg", "category": "offensive", "kind": "additive" },
+    { "game_name": "ProtectionFromElites", "slug": "pfe", "category": "defensive", "kind": "additive" },
+    { "game_name": "HazardProtection", "slug": "hazard_protection", "category": "defensive", "kind": "additive" },
+    { "game_name": "RepairSkills", "slug": "repair_skills", "category": "utility", "kind": "additive" }
+  ]
+}

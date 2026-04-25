@@ -11,3 +11,12 @@ dist/
 .turbo/
 coverage/
 game-source/
+
+# data pipeline (per ARCHITECTURE.md §6)
+data/raw/
+data/_legacy/
+apps/web/public/data/
+apps/web/public/locales/de/
+apps/web/public/locales/fr/
+apps/web/public/locales/es/
+hunter_pipeline/
