@@ -1,0 +1,88 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  schema?: object | object[];
+}
+
+const {
+  title,
+  description = 'Division 2 build calculator — verified DPS 1:1 with game. 359 weapons, 26 sets, 36 brands. Calculator, top builds, TTK.',
+  canonical,
+  ogImage = 'https://divcalc.xyz/og-default.png',
+  noindex = false,
+  schema,
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const isRu = pathname.startsWith('/ru/') || pathname === '/ru';
+const lang = isRu ? 'ru' : 'en';
+const finalCanonical = canonical || new URL(pathname, Astro.site).href;
+
+// hreflang variants for current page
+const enHref = pathname.replace(/^\/ru/, '') || '/';
+const ruHref = isRu ? pathname : `/ru${pathname}`;
+const enUrl = new URL(enHref, Astro.site).href;
+const ruUrl = new URL(ruHref, Astro.site).href;
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="canonical" href={finalCanonical} />
+
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="ru" href={ruUrl} />
+  <link rel="alternate" hreflang="x-default" href={enUrl} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={finalCanonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content={isRu ? 'ru_RU' : 'en_US'} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  {schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )}
+</head>
+<body>
+  <slot />
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --orange: #feaf10;
+    --bg: #0a0e14;
+    --bg-2: #131720;
+    --text: #e5e9f0;
+    --text-dim: #b0b6c0;
+    --muted: #6b7480;
+    --border: #1f2530;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+  }
+  a { color: var(--orange); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>

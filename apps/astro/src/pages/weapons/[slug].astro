@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { WEAPONS, slugFromId, weaponName, weaponCategoryLabel, type Weapon } from '../../data/weapon-helpers';
+
+export async function getStaticPaths() {
+  return WEAPONS.map((w) => ({
+    params: { slug: slugFromId(w.id) },
+    props: { weapon: w },
+  }));
+}
+
+interface Props { weapon: Weapon }
+const { weapon: w } = Astro.props;
+const name = weaponName(w, 'en');
+const cat = weaponCategoryLabel(w.category, 'en');
+const kindLabel = w.kind === 'exotic' ? 'Exotic' : w.kind === 'named' ? 'Named' : 'Base';
+
+const title = `${name} — ${kindLabel} ${cat} Build & Stats | Division 2 Calculator`;
+const description = `${name}: ${w.baseDamage.toLocaleString()} base damage, ${w.rpm} RPM, ${w.magazine} mag, ${w.reloadSeconds}s reload. Top builds, weapon talent, DPS calculator.`;
+
+const canonical = `https://divcalc.xyz/weapons/${slugFromId(w.id)}`;
+
+// Schema.org Product + BreadcrumbList
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://divcalc.xyz/" },
+      { "@type": "ListItem", "position": 2, "name": "Weapons", "item": "https://divcalc.xyz/weapons/" },
+      { "@type": "ListItem", "position": 3, "name": cat, "item": `https://divcalc.xyz/weapons/?cat=${w.category}` },
+      { "@type": "ListItem", "position": 4, "name": name },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": name,
+    "description": description,
+    "category": `${kindLabel} ${cat}`,
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "Base Damage", "value": w.baseDamage.toString() },
+      { "@type": "PropertyValue", "name": "Rounds Per Minute", "value": w.rpm.toString() },
+      { "@type": "PropertyValue", "name": "Magazine Size", "value": w.magazine.toString() },
+      { "@type": "PropertyValue", "name": "Reload Time", "value": `${w.reloadSeconds}s` },
+      ...(w.optimalRange ? [{ "@type": "PropertyValue", "name": "Optimal Range", "value": `${w.optimalRange}m` }] : []),
+      ...(w.headshotMultiplier ? [{ "@type": "PropertyValue", "name": "Headshot Multiplier", "value": `×${w.headshotMultiplier}` }] : []),
+    ],
+  },
+];
+---
+<BaseLayout {title} {description} {canonical} {schema}>
+  <main class="weapon-page">
+    <nav class="breadcrumb">
+      <a href="/">Home</a> · <a href="/weapons/">Weapons</a> · <span>{name}</span>
+    </nav>
+
+    <header>
+      <span class={`kind-badge kind-${w.kind}`}>{kindLabel}</span>
+      <span class="cat-badge">{cat}</span>
+      <h1>{name}</h1>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat"><div class="v">{w.baseDamage.toLocaleString()}</div><div class="l">Base Damage</div></div>
+      <div class="stat"><div class="v">{w.rpm}</div><div class="l">RPM</div></div>
+      <div class="stat"><div class="v">{w.magazine}</div><div class="l">Magazine</div></div>
+      <div class="stat"><div class="v">{w.reloadSeconds}s</div><div class="l">Reload (empty)</div></div>
+      {w.optimalRange && (<div class="stat"><div class="v">{w.optimalRange}m</div><div class="l">Optimal Range</div></div>)}
+      {w.headshotMultiplier && (<div class="stat"><div class="v">×{w.headshotMultiplier}</div><div class="l">HS Multiplier</div></div>)}
+    </section>
+
+    {w.intrinsicAttrs && w.intrinsicAttrs.length > 0 && (
+      <section class="intrinsic">
+        <h2>Intrinsic Attributes</h2>
+        <p class="muted">Built-in weapon bonuses, always active:</p>
+        <ul>
+          {w.intrinsicAttrs.map(a => (
+            <li><strong>+{a.value}%</strong> {a.stat.toUpperCase()}{a.max && <span class="dim"> (max roll: +{a.max}%)</span>}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {w.builtInMods && w.builtInMods.length > 0 && (
+      <section class="built-in-mods">
+        <h2>Built-in Mods (Exotic)</h2>
+        <p class="muted">This weapon's mod slots are locked to these built-in mods:</p>
+        <table>
+          <thead><tr><th>Slot</th><th>Mod</th><th>Bonus</th></tr></thead>
+          <tbody>
+            {w.builtInMods.map(m => (
+              <tr>
+                <td>{m.slot}</td>
+                <td>{m.name_ru || m.stat}</td>
+                <td>+{m.value}{m.stat === 'mag_add' ? ' rounds' : '%'} {m.stat === 'mag_add' ? '' : m.stat.toUpperCase()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    )}
+
+    {w.appliesBurn && (
+      <section class="burn-info">
+        <h2>🔥 Applies Burn Status</h2>
+        <p>This weapon applies <strong>Burn</strong> status effect on enemies. Burn DPS scales with <strong>Status Effects %</strong> and <strong>Burn Duration %</strong> stats — independent from weapon damage.</p>
+        <p>Base formula: <code>300 × 40 × (1 + Status%) ≈ 12,000 DPS/tick × duration (5s base)</code></p>
+        {w.burnThresholdPct && <p>Heat threshold: <strong>{w.burnThresholdPct}% of magazine</strong> required before bullets ignite.</p>}
+      </section>
+    )}
+
+    <section class="cta">
+      <h2>Try in calculator</h2>
+      <p>Open the live DPS calculator with this weapon pre-selected to test builds:</p>
+      <a class="btn" href={`/spa/index.html#build?w=${slugFromId(w.id)}`}>⚙ Open in Calculator</a>
+    </section>
+
+    <footer class="page-footer">
+      <p class="dim">TU22.1 "Rise Up" · Last reviewed: 2026-04-25 · Verified vs in-game</p>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style>
+  .weapon-page { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+  .breadcrumb { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumb a { color: var(--muted); }
+  header { margin-bottom: 24px; }
+  .kind-badge, .cat-badge {
+    display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-right: 6px;
+  }
+  .kind-base { background: rgba(96,128,160,.2); color: #a4b5c8; }
+  .kind-named { background: rgba(254,175,16,.2); color: var(--orange); }
+  .kind-exotic { background: rgba(239,83,80,.25); color: #ef5350; }
+  .cat-badge { background: var(--bg-2); color: var(--muted); border: 1px solid var(--border); }
+  h1 { margin: 8px 0 0; font-size: 32px; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-bottom: 24px; }
+  .stat { padding: 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; text-align: center; }
+  .stat .v { font-size: 22px; font-weight: 700; color: var(--text); }
+  .stat .l { font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
+
+  section { margin-bottom: 28px; }
+  section h2 { font-size: 18px; margin: 0 0 10px; color: var(--orange); }
+  .muted { color: var(--text-dim); font-size: 13px; }
+  .dim { color: var(--muted); font-size: 11px; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; }
+  th { color: var(--muted); font-weight: 700; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+
+  .burn-info { background: rgba(255,101,51,.05); border-left: 3px solid #ff6533; padding: 14px 18px; border-radius: 6px; }
+  .burn-info code { background: rgba(0,0,0,.3); padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+
+  .cta { padding: 18px; background: var(--bg-2); border: 1px solid rgba(254,175,16,.3); border-radius: 6px; }
+  .btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; }
+  .btn:hover { background: #ffa500; text-decoration: none; }
+
+  .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+</style>

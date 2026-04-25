@@ -8,10 +8,10 @@ Following the 90-day plan from Research mode.
 
 | Week | Task | Status | Notes |
 |------|------|--------|-------|
-| 1-2 | Astro setup + legacy SPA wrap | ⏳ in progress | apps/astro/ initialized |
-| 1-2 | Svelte 5 + sitemap integrations | ⏳ pending | |
+| 1-2 | Astro setup + legacy SPA wrap | ✅ partial | apps/astro/ initialized |
+| 1-2 | Svelte 5 + sitemap integrations | ✅ done | @astrojs/svelte 8.0.5, @astrojs/sitemap 3.7.2, nanostores |
+| 1-2 | First weapon page `/weapons/[slug].astro` | ✅ done | 359 pages built, schema.org Product+Breadcrumb, hreflang ru/en |
 | 1-2 | Wrap existing Svelte SPA as `client:only` island | ⏳ pending | |
-| 1-2 | First weapon page `/weapons/[slug].astro` | ⏳ pending | |
 | 1-2 | Caddy try_files config | ⏳ pending | |
 | 3-4 | Sitemap-генератор + git-based lastmod | ⏳ pending | |
 | 3-4 | Schema.org Product+Breadcrumb разметка | ⏳ pending | |

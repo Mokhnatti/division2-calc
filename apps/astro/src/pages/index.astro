@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Division 2 Build Calculator — verified DPS, TU22.1 (2026)';
+const description = 'Free Division 2 build calculator. DPS verified 1:1 with game. 359 weapons, 26 sets, 36 brands, all exotics. Top builds, TTK, recombinator, status effects.';
+---
+<BaseLayout {title} {description}>
+  <main style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
+    <h1 style="font-size: 36px; margin: 0 0 12px;">divcalc.xyz</h1>
+    <p style="font-size: 18px; color: var(--text-dim); margin: 0 0 30px;">
+      Division 2 build calculator — verified DPS 1:1 with game.
+    </p>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 40px;">
+      <a href="/spa/index.html#build" style="padding: 18px; background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--orange); border-radius: 6px;">
+        <strong>⚙ Build Calculator</strong><br />
+        <span style="font-size: 13px; color: var(--text-dim);">Live DPS calc, gear picker, presets</span>
+      </a>
+      <a href="/weapons/" style="padding: 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px;">
+        <strong>🔫 Weapons</strong><br />
+        <span style="font-size: 13px; color: var(--text-dim);">359 weapons with stats, talents, top builds</span>
+      </a>
+      <a href="/sets/" style="padding: 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px;">
+        <strong>🧩 Gear Sets</strong><br />
+        <span style="font-size: 13px; color: var(--text-dim);">26 sets with bonuses + meta builds</span>
+      </a>
+      <a href="/builds/" style="padding: 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px;">
+        <strong>🏆 Top Builds</strong><br />
+        <span style="font-size: 13px; color: var(--text-dim);">Verified S-tier builds with full stats</span>
+      </a>
+    </section>
+
+    <p style="color: var(--muted); font-size: 13px;">
+      TU22.1 "Rise Up" · Apr 2026 · last verified: St. Elmo's Engine + Strikers DD reference build
+    </p>
+  </main>
+</BaseLayout>
