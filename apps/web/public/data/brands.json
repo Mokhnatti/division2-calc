@@ -32,43 +32,197 @@
     },
     {
       "id": "uzina_getica",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "armor",
+            "value": 5
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "armor_regen",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "chc",
+            "value": 30
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
     {
       "id": "empress_international",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "healing",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "armor",
+            "value": 8
+          }
+        }
+      ],
       "core": "skill_tier",
       "dlc": null
     },
     {
       "id": "wyvern_wear",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "healing",
+            "value": 8
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "health",
+            "value": 18
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 45
+          }
+        }
+      ],
       "core": "skill_tier",
       "dlc": null
     },
     {
       "id": "belstone_armory",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "armor",
+            "value": 1
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "armor_regen",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "hsd",
+            "value": 45
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
     {
       "id": "alps_summit_armaments",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 18
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 30
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_tier",
+            "value": 30
+          }
+        }
+      ],
       "core": "skill_tier",
       "dlc": null
     },
     {
       "id": "china_light_industries_corporation",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "skill_tier",
+            "value": 15
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_tier",
+            "value": 20
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "health",
+            "value": 25
+          }
+        }
+      ],
       "core": "skill_tier",
       "dlc": null
     },
     {
       "id": "palisade_steelworks",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "armor_regen",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "wd",
+            "value": 60
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_tier",
+            "value": 100
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
@@ -88,7 +242,29 @@
     },
     {
       "id": "gila_guard",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "armor",
+            "value": 5
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "wd",
+            "value": 60
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "armor",
+            "value": 2
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
@@ -108,37 +284,148 @@
     },
     {
       "id": "petrov_defense_group",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "chd",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "dte",
+            "value": 50
+          }
+        }
+      ],
       "core": "wd",
       "dlc": null
     },
     {
       "id": "overlord_armaments",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "rof",
+            "value": 30
+          }
+        }
+      ],
       "core": "wd",
       "dlc": null
     },
     {
       "id": "walker_harris_co",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "explosive_dmg",
+            "value": 5
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "armor_regen",
+            "value": 5
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 10
+          }
+        }
+      ],
       "core": "wd",
       "dlc": null
     },
     {
       "id": "yaahl_gear",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "chc",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "explosive_dmg",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "hazard",
+            "value": 40
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
     {
       "id": "electrique",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "health",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "chc",
+            "value": 20
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 30
+          }
+        }
+      ],
       "core": "skill_tier",
       "dlc": null
     },
     {
       "id": "hana_u_corporation",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "skill_tier",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "healing",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "explosive_dmg",
+            "value": 15
+          }
+        }
+      ],
       "core": "skill_tier",
       "dlc": null
     },
@@ -158,25 +445,113 @@
     },
     {
       "id": "richter_kaiser_gmbh",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "hsd",
+            "value": 15
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 40
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 52
+          }
+        }
+      ],
       "core": "skill_tier",
       "dlc": null
     },
     {
       "id": "5_11_tactical",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "wd",
+            "value": 30
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "hsd",
+            "value": 30
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "chc",
+            "value": 30
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
     {
       "id": "badger_tuff",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "healing",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "armor",
+            "value": 5
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "armor_regen",
+            "value": 15
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
     {
       "id": "golan_gear_ltd",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "health",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "armor",
+            "value": 1
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "armor",
+            "value": 10
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
@@ -196,7 +571,29 @@
     },
     {
       "id": "lengmo",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 20
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 20
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "chd",
+            "value": 30
+          }
+        }
+      ],
       "core": "armor",
       "dlc": null
     },
@@ -216,7 +613,29 @@
     },
     {
       "id": "douglas_harding",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "status_effects",
+            "value": 20
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "status_effects",
+            "value": 30
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "rof",
+            "value": 50
+          }
+        }
+      ],
       "core": "wd",
       "dlc": null
     },
@@ -278,31 +697,141 @@
     },
     {
       "id": "zwiadowka_sp_z_o_o",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "status_effects",
+            "value": 15
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "reload",
+            "value": 20
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "dmg",
+            "value": 30
+          }
+        }
+      ],
       "core": "wd",
       "dlc": null
     },
     {
       "id": "legatus_s_p_a",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 30
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "hazard",
+            "value": 70
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "explosive_dmg",
+            "value": 15
+          }
+        }
+      ],
       "core": "wd",
       "dlc": null
     },
     {
       "id": "shiny_monkey_gear",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 15
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "armor",
+            "value": 5
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 52
+          }
+        }
+      ],
       "core": "skill_tier",
       "dlc": null
     },
     {
       "id": "imminence_armaments",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "explosive_dmg",
+            "value": 5
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_tier",
+            "value": 100
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "status_effects",
+            "value": 60
+          }
+        }
+      ],
       "core": "wd",
       "dlc": null
     },
     {
       "id": "urban_lookout",
-      "bonuses": [],
+      "bonuses": [
+        {
+          "pieces": 1,
+          "bonus": {
+            "stat": "rof",
+            "value": 10
+          }
+        },
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 30
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 30
+          }
+        }
+      ],
       "core": "wd",
       "dlc": null
     },
