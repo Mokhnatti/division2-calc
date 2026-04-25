@@ -185,6 +185,95 @@ def main():
             json.dumps({"_lang": lang, "stats": stats_out}, ensure_ascii=False, indent=2),
             encoding="utf-8")
 
+    # ---- LEGACY-FORMAT EXPORT (frontend compat shim) ----
+    # apps/web SPA reads flat files in old shape. Regenerate from data.db.extra_json.
+    LOC_OUT_EN = ROOT / "apps/web/public/locales/en"
+    LOC_OUT_RU = ROOT / "apps/web/public/locales/ru"
+
+    def items_with_extra(kind):
+        """Yield {**extra_json record, plus injected db fields if extra is missing}"""
+        rows = conn.execute(
+            "SELECT id, extra_json FROM items WHERE kind=? AND stat_quality='verified' ORDER BY id",
+            (kind,)).fetchall()
+        out = []
+        for r in rows:
+            if r["extra_json"]:
+                try:
+                    out.append(json.loads(r["extra_json"]))
+                except Exception:
+                    pass
+        return out
+
+    legacy_weapons  = items_with_extra("weapon")
+    legacy_brands   = items_with_extra("brand")
+    legacy_sets     = items_with_extra("gear_set")
+    legacy_named    = items_with_extra("named_gear")
+    legacy_talents  = items_with_extra("talent")
+
+    meta_keys = {r["key"]: r["value"] for r in conn.execute("SELECT * FROM meta").fetchall()}
+    legacy_envelope = {"version": "2.0.0", "gameVersion": meta_keys.get("game_version", "TU22")}
+
+    (OUT / "weapons.json").write_text(json.dumps(
+        {**legacy_envelope, "weapons": legacy_weapons}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+    (OUT / "brands.json").write_text(json.dumps(
+        {**legacy_envelope, "brands": legacy_brands}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+    (OUT / "gear-sets.json").write_text(json.dumps(
+        {**legacy_envelope, "sets": legacy_sets}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+    (OUT / "named-gear.json").write_text(json.dumps(
+        {**legacy_envelope, "items": legacy_named}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+    (OUT / "talents.json").write_text(json.dumps(
+        {**legacy_envelope, "talents": legacy_talents}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+
+    # legacy locales: flat slug→string per category
+    def export_locale(out_path, entity_filter, field):
+        """Write {slug: text} for items matching filter."""
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        for lng, base_dir in (("en", LOC_OUT_EN), ("ru", LOC_OUT_RU)):
+            d = {}
+            for r in conn.execute("""
+                SELECT t.entity_id, t.text
+                FROM translations t JOIN items i ON i.id = t.entity_id
+                WHERE t.entity_type='item' AND t.lang=? AND t.field=?
+                  AND i.kind IN (%s)""" % ",".join(f"'{k}'" for k in entity_filter),
+                (lng, field)):
+                d[r["entity_id"]] = r["text"]
+            (base_dir / out_path.name).write_text(
+                json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Per-category locales (flat slug → name dict)
+    export_locale(Path("weapons.json"),    ["weapon"],     "name")
+    export_locale(Path("brands.json"),     ["brand"],      "name")
+    export_locale(Path("gear-sets.json"),  ["gear_set"],   "name")
+    export_locale(Path("named-gear.json"), ["named_gear"], "name")
+    export_locale(Path("talents.json"),    ["talent"],     "name")
+    # talent descriptions
+    export_locale(Path("talent-desc.json"), ["talent"], "description")
+    # weapon source/drop info
+    export_locale(Path("weapon-source.json"), ["weapon"], "source")
+    # named bonuses + sources
+    export_locale(Path("named-bonus.json"), ["named_gear"], "description")
+    export_locale(Path("named-source.json"), ["named_gear"], "source")
+    # set bonuses descriptions
+    export_locale(Path("set-bonuses.json"), ["gear_set"], "set_bonuses")
+    export_locale(Path("set-chest.json"),   ["gear_set"], "chest_text")
+    export_locale(Path("set-backpack.json"),["gear_set"], "backpack_text")
+    # brand bonuses
+    export_locale(Path("brand-bonuses.json"), ["brand"], "bonus_text")
+    # stats
+    for lng, base_dir in (("en", LOC_OUT_EN), ("ru", LOC_OUT_RU)):
+        d = {}
+        for r in conn.execute(
+            "SELECT entity_id, text FROM translations WHERE entity_type='stat' AND field='name' AND lang=?",
+            (lng,)):
+            d[r["entity_id"]] = r["text"]
+        (base_dir / "stats.json").write_text(
+            json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+
     # meta
     meta = {r["key"]: r["value"] for r in conn.execute("SELECT * FROM meta").fetchall()}
     (OUT / "meta.json").write_text(

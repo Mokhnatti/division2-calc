@@ -100,6 +100,8 @@ CREATE TABLE items (
   rarity          TEXT,
   icon_url        TEXT,
   stat_quality    TEXT DEFAULT 'verified',  -- verified | unverified
+  exotic_mechanic TEXT,                      -- named_gear: text describing exotic mechanic
+  extra_json      TEXT,                      -- passthrough fields from public/data not in schema
   source_file     TEXT,
   imported_at     TEXT
 );
@@ -118,7 +120,12 @@ CREATE TABLE weapon_specs (
   burst_count      INTEGER,
   fire_mode        TEXT,
   bullets_per_shot INTEGER DEFAULT 1,
-  mod_slots_json   TEXT
+  mod_slots_json   TEXT,
+  built_in_mods_json TEXT,                  -- exotic weapons: pre-installed mods
+  default_talent_id  TEXT,                   -- talentId from public/data (links table also has it but mirror here for export)
+  tal_type           TEXT,                   -- talType: amp/kill/stacks/etc
+  tal_bonus          REAL,                   -- talBonus magnitude
+  tal_max            REAL                    -- talMax cap
 );
 
 CREATE TABLE intrinsic_attrs (
@@ -247,26 +254,33 @@ def main():
         is_exotic = 1 if kind == "exotic" else 0
         is_named = 1 if kind == "named" else 0
         family = (w.get("category") or "").lower()
+        # extra_json = COMPLETE source record (lossless passthrough)
+        extra_json = json.dumps(w, ensure_ascii=False)
+
         conn.execute("""INSERT INTO items
             (id, kind, subkind, slot, core_attribute, family, weapon_class, dlc,
-             is_exotic, is_named, stat_quality, source_file, imported_at)
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+             is_exotic, is_named, stat_quality, extra_json, source_file, imported_at)
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (slug, "weapon", kind, "weapon", None, family, family, w.get("dlc"),
-             is_exotic, is_named, "verified",
+             is_exotic, is_named, "verified", extra_json,
              "apps/web/public/data/weapons.json", now))
 
         mod_slots = w.get("modSlots") or []
+        built_in = w.get("builtInMods") or []
         conn.execute("""INSERT INTO weapon_specs
             (item_id, base_damage, rpm, magazine, reload_seconds, optimal_range,
-             headshot_mult, is_burst, burst_count, fire_mode, bullets_per_shot, mod_slots_json)
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?)""",
+             headshot_mult, is_burst, burst_count, fire_mode, bullets_per_shot,
+             mod_slots_json, built_in_mods_json, default_talent_id, tal_type, tal_bonus, tal_max)
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (slug, w.get("baseDamage"), w.get("rpm"), w.get("magazine"),
              w.get("reloadSeconds"), w.get("optimalRange"),
              w.get("headshotMultiplier") or 1.5,
              1 if wo.get("is_burst") else 0,
              wo.get("burst_count"),
              wo.get("fire_mode"),
-             1, json.dumps(mod_slots, ensure_ascii=False)))
+             1, json.dumps(mod_slots, ensure_ascii=False),
+             json.dumps(built_in, ensure_ascii=False) if built_in else None,
+             w.get("talentId"), w.get("talType"), w.get("talBonus"), w.get("talMax")))
 
         # intrinsic_attrs (only exotics typically have them)
         for ia in (w.get("intrinsicAttrs") or []):
@@ -335,10 +349,11 @@ def main():
         nk = name_key(loc_en_brands.get(slug, ""))
         raw_b = raw_brands_idx.get(nk)
         conn.execute("""INSERT INTO items
-            (id, game_uid, kind, subkind, core_attribute, dlc, source_file, imported_at)
-            VALUES(?,?,?,?,?,?,?,?)""",
+            (id, game_uid, kind, subkind, core_attribute, dlc, extra_json, source_file, imported_at)
+            VALUES(?,?,?,?,?,?,?,?,?)""",
             (slug, raw_b.get("uid") if raw_b else None, "brand", "brand",
              b.get("core"), b.get("dlc"),
+             json.dumps(b, ensure_ascii=False),
              "apps/web/public/data/brands.json", now))
         for bn in (b.get("bonuses") or []):
             inner = bn.get("bonus") or {}
@@ -352,9 +367,10 @@ def main():
         slug = s["id"]
         try:
             conn.execute("""INSERT INTO items
-                (id, kind, subkind, dlc, source_file, imported_at)
-                VALUES(?,?,?,?,?,?)""",
+                (id, kind, subkind, dlc, extra_json, source_file, imported_at)
+                VALUES(?,?,?,?,?,?,?)""",
                 (slug, "gear_set", s.get("type"), s.get("dlc"),
+                 json.dumps(s, ensure_ascii=False),
                  "apps/web/public/data/gear-sets.json", now))
         except sqlite3.IntegrityError:
             existing = conn.execute("SELECT kind, source_file FROM items WHERE id=?", (slug,)).fetchone()
@@ -376,11 +392,14 @@ def main():
     pub_named = (load(PUB_DATA / "named-gear.json") or {}).get("items", [])
     for ng in pub_named:
         slug = ng["id"]
+        extra_ng_json = json.dumps(ng, ensure_ascii=False)
         conn.execute("""INSERT INTO items
-            (id, kind, subkind, slot, core_attribute, is_named, is_exotic, source_file, imported_at)
-            VALUES(?,?,?,?,?,?,?,?,?)""",
+            (id, kind, subkind, slot, core_attribute, is_named, is_exotic,
+             exotic_mechanic, extra_json, source_file, imported_at)
+            VALUES(?,?,?,?,?,?,?,?,?,?,?)""",
             (slug, "named_gear", ng.get("slot"), ng.get("slot"), ng.get("core"),
              1, 1 if ng.get("isExotic") else 0,
+             ng.get("exoticMechanic"), extra_ng_json,
              "apps/web/public/data/named-gear.json", now))
         for fa in (ng.get("fixedAttrs") or []):
             conn.execute("""INSERT INTO item_bonuses
@@ -402,9 +421,10 @@ def main():
         slug = t["id"]
         try:
             conn.execute("""INSERT INTO items
-                (id, kind, subkind, source_file, imported_at)
-                VALUES(?,?,?,?,?)""",
+                (id, kind, subkind, extra_json, source_file, imported_at)
+                VALUES(?,?,?,?,?,?)""",
                 (slug, "talent", t.get("kind"),
+                 json.dumps(t, ensure_ascii=False),
                  "apps/web/public/data/talents.json", now))
         except sqlite3.IntegrityError:
             existing = conn.execute("SELECT kind, source_file FROM items WHERE id=?", (slug,)).fetchone()
