@@ -18,12 +18,11 @@ Following the 90-day plan from Research mode.
 | 3-4 | Sitemap-генератор + git-based lastmod | ⏳ pending | |
 | 3-4 | Schema.org Product+Breadcrumb разметка | ⏳ pending | |
 | 3-4 | IndexNow webhook | ⏳ pending | |
-| 5-8 | AI pipeline + 30 priority pages | ✅ done | Master prompt template, marked.js renderer |
-| 5-8 | 4 Sonnet long-form гайда для топ-билдов | ✅ done | St.Elmo (3919w), Iron Lung Burn, Tipping Eagle, Big Alejandro |
-| 5-12 | **186 priority pages with AI content** | ✅ done | 120 weapons + 26 sets + 36 brands + 4 long-form builds |
-| 5-12 | **~250,000 words AI-generated** | ✅ done | Sonnet for first 160, Haiku for last 26 |
-| - | Stagger remaining 173 base/replica weapons | ⏳ deferred | Plan says 10-20/day post-deploy |
-| - | AdSense активация | ⏳ pending | After deploy + 1k sessions/mo |
+| 5-8 | 30 priority pages via Haiku 4.5 | ⏳ pending | |
+| 5-8 | AI generation pipeline (HorizonLLM → Haiku → human) | ⏳ pending | |
+| 9-12 | 170 остальных страниц | ⏳ pending | |
+| 9-12 | 4 Sonnet long-form гайда для топ-билдов | ⏳ pending | |
+| 9-12 | AdSense активация | ⏳ pending | |
 
 ## Decisions made
 

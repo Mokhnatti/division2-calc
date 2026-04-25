@@ -98,8 +98,8 @@
       "bonusType": "additive",
       "bonuses": [
         {
-          "stat": "chc",
-          "value": 50
+          "stat": "chd",
+          "value": 70
         }
       ],
       "hasPerfectVariant": true,
@@ -121,12 +121,7 @@
       "id": "adrenaline_rush",
       "kind": "weapon",
       "bonusType": "additive",
-      "bonuses": [
-        {
-          "stat": "wd",
-          "value": 30
-        }
-      ],
+      "bonuses": [],
       "hasPerfectVariant": true
     },
     {
@@ -148,7 +143,7 @@
       "bonusType": "additive",
       "bonuses": [
         {
-          "stat": "wd",
+          "stat": "skill_dmg",
           "value": 25
         }
       ],
@@ -262,12 +257,7 @@
       "id": "vanguard",
       "kind": "weapon",
       "bonusType": "additive",
-      "bonuses": [
-        {
-          "stat": "wd",
-          "value": 8
-        }
-      ],
+      "bonuses": [],
       "hasPerfectVariant": true
     },
     {
@@ -276,7 +266,7 @@
       "bonusType": "additive",
       "bonuses": [
         {
-          "stat": "wd",
+          "stat": "skill_dmg",
           "value": 15
         }
       ],
@@ -385,12 +375,7 @@
       "id": "calculated",
       "kind": "weapon",
       "bonusType": "additive",
-      "bonuses": [
-        {
-          "stat": "wd",
-          "value": 10
-        }
-      ],
+      "bonuses": [],
       "hasPerfectVariant": true
     },
     {
@@ -412,7 +397,7 @@
       "bonuses": [
         {
           "stat": "wd",
-          "value": 20
+          "value": 15
         }
       ],
       "hasPerfectVariant": true,
@@ -422,12 +407,7 @@
       "id": "preservation",
       "kind": "weapon",
       "bonusType": "additive",
-      "bonuses": [
-        {
-          "stat": "wd",
-          "value": 5
-        }
-      ],
+      "bonuses": [],
       "hasPerfectVariant": true
     },
     {
@@ -447,12 +427,7 @@
       "id": "determined",
       "kind": "weapon",
       "bonusType": "additive",
-      "bonuses": [
-        {
-          "stat": "wd",
-          "value": 8
-        }
-      ],
+      "bonuses": [],
       "hasPerfectVariant": true
     },
     {
@@ -473,8 +448,8 @@
       "bonusType": "additive",
       "bonuses": [
         {
-          "stat": "wd",
-          "value": 35
+          "stat": "hsd",
+          "value": 50
         }
       ],
       "hasPerfectVariant": true,
@@ -1105,7 +1080,7 @@
       "bonuses": [
         {
           "stat": "wd",
-          "value": 47
+          "value": 37
         }
       ],
       "hasPerfectVariant": false
@@ -1230,7 +1205,7 @@
       "bonuses": [
         {
           "stat": "wd",
-          "value": 25
+          "value": 15
         }
       ],
       "hasPerfectVariant": false,
@@ -1309,7 +1284,7 @@
       "bonuses": [
         {
           "stat": "wd",
-          "value": 35
+          "value": 25
         }
       ],
       "hasPerfectVariant": false,

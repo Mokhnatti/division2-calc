@@ -211,7 +211,7 @@
     {
       "id": "pointman",
       "slot": "chest",
-      "brand": "gila",
+      "brand": "gila_guard",
       "core": "armor",
       "fixedAttrs": []
     },
@@ -328,25 +328,9 @@
     {
       "id": "contractor_s_gloves",
       "slot": "gloves",
-      "brand": "petrov",
+      "brand": "petrov_defense_group",
       "core": "wd",
-      "fixedAttrs": [
-        {
-          "stat": "wd",
-          "value": 15
-        },
-        {
-          "stat": "chc",
-          "value": 10
-        },
-        {
-          "stat": "hsd",
-          "value": 20
-        }
-      ],
-      "isExotic": true,
-      "activeBonuses": [],
-      "exoticMechanic": "+20% grenade damage, +50% radius (not regular weapons)."
+      "fixedAttrs": []
     },
     {
       "id": "motherly_love",
@@ -407,7 +391,7 @@
       "id": "picaros_holster",
       "slot": "holster",
       "brand": "brazos_de_arcabuz",
-      "core": "armor",
+      "core": "wd",
       "fixedAttrs": [
         {
           "stat": "wd",
@@ -451,16 +435,7 @@
           "stat": "ooc",
           "value": 8
         }
-      ],
-      "isExotic": true,
-      "activeBonuses": [
-        {
-          "stat": "wd",
-          "value": 8,
-          "amp": true
-        }
-      ],
-      "exoticMechanic": "+8% amplified damage while out of cover."
+      ]
     },
     {
       "id": "snow_machine",
@@ -508,12 +483,6 @@
       "fixedAttrs": []
     },
     {
-      "id": "birdie_s_quick_fix_pack",
-      "slot": "backpack",
-      "core": "skill_tier",
-      "fixedAttrs": []
-    },
-    {
       "id": "ninjabike_messenger_backpack",
       "slot": "backpack",
       "core": "wd",
@@ -531,20 +500,9 @@
           "value": 15
         }
       ],
+      "isExotic": true,
       "activeBonuses": [],
       "exoticMechanic": "Counts as any gear-set piece (utility, no damage)."
-    },
-    {
-      "id": "centurion_scabbard",
-      "slot": "holster",
-      "core": "wd",
-      "fixedAttrs": []
-    },
-    {
-      "id": "acosta_kneepads",
-      "slot": "kneepads",
-      "core": "wd",
-      "fixedAttrs": []
     },
     {
       "id": "robin",
@@ -563,12 +521,6 @@
     {
       "id": "impetus",
       "slot": "chest",
-      "core": "wd",
-      "fixedAttrs": []
-    },
-    {
-      "id": "picaro_s_holster",
-      "slot": "holster",
       "core": "wd",
       "fixedAttrs": []
     },
@@ -616,7 +568,7 @@
     {
       "id": "birdies_quick_fix_pack",
       "slot": "backpack",
-      "core": "armor",
+      "core": "skill_tier",
       "fixedAttrs": [
         {
           "stat": "chc",
@@ -742,11 +694,8 @@
     {
       "id": "provocator",
       "slot": "chest",
-      "core": "wd",
-      "fixedAttrs": [],
-      "isExotic": true,
-      "activeBonuses": [],
-      "exoticMechanic": "Challenger: +20% damage resistance within 15m. Defensive."
+      "core": "armor",
+      "fixedAttrs": []
     },
     {
       "id": "beacon",

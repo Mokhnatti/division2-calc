@@ -98,23 +98,13 @@
   let sections = $derived.by<Section[]>(() => {
     const q = query.trim().toLowerCase();
     const match = (name: string, id: string) => !q || name.toLowerCase().includes(q) || id.toLowerCase().includes(q);
-    /** Match weapon: by name, id, talent name, or talent description text. */
-    const matchWeapon = (w: Weapon, name: string) => {
-      if (!q) return true;
-      if (name.toLowerCase().includes(q) || w.id.toLowerCase().includes(q)) return true;
-      const tName = talentName(w.talentId);
-      if (tName && tName.toLowerCase().includes(q)) return true;
-      const tDesc = talentDesc(w.talentId);
-      if (tDesc && tDesc.toLowerCase().includes(q)) return true;
-      return false;
-    };
     const result: Section[] = [];
 
     if (filter === 'all' || filter === 'weapons') {
       for (const cat of CATEGORY_ORDER) {
         const catWeapons = data.weapons
           .filter((w) => w.category === cat && w.kind === 'base')
-          .filter((w) => matchWeapon(w, wName(w)));
+          .filter((w) => match(wName(w), w.id));
         if (catWeapons.length > 0) {
           const catLabel = CAT_LABELS[cat];
           result.push({ title: lang === 'ru' ? catLabel.ru : catLabel.en, kind: 'weapon', items: catWeapons });
@@ -125,7 +115,7 @@
       for (const cat of CATEGORY_ORDER) {
         const items = data.weapons
           .filter((w) => w.category === cat && w.kind === 'named')
-          .filter((w) => matchWeapon(w, wName(w)));
+          .filter((w) => match(wName(w), w.id));
         if (items.length > 0) {
           const catLabel = CAT_LABELS[cat];
           const prefix = lang === 'ru' ? 'Именные' : 'Named';
@@ -148,7 +138,7 @@
       for (const cat of CATEGORY_ORDER) {
         const items = data.weapons
           .filter((w) => w.category === cat && w.kind === 'exotic')
-          .filter((w) => matchWeapon(w, wName(w)));
+          .filter((w) => match(wName(w), w.id));
         if (items.length > 0) {
           const catLabel = CAT_LABELS[cat];
           const prefix = lang === 'ru' ? 'Экзотики' : 'Exotic';
@@ -193,9 +183,7 @@
     <span class="count num">{totalCount}</span>
   </div>
   <div class="cat-toolbar">
-    <input class="input" type="search"
-      placeholder={lang === 'ru' ? 'Поиск (имя, талант, описание)' : 'Search (name, talent, description)'}
-      bind:value={query} />
+    <input class="input" type="search" placeholder={t('ui', 'search')} bind:value={query} />
     <div class="chip-row">
       <button class="btn small" class:active={filter === 'all'} onclick={() => (filter = 'all')}>{t('ui', 'all')}</button>
       <button class="btn small" class:active={filter === 'weapons'} onclick={() => (filter = 'weapons')}>{t('ui', 'weapons')}</button>
