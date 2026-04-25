@@ -224,5 +224,21 @@
   "px4_storm_type_t": "Рейд (общий пул)",
   "snubnosed_diceros": "Рейд (общий пул)",
   "x_45": "Рейд (общий пул)",
-  "x_45_tactical": "Рейд (общий пул)"
+  "x_45_tactical": "Рейд (общий пул)",
+  "cold_relations": "Захваты ЗЛ",
+  "swap_chain": "Захваты ЗЛ",
+  "born_great": "Захваты ЗЛ",
+  "the_railsplitter": "Тёмная зона",
+  "new_reliable": "Захваты ЗЛ",
+  "rusty": "Захваты ЗЛ",
+  "grown_great": "Захваты ЗЛ",
+  "the_send_off": "Полевые исследования: Техник",
+  "lockdown": "Захваты ЗЛ",
+  "mechanical_animal": "Захваты ЗЛ",
+  "lexington": "Награда за событие",
+  "the_sleigher": "Награда за событие",
+  "backup_boomstick": "Захваты ЗЛ",
+  "cooler": "Награда за событие",
+  "oh_carol": "Награда за событие",
+  "tdi_kard_custom": "ТЗ, тайники"
 }
