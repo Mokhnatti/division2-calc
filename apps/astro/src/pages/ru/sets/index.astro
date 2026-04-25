@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SETS, setSlug, setName, typeColor, typeLabel } from '../../../data/set-helpers';
+
+const title = 'Все сеты — Division 2 калькулятор (26 сетов, TU22.1)';
+const description = '26 сетов Division 2: Боевик, Разбиватель сердец, Ярость охотника. Бонусы, таланты, билды.';
+const canonical = 'https://divcalc.xyz/ru/sets/';
+
+const byType: Record<string, typeof SETS> = {};
+for (const s of SETS) {
+  if (!byType[s.type]) byType[s.type] = [];
+  byType[s.type].push(s);
+}
+const types = ['red', 'yellow', 'blue', 'green'] as const;
+---
+<BaseLayout {title} {description} {canonical}>
+  <main class="catalog-page">
+    <nav class="breadcrumb"><a href="/ru/">Главная</a> · <span>Сеты</span></nav>
+    <h1>Все сеты ({SETS.length})</h1>
+    <p class="muted">Бонусы сета активируются при ношении 2/3/4 предметов. 4шт даёт спецталанты.</p>
+    {types.map(t => byType[t] && (
+      <section>
+        <h2 style={`color: ${typeColor(t as any)};`}>{typeLabel(t as any, 'ru')} ({byType[t].length})</h2>
+        <ul class="list">
+          {byType[t].sort((a, b) => a.id.localeCompare(b.id)).map(s => (
+            <li>
+              <a href={`/sets/${setSlug(s.id)}`} class="item" style={`border-left: 3px solid ${typeColor(s.type)};`}>
+                <span class="name">{setName(s, 'ru')}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+</BaseLayout>
+
+<style>
+  .catalog-page { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+  .breadcrumb { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumb a { color: var(--muted); }
+  h1 { font-size: 30px; margin: 0 0 4px; }
+  .muted { color: var(--text-dim); font-size: 13px; margin-bottom: 24px; }
+  section { margin-bottom: 24px; }
+  section h2 { font-size: 16px; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+  .list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 4px; }
+  .item { display: block; padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 5px; text-decoration: none; color: var(--text); font-size: 14px; transition: background .12s; }
+  .item:hover { background: rgba(254,175,16,.06); text-decoration: none; }
+</style>

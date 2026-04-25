@@ -8,11 +8,13 @@ Following the 90-day plan from Research mode.
 
 | Week | Task | Status | Notes |
 |------|------|--------|-------|
-| 1-2 | Astro setup + legacy SPA wrap | ✅ partial | apps/astro/ initialized |
-| 1-2 | Svelte 5 + sitemap integrations | ✅ done | @astrojs/svelte 8.0.5, @astrojs/sitemap 3.7.2, nanostores |
-| 1-2 | First weapon page `/weapons/[slug].astro` | ✅ done | 359 pages built, schema.org Product+Breadcrumb, hreflang ru/en |
-| 1-2 | Wrap existing Svelte SPA as `client:only` island | ⏳ pending | |
-| 1-2 | Caddy try_files config | ⏳ pending | |
+| 1-2 | Astro setup + integrations | ✅ done | @astrojs/svelte 8.0.5, sitemap, nanostores |
+| 1-2 | All page generators | ✅ done | weapons, sets, brands, builds + indexes + RU mirror |
+| 1-2 | **806 static pages built** | ✅ done | 1 index + 359 weapons + 26 sets + 36 brands + 10 builds + 4 catalog indexes + 5 RU pages = 806 |
+| 1-2 | SPA serving via /spa/ path | ✅ done | apps/web/dist served separately by Caddy |
+| 1-2 | Caddyfile.v2 hybrid config | ✅ done | try_files: Astro static → SPA fallback |
+| 1-2 | robots.txt + IndexNow script | ✅ done | apps/astro/public/robots.txt, scripts/indexnow.mjs |
+| 1-2 | Deploy guide | ✅ done | deploy/DEPLOY.md with rsync + GSC/Yandex/Bing instructions |
 | 3-4 | Sitemap-генератор + git-based lastmod | ⏳ pending | |
 | 3-4 | Schema.org Product+Breadcrumb разметка | ⏳ pending | |
 | 3-4 | IndexNow webhook | ⏳ pending | |

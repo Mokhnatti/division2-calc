@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BRANDS, brandSlug, brandName, type Brand } from '../../data/brand-helpers';
+
+export async function getStaticPaths() {
+  return BRANDS.map((b) => ({
+    params: { slug: brandSlug(b.id) },
+    props: { brand: b },
+  }));
+}
+
+interface Props { brand: Brand }
+const { brand: b } = Astro.props;
+const name = brandName(b);
+const slug = brandSlug(b.id);
+
+const title = `${name} — Brand Set Bonuses & Best Items | Division 2 Calculator`;
+const description = `${name} brand: 1pc, 2pc, 3pc bonuses with stats. Use in DPS calculator for verified builds.`;
+const canonical = `https://divcalc.xyz/brands/${slug}`;
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://divcalc.xyz/" },
+      { "@type": "ListItem", "position": 2, "name": "Brands", "item": "https://divcalc.xyz/brands/" },
+      { "@type": "ListItem", "position": 3, "name": name },
+    ],
+  },
+];
+
+function statLabel(stat: string): string {
+  const map: Record<string, string> = {
+    chc: 'Crit Chance', chd: 'Crit Damage', hsd: 'Headshot Damage',
+    wd: 'Weapon Damage', rof: 'Rate of Fire', mag: 'Magazine Size',
+    reload: 'Reload Speed', handling: 'Handling', ooc: 'Out of Cover',
+    dta: 'Damage to Armor', dth: 'Damage to Health',
+    armor: 'Armor', health: 'Health', skill_dmg: 'Skill Damage',
+    skill_haste: 'Skill Haste', status_effects: 'Status Effects',
+    armor_on_kill: 'Armor on Kill',
+    wd_ar: 'AR Damage', wd_smg: 'SMG Damage', wd_lmg: 'LMG Damage',
+    wd_mmr: 'MMR Damage', wd_rifle: 'Rifle Damage',
+    wd_shotgun: 'Shotgun Damage', wd_pistol: 'Pistol Damage',
+  };
+  return map[stat] || stat.toUpperCase();
+}
+
+const hasBonuses = b.bonuses && b.bonuses.length > 0;
+---
+<BaseLayout {title} {description} {canonical} {schema}>
+  <main class="brand-page">
+    <nav class="breadcrumb">
+      <a href="/">Home</a> · <a href="/brands/">Brands</a> · <span>{name}</span>
+    </nav>
+
+    <header>
+      <h1>{name}</h1>
+      {b.core && <p class="muted">Core focus: <strong>{b.core.toUpperCase()}</strong></p>}
+    </header>
+
+    {hasBonuses ? (
+      <section>
+        <h2>Brand Bonuses</h2>
+        <p class="muted">Activated when wearing items of this brand:</p>
+        <table>
+          <thead><tr><th>Pieces</th><th>Bonus</th></tr></thead>
+          <tbody>
+            {b.bonuses.map(bn => (
+              <tr>
+                <td><strong>{bn.pieces}-piece</strong></td>
+                <td>+{bn.bonus.value}{['armor', 'health'].includes(bn.bonus.stat) ? '%' : '%'} <span class="stat-name">{statLabel(bn.bonus.stat)}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ) : (
+      <section><p class="muted">No active bonuses defined yet for this brand.</p></section>
+    )}
+
+    <section class="cta">
+      <h2>Try in calculator</h2>
+      <p>Open the live DPS calculator with items from this brand:</p>
+      <a class="btn" href={`/spa/index.html#build?brand=${slug}`}>⚙ Open in Calculator</a>
+    </section>
+
+    <footer class="page-footer">
+      <p class="dim">TU22.1 "Rise Up" · Last reviewed: 2026-04-25 · Verified vs in-game</p>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style>
+  .brand-page { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+  .breadcrumb { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumb a { color: var(--muted); }
+  header { margin-bottom: 24px; }
+  h1 { margin: 0; font-size: 32px; }
+  .muted { color: var(--text-dim); font-size: 13px; }
+  .dim { color: var(--muted); font-size: 11px; }
+  section { margin-bottom: 28px; }
+  section h2 { font-size: 18px; margin: 0 0 10px; color: var(--orange); }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 700; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+  .stat-name { color: var(--text-dim); }
+  .cta { padding: 18px; background: var(--bg-2); border: 1px solid rgba(254,175,16,.3); border-radius: 6px; }
+  .btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; }
+  .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+</style>

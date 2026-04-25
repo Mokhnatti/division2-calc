@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BRANDS, brandSlug, brandName } from '../../data/brand-helpers';
+
+const title = 'All Brands — Division 2 Calculator (36 brands, TU22.1)';
+const description = '36 Division 2 brand sets: Providence, Wyvern, Ceska, Murakami, etc. 1pc/2pc/3pc bonuses.';
+const canonical = 'https://divcalc.xyz/brands/';
+---
+<BaseLayout {title} {description} {canonical}>
+  <main class="catalog-page">
+    <nav class="breadcrumb"><a href="/">Home</a> · <span>Brands</span></nav>
+    <h1>All Brands ({BRANDS.length})</h1>
+    <p class="muted">Brand bonuses unlock at 1/2/3 items of the same brand.</p>
+
+    <ul class="list">
+      {BRANDS.sort((a, b) => a.id.localeCompare(b.id)).map(b => (
+        <li>
+          <a href={`/brands/${brandSlug(b.id)}`} class="item">
+            <span class="name">{brandName(b)}</span>
+            {b.core && <span class="core">{b.core.toUpperCase()}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  .catalog-page { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+  .breadcrumb { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumb a { color: var(--muted); }
+  h1 { font-size: 30px; margin: 0 0 4px; }
+  .muted { color: var(--text-dim); font-size: 13px; margin-bottom: 24px; }
+  .list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 4px; }
+  .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 5px; text-decoration: none; color: var(--text); font-size: 13px; transition: background .12s; }
+  .item:hover { background: rgba(254,175,16,.06); text-decoration: none; }
+  .core { font-size: 9px; color: var(--muted); padding: 2px 6px; background: rgba(255,255,255,.05); border-radius: 3px; letter-spacing: .12em; }
+</style>

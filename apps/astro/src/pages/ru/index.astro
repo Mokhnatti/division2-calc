@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Division 2 калькулятор билдов — DPS 1:1 с игрой, TU22.1 (2026)';
+const description = 'Бесплатный Division 2 калькулятор. DPS совпадает с игрой 1:1. 359 пушек, 26 сетов, 36 брендов, все экзотики. Топ-билды, TTK, рекомбинатор, статус-эффекты.';
+---
+<BaseLayout {title} {description}>
+  <main style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
+    <h1 style="font-size: 36px; margin: 0 0 12px;">divcalc.xyz</h1>
+    <p style="font-size: 18px; color: var(--text-dim); margin: 0 0 30px;">
+      Division 2 калькулятор билдов — DPS совпадает 1:1 с игрой.
+    </p>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 40px;">
+      <a href="/spa/index.html#build" style="padding: 18px; background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--orange); border-radius: 6px;">
+        <strong>⚙ Калькулятор</strong><br />
+        <span style="font-size: 13px; color: var(--text-dim);">Live DPS, конструктор брони, пресеты</span>
+      </a>
+      <a href="/ru/weapons/" style="padding: 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px;">
+        <strong>🔫 Оружие</strong><br />
+        <span style="font-size: 13px; color: var(--text-dim);">359 пушек со статами и билдами</span>
+      </a>
+      <a href="/ru/sets/" style="padding: 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px;">
+        <strong>🧩 Сеты</strong><br />
+        <span style="font-size: 13px; color: var(--text-dim);">26 сетов с бонусами и билдами</span>
+      </a>
+      <a href="/ru/builds/" style="padding: 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px;">
+        <strong>🏆 Топ Билды</strong><br />
+        <span style="font-size: 13px; color: var(--text-dim);">S-tier билды с проверенным DPS</span>
+      </a>
+    </section>
+
+    <p style="color: var(--muted); font-size: 13px;">
+      TU22.1 "Rise Up" · Апрель 2026 · Эталон: Мотор святого Эльма + Strikers ДД
+    </p>
+  </main>
+</BaseLayout>

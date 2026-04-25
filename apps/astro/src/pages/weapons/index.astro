@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { WEAPONS, slugFromId, weaponName, weaponCategoryLabel } from '../../data/weapon-helpers';
+
+const title = 'All Weapons — Division 2 Calculator (359 weapons, TU22.1)';
+const description = '359 Division 2 weapons: AR, SMG, LMG, MMR, Rifle, Shotgun, Pistol. Stats, talents, top builds, DPS calculator.';
+const canonical = 'https://divcalc.xyz/weapons/';
+
+// Group by category
+const byCategory: Record<string, typeof WEAPONS> = {};
+for (const w of WEAPONS) {
+  if (!byCategory[w.category]) byCategory[w.category] = [];
+  byCategory[w.category].push(w);
+}
+const cats = ['ar', 'smg', 'lmg', 'mmr', 'rifle', 'shotgun', 'pistol'] as const;
+---
+<BaseLayout {title} {description} {canonical}>
+  <main class="catalog-page">
+    <nav class="breadcrumb"><a href="/">Home</a> · <span>Weapons</span></nav>
+    <h1>All Weapons ({WEAPONS.length})</h1>
+    <p class="muted">Click any weapon to see stats, intrinsic attrs, top builds, and load into calculator.</p>
+
+    {cats.map(cat => byCategory[cat] && (
+      <section>
+        <h2>{weaponCategoryLabel(cat as any, 'en')} ({byCategory[cat].length})</h2>
+        <ul class="weapon-list">
+          {byCategory[cat].sort((a, b) => a.id.localeCompare(b.id)).map(w => (
+            <li>
+              <a href={`/weapons/${slugFromId(w.id)}`} class={`item kind-${w.kind}`}>
+                <span class="dot"></span>
+                <span class="name">{weaponName(w, 'en')}</span>
+                <span class="stats num">{w.baseDamage.toLocaleString()} · {w.rpm}rpm · {w.magazine}mag</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+</BaseLayout>
+
+<style>
+  .catalog-page { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+  .breadcrumb { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumb a { color: var(--muted); }
+  h1 { font-size: 30px; margin: 0 0 4px; }
+  .muted { color: var(--text-dim); font-size: 13px; margin-bottom: 24px; }
+  section { margin-bottom: 24px; }
+  section h2 { font-size: 16px; color: var(--orange); margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+  .weapon-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 4px; }
+  .item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 5px; text-decoration: none; color: var(--text); font-size: 13px; transition: background .12s, border-color .12s; }
+  .item:hover { background: rgba(254,175,16,.06); border-color: rgba(254,175,16,.3); text-decoration: none; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .item.kind-base .dot { background: #6080a0; }
+  .item.kind-named .dot { background: var(--orange); }
+  .item.kind-exotic .dot { background: #ef5350; }
+  .name { flex: 1; }
+  .item.kind-named .name { color: var(--orange); }
+  .item.kind-exotic .name { color: #ef5350; }
+  .stats { font-size: 10px; color: var(--muted); font-family: monospace; }
+</style>

@@ -1,0 +1,95 @@
+# =============================================================
+# Caddyfile v2 — Astro SSG + Svelte SPA hybrid
+# Replace deploy/Caddyfile with this when ready to switch.
+# Deploy structure:
+#   /var/www/divcalc/astro/   — Astro static build (apps/astro/dist)
+#   /var/www/divcalc/spa/     — Svelte SPA build  (apps/web/dist)
+# =============================================================
+
+{
+    email admin@divcalc.xyz
+}
+
+divcalc.xyz, www.divcalc.xyz {
+    # Global security headers
+    header {
+        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "interest-cohort=()"
+        -Server
+    }
+
+    # PocketBase backend — noindex
+    handle /api/* {
+        header X-Robots-Tag "noindex, nofollow"
+        reverse_proxy 127.0.0.1:8090
+    }
+    handle /_/* {
+        header X-Robots-Tag "noindex, nofollow"
+        reverse_proxy 127.0.0.1:8090
+    }
+
+    # SEO static files (sitemap, robots, verification tokens)
+    @seo_static {
+        path /robots.txt
+        path /sitemap*.xml
+        path /llms.txt
+        path /BingSiteAuth.xml
+        path /yandex_*.html
+        path /google*.html
+        path /*.txt
+    }
+    handle @seo_static {
+        header {
+            -Alt-Svc
+            Cache-Control "public, max-age=3600, must-revalidate"
+            X-Content-Type-Options "nosniff"
+            defer
+        }
+        root * /var/www/divcalc/astro
+        file_server
+    }
+
+    # Cache Astro assets aggressively
+    @astro_assets {
+        path /_astro/*
+        path /assets/*
+        path /favicon*
+        path /og-*
+    }
+    handle @astro_assets {
+        root * /var/www/divcalc/astro
+        header Cache-Control "public, max-age=31536000, immutable"
+        encode br zstd gzip
+        file_server { precompressed br zstd gzip }
+    }
+
+    # /spa/* → legacy Svelte SPA (interactive calculator)
+    # Hash-routed paths (e.g. /spa/#build, /spa/#dps) all return /spa/index.html
+    handle_path /spa/* {
+        root * /var/www/divcalc/spa
+        encode br zstd gzip
+        try_files {path} /index.html
+        file_server { precompressed br zstd gzip }
+    }
+    redir /spa /spa/index.html
+
+    # Astro static pages — try direct, then directory, then .html, then SPA fallback
+    handle {
+        encode br zstd gzip
+        root * /var/www/divcalc/astro
+        try_files {path} {path}/ {path}.html /spa/index.html
+        file_server { precompressed br zstd gzip }
+        header @html {
+            Cache-Control "public, max-age=0, s-maxage=300, must-revalidate"
+        }
+    }
+
+    log {
+        output file /var/log/caddy/divcalc_access.log {
+            roll_size 100mb
+        }
+    }
+}

@@ -1,0 +1,423 @@
+{
+  "version": "2.0.0",
+  "gameVersion": "TU23.1",
+  "sets": [
+    {
+      "id": "striker_s_battlegear",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "handling",
+            "value": 15
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "rof",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "risk_management",
+      "backpackTalentId": "press_the_advantage",
+      "dlc": null
+    },
+    {
+      "id": "heartbreaker",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "handling",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "max_bpm",
+      "backpackTalentId": "cold",
+      "dlc": null
+    },
+    {
+      "id": "umbra_initiative",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "chc",
+            "value": 15
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "reload",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "umbra_protocol",
+      "backpackTalentId": "umbra_surge",
+      "dlc": null
+    },
+    {
+      "id": "hunter_s_fury",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "armor_on_kill",
+            "value": 20
+          }
+        }
+      ],
+      "chestTalentId": "hivemind",
+      "backpackTalentId": "smart_cooperation",
+      "dlc": null
+    },
+    {
+      "id": "negotiator_s_dilemma",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "chc",
+            "value": 15
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "chd",
+            "value": 20
+          }
+        }
+      ],
+      "chestTalentId": "parabellum_rounds",
+      "backpackTalentId": "trauma_specialist",
+      "dlc": null
+    },
+    {
+      "id": "hotshot",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "handling",
+            "value": 30
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "hsd",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "endless_hunger",
+      "backpackTalentId": "overwhelming_force",
+      "dlc": null
+    },
+    {
+      "id": "ongoing_directive",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "reload",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "hollow_point_ammo",
+      "backpackTalentId": "tactical_superiority",
+      "dlc": null
+    },
+    {
+      "id": "true_patriot",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "mag",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "waving_the_flag",
+      "backpackTalentId": "stars_and_stripes",
+      "dlc": null
+    },
+    {
+      "id": "aces_eights",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "hsd",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "aces_high",
+      "backpackTalentId": "dead_man_s_hand",
+      "dlc": null
+    },
+    {
+      "id": "tip_of_the_spear",
+      "type": "red",
+      "numericBonuses": [],
+      "chestTalentId": "sustainability",
+      "backpackTalentId": "snowball",
+      "dlc": null
+    },
+    {
+      "id": "breaking_point",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "hsd",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "point_of_no_return",
+      "backpackTalentId": "point_of_honor",
+      "dlc": null
+    },
+    {
+      "id": "virtuoso",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "mag",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "fortissimo",
+      "backpackTalentId": "accelerando",
+      "dlc": null
+    },
+    {
+      "id": "tipping_scales",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "mag",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "scales_of_justice",
+      "backpackTalentId": "sustainability",
+      "dlc": null
+    },
+    {
+      "id": "concentrated_company",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "handling",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "all_for_one",
+      "backpackTalentId": "one_for_all",
+      "dlc": null
+    },
+    {
+      "id": "foundry_bulwark",
+      "type": "blue",
+      "numericBonuses": [],
+      "chestTalentId": "makeshift_repairs",
+      "backpackTalentId": "armor_overflow",
+      "dlc": null
+    },
+    {
+      "id": "system_corruption",
+      "type": "blue",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "armor_on_kill",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "specialized_destruction",
+      "backpackTalentId": "signature_moves",
+      "dlc": null
+    },
+    {
+      "id": "aegis",
+      "type": "blue",
+      "numericBonuses": [],
+      "chestTalentId": "bulwark_protocol",
+      "backpackTalentId": "shield_surge",
+      "dlc": null
+    },
+    {
+      "id": "cavalier",
+      "type": "blue",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "hazard_prot",
+            "value": 30
+          }
+        }
+      ],
+      "chestTalentId": "overcharging",
+      "backpackTalentId": "safe_charging",
+      "dlc": null
+    },
+    {
+      "id": "rigger",
+      "type": "yellow",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "press_the_advantage",
+      "backpackTalentId": "risk_management",
+      "dlc": null
+    },
+    {
+      "id": "eclipse_protocol",
+      "type": "yellow",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "hazard_prot",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "proliferation",
+      "backpackTalentId": "symptom_aggravator",
+      "dlc": null
+    },
+    {
+      "id": "future_initiative",
+      "type": "yellow",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "tactical_superiority",
+      "backpackTalentId": "advanced_combat_tactics",
+      "dlc": null
+    },
+    {
+      "id": "hard_wired",
+      "type": "yellow",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 15
+          }
+        },
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "overcharge",
+      "backpackTalentId": "feedback_loop",
+      "dlc": null
+    },
+    {
+      "id": "ortiz_exuro",
+      "type": "yellow",
+      "numericBonuses": [],
+      "chestTalentId": "chain_combustion",
+      "backpackTalentId": "heatstroke",
+      "dlc": null
+    },
+    {
+      "id": "refactor",
+      "type": "yellow",
+      "numericBonuses": [
+        {
+          "pieces": 3,
+          "bonus": {
+            "stat": "skill_dmg",
+            "value": 25
+          }
+        }
+      ],
+      "chestTalentId": "best_buds",
+      "backpackTalentId": "complete_uptime",
+      "dlc": null
+    },
+    {
+      "id": "measured_assembly",
+      "type": "yellow",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "skill_haste",
+            "value": 15
+          }
+        }
+      ],
+      "chestTalentId": "target_rich_environment",
+      "backpackTalentId": "critical_measures",
+      "dlc": null
+    },
+    {
+      "id": "core_strength",
+      "type": "red",
+      "numericBonuses": [
+        {
+          "pieces": 2,
+          "bonus": {
+            "stat": "handling",
+            "value": 10
+          }
+        }
+      ],
+      "dlc": null
+    }
+  ]
+}

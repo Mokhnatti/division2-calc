@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SETS, setSlug, setName, typeColor, typeLabel, type GearSet } from '../../data/set-helpers';
+
+export async function getStaticPaths() {
+  return SETS.map((s) => ({
+    params: { slug: setSlug(s.id) },
+    props: { set: s },
+  }));
+}
+
+interface Props { set: GearSet }
+const { set: s } = Astro.props;
+const name = setName(s, 'en');
+const tColor = typeColor(s.type);
+const tLabel = typeLabel(s.type, 'en');
+
+const title = `${name} — Gear Set Build & Bonuses (TU22.1) | Division 2 Calculator`;
+const description = `${name} (${tLabel}) gear set: 2pc/3pc/4pc bonuses, talents, builds. Use in DPS calculator for verified stats.`;
+
+const slug = setSlug(s.id);
+const canonical = `https://divcalc.xyz/sets/${slug}`;
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://divcalc.xyz/" },
+      { "@type": "ListItem", "position": 2, "name": "Gear Sets", "item": "https://divcalc.xyz/sets/" },
+      { "@type": "ListItem", "position": 3, "name": name },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": name,
+    "description": description,
+    "category": `Gear Set / ${tLabel}`,
+    "additionalProperty": s.numericBonuses.map(b => ({
+      "@type": "PropertyValue",
+      "name": `${b.pieces}-piece bonus`,
+      "value": `+${b.bonus.value}% ${b.bonus.stat.toUpperCase()}`,
+    })),
+  },
+];
+
+function statLabel(stat: string): string {
+  const map: Record<string, string> = {
+    chc: 'Crit Chance', chd: 'Crit Damage', hsd: 'Headshot Damage',
+    wd: 'Weapon Damage', rof: 'Rate of Fire', mag: 'Magazine Size',
+    reload: 'Reload Speed', handling: 'Handling', ooc: 'Out of Cover',
+    dta: 'Damage to Armor', dth: 'Damage to Health',
+    armor: 'Armor', health: 'Health', skill_dmg: 'Skill Damage',
+    skill_haste: 'Skill Haste', status_effects: 'Status Effects',
+  };
+  return map[stat] || stat.toUpperCase();
+}
+---
+<BaseLayout {title} {description} {canonical} {schema}>
+  <main class="set-page">
+    <nav class="breadcrumb">
+      <a href="/">Home</a> · <a href="/sets/">Gear Sets</a> · <span>{name}</span>
+    </nav>
+
+    <header style={`border-left: 4px solid ${tColor};`}>
+      <span class="type-badge" style={`background: ${tColor}20; color: ${tColor}; border-color: ${tColor}50;`}>{tLabel}</span>
+      <h1>{name}</h1>
+    </header>
+
+    <section>
+      <h2>Set Bonuses</h2>
+      <p class="muted">Activated when wearing the corresponding number of pieces:</p>
+      <table>
+        <thead><tr><th>Pieces</th><th>Bonus</th></tr></thead>
+        <tbody>
+          {s.numericBonuses.map(b => (
+            <tr>
+              <td><strong>{b.pieces}-piece</strong></td>
+              <td>+{b.bonus.value}% <span class="stat-name">{statLabel(b.bonus.stat)}</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+
+    {(s.chestTalentId || s.backpackTalentId) && (
+      <section>
+        <h2>4-piece Talents</h2>
+        <p class="muted">Talents unlocked at 4 pieces, equipped on chest or backpack:</p>
+        <ul>
+          {s.chestTalentId && <li><strong>Chest:</strong> {s.chestTalentId.replace(/_/g, ' ')}</li>}
+          {s.backpackTalentId && <li><strong>Backpack:</strong> {s.backpackTalentId.replace(/_/g, ' ')}</li>}
+        </ul>
+      </section>
+    )}
+
+    <section class="cta">
+      <h2>Try in calculator</h2>
+      <p>Open the live DPS calculator with this gear set pre-configured:</p>
+      <a class="btn" href={`/spa/index.html#build?set=${slug}`}>⚙ Open in Calculator</a>
+    </section>
+
+    <footer class="page-footer">
+      <p class="dim">TU22.1 "Rise Up" · Last reviewed: 2026-04-25 · Verified vs in-game</p>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style>
+  .set-page { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+  .breadcrumb { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumb a { color: var(--muted); }
+  header { padding: 14px 18px; background: var(--bg-2); border-radius: 6px; margin-bottom: 24px; }
+  .type-badge {
+    display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; padding: 3px 8px; border: 1px solid; border-radius: 4px;
+  }
+  h1 { margin: 8px 0 0; font-size: 32px; }
+  section { margin-bottom: 28px; }
+  section h2 { font-size: 18px; margin: 0 0 10px; color: var(--orange); }
+  .muted { color: var(--text-dim); font-size: 13px; }
+  .dim { color: var(--muted); font-size: 11px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 700; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+  .stat-name { color: var(--text-dim); }
+  ul { padding-left: 20px; }
+  ul li { margin-bottom: 6px; }
+  .cta { padding: 18px; background: var(--bg-2); border: 1px solid rgba(254,175,16,.3); border-radius: 6px; }
+  .btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; }
+  .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+</style>

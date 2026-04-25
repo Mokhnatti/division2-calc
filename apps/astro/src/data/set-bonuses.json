@@ -1,0 +1,471 @@
+{
+  "Боевое снаряжение Страйкера": {
+    "color": "#ef5350",
+    "p2": {
+      "handling": 15
+    },
+    "p3": {
+      "rof": 15
+    },
+    "p4": "stacks",
+    "stacks": {
+      "trigger": "hit",
+      "max_base": 100,
+      "max_chest": 200,
+      "decay_above": 100,
+      "decay_sec": 3,
+      "wd_base": 0.65,
+      "wd_bp": 0.9,
+      "stat": "WD"
+    },
+    "p2_en": "15%\nArmor on Kill",
+    "p3_en": "40%\nDisrupt Resistance\n\n40%\nPulse Resistance",
+    "p4_en": "Hackstep Protocol\n\nReplaces armor kits with an instant, infinite-use ability.\n\n> Grants 50% bonus armor for 5s\n> Hides your nameplate for 5s. \n> Repairs 20% of your armor\n> Increases total weapon damage by 2% per 5% \nbonus armor gained, up to 20% \n\nAbility cooldown: 20s",
+    "chest_en": "Compiler Optimization\n\nDecreases Hackstep Protocol cooldown \nfrom 20s to 15s.",
+    "bp_en": "Multithreaded Execution\n\nIncreases Hackstep Protocol bonus armor\nfrom 50% to 100%.",
+    "multiplier_en": "Functions as an amp.applies to skills, melee and grenades, bullets."
+  },
+  "Разбиватель сердец": {
+    "color": "#ef5350",
+    "p2": {
+      "type_dmg": 15,
+      "type": "AR+LMG"
+    },
+    "p3": {
+      "handling": 15
+    },
+    "p4": "stacks",
+    "stacks": {
+      "trigger": "hs",
+      "max_base": 50,
+      "max_chest": 100,
+      "wd_base": 1,
+      "stat": "WD",
+      "note": "стаки после хедшота по меченому"
+    },
+    "p2_en": "30%\nMarksman Rifle Damage\n\n30%\nWeapon Handling",
+    "p3_en": "30%\nHeadshot Damage",
+    "p4_en": "Headache\n\nFirst Headshot with a Marksman Rifle will increase next headshot by 20%, second consecutive headshot with a Marksman Rifle will give +10% armor (if at full armor it will give bonus armor max +50% of current armor value), third consecutive headshot will refill magazine. \n\nFrom the fourth headshot forward agents will get all 3 bonuses for each consecutive headshot kill. Missing a headshot will reset the cycle",
+    "chest_en": "Stand Tall \n\nIncreases bonus Armor from 50% to 100%",
+    "bp_en": "Lucky\n\nAgents can miss a headshot before resetting the cycle",
+    "multiplier_en": "Amplifier"
+  },
+  "Инициатива Умбра": {
+    "color": "#ef5350",
+    "p2": {
+      "chc": 15
+    },
+    "p3": {
+      "reload": 30
+    },
+    "p4": "stacks",
+    "stacks": {
+      "trigger": "tempo",
+      "tempo_rate": 20,
+      "max_base": 50,
+      "max_chest": 100,
+      "decay_above": 0,
+      "decay_sec": 6,
+      "chd_base": 1,
+      "rof_base": 0.3,
+      "stat": "CHD+ROF",
+      "note": "20/сек в укрытии, −6/сек вне"
+    },
+    "p2_en": "15%\nWeapon Handling\n\n15%\nMagazine Size",
+    "p3_en": "15%\nWeapon Damage",
+    "p4_en": "Symphony\n\nKills Beyond 25 Meters: +40% Weapon Damage to Shotguns, SMGs, and Pistols; +20% Weapon Damage to Assault Rifles and LMGs; and +25% Bonus Armor for 15s.\n\nKills Within 25 Meters: +40% Weapon Damage to Marksman Rifles and Rifles; +20% Weapon Damage to Assault Rifles and LMGs; and +30% Headshot Damage for 15s.\n\nIntermittently killing enemies from both ranges builds up stacks. At 4 stacks, all bonuses are multiplied by 1.5 and triggered simultaneously for 15s. No stacks gained while talent is active.",
+    "chest_en": "Fortissimo\n\nDouble the weapon dmg bonus from symphony",
+    "bp_en": "Accelerando \n\ndecreases the number of stacks needed to proc the symphony double buffs from 4 to 3.",
+    "multiplier_en": "All Weapon Damage"
+  },
+  "Ярость охотника": {
+    "color": "#ef5350",
+    "p2": {
+      "type_dmg": 15,
+      "type": "SMG+SG"
+    },
+    "p3": {},
+    "p4": {
+      "wd": 20
+    },
+    "p4_note": "+20% урон при враге в 15м (активно при контакте)",
+    "p2_en": "15%\nSkill Haste",
+    "p3_en": "60%\nRepair Skills\n\n40%\nExplosive Resistance",
+    "p4_en": "Huddle\n\nRecieve +1 Skill Tier for each ally Agent that is within the range of the hive or Smart Cover. While at Skill Tier 6, having at least one ally Agent in the range of your Hive or Smart Cover for 4s will grant Overcharge for 15s Cooldown: 40s\n\nMortars and enemy Skills that enter the range of your Hive or Smart Cover will be destroyed. cooldown 10s. The cooldown is 20% faster for each ally agent within the range of your hive or smart cover.",
+    "chest_en": "Hivemind\n\n Decrease the Overcharge cooldown from 40 to 25.",
+    "bp_en": "Smart Cooperation\n\nDecrease the cooldown for destroying Mortars and enemy skills from 10 to 1",
+    "multiplier_en": "Utility"
+  },
+  "Дилемма переговорщика": {
+    "color": "#ef5350",
+    "p2": {
+      "chc": 15
+    },
+    "p3": {
+      "chd": 20
+    },
+    "p4": "marks",
+    "p4_note": "крит метит, крит по меченому 60% урона остальным",
+    "p2_en": "15%\nStatus Effects",
+    "p3_en": "30%\nReload Speed",
+    "p4_en": "Rules of Engagement\n\nShooting a status affected enemy will apply a mark.\n\nKilling a marked enemy grants a full clip of Hollow-Point Ammo for your active weapon, and half a clip of the agent's active weapon to the rest of the party.\n\nMarklast for 10 Seconds.\n\nHollow-Point Ammo amplifies weapon damage by 20% and applies bleed on hit.",
+    "chest_en": "Parabellum Rounds\n\nIncreases Hollow-Point Ammo weapon damage amplification to 50%\n\nDoes not effect party ammo.",
+    "bp_en": "Trauma Specialist\n\nIncreases duration of bleed status effects by 50% all bleed damage done by 100%",
+    "multiplier_en": "Bullet Amplifier"
+  },
+  "Горячий выстрел": {
+    "color": "#ef5350",
+    "p2": {
+      "type_dmg": 30,
+      "type": "MMR",
+      "handling": 30
+    },
+    "p3": {
+      "hsd": 30
+    },
+    "p4": {
+      "wd": 20
+    },
+    "p4_note": "3 хедшота подряд: +20% WD + перезарядка",
+    "p2_en": "15%\nShotgun Damage\n\n15%\nSMG Damage",
+    "p3_en": "20%\nArmor on kill\n\n50%\nHealth on Kill",
+    "p4_en": "Apex Predator\n\nEnemies within 15m receive a debuff, amplifying your weapon damage against them by +20%. \n\nKilling a debuffed enemy with your weapon disorients other enemies within 5m, and amplifies weapon damage by 5% for 10s, \nstacking up to 5 times.",
+    "chest_en": "Endless Hunger\n\nIncreases the duration of Apex Predator stacks from 10s to 30s.",
+    "bp_en": "Overwhelming Force\n\n Increases the radius of disorient on Apex Predator kills from 5m to 10m.",
+    "multiplier_en": "Weapon damage amplifier towards enemies within 15m\n\nOn kill stacking buff is self multiplicative weapon damage amplifier\n1.05 ^ n\nn ranges from 0 to 5"
+  },
+  "Текущая директива": {
+    "color": "#ef5350",
+    "p2": {
+      "status": 15
+    },
+    "p3": {
+      "reload": 30
+    },
+    "p4": "ammo",
+    "p4_note": "разрывные патроны после убийства меченого",
+    "p2_en": "20%\nBurn Duration\n \n15%\nSkill Health",
+    "p3_en": "40%\nBurn Damage",
+    "p4_en": "Ortiz Incinerator Turret Prototype\n\nThe Incinerator Turret spins 360°. You are immune to your own Incinerator Turret's fire. The Incinerator Turret explodes when disabled.",
+    "chest_en": "Chain Combustion\n\nEnemies set ablaze by the Ortiz Incinerator Turret Prototype ignite other enemies within 2m.",
+    "bp_en": "Heatstroke\n\n+25% Weapon Damage to enemies set on fire by the Ortiz Incinerator Turret Prototype.\n\n+25% Ortiz Incinerator Turret Prototype Range.",
+    "multiplier_en": "Backpack: \nAmplifier, not WD"
+  },
+  "Истинный патриот": {
+    "color": "#ef5350",
+    "p2": {},
+    "p3": {
+      "mag": 30
+    },
+    "p4": {
+      "wd": 8
+    },
+    "p4_note": "дебафф красный флаг на враге: +8% WD (упрощено)",
+    "p2_en": "15%\nCritical Chance",
+    "p3_en": "30%\nReload Speed",
+    "p4_en": "From the Shadows Into the Light\n\nFrom the Shadows: While out of cover and in combat, gain 10 Stacks per second up to 50. Each stack will give 0.8% Armor regen when it is consumed. Stacks consume, 10 stacks per second, only in cover.\n\nInto the Light: While in cover, gain 10 Stacks per second up to 50. Each stack will give 1.2% Critical damage increase and 0.4% RPM. Buff does not apply while shooting from cover. While out of cover Agents lose 2 stacks per second at normal speed and 1 stack per second if sprinting.",
+    "chest_en": "From the Shadows\n\nIncreases Max stacks For Into the Light from 50 to 100, stack gain from 10 to 20 and stack consumption from 10 to 20. \n(buffs the damage talent)",
+    "bp_en": "Into the Light\n\nIncreases Max stacks From the Shadows from 50 to 100, stack gain from 10 to 20.\n(buffs the armor regen talent)",
+    "multiplier_en": "Critical Hit Damage \nand\nRate of Fire"
+  },
+  "Тузы и восьмёрки": {
+    "color": "#ef5350",
+    "p2": {
+      "type_dmg": 15,
+      "type": "MMR"
+    },
+    "p3": {
+      "hsd": 30
+    },
+    "p4": {
+      "wd": 6
+    },
+    "p4_note": "5 карт → 6-й выстрел +30% WD (усреднено ~6%)",
+    "p2_en": "70%\nHealth",
+    "p3_en": "15%\nTotal Armor",
+    "p4_en": "Stoic\n\nGet +4% Damage Resistance for every enemy that is targeting you.\n\nThe bonus is multiplied by 1.X, where X is the number of agents in your group.",
+    "chest_en": "Deceit\n\nEnemies targeting your Decoy also count towards the Stoic Damage Reduction bonus.",
+    "bp_en": "Polyethylene Plating\n\nIncrease Stoic Damage Resistance bonus from 4% to 5%.",
+    "multiplier_en": "Utility"
+  },
+  "Остриё копья": {
+    "color": "#ef5350",
+    "p2": {},
+    "p3": {
+      "wd": 10
+    },
+    "p4": "signature",
+    "p4_note": "убийство фирменным +15% WD 10с",
+    "p2_en": "30%\nMag Size",
+    "p3_en": "30%\nLMG Damage",
+    "p4_en": "Throttle Control\n\n    Shooting builds stacks to a max of 50. Each stack provides +0.5% Weapon Handling and +4% Critical Hit Damage.\n\n    Lose 6 stacks per second while not shooting. No stacks are lost if an enemy is Suppressed.",
+    "chest_en": "Sustainability\n\nIncrease the maximum number of stacks from 50 to 75.",
+    "bp_en": "Snowball\n\nIncrease the Critical Hit Damage received per stack from 4% to 7%.",
+    "multiplier_en": "Critical Hit Damage"
+  },
+  "Точка разрыва": {
+    "color": "#ef5350",
+    "p2": {
+      "type_dmg": 25,
+      "type": "AR+MMR"
+    },
+    "p3": {
+      "hsd": 30,
+      "handling": 15
+    },
+    "p4": "stacks",
+    "stacks": {
+      "trigger": "reload",
+      "max_base": 30,
+      "wd_base": 2,
+      "wd_bp": 3,
+      "stat": "WD",
+      "note": "стаки накапливаются попаданиями, активируются перезарядкой на 10с"
+    },
+    "p2_en": "30%\nHazard Protection",
+    "p3_en": "40%\nRepair Skills",
+    "p4_en": "Charging\n\nFor each second spent out of cover during combat, Agents will get 5% reduced incoming skill damage. Max 50%\n\nCharged\n\nWhile fully charged, gain immunity to any movement speed debuff and share this with all of the agents hazard protection and the incoming skill damage with all allies for 10 seconds.\n\nAfter Charged is consumed, Charging buff will resume if still in combat and out of cover!",
+    "chest_en": "Overcharging:\n\nIncreases Charger max incoming damage protection to 70%",
+    "bp_en": "Safe Charging:\n\nCharging gives 10% protection per second.",
+    "multiplier_en": "Utility"
+  },
+  "Виртуоз": {
+    "color": "#ef5350",
+    "p2": {
+      "handling": 15,
+      "mag": 15
+    },
+    "p3": {
+      "wd": 15
+    },
+    "p4": "stacks",
+    "stacks": {
+      "trigger": "kill",
+      "max_base": 4,
+      "max_chest": 8,
+      "wd_base": 12.5,
+      "stat": "WD",
+      "note": "стак за убийство: макс 4 = ×1.5 WD (12.5%/стак)"
+    }
+  },
+  "Переломный момент": {
+    "color": "#ef5350",
+    "p2": {
+      "mag": 30
+    },
+    "p3": {
+      "type_dmg": 30,
+      "type": "LMG"
+    },
+    "p4": "stacks",
+    "stacks": {
+      "trigger": "shot",
+      "max_base": 50,
+      "max_chest": 75,
+      "decay_above": 0,
+      "decay_sec": 6,
+      "chd_base": 4,
+      "chd_bp_extra": 7,
+      "stat": "CHD",
+      "note": "−6/сек затухания (при подавлении цели не спадают, но это редко)"
+    },
+    "p2_en": "30%\nAmmo Capacity",
+    "p3_en": "30%\nMagazine Size",
+    "p4_en": "Red, White and Blue\n\nEnemies you shoot receive stacking debuffs of Red/White/Blue.\nChanges every 2 seconds.\n\nRed: Amplifies the enemy's damage taken by 8%. \nWhite: Hitting the enemy restores you and your allies' armor by 2%\nonce every second\nBlue: Decreases enemy damage dealt by 8%.\n\nFull Flag: Enemies that die while under the effect of all three debuffs\ncreate a 5m explosion, dealing damage equal to their total health and armor. \nExplosion strength is reduced on Named enemy deaths.",
+    "chest_en": "Waving the Flag\n\nIncreases Red, White, and Blue rotation speed \nto 1.5 seconds.",
+    "bp_en": "Patriotic Boost\n\nIncreases Red, White, and Blue debuff strength. \n\nRed: From 8% to 12%\nWhite: From 2% to 3%\nBlue: From 8% to 12%.",
+    "multiplier_en": "Red: Amplifier"
+  },
+  "Сосредоточенная компания": {
+    "color": "#ef5350",
+    "p2": {
+      "wd": 10
+    },
+    "p3": {
+      "handling": 30
+    },
+    "p4": "stacks",
+    "stacks": {
+      "trigger": "kill_team",
+      "max_base": 35,
+      "wd_base": 3,
+      "chc_base": 2,
+      "stat": "WD+CHC",
+      "note": "только в группе: смерть меченого → стак от каждого участника"
+    },
+    "p2_en": "15%\nStatus Effects",
+    "p3_en": "15%\nSkill Haste\n\n30%\nHazard Protection",
+    "p4_en": "Indirect Transmission\n\nOn kill:\n> Spread status effects of that enemy to all enemies within 10m\n> Refresh 50% of status effect durations",
+    "chest_en": "Proliferation\n\nIncreases Indirect Transmission range \nfrom 10m to 15m\n\nIncreases refresh percentage from\n50% to 75%.",
+    "bp_en": "Symptom Aggravator\n\nAmplifies all damage you deal to \nstatus affected targets by 30%",
+    "multiplier_en": "Backpack: \nAmplifier to all sources"
+  },
+  "Оплот оружейни": {
+    "color": "#42a5f5",
+    "p2": {},
+    "p3": {},
+    "p4": "armor",
+    "p4_note": "не DPS (танк)",
+    "p2_en": "30%\nRepair-skills",
+    "p3_en": "30%\nSkill Duration\n\n15%\nSkill Haste",
+    "p4_en": "Ground Control\n\nIncreases you and your allies' total weapon and skill damage\nby 15% when at full armor.\n\nWhen you repair an ally, you and all allies within 5m of you\nare also repaired for 60% of that amount.",
+    "chest_en": "Tactical Superiority\n\nIncreases Ground Control damage bonus\nfrom 15% to 25%",
+    "bp_en": "Advanced Combat Tactics\n\nIncreases Ground Control proximity repair\nfrom 60% to 120%",
+    "multiplier_en": "Total weapon/ Skill Damage"
+  },
+  "Системное повреждение": {
+    "color": "#42a5f5",
+    "p2": {},
+    "p3": {},
+    "p4": "armor_pulse",
+    "p4_note": "не DPS (танк)",
+    "p2_en": null,
+    "p3_en": null,
+    "p4_en": null,
+    "chest_en": null,
+    "bp_en": null,
+    "multiplier_en": null
+  },
+  "Эгида": {
+    "color": "#42a5f5",
+    "p2": {},
+    "p3": {},
+    "p4": "resist",
+    "p4_note": "не DPS (танк)",
+    "p2_en": "25%\nRifle Damage\n\n25%\nMMR Damage",
+    "p3_en": "30%\nHeadshot Damage\n\n 15%\nWeapon Handling",
+    "p4_en": "On Point\n\nHitting a shot with a rifle or MMR grants 1 stack, max stack equal to magazine size. \nReloading grants 2% handling and 4% WD per stack for 10s. No stacks gained while bonuses are active. \nOnce timer runs out magazine is refilled. Reloading will stop effect. \nReloading with stacks while inactive will remove all stacks and refill magazine",
+    "chest_en": "Point of no Return\n\nIncrease on point bonuses timer from 10s - 15s",
+    "bp_en": "Point of honor \n\nIncreases On Point Weapon Damage bonus from 4 to 7.2.",
+    "multiplier_en": "Additive to \nAll Weapon Damage"
+  },
+  "Кавалерист": {
+    "color": "#42a5f5",
+    "p2": {},
+    "p3": {},
+    "p4": "cover",
+    "p4_note": "не DPS (танк)",
+    "p2_en": "10% Weapon Damage",
+    "p3_en": "30% Weapon Handling",
+    "p4_en": "Camaraderie\n\nShooting an enemy marks them for 7 seconds.\n\nWhen a marked enemy dies, receive one stack of 3% Weapon Damage and 2% Critical Hit Damage for each Ally or Skill that has contributed to killing that enemy.\n\nMax stacks is 35. Stacks decay every 10 seconds.\nMaximum amount of marks that can be placed is 4.",
+    "chest_en": "All for One\n\nIncrease the amount of marks that can be placed from 4 to 8.",
+    "bp_en": "One for All\n\nIncrease the Weapon Damage bonus per stack from 3% to 5%.",
+    "multiplier_en": "Additive to \nAll Weapon Damage and Critical Hit Damage"
+  },
+  "Такелажник": {
+    "color": "#fdd835",
+    "p2": {},
+    "p3": {},
+    "p4": {
+      "wd": 25
+    },
+    "p4_note": "+25% WD 10с после взаимодействия с навыком",
+    "p2_en": "15%\nWeapon Handling",
+    "p3_en": "15%\nRate of Fire",
+    "p4_en": "Striker's Gamble\n\nWeapon hits increase total weapon damage by 0.65%, stacking up to 100 times. 1 stacks lost per second between 0 to 50 stacks; 2 stacks lost per second between 51 and 100 stacks.",
+    "chest_en": "Press the Advantage\n\nIncreases max stacks for Striker’s Gamble from 100 to 200. 3 stacks lost per second between 101 and 200 stacks.",
+    "bp_en": "Risk Management\n\nIncreases total weapon damage gained per stack of Striker’s Gamble from 0.65% to .9%.",
+    "multiplier_en": "Amplifier, stacks additively\n\n(1 + 0.0065 * n) without backpack\n(1 + 0.0090 * n) with backpack\n\nn ranges from 1 to 100, or 1 to 200 with chest"
+  },
+  "Протокол Затмения": {
+    "color": "#fdd835",
+    "p2": {
+      "status": 15
+    },
+    "p3": {},
+    "p4": {
+      "wd": 30
+    },
+    "p4_note": "+30% урон по врагам со статусом (нагрудник)",
+    "p2_en": "10%\nTotal Armor",
+    "p3_en": "1%\nArmor Regen\n\n50%\nShield Health",
+    "p4_en": "Makeshift Repairs\n\nWhenever you or your shield take damage,\n25% of that amount is repaired to both over 10s.",
+    "chest_en": "Improved Materials\n\nDecreases time taken for Makeshift Repairs\nfrom 10s to 5s.",
+    "bp_en": "Process Refinery\n\nIncreases Makeshift Repairs from 25% over 10s\nto 35% over 10s",
+    "multiplier_en": "Utility"
+  },
+  "Будущая инициатива": {
+    "color": "#fdd835",
+    "p2": {},
+    "p3": {},
+    "p4": {
+      "wd": 15
+    },
+    "p4_note": "+15% команде при полной броне",
+    "p2_en": "15% \nSkill Haste",
+    "p3_en": "15%\nSkill Damage\n\n30%\nRepair Skills",
+    "p4_en": "Feedback Loop\n\nWhenever you use or cancel a skill, \n> your other skill's cooldown is reduced by 30s \n> total skill repair is increased by 10% for 20s.\n> total skill damage is increased by 10% for 20s.\n\nCooldown: 10s.",
+    "chest_en": "Positive Reinforcement\n\nIncreases Feedback Loop skill damage \nand repair bonus from +10% to +25%",
+    "bp_en": "Short Circuit\n\nDecreases Feedback Loop cooldown from 10s to 5s.",
+    "multiplier_en": "Total Skill Damage"
+  },
+  "Жёсткая проводка": {
+    "color": "#fdd835",
+    "p2": {},
+    "p3": {},
+    "p4": {
+      "wd": 10
+    },
+    "p4_note": "+10% урон 20с после цепочки навыков",
+    "p2_en": "15%\nAssault Rifle Damage\n\n15%\nLMG Damage",
+    "p3_en": "15%\nWeapon Handling",
+    "p4_en": "Heartstopper\n\nHeadshots apply pulse 5s.\nWeapon hits on pulsed enemies add and refreshes a stack of +1% bonus armor and +1.1% weapon damage to pulsed enemies for 5s. Max stack is 50.\n\nTwo stacks are lost per second.",
+    "chest_en": "Max BPM\n\nMax stack is now 100.",
+    "bp_en": "Cold\n\nStacks now supply +2% bonus armor",
+    "multiplier_en": "Separate Multiplier, stacks additively\n\n(1 + 0.011 * n), n being number of stacks\n\nn max is 50 without chest\nn max is 100 with chest"
+  },
+  "Ортис: Экзуро": {
+    "color": "#fdd835",
+    "p2": {
+      "status": 20
+    },
+    "p3": {},
+    "p4": "flame_turret",
+    "p4_note": "горение 360°",
+    "p2_en": "15%\nStatus Effects",
+    "p3_en": "25% Skill Damage",
+    "p4_en": "Return to Sender\n\nFor PvE: Receive repairs of 10% of the damage dealt by your Skills. Your allies will receive repairs of 20% of the damage dealt by your Skills.\n\nFor PvP: Receive repairs of 5% of the damage dealt by your Skills. Your allies will receive repairs of 10% of the damage dealt by your Skills.",
+    "chest_en": "Increased Interest\n\nFor PvE: Increase the repairs received from Return to Sender from 10% to 25%, and from 20% to 35%\n\nFor PvP: Increase the repairs received from Return to Sender from 5% to 15%, and from 10% to 20%",
+    "bp_en": "Over-engineered\n\nWhile at full Armor, repairs received from Return to Sender will provide Bonus Armor, up to 80% of your Total Armor. Does not apply to allies.",
+    "multiplier_en": "Utility"
+  },
+  "Переработка": {
+    "color": "#fdd835",
+    "p2": {
+      "status": 15
+    },
+    "p3": {},
+    "p4": "heal_dmg",
+    "p4_note": "лечение 10% урона навыка",
+    "p2_en": null,
+    "p3_en": null,
+    "p4_en": null,
+    "chest_en": null,
+    "bp_en": null,
+    "multiplier_en": null
+  },
+  "Взвешенная сборка": {
+    "color": "#fdd835",
+    "p2": {},
+    "p3": {},
+    "p4": "skill_boost",
+    "p4_note": "+1 ур навыка/союзник",
+    "p2_en": "15%\nCritical Hit Chance",
+    "p3_en": "20%\nCritical Hit Damage",
+    "p4_en": "Crowd Control\n\nCritical hits mark enemies for 20s, up to 3 marks total. \n\nWhen you critically hit a marked enemy, all other marked enemies\ntake 60% of the damage dealt. \n\nWhenever a marked enemy dies, gain +2% critical hit damage,\nstacking up to 20 times, or until combat ends.",
+    "chest_en": "Target Rich Environment\n\nIncreases Crowd Control mark count \nfrom 3 to 5.",
+    "bp_en": "Critical Measures\n\nIncreases Crowd Control damage to \nadditional marked enemies from 60% to 112%.",
+    "multiplier_en": "Critical Hit Damage"
+  },
+  "Стержневая сила": {
+    "color": "#ce93d8",
+    "p2": {
+      "handling": 10
+    },
+    "p3": {
+      "wd": 5
+    },
+    "p4": "random_core",
+    "p4_note": "атрибут даёт 40% от двух других (упрощено: +5% WD)"
+  }
+}

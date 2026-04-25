@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { META_BUILDS, buildSlug, type MetaBuild } from '../../data/build-helpers';
+
+export async function getStaticPaths() {
+  return META_BUILDS.map((b) => ({
+    params: { slug: buildSlug(b.id) },
+    props: { build: b },
+  }));
+}
+
+interface Props { build: MetaBuild }
+const { build: b } = Astro.props;
+const name = b.name_en || b.id;
+const desc = b.description_en || '';
+const tag = b.tag_en || '';
+const slug = buildSlug(b.id);
+
+const title = `${name} — Build Guide & DPS | Division 2 Calculator`;
+const description = `${name}: ${tag}. ${desc.slice(0, 140)}`;
+const canonical = `https://divcalc.xyz/builds/${slug}`;
+
+const tierColor = { S: '#ef5350', A: '#fdd835', B: '#42a5f5', C: '#888' }[b.tier || 'C'];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://divcalc.xyz/" },
+      { "@type": "ListItem", "position": 2, "name": "Builds", "item": "https://divcalc.xyz/builds/" },
+      { "@type": "ListItem", "position": 3, "name": name },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": name,
+    "description": desc,
+    "author": { "@type": "Organization", "name": "divcalc.xyz" },
+    "datePublished": "2026-04-25",
+    "dateModified": "2026-04-25",
+    "publisher": { "@type": "Organization", "name": "divcalc.xyz", "url": "https://divcalc.xyz" },
+    "mainEntityOfPage": canonical,
+  },
+];
+---
+<BaseLayout {title} {description} {canonical} {schema}>
+  <main class="build-page">
+    <nav class="breadcrumb">
+      <a href="/">Home</a> · <a href="/builds/">Builds</a> · <span>{name}</span>
+    </nav>
+
+    <header>
+      <div class="badges">
+        {b.tier && <span class="tier" style={`background: ${tierColor}30; color: ${tierColor}; border-color: ${tierColor}80;`}>{b.tier}-Tier</span>}
+        {tag && <span class="tag">{tag}</span>}
+      </div>
+      <h1>{name}</h1>
+      {b.expected_dps_peak_m && <p class="dps-hero">Peak DPS ≈ <strong>{b.expected_dps_peak_m}M</strong></p>}
+    </header>
+
+    {desc && (
+      <section class="description">
+        <h2>Build Overview</h2>
+        <p>{desc}</p>
+      </section>
+    )}
+
+    <section class="loadout">
+      <h2>Build Components</h2>
+      <table>
+        <tbody>
+          {b.wpn_en && <tr><td><strong>Weapon</strong></td><td>{b.wpn_en}</td></tr>}
+          {b.weapon_cat && <tr><td><strong>Class</strong></td><td>{b.weapon_cat}</td></tr>}
+          {b.set_focus && <tr><td><strong>Set Focus</strong></td><td>{b.set_focus}</td></tr>}
+        </tbody>
+      </table>
+    </section>
+
+    <section class="cta">
+      <h2>Load this build into calculator</h2>
+      <p>Open the live DPS calculator with this build pre-configured (one click):</p>
+      <a class="btn" href={`/spa/index.html#top?load=${slug}`}>⚙ Load Build in Calculator</a>
+    </section>
+
+    <footer class="page-footer">
+      <p class="dim">TU22.1 "Rise Up" · Last reviewed: 2026-04-25 · Verified vs in-game</p>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style>
+  .build-page { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+  .breadcrumb { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumb a { color: var(--muted); }
+  header { margin-bottom: 24px; }
+  .badges { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+  .tier {
+    font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    padding: 4px 10px; border: 1px solid; border-radius: 4px;
+  }
+  .tag { font-size: 11px; color: var(--text-dim); padding: 4px 10px; background: var(--bg-2); border-radius: 999px; }
+  h1 { margin: 0 0 8px; font-size: 30px; }
+  .dps-hero { font-size: 16px; color: var(--orange); margin: 0; }
+  section { margin-bottom: 24px; }
+  section h2 { font-size: 18px; margin: 0 0 10px; color: var(--orange); }
+  .description p { color: var(--text-dim); line-height: 1.7; }
+  .muted { color: var(--text-dim); font-size: 13px; }
+  .dim { color: var(--muted); font-size: 11px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  td:first-child { color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; width: 140px; }
+  .cta { padding: 18px; background: var(--bg-2); border: 1px solid rgba(254,175,16,.3); border-radius: 6px; }
+  .btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; }
+  .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+</style>
