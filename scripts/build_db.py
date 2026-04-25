@@ -55,6 +55,10 @@ def name_key(s):
     return re.sub(r"[^a-z0-9а-яё]+", "", s)
 
 
+def strip_color(s):
+    return re.sub(r"<[^>]+>", "", s or "").strip()
+
+
 # ============== schema ==============
 SCHEMA = """
 PRAGMA foreign_keys = ON;
@@ -515,6 +519,94 @@ def main():
             conn.execute("""INSERT OR IGNORE INTO item_links VALUES(?,?,?)""",
                          (slug, "backpack_talent", s["backpackTalentId"]))
 
+    # ---- P2-2: import brand_sets (37) — kind='brand_set' + is_brand_set=1 ----
+    # Slug = slugify(name_en) + '_set' to avoid collision with brand items.
+    # Bonuses parsed via same ref(0)-pieces algorithm as gear-sets.
+    raw_brand_sets = load(RAW / "brand_sets.json") or []
+    brand_set_imported = 0
+    for bs in raw_brand_sets:
+        en = strip_color(bs.get("name_en", ""))
+        if not en or en == "Set name": continue  # garbage entry
+        slug = slugify(en) + "_set"
+        try:
+            conn.execute("""INSERT INTO items
+                (id, game_uid, kind, subkind, is_brand_set, stat_quality,
+                 extra_json, source_file, imported_at)
+                VALUES(?,?,?,?,?,?,?,?,?)""",
+                (slug, bs.get("uid"), "brand_set", "brand_set", 1, "verified",
+                 json.dumps(bs, ensure_ascii=False),
+                 "data/raw/brand_sets.json", now))
+            # name translations
+            insert_translation_immediate = lambda fld, lng, txt: conn.execute(
+                "INSERT OR REPLACE INTO translations VALUES(?,?,?,?,?,?)",
+                ("item", slug, fld, lng, txt, 0)) if txt else None
+            insert_translation_immediate("name", "en", en)
+            ru_name = strip_color(bs.get("name_ru") or "")
+            if ru_name and ru_name != en:
+                insert_translation_immediate("name", "ru", ru_name)
+            # Parse bonuses with ref(0)-pieces algorithm
+            parsed = parse_raw_set_bonuses(bs.get("bonuses") or [])
+            for pieces, attr_name, val_frac, uid in parsed:
+                stat = resolve_stat(uid=uid, game_name=attr_name)
+                if stat:
+                    conn.execute("""INSERT INTO item_bonuses
+                        (item_id, pieces, stat_slug, value, notes, source_uid)
+                        VALUES(?,?,?,?,?,?)""",
+                        (slug, pieces, stat, round(val_frac * 100, 2),
+                         f"raw:{attr_name}", uid))
+            brand_set_imported += 1
+        except sqlite3.IntegrityError:
+            pass
+
+    # ---- P2-2: green_sets — annotate existing gear_set items with is_green_set=1 ----
+    raw_green = load(RAW / "green_sets.json") or []
+    green_set_annotated = 0
+    green_set_added = 0
+    pub_set_en_idx = {name_key(v): k for k, v in (load(PUB_EN / "gear-sets.json") or {}).items()}
+    for gs in raw_green:
+        en = strip_color(gs.get("name_en", ""))
+        if not en or en == "Set name": continue
+        # Try to match existing gear_set slug via public locale
+        existing_slug = pub_set_en_idx.get(name_key(en))
+        if existing_slug:
+            conn.execute("UPDATE items SET is_green_set=1 WHERE id=? AND kind='gear_set'", (existing_slug,))
+            green_set_annotated += 1
+        else:
+            # New green_set not in current items
+            slug = slugify(en) + "_green"
+            try:
+                conn.execute("""INSERT INTO items
+                    (id, game_uid, kind, subkind, is_green_set, stat_quality,
+                     extra_json, source_file, imported_at)
+                    VALUES(?,?,?,?,?,?,?,?,?)""",
+                    (slug, gs.get("uid"), "gear_set", "green_set", 1, "verified",
+                     json.dumps(gs, ensure_ascii=False),
+                     "data/raw/green_sets.json", now))
+                # translations
+                conn.execute("INSERT OR REPLACE INTO translations VALUES(?,?,?,?,?,?)",
+                             ("item", slug, "name", "en", en, 0))
+                ru_name = strip_color(gs.get("name_ru") or "")
+                if ru_name and ru_name != en:
+                    conn.execute("INSERT OR REPLACE INTO translations VALUES(?,?,?,?,?,?)",
+                                 ("item", slug, "name", "ru", ru_name, 0))
+                # bonuses
+                parsed = parse_raw_set_bonuses(gs.get("bonuses") or [])
+                for pieces, attr_name, val_frac, uid in parsed:
+                    stat = resolve_stat(uid=uid, game_name=attr_name)
+                    if stat:
+                        conn.execute("""INSERT INTO item_bonuses
+                            (item_id, pieces, stat_slug, value, notes, source_uid)
+                            VALUES(?,?,?,?,?,?)""",
+                            (slug, pieces, stat, round(val_frac * 100, 2),
+                             f"raw:{attr_name}", uid))
+                green_set_added += 1
+            except sqlite3.IntegrityError:
+                pass
+
+    print(f"  brand_sets imported: {brand_set_imported}, "
+          f"green_sets annotated: {green_set_annotated}, "
+          f"green_sets added new: {green_set_added}")
+
     # ---- named gear ----
     pub_named = (load(PUB_DATA / "named-gear.json") or {}).get("items", [])
     for ng in pub_named:
@@ -800,6 +892,87 @@ def main():
                 (talent_slug, lng)).fetchone()
             if t and t[0]:
                 insert_translation("item", weapon_slug, "talent_text", lng, t[0])
+
+    # ---- P2-4: backfill talent description_en from legacy/exotic_weapons.tal_desc ----
+    # For talents that link to an exotic weapon and lack EN description in DB.
+    legacy_exotic_w = load(LEGACY_DIR := (ROOT / "data/_legacy/exotic_weapons.json"))
+    if legacy_exotic_w:
+        # Build map: weapon EN name → tal_desc
+        legacy_weapon_to_tal_desc = {}
+        for k, v in legacy_exotic_w.items():
+            if not isinstance(v, dict): continue
+            weapon_en = v.get("en")
+            tal_desc = v.get("tal_desc")
+            if weapon_en and tal_desc:
+                legacy_weapon_to_tal_desc[name_key(weapon_en)] = {
+                    "en": tal_desc, "ru": v.get("tal_desc_ru") or ""}
+        # For each talent that's linked from a weapon, find the weapon EN name → match legacy
+        for weapon_slug, talent_slug in conn.execute("""
+            SELECT il.item_id, il.target_item_id FROM item_links il
+            JOIN items i ON i.id = il.item_id
+            WHERE il.link_type='default_talent' AND i.kind='weapon'""").fetchall():
+            # Get the weapon EN name
+            row = conn.execute(
+                "SELECT text FROM translations WHERE entity_id=? AND field='name' AND lang='en'",
+                (weapon_slug,)).fetchone()
+            if not row: continue
+            weapon_en = row[0]
+            # Try several name_key variants
+            candidate_keys = [name_key(weapon_en),
+                              name_key("The " + weapon_en),
+                              name_key(re.sub(r"^the\s+", "", weapon_en, flags=re.IGNORECASE))]
+            tal_desc = None
+            for ck in candidate_keys:
+                if ck in legacy_weapon_to_tal_desc:
+                    tal_desc = legacy_weapon_to_tal_desc[ck]; break
+            if not tal_desc: continue
+            # Insert into talent's description if missing
+            existing_en = conn.execute(
+                "SELECT text FROM translations WHERE entity_id=? AND field='description' AND lang='en'",
+                (talent_slug,)).fetchone()
+            if not existing_en or not existing_en[0]:
+                if tal_desc.get("en"):
+                    insert_translation("item", talent_slug, "description", "en", tal_desc["en"])
+            existing_ru = conn.execute(
+                "SELECT text FROM translations WHERE entity_id=? AND field='description' AND lang='ru'",
+                (talent_slug,)).fetchone()
+            # Replace RU also if RU mistakenly contains EN text (pre-existing locale bug)
+            ru_is_actually_en = (existing_ru and existing_ru[0]
+                                  and tal_desc.get("en")
+                                  and existing_ru[0].strip()[:30] == tal_desc["en"].strip()[:30])
+            if ((not existing_ru or not existing_ru[0]) or ru_is_actually_en) and tal_desc.get("ru"):
+                insert_translation("item", talent_slug, "description", "ru", tal_desc["ru"])
+
+    # ---- P2-5: backfill named_gear source_en/source_ru from legacy ----
+    legacy_named_gear = load(ROOT / "data/_legacy/named_gear.json") or []
+    legacy_named = load(ROOT / "data/_legacy/named.json") or []
+    legacy_source_idx = {}
+    for it in legacy_named_gear + legacy_named:
+        en = it.get("en") or it.get("name_en")
+        if not en: continue
+        legacy_source_idx[slugify(en)] = {
+            "en": it.get("source_en"), "ru": it.get("source_ru")}
+    backfilled = 0
+    missing_source = []
+    for ng_slug in [r[0] for r in conn.execute("""
+        SELECT i.id FROM items i WHERE i.kind='named_gear'
+        AND NOT EXISTS (SELECT 1 FROM translations t WHERE t.entity_id=i.id
+                        AND t.field='source' AND t.lang='en' AND t.text!='')""").fetchall()]:
+        legacy = legacy_source_idx.get(ng_slug)
+        if legacy and (legacy.get("en") or legacy.get("ru")):
+            if legacy.get("en"):
+                insert_translation("item", ng_slug, "source", "en", legacy["en"])
+            if legacy.get("ru"):
+                insert_translation("item", ng_slug, "source", "ru", legacy["ru"])
+            backfilled += 1
+        else:
+            missing_source.append(ng_slug)
+            # Mark in manual_overrides as known-missing
+            conn.execute("""INSERT INTO manual_overrides
+                (entity_type, entity_id, field, value, reason, source_link, active)
+                VALUES('translation', ?, 'source:en', '""', '_missing_source: not in legacy or raw', NULL, 0)""",
+                (f"item:{ng_slug}",))
+    print(f"  named_gear source backfilled from legacy: {backfilled}, still missing: {len(missing_source)}")
 
     # ---- weapon source_fixes (P1 #5: fill empty source[en] for St.Elmo etc) ----
     for slug, srcs in (weapon_overrides_full.get("source_fixes") or {}).items():

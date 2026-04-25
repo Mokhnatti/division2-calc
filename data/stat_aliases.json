@@ -117,7 +117,19 @@
     "SniperRifleDamageModBonus": "mmr_dmg",
     "PistolDamageModBonus": "pistol_dmg",
     "RifleDamageModBonus": "rifle_dmg",
-    "Healing": "healing"
+    "Healing": "healing",
+    "HealthModBonus": "health",
+    "ArmorModBonus": "armor",
+    "AllStatusEffectsModBonus": "status_effects",
+    "BlastDamageModBonus": "explosive_dmg",
+    "SkillHasteModBonus": "skill_haste",
+    "SkillPowerFlatBonus": "skill_dmg",
+    "SkillPulseResistancePercentageFinal": "pulse_resistance",
+    "WeaponAccuracyModBonus": "accuracy",
+    "Reload Speed": "reload",
+    "Optimal Range": "range",
+    "Swap Speed": "swap_speed",
+    "Damage": "wd"
   },
   "by_uid": {}
 }
