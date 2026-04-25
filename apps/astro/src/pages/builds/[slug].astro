@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { META_BUILDS, buildSlug, type MetaBuild } from '../../data/build-helpers';
+import { WEAPONS, slugFromId, weaponName } from '../../data/weapon-helpers';
+import { SETS, setSlug, setName } from '../../data/set-helpers';
 import { marked } from 'marked';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -29,6 +31,21 @@ const description = `${name}: ${tag}. ${desc.slice(0, 140)}`;
 const canonical = `https://divcalc.xyz/builds/${slug}`;
 
 const tierColor = { S: '#ef5350', A: '#fdd835', B: '#42a5f5', C: '#888' }[b.tier || 'C'];
+
+const wpnLc = (b.wpn_en || '').toLowerCase();
+const linkedWeapon = wpnLc
+  ? WEAPONS.find(w => {
+      const n = weaponName(w, 'en').toLowerCase();
+      return wpnLc === n || wpnLc.includes(n) || n.includes(wpnLc);
+    })
+  : undefined;
+const linkedSet = b.set_focus ? SETS.find(s => s.id === b.set_focus) : undefined;
+const similarBuilds = META_BUILDS.filter(other => {
+  if (other.id === b.id) return false;
+  if (other.set_focus && other.set_focus === b.set_focus) return true;
+  if (other.weapon_cat && other.weapon_cat === b.weapon_cat) return true;
+  return false;
+}).slice(0, 6);
 
 const schema = [
   {
@@ -79,14 +96,35 @@ const schema = [
       <h2>Build Components</h2>
       <table>
         <tbody>
-          {b.wpn_en && <tr><td><strong>Weapon</strong></td><td>{b.wpn_en}</td></tr>}
-          {b.weapon_cat && <tr><td><strong>Class</strong></td><td>{b.weapon_cat}</td></tr>}
-          {b.set_focus && <tr><td><strong>Set Focus</strong></td><td>{b.set_focus}</td></tr>}
+          {b.wpn_en && <tr><td><strong>Weapon</strong></td><td>{linkedWeapon ? <a href={`/weapons/${slugFromId(linkedWeapon.id)}`}>{b.wpn_en}</a> : b.wpn_en}</td></tr>}
+          {b.weapon_cat && <tr><td><strong>Class</strong></td><td><a href={`/weapons/?cat=${b.weapon_cat}`}>{b.weapon_cat}</a></td></tr>}
+          {b.set_focus && <tr><td><strong>Set Focus</strong></td><td>{linkedSet ? <a href={`/sets/${setSlug(linkedSet.id)}`}>{setName(linkedSet, 'en')}</a> : b.set_focus}</td></tr>}
         </tbody>
       </table>
     </section>
 
     {aiContent && (<article class="ai-content" set:html={aiContent} />)}
+
+    {similarBuilds.length > 0 && (
+      <section class="related">
+        <h2>Similar builds</h2>
+        <ul class="related-list">
+          {similarBuilds.map(other => (
+            <li><a href={`/builds/${buildSlug(other.id)}`}>{other.name_en || other.id}{other.tier && <span class="tier-mini"> · {other.tier}</span>}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="related">
+      <h2>Browse more</h2>
+      <ul class="related-list">
+        <li><a href="/builds/">All builds</a></li>
+        <li><a href="/weapons/">Weapons</a></li>
+        <li><a href="/sets/">Gear sets</a></li>
+        <li><a href="/brands/">Brands</a></li>
+      </ul>
+    </section>
 
     <section class="cta">
       <h2>Load this build into calculator</h2>
@@ -124,6 +162,11 @@ const schema = [
   .cta { padding: 18px; background: var(--bg-2); border: 1px solid rgba(254,175,16,.3); border-radius: 6px; }
   .btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; }
   .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .related { padding: 14px 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 14px; }
+  .related h2 { margin-top: 0; }
+  .related-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .related-list li { font-size: 14px; }
+  .related-list .tier-mini { color: var(--muted); font-size: 12px; }
   .ai-content { margin: 30px 0; line-height: 1.7; }
   .ai-content :global(h2) { color: var(--orange); margin-top: 32px; padding-top: 24px; font-size: 22px; border-top: 1px solid var(--border); }
   .ai-content :global(h2:first-child) { border-top: none; padding-top: 0; }

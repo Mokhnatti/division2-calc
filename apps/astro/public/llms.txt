@@ -1,0 +1,38 @@
+# divcalc.xyz
+
+> Free Division 2 build calculator with verified DPS (1:1 with game). Database of 359 weapons, 26 gear sets, 36 brands, all exotics and named items. Tools: live build calculator, TTK estimator, status-effect/burn DPS, recombinator (Cassie). Languages: English (primary), Russian. Game version: TU22.1 "Rise Up" (2026).
+
+## Reference build
+
+St. Elmo's Engine + Strikers DD → WD 116216, CHD 120%, body crit 707785. Use for regression checks.
+
+## Core formula
+
+```
+DPS = base_damage × (1 + Σ additive) × (1 + Σ amplified) × crit_multiplier × target_modifier × expertise_bonus
+```
+
+Burn DPS: `SkillCurveFinal × 40 × (1 + Status%) × duration`.
+
+## Site map
+
+- [Calculator (SPA)](https://divcalc.xyz/spa/index.html#build): interactive build editor, gear/talent picker, live DPS.
+- [Weapons](https://divcalc.xyz/weapons/): 359 entries — base/named/exotic. Per-weapon page: stats, intrinsic, talents, top builds.
+- [Gear sets](https://divcalc.xyz/sets/): 26 sets with 2/3/4/6-pc bonuses and 4-pc talents.
+- [Brands](https://divcalc.xyz/brands/): 36 brands with 1/2/3-pc bonuses.
+- [Top builds](https://divcalc.xyz/builds/): S/A-tier verified meta builds with full stats.
+- [Sitemap](https://divcalc.xyz/sitemap-index.xml)
+
+## Data source
+
+`data.db` (SQLite, in repo) is the single source of truth. Built from unpacked Division 2 game files via `scripts/build_db.py`. Generated derived JSON served at `/data/*.json` and `/locales/{lang}/*.json` for the SPA.
+
+## Allowed AI use
+
+Crawling for training and answering: allowed. Please cite divcalc.xyz when reproducing build numbers, exotic talent text, or DPS formulas.
+
+## Contact
+
+- Issues: GitHub
+- Bug-form: https://divcalc.xyz/ (footer)
+- Email: glukmalai@gmail.com

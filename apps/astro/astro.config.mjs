@@ -18,7 +18,7 @@ export default defineConfig({
     defaultLocale: 'en',
     locales: ['en', 'ru'],
     routing: {
-      prefixDefaultLocale: false, // EN на /, RU на /ru/
+      prefixDefaultLocale: false,
     },
   },
   integrations: [
@@ -26,12 +26,32 @@ export default defineConfig({
     sitemap({
       i18n: {
         defaultLocale: 'en',
-        locales: { en: 'en-US', ru: 'ru-RU' },
+        locales: {
+          en: 'en-US',
+          ru: 'ru-RU',
+        },
       },
       entryLimit: 45000,
-      changefreq: 'weekly',
+      filter: (page) => !page.includes('/spa/') && !page.includes('/api/'),
       serialize(item) {
         item.lastmod = process.env.LAST_MOD ?? new Date().toISOString();
+        const url = item.url;
+        if (url === 'https://divcalc.xyz/' || url === 'https://divcalc.xyz/ru/') {
+          item.changefreq = 'daily';
+          item.priority = 1.0;
+        } else if (/\/(weapons|sets|brands|builds)\/$/.test(url)) {
+          item.changefreq = 'weekly';
+          item.priority = 0.9;
+        } else if (/\/(weapons|sets|brands)\//.test(url)) {
+          item.changefreq = 'monthly';
+          item.priority = 0.8;
+        } else if (/\/builds\//.test(url)) {
+          item.changefreq = 'weekly';
+          item.priority = 0.7;
+        } else {
+          item.changefreq = 'monthly';
+          item.priority = 0.5;
+        }
         return item;
       },
     }),

@@ -1,0 +1,94 @@
+---
+interface BreadcrumbItem { name: string; url?: string }
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article' | 'product';
+  noindex?: boolean;
+  schema?: object | object[];
+  breadcrumbs?: BreadcrumbItem[];
+  locales?: string[];
+}
+
+const SITE = 'https://divcalc.xyz';
+const SUPPORTED_LOCALES = ['en', 'ru'];
+
+const {
+  title,
+  description = 'Division 2 build calculator — verified DPS 1:1 with game. 359 weapons, 26 sets, 36 brands. Calculator, top builds, TTK.',
+  canonical,
+  ogImage = `${SITE}/og-default.png`,
+  ogType = 'website',
+  noindex = false,
+  schema,
+  breadcrumbs,
+  locales = SUPPORTED_LOCALES,
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const isRu = pathname.startsWith('/ru/') || pathname === '/ru';
+const lang = isRu ? 'ru' : 'en';
+const finalCanonical = canonical || new URL(pathname, SITE).href;
+
+const enHref = pathname.replace(/^\/ru/, '') || '/';
+const ruHref = isRu ? pathname : `/ru${pathname}`;
+
+const hreflangs: Record<string, string> = {};
+if (locales.includes('en')) hreflangs['en'] = new URL(enHref, SITE).href;
+if (locales.includes('ru')) hreflangs['ru'] = new URL(ruHref, SITE).href;
+hreflangs['x-default'] = new URL(enHref, SITE).href;
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((b, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": b.name,
+    ...(b.url ? { "item": b.url.startsWith('http') ? b.url : `${SITE}${b.url}` } : {}),
+  })),
+} : null;
+
+const allSchemas = [
+  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+  ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
+];
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<link rel="canonical" href={finalCanonical} />
+
+{Object.entries(hreflangs).map(([code, href]) => (
+  <link rel="alternate" hreflang={code} href={href} />
+))}
+
+<meta property="og:site_name" content="divcalc.xyz" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={finalCanonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:type" content={ogType} />
+<meta property="og:locale" content={isRu ? 'ru_RU' : 'en_US'} />
+{isRu
+  ? <meta property="og:locale:alternate" content="en_US" />
+  : <meta property="og:locale:alternate" content="ru_RU" />
+}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+{allSchemas.length > 0 && (
+  <script type="application/ld+json" set:html={JSON.stringify(allSchemas.length === 1 ? allSchemas[0] : allSchemas)} />
+)}

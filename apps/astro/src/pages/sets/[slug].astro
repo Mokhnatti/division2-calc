@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SETS, setSlug, setName, typeColor, typeLabel, type GearSet } from '../../data/set-helpers';
+import { META_BUILDS, buildSlug } from '../../data/build-helpers';
+import { WEAPONS, slugFromId, weaponName } from '../../data/weapon-helpers';
 import { marked } from 'marked';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -28,6 +30,14 @@ const description = `${name} (${tLabel}) gear set: 2pc/3pc/4pc bonuses, talents,
 
 const slug = setSlug(s.id);
 const canonical = `https://divcalc.xyz/sets/${slug}`;
+
+const relatedBuilds = META_BUILDS.filter(b => b.set_focus === s.id).slice(0, 6);
+const relatedWeaponNames = new Set(relatedBuilds.map(b => (b.wpn_en || '').toLowerCase()).filter(Boolean));
+const relatedWeapons = WEAPONS.filter(w => {
+  const n = weaponName(w, 'en').toLowerCase();
+  for (const wn of relatedWeaponNames) if (wn.includes(n) || n.includes(wn)) return true;
+  return false;
+}).slice(0, 6);
 
 const schema = [
   {
@@ -105,6 +115,38 @@ function statLabel(stat: string): string {
 
     {aiContent && (<article class="ai-content" set:html={aiContent} />)}
 
+    {relatedBuilds.length > 0 && (
+      <section class="related">
+        <h2>Builds using this set</h2>
+        <ul class="related-list">
+          {relatedBuilds.map(b => (
+            <li><a href={`/builds/${buildSlug(b.id)}`}>{b.name_en || b.id}{b.tier && <span class="tier"> · {b.tier}-tier</span>}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {relatedWeapons.length > 0 && (
+      <section class="related">
+        <h2>Weapons featured in these builds</h2>
+        <ul class="related-list">
+          {relatedWeapons.map(w => (
+            <li><a href={`/weapons/${slugFromId(w.id)}`}>{weaponName(w, 'en')}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="related">
+      <h2>Browse more</h2>
+      <ul class="related-list">
+        <li><a href="/sets/">All gear sets</a></li>
+        <li><a href="/brands/">Brands</a></li>
+        <li><a href="/weapons/">Weapons</a></li>
+        <li><a href="/builds/">Top builds</a></li>
+      </ul>
+    </section>
+
     <section class="cta">
       <h2>Try in calculator</h2>
       <p>Open the live DPS calculator with this gear set pre-configured:</p>
@@ -140,6 +182,11 @@ function statLabel(stat: string): string {
   .cta { padding: 18px; background: var(--bg-2); border: 1px solid rgba(254,175,16,.3); border-radius: 6px; }
   .btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; }
   .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .related { padding: 14px 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 14px; }
+  .related h2 { margin-top: 0; }
+  .related-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .related-list li { font-size: 14px; }
+  .related-list .tier { color: var(--muted); font-size: 12px; }
   .ai-content { margin: 30px 0; line-height: 1.7; }
   .ai-content :global(h2) { color: var(--orange); margin-top: 32px; padding-top: 24px; font-size: 22px; border-top: 1px solid var(--border); }
   .ai-content :global(h2:first-child) { border-top: none; padding-top: 0; }

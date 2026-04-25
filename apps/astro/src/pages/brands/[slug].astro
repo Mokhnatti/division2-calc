@@ -55,6 +55,10 @@ function statLabel(stat: string): string {
 }
 
 const hasBonuses = b.bonuses && b.bonuses.length > 0;
+
+const siblingBrands = b.core
+  ? BRANDS.filter(other => other.id !== b.id && other.core === b.core).slice(0, 6)
+  : [];
 ---
 <BaseLayout {title} {description} {canonical} {schema}>
   <main class="brand-page">
@@ -89,6 +93,27 @@ const hasBonuses = b.bonuses && b.bonuses.length > 0;
 
     {aiContent && (<article class="ai-content" set:html={aiContent} />)}
 
+    {siblingBrands.length > 0 && (
+      <section class="related">
+        <h2>Other brands focused on {b.core?.toUpperCase()}</h2>
+        <ul class="related-list">
+          {siblingBrands.map(other => (
+            <li><a href={`/brands/${brandSlug(other.id)}`}>{brandName(other)}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="related">
+      <h2>Browse more</h2>
+      <ul class="related-list">
+        <li><a href="/brands/">All brands</a></li>
+        <li><a href="/sets/">Gear sets</a></li>
+        <li><a href="/weapons/">Weapons</a></li>
+        <li><a href="/builds/">Top builds</a></li>
+      </ul>
+    </section>
+
     <section class="cta">
       <h2>Try in calculator</h2>
       <p>Open the live DPS calculator with items from this brand:</p>
@@ -118,6 +143,10 @@ const hasBonuses = b.bonuses && b.bonuses.length > 0;
   .cta { padding: 18px; background: var(--bg-2); border: 1px solid rgba(254,175,16,.3); border-radius: 6px; }
   .btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; }
   .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .related { padding: 14px 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 14px; }
+  .related h2 { margin-top: 0; }
+  .related-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .related-list li { font-size: 14px; }
   .ai-content { margin: 30px 0; line-height: 1.7; }
   .ai-content :global(h2) { color: var(--orange); margin-top: 32px; padding-top: 24px; font-size: 22px; border-top: 1px solid var(--border); }
   .ai-content :global(h2:first-child) { border-top: none; padding-top: 0; }

@@ -66,8 +66,21 @@ divcalc.xyz, www.divcalc.xyz {
         file_server { precompressed br zstd gzip }
     }
 
-    # /spa/* → legacy Svelte SPA (interactive calculator)
-    # Hash-routed paths (e.g. /spa/#build, /spa/#dps) all return /spa/index.html
+    # /spa/* for search-engine crawlers → Puppeteer prerender (127.0.0.1:3001)
+    @bot_spa {
+        path /spa/*
+        header_regexp User-Agent (?i)(googlebot|bingbot|yandex(bot|images)|duckduckbot|baiduspider|applebot|linkedinbot|slurp|petalbot|naverbot|seznambot)
+    }
+    handle @bot_spa {
+        reverse_proxy 127.0.0.1:3001 {
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+
+    # /spa/* for humans → static Svelte SPA
     handle_path /spa/* {
         root * /var/www/divcalc/spa
         encode br zstd gzip

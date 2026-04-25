@@ -1,8 +1,20 @@
 User-agent: *
 Allow: /
-
-# Block calculator hash-routes (canonical SPA URL is /spa/)
+Disallow: /api/
+Disallow: /_/
 Disallow: /spa/?w=
 Disallow: /spa/?build=
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://divcalc.xyz/sitemap-index.xml

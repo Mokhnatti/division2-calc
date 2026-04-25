@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { WEAPONS, slugFromId, weaponName, weaponCategoryLabel, type Weapon } from '../../data/weapon-helpers';
+import { META_BUILDS, buildSlug } from '../../data/build-helpers';
+import { SETS, setSlug, setName } from '../../data/set-helpers';
 import { marked } from 'marked';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -33,6 +35,19 @@ const title = `${name} — ${kindLabel} ${cat} Build & Stats | Division 2 Calcul
 const description = `${name}: ${w.baseDamage.toLocaleString()} base damage, ${w.rpm} RPM, ${w.magazine} mag, ${w.reloadSeconds}s reload. Top builds, weapon talent, DPS calculator.`;
 
 const canonical = `https://divcalc.xyz/weapons/${slugFromId(w.id)}`;
+
+const lcName = name.toLowerCase();
+const relatedBuilds = META_BUILDS.filter(b => {
+  if (b.wpn_en && b.wpn_en.toLowerCase().includes(lcName)) return true;
+  if (b.weapon_cat && b.weapon_cat === w.category) return true;
+  return false;
+}).slice(0, 6);
+
+const relatedSetIds = new Set<string>();
+for (const b of relatedBuilds) {
+  if (b.set_focus) relatedSetIds.add(b.set_focus);
+}
+const relatedSets = SETS.filter(s => relatedSetIds.has(s.id)).slice(0, 4);
 
 // Schema.org Product + BreadcrumbList
 const schema = [
@@ -128,6 +143,38 @@ const schema = [
       <article class="ai-content" set:html={aiContent} />
     )}
 
+    {relatedBuilds.length > 0 && (
+      <section class="related">
+        <h2>Builds using {name}</h2>
+        <ul class="related-list">
+          {relatedBuilds.map(b => (
+            <li><a href={`/builds/${buildSlug(b.id)}`}>{b.name_en || b.id}{b.tier && <span class="tier"> · {b.tier}-tier</span>}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {relatedSets.length > 0 && (
+      <section class="related">
+        <h2>Gear sets that pair well</h2>
+        <ul class="related-list">
+          {relatedSets.map(s => (
+            <li><a href={`/sets/${setSlug(s.id)}`}>{setName(s, 'en')}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="related">
+      <h2>Browse more</h2>
+      <ul class="related-list">
+        <li><a href={`/weapons/?cat=${w.category}`}>All {cat}s</a></li>
+        <li><a href="/weapons/">All weapons</a></li>
+        <li><a href="/sets/">Gear sets</a></li>
+        <li><a href="/builds/">Top builds</a></li>
+      </ul>
+    </section>
+
     <section class="cta">
       <h2>Try in calculator</h2>
       <p>Open the live DPS calculator with this weapon pre-selected to test builds:</p>
@@ -177,6 +224,12 @@ const schema = [
   .btn:hover { background: #ffa500; text-decoration: none; }
 
   .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+
+  .related { padding: 14px 18px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; }
+  .related h2 { margin-top: 0; }
+  .related-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .related-list li { font-size: 14px; }
+  .related-list .tier { color: var(--muted); font-size: 12px; }
 
   .ai-content { margin: 30px 0; padding: 4px 0; line-height: 1.7; }
   .ai-content :global(h2) { color: var(--orange); margin-top: 32px; padding-top: 4px; font-size: 22px; border-top: 1px solid var(--border); padding-top: 24px; }
