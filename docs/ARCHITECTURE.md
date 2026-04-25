@@ -104,13 +104,77 @@ apps/astro/src/content/brands-*/
 hunter_pipeline/
 ```
 
-## 7. Validation gates (build падает если)
-- Любой `talentId` в weapons.json не существует в talents.json
-- Любой `brand` в named-gear.json не существует в brands.json
-- В locales отсутствует ключ для существующего предмета (на любом языке кроме en — fallback)
-- `attribute_uid` в game files не имеет маппинга в `attribute_dict.json`
+## 7. Обязательный стандарт записи в БД
+
+**Главный принцип:** одна БД содержит ВСЁ что нужно сайту, в готовом виде. Фронт ничего не доcчитывает на лету, не склеивает 5 файлов, не fallback'ает между источниками. Один запрос → весь предмет на нужном языке.
+
+### 7.1 На каждый предмет (item) в БД ДОЛЖНО быть:
+| Поле | Источник | Обязательно |
+|---|---|---|
+| `slug` | slug_map.json (мост) или slugify(name_en) | ✅ |
+| `game_id` | from raw (UID/identifier) | ✅ |
+| `kind` | weapon / gear / brand / set / talent / mod | ✅ |
+| `slot` | для gear: mask/backpack/chest/gloves/holster/kneepads; для weapons: primary/secondary/sidearm | ✅ если применимо |
+| `core_attribute` | wd / armor / skill_tier / health | ✅ если применимо |
+| `is_exotic` / `is_named` / `is_brand_set` / `is_green_set` / `is_seasonal` | bool флаги | ✅ |
+| `dlc` | NULL / Warlords / Heartland | ✅ |
+| `tier` / `rarity` | где применимо | ✅ если есть |
+| `icon_url` | путь к иконке (если есть) | опц |
+| `family` / `weapon_class` | AR / SMG / LMG / sniper / pistol / shotgun | ✅ для weapons |
+
+### 7.2 Числовые статы (item_stats / weapon_specs):
+- **Все числа уже в displayed-формате** (через формулу raw→display, применённую в build_db.py)
+- НЕ raw-значения, НЕ "посчитает фронт"
+- HSD-множители выверенные (через manual_overrides из legacy если raw неточный)
+- Для оружий: `base_damage`, `rpm`, `magazine`, `reload_time`, `optimal_range`, `headshot_mult`, `intrinsic_attrs[3]`
+- Для брендов/сетов: `bonuses[{pieces, stat, value}]` — value в финальном %
+
+### 7.3 Переводы (translations):
+- **На КАЖДОЕ поле, КАЖДЫЙ язык** (en, ru, de, fr, es)
+- Поля: `name`, `description`, `flavor`, `source`, `talent_text`
+- Если перевода нет на язык — fallback на en + флаг `_translated: false` в meta этой записи
+- НЕТ "переводы оружия в одном файле, переводы талантов в другом" — всё через `translations(entity_type, entity_id, field, lang, text)`
+
+### 7.4 Source / откуда дропается:
+- Текстовое поле `source` на КАЖДОМ языке (en/ru/de/fr/es)
+- Примеры: "Manhunt: Aaron Keener", "Targeted Loot: Tidal Basin", "Apparel cache", "Crafting"
+- Если предмет дропает с конкретного босса — структурировано: `source_event_id` + `source_event_name_<lang>`
+- Никогда не пусто на en (fallback)
+
+### 7.5 Связи (через FK):
+- `weapon → talents` (какие таланты применимы — ссылка на talent.id, не дубль текста)
+- `brand → bonuses` (бонусы вынесены в item_bonuses, не inline в brand)
+- `set → bonuses` (то же)
+- `set → required_pieces[]` (если конкретные слоты требуются)
+- `talent → applicable_weapon_classes` (массив family-имён)
+
+### 7.6 Meta (трассировка):
+- `_imported_at` — дата
+- `_source_file` — какой raw_file послужил источником
+- `_overrides_applied` — список manual_overrides применённых к записи (если были)
+- `_translated_langs` — массив языков на которых перевод фактически есть
+- В таблице `meta`: `game_version` (TU22), `db_built_at`, `import_source_hash`
+
+### 7.7 Что фронт получает (export артефакты):
+Для каждого языка `<lang>` экспорт даёт ОДИН набор:
+```
+apps/web/public/data/<lang>/
+  items.json        — все items с уже подставленными переводами для <lang>
+  talents.json      — все таланты с переводами
+  bonuses.json      — связи бонусов
+```
+
+Фронт делает: `fetch('/data/' + currentLang + '/items.json')` и всё, никаких склеек.
+
+## 8. Validation gates (build падает если)
+- Любой `talent_id` в weapons не существует в talents
+- Любой `brand_id` в named-gear не существует в brands
+- В translations отсутствует `name` для существующего предмета на en (на других языках — fallback с флагом)
+- `attribute_uid` в game files не имеет маппинга в stat_aliases.json
 - JSON schema mismatch (zod/jsonschema проверка)
-- Дубли id в любой таблице
+- Дубли slug в любой kind-группе
+- Reference build St.Elmo + Strikers DD: WD ≠ 116216 ± 1, CHD ≠ 120% ± 0.1, body crit ≠ 707785 ± 100 → DPS-формула или импорт сломаны, build fail
+- Counts расходятся с raw_files более чем на 5%
 
 Скрипт: `scripts/validate.py`. Запускается в build pipeline ПЕРЕД pnpm build, и в pre-commit hook.
 
