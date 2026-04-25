@@ -191,17 +191,42 @@ def main():
     LOC_OUT_RU = ROOT / "apps/web/public/locales/ru"
 
     def items_with_extra(kind):
-        """Yield {**extra_json record, plus injected db fields if extra is missing}"""
+        """Hybrid: start from extra_json (preserves passthrough fields), then override
+        numeric/structural fields from normalized columns (post-fix)."""
         rows = conn.execute(
             "SELECT id, extra_json FROM items WHERE kind=? AND stat_quality='verified' ORDER BY id",
             (kind,)).fetchall()
         out = []
         for r in rows:
-            if r["extra_json"]:
-                try:
-                    out.append(json.loads(r["extra_json"]))
-                except Exception:
-                    pass
+            if not r["extra_json"]: continue
+            try:
+                rec = json.loads(r["extra_json"])
+            except Exception:
+                continue
+
+            iid = r["id"]
+            if kind == "weapon":
+                # Override stats from weapon_specs (post-fix)
+                spec = weapon_specs.get(iid)
+                if spec:
+                    if spec.get("base_damage") is not None: rec["baseDamage"] = spec["base_damage"]
+                    if spec.get("rpm") is not None: rec["rpm"] = spec["rpm"]
+                    if spec.get("magazine") is not None: rec["magazine"] = spec["magazine"]
+                    if spec.get("reload_seconds") is not None: rec["reloadSeconds"] = spec["reload_seconds"]
+                    if spec.get("optimal_range") is not None: rec["optimalRange"] = spec["optimal_range"]
+                    if spec.get("headshot_mult") is not None: rec["headshotMultiplier"] = spec["headshot_mult"]
+            elif kind in ("brand", "gear_set"):
+                # Rebuild bonuses from item_bonuses (post-fix; nested .bonus.stat shape)
+                fresh_bonuses = []
+                for b in bonuses.get(iid, []):
+                    fresh_bonuses.append({"pieces": b["pieces"],
+                                           "bonus": {"stat": b["stat_slug"], "value": b["value"]}})
+                if fresh_bonuses:
+                    if kind == "brand":
+                        rec["bonuses"] = fresh_bonuses
+                    else:  # gear_set uses numericBonuses
+                        rec["numericBonuses"] = fresh_bonuses
+            out.append(rec)
         return out
 
     legacy_weapons  = items_with_extra("weapon")

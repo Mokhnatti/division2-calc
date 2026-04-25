@@ -223,17 +223,52 @@ def main():
             conn.execute("INSERT OR REPLACE INTO import_source_files VALUES(?,?,?,?)",
                          (rel, file_hash(p), p.stat().st_size, now))
 
-    # ---- stat_map ----
+    # ---- stat_map (3 lookup paths: by_text, by_game_name, by_uid) ----
     sa = load(STAT_AL) or {}
-    attribute_dict = load(RAW / "attribute_dict.json") or {}
-    name_to_uid = {v.get("name"): uid for uid, v in attribute_dict.items() if isinstance(v, dict) and v.get("name")}
-    for a in sa.get("aliases", []):
-        uid = name_to_uid.get(a["game_name"])
-        conn.execute("INSERT OR IGNORE INTO stat_map VALUES(?,?,?,?,?)",
-                     (a["game_name"], a["slug"], a.get("category"), a.get("kind"), uid))
+    by_text = sa.get("by_text", {})
+    by_game_name = sa.get("by_game_name", {})
 
-    # uid → slug for resolving raw bonuses
-    uid_to_slug = {row[1]: row[0] for row in conn.execute("SELECT slug, attribute_uid FROM stat_map WHERE attribute_uid IS NOT NULL")}
+    attribute_dict = load(RAW / "attribute_dict.json") or {}
+    # build by_uid: lookup uid → slug via attribute_dict's name field
+    by_uid = dict(sa.get("by_uid", {}))
+    for uid, v in attribute_dict.items():
+        if isinstance(v, dict):
+            game_name = v.get("name")
+            if game_name and game_name in by_game_name:
+                by_uid[uid] = by_game_name[game_name]
+    # also: bonus_ref_names + all_ref_names linking uids to canonical name in attribute_dict
+    for uid, v in attribute_dict.items():
+        if not isinstance(v, dict): continue
+        for ref_field in ("bonus_ref_names", "all_ref_names"):
+            for ref_name in (v.get(ref_field) or []):
+                if ref_name in by_game_name and uid not in by_uid:
+                    by_uid[uid] = by_game_name[ref_name]
+
+    # populate stat_map (informational, denormalized)
+    inserted = set()
+    for game_name, slug in by_game_name.items():
+        uid = next((u for u, v in attribute_dict.items() if isinstance(v, dict) and v.get("name") == game_name), None)
+        if (game_name, slug) not in inserted:
+            try:
+                conn.execute("INSERT OR IGNORE INTO stat_map VALUES(?,?,?,?,?)",
+                             (game_name, slug, None, None, uid))
+                inserted.add((game_name, slug))
+            except Exception:
+                pass
+
+    def resolve_stat(*, text=None, game_name=None, uid=None):
+        """Resolve any of (text/game_name/uid) → slug. Returns None if not found."""
+        if uid and uid in by_uid: return by_uid[uid]
+        if game_name and game_name in by_game_name: return by_game_name[game_name]
+        if text:
+            t = text.strip()
+            if t in by_text: return by_text[t]
+            # case-insensitive try
+            for k, v in by_text.items():
+                if k.lower() == t.lower(): return v
+        return None
+
+    uid_to_slug = by_uid  # alias for legacy usage
 
     # ---- weapons ----
     pub_w = load(PUB_DATA / "weapons.json") or {}
@@ -340,10 +375,29 @@ def main():
                 pass  # duplicate slug
 
     # ---- brands ----
+    # SOURCE OF TRUTH: text strings from public/locales/en/brand-bonuses.json
+    # (raw/brands.json bonuses are EMPTY due to parser bug; public/data/brands.json
+    # has wrong stat slugs in many records)
     pub_brands = (load(PUB_DATA / "brands.json") or {}).get("brands", [])
     raw_brands_idx = {name_key(re.sub(r'<[^>]+>', '', b.get("name_en", ""))): b
                       for b in (load(RAW / "brands.json") or [])}
     loc_en_brands = load(PUB_EN / "brands.json") or {}
+    bonus_text_en = load(PUB_EN / "brand-bonuses.json") or {}
+    bonus_text_ru = load(PUB_RU / "brand-bonuses.json") or {}
+
+    # Regex: "1pc: +13% Headshot Damage" or "1шт: +13% Урон в голову" → (pieces, value, stat_text)
+    BONUS_LINE_RE = re.compile(r"^\s*(\d)(?:pc|шт)\s*:\s*([+-]?[\d.]+)%?\s*(.+?)\s*$", re.IGNORECASE)
+
+    def parse_bonus_lines(lines):
+        """Returns list of (pieces, value, stat_text)."""
+        out = []
+        for line in (lines or []):
+            m = BONUS_LINE_RE.match(line)
+            if m:
+                out.append((int(m.group(1)), float(m.group(2)), m.group(3).strip()))
+        return out
+
+    brand_bonus_resolution_log = []
     for b in pub_brands:
         slug = b["id"]
         nk = name_key(loc_en_brands.get(slug, ""))
@@ -355,14 +409,62 @@ def main():
              b.get("core"), b.get("dlc"),
              json.dumps(b, ensure_ascii=False),
              "apps/web/public/data/brands.json", now))
-        for bn in (b.get("bonuses") or []):
-            inner = bn.get("bonus") or {}
-            conn.execute("""INSERT INTO item_bonuses
-                (item_id, pieces, stat_slug, value) VALUES(?,?,?,?)""",
-                (slug, bn.get("pieces"), inner.get("stat"), inner.get("value")))
+
+        # Parse EN text → bonuses
+        en_lines = bonus_text_en.get(slug)
+        if isinstance(en_lines, str):
+            try: en_lines = json.loads(en_lines)
+            except Exception: en_lines = [en_lines]
+        parsed = parse_bonus_lines(en_lines or [])
+
+        if parsed:
+            for pieces, value, stat_text in parsed:
+                stat_slug = resolve_stat(text=stat_text)
+                if not stat_slug:
+                    brand_bonus_resolution_log.append(
+                        f"{slug}: '{stat_text}' (pcs={pieces}, val={value}) → UNRESOLVED")
+                    continue
+                conn.execute("""INSERT INTO item_bonuses
+                    (item_id, pieces, stat_slug, value, notes) VALUES(?,?,?,?,?)""",
+                    (slug, pieces, stat_slug, value, f"parsed:{stat_text}"))
+        else:
+            # Fallback: use public/data structured bonuses (may be wrong but better than nothing)
+            for bn in (b.get("bonuses") or []):
+                inner = bn.get("bonus") or {}
+                conn.execute("""INSERT INTO item_bonuses
+                    (item_id, pieces, stat_slug, value, notes) VALUES(?,?,?,?,?)""",
+                    (slug, bn.get("pieces"), inner.get("stat"), inner.get("value"),
+                     "fallback:public/data"))
 
     # ---- gear sets ----
+    # SOURCE OF TRUTH: raw/gearsets.json (has correct attribute_name + value)
+    # Algorithm: bonuses[] in array order. ref="(0)" starts new pieces level (2,3,4...);
+    # ref="(N>0)" attaches to current pieces level. attribute_name → slug via stat_aliases.
     pub_sets = (load(PUB_DATA / "gear-sets.json") or {}).get("sets", [])
+    raw_sets_idx = {}
+    for fname in ("gearsets.json", "brand_sets.json", "green_sets.json"):
+        for it in (load(RAW / fname) or []):
+            en = re.sub(r"<[^>]+>", "", it.get("name_en", "")).strip()
+            if en:
+                raw_sets_idx[name_key(en)] = it
+
+    set_bonus_resolution_log = []
+
+    def parse_raw_set_bonuses(raw_bonuses):
+        """Apply ref(0)-starts-new-level algorithm. Returns list of (pieces, attr_name, value)."""
+        out = []
+        current_pieces = 1  # will increment to 2 on first ref(0)
+        for bonus in (raw_bonuses or []):
+            ref = bonus.get("ref", "")
+            attr_name = bonus.get("attribute_name", "")
+            value = bonus.get("value", 0)
+            uid = bonus.get("attribute_uid")
+            # ref="(0)" or first encounter → new pieces level
+            if "(0)" in ref:
+                current_pieces += 1
+            out.append((current_pieces, attr_name, value, uid))
+        return out
+
     for s in pub_sets:
         slug = s["id"]
         try:
@@ -376,11 +478,36 @@ def main():
             existing = conn.execute("SELECT kind, source_file FROM items WHERE id=?", (slug,)).fetchone()
             print(f"  WARN: gear_set slug '{slug}' collides with existing {existing}; skipping")
             continue
-        for nb in (s.get("numericBonuses") or []):
-            inner = nb.get("bonus") or {}
-            conn.execute("""INSERT INTO item_bonuses
-                (item_id, pieces, stat_slug, value) VALUES(?,?,?,?)""",
-                (slug, nb.get("pieces"), inner.get("stat"), inner.get("value")))
+
+        # Resolve raw set
+        en_name = (load(PUB_EN / "gear-sets.json") or {}).get(slug, "")
+        raw_set = raw_sets_idx.get(name_key(en_name))
+        used_raw = False
+        if raw_set:
+            parsed = parse_raw_set_bonuses(raw_set.get("bonuses") or [])
+            if parsed:
+                used_raw = True
+                for pieces, attr_name, value_frac, uid in parsed:
+                    stat_slug = resolve_stat(uid=uid, game_name=attr_name)
+                    if not stat_slug:
+                        set_bonus_resolution_log.append(
+                            f"{slug}: pcs={pieces} attr_name='{attr_name}' uid={uid[:8] if uid else '?'}... → UNRESOLVED")
+                        continue
+                    conn.execute("""INSERT INTO item_bonuses
+                        (item_id, pieces, stat_slug, value, notes, source_uid) VALUES(?,?,?,?,?,?)""",
+                        (slug, pieces, stat_slug, round(value_frac * 100, 2),
+                         f"raw:{attr_name}", uid))
+
+        if not used_raw:
+            # Fallback: public/data numericBonuses
+            for nb in (s.get("numericBonuses") or []):
+                inner = nb.get("bonus") or {}
+                conn.execute("""INSERT INTO item_bonuses
+                    (item_id, pieces, stat_slug, value, notes) VALUES(?,?,?,?,?)""",
+                    (slug, nb.get("pieces"), inner.get("stat"), inner.get("value"),
+                     "fallback:public/data"))
+
+        # talent links (always from public/data)
         if s.get("chestTalentId"):
             conn.execute("""INSERT OR IGNORE INTO item_links VALUES(?,?,?)""",
                          (slug, "chest_talent", s["chestTalentId"]))
@@ -524,12 +651,70 @@ def main():
             if txt:
                 insert_translation("item", slug, "description", lng, txt)
 
-    # set bonuses descriptions (chest/backpack/numeric)
+    # set/brand bonus_text translations:
+    # EN — REGENERATE from item_bonuses (public/locales EN is stale/wrong for many sets/brands)
+    # RU — keep curated from public/locales (verified correct per spot-check)
+    # Stat slug → readable label (EN labels)
+    SLUG_LABEL_EN = {v: k for k, v in by_text.items() if k[0].isupper()}
+    # specific overrides for cleaner labels
+    SLUG_LABEL_EN.update({
+        "wd": "Weapon Damage", "chc": "Critical Hit Chance", "chd": "Critical Hit Damage",
+        "hsd": "Headshot Damage", "rof": "Rate of Fire", "mag": "Magazine Size",
+        "reload": "Reload Speed", "handling": "Weapon Handling",
+        "skill_dmg": "Skill Damage", "skill_haste": "Skill Haste",
+        "skill_tier": "Skill Tier", "skill_duration": "Skill Duration",
+        "skill_repair": "Skill Repair", "status_effects": "Status Effects",
+        "ooc": "Out of Cover Damage", "dta": "Damage to Armor",
+        "dth": "Damage to Health", "dttooc": "Damage to Targets out of Cover",
+        "armor": "Armor", "armor_regen": "Armor Regen", "armor_on_kill": "Armor on Kill",
+        "life_on_kill": "Health on Kill", "explosive_dmg": "Explosive Damage",
+        "explosive_resistance": "Explosive Resistance", "ammo_cap": "Ammo Capacity",
+        "ar_dmg": "Assault Rifle Damage", "smg_dmg": "SMG Damage", "lmg_dmg": "LMG Damage",
+        "shotgun_dmg": "Shotgun Damage", "mmr_dmg": "Marksman Rifle Damage",
+        "pistol_dmg": "Pistol Damage", "rifle_dmg": "Rifle Damage",
+        "pfe": "Protection from Elites", "hazard_protection": "Hazard Protection",
+        "repair_skills": "Repair Skills", "healing": "Healing", "health": "Health",
+    })
+
+    def regenerate_bonus_text_en(item_id, kind):
+        """Build EN bonus_text array from item_bonuses for a brand/gear_set."""
+        rows = list(conn.execute(
+            "SELECT pieces, stat_slug, value FROM item_bonuses WHERE item_id=? ORDER BY pieces, id",
+            (item_id,)))
+        if not rows: return None
+        # Group by pieces
+        by_pieces = {}
+        for pcs, slug_, val in rows:
+            if pcs is None: continue
+            by_pieces.setdefault(pcs, []).append(f"+{val:g}% {SLUG_LABEL_EN.get(slug_, slug_)}")
+        out = []
+        for pcs in sorted(by_pieces):
+            label = "pc" if kind == "brand" else "pc"
+            parts = " & ".join(by_pieces[pcs])
+            out.append(f"{pcs}{label}: {parts}")
+        return out
+
+    # Apply: regenerate EN bonus_text/set_bonuses from item_bonuses
+    for slug, kind in conn.execute(
+        "SELECT id, kind FROM items WHERE kind IN ('brand','gear_set')"):
+        text_en = regenerate_bonus_text_en(slug, kind)
+        if text_en:
+            field = "bonus_text" if kind == "brand" else "set_bonuses"
+            insert_translation("item", slug, field, "en",
+                               json.dumps(text_en, ensure_ascii=False))
+
+    # RU — from public/locales (curated)
+    for fname, fld in [("set-bonuses.json", "set_bonuses"),
+                       ("brand-bonuses.json", "bonus_text")]:
+        d = load(PUB_RU / fname) or {}
+        for slug, txt in d.items():
+            if txt:
+                insert_translation("item", slug, fld, "ru", txt)
+
+    # set chest/backpack texts — both langs (these are talent names, usually stable)
     for lng in ("en", "ru"):
-        for fname, fld in [("set-bonuses.json", "set_bonuses"),
-                           ("set-chest.json", "chest_text"),
-                           ("set-backpack.json", "backpack_text"),
-                           ("brand-bonuses.json", "bonus_text")]:
+        for fname, fld in [("set-chest.json", "chest_text"),
+                           ("set-backpack.json", "backpack_text")]:
             d = load((PUB_EN if lng == "en" else PUB_RU) / fname) or {}
             for slug, txt in d.items():
                 if txt:
@@ -548,6 +733,102 @@ def main():
         for slug, txt in d.items():
             if txt:
                 insert_translation("stat", slug, "name", lng, txt)
+
+    # ---- weapon stat_fixes (manual rpm/mag overrides for specific known-wrong items) ----
+    weapon_overrides_full = load(WEAPON_OV) or {}
+    for fx in (weapon_overrides_full.get("stat_fixes") or []):
+        slug = fx.get("slug")
+        if not slug: continue
+        for col in ("rpm", "magazine", "base_damage", "reload_seconds", "optimal_range", "headshot_mult"):
+            if col in fx:
+                conn.execute(f"UPDATE weapon_specs SET {col}=? WHERE item_id=?", (fx[col], slug))
+        conn.execute("""INSERT INTO manual_overrides
+            (entity_type, entity_id, field, value, reason, source_link, active)
+            VALUES('weapon_spec', ?, 'stat_fix', ?, ?, ?, 1)""",
+            (slug, json.dumps({k: v for k, v in fx.items() if k not in ("slug", "_reason")}, ensure_ascii=False),
+             fx.get("_reason", "manual stat fix"), "data/weapon_overrides.json"))
+
+    # ---- weapon name_ru / source / talent_text from raw (P1 fixes) ----
+    # Build raw weapon index by name_en (canonical match to public slug)
+    raw_w_by_en = {}
+    for fname in ("weapons_base.json", "weapons_exotic.json", "weapons_named.json"):
+        for it in (load(RAW / fname) or []):
+            en = re.sub(r"<[^>]+>", "", it.get("name_en", "")).strip()
+            if not en: continue
+            raw_w_by_en.setdefault(name_key(en), []).append(it)
+
+    # public slug → name_en mapping
+    pub_loc_en_w = load(PUB_EN / "weapons.json") or {}
+    for slug, en_name in pub_loc_en_w.items():
+        nk = name_key(en_name)
+        cands = raw_w_by_en.get(nk)
+        if not cands:
+            # fuzzy: try with 'The ' prefix added
+            cands = raw_w_by_en.get(name_key("The " + en_name))
+        if not cands:
+            # fuzzy: strip 'the ' from EN name when matching
+            cands = raw_w_by_en.get(name_key(re.sub(r"^the\s+", "", en_name, flags=re.IGNORECASE)))
+        if not cands: continue
+        # pick canonical (no _immersion etc)
+        clean = [c for c in cands if not any(s in (c.get("id") or "").lower() for s in ("_immersion","_milestone","_template","_lvl","_boost"))]
+        rit = (clean or cands)[0]
+        # name_ru from raw if real translation (differs from EN)
+        ru = re.sub(r"<[^>]+>", "", rit.get("name_ru", "")).strip()
+        if ru and ru != en_name and ru.lower() != en_name.lower():
+            insert_translation("item", slug, "name", "ru", ru)
+        # source[en] / source[ru] — from raw 'source' field if present
+        src = rit.get("source")
+        if src:
+            insert_translation("item", slug, "source", "en", src)
+        # tal_desc fields (en + ru) for exotic talent text → talent_text translation
+        if rit.get("tal_desc"):
+            insert_translation("item", slug, "talent_text", "en", rit["tal_desc"])
+        if rit.get("tal_desc_ru"):
+            insert_translation("item", slug, "talent_text", "ru", rit["tal_desc_ru"])
+
+    # ---- weapon talent_text from linked talent description ----
+    # Each weapon may link to its talent via 'default_talent' link. Copy the talent's
+    # description into the weapon's talent_text (en+ru) so frontend can show without join.
+    weapon_talent_links = list(conn.execute("""
+        SELECT il.item_id, il.target_item_id
+        FROM item_links il JOIN items i ON i.id = il.item_id
+        WHERE il.link_type='default_talent' AND i.kind='weapon'"""))
+    for weapon_slug, talent_slug in weapon_talent_links:
+        for lng in ("en", "ru"):
+            t = conn.execute(
+                "SELECT text FROM translations WHERE entity_type='item' AND entity_id=? AND field='description' AND lang=?",
+                (talent_slug, lng)).fetchone()
+            if t and t[0]:
+                insert_translation("item", weapon_slug, "talent_text", lng, t[0])
+
+    # ---- weapon source_fixes (P1 #5: fill empty source[en] for St.Elmo etc) ----
+    for slug, srcs in (weapon_overrides_full.get("source_fixes") or {}).items():
+        for lng, txt in srcs.items():
+            if not txt: continue
+            existing = conn.execute(
+                "SELECT text FROM translations WHERE entity_type='item' AND entity_id=? AND field='source' AND lang=?",
+                (slug, lng)).fetchone()
+            if not existing or not existing[0]:
+                insert_translation("item", slug, "source", lng, txt)
+
+    # ---- talent_text from raw/talents_*.json with tooltip_*_filled ----
+    raw_t_by_en = {}
+    for fname in ("talents_weapon.json", "talents_gear.json", "talents_exotic.json"):
+        for it in (load(RAW / fname) or []):
+            en = re.sub(r"<[^>]+>", "", it.get("name_en", "")).strip()
+            if not en: continue
+            raw_t_by_en.setdefault(name_key(en), []).append(it)
+    pub_loc_en_t = load(PUB_EN / "talents.json") or {}
+    for slug, en_name in pub_loc_en_t.items():
+        cands = raw_t_by_en.get(name_key(en_name))
+        if not cands: continue
+        rt = cands[0]
+        en_text = rt.get("tooltip_en_filled") or rt.get("tooltip_en")
+        ru_text = rt.get("tooltip_ru_filled") or rt.get("tooltip_ru")
+        if en_text:
+            insert_translation("item", slug, "description", "en", en_text)
+        if ru_text:
+            insert_translation("item", slug, "description", "ru", ru_text)
 
     # Fallback for de/fr/es: copy en text with is_fallback=1
     en_rows = list(conn.execute("SELECT entity_type, entity_id, field, text FROM translations WHERE lang='en'"))

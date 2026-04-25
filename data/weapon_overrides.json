@@ -34,5 +34,23 @@
     { "slug": "double_barrel_shotgun", "is_burst": false, "fire_mode": "double" },
     { "slug": "kingbreaker", "is_burst": false, "fire_mode": "auto", "note": "exotic AR but fires single" },
     { "slug": "the_bighorn", "is_burst": false, "fire_mode": "switch", "note": "switches between semi and full-auto modes" }
-  ]
+  ],
+  "stat_fixes": [
+    {
+      "slug": "the_ravenous",
+      "rpm": 850,
+      "magazine": 30,
+      "_reason": "raw=850 RPM (M4_T2), in-game=850. public/data had erroneous 240."
+    }
+  ],
+  "source_fixes": {
+    "st_elmo_s_engine": {
+      "en": "Manhunt: Aaron Keener (Season 1 reward), Targeted Loot, Apparel cache",
+      "ru": "Награда за охоту на Аарона Кинера (Сезон 1), целевые трофеи, контейнер снаряжения"
+    },
+    "regulus": {
+      "en": "Iron Horse Raid (Boss: Captain Lewis)",
+      "ru": "Рейд № 2 «Железный Конь» — финальный босс капитан Льюис"
+    }
+  }
 }
