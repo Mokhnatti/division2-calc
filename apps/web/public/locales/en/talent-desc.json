@@ -59,7 +59,7 @@
   "chatterbox_exotic": "When you reload, rate of fire is increased by {0}% for each enemy within {1}m for the duration of that magazine.",
   "bluescreen_exotic": "Each kill with this weapon gains a stack of 75% Base Magazine Size increase to the next magazine, up to 4 stacks.",
   "bullet_king_exotic": "This debuff reduces healing received by 50% for 10s.",
-  "iron_lung_exotic": "While holstered, gain 20% bonus armor for 5s whenever you are affected by blind, bleed, or burning.",
+  "iron_lung_exotic": "Shooting heats the weapon, filling the heat meter (50% mag = 43 rounds for 85 mag). Full heat → bullets ignite enemies (Burn status). Idle/reload/swap drops stacks (-12/sec).",
   "pakhan_exotic": "Each kill with this weapon gains a stack of 75% Base Magazine Size increase to the next magazine, up to 4 stacks.",
   "transfusion_exotic": "Hitting headshots builds stacks, up to a max of 8. When shooting an Ally or Skill, repair them for 50% of the weapon’s Total Damage value for each stack.",
   "agonizing_bite_exotic": "Diamondback randomly marks an enemy within {11}m. If no enemies are within {11}m, it marks the enemy closest to you.",

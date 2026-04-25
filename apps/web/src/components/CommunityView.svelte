@@ -18,6 +18,14 @@
 
   let bugTitle = $state('');
   let bugBody = $state('');
+  // Bug form (v1-compatible, Formspree-based — no GitHub account needed)
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgadraa';
+  let bugType = $state('');
+  let bugItem = $state('');
+  let bugSlot = $state('');
+  let bugContact = $state('');
+  let bugStatus = $state<'idle' | 'sending' | 'ok' | 'err'>('idle');
+  let bugStatusMsg = $state('');
 
   try {
     const raw = localStorage.getItem('divcalc:auth');
@@ -117,6 +125,49 @@
     const url = `https://github.com/Mokhnatti/division2-calc/issues/new?title=${title}&body=${body}&labels=user-report`;
     window.open(url, '_blank', 'noopener');
   }
+
+  async function submitBugForm() {
+    if (!bugType || !bugBody.trim()) {
+      bugStatus = 'err';
+      bugStatusMsg = lang === 'ru' ? 'Заполни тип и описание' : 'Fill type and description';
+      return;
+    }
+    bugStatus = 'sending';
+    bugStatusMsg = lang === 'ru' ? 'Отправка...' : 'Sending...';
+    try {
+      const payload = {
+        type: bugType,
+        item: bugItem,
+        slot: bugSlot,
+        title: bugTitle,
+        description: bugBody,
+        contact: bugContact,
+        page_url: location.href,
+        user_agent: navigator.userAgent,
+        _subject: 'Division 2 Calc — баг-репорт',
+      };
+      const r = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (r.ok) {
+        bugStatus = 'ok';
+        bugStatusMsg = lang === 'ru' ? '✅ Отправлено, спасибо!' : '✅ Sent, thanks!';
+        bugType = ''; bugItem = ''; bugSlot = ''; bugTitle = ''; bugBody = ''; bugContact = '';
+      } else {
+        const j = await r.json().catch(() => ({}));
+        bugStatus = 'err';
+        const errMsg = (j as { error?: string; errors?: Array<{ message: string }> }).error
+          || (j as { errors?: Array<{ message: string }> }).errors?.map(e => e.message).join(', ')
+          || String(r.status);
+        bugStatusMsg = (lang === 'ru' ? 'Ошибка: ' : 'Error: ') + errMsg;
+      }
+    } catch (e) {
+      bugStatus = 'err';
+      bugStatusMsg = (lang === 'ru' ? 'Сеть: ' : 'Network: ') + String(e);
+    }
+  }
 </script>
 
 <section class="panel c-header">
@@ -206,33 +257,76 @@
   </section>
 {:else if tab === 'bug'}
   <section class="panel">
-    <div class="panel-title"><span>{lang === 'ru' ? 'Сообщить о баге' : 'Report a Bug'}</span></div>
+    <div class="panel-title"><span>{lang === 'ru' ? '🐛 Сообщить о баге' : '🐛 Report a Bug'}</span></div>
     <div class="bug-form">
       <label>
+        <span>{lang === 'ru' ? 'Тип проблемы *' : 'Problem type *'}</span>
+        <select class="input" bind:value={bugType}>
+          <option value="">{lang === 'ru' ? '— выбери —' : '— pick —'}</option>
+          <option value="math">{lang === 'ru' ? 'Неверная математика / DPS' : 'Wrong math / DPS'}</option>
+          <option value="set-bonus">{lang === 'ru' ? 'Неверный бонус сета' : 'Wrong set bonus'}</option>
+          <option value="talent">{lang === 'ru' ? 'Неверный талант / описание' : 'Wrong talent / description'}</option>
+          <option value="missing">{lang === 'ru' ? 'Не хватает предмета в базе' : 'Missing item in DB'}</option>
+          <option value="typo">{lang === 'ru' ? 'Опечатка / перевод' : 'Typo / translation'}</option>
+          <option value="ui">{lang === 'ru' ? 'UI / не работает' : 'UI / broken'}</option>
+          <option value="other">{lang === 'ru' ? 'Другое' : 'Other'}</option>
+        </select>
+      </label>
+      <div class="bug-row">
+        <label>
+          <span>{lang === 'ru' ? 'Предмет / сет / оружие' : 'Item / set / weapon'}</span>
+          <input class="input" type="text" bind:value={bugItem}
+            placeholder={lang === 'ru' ? 'например: Уравнитель, Боевик, Iron Lung' : 'e.g. Equalizer, Strikers, Iron Lung'} />
+        </label>
+        <label>
+          <span>{lang === 'ru' ? 'Слот' : 'Slot'}</span>
+          <select class="input" bind:value={bugSlot}>
+            <option value="">—</option>
+            <option value="mask">{lang === 'ru' ? 'Маска' : 'Mask'}</option>
+            <option value="chest">{lang === 'ru' ? 'Нагрудник' : 'Chest'}</option>
+            <option value="bp">{lang === 'ru' ? 'Рюкзак' : 'Backpack'}</option>
+            <option value="gloves">{lang === 'ru' ? 'Перчатки' : 'Gloves'}</option>
+            <option value="holster">{lang === 'ru' ? 'Кобура' : 'Holster'}</option>
+            <option value="knees">{lang === 'ru' ? 'Наколенники' : 'Kneepads'}</option>
+            <option value="weapon">{lang === 'ru' ? 'Оружие' : 'Weapon'}</option>
+          </select>
+        </label>
+      </div>
+      <label>
         <span>{lang === 'ru' ? 'Заголовок' : 'Title'}</span>
-        <input
-          class="input"
-          type="text"
-          bind:value={bugTitle}
-          placeholder={lang === 'ru' ? 'Краткое описание' : 'Short summary'}
-        />
+        <input class="input" type="text" bind:value={bugTitle}
+          placeholder={lang === 'ru' ? 'Краткое описание (опционально)' : 'Short summary (optional)'} />
       </label>
       <label>
-        <span>{lang === 'ru' ? 'Опиши что произошло' : 'Describe what happened'}</span>
-        <textarea
-          class="input"
-          rows="6"
-          bind:value={bugBody}
-          placeholder={lang === 'ru' ? 'Что делал, что ожидал, что получилось...' : 'Steps to reproduce, expected vs actual...'}
-        ></textarea>
+        <span>{lang === 'ru' ? 'Описание * (что показывает / что должно быть)' : 'Description * (what shows / what should be)'}</span>
+        <textarea class="input" rows="5" bind:value={bugBody}
+          placeholder={lang === 'ru' ? 'Например: у Iron Lung неверный талант, должен быть Ardent (Пылкость), а показывает Стойкость изгоев. Источник: ...' : 'Example: Iron Lung has wrong talent, should be Ardent, shows Outcast Resilience. Source: ...'}></textarea>
       </label>
+      <label>
+        <span>{lang === 'ru' ? 'Контакт (ник / email / telegram, опционально)' : 'Contact (nickname / email / telegram, optional)'}</span>
+        <input class="input" type="text" bind:value={bugContact} placeholder="@nick / email" />
+      </label>
+      <div class="priority-box">
+        ⚡ {lang === 'ru'
+          ? 'Хочешь оперативное исправление? Отправляй на GitHub — там я вижу сразу. Почта проверяется реже.'
+          : 'Want quick fix? Submit on GitHub — I see it immediately. Email is checked less often.'}
+      </div>
       <div class="bug-actions">
-        <button class="btn" onclick={openBugReport}>
-          {lang === 'ru' ? '↗ Открыть в GitHub Issues' : '↗ Open in GitHub Issues'}
+        <button class="btn-github" onclick={openBugReport}>
+          ↗ {lang === 'ru' ? 'Отправить на GitHub' : 'Submit to GitHub'}
+          <span class="badge-fast">{lang === 'ru' ? '⚡ БЫСТРО' : '⚡ FAST'}</span>
+        </button>
+        <button class="btn-email" onclick={submitBugForm} disabled={bugStatus === 'sending'}>
+          {bugStatus === 'sending' ? '...' : (lang === 'ru' ? '✉ Отправить по почте' : '✉ Submit via Email')}
         </button>
       </div>
+      {#if bugStatusMsg}
+        <div class="bug-status-msg" class:ok={bugStatus === 'ok'} class:err={bugStatus === 'err'}>{bugStatusMsg}</div>
+      {/if}
       <div class="hint">
-        {lang === 'ru' ? 'Откроет github.com/Mokhnatti/division2-calc/issues с заполненным шаблоном. Для отправки нужен GitHub-аккаунт.' : 'Opens github.com/Mokhnatti/division2-calc/issues pre-filled. You need a GitHub account to submit.'}
+        {lang === 'ru'
+          ? 'GitHub — нужен бесплатный аккаунт, я получаю мгновенно. Почта — без аккаунта через Formspree, но я смотрю реже.'
+          : 'GitHub — free account, I get notified instantly. Email — no account via Formspree, but I check less often.'}
       </div>
     </div>
   </section>
@@ -293,10 +387,74 @@
   .p-row { font-size: 12px; color: var(--text-dim); }
   .pk { color: var(--muted); font-weight: 600; }
 
-  .bug-form { display: flex; flex-direction: column; gap: 10px; }
-  .bug-form label { display: flex; flex-direction: column; gap: 4px; }
+  .bug-form { display: flex; flex-direction: column; gap: 10px; max-width: 540px; }
+  .bug-form label { display: flex; flex-direction: column; gap: 4px; flex: 1; }
   .bug-form label span { font: 700 9px/1 var(--f-display); color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
-  textarea.input { font-family: var(--f-body); line-height: 1.5; resize: vertical; min-height: 120px; padding: 8px; }
-  .bug-actions { display: flex; gap: 6px; }
+  .bug-row { display: flex; gap: 8px; }
+  textarea.input { font-family: var(--f-body); line-height: 1.5; resize: vertical; min-height: 100px; padding: 8px; }
+  .bug-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: stretch; }
+  .priority-box {
+    padding: 12px 14px;
+    background: linear-gradient(135deg, rgba(254,175,16,.10), rgba(254,175,16,.04));
+    border: 1px solid rgba(254,175,16,.4);
+    border-left: 4px solid var(--orange);
+    border-radius: var(--r);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 6px 0;
+  }
+  .btn-github {
+    flex: 2;
+    min-width: 240px;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #ff9500, #ff6f00);
+    border: 2px solid #ff9500;
+    color: #000;
+    font: 700 13px/1 var(--f-display);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border-radius: var(--r);
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(255,149,0,.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform .12s, box-shadow .12s;
+  }
+  .btn-github:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(255,149,0,.55);
+  }
+  .badge-fast {
+    background: #000;
+    color: #ffcc00;
+    padding: 3px 8px;
+    font-size: 10px;
+    border-radius: 4px;
+    letter-spacing: .08em;
+    font-weight: 700;
+  }
+  .btn-email {
+    flex: 1;
+    min-width: 160px;
+    padding: 10px 14px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font: 600 11px/1 var(--f-display);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-radius: var(--r);
+    cursor: pointer;
+    transition: all .12s;
+  }
+  .btn-email:hover { border-color: var(--border-hi); color: var(--text-dim); }
+  .btn-email:disabled { opacity: .5; cursor: not-allowed; }
+  .bug-status-msg { padding: 8px 10px; border-radius: 5px; font-size: 11px; line-height: 1.4; }
+  .bug-status-msg.ok { background: rgba(16, 200, 80, .12); color: var(--green, #10c850); border-left: 3px solid var(--green, #10c850); }
+  .bug-status-msg.err { background: rgba(239, 83, 80, .12); color: var(--red, #ef5350); border-left: 3px solid var(--red, #ef5350); }
   .hint { font-size: 10px; color: var(--muted); font-style: italic; }
 </style>

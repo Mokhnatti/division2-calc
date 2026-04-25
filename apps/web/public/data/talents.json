@@ -777,13 +777,9 @@
       "id": "iron_lung_exotic",
       "kind": "weapon",
       "bonusType": "additive",
-      "bonuses": [
-        {
-          "stat": "wd",
-          "value": 45
-        }
-      ],
-      "hasPerfectVariant": true
+      "bonuses": [],
+      "hasPerfectVariant": false,
+      "note": "Ardent: heat meter (50% mag) → fire bullets that ignite enemies. Burn DPS calculated separately via appliesBurn flag — scales with Status Effects % and Burn Duration %."
     },
     {
       "id": "pakhan_exotic",
