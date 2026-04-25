@@ -231,9 +231,24 @@ def main():
 
     legacy_weapons  = items_with_extra("weapon")
     legacy_brands   = items_with_extra("brand")
-    legacy_sets     = items_with_extra("gear_set")
     legacy_named    = items_with_extra("named_gear")
     legacy_talents  = items_with_extra("talent")
+
+    # gear-sets: 26 traditional gear_set + 36 brand_set + 0 stand-alone green_set
+    legacy_sets = items_with_extra("gear_set")
+    # Append brand_set entries — construct legacy shape from normalized columns
+    for r in conn.execute(
+        "SELECT id, dlc FROM items WHERE kind='brand_set' AND stat_quality='verified' ORDER BY id"):
+        iid = r["id"]
+        numeric_bonuses = []
+        for b in bonuses.get(iid, []):
+            numeric_bonuses.append({"pieces": b["pieces"],
+                                     "bonus": {"stat": b["stat_slug"], "value": b["value"]}})
+        if not numeric_bonuses:
+            continue  # skip empty brand_sets (raw bonuses unresolved)
+        rec = {"id": iid, "type": "brand_set", "numericBonuses": numeric_bonuses,
+               "chestTalentId": None, "backpackTalentId": None, "dlc": r["dlc"]}
+        legacy_sets.append(rec)
 
     meta_keys = {r["key"]: r["value"] for r in conn.execute("SELECT * FROM meta").fetchall()}
     legacy_envelope = {"version": "2.0.0", "gameVersion": meta_keys.get("game_version", "TU22")}
@@ -273,7 +288,7 @@ def main():
     # Per-category locales (flat slug → name dict)
     export_locale(Path("weapons.json"),    ["weapon"],     "name")
     export_locale(Path("brands.json"),     ["brand"],      "name")
-    export_locale(Path("gear-sets.json"),  ["gear_set"],   "name")
+    export_locale(Path("gear-sets.json"),  ["gear_set", "brand_set"],   "name")
     export_locale(Path("named-gear.json"), ["named_gear"], "name")
     export_locale(Path("talents.json"),    ["talent"],     "name")
     # talent descriptions
@@ -284,9 +299,9 @@ def main():
     export_locale(Path("named-bonus.json"), ["named_gear"], "description")
     export_locale(Path("named-source.json"), ["named_gear"], "source")
     # set bonuses descriptions
-    export_locale(Path("set-bonuses.json"), ["gear_set"], "set_bonuses")
-    export_locale(Path("set-chest.json"),   ["gear_set"], "chest_text")
-    export_locale(Path("set-backpack.json"),["gear_set"], "backpack_text")
+    export_locale(Path("set-bonuses.json"), ["gear_set", "brand_set"], "set_bonuses")
+    export_locale(Path("set-chest.json"),   ["gear_set", "brand_set"], "chest_text")
+    export_locale(Path("set-backpack.json"),["gear_set", "brand_set"], "backpack_text")
     # brand bonuses
     export_locale(Path("brand-bonuses.json"), ["brand"], "bonus_text")
     # stats
