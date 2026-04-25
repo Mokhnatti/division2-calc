@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SETS, setSlug, setName, typeColor, typeLabel, type GearSet } from '../../data/set-helpers';
+import { marked } from 'marked';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export async function getStaticPaths() {
   return SETS.map((s) => ({
@@ -11,6 +14,11 @@ export async function getStaticPaths() {
 
 interface Props { set: GearSet }
 const { set: s } = Astro.props;
+let aiContent = '';
+try {
+  const mdPath = path.resolve(`./src/content/sets-en/${setSlug(s.id)}.md`);
+  if (fs.existsSync(mdPath)) aiContent = marked.parse(fs.readFileSync(mdPath, 'utf-8')) as string;
+} catch {}
 const name = setName(s, 'en');
 const tColor = typeColor(s.type);
 const tLabel = typeLabel(s.type, 'en');
@@ -95,6 +103,8 @@ function statLabel(stat: string): string {
       </section>
     )}
 
+    {aiContent && (<article class="ai-content" set:html={aiContent} />)}
+
     <section class="cta">
       <h2>Try in calculator</h2>
       <p>Open the live DPS calculator with this gear set pre-configured:</p>
@@ -130,4 +140,17 @@ function statLabel(stat: string): string {
   .cta { padding: 18px; background: var(--bg-2); border: 1px solid rgba(254,175,16,.3); border-radius: 6px; }
   .btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #000; font-weight: 700; border-radius: 5px; text-decoration: none; }
   .page-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .ai-content { margin: 30px 0; line-height: 1.7; }
+  .ai-content :global(h2) { color: var(--orange); margin-top: 32px; padding-top: 24px; font-size: 22px; border-top: 1px solid var(--border); }
+  .ai-content :global(h2:first-child) { border-top: none; padding-top: 0; }
+  .ai-content :global(h3) { color: var(--text); margin-top: 20px; font-size: 16px; }
+  .ai-content :global(p) { color: var(--text-dim); margin: 12px 0; }
+  .ai-content :global(strong) { color: var(--text); }
+  .ai-content :global(table) { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  .ai-content :global(th), .ai-content :global(td) { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  .ai-content :global(th) { color: var(--muted); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+  .ai-content :global(ul), .ai-content :global(ol) { color: var(--text-dim); padding-left: 22px; }
+  .ai-content :global(blockquote) { border-left: 3px solid var(--orange); padding: 8px 16px; background: rgba(254,175,16,.04); }
+  .ai-content :global(code) { background: rgba(0,0,0,.3); padding: 2px 6px; border-radius: 3px; color: var(--orange); }
+  .ai-content :global(a) { color: var(--orange); }
 </style>
